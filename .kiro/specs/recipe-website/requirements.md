@@ -1,0 +1,154 @@
+# Requirements Document
+
+## Introduction
+
+This document specifies the requirements for a multilingual recipe website that will be hosted on Azure. The website will provide users with access to 55 recipes (50 regular recipes + 5 cooking basics recipes) with features including ingredient scaling, filtering, language switching, text size adjustment, theme switching, and analytics tracking. The website must be responsive and work seamlessly on both mobile and desktop browsers.
+
+## Glossary
+
+- **Recipe Website**: The web application system that displays and manages cooking recipes
+- **User**: A person accessing the Recipe Website through a web browser
+- **Recipe Page**: A web page displaying a single recipe with ingredients, instructions, and metadata
+- **Filtering Page**: A web page that allows Users to filter recipes based on keywords
+- **Ingredient Scaler**: A UI component that adjusts ingredient quantities based on serving size
+- **Language Selector**: A UI component positioned at the bottom of each page that switches the website language between Romanian and English
+- **Text Size Adjuster**: A UI component positioned at the bottom of each page that changes the text size across three predefined levels
+- **Theme Selector**: A UI component positioned at the bottom of each page that switches between dark and light visual themes
+- **Analytics System**: A system that tracks and records page access metrics
+- **About Page**: A static page providing information about the website
+- **Cooking Basics Page**: A page containing fundamental cooking advice and pantry recommendations
+- **Category**: A classification grouping for recipes
+- **Filter Keyword**: A searchable term associated with recipes (e.g., meat type, vegetables, sauce, cooking type)
+
+## Requirements
+
+### Requirement 1
+
+**User Story:** As a User, I want to view recipes organized by categories, so that I can easily find the type of recipe I'm looking for
+
+#### Acceptance Criteria
+
+1. THE Recipe Website SHALL display a total of 50 regular recipes
+2. THE Recipe Website SHALL display 5 additional recipes about common cooking techniques
+3. THE Recipe Website SHALL assign each recipe to exactly one specific category
+4. WHEN a User accesses a Recipe Page, THE Recipe Website SHALL display the recipe's assigned category
+
+### Requirement 2
+
+**User Story:** As a User, I want to see complete recipe information in a clean layout, so that I can follow the recipe without distractions
+
+#### Acceptance Criteria
+
+1. WHEN a User views a Recipe Page, THE Recipe Website SHALL display the preparation time at the top of the page
+2. WHEN a User views a Recipe Page, THE Recipe Website SHALL display the number of servings at the top of the page
+3. WHEN a User views a Recipe Page, THE Recipe Website SHALL display the effort level at the top of the page
+4. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a list of ingredients
+5. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a list of instructions
+6. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a square recipe image with dimensions of 1200 by 1200 pixels
+7. THE Recipe Website SHALL position all interactive options at the bottom of the Recipe Page
+8. THE Recipe Website SHALL minimize visual distractions in the Recipe Page layout
+
+### Requirement 3
+
+**User Story:** As a User, I want to scale ingredient quantities, so that I can adjust recipes for different serving sizes
+
+#### Acceptance Criteria
+
+1. WHEN a User views a Recipe Page, THE Recipe Website SHALL display an Ingredient Scaler component
+2. WHEN a User adjusts the Ingredient Scaler, THE Recipe Website SHALL recalculate all ingredient quantities proportionally
+3. WHEN a User adjusts the Ingredient Scaler, THE Recipe Website SHALL update the displayed ingredient quantities in real-time
+
+### Requirement 4
+
+**User Story:** As a User, I want to switch between Romanian and English languages, so that I can read recipes in my preferred language
+
+#### Acceptance Criteria
+
+1. THE Recipe Website SHALL display content in Romanian language by default
+2. WHEN a User views any page, THE Recipe Website SHALL display a Language Selector component at the bottom of the page
+3. WHEN a User selects Romanian in the Language Selector, THE Recipe Website SHALL display all content in Romanian
+4. WHEN a User selects English in the Language Selector, THE Recipe Website SHALL display all content in English
+5. WHEN a User changes the language, THE Recipe Website SHALL persist the language preference across page navigation
+
+### Requirement 5
+
+**User Story:** As a User, I want to adjust text size, so that I can read recipes comfortably
+
+#### Acceptance Criteria
+
+1. WHEN a User views any page, THE Recipe Website SHALL display a Text Size Adjuster component at the bottom of the page
+2. THE Recipe Website SHALL provide exactly three text size options
+3. WHEN a User selects a text size option, THE Recipe Website SHALL apply the selected text size to all text content
+4. WHEN a User changes the text size, THE Recipe Website SHALL persist the text size preference across page navigation
+
+### Requirement 6
+
+**User Story:** As a User, I want to switch between dark and light themes, so that I can view the website in my preferred visual style
+
+#### Acceptance Criteria
+
+1. WHEN a User views any page, THE Recipe Website SHALL display a Theme Selector component at the bottom of the page
+2. THE Recipe Website SHALL provide a dark theme option
+3. THE Recipe Website SHALL provide a light theme option
+4. WHEN a User selects the dark theme, THE Recipe Website SHALL apply dark theme styling to all pages
+5. WHEN a User selects the light theme, THE Recipe Website SHALL apply light theme styling to all pages
+6. WHEN a User changes the theme, THE Recipe Website SHALL persist the theme preference across page navigation
+
+### Requirement 7
+
+**User Story:** As a User, I want to filter recipes by keywords, so that I can find recipes matching specific criteria
+
+#### Acceptance Criteria
+
+1. THE Recipe Website SHALL provide a Filtering Page
+2. THE Recipe Website SHALL associate each recipe with Filter Keywords from the following types: meat type, vegetables, sauce, and cooking type
+3. WHEN a User accesses the Filtering Page, THE Recipe Website SHALL display Filter Keyword selection options
+4. WHEN a User selects multiple Filter Keywords, THE Recipe Website SHALL display only recipes that contain all selected Filter Keywords
+5. WHEN a User selects zero Filter Keywords, THE Recipe Website SHALL display all available recipes
+6. THE Recipe Website SHALL update the displayed recipe list in real-time as Filter Keywords are selected or deselected
+
+### Requirement 8
+
+**User Story:** As a User, I want the website to work on both mobile and desktop devices, so that I can access recipes from any device
+
+#### Acceptance Criteria
+
+1. THE Recipe Website SHALL implement responsive web design for all pages
+2. WHEN a User accesses the Recipe Website on a mobile browser, THE Recipe Website SHALL display a mobile-optimized layout
+3. WHEN a User accesses the Recipe Website on a desktop browser, THE Recipe Website SHALL display a desktop-optimized layout
+4. THE Recipe Website SHALL maintain full functionality across mobile and desktop browsers
+5. THE Recipe Website SHALL ensure all interactive components are usable on touch-screen devices
+
+### Requirement 9
+
+**User Story:** As a User, I want to learn about the website and cooking basics, so that I can understand the website's purpose and improve my cooking knowledge
+
+#### Acceptance Criteria
+
+1. THE Recipe Website SHALL provide an About Page
+2. WHEN a User accesses the About Page, THE Recipe Website SHALL display information about the website
+3. THE Recipe Website SHALL provide a Cooking Basics Page
+4. WHEN a User accesses the Cooking Basics Page, THE Recipe Website SHALL display advice about reading recipes thoroughly before cooking
+5. WHEN a User accesses the Cooking Basics Page, THE Recipe Website SHALL display advice about preparing all ingredients before cooking
+6. WHEN a User accesses the Cooking Basics Page, THE Recipe Website SHALL display recommendations for pantry staples to stock at home
+
+### Requirement 10
+
+**User Story:** As a website administrator, I want to track page access metrics, so that I can understand how users interact with the website
+
+#### Acceptance Criteria
+
+1. WHEN a User accesses any page on the Recipe Website, THE Recipe Website SHALL record a page access event in the Analytics System
+2. THE Recipe Website SHALL track page access metrics for each individual page
+3. THE Recipe Website SHALL store page access metrics in a persistent data store
+4. THE Recipe Website SHALL provide access to page access metrics data
+
+### Requirement 11
+
+**User Story:** As a website administrator, I want to host the website on Azure, so that it is reliably available to users
+
+#### Acceptance Criteria
+
+1. THE Recipe Website SHALL be deployed to Microsoft Azure cloud infrastructure
+2. THE Recipe Website SHALL utilize Azure services for hosting and data storage
+3. THE Recipe Website SHALL be accessible via a public URL hosted on Azure
