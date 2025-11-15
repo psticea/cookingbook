@@ -1,5 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LanguageProvider } from './hooks/useLanguage';
+import { TextSizeProvider } from './hooks/useTextSize';
+import { ThemeProvider } from './hooks/useTheme';
 
 // Lazy load page components
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -17,19 +20,25 @@ const LoadingFallback: React.FC = () => (
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-primary-light dark:bg-primary-dark text-gray-900 dark:text-gray-100">
-        <Suspense fallback={<LoadingFallback />}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/recipe/:id" element={<RecipePage />} />
-            <Route path="/filter" element={<FilterPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/cooking-basics" element={<CookingBasicsPage />} />
-          </Routes>
-        </Suspense>
-      </div>
-    </BrowserRouter>
+    <LanguageProvider>
+      <TextSizeProvider>
+        <ThemeProvider>
+          <BrowserRouter>
+            <div className="min-h-screen bg-primary-light dark:bg-primary-dark text-gray-900 dark:text-gray-100">
+              <Suspense fallback={<LoadingFallback />}>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/recipe/:id" element={<RecipePage />} />
+                  <Route path="/filter" element={<FilterPage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/cooking-basics" element={<CookingBasicsPage />} />
+                </Routes>
+              </Suspense>
+            </div>
+          </BrowserRouter>
+        </ThemeProvider>
+      </TextSizeProvider>
+    </LanguageProvider>
   );
 }
 

@@ -4,7 +4,7 @@
 
 export type Language = 'ro' | 'en';
 
-export type TextSize = 'small' | 'medium' | 'large';
+export type TextSize = 'normal' | 'large';
 
 export type Theme = 'dark' | 'light';
 

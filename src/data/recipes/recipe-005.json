@@ -1,0 +1,90 @@
+{
+  "id": "recipe-005",
+  "category": "salad",
+  "title": {
+    "ro": "Salată de Vinete",
+    "en": "Eggplant Salad"
+  },
+  "prepTime": 60,
+  "servings": 6,
+  "effortLevel": "easy",
+  "image": "https://placeholder.blob.core.windows.net/recipe-images/recipe-005.webp",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "vinete",
+        "en": "eggplants"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă",
+        "en": "onion"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei de floarea soarelui",
+        "en": "sunflower oil"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper",
+        "en": "pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Înțepați vinetele cu o furculiță și coaceți-le la cuptor la 200°C timp de 40-45 minute.",
+      "Lăsați vinetele să se răcească, apoi curățați-le de coajă.",
+      "Tocați vinetele fin cu un cuțit de lemn sau pasați-le prin mașina de tocat.",
+      "Adăugați ceapa tocată foarte fin.",
+      "Adăugați uleiul treptat, amestecând continuu în aceeași direcție.",
+      "Adăugați sare și piper după gust.",
+      "Serviți rece cu roșii și pâine prăjită."
+    ],
+    "en": [
+      "Pierce the eggplants with a fork and bake them in the oven at 200°C for 40-45 minutes.",
+      "Let the eggplants cool, then peel them.",
+      "Chop the eggplants finely with a wooden knife or pass them through a meat grinder.",
+      "Add the very finely chopped onion.",
+      "Add the oil gradually, stirring continuously in the same direction.",
+      "Add salt and pepper to taste.",
+      "Serve cold with tomatoes and toasted bread."
+    ]
+  },
+  "keywords": ["vegetarian", "eggplant", "onions", "oil-based", "baking"]
+}

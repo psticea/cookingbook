@@ -1,0 +1,114 @@
+{
+  "id": "recipe-002",
+  "category": "soup",
+  "title": {
+    "ro": "Ciorbă de Burtă",
+    "en": "Tripe Soup"
+  },
+  "prepTime": 180,
+  "servings": 8,
+  "effortLevel": "hard",
+  "image": "https://placeholder.blob.core.windows.net/recipe-images/recipe-002.webp",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "burtă de vită",
+        "en": "beef tripe"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "kg",
+        "en": "kg"
+      }
+    },
+    {
+      "name": {
+        "ro": "morcovi",
+        "en": "carrots"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă",
+        "en": "onion"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "smântână",
+        "en": "sour cream"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "gălbenuș de ou",
+        "en": "egg yolk"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "usturoi",
+        "en": "garlic"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      }
+    },
+    {
+      "name": {
+        "ro": "oțet",
+        "en": "vinegar"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Spălați burta și fierbeți-o timp de 2 ore cu morcovii și ceapa.",
+      "Scoateți burta, tăiați-o în fâșii subțiri și puneți-o înapoi în supă.",
+      "Adăugați sare și fierbeți încă 30 de minute.",
+      "Amestecați smântâna cu gălbenușurile și usturoiul pisat.",
+      "Adăugați treptat supă fierbinte în amestecul de smântână, amestecând continuu.",
+      "Turnați amestecul înapoi în oală și adăugați oțetul.",
+      "Nu mai lăsați să fiarbă după ce ați adăugat smântâna.",
+      "Serviți fierbinte cu ardei iute."
+    ],
+    "en": [
+      "Wash the tripe and boil it for 2 hours with carrots and onion.",
+      "Remove the tripe, cut it into thin strips and put it back in the soup.",
+      "Add salt and boil for another 30 minutes.",
+      "Mix sour cream with egg yolks and crushed garlic.",
+      "Gradually add hot soup to the cream mixture, stirring continuously.",
+      "Pour the mixture back into the pot and add vinegar.",
+      "Do not let it boil after adding the cream.",
+      "Serve hot with hot peppers."
+    ]
+  },
+  "keywords": ["beef", "carrots", "onions", "cream-based", "boiling"]
+}

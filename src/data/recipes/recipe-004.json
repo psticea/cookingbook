@@ -1,0 +1,125 @@
+{
+  "id": "recipe-004",
+  "category": "main-course",
+  "title": {
+    "ro": "Mici la Grătar",
+    "en": "Grilled Meatballs"
+  },
+  "prepTime": 30,
+  "servings": 4,
+  "effortLevel": "easy",
+  "image": "https://placeholder.blob.core.windows.net/recipe-images/recipe-004.webp",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "carne tocată de vită",
+        "en": "ground beef"
+      },
+      "quantity": 400,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "carne tocată de porc",
+        "en": "ground pork"
+      },
+      "quantity": 300,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "usturoi",
+        "en": "garlic"
+      },
+      "quantity": 5,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      }
+    },
+    {
+      "name": {
+        "ro": "bicarbonat de sodiu",
+        "en": "baking soda"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "cimbru uscat",
+        "en": "dried thyme"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper negru",
+        "en": "black pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "apă minerală",
+        "en": "sparkling water"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Amestecați cele două tipuri de carne tocată într-un bol mare.",
+      "Adăugați usturoiul pisat, bicarbonatul, cimbrul, piperul și sarea.",
+      "Adăugați apa minerală treptat și frământați bine timp de 10 minute.",
+      "Lăsați compoziția la frigider cel puțin 2 ore.",
+      "Formați cilindri de aproximativ 10 cm lungime.",
+      "Încălziți grătarul la temperatura potrivită.",
+      "Gătiți micii pe grătar, întorcându-i frecvent, timp de 15-20 minute.",
+      "Serviți fierbinți cu muștar și pâine."
+    ],
+    "en": [
+      "Mix the two types of ground meat in a large bowl.",
+      "Add crushed garlic, baking soda, thyme, pepper and salt.",
+      "Gradually add sparkling water and knead well for 10 minutes.",
+      "Leave the mixture in the refrigerator for at least 2 hours.",
+      "Form cylinders about 10 cm long.",
+      "Heat the grill to the right temperature.",
+      "Cook the meatballs on the grill, turning frequently, for 15-20 minutes.",
+      "Serve hot with mustard and bread."
+    ]
+  },
+  "keywords": ["beef", "pork", "grilling"]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "main-course",
+    "name": {
+      "ro": "Fel Principal",
+      "en": "Main Course"
+    }
+  },
+  {
+    "id": "soup",
+    "name": {
+      "ro": "Supă",
+      "en": "Soup"
+    }
+  },
+  {
+    "id": "salad",
+    "name": {
+      "ro": "Salată",
+      "en": "Salad"
+    }
+  },
+  {
+    "id": "dessert",
+    "name": {
+      "ro": "Desert",
+      "en": "Dessert"
+    }
+  },
+  {
+    "id": "appetizer",
+    "name": {
+      "ro": "Aperitiv",
+      "en": "Appetizer"
+    }
+  },
+  {
+    "id": "side-dish",
+    "name": {
+      "ro": "Garnitură",
+      "en": "Side Dish"
+    }
+  },
+  {
+    "id": "breakfast",
+    "name": {
+      "ro": "Mic Dejun",
+      "en": "Breakfast"
+    }
+  },
+  {
+    "id": "snack",
+    "name": {
+      "ro": "Gustare",
+      "en": "Snack"
+    }
+  },
+  {
+    "id": "beverage",
+    "name": {
+      "ro": "Băutură",
+      "en": "Beverage"
+    }
+  },
+  {
+    "id": "cooking-basics",
+    "name": {
+      "ro": "Baze de Gătit",
+      "en": "Cooking Basics"
+    }
+  }
+]
