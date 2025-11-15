@@ -30,9 +30,9 @@
 
 
   - Install and configure React Router v6
-  - Create route definitions for all pages (Home, Recipe, Filter, About, Cooking Basics)
+  - Create route definitions for all pages (Home, Recipe, About, Cooking Basics)
   - Implement App component with Router and Suspense for lazy loading
-  - Create basic page components (HomePage, RecipePage, FilterPage, AboutPage, CookingBasicsPage)
+  - Create basic page components (HomePage, RecipePage, AboutPage, CookingBasicsPage)
   - _Requirements: 1.4, 9.1, 9.3_
 
 - [x] 4. Implement user preference management system
@@ -237,22 +237,27 @@
   - Add Footer with preference selectors
   - _Requirements: 1.1, 1.2_
 
-- [ ] 10. Build FilterPage with keyword filtering
-- [ ] 10.1 Create FilterControls component
+- [ ] 10. Implement filter side menu on HomePage
+- [ ] 10.1 Create FilterMenu component
+  - Create side panel that slides in from the left or right
   - Display filter keyword options grouped by type (meat, vegetable, sauce, cooking)
-  - Allow multiple keyword selection with checkboxes or toggle buttons
-  - Track selected keywords in component state
-  - Call onFilterChange callback when selections change
-  - Style with Tailwind for responsive layout
-  - _Requirements: 6.1, 6.2, 6.3_
+  - Allow multiple keyword selection with checkboxes
+  - Accept isOpen, onClose, selectedKeywords, and onKeywordsChange props
+  - Implement close functionality (close button, click outside, Escape key)
+  - Add "Clear All Filters" button
+  - Style with Tailwind for responsive layout with smooth slide animation
+  - _Requirements: 7.1, 7.2, 7.3, 7.7_
 
-- [ ] 10.2 Implement FilterPage component
-  - Integrate FilterControls component
+- [ ] 10.2 Update HomePage component with filtering
+  - Add state for selectedKeywords and isFilterMenuOpen
+  - Add filter toggle button in header area
+  - Integrate FilterMenu component
   - Implement filtering logic: show only recipes containing ALL selected keywords
-  - Display filtered recipes in RecipeGrid component
-  - Show all recipes when no keywords selected
+  - Display filtered recipe count in header
   - Update recipe list in real-time as keywords change
-  - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6_
+  - Show all recipes when no keywords selected
+  - Maintain filter state when menu is closed
+  - _Requirements: 7.1, 7.3, 7.4, 7.5, 7.6, 7.7_
 
 - [ ] 11. Create AboutPage component
   - Write content about the recipe website

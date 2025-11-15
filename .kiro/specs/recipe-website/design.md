@@ -96,6 +96,8 @@ App
 │   └── Navigation
 ├── Router
 │   ├── HomePage
+│   │   ├── FilterMenu (side panel)
+│   │   │   └── FilterControls
 │   │   └── RecipeGrid
 │   │       └── RecipeCard
 │   ├── RecipePage
@@ -104,9 +106,6 @@ App
 │   │   ├── IngredientList
 │   │   │   └── IngredientScaler
 │   │   └── InstructionList
-│   ├── FilterPage
-│   │   ├── FilterControls
-│   │   └── RecipeGrid
 │   ├── AboutPage
 │   └── CookingBasicsPage
 └── Footer
@@ -166,18 +165,54 @@ Allows users to adjust ingredient quantities.
 - Minimum: 0.5x, Maximum: 3x
 - Increment step: 0.5x
 
-#### 3. FilterPage Component
+#### 3. FilterMenu Component
 
-Displays filtering interface and filtered recipe results.
+A side panel that slides in from the left or right to display filtering options.
 
-**State:**
+**Props:**
+- `isOpen: boolean` - Controls visibility of the side panel
+- `onClose: () => void` - Callback when menu should close
 - `selectedKeywords: Set<string>` - Currently selected filter keywords
+- `onKeywordsChange: (keywords: Set<string>) => void` - Callback when keywords change
 
 **Filter Categories:**
 - Meat Type (e.g., chicken, beef, pork, fish, vegetarian)
 - Vegetables (e.g., tomatoes, onions, peppers, potatoes)
 - Sauce (e.g., tomato-based, cream-based, oil-based)
 - Cooking Type (e.g., baking, frying, boiling, grilling)
+
+**Behavior:**
+- Slides in from the side when opened
+- Displays filter keyword checkboxes grouped by category
+- Updates parent component state when keywords are selected/deselected
+- Can be closed by clicking outside, pressing Escape, or clicking a close button
+- Maintains selected filters when closed
+
+**Layout:**
+```
+┌─────────────────────────────────┐
+│ [X] Filters                      │
+├─────────────────────────────────┤
+│ Meat Type                        │
+│ ☐ Chicken                       │
+│ ☐ Beef                          │
+│ ☐ Pork                          │
+│                                  │
+│ Vegetables                       │
+│ ☐ Tomatoes                      │
+│ ☐ Onions                        │
+│                                  │
+│ [Clear All Filters]             │
+└─────────────────────────────────┘
+```
+
+#### 4. HomePage Component
+
+Displays all recipes with integrated filtering.
+
+**State:**
+- `selectedKeywords: Set<string>` - Currently selected filter keywords
+- `isFilterMenuOpen: boolean` - Controls FilterMenu visibility
 
 **Filtering Logic:**
 ```typescript
@@ -189,7 +224,28 @@ const filteredRecipes = recipes.filter((recipe: Recipe) => {
 });
 ```
 
-#### 4. Footer Component
+**Layout:**
+```
+┌─────────────────────────────────┐
+│ Header with Navigation           │
+├─────────────────────────────────┤
+│ [🔍 Filter] All Recipes (X)     │
+├─────────────────────────────────┤
+│ [Recipe Grid]                    │
+│                                  │
+└─────────────────────────────────┘
+
+When filter menu is open:
+┌──────────┬──────────────────────┐
+│ Filter   │ Header               │
+│ Menu     ├──────────────────────┤
+│          │ All Recipes (X)      │
+│ [Filters]│ [Recipe Grid]        │
+│          │                      │
+└──────────┴──────────────────────┘
+```
+
+#### 5. Footer Component
 
 Contains all user preference controls.
 
@@ -213,10 +269,11 @@ All preferences stored in `localStorage`:
 ```
 Home (/)
 ├── Recipe Detail (/recipe/:id)
-├── Filter (/filter)
 ├── About (/about)
 └── Cooking Basics (/cooking-basics)
 ```
+
+Note: Filtering is now integrated into the HomePage via a side menu, not a separate route.
 
 ## Data Models
 

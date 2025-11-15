@@ -9,7 +9,7 @@ This document specifies the requirements for a multilingual recipe website that 
 - **Recipe Website**: The web application system that displays and manages cooking recipes
 - **User**: A person accessing the Recipe Website through a web browser
 - **Recipe Page**: A web page displaying a single recipe with ingredients, instructions, and metadata
-- **Filtering Page**: A web page that allows Users to filter recipes based on keywords
+- **Filter Menu**: A side panel UI component that allows Users to filter recipes based on keywords
 - **Ingredient Scaler**: A UI component that adjusts ingredient quantities based on serving size
 - **Language Selector**: A UI component positioned at the bottom of each page that switches the website language between Romanian and English
 - **Text Size Adjuster**: A UI component positioned at the bottom of each page that changes the text size across three predefined levels
@@ -100,12 +100,13 @@ This document specifies the requirements for a multilingual recipe website that 
 
 #### Acceptance Criteria
 
-1. THE Recipe Website SHALL provide a Filtering Page
+1. WHEN a User views the home page, THE Recipe Website SHALL display a Filter Menu toggle button
 2. THE Recipe Website SHALL associate each recipe with Filter Keywords from the following types: meat type, vegetables, sauce, and cooking type
-3. WHEN a User accesses the Filtering Page, THE Recipe Website SHALL display Filter Keyword selection options
-4. WHEN a User selects multiple Filter Keywords, THE Recipe Website SHALL display only recipes that contain all selected Filter Keywords
-5. WHEN a User selects zero Filter Keywords, THE Recipe Website SHALL display all available recipes
+3. WHEN a User opens the Filter Menu, THE Recipe Website SHALL display Filter Keyword selection options in a side panel
+4. WHEN a User selects multiple Filter Keywords, THE Recipe Website SHALL display only recipes that contain all selected Filter Keywords on the home page
+5. WHEN a User selects zero Filter Keywords, THE Recipe Website SHALL display all available recipes on the home page
 6. THE Recipe Website SHALL update the displayed recipe list in real-time as Filter Keywords are selected or deselected
+7. WHEN a User closes the Filter Menu, THE Recipe Website SHALL maintain the selected filters and continue displaying the filtered recipe list
 
 ### Requirement 8
 
