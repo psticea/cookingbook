@@ -77,7 +77,7 @@ This document specifies the requirements for a multilingual recipe website that 
 #### Acceptance Criteria
 
 1. WHEN a User views any page, THE Recipe Website SHALL display a Text Size Adjuster component at the bottom of the page
-2. THE Recipe Website SHALL provide exactly three text size options
+2. THE Recipe Website SHALL provide exactly two text size options: normal and large
 3. WHEN a User selects a text size option, THE Recipe Website SHALL apply the selected text size to all text content
 4. WHEN a User changes the text size, THE Recipe Website SHALL persist the text size preference across page navigation
 

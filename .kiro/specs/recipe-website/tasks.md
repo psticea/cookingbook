@@ -44,7 +44,7 @@
 
 - [ ] 4.2 Create preference context providers
   - Implement LanguageContext with useLanguage hook (default: Romanian)
-  - Implement TextSizeContext with useTextSize hook (small, medium, large)
+  - Implement TextSizeContext with useTextSize hook (normal, large)
   - Implement ThemeContext with useTheme hook (dark, light)
   - Apply preferences to root HTML element via useEffect
   - _Requirements: 4.1, 4.2, 4.3, 4.4, 5.1, 5.2, 5.3, 6.1, 6.2, 6.3, 6.4, 6.5_
@@ -63,7 +63,7 @@
   - _Requirements: 4.2, 4.3, 4.4_
 
 - [ ] 5.2 Create TextSizeSelector component
-  - Display three text size options (small, medium, large) at bottom of page
+  - Display two text size options (normal, large) at bottom of page
   - Update text size preference on selection
   - Highlight currently selected size
   - _Requirements: 5.1, 5.2, 5.3_

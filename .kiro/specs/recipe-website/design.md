@@ -197,7 +197,7 @@ Contains all user preference controls.
 ```
 ┌─────────────────────────────────┐
 │ 🌐 RO | EN                      │
-│ 📏 A | A | A                    │
+│ 📏 A | A                        │
 │ 🌙 Dark | Light                 │
 └─────────────────────────────────┘
 ```
@@ -205,7 +205,7 @@ Contains all user preference controls.
 **Persistence:**
 All preferences stored in `localStorage`:
 - `userLanguage`: "ro" | "en"
-- `userTextSize`: "small" | "medium" | "large"
+- `userTextSize`: "normal" | "large"
 - `userTheme`: "dark" | "light"
 
 ### Navigation Structure
@@ -347,10 +347,7 @@ Apply theme class to root element:
 Apply text size class to root element:
 
 ```typescript
-// Small text
-<html lang="ro" class="text-sm">
-
-// Medium text (default)
+// Normal text (default)
 <html lang="ro" class="text-base">
 
 // Large text
