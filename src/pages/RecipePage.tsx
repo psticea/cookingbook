@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useRecipeData, getRecipeById } from '../hooks/useRecipeData';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
+import { Header } from '../components/Header';
 import { RecipeHeader } from '../components/RecipeHeader';
 import { RecipeImage } from '../components/RecipeImage';
 import { IngredientList } from '../components/IngredientList';
@@ -35,6 +36,7 @@ const RecipePage: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col">
+        <Header />
         <main className="flex-1 flex items-center justify-center">
           <p className="text-xl text-gray-600 dark:text-gray-400">
             {getTranslation('loading', language)}
@@ -49,6 +51,7 @@ const RecipePage: React.FC = () => {
   if (showError || !recipe) {
     return (
       <div className="min-h-screen flex flex-col">
+        <Header />
         <main className="flex-1 flex items-center justify-center px-4">
           <div className="text-center">
             <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
@@ -70,6 +73,7 @@ const RecipePage: React.FC = () => {
   // Render recipe page
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+      <Header />
       <main className="flex-1 max-w-4xl mx-auto px-4 py-8 w-full">
         {/* Recipe Header */}
         <RecipeHeader recipe={recipe} />

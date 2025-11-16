@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Recipe } from '../types/recipe';
 import { useLanguage } from '../hooks/useLanguage';
-import { categories } from '../data';
 import { getTranslation } from '../utils/translations';
 
 interface RecipeCardProps {
@@ -11,15 +10,12 @@ interface RecipeCardProps {
 
 /**
  * RecipeCard component
- * Displays a recipe card with thumbnail, title, category, and metadata
+ * Displays a recipe card with thumbnail, title, and metadata
  * Links to the recipe detail page
+ * Category is not shown as it's displayed in the section header
  */
 export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const { language } = useLanguage();
-
-  // Get category name
-  const category = categories.find(cat => cat.id === recipe.category);
-  const categoryName = category ? category.name[language] : recipe.category;
 
   // Get effort level translation
   const effortLevelKey = `effortLevel.${recipe.effortLevel}`;
@@ -42,13 +38,6 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
 
       {/* Recipe Info */}
       <div className="p-4">
-        {/* Category Badge */}
-        <div className="mb-2">
-          <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-accent-light dark:bg-accent-dark text-white">
-            {categoryName}
-          </span>
-        </div>
-
         {/* Recipe Title */}
         <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-gray-100 line-clamp-2">
           {recipe.title[language]}
