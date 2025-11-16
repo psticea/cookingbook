@@ -283,13 +283,14 @@
   - Test navigation and Footer on all screen sizes
   - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5_
 
-- [ ] 14. Set up Azure Application Insights for analytics
-  - Install @microsoft/applicationinsights-web package
-  - Create analytics utility module with initialization code
-  - Implement trackPageView function
-  - Add page view tracking to all route components
+- [ ] 14. Set up Google Analytics 4 for analytics
+  - Install react-ga4 package
+  - Create analytics utility module with initialization code (initGA, trackPageView, trackEvent functions)
+  - Add GA4 initialization in App component
+  - Implement automatic page view tracking on route changes
   - Create custom event tracking for recipe views, filter usage, language changes, and theme changes
-  - Configure to fail silently on errors
+  - Configure to fail silently if GA_MEASUREMENT_ID is not provided
+  - Create .env.example with VITE_GA_MEASUREMENT_ID placeholder
   - _Requirements: 10.1, 10.2, 10.3, 10.4_
 
 - [ ] 15. Add remaining 50 recipe JSON files
@@ -300,19 +301,21 @@
   - Use placeholder image URLs (to be replaced with actual images later)
   - _Requirements: 1.1, 1.2, 1.3_
 
-- [ ] 16. Prepare for Azure Static Web Apps deployment
-  - Create staticwebapp.config.json with route configuration and navigation fallback
-  - Create .env.example file with VITE_APPINSIGHTS_CONNECTION_STRING placeholder
-  - Update vite.config.ts with build optimizations
-  - Create README.md with setup and deployment instructions
+- [ ] 16. Prepare for static hosting deployment
+  - Create deployment configuration files (netlify.toml, vercel.json) for various platforms
+  - Create GitHub Actions workflow for GitHub Pages deployment
+  - Update .env.example file with VITE_GA_MEASUREMENT_ID
+  - Update vite.config.ts with build optimizations and base path configuration
+  - Create comprehensive README.md with setup, development, and deployment instructions for multiple platforms
   - Test production build locally with `npm run build` and `npm run preview`
   - _Requirements: 11.1, 11.2, 11.3_
 
-- [ ] 17. Create Azure Blob Storage structure for recipe images
-  - Document the required folder structure (recipe-images/)
+- [ ] 17. Set up recipe images storage
+  - Create /public/images/recipes folder structure
   - Document image specifications (1200x1200px, WebP format with JPEG fallback)
   - Create placeholder.webp for missing images
-  - Update recipe JSON files with Azure Blob Storage URLs once container is created
+  - Update recipe JSON files with relative image paths (/images/recipes/recipe-XXX.webp)
+  - Optionally document CDN integration steps for future optimization
   - _Requirements: 2.6_
 
 - [ ]* 18. Write unit tests for core functionality

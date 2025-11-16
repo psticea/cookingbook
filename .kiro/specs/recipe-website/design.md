@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Recipe Website is a static, client-side web application that provides access to 55 recipes with multilingual support (Romanian/English), theme switching (dark/light), text size adjustment, ingredient scaling, and filtering capabilities. The application will be hosted on Azure Static Web Apps and use Azure Application Insights for analytics tracking.
+The Recipe Website is a static, client-side web application that provides access to 55 recipes with multilingual support (Romanian/English), theme switching (dark/light), text size adjustment, ingredient scaling, and filtering capabilities. The application can be hosted on any static hosting platform (GitHub Pages, Netlify, Vercel, etc.) and uses Google Analytics 4 for analytics tracking.
 
 ### Key Design Principles
 
@@ -19,15 +19,15 @@ The Recipe Website is a static, client-side web application that provides access
 ```mermaid
 graph TB
     User[User Browser]
-    StaticApp[Azure Static Web App]
-    Insights[Azure Application Insights]
-    Storage[Azure Blob Storage]
+    StaticHost[Static Hosting Platform]
+    GA4[Google Analytics 4]
+    CDN[Image CDN/Storage]
     
-    User -->|HTTPS| StaticApp
-    StaticApp -->|Serves| HTML[HTML/CSS/JS]
-    StaticApp -->|Serves| Images[Recipe Images]
-    User -->|Analytics Events| Insights
-    Storage -->|Hosts| Images
+    User -->|HTTPS| StaticHost
+    StaticHost -->|Serves| HTML[HTML/CSS/JS]
+    StaticHost -->|Serves| Images[Recipe Images]
+    User -->|Analytics Events| GA4
+    CDN -->|Hosts| Images
 ```
 
 ### Technology Stack
@@ -43,15 +43,24 @@ graph TB
 - **Styling**: Tailwind CSS 3+ (utility-first CSS with built-in responsive and dark mode)
 - **Routing**: React Router 6+ (client-side routing)
 
-**Azure Services:**
-- **Hosting**: Azure Static Web Apps (serves static HTML/CSS/JS files, no server runtime)
-- **Analytics**: Azure Application Insights JavaScript SDK
-- **Image Storage**: Azure Blob Storage with CDN (for 1200x1200 recipe images)
+**Hosting Options:**
+- **GitHub Pages**: Free static hosting with custom domains
+- **Netlify**: Free tier with automatic deployments
+- **Vercel**: Free tier with edge network
+- **Cloudflare Pages**: Free tier with global CDN
+- Any static hosting platform
+
+**Analytics:**
+- **Google Analytics 4**: Free web analytics with event tracking
+
+**Image Storage:**
+- **GitHub Repository**: Images stored in repo (simple, version controlled)
+- **CDN Options**: Cloudinary, imgix, or any CDN service (optional optimization)
 
 **Key Dependencies:**
 - `react` & `react-dom`: UI framework
 - `react-router-dom`: Client-side routing
-- `@microsoft/applicationinsights-web`: Analytics tracking
+- `react-ga4`: Google Analytics 4 integration
 - `tailwindcss`: Utility-first CSS framework
 - `typescript`: Type checking and compilation
 - `vite`: Build tool and dev server
@@ -64,7 +73,7 @@ graph TB
 **Production Output:**
 - Static HTML, CSS, and JavaScript files
 - No Node.js runtime required in production
-- Deployed to Azure Static Web Apps CDN
+- Can be deployed to any static hosting platform
 
 ### Data Architecture
 
@@ -513,106 +522,176 @@ Example usage:
 - [ ] Verify Romanian translations are accurate
 - [ ] Verify English translations are accurate
 
-## Azure Deployment Architecture
+## Deployment Architecture
 
-### Azure Static Web Apps Configuration
+### Static Hosting Configuration
 
-**File**: `staticwebapp.config.json`
+For platforms that support configuration files (like Netlify, Vercel), create appropriate config:
 
+**Netlify** (`netlify.toml`):
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+**Vercel** (`vercel.json`):
 ```json
 {
-  "routes": [
-    {
-      "route": "/*",
-      "serve": "/index.html",
-      "statusCode": 200
-    }
-  ],
-  "navigationFallback": {
-    "rewrite": "/index.html"
-  },
-  "mimeTypes": {
-    ".json": "application/json",
-    ".webp": "image/webp"
-  }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
 ```
 
-### Azure Application Insights Integration
+**GitHub Pages**: No configuration needed, just deploy the `dist` folder.
+
+### Google Analytics 4 Integration
+
+**Installation:**
+```bash
+npm install react-ga4
+```
 
 **Configuration:**
 
 ```typescript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+// src/utils/analytics.ts
+import ReactGA from 'react-ga4';
 
-const appInsights = new ApplicationInsights({
-  config: {
-    connectionString: import.meta.env.VITE_APPINSIGHTS_CONNECTION_STRING,
-    enableAutoRouteTracking: true,
+// Initialize GA4
+export const initGA = (): void => {
+  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+  if (measurementId) {
+    ReactGA.initialize(measurementId);
   }
-});
-
-appInsights.loadAppInsights();
+};
 
 // Track page views
-export const trackPageView = (pageName: string): void => {
-  appInsights.trackPageView({ name: pageName });
+export const trackPageView = (path: string): void => {
+  ReactGA.send({ hitType: 'pageview', page: path });
+};
+
+// Track custom events
+export const trackEvent = (category: string, action: string, label?: string): void => {
+  ReactGA.event({
+    category,
+    action,
+    label,
+  });
 };
 ```
 
+**Usage in App:**
+```typescript
+// In App.tsx
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { initGA, trackPageView } from './utils/analytics';
+
+function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    initGA();
+  }, []);
+
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
+  }, [location]);
+
+  // ... rest of app
+}
+```
+
 **Tracked Events:**
-- Page views (automatic)
+- Page views (automatic on route change)
 - Recipe views (custom event)
 - Filter usage (custom event)
 - Language changes (custom event)
 - Theme changes (custom event)
 
-### Azure Blob Storage for Images
-
-**Structure:**
+**Environment Variable:**
+Create `.env` file:
 ```
-recipe-images/
-├── recipe-001.webp
-├── recipe-002.webp
-├── ...
-└── placeholder.webp
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
-**Configuration:**
-- Public read access
-- CDN enabled for performance
-- Image format: WebP (with JPEG fallback)
+### Image Storage Options
+
+**Option 1: GitHub Repository (Simplest)**
+```
+/public
+  /images
+    /recipes
+      recipe-001.webp
+      recipe-002.webp
+      ...
+      placeholder.webp
+```
+- Images served directly from your repo
+- No external dependencies
+- Version controlled with code
+
+**Option 2: CDN Service (Optimized)**
+- Cloudinary (free tier available)
+- imgix (free tier available)
+- Any CDN service
+
+**Image Specifications:**
+- Format: WebP (with JPEG fallback)
 - Dimensions: 1200x1200px
+- Optimized for web delivery
 
 ### Build and Deployment Pipeline
 
-**GitHub Actions Workflow:**
+**GitHub Actions for GitHub Pages:**
 
 ```yaml
-name: Deploy to Azure Static Web Apps
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build
-        run: |
-          npm install
-          npm run build
-      - name: Deploy
-        uses: Azure/static-web-apps-deploy@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
-          app_location: "/"
-          output_location: "dist"
+          node-version: '18'
+      - run: npm ci
+      - run: npm run build
+        env:
+          VITE_GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./dist
+  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v2
+        id: deployment
 ```
+
+**Netlify/Vercel**: Connect your GitHub repo and they auto-deploy on push.
 
 ## Performance Considerations
 
@@ -640,7 +719,7 @@ const CookingBasicsPage = lazy(() => import('./pages/CookingBasicsPage'));
 - Tree-shake unused code
 - Minimize dependencies
 - Use production builds
-- Enable gzip compression in Azure
+- Enable gzip/brotli compression (automatic on most platforms)
 
 ### Caching Strategy
 
@@ -706,8 +785,9 @@ Cache-Control headers:
 ```html
 <meta http-equiv="Content-Security-Policy" 
       content="default-src 'self'; 
-               img-src 'self' https://*.blob.core.windows.net; 
-               script-src 'self' https://js.monitor.azure.com;
+               img-src 'self' https://*.googletagmanager.com; 
+               script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
+               connect-src 'self' https://www.google-analytics.com https://analytics.google.com;
                style-src 'self' 'unsafe-inline';">
 ```
 

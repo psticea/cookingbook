@@ -14,7 +14,7 @@ This document specifies the requirements for a multilingual recipe website that 
 - **Language Selector**: A UI component positioned at the bottom of each page that switches the website language between Romanian and English
 - **Text Size Adjuster**: A UI component positioned at the bottom of each page that changes the text size across three predefined levels
 - **Theme Selector**: A UI component positioned at the bottom of each page that switches between dark and light visual themes
-- **Analytics System**: A system that tracks and records page access metrics
+- **Analytics System**: Google Analytics 4 (GA4) that tracks and records page access metrics
 - **About Page**: A static page providing information about the website
 - **Cooking Basics Page**: A page containing fundamental cooking advice and pantry recommendations
 - **Category**: A classification grouping for recipes
@@ -146,10 +146,10 @@ This document specifies the requirements for a multilingual recipe website that 
 
 ### Requirement 11
 
-**User Story:** As a website administrator, I want to host the website on Azure, so that it is reliably available to users
+**User Story:** As a website administrator, I want to host the website on a static hosting platform, so that it is reliably available to users
 
 #### Acceptance Criteria
 
-1. THE Recipe Website SHALL be deployed to Microsoft Azure cloud infrastructure
-2. THE Recipe Website SHALL utilize Azure services for hosting and data storage
-3. THE Recipe Website SHALL be accessible via a public URL hosted on Azure
+1. THE Recipe Website SHALL be deployed as a static website
+2. THE Recipe Website SHALL be accessible via a public URL
+3. THE Recipe Website SHALL serve static HTML, CSS, and JavaScript files without requiring a backend server
