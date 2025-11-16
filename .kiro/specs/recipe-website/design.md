@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Recipe Website is a static, client-side web application that provides access to 55 recipes with multilingual support (Romanian/English), theme switching (dark/light), text size adjustment, ingredient scaling, and filtering capabilities. The application can be hosted on any static hosting platform (GitHub Pages, Netlify, Vercel, etc.) and uses Google Analytics 4 for analytics tracking.
+The Recipe Website is a static, client-side web application that provides access to recipes organized in 8 categories with multilingual support (Romanian/English), theme switching (dark/light), text size adjustment, ingredient scaling, and filtering capabilities. The application can be hosted on any static hosting platform (GitHub Pages, Netlify, Vercel, etc.) and uses Google Analytics 4 for analytics tracking.
 
 ### Key Design Principles
 
@@ -77,23 +77,55 @@ graph TB
 
 ### Data Architecture
 
-All recipe data will be stored as JSON files in the project structure:
+All recipe data will be stored as JSON files organized by category folders:
 
 ```
 /src
   /data
     /recipes
-      recipe-001.json
-      recipe-002.json
-      ...
-    /cooking-basics
-      boiling-rice.json
-      mashed-potatoes.json
-      ...
+      /breakfast
+        pancakes.json
+        omelette.json
+        ...
+      /pasta
+        carbonara.json
+        bolognese.json
+        ...
+      /stir-fries
+        chicken-stir-fry.json
+        vegetable-stir-fry.json
+        ...
+      /soups-and-stews
+        chicken-soup.json
+        beef-stew.json
+        ...
+      /main-courses
+        roast-chicken.json
+        grilled-salmon.json
+        ...
+      /salads-and-bites
+        caesar-salad.json
+        bruschetta.json
+        ...
+      /burgers-and-wraps
+        classic-burger.json
+        chicken-wrap.json
+        ...
+      /basics
+        boiled-rice.json
+        mashed-potatoes.json
+        ...
     categories.json
     filter-keywords.json
     translations.json
 ```
+
+**Category Folder Structure:**
+- Each category has its own folder under `/src/data/recipes/`
+- Recipe files can be named descriptively (no numbering required)
+- The system automatically loads all JSON files from all category folders
+- Category is determined by the folder the recipe is in
+- Easy to add new recipes by simply adding JSON files to the appropriate folder
 
 ## Components and Interfaces
 
@@ -290,8 +322,8 @@ Note: Filtering is now integrated into the HomePage via a side menu, not a separ
 
 ```typescript
 interface Recipe {
-  id: string;
-  category: string;
+  id: string; // Unique identifier (can be filename without .json)
+  category: string; // Derived from folder name (breakfast, pasta, etc.)
   title: {
     ro: string;
     en: string;
@@ -299,7 +331,7 @@ interface Recipe {
   prepTime: number; // minutes
   servings: number;
   effortLevel: "easy" | "medium" | "hard";
-  image: string; // URL to 1200x1200 image
+  image: string; // Relative path to image
   ingredients: Ingredient[];
   instructions: {
     ro: string[];
@@ -321,17 +353,34 @@ interface Ingredient {
 }
 ```
 
+**Recipe Loading Strategy:**
+- Recipes are loaded dynamically from all 8 category folders
+- The `category` field is automatically set based on the folder the recipe is in
+- The `id` can be derived from the filename (e.g., `carbonara.json` → id: `carbonara`)
+- No need for sequential numbering - just add JSON files to the appropriate folder
+
 ### Category Model
 
 ```typescript
 interface Category {
   id: string;
+  folder: string; // Folder name in /src/data/recipes/
   name: {
     ro: string;
     en: string;
   };
 }
 ```
+
+**The 8 Categories:**
+1. **breakfast** - Breakfast recipes
+2. **pasta** - Pasta dishes
+3. **stir-fries** - Stir-fry recipes
+4. **soups-and-stews** - Soups and stews
+5. **main-courses** - Main course dishes
+6. **salads-and-bites** - Salads and appetizers
+7. **burgers-and-wraps** - Burgers and wraps
+8. **basics** - Basic cooking techniques and staples
 
 ### Filter Keyword Model
 

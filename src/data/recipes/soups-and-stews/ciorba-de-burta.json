@@ -1,0 +1,112 @@
+{
+  "id": "ciorba-de-burta",
+  "category": "soups-and-stews",
+  "title": {
+    "ro": "Ciorbă de Burtă",
+    "en": "Tripe Soup"
+  },
+  "prepTime": 180,
+  "servings": 6,
+  "effortLevel": "hard",
+  "image": "/images/recipes/ciorba-de-burta.webp",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "burtă de vită",
+        "en": "beef tripe"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "kg",
+        "en": "kg"
+      }
+    },
+    {
+      "name": {
+        "ro": "morcovi",
+        "en": "carrots"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă",
+        "en": "onion"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "smântână",
+        "en": "sour cream"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "gălbenuș de ou",
+        "en": "egg yolk"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "oțet",
+        "en": "vinegar"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "usturoi",
+        "en": "garlic"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Spălați burta și fierbeți-o timp de 2-3 ore până devine moale.",
+      "Tăiați burta în fâșii subțiri.",
+      "Fierbeți legumele într-o oală separată.",
+      "Adăugați burta tăiată la legume și fierbeți încă 30 de minute.",
+      "Amestecați smântâna cu gălbenușurile și oțetul.",
+      "Adăugați amestecul de smântână la ciorbă, amestecând continuu.",
+      "Serviți fierbinte cu usturoi tocat și ardei iute."
+    ],
+    "en": [
+      "Wash the tripe and boil for 2-3 hours until tender.",
+      "Cut the tripe into thin strips.",
+      "Boil the vegetables in a separate pot.",
+      "Add the cut tripe to the vegetables and boil for another 30 minutes.",
+      "Mix sour cream with egg yolks and vinegar.",
+      "Add the cream mixture to the soup, stirring continuously.",
+      "Serve hot with chopped garlic and hot peppers."
+    ]
+  },
+  "keywords": ["beef", "cream-based", "boiling"]
+}

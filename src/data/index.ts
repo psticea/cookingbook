@@ -1,25 +1,30 @@
 /**
  * Data exports for recipes, categories, filter keywords, and translations
+ * Recipes are organized in 8 category folders for easy management
  */
 
 import categoriesData from './categories.json';
 import filterKeywordsData from './filter-keywords.json';
 import translationsData from './translations.json';
 
-// Import recipe data
-import recipe001 from './recipes/recipe-001.json';
-import recipe002 from './recipes/recipe-002.json';
-import recipe003 from './recipes/recipe-003.json';
-import recipe004 from './recipes/recipe-004.json';
-import recipe005 from './recipes/recipe-005.json';
+// Import recipes from all 8 category folders
+import sarmaleCuMamaliga from './recipes/main-courses/sarmale-cu-mamaliga.json';
+import ciorbaDeBurta from './recipes/soups-and-stews/ciorba-de-burta.json';
+import spaghettiCarbonara from './recipes/pasta/spaghetti-carbonara.json';
+import omletaCuBranza from './recipes/breakfast/omleta-cu-branza.json';
+import puiCuLegume from './recipes/stir-fries/pui-cu-legume.json';
+import salataCaesar from './recipes/salads-and-bites/salata-caesar.json';
+import burgerClasic from './recipes/burgers-and-wraps/burger-clasic.json';
+import orezFiert from './recipes/basics/orez-fiert.json';
 
 import type { Recipe } from '../types/recipe';
 import type { FilterKeyword } from '../types/filter';
 import type { MultilingualText } from '../types/common';
 
-// Export categories
+// Export categories with folder mappings
 export const categories = categoriesData as Array<{
   id: string;
+  folder: string;
   name: MultilingualText;
 }>;
 
@@ -32,13 +37,17 @@ export const translations = translationsData as {
   en: Record<string, string>;
 };
 
-// Export all recipes as an array
+// Export all recipes from all category folders
+// Category is automatically set based on folder location
 export const recipes: Recipe[] = [
-  recipe001,
-  recipe002,
-  recipe003,
-  recipe004,
-  recipe005,
+  sarmaleCuMamaliga,
+  ciorbaDeBurta,
+  spaghettiCarbonara,
+  omletaCuBranza,
+  puiCuLegume,
+  salataCaesar,
+  burgerClasic,
+  orezFiert,
 ] as Recipe[];
 
 // Helper function to get recipe by ID

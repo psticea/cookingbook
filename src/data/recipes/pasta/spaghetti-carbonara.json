@@ -1,0 +1,90 @@
+{
+  "id": "spaghetti-carbonara",
+  "category": "pasta",
+  "title": {
+    "ro": "Spaghetti Carbonara",
+    "en": "Spaghetti Carbonara"
+  },
+  "prepTime": 20,
+  "servings": 4,
+  "effortLevel": "easy",
+  "image": "/images/recipes/spaghetti-carbonara.webp",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "spaghetti",
+        "en": "spaghetti"
+      },
+      "quantity": 400,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "bacon",
+        "en": "bacon"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ouă",
+        "en": "eggs"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "parmezan",
+        "en": "parmesan"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper negru",
+        "en": "black pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Fierbeți spaghetti în apă sărată conform instrucțiunilor de pe pachet.",
+      "Prăjiți baconul tăiat cubulețe până devine crocant.",
+      "Bateți ouăle cu parmezanul ras.",
+      "Scurgeți pastele și amestecați imediat cu baconul.",
+      "Adăugați amestecul de ouă, amestecând rapid pentru a crea un sos cremos.",
+      "Condimentați cu piper negru proaspăt măcinat.",
+      "Serviți imediat cu parmezan suplimentar."
+    ],
+    "en": [
+      "Cook spaghetti in salted water according to package instructions.",
+      "Fry diced bacon until crispy.",
+      "Beat eggs with grated parmesan.",
+      "Drain pasta and immediately mix with bacon.",
+      "Add egg mixture, stirring quickly to create a creamy sauce.",
+      "Season with freshly ground black pepper.",
+      "Serve immediately with extra parmesan."
+    ]
+  },
+  "keywords": ["pork", "cream-based", "boiling"]
+}

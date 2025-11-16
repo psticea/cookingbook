@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document specifies the requirements for a multilingual recipe website that will be hosted on Azure. The website will provide users with access to 55 recipes (50 regular recipes + 5 cooking basics recipes) with features including ingredient scaling, filtering, language switching, text size adjustment, theme switching, and analytics tracking. The website must be responsive and work seamlessly on both mobile and desktop browsers.
+This document specifies the requirements for a multilingual recipe website. The website will provide users with access to recipes organized in 8 categories (Breakfast, Pasta, Stir-Fries, Soups & Stews, Main Courses, Salads & Bites, Burgers & Wraps, and Basics) with features including ingredient scaling, filtering, language switching, text size adjustment, theme switching, and analytics tracking. The website must be responsive and work seamlessly on both mobile and desktop browsers.
 
 ## Glossary
 
@@ -28,10 +28,11 @@ This document specifies the requirements for a multilingual recipe website that 
 
 #### Acceptance Criteria
 
-1. THE Recipe Website SHALL display a total of 50 regular recipes
-2. THE Recipe Website SHALL display 5 additional recipes about common cooking techniques
-3. THE Recipe Website SHALL assign each recipe to exactly one specific category
+1. THE Recipe Website SHALL organize recipes into exactly 8 categories: Breakfast, Pasta, Stir-Fries, Soups & Stews, Main Courses, Salads & Bites, Burgers & Wraps, and Basics
+2. THE Recipe Website SHALL load all recipes from category-specific folders in the data structure
+3. THE Recipe Website SHALL assign each recipe to exactly one specific category based on its folder location
 4. WHEN a User accesses a Recipe Page, THE Recipe Website SHALL display the recipe's assigned category
+5. THE Recipe Website SHALL display all recipes from all 8 categories on the home page
 
 ### Requirement 2
 

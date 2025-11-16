@@ -13,7 +13,6 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { path: '/', label: getTranslation('home', language) },
-    { path: '/filter', label: getTranslation('filter', language) },
     { path: '/about', label: getTranslation('about', language) },
     { path: '/cooking-basics', label: getTranslation('cookingBasics', language) },
   ];

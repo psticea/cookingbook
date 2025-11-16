@@ -1,72 +1,66 @@
 [
   {
-    "id": "main-course",
-    "name": {
-      "ro": "Fel Principal",
-      "en": "Main Course"
-    }
-  },
-  {
-    "id": "soup",
-    "name": {
-      "ro": "Supă",
-      "en": "Soup"
-    }
-  },
-  {
-    "id": "salad",
-    "name": {
-      "ro": "Salată",
-      "en": "Salad"
-    }
-  },
-  {
-    "id": "dessert",
-    "name": {
-      "ro": "Desert",
-      "en": "Dessert"
-    }
-  },
-  {
-    "id": "appetizer",
-    "name": {
-      "ro": "Aperitiv",
-      "en": "Appetizer"
-    }
-  },
-  {
-    "id": "side-dish",
-    "name": {
-      "ro": "Garnitură",
-      "en": "Side Dish"
-    }
-  },
-  {
     "id": "breakfast",
+    "folder": "breakfast",
     "name": {
       "ro": "Mic Dejun",
       "en": "Breakfast"
     }
   },
   {
-    "id": "snack",
+    "id": "pasta",
+    "folder": "pasta",
     "name": {
-      "ro": "Gustare",
-      "en": "Snack"
+      "ro": "Paste",
+      "en": "Pasta"
     }
   },
   {
-    "id": "beverage",
+    "id": "stir-fries",
+    "folder": "stir-fries",
     "name": {
-      "ro": "Băutură",
-      "en": "Beverage"
+      "ro": "Stir-Fry",
+      "en": "Stir-Fries"
     }
   },
   {
-    "id": "cooking-basics",
+    "id": "soups-and-stews",
+    "folder": "soups-and-stews",
+    "name": {
+      "ro": "Supe și Tocane",
+      "en": "Soups & Stews"
+    }
+  },
+  {
+    "id": "main-courses",
+    "folder": "main-courses",
+    "name": {
+      "ro": "Feluri Principale",
+      "en": "Main Courses"
+    }
+  },
+  {
+    "id": "salads-and-bites",
+    "folder": "salads-and-bites",
+    "name": {
+      "ro": "Salate și Gustări",
+      "en": "Salads & Bites"
+    }
+  },
+  {
+    "id": "burgers-and-wraps",
+    "folder": "burgers-and-wraps",
+    "name": {
+      "ro": "Burgeri și Wrap-uri",
+      "en": "Burgers & Wraps"
+    }
+  },
+  {
+    "id": "basics",
+    "folder": "basics",
     "name": {
       "ro": "Baze de Gătit",
-      "en": "Cooking Basics"
+      "en": "Basics"
     }
   }
 ]

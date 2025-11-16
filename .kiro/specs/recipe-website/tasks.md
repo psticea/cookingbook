@@ -103,48 +103,44 @@
   - Style with Tailwind for responsive design
   - _Requirements: 2.7, 4.2, 5.1, 6.1_
 
-- [x] 6. Create sample recipe data structure
+- [x] 6. Create recipe data structure with 8 category folders
+
+- [x] 6.1 Create 8 category folders and sample recipes
 
 
-
-
-
-
-- [x] 6.1 Create 5 sample recipe JSON files
-
-
-  - Write JSON files with complete recipe data (title, category, prepTime, servings, effortLevel, ingredients, instructions, keywords)
+  - Create folder structure: /src/data/recipes/ with 8 subfolders (breakfast, pasta, stir-fries, soups-and-stews, main-courses, salads-and-bites, burgers-and-wraps, basics)
+  - Create 1-2 sample recipe JSON files in each category folder for testing
+  - Write JSON files with complete recipe data (title, prepTime, servings, effortLevel, ingredients, instructions, keywords)
   - Include both Romanian and English translations
-  - Use placeholder image URLs
-  - _Requirements: 1.1, 1.3, 2.1, 2.2, 2.3, 2.4, 2.5, 6.2_
-
-
+  - Use descriptive filenames (e.g., carbonara.json, chicken-soup.json)
+  - Use placeholder image paths
+  - _Requirements: 1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 2.4, 2.5_
 
 - [x] 6.2 Create categories and filter keywords JSON files
 
-  - Define all recipe categories with Romanian and English names
+  - Define all 8 recipe categories with folder names, Romanian and English names
+  - Categories: breakfast, pasta, stir-fries, soups-and-stews, main-courses, salads-and-bites, burgers-and-wraps, basics
   - Define filter keywords organized by type (meat, vegetable, sauce, cooking)
-
-
-  - _Requirements: 1.3, 6.2, 6.3_
+  - _Requirements: 1.1, 1.2, 1.3, 7.2_
 
 - [x] 6.3 Create translations JSON file
 
   - Define all UI text strings in Romanian and English
   - Include labels for buttons, headings, and messages
+  - Include category names for all 8 categories
   - _Requirements: 4.3, 4.4_
 
 - [x] 7. Implement recipe data loading and management
 
 
 
-
-
-  - Create useRecipeData hook to load all recipe JSON files
+  - Create useRecipeData hook to dynamically load all recipe JSON files from all 8 category folders
+  - Automatically assign category to each recipe based on its folder location
+  - Generate recipe ID from filename (e.g., carbonara.json → id: carbonara)
   - Implement recipe lookup by ID function
   - Create utility to get recipes by category
   - Create utility to get recipes by filter keywords
-  - _Requirements: 1.1, 1.2, 6.4, 6.5_
+  - _Requirements: 1.1, 1.2, 1.3, 1.5, 7.4, 7.5_
 
 - [x] 8. Build RecipePage component and related components
 
@@ -230,12 +226,10 @@
   - _Requirements: 1.1, 1.2_
 
 - [x] 9.3 Implement HomePage component
-
-
-  - Display all 55 recipes (50 regular + 5 cooking basics) in RecipeGrid
+  - Display all recipes from all 8 category folders in RecipeGrid
   - Add Header with navigation links
   - Add Footer with preference selectors
-  - _Requirements: 1.1, 1.2_
+  - _Requirements: 1.1, 1.5_
 
 - [ ] 10. Implement filter side menu on HomePage
 - [ ] 10.1 Create FilterMenu component
@@ -293,13 +287,15 @@
   - Create .env.example with VITE_GA_MEASUREMENT_ID placeholder
   - _Requirements: 10.1, 10.2, 10.3, 10.4_
 
-- [ ] 15. Add remaining 50 recipe JSON files
-  - Create 45 additional regular recipe JSON files (total 50 regular recipes)
-  - Create 5 cooking basics recipe JSON files (boiling rice, mashed potatoes, polenta, cutting onions, plus one more)
+- [ ] 15. Add recipes to category folders
+  - Add recipe JSON files to each of the 8 category folders as needed
+  - Distribute recipes across categories: breakfast, pasta, stir-fries, soups-and-stews, main-courses, salads-and-bites, burgers-and-wraps, basics
+  - Use descriptive filenames (e.g., pancakes.json, beef-stew.json, caesar-salad.json)
   - Ensure all recipes have complete data with Romanian and English translations
-  - Assign appropriate categories and filter keywords to each recipe
-  - Use placeholder image URLs (to be replaced with actual images later)
-  - _Requirements: 1.1, 1.2, 1.3_
+  - Assign appropriate filter keywords to each recipe
+  - Use placeholder image paths (to be replaced with actual images later)
+  - No need for sequential numbering - just add files to appropriate folders
+  - _Requirements: 1.1, 1.2, 1.3, 1.5_
 
 - [ ] 16. Prepare for static hosting deployment
   - Create deployment configuration files (netlify.toml, vercel.json) for various platforms

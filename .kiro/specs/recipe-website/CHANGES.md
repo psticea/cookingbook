@@ -150,3 +150,117 @@ Changed from Azure-specific services to platform-agnostic solutions using Google
 4. **Familiar Tools**: Google Analytics is widely known and documented
 5. **Version Control**: Images can be stored in the repo alongside code
 6. **No Vendor Lock-in**: Easy to switch hosting providers
+
+
+---
+
+# Recipe Organization Changes
+
+## Overview
+Reorganized recipe storage from numbered files to 8 category-based folders for easier management and scalability.
+
+## Changes Made
+
+### Requirements Document (requirements.md)
+
+**Changed:**
+- **Introduction**: Changed from "55 recipes (50 regular + 5 cooking basics)" to "recipes organized in 8 categories"
+- **Requirement 1**: Completely restructured
+  - Added: 8 specific categories (Breakfast, Pasta, Stir-Fries, Soups & Stews, Main Courses, Salads & Bites, Burgers & Wraps, Basics)
+  - Changed: Recipes loaded from category-specific folders
+  - Changed: Category assigned based on folder location
+  - Added: All recipes from all 8 categories displayed on home page
+  - Removed: Fixed number of recipes (50 regular + 5 basics)
+
+### Design Document (design.md)
+
+**Changed:**
+- **Overview**: Changed from "55 recipes" to "recipes organized in 8 categories"
+- **Data Architecture**: Complete restructure
+  - **Old Structure**:
+    ```
+    /data/recipes/recipe-001.json, recipe-002.json, ...
+    /data/cooking-basics/boiling-rice.json, ...
+    ```
+  - **New Structure**:
+    ```
+    /data/recipes/breakfast/*.json
+    /data/recipes/pasta/*.json
+    /data/recipes/stir-fries/*.json
+    /data/recipes/soups-and-stews/*.json
+    /data/recipes/main-courses/*.json
+    /data/recipes/salads-and-bites/*.json
+    /data/recipes/burgers-and-wraps/*.json
+    /data/recipes/basics/*.json
+    ```
+  - Added: Descriptive filenames (no numbering required)
+  - Added: Automatic category assignment based on folder
+  - Added: Easy scalability - just add JSON files to folders
+
+- **Category Model**: Updated
+  - Added: `folder` field to map category to folder name
+  - Listed: All 8 categories with their folder names
+
+- **Recipe Model**: Updated
+  - Changed: `id` derived from filename (e.g., carbonara.json → id: carbonara)
+  - Changed: `category` automatically set from folder location
+  - Added: Documentation about recipe loading strategy
+
+### Tasks Document (tasks.md)
+
+**Changed:**
+- **Task 6**: "Create sample recipe data structure" → "Create recipe data structure with 8 category folders"
+  - **6.1**: Create 8 category folders with sample recipes
+    - Create all 8 folders under /src/data/recipes/
+    - Use descriptive filenames instead of numbers
+    - 1-2 sample recipes per category for testing
+  
+  - **6.2**: Updated to define all 8 categories with folder mappings
+  
+- **Task 7**: Updated recipe data loading
+  - Added: Dynamic loading from all 8 category folders
+  - Added: Automatic category assignment from folder
+  - Added: ID generation from filename
+
+- **Task 9.3**: Updated HomePage
+  - Changed: Display all recipes from all 8 folders (no fixed count)
+
+- **Task 15**: "Add remaining 50 recipe JSON files" → "Add recipes to category folders"
+  - Removed: Fixed recipe counts
+  - Changed: Add recipes to appropriate category folders as needed
+  - Added: Use descriptive filenames
+  - Added: No sequential numbering required
+
+### Data Files
+
+**Changed:**
+- **categories.json**: Complete restructure
+  - Removed: Old categories (main-course, soup, salad, dessert, appetizer, side-dish, snack, beverage, cooking-basics)
+  - Added: 8 new categories with folder mappings:
+    1. breakfast → "breakfast"
+    2. pasta → "pasta"
+    3. stir-fries → "stir-fries"
+    4. soups-and-stews → "soups-and-stews"
+    5. main-courses → "main-courses"
+    6. salads-and-bites → "salads-and-bites"
+    7. burgers-and-wraps → "burgers-and-wraps"
+    8. basics → "basics"
+
+## Benefits
+
+1. **Easier Management**: Add recipes by simply dropping JSON files in the right folder
+2. **No Numbering**: Use descriptive filenames (carbonara.json, chicken-soup.json)
+3. **Scalable**: No limit on number of recipes per category
+4. **Organized**: Clear folder structure makes finding recipes easy
+5. **Flexible**: Easy to add new categories by creating new folders
+6. **Automatic**: Category assignment happens automatically based on folder location
+7. **Developer Friendly**: Clear structure for contributors to add recipes
+
+## Migration Path
+
+To migrate existing recipes:
+1. Create the 8 category folders under `/src/data/recipes/`
+2. Move existing recipe files to appropriate category folders
+3. Rename files to be descriptive (optional but recommended)
+4. Update `useRecipeData` hook to load from all category folders
+5. Update recipe loading logic to set category from folder name

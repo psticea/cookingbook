@@ -7,7 +7,6 @@ import { ThemeProvider } from './hooks/useTheme';
 // Lazy load page components
 const HomePage = lazy(() => import('./pages/HomePage'));
 const RecipePage = lazy(() => import('./pages/RecipePage'));
-const FilterPage = lazy(() => import('./pages/FilterPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const CookingBasicsPage = lazy(() => import('./pages/CookingBasicsPage'));
 
@@ -29,7 +28,6 @@ function App() {
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/recipe/:id" element={<RecipePage />} />
-                  <Route path="/filter" element={<FilterPage />} />
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/cooking-basics" element={<CookingBasicsPage />} />
                 </Routes>

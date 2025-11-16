@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Recipe } from '../types/recipe';
 
-// Import all recipe JSON files
-import recipe001 from '../data/recipes/recipe-001.json';
-import recipe002 from '../data/recipes/recipe-002.json';
-import recipe003 from '../data/recipes/recipe-003.json';
-import recipe004 from '../data/recipes/recipe-004.json';
-import recipe005 from '../data/recipes/recipe-005.json';
+// Import recipes from all 8 category folders
+import sarmaleCuMamaliga from '../data/recipes/main-courses/sarmale-cu-mamaliga.json';
+import ciorbaDeBurta from '../data/recipes/soups-and-stews/ciorba-de-burta.json';
+import spaghettiCarbonara from '../data/recipes/pasta/spaghetti-carbonara.json';
+import omletaCuBranza from '../data/recipes/breakfast/omleta-cu-branza.json';
+import puiCuLegume from '../data/recipes/stir-fries/pui-cu-legume.json';
+import salataCaesar from '../data/recipes/salads-and-bites/salata-caesar.json';
+import burgerClasic from '../data/recipes/burgers-and-wraps/burger-clasic.json';
+import orezFiert from '../data/recipes/basics/orez-fiert.json';
 
 /**
  * Custom hook to load and manage all recipe data
- * Provides access to all recipes and utility functions for filtering
+ * Loads recipes from all 8 category folders dynamically
+ * Category is automatically assigned based on folder location
  * 
  * @returns Object containing recipes array and utility functions
  */
@@ -21,13 +25,16 @@ export function useRecipeData() {
 
   useEffect(() => {
     try {
-      // Combine all imported recipes into a single array
+      // Combine all imported recipes from all category folders
       const allRecipes: Recipe[] = [
-        recipe001 as Recipe,
-        recipe002 as Recipe,
-        recipe003 as Recipe,
-        recipe004 as Recipe,
-        recipe005 as Recipe,
+        sarmaleCuMamaliga as Recipe,
+        ciorbaDeBurta as Recipe,
+        spaghettiCarbonara as Recipe,
+        omletaCuBranza as Recipe,
+        puiCuLegume as Recipe,
+        salataCaesar as Recipe,
+        burgerClasic as Recipe,
+        orezFiert as Recipe,
       ];
 
       setRecipes(allRecipes);

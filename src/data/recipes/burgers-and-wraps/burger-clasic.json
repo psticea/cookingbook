@@ -1,0 +1,112 @@
+{
+  "id": "burger-clasic",
+  "category": "burgers-and-wraps",
+  "title": {
+    "ro": "Burger Clasic",
+    "en": "Classic Burger"
+  },
+  "prepTime": 20,
+  "servings": 4,
+  "effortLevel": "easy",
+  "image": "/images/recipes/burger-clasic.webp",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "carne tocată de vită",
+        "en": "ground beef"
+      },
+      "quantity": 600,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "chiflă pentru burger",
+        "en": "burger buns"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "brânză cheddar",
+        "en": "cheddar cheese"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "felii",
+        "en": "slices"
+      }
+    },
+    {
+      "name": {
+        "ro": "roșii",
+        "en": "tomatoes"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "salată iceberg",
+        "en": "iceberg lettuce"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "frunze",
+        "en": "leaves"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă",
+        "en": "onion"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare și piper",
+        "en": "salt and pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Formați 4 chiftele din carnea tocată, condimentate cu sare și piper.",
+      "Încălziți grătarul sau tigaia la foc mare.",
+      "Gătiți chiftelele 4-5 minute pe fiecare parte.",
+      "În ultimul minut, adăugați brânza pe chiftele.",
+      "Prăjiți ușor chiflele.",
+      "Asamblați burgerul: chiflă, salată, chiftea cu brânză, roșii, ceapă.",
+      "Serviți cu cartofi prăjiți."
+    ],
+    "en": [
+      "Form 4 patties from ground beef, seasoned with salt and pepper.",
+      "Heat grill or pan over high heat.",
+      "Cook patties 4-5 minutes on each side.",
+      "In the last minute, add cheese on patties.",
+      "Lightly toast the buns.",
+      "Assemble burger: bun, lettuce, patty with cheese, tomatoes, onion.",
+      "Serve with french fries."
+    ]
+  },
+  "keywords": ["beef", "tomatoes", "onions", "grilling"]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "pui-cu-legume",
+  "category": "stir-fries",
+  "title": {
+    "ro": "Pui cu Legume la Wok",
+    "en": "Chicken Stir-Fry"
+  },
+  "prepTime": 25,
+  "servings": 4,
+  "effortLevel": "easy",
+  "image": "/images/recipes/pui-cu-legume.webp",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "piept de pui",
+        "en": "chicken breast"
+      },
+      "quantity": 500,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ardei gras",
+        "en": "bell peppers"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă",
+        "en": "onion"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "morcovi",
+        "en": "carrots"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos de soia",
+        "en": "soy sauce"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "linguri",
+        "en": "tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei",
+        "en": "oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "usturoi",
+        "en": "garlic"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Tăiați puiul în cuburi mici.",
+      "Tăiați toate legumele în fâșii.",
+      "Încălziți uleiul într-un wok la foc mare.",
+      "Prăjiți puiul până se rumenește.",
+      "Adăugați usturoiul și legumele.",
+      "Amestecați continuu timp de 5-7 minute.",
+      "Adăugați sosul de soia și gătiți încă 2 minute.",
+      "Serviți fierbinte cu orez."
+    ],
+    "en": [
+      "Cut chicken into small cubes.",
+      "Cut all vegetables into strips.",
+      "Heat oil in a wok over high heat.",
+      "Stir-fry chicken until browned.",
+      "Add garlic and vegetables.",
+      "Stir continuously for 5-7 minutes.",
+      "Add soy sauce and cook for 2 more minutes.",
+      "Serve hot with rice."
+    ]
+  },
+  "keywords": ["chicken", "peppers", "onions", "carrots", "oil-based", "frying"]
+}

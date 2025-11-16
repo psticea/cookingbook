@@ -1,0 +1,88 @@
+{
+  "id": "salata-caesar",
+  "category": "salads-and-bites",
+  "title": {
+    "ro": "Salată Caesar",
+    "en": "Caesar Salad"
+  },
+  "prepTime": 15,
+  "servings": 4,
+  "effortLevel": "easy",
+  "image": "/images/recipes/salata-caesar.webp",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "salată romaine",
+        "en": "romaine lettuce"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "head"
+      }
+    },
+    {
+      "name": {
+        "ro": "piept de pui",
+        "en": "chicken breast"
+      },
+      "quantity": 300,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "parmezan",
+        "en": "parmesan"
+      },
+      "quantity": 50,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "crutoane",
+        "en": "croutons"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos Caesar",
+        "en": "Caesar dressing"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Gătiți pieptul de pui la grătar și tăiați-l în felii.",
+      "Spălați și rupți salata în bucăți.",
+      "Puneți salata într-un bol mare.",
+      "Adăugați puiul, parmezanul ras și crutonele.",
+      "Turnați sosul Caesar și amestecați bine.",
+      "Serviți imediat."
+    ],
+    "en": [
+      "Grill chicken breast and slice it.",
+      "Wash and tear lettuce into pieces.",
+      "Place lettuce in a large bowl.",
+      "Add chicken, grated parmesan, and croutons.",
+      "Pour Caesar dressing and toss well.",
+      "Serve immediately."
+    ]
+  },
+  "keywords": ["chicken", "cream-based", "grilling"]
+}
