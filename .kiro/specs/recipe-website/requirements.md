@@ -19,6 +19,7 @@ This document specifies the requirements for a multilingual recipe website. The 
 - **Cooking Basics Page**: A page containing fundamental cooking advice and pantry recommendations
 - **Category**: A classification grouping for recipes
 - **Filter Keyword**: A searchable term associated with recipes (e.g., meat type, vegetables, sauce, cooking type)
+- **Search Bar**: A text input UI component on the home page that filters recipes by title in real-time
 
 ## Requirements
 
@@ -108,6 +109,21 @@ This document specifies the requirements for a multilingual recipe website. The 
 5. WHEN a User selects zero Filter Keywords, THE Recipe Website SHALL display all available recipes on the home page
 6. THE Recipe Website SHALL update the displayed recipe list in real-time as Filter Keywords are selected or deselected
 7. WHEN a User closes the Filter Menu, THE Recipe Website SHALL maintain the selected filters and continue displaying the filtered recipe list
+
+### Requirement 7A
+
+**User Story:** As a User, I want to search recipes by title, so that I can quickly find a specific recipe I'm looking for
+
+#### Acceptance Criteria
+
+1. WHEN a User views the home page, THE Recipe Website SHALL display a Search Bar component
+2. THE Search Bar SHALL filter recipes based on the title in the currently selected language
+3. WHEN a User types at least 2 characters in the Search Bar, THE Recipe Website SHALL display only recipes whose titles contain the typed text
+4. WHEN a User types fewer than 2 characters in the Search Bar, THE Recipe Website SHALL display all recipes matching the current Filter Keywords
+5. THE Recipe Website SHALL update the displayed recipe list in real-time as the User types in the Search Bar
+6. THE Search Bar SHALL display a clear button with an X symbol
+7. WHEN a User clicks the clear button in the Search Bar, THE Recipe Website SHALL clear the search text and display all recipes matching the current Filter Keywords
+8. THE Recipe Website SHALL apply both Search Bar filtering and Filter Keyword filtering simultaneously when both are active
 
 ### Requirement 8
 

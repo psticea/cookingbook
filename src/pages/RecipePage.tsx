@@ -80,7 +80,8 @@ const RecipePage: React.FC = () => {
 
         {/* Recipe Image */}
         <RecipeImage
-          src={recipe.image}
+          recipeId={recipe.id}
+          category={recipe.category}
           alt={recipe.title[language]}
         />
 

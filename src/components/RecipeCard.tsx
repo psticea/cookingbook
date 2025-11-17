@@ -13,13 +13,19 @@ interface RecipeCardProps {
  * Displays a recipe card with thumbnail, title, and metadata
  * Links to the recipe detail page
  * Category is not shown as it's displayed in the section header
+ * Images are 1200x800 (3:2 aspect ratio)
  */
 export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const { language } = useLanguage();
+  const [imageError, setImageError] = React.useState(false);
 
   // Get effort level translation
   const effortLevelKey = `effortLevel.${recipe.effortLevel}`;
   const effortLevel = getTranslation(effortLevelKey, language);
+
+  // Construct image path from src/data/recipes folder
+  const imagePath = `/src/data/recipes/${recipe.category}/${recipe.id}.jpg`;
+  const defaultImage = '/src/data/recipes/default-image.jpg';
 
   return (
     <Link
@@ -27,12 +33,13 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       className="block bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
     >
       {/* Recipe Image */}
-      <div className="aspect-square w-full overflow-hidden bg-gray-200 dark:bg-gray-700">
+      <div className="aspect-[3/2] w-full overflow-hidden bg-gray-200 dark:bg-gray-700">
         <img
-          src={recipe.image}
+          src={imageError ? defaultImage : imagePath}
           alt={recipe.title[language]}
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           loading="lazy"
+          onError={() => setImageError(true)}
         />
       </div>
 

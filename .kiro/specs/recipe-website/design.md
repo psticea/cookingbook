@@ -137,6 +137,7 @@ App
 │   └── Navigation
 ├── Router
 │   ├── HomePage
+│   │   ├── SearchBar
 │   │   ├── FilterMenu (side panel)
 │   │   │   └── FilterControls
 │   │   └── RecipeGrid
@@ -247,21 +248,50 @@ A side panel that slides in from the left or right to display filtering options.
 └─────────────────────────────────┘
 ```
 
-#### 4. HomePage Component
+#### 4. SearchBar Component
 
-Displays all recipes with integrated filtering.
+A text input component that filters recipes by title in real-time.
+
+**Props:**
+- `searchQuery: string` - Current search text
+- `onSearchChange: (query: string) => void` - Callback when search text changes
+- `language: Language` - Current language for placeholder text
+
+**Behavior:**
+- Displays a text input field with search icon
+- Shows a clear button (X symbol) when text is entered
+- Triggers filtering when at least 2 characters are typed
+- Clears search text when X button is clicked
+- Updates in real-time as user types
+
+**Layout:**
+```
+┌─────────────────────────────────┐
+│ 🔍 [Search recipes...      ] [X]│
+└─────────────────────────────────┘
+```
+
+#### 5. HomePage Component
+
+Displays all recipes with integrated filtering and search.
 
 **State:**
 - `selectedKeywords: Set<string>` - Currently selected filter keywords
 - `isFilterMenuOpen: boolean` - Controls FilterMenu visibility
+- `searchQuery: string` - Current search text
 
 **Filtering Logic:**
 ```typescript
 const filteredRecipes = recipes.filter((recipe: Recipe) => {
-  if (selectedKeywords.size === 0) return true;
-  return [...selectedKeywords].every(keyword => 
-    recipe.keywords.includes(keyword)
-  );
+  // Apply keyword filtering
+  const matchesKeywords = selectedKeywords.size === 0 || 
+    [...selectedKeywords].every(keyword => recipe.keywords.includes(keyword));
+  
+  // Apply search filtering (only if 2+ characters)
+  const matchesSearch = searchQuery.length < 2 || 
+    recipe.title[language].toLowerCase().includes(searchQuery.toLowerCase());
+  
+  return matchesKeywords && matchesSearch;
 });
 ```
 
@@ -270,7 +300,8 @@ const filteredRecipes = recipes.filter((recipe: Recipe) => {
 ┌─────────────────────────────────┐
 │ Header with Navigation           │
 ├─────────────────────────────────┤
-│ [🔍 Filter] All Recipes (X)     │
+│ [🔍 Filter] [Search Bar    ] [X]│
+│ All Recipes (X)                  │
 ├─────────────────────────────────┤
 │ [Recipe Grid]                    │
 │                                  │
@@ -280,13 +311,14 @@ When filter menu is open:
 ┌──────────┬──────────────────────┐
 │ Filter   │ Header               │
 │ Menu     ├──────────────────────┤
-│          │ All Recipes (X)      │
-│ [Filters]│ [Recipe Grid]        │
+│          │ [Search Bar    ] [X] │
+│ [Filters]│ All Recipes (X)      │
+│          │ [Recipe Grid]        │
 │          │                      │
 └──────────┴──────────────────────┘
 ```
 
-#### 5. Footer Component
+#### 6. Footer Component
 
 Contains all user preference controls.
 

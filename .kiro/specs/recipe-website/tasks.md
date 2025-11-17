@@ -231,8 +231,36 @@
   - Add Footer with preference selectors
   - _Requirements: 1.1, 1.5_
 
-- [ ] 10. Implement filter side menu on HomePage
-- [ ] 10.1 Create FilterMenu component
+- [x] 10. Implement search bar on HomePage
+
+
+
+
+- [x] 10.1 Create SearchBar component
+
+
+  - Create text input field with search icon
+  - Accept searchQuery, onSearchChange, and language props
+  - Display clear button (X symbol) when text is entered
+  - Implement clear functionality to reset search text
+  - Style with Tailwind for responsive layout
+  - Add appropriate placeholder text in Romanian and English
+  - _Requirements: 7A.1, 7A.6, 7A.7_
+
+- [x] 10.2 Update HomePage component with search functionality
+
+
+  - Add state for searchQuery
+  - Integrate SearchBar component above recipe grid
+  - Implement search filtering logic: filter by title in selected language when 2+ characters typed
+  - Combine search filtering with keyword filtering (both must match)
+  - Update recipe list in real-time as user types
+  - Display all recipes when search query is less than 2 characters
+  - Update filtered recipe count to reflect both search and keyword filters
+  - _Requirements: 7A.2, 7A.3, 7A.4, 7A.5, 7A.8_
+
+- [ ] 11. Implement filter side menu on HomePage
+- [ ] 11.1 Create FilterMenu component
   - Create side panel that slides in from the left or right
   - Display filter keyword options grouped by type (meat, vegetable, sauce, cooking)
   - Allow multiple keyword selection with checkboxes
@@ -242,7 +270,7 @@
   - Style with Tailwind for responsive layout with smooth slide animation
   - _Requirements: 7.1, 7.2, 7.3, 7.7_
 
-- [ ] 10.2 Update HomePage component with filtering
+- [ ] 11.2 Update HomePage component with filtering
   - Add state for selectedKeywords and isFilterMenuOpen
   - Add filter toggle button in header area
   - Integrate FilterMenu component
@@ -251,16 +279,17 @@
   - Update recipe list in real-time as keywords change
   - Show all recipes when no keywords selected
   - Maintain filter state when menu is closed
-  - _Requirements: 7.1, 7.3, 7.4, 7.5, 7.6, 7.7_
+  - Ensure search and filter work together correctly
+  - _Requirements: 7.1, 7.3, 7.4, 7.5, 7.6, 7.7, 7A.8_
 
-- [ ] 11. Create AboutPage component
+- [ ] 12. Create AboutPage component
   - Write content about the recipe website
   - Support both Romanian and English text
   - Style with Tailwind for clean, readable layout
   - Add Footer with preference selectors
   - _Requirements: 9.1, 9.2_
 
-- [ ] 12. Create CookingBasicsPage component
+- [ ] 13. Create CookingBasicsPage component
   - Write content about reading recipes thoroughly before cooking
   - Write content about preparing all ingredients before cooking (mise en place)
   - Write content about pantry staples to stock at home
@@ -269,7 +298,7 @@
   - Add Footer with preference selectors
   - _Requirements: 9.3, 9.4, 9.5, 9.6_
 
-- [ ] 13. Implement responsive design for mobile and desktop
+- [ ] 14. Implement responsive design for mobile and desktop
   - Apply Tailwind responsive classes throughout all components
   - Test layouts at mobile (320px-767px), tablet (768px-1023px), and desktop (1024px+) breakpoints
   - Ensure touch-friendly button sizes on mobile (minimum 44x44px)
@@ -277,7 +306,7 @@
   - Test navigation and Footer on all screen sizes
   - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5_
 
-- [ ] 14. Set up Google Analytics 4 for analytics
+- [ ] 15. Set up Google Analytics 4 for analytics
   - Install react-ga4 package
   - Create analytics utility module with initialization code (initGA, trackPageView, trackEvent functions)
   - Add GA4 initialization in App component
@@ -287,7 +316,7 @@
   - Create .env.example with VITE_GA_MEASUREMENT_ID placeholder
   - _Requirements: 10.1, 10.2, 10.3, 10.4_
 
-- [ ] 15. Add recipes to category folders
+- [ ] 16. Add recipes to category folders
   - Add recipe JSON files to each of the 8 category folders as needed
   - Distribute recipes across categories: breakfast, pasta, stir-fries, soups-and-stews, main-courses, salads-and-bites, burgers-and-wraps, basics
   - Use descriptive filenames (e.g., pancakes.json, beef-stew.json, caesar-salad.json)
@@ -297,7 +326,7 @@
   - No need for sequential numbering - just add files to appropriate folders
   - _Requirements: 1.1, 1.2, 1.3, 1.5_
 
-- [ ] 16. Prepare for static hosting deployment
+- [ ] 17. Prepare for static hosting deployment
   - Create deployment configuration files (netlify.toml, vercel.json) for various platforms
   - Create GitHub Actions workflow for GitHub Pages deployment
   - Update .env.example file with VITE_GA_MEASUREMENT_ID
@@ -306,7 +335,7 @@
   - Test production build locally with `npm run build` and `npm run preview`
   - _Requirements: 11.1, 11.2, 11.3_
 
-- [ ] 17. Set up recipe images storage
+- [ ] 18. Set up recipe images storage
   - Create /public/images/recipes folder structure
   - Document image specifications (1200x1200px, WebP format with JPEG fallback)
   - Create placeholder.webp for missing images
@@ -314,17 +343,22 @@
   - Optionally document CDN integration steps for future optimization
   - _Requirements: 2.6_
 
-- [ ]* 18. Write unit tests for core functionality
+- [ ]* 19. Write unit tests for core functionality
   - Test IngredientScaler: verify scaling calculations (0.5x, 1x, 1.5x, 2x, etc.)
   - Test filtering logic: verify recipes filtered correctly with multiple keywords
+  - Test search logic: verify recipes filtered correctly by title with 2+ characters
+  - Test combined search and filter: verify both filters work together
   - Test useLocalStorage hook: verify read/write to localStorage
   - Test translation utility: verify correct translations returned
-  - _Requirements: 3.2, 6.4_
+  - _Requirements: 3.2, 6.4, 7A.3, 7A.8_
 
-- [ ]* 19. Write integration tests for user workflows
+- [ ]* 20. Write integration tests for user workflows
   - Test language switching: change language and verify all text updates
   - Test theme switching: toggle theme and verify CSS classes applied
   - Test text size adjustment: change size and verify HTML attribute updated
   - Test ingredient scaling: adjust scaler and verify quantities update
   - Test filtering: select keywords and verify recipe list updates
-  - _Requirements: 4.3, 4.4, 5.3, 6.4, 6.5, 3.3, 6.6_
+  - Test search: type in search bar and verify recipe list updates
+  - Test search clear: click X button and verify search is cleared
+  - Test combined search and filter: use both and verify correct results
+  - _Requirements: 4.3, 4.4, 5.3, 6.4, 6.5, 3.3, 6.6, 7A.5, 7A.7, 7A.8_
