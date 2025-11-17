@@ -295,8 +295,15 @@
   - Write content about the recipe website
   - Support both Romanian and English text
   - Style with Tailwind for clean, readable layout
+  - Add Giscus comment section at the bottom (before Footer)
+  - Configure Giscus with GitHub Discussions integration
+  - Enable GitHub Discussions on repository
+  - Install Giscus app on GitHub repo
+  - Get Giscus configuration from https://giscus.app
+  - Add Giscus script tag with proper data attributes
+  - Configure theme to match site (light/dark auto-switching)
   - Add Footer with preference selectors
-  - _Requirements: 9.1, 9.2_
+  - _Requirements: 9.1, 9.2, 9.3_
 
 - [ ] 13. Create CookingBasicsPage component
   - Write content about reading recipes thoroughly before cooking

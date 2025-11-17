@@ -147,7 +147,8 @@ This document specifies the requirements for a multilingual recipe website. The 
 
 1. THE Recipe Website SHALL provide an About Page
 2. WHEN a User accesses the About Page, THE Recipe Website SHALL display information about the website
-3. THE Recipe Website SHALL provide a Cooking Basics Page
+3. WHEN a User accesses the About Page, THE Recipe Website SHALL display a comment section at the bottom where users can leave comments without requiring login
+4. THE Recipe Website SHALL provide a Cooking Basics Page
 4. WHEN a User accesses the Cooking Basics Page, THE Recipe Website SHALL display advice about reading recipes thoroughly before cooking
 5. WHEN a User accesses the Cooking Basics Page, THE Recipe Website SHALL display advice about preparing all ingredients before cooking
 6. WHEN a User accesses the Cooking Basics Page, THE Recipe Website SHALL display recommendations for pantry staples to stock at home

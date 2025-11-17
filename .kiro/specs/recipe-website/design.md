@@ -868,6 +868,84 @@ Cache-Control headers:
 - Preferences stored locally only (localStorage)
 - GDPR compliant by default
 
+## Comment System
+
+### Giscus Integration (About Page)
+
+**Overview:**
+The About Page includes a comment section powered by Giscus, which uses GitHub Discussions as a backend. This provides a free, ad-free, privacy-friendly commenting system without requiring a separate backend.
+
+**Why Giscus:**
+- ✅ Completely free, no ads
+- ✅ No backend required
+- ✅ Privacy-friendly (GDPR compliant)
+- ✅ Users comment with GitHub accounts
+- ✅ Supports reactions and replies
+- ✅ Markdown formatting support
+- ✅ Easy moderation via GitHub
+- ✅ Themes match site (light/dark)
+- ✅ Data stored in your GitHub repo
+
+**Setup:**
+
+1. **Enable GitHub Discussions** on your repository
+2. **Install Giscus app** on your GitHub repo (https://github.com/apps/giscus)
+3. **Configure Giscus** at https://giscus.app to get your script tag
+4. **Add script to AboutPage** component
+
+**Implementation:**
+
+Add the Giscus script to the About page:
+
+```tsx
+// In AboutPage.tsx, at the bottom before Footer
+<div className="giscus-container max-w-4xl mx-auto px-4 py-8">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="your-username/your-repo"
+    data-repo-id="YOUR_REPO_ID"
+    data-category="General"
+    data-category-id="YOUR_CATEGORY_ID"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+```
+
+**Configuration Options:**
+- `data-repo`: Your GitHub repository (e.g., "username/recipe-website")
+- `data-mapping`: "pathname" (each page gets its own discussion)
+- `data-theme`: "preferred_color_scheme" (auto light/dark based on user preference)
+- `data-reactions-enabled`: "1" (allow emoji reactions)
+- `data-lang`: "en" or "ro" (comment interface language)
+
+**Features:**
+- Users can comment using their GitHub accounts
+- Supports threaded replies
+- Emoji reactions (👍 ❤️ 🎉 etc.)
+- Markdown formatting in comments
+- Automatic spam protection via GitHub
+- You moderate via GitHub Discussions interface
+
+**Privacy:**
+- No tracking cookies
+- No ads
+- Users control their GitHub data
+- GDPR compliant
+
+**Moderation:**
+- Manage comments in your GitHub repo's Discussions tab
+- Delete, edit, or lock discussions
+- Block users if needed
+- All standard GitHub moderation tools available
+
 ## Future Enhancements (Out of Scope)
 
 - PDF export functionality
