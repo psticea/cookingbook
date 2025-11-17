@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Recipe } from '../types/recipe';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
+import defaultImageUrl from '/default-image.jpg';
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -25,7 +26,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
 
   // Construct image path from public/images/recipes folder
   const imagePath = `/images/recipes/${recipe.category}/${recipe.id}.jpg`;
-  const defaultImage = '/default-image.jpg';
+  const defaultImage = defaultImageUrl;
 
   return (
     <Link

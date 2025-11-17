@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import defaultImageUrl from '/default-image.jpg';
 
 interface RecipeImageProps {
   recipeId: string;
@@ -18,7 +19,7 @@ export const RecipeImage: React.FC<RecipeImageProps> = ({ recipeId, category, al
   
   // Construct image path from public/images/recipes folder
   const imagePath = `/images/recipes/${category}/${recipeId}.jpg`;
-  const defaultImage = '/default-image.jpg';
+  const defaultImage = defaultImageUrl;
 
   const handleImageError = () => {
     setImageError(true);
