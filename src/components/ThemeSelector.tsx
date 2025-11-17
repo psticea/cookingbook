@@ -19,10 +19,9 @@ export const ThemeSelector: React.FC = () => {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-sm opacity-70">🌙</span>
       <button
         onClick={() => handleThemeChange('dark')}
-        className={`px-3 py-1 text-sm rounded transition-colors ${
+        className={`px-2 py-1 text-sm rounded transition-colors ${
           theme === 'dark'
             ? 'bg-accent-light dark:bg-accent-dark text-white font-semibold'
             : 'hover:bg-secondary-light dark:hover:bg-secondary-dark'
@@ -35,7 +34,7 @@ export const ThemeSelector: React.FC = () => {
       <span className="text-sm opacity-50">|</span>
       <button
         onClick={() => handleThemeChange('light')}
-        className={`px-3 py-1 text-sm rounded transition-colors ${
+        className={`px-2 py-1 text-sm rounded transition-colors ${
           theme === 'light'
             ? 'bg-accent-light dark:bg-accent-dark text-white font-semibold'
             : 'hover:bg-secondary-light dark:hover:bg-secondary-dark'

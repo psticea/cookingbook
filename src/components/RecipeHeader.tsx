@@ -2,7 +2,6 @@ import React from 'react';
 import { Recipe } from '../types/recipe';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
-import categoriesData from '../data/categories.json';
 
 interface RecipeHeaderProps {
   recipe: Recipe;
@@ -16,54 +15,34 @@ interface RecipeHeaderProps {
 export const RecipeHeader: React.FC<RecipeHeaderProps> = ({ recipe }) => {
   const { language } = useLanguage();
 
-  // Find the category name
-  const category = categoriesData.find(cat => cat.id === recipe.category);
-  const categoryName = category ? category.name[language] : recipe.category;
-
   // Get effort level translation
   const effortLevelText = getTranslation(recipe.effortLevel, language);
 
   return (
     <header className="mb-6">
       {/* Recipe Title */}
-      <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-gray-100">
+      <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
         {recipe.title[language]}
       </h1>
 
-      {/* Category Badge */}
-      <div className="mb-4">
-        <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-accent-light dark:bg-accent-dark text-white">
-          {categoryName}
-        </span>
-      </div>
-
-      {/* Recipe Metadata Row */}
-      <div className="flex flex-wrap gap-4 md:gap-6 text-gray-700 dark:text-gray-300">
+      {/* Recipe Metadata Row - Icons only */}
+      <div className="flex items-center gap-4 text-gray-700 dark:text-gray-300">
         {/* Prep Time */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
           <span className="text-xl">⏱️</span>
-          <div>
-            <span className="font-semibold">{getTranslation('prepTime', language)}:</span>
-            <span className="ml-1">{recipe.prepTime} {getTranslation('minutes', language)}</span>
-          </div>
+          <span className="text-sm">{recipe.prepTime} {getTranslation('minutes', language)}</span>
         </div>
 
         {/* Servings */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${recipe.servings}`}>
           <span className="text-xl">🍽️</span>
-          <div>
-            <span className="font-semibold">{getTranslation('servings', language)}:</span>
-            <span className="ml-1">{recipe.servings}</span>
-          </div>
+          <span className="text-sm">{recipe.servings}</span>
         </div>
 
         {/* Effort Level */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1" title={`${getTranslation('effortLevel', language)}: ${effortLevelText}`}>
           <span className="text-xl">💪</span>
-          <div>
-            <span className="font-semibold">{getTranslation('effortLevel', language)}:</span>
-            <span className="ml-1">{effortLevelText}</span>
-          </div>
+          <span className="text-sm">{effortLevelText}</span>
         </div>
       </div>
     </header>

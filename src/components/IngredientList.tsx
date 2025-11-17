@@ -35,8 +35,8 @@ export const IngredientList: React.FC<IngredientListProps> = ({ ingredients }) =
   };
 
   return (
-    <section className="mb-8">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+    <section className="mb-6">
+      <h2 className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100">
         {getTranslation('ingredients', language)}
       </h2>
 
@@ -47,13 +47,13 @@ export const IngredientList: React.FC<IngredientListProps> = ({ ingredients }) =
       />
 
       {/* Ingredients List */}
-      <ul className="space-y-3">
+      <ul className="space-y-2">
         {ingredients.map((ingredient, index) => (
           <li
             key={index}
-            className="flex items-start gap-3 text-gray-800 dark:text-gray-200"
+            className="flex items-start gap-2 text-sm text-gray-800 dark:text-gray-200"
           >
-            <span className="text-accent-light dark:text-accent-dark mt-1">•</span>
+            <span className="text-accent-light dark:text-accent-dark mt-0.5">•</span>
             <span>
               <span className="font-semibold">
                 {getScaledQuantity(ingredient.quantity)} {ingredient.unit[language]}
