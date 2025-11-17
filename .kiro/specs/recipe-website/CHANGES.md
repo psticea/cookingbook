@@ -166,7 +166,7 @@ Reorganized recipe storage from numbered files to 8 category-based folders for e
 **Changed:**
 - **Introduction**: Changed from "55 recipes (50 regular + 5 cooking basics)" to "recipes organized in 8 categories"
 - **Requirement 1**: Completely restructured
-  - Added: 8 specific categories (Breakfast, Pasta, Stir-Fries, Soups & Stews, Main Courses, Salads & Bites, Burgers & Wraps, Basics)
+  - Added: 8 specific categories (Breakfast, Pasta, Stir-Fries, Soups & Stews, Main Courses, Burgers & Wraps, Salads & Bites, Basics)
   - Changed: Recipes loaded from category-specific folders
   - Changed: Category assigned based on folder location
   - Added: All recipes from all 8 categories displayed on home page
@@ -242,8 +242,8 @@ Reorganized recipe storage from numbered files to 8 category-based folders for e
     3. stir-fries → "stir-fries"
     4. soups-and-stews → "soups-and-stews"
     5. main-courses → "main-courses"
-    6. salads-and-bites → "salads-and-bites"
-    7. burgers-and-wraps → "burgers-and-wraps"
+    6. burgers-and-wraps → "burgers-and-wraps"
+    7. salads-and-bites → "salads-and-bites"
     8. basics → "basics"
 
 ## Benefits

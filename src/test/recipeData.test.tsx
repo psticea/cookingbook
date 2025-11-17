@@ -29,6 +29,7 @@ describe('useRecipeData', () => {
     expect(firstRecipe).toHaveProperty('ingredients');
     expect(firstRecipe).toHaveProperty('instructions');
     expect(firstRecipe).toHaveProperty('keywords');
+    expect(firstRecipe).toHaveProperty('dateAdded');
   });
 });
 
@@ -45,6 +46,7 @@ describe('getRecipeById', () => {
       ingredients: [],
       instructions: { ro: [], en: [] },
       keywords: ['test'],
+      dateAdded: '2025-11-01',
     },
   ];
 
@@ -73,6 +75,7 @@ describe('getRecipesByCategory', () => {
       ingredients: [],
       instructions: { ro: [], en: [] },
       keywords: [],
+      dateAdded: '2025-11-01',
     },
     {
       id: 'recipe-002',
@@ -85,6 +88,7 @@ describe('getRecipesByCategory', () => {
       ingredients: [],
       instructions: { ro: [], en: [] },
       keywords: [],
+      dateAdded: '2025-11-02',
     },
     {
       id: 'recipe-003',
@@ -97,6 +101,7 @@ describe('getRecipesByCategory', () => {
       ingredients: [],
       instructions: { ro: [], en: [] },
       keywords: [],
+      dateAdded: '2025-11-03',
     },
   ];
 
@@ -125,6 +130,7 @@ describe('getRecipesByKeywords', () => {
       ingredients: [],
       instructions: { ro: [], en: [] },
       keywords: ['pork', 'cabbage', 'tomato-based', 'boiling'],
+      dateAdded: '2025-11-01',
     },
     {
       id: 'recipe-002',
@@ -137,6 +143,7 @@ describe('getRecipesByKeywords', () => {
       ingredients: [],
       instructions: { ro: [], en: [] },
       keywords: ['chicken', 'tomato-based', 'baking'],
+      dateAdded: '2025-11-02',
     },
     {
       id: 'recipe-003',
@@ -149,6 +156,7 @@ describe('getRecipesByKeywords', () => {
       ingredients: [],
       instructions: { ro: [], en: [] },
       keywords: ['vegetarian', 'tomato-based', 'baking'],
+      dateAdded: '2025-11-03',
     },
   ];
 

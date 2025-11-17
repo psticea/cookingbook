@@ -108,9 +108,9 @@
 - [x] 6.1 Create 8 category folders and sample recipes
 
 
-  - Create folder structure: /src/data/recipes/ with 8 subfolders (breakfast, pasta, stir-fries, soups-and-stews, main-courses, salads-and-bites, burgers-and-wraps, basics)
+  - Create folder structure: /src/data/recipes/ with 8 subfolders (breakfast, pasta, stir-fries, soups-and-stews, main-courses, burgers-and-wraps, salads-and-bites, basics)
   - Create 1-2 sample recipe JSON files in each category folder for testing
-  - Write JSON files with complete recipe data (title, prepTime, servings, effortLevel, ingredients, instructions, keywords)
+  - Write JSON files with complete recipe data (title, prepTime, servings, effortLevel, ingredients, instructions, keywords, dateAdded)
   - Include both Romanian and English translations
   - Use descriptive filenames (e.g., carbonara.json, chicken-soup.json)
   - Use placeholder image paths
@@ -119,7 +119,7 @@
 - [x] 6.2 Create categories and filter keywords JSON files
 
   - Define all 8 recipe categories with folder names, Romanian and English names
-  - Categories: breakfast, pasta, stir-fries, soups-and-stews, main-courses, salads-and-bites, burgers-and-wraps, basics
+  - Categories: breakfast, pasta, stir-fries, soups-and-stews, main-courses, burgers-and-wraps, salads-and-bites, basics
   - Define filter keywords organized by type (meat, vegetable, sauce, cooking)
   - _Requirements: 1.1, 1.2, 1.3, 7.2_
 
@@ -137,10 +137,11 @@
   - Create useRecipeData hook to dynamically load all recipe JSON files from all 8 category folders
   - Automatically assign category to each recipe based on its folder location
   - Generate recipe ID from filename (e.g., carbonara.json → id: carbonara)
+  - Sort recipes by dateAdded field in ascending order (oldest first)
   - Implement recipe lookup by ID function
   - Create utility to get recipes by category
   - Create utility to get recipes by filter keywords
-  - _Requirements: 1.1, 1.2, 1.3, 1.5, 7.4, 7.5_
+  - _Requirements: 1.1, 1.2, 1.3, 1.5, 1.6, 7.4, 7.5_
 
 - [x] 8. Build RecipePage component and related components
 
@@ -318,13 +319,14 @@
 
 - [ ] 16. Add recipes to category folders
   - Add recipe JSON files to each of the 8 category folders as needed
-  - Distribute recipes across categories: breakfast, pasta, stir-fries, soups-and-stews, main-courses, salads-and-bites, burgers-and-wraps, basics
+  - Distribute recipes across categories: breakfast, pasta, stir-fries, soups-and-stews, main-courses, burgers-and-wraps, salads-and-bites, basics
   - Use descriptive filenames (e.g., pancakes.json, beef-stew.json, caesar-salad.json)
   - Ensure all recipes have complete data with Romanian and English translations
   - Assign appropriate filter keywords to each recipe
+  - Include dateAdded field with ISO 8601 date format (YYYY-MM-DD) for each recipe
   - Use placeholder image paths (to be replaced with actual images later)
   - No need for sequential numbering - just add files to appropriate folders
-  - _Requirements: 1.1, 1.2, 1.3, 1.5_
+  - _Requirements: 1.1, 1.2, 1.3, 1.5, 1.6_
 
 - [ ] 17. Prepare for static hosting deployment
   - Create deployment configuration files (netlify.toml, vercel.json) for various platforms

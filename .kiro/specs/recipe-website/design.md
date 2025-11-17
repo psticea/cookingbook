@@ -103,13 +103,13 @@ All recipe data will be stored as JSON files organized by category folders:
         roast-chicken.json
         grilled-salmon.json
         ...
-      /salads-and-bites
-        caesar-salad.json
-        bruschetta.json
-        ...
       /burgers-and-wraps
         classic-burger.json
         chicken-wrap.json
+        ...
+      /salads-and-bites
+        caesar-salad.json
+        bruschetta.json
         ...
       /basics
         boiled-rice.json
@@ -370,6 +370,7 @@ interface Recipe {
     en: string[];
   };
   keywords: string[]; // Filter keywords
+  dateAdded: string; // ISO 8601 date string (YYYY-MM-DD) - used for sorting recipes
 }
 
 interface Ingredient {
@@ -390,6 +391,7 @@ interface Ingredient {
 - The `category` field is automatically set based on the folder the recipe is in
 - The `id` can be derived from the filename (e.g., `carbonara.json` → id: `carbonara`)
 - No need for sequential numbering - just add JSON files to the appropriate folder
+- Recipes are sorted by `dateAdded` in ascending order (oldest first) within each category
 
 ### Category Model
 
@@ -410,8 +412,8 @@ interface Category {
 3. **stir-fries** - Stir-fry recipes
 4. **soups-and-stews** - Soups and stews
 5. **main-courses** - Main course dishes
-6. **salads-and-bites** - Salads and appetizers
-7. **burgers-and-wraps** - Burgers and wraps
+6. **burgers-and-wraps** - Burgers and wraps
+7. **salads-and-bites** - Salads and appetizers
 8. **basics** - Basic cooking techniques and staples
 
 ### Filter Keyword Model

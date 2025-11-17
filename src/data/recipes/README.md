@@ -1,46 +1,85 @@
-# Recipe Data and Images
+# Recipe Data Structure
 
-This folder contains recipe data (JSON files) and images organized by category.
+## How to Add a New Recipe
 
-## Structure
+Simply create a new JSON file in the appropriate category folder. The recipe will automatically appear on the website - no code changes needed!
 
-Each category folder contains:
-- **JSON files**: Recipe data with ingredients, instructions, etc.
-- **JPG files**: Recipe images (1200x800 pixels, 3:2 aspect ratio)
+### Steps:
 
-## Image Specifications
+1. **Choose the category folder:**
+   - `breakfast/` - Breakfast recipes
+   - `pasta/` - Pasta dishes
+   - `stir-fries/` - Stir-fry recipes
+   - `soups-and-stews/` - Soups and stews
+   - `main-courses/` - Main course dishes
+   - `burgers-and-wraps/` - Burgers and wraps
+   - `salads-and-bites/` - Salads and appetizers
+   - `basics/` - Basic cooking techniques
 
-- **Format**: JPEG (.jpg)
-- **Dimensions**: 1200 x 800 pixels (3:2 aspect ratio)
-- **Quality**: High quality, optimized for web
-- **Naming**: Must match the recipe ID (e.g., `omleta-cu-branza.jpg` for `omleta-cu-branza.json`)
+2. **Create a JSON file** with a descriptive filename (e.g., `chicken-soup.json`, `chocolate-cake.json`)
 
-## Folder Structure
+3. **Use this template:**
 
+```json
+{
+  "title": {
+    "ro": "Titlu în Română",
+    "en": "Title in English"
+  },
+  "prepTime": 30,
+  "servings": 4,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "ingredient în română",
+        "en": "ingredient in english"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Primul pas în română",
+      "Al doilea pas în română"
+    ],
+    "en": [
+      "First step in English",
+      "Second step in English"
+    ]
+  },
+  "keywords": ["keyword1", "keyword2"],
+  "dateAdded": "2025-11-17"
+}
 ```
-src/data/recipes/
-├── default-image.jpg          # Default fallback image (1200x800)
-├── breakfast/
-│   ├── omleta-cu-branza.json
-│   └── omleta-cu-branza.jpg
-├── pasta/
-│   ├── spaghetti-carbonara.json
-│   └── spaghetti-carbonara.jpg
-├── stir-fries/
-├── soups-and-stews/
-├── main-courses/
-├── salads-and-bites/
-├── burgers-and-wraps/
-└── basics/
-```
 
-## Adding New Recipes
+## Important Notes:
 
-1. Create a JSON file with the recipe data in the appropriate category folder
-2. Create a 1200x800 JPG image with the same name as the recipe ID
-3. Place both files in the same category folder
-4. The image will automatically be displayed for that recipe
+- **Filename = Recipe ID**: The filename (without `.json`) becomes the recipe ID
+- **Folder = Category**: The folder name automatically sets the recipe category
+- **Automatic Loading**: All `.json` files in category folders are automatically discovered and loaded
+- **Date-Based Sorting**: Recipes are sorted by `dateAdded` in ascending order (oldest first)
+- **No Manual Imports**: You don't need to edit any code files to add recipes
+- **Date Format**: Use ISO 8601 format (YYYY-MM-DD) for the `dateAdded` field
 
-## Default Image
+## Effort Levels:
+- `"easy"` - Simple recipes
+- `"medium"` - Moderate difficulty
+- `"hard"` - Complex recipes
 
-Place a `default-image.jpg` file in the `src/data/recipes/` directory. This image will be used as a fallback when a specific recipe image is not found.
+## Common Keywords:
+- Meat types: `"chicken"`, `"beef"`, `"pork"`, `"fish"`
+- Cooking methods: `"baking"`, `"frying"`, `"boiling"`, `"grilling"`
+- Dietary: `"vegetarian"`, `"vegan"`, `"gluten-free"`
+- Meal types: `"quick"`, `"comfort-food"`, `"healthy"`
+
+## Example:
+
+File: `src/data/recipes/pasta/spaghetti-carbonara.json`
+- Recipe ID: `spaghetti-carbonara`
+- Category: `pasta`
+- Will appear under "Pasta" section on homepage

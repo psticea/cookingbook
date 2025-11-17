@@ -1,20 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Recipe } from '../types/recipe';
 
-// Import recipes from all 8 category folders
-import sarmaleCuMamaliga from '../data/recipes/main-courses/sarmale-cu-mamaliga.json';
-import ciorbaDeBurta from '../data/recipes/soups-and-stews/ciorba-de-burta.json';
-import spaghettiCarbonara from '../data/recipes/pasta/spaghetti-carbonara.json';
-import omletaCuBranza from '../data/recipes/breakfast/omleta-cu-branza.json';
-import puiCuLegume from '../data/recipes/stir-fries/pui-cu-legume.json';
-import salataCaesar from '../data/recipes/salads-and-bites/salata-caesar.json';
-import burgerClasic from '../data/recipes/burgers-and-wraps/burger-clasic.json';
-import orezFiert from '../data/recipes/basics/orez-fiert.json';
+// Dynamically import all recipe JSON files from all category folders
+// This uses Vite's import.meta.glob feature to automatically discover and load all recipes
+const recipeModules = import.meta.glob<{ default: Recipe }>('../data/recipes/**/*.json', { eager: true });
 
 /**
  * Custom hook to load and manage all recipe data
- * Loads recipes from all 8 category folders dynamically
+ * Automatically loads all JSON files from all 8 category folders
  * Category is automatically assigned based on folder location
+ * Recipes are sorted by dateAdded in ascending order (oldest first)
  * 
  * @returns Object containing recipes array and utility functions
  */
@@ -25,17 +20,32 @@ export function useRecipeData() {
 
   useEffect(() => {
     try {
-      // Combine all imported recipes from all category folders
-      const allRecipes: Recipe[] = [
-        sarmaleCuMamaliga as Recipe,
-        ciorbaDeBurta as Recipe,
-        spaghettiCarbonara as Recipe,
-        omletaCuBranza as Recipe,
-        puiCuLegume as Recipe,
-        salataCaesar as Recipe,
-        burgerClasic as Recipe,
-        orezFiert as Recipe,
-      ];
+      // Load all recipes from the imported modules
+      const allRecipes: Recipe[] = Object.entries(recipeModules).map(([path, module]) => {
+        const recipe = module.default;
+        
+        // Extract category from file path (e.g., '../data/recipes/breakfast/omleta.json' -> 'breakfast')
+        const pathParts = path.split('/');
+        const categoryIndex = pathParts.findIndex(part => part === 'recipes') + 1;
+        const category = pathParts[categoryIndex];
+        
+        // Extract recipe ID from filename (e.g., 'omleta.json' -> 'omleta')
+        const filename = pathParts[pathParts.length - 1];
+        const id = filename.replace('.json', '');
+        
+        return {
+          ...recipe,
+          id,
+          category,
+        };
+      });
+
+      // Sort recipes by dateAdded in ascending order (oldest first)
+      allRecipes.sort((a, b) => {
+        const dateA = new Date(a.dateAdded).getTime();
+        const dateB = new Date(b.dateAdded).getTime();
+        return dateA - dateB;
+      });
 
       setRecipes(allRecipes);
       setLoading(false);

@@ -23,4 +23,5 @@ export interface Recipe {
   ingredients: Ingredient[];
   instructions: MultilingualText<string[]>;
   keywords: string[]; // Filter keywords
+  dateAdded: string; // ISO 8601 date string (YYYY-MM-DD)
 }

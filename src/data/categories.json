@@ -40,19 +40,19 @@
     }
   },
   {
-    "id": "salads-and-bites",
-    "folder": "salads-and-bites",
-    "name": {
-      "ro": "Salate și Gustări",
-      "en": "Salads & Bites"
-    }
-  },
-  {
     "id": "burgers-and-wraps",
     "folder": "burgers-and-wraps",
     "name": {
       "ro": "Burgeri și Wrap-uri",
       "en": "Burgers & Wraps"
+    }
+  },
+  {
+    "id": "salads-and-bites",
+    "folder": "salads-and-bites",
+    "name": {
+      "ro": "Salate și Gustări",
+      "en": "Salads & Bites"
     }
   },
   {
