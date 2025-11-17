@@ -16,9 +16,9 @@ interface RecipeImageProps {
 export const RecipeImage: React.FC<RecipeImageProps> = ({ recipeId, category, alt }) => {
   const [imageError, setImageError] = useState(false);
   
-  // Construct image path from src/data/recipes folder
-  const imagePath = `/src/data/recipes/${category}/${recipeId}.jpg`;
-  const defaultImage = '/src/data/recipes/default-image.jpg';
+  // Construct image path from public/images/recipes folder
+  const imagePath = `/images/recipes/${category}/${recipeId}.jpg`;
+  const defaultImage = '/default-image.jpg';
 
   const handleImageError = () => {
     setImageError(true);

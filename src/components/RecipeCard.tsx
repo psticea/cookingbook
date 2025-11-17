@@ -23,9 +23,9 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const effortLevelKey = `effortLevel.${recipe.effortLevel}`;
   const effortLevel = getTranslation(effortLevelKey, language);
 
-  // Construct image path from src/data/recipes folder
-  const imagePath = `/src/data/recipes/${recipe.category}/${recipe.id}.jpg`;
-  const defaultImage = '/src/data/recipes/default-image.jpg';
+  // Construct image path from public/images/recipes folder
+  const imagePath = `/images/recipes/${recipe.category}/${recipe.id}.jpg`;
+  const defaultImage = '/default-image.jpg';
 
   return (
     <Link
