@@ -28,6 +28,7 @@ describe('useRecipeData', () => {
     expect(firstRecipe).toHaveProperty('title');
     expect(firstRecipe).toHaveProperty('ingredients');
     expect(firstRecipe).toHaveProperty('instructions');
+    expect(firstRecipe).toHaveProperty('personalNotes');
     expect(firstRecipe).toHaveProperty('keywords');
     expect(firstRecipe).toHaveProperty('dateAdded');
   });
@@ -45,6 +46,7 @@ describe('getRecipeById', () => {
       image: 'test.jpg',
       ingredients: [],
       instructions: { ro: [], en: [] },
+      personalNotes: { ro: 'Test notes', en: 'Test notes' },
       keywords: ['test'],
       dateAdded: '2025-11-01',
     },
@@ -74,6 +76,7 @@ describe('getRecipesByCategory', () => {
       image: 'test.jpg',
       ingredients: [],
       instructions: { ro: [], en: [] },
+      personalNotes: { ro: '', en: '' },
       keywords: [],
       dateAdded: '2025-11-01',
     },
@@ -87,6 +90,7 @@ describe('getRecipesByCategory', () => {
       image: 'test.jpg',
       ingredients: [],
       instructions: { ro: [], en: [] },
+      personalNotes: { ro: '', en: '' },
       keywords: [],
       dateAdded: '2025-11-02',
     },
@@ -100,6 +104,7 @@ describe('getRecipesByCategory', () => {
       image: 'test.jpg',
       ingredients: [],
       instructions: { ro: [], en: [] },
+      personalNotes: { ro: '', en: '' },
       keywords: [],
       dateAdded: '2025-11-03',
     },
@@ -129,6 +134,7 @@ describe('getRecipesByKeywords', () => {
       image: 'test.jpg',
       ingredients: [],
       instructions: { ro: [], en: [] },
+      personalNotes: { ro: '', en: '' },
       keywords: ['pork', 'cabbage', 'tomato-based', 'boiling'],
       dateAdded: '2025-11-01',
     },
@@ -142,6 +148,7 @@ describe('getRecipesByKeywords', () => {
       image: 'test.jpg',
       ingredients: [],
       instructions: { ro: [], en: [] },
+      personalNotes: { ro: '', en: '' },
       keywords: ['chicken', 'tomato-based', 'baking'],
       dateAdded: '2025-11-02',
     },
@@ -155,6 +162,7 @@ describe('getRecipesByKeywords', () => {
       image: 'test.jpg',
       ingredients: [],
       instructions: { ro: [], en: [] },
+      personalNotes: { ro: '', en: '' },
       keywords: ['vegetarian', 'tomato-based', 'baking'],
       dateAdded: '2025-11-03',
     },

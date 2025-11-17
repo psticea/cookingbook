@@ -8,6 +8,7 @@ import { RecipeHeader } from '../components/RecipeHeader';
 import { RecipeImage } from '../components/RecipeImage';
 import { IngredientList } from '../components/IngredientList';
 import { InstructionList } from '../components/InstructionList';
+import { PersonalNotes } from '../components/PersonalNotes';
 import { Footer } from '../components/Footer';
 
 const RecipePage: React.FC = () => {
@@ -90,6 +91,9 @@ const RecipePage: React.FC = () => {
 
         {/* Instruction List */}
         <InstructionList instructions={recipe.instructions} />
+
+        {/* Personal Notes */}
+        <PersonalNotes notes={recipe.personalNotes} />
       </main>
 
       {/* Footer with preference selectors */}

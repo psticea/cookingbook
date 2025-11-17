@@ -86,6 +86,10 @@
       "Serve immediately with extra parmesan."
     ]
   },
+  "personalNotes": {
+    "ro": "Carbonara autentică nu conține smântână! Secretul este să amesteci rapid ouăle cu pasta fierbinte pentru a crea un sos cremos fără să se prăjească ouăle. Folosește întotdeauna parmezan proaspăt ras și piper negru măcinat pe loc pentru cel mai bun gust. Este una dintre rețetele mele preferate pentru o cină rapidă dar impresionantă.",
+    "en": "Authentic carbonara doesn't contain cream! The secret is to quickly mix the eggs with the hot pasta to create a creamy sauce without scrambling the eggs. Always use freshly grated parmesan and freshly ground black pepper for the best taste. It's one of my favorite recipes for a quick but impressive dinner."
+  },
   "keywords": ["pork", "cream-based", "boiling"],
   "dateAdded": "2025-11-02"
 }

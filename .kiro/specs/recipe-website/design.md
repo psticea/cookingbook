@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Recipe Website is a static, client-side web application that provides access to recipes organized in 8 categories with multilingual support (Romanian/English), theme switching (dark/light), text size adjustment, ingredient scaling, and filtering capabilities. The application can be hosted on any static hosting platform (GitHub Pages, Netlify, Vercel, etc.) and uses Google Analytics 4 for analytics tracking.
+The Recipe Website is a static, client-side web application that provides access to recipes organized in 8 categories with multilingual support (Romanian/English), theme switching (dark/light), text size adjustment, ingredient scaling, and filtering capabilities. The application can be hosted on any static hosting platform (GitHub Pages, Netlify, Vercel, etc.) and uses Cloudflare Web Analytics for privacy-friendly analytics tracking without cookies.
 
 ### Key Design Principles
 
@@ -20,13 +20,13 @@ The Recipe Website is a static, client-side web application that provides access
 graph TB
     User[User Browser]
     StaticHost[Static Hosting Platform]
-    GA4[Google Analytics 4]
+    CF[Cloudflare Web Analytics]
     CDN[Image CDN/Storage]
     
     User -->|HTTPS| StaticHost
     StaticHost -->|Serves| HTML[HTML/CSS/JS]
     StaticHost -->|Serves| Images[Recipe Images]
-    User -->|Analytics Events| GA4
+    User -->|Page Views| CF
     CDN -->|Hosts| Images
 ```
 
@@ -51,7 +51,7 @@ graph TB
 - Any static hosting platform
 
 **Analytics:**
-- **Google Analytics 4**: Free web analytics with event tracking
+- **Cloudflare Web Analytics**: Free, privacy-friendly web analytics without cookies
 
 **Image Storage:**
 - **GitHub Repository**: Images stored in repo (simple, version controlled)
@@ -60,7 +60,6 @@ graph TB
 **Key Dependencies:**
 - `react` & `react-dom`: UI framework
 - `react-router-dom`: Client-side routing
-- `react-ga4`: Google Analytics 4 integration
 - `tailwindcss`: Utility-first CSS framework
 - `typescript`: Type checking and compilation
 - `vite`: Build tool and dev server
@@ -188,6 +187,10 @@ Displays a single recipe with all details.
 │ Instructions                     │
 │ 1. Step one...                  │
 │ 2. Step two...                  │
+├─────────────────────────────────┤
+│ Personal Notes                   │
+│ Personal opinions, preferences,  │
+│ and backstory about the recipe   │
 ├─────────────────────────────────┤
 │ [Footer with selectors]         │
 └─────────────────────────────────┘
@@ -369,6 +372,10 @@ interface Recipe {
     ro: string[];
     en: string[];
   };
+  personalNotes: {
+    ro: string;
+    en: string;
+  }; // Personal opinions, preferences, backstory
   keywords: string[]; // Filter keywords
   dateAdded: string; // ISO 8601 date string (YYYY-MM-DD) - used for sorting recipes
 }
@@ -634,76 +641,54 @@ For platforms that support configuration files (like Netlify, Vercel), create ap
 
 **GitHub Pages**: No configuration needed, just deploy the `dist` folder.
 
-### Google Analytics 4 Integration
+### Cloudflare Web Analytics Integration
 
-**Installation:**
-```bash
-npm install react-ga4
+**No Installation Required** - Cloudflare Web Analytics uses a simple script tag, no npm packages needed.
+
+**Setup Steps:**
+
+1. **Sign up for Cloudflare** (free account)
+2. **Add your site to Web Analytics** in the Cloudflare dashboard
+3. **Get your tracking token** from the dashboard
+4. **Add the script to your HTML**
+
+**Implementation:**
+
+Add the Cloudflare Web Analytics script to `index.html`:
+
+```html
+<!-- In index.html, before closing </body> tag -->
+<script defer 
+        src='https://static.cloudflareinsights.com/beacon.min.js' 
+        data-cf-beacon='{"token": "YOUR_TOKEN_HERE"}'>
+</script>
 ```
+
+**What Gets Tracked Automatically:**
+- Page views (all routes)
+- Unique visitors (estimated, privacy-friendly)
+- Referrers (where visitors come from)
+- Top pages
+- Countries
+- Browsers and devices
+
+**Privacy Benefits:**
+- ✅ No cookies used
+- ✅ No personal data collected
+- ✅ GDPR compliant by default
+- ✅ No consent banner required
+- ✅ Respects user privacy
 
 **Configuration:**
 
-```typescript
-// src/utils/analytics.ts
-import ReactGA from 'react-ga4';
-
-// Initialize GA4
-export const initGA = (): void => {
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-  if (measurementId) {
-    ReactGA.initialize(measurementId);
-  }
-};
-
-// Track page views
-export const trackPageView = (path: string): void => {
-  ReactGA.send({ hitType: 'pageview', page: path });
-};
-
-// Track custom events
-export const trackEvent = (category: string, action: string, label?: string): void => {
-  ReactGA.event({
-    category,
-    action,
-    label,
-  });
-};
+Create `.env` file (optional, for documentation):
+```
+# Cloudflare Web Analytics Token
+# Add this token to index.html script tag
+VITE_CF_ANALYTICS_TOKEN=your-token-here
 ```
 
-**Usage in App:**
-```typescript
-// In App.tsx
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { initGA, trackPageView } from './utils/analytics';
-
-function App() {
-  const location = useLocation();
-
-  useEffect(() => {
-    initGA();
-  }, []);
-
-  useEffect(() => {
-    trackPageView(location.pathname + location.search);
-  }, [location]);
-
-  // ... rest of app
-}
-```
-
-**Tracked Events:**
-- Page views (automatic on route change)
-- Recipe views (custom event)
-- Filter usage (custom event)
-- Language changes (custom event)
-- Theme changes (custom event)
-
-**Environment Variable:**
-Create `.env` file:
-```
-VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-```
+**Note:** Unlike Google Analytics, Cloudflare Web Analytics doesn't require JavaScript initialization or custom event tracking code. Simply add the script tag and it works automatically.
 
 ### Image Storage Options
 
@@ -868,9 +853,9 @@ Cache-Control headers:
 ```html
 <meta http-equiv="Content-Security-Policy" 
       content="default-src 'self'; 
-               img-src 'self' https://*.googletagmanager.com; 
-               script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
-               connect-src 'self' https://www.google-analytics.com https://analytics.google.com;
+               img-src 'self' data:; 
+               script-src 'self' https://static.cloudflareinsights.com;
+               connect-src 'self' https://cloudflareinsights.com;
                style-src 'self' 'unsafe-inline';">
 ```
 
@@ -878,8 +863,10 @@ Cache-Control headers:
 
 - No user authentication required
 - No personal data collected
-- Analytics data anonymized
-- Preferences stored locally only
+- No cookies used (Cloudflare Web Analytics is cookie-free)
+- Analytics data is privacy-friendly and anonymous
+- Preferences stored locally only (localStorage)
+- GDPR compliant by default
 
 ## Future Enhancements (Out of Scope)
 

@@ -110,7 +110,7 @@
 
   - Create folder structure: /src/data/recipes/ with 8 subfolders (breakfast, pasta, stir-fries, soups-and-stews, main-courses, burgers-and-wraps, salads-and-bites, basics)
   - Create 1-2 sample recipe JSON files in each category folder for testing
-  - Write JSON files with complete recipe data (title, prepTime, servings, effortLevel, ingredients, instructions, keywords, dateAdded)
+  - Write JSON files with complete recipe data (title, prepTime, servings, effortLevel, ingredients, instructions, personalNotes, keywords, dateAdded)
   - Include both Romanian and English translations
   - Use descriptive filenames (e.g., carbonara.json, chicken-soup.json)
   - Use placeholder image paths
@@ -193,15 +193,23 @@
   - Style for readability with appropriate spacing
   - _Requirements: 2.5_
 
-- [x] 8.6 Assemble RecipePage component
+- [x] 8.6 Create PersonalNotes component
 
 
-  - Combine all recipe sub-components in correct order
+  - Display personal notes section after instructions
+  - Support both Romanian and English text
+  - Style with distinct visual separation from instructions
+  - _Requirements: 2.6_
+
+- [x] 8.7 Assemble RecipePage component
+
+
+  - Combine all recipe sub-components in correct order (header, image, ingredients, instructions, personal notes)
   - Load recipe data by ID from URL parameter
   - Handle missing or invalid recipe IDs with error message and redirect
   - Ensure minimal distractions with clean layout
   - Position Footer at bottom
-  - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8_
+  - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9_
 
 - [x] 9. Build HomePage with recipe grid
 
@@ -307,14 +315,14 @@
   - Test navigation and Footer on all screen sizes
   - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5_
 
-- [ ] 15. Set up Google Analytics 4 for analytics
-  - Install react-ga4 package
-  - Create analytics utility module with initialization code (initGA, trackPageView, trackEvent functions)
-  - Add GA4 initialization in App component
-  - Implement automatic page view tracking on route changes
-  - Create custom event tracking for recipe views, filter usage, language changes, and theme changes
-  - Configure to fail silently if GA_MEASUREMENT_ID is not provided
-  - Create .env.example with VITE_GA_MEASUREMENT_ID placeholder
+- [ ] 15. Set up Cloudflare Web Analytics for privacy-friendly analytics
+  - Sign up for free Cloudflare account and add site to Web Analytics
+  - Get analytics token from Cloudflare dashboard
+  - Add Cloudflare Web Analytics script tag to index.html before closing body tag
+  - Add token to script's data-cf-beacon attribute
+  - Create .env.example with VITE_CF_ANALYTICS_TOKEN placeholder for documentation
+  - Verify analytics are working in Cloudflare dashboard
+  - No npm packages or JavaScript code required - works automatically
   - _Requirements: 10.1, 10.2, 10.3, 10.4_
 
 - [ ] 16. Add recipes to category folders

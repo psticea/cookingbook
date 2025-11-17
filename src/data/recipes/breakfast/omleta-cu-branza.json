@@ -73,6 +73,10 @@
       "Cook for 1 more minute and serve immediately."
     ]
   },
+  "personalNotes": {
+    "ro": "Această omletă este perfectă pentru un mic dejun rapid și sățios. Îmi place să folosesc brânză telemea pentru un gust autentic românesc, dar poți folosi și brânză feta sau cheddar. Secretul unei omlete pufoase este să nu bați ouăle prea mult și să gătiți la foc mediu.",
+    "en": "This omelette is perfect for a quick and filling breakfast. I like to use telemea cheese for an authentic Romanian taste, but you can also use feta or cheddar cheese. The secret to a fluffy omelette is not to beat the eggs too much and to cook over medium heat."
+  },
   "keywords": ["vegetarian", "frying"],
   "dateAdded": "2025-11-01"
 }

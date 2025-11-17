@@ -108,6 +108,10 @@
       "Serve with french fries."
     ]
   },
+  "personalNotes": {
+    "ro": "Un burger bun începe cu carne de calitate. Îmi place să folosesc carne tocată cu 20% grăsime pentru a obține chiftele suculente. Nu apăsa chiftelele pe grătar - asta face carnea uscată! Lasă-le să se gătească liniștit. Poți personaliza burgerul cu sosurile tale preferate - eu recomand un mix de ketchup, muștar și maioneză.",
+    "en": "A good burger starts with quality meat. I like to use ground beef with 20% fat to get juicy patties. Don't press the patties on the grill - that makes the meat dry! Let them cook peacefully. You can customize the burger with your favorite sauces - I recommend a mix of ketchup, mustard, and mayonnaise."
+  },
   "keywords": ["beef", "tomatoes", "onions", "grilling"],
   "dateAdded": "2025-11-06"
 }

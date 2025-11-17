@@ -83,14 +83,14 @@ Changed the filter functionality from a separate page (`/filter`) to a side menu
 # Analytics and Hosting Changes
 
 ## Overview
-Changed from Azure-specific services to platform-agnostic solutions using Google Analytics 4 and flexible static hosting options.
+Changed from Azure-specific services to platform-agnostic solutions using Cloudflare Web Analytics (privacy-friendly, cookie-free) and flexible static hosting options.
 
 ## Changes Made
 
 ### Requirements Document (requirements.md)
 
 **Changed:**
-- Updated Glossary: "Analytics System" now specifies Google Analytics 4 (GA4)
+- Updated Glossary: "Analytics System" now specifies Cloudflare Web Analytics (cookie-free, privacy-friendly)
 - Updated Requirement 11: Changed from Azure-specific to generic static hosting
   - Removed: Azure cloud infrastructure requirement
   - Added: Generic static website deployment requirement
@@ -102,12 +102,12 @@ Changed from Azure-specific services to platform-agnostic solutions using Google
 - **Overview**: Changed from "Azure Static Web Apps" to "any static hosting platform"
 - **Architecture Diagram**: Replaced Azure services with generic alternatives
   - Azure Static Web App → Static Hosting Platform
-  - Azure Application Insights → Google Analytics 4
+  - Azure Application Insights → Cloudflare Web Analytics
   - Azure Blob Storage → Image CDN/Storage
   
 - **Technology Stack**:
   - Removed: `@microsoft/applicationinsights-web`
-  - Added: `react-ga4` for Google Analytics integration
+  - No analytics npm packages needed (Cloudflare uses simple script tag)
   - Added: Multiple hosting options (GitHub Pages, Netlify, Vercel, Cloudflare Pages)
   - Added: Image storage options (GitHub repo or CDN services)
 
@@ -116,20 +116,20 @@ Changed from Azure-specific services to platform-agnostic solutions using Google
   - Removed: Azure Application Insights integration
   - Removed: Azure Blob Storage setup
   - Added: Configuration for multiple platforms (Netlify, Vercel, GitHub Pages)
-  - Added: Google Analytics 4 integration with react-ga4
+  - Added: Cloudflare Web Analytics integration (simple script tag, no npm packages)
   - Added: GitHub Actions workflow for GitHub Pages
   - Added: Image storage options (in-repo vs CDN)
 
-- **Security**: Updated Content Security Policy for Google Analytics domains
+- **Security**: Updated Content Security Policy for Cloudflare Web Analytics domains
 
 ### Tasks Document (tasks.md)
 
 **Changed:**
-- **Task 14**: "Set up Azure Application Insights" → "Set up Google Analytics 4"
-  - Changed package: `@microsoft/applicationinsights-web` → `react-ga4`
-  - Changed env variable: `VITE_APPINSIGHTS_CONNECTION_STRING` → `VITE_GA_MEASUREMENT_ID`
-  - Added: Automatic page view tracking on route changes
-  - Added: Graceful failure if GA ID not provided
+- **Task 15**: "Set up Azure Application Insights" → "Set up Cloudflare Web Analytics"
+  - No npm packages required (uses simple script tag)
+  - Changed env variable: `VITE_APPINSIGHTS_CONNECTION_STRING` → `VITE_CF_ANALYTICS_TOKEN` (for documentation only)
+  - Automatic page view tracking (no JavaScript code needed)
+  - Privacy-friendly, cookie-free analytics
 
 - **Task 16**: "Prepare for Azure Static Web Apps" → "Prepare for static hosting"
   - Removed: `staticwebapp.config.json`
@@ -145,11 +145,12 @@ Changed from Azure-specific services to platform-agnostic solutions using Google
 ## Benefits
 
 1. **Platform Flexibility**: Can deploy to GitHub Pages, Netlify, Vercel, or any static host
-2. **Zero Cost Option**: GitHub Pages is completely free
+2. **Zero Cost Option**: GitHub Pages and Cloudflare Web Analytics are completely free
 3. **Simpler Setup**: No Azure account or configuration needed
-4. **Familiar Tools**: Google Analytics is widely known and documented
-5. **Version Control**: Images can be stored in the repo alongside code
-6. **No Vendor Lock-in**: Easy to switch hosting providers
+4. **Privacy-Friendly**: Cloudflare Web Analytics uses no cookies and requires no consent banner
+5. **GDPR Compliant**: Analytics are privacy-friendly by default
+6. **Version Control**: Images can be stored in the repo alongside code
+7. **No Vendor Lock-in**: Easy to switch hosting providers
 
 
 ---

@@ -52,6 +52,10 @@ Simply create a new JSON file in the appropriate category folder. The recipe wil
       "Second step in English"
     ]
   },
+  "personalNotes": {
+    "ro": "Notițe personale, opinii, preferințe sau povestea rețetei în română",
+    "en": "Personal notes, opinions, preferences or recipe backstory in English"
+  },
   "keywords": ["keyword1", "keyword2"],
   "dateAdded": "2025-11-17"
 }

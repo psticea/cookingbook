@@ -108,6 +108,10 @@
       "Serve hot with chopped garlic and hot peppers."
     ]
   },
+  "personalNotes": {
+    "ro": "Ciorba de burtă este un clasic al bucătăriei românești și rețeta preferată a familiei mele pentru ocazii speciale. Da, pregătirea durează mult timp, dar rezultatul merită efortul. Secretul este să fierbi burta până devine foarte moale și să adaugi smântâna la sfârșit, amestecând continuu pentru a nu se tăia. Se servește tradițional cu ardei iute și usturoi.",
+    "en": "Tripe soup is a classic of Romanian cuisine and my family's favorite recipe for special occasions. Yes, the preparation takes a long time, but the result is worth the effort. The secret is to boil the tripe until it becomes very tender and to add the sour cream at the end, stirring continuously so it doesn't curdle. It's traditionally served with hot peppers and garlic."
+  },
   "keywords": ["beef", "cream-based", "boiling"],
   "dateAdded": "2025-11-04"
 }

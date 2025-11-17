@@ -110,6 +110,10 @@
       "Serve hot with rice."
     ]
   },
+  "personalNotes": {
+    "ro": "Stir-fry-ul este perfect pentru o masă rapidă în timpul săptămânii. Cheia este să ai toate ingredientele pregătite înainte de a începe să gătiți, pentru că totul se întâmplă foarte repede. Îmi place să adaug și câteva fulgi de ardei iute pentru un pic de picant. Poți înlocui puiul cu tofu pentru o variantă vegetariană.",
+    "en": "Stir-fry is perfect for a quick weeknight meal. The key is to have all ingredients prepared before you start cooking, because everything happens very fast. I like to add some red pepper flakes for a bit of heat. You can replace the chicken with tofu for a vegetarian version."
+  },
   "keywords": ["chicken", "peppers", "onions", "carrots", "oil-based", "frying"],
   "dateAdded": "2025-11-03"
 }

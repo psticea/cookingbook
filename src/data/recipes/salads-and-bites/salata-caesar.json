@@ -84,6 +84,10 @@
       "Serve immediately."
     ]
   },
+  "personalNotes": {
+    "ro": "Salata Caesar este perfectă pentru o masă ușoară dar sățioasă. Poți pregăti puiul în avans și să păstrezi salata în frigider pentru un prânz rapid. Îmi place să adaug extra parmezan și crutoane crocante. Pentru o versiune mai sănătoasă, poți înlocui sosul Caesar cu iaurt grecesc amestecat cu lămâie și usturoi.",
+    "en": "Caesar salad is perfect for a light but filling meal. You can prepare the chicken in advance and keep the salad in the fridge for a quick lunch. I like to add extra parmesan and crispy croutons. For a healthier version, you can replace the Caesar dressing with Greek yogurt mixed with lemon and garlic."
+  },
   "keywords": ["chicken", "cream-based", "grilling"],
   "dateAdded": "2025-11-07"
 }

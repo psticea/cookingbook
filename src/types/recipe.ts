@@ -22,6 +22,7 @@ export interface Recipe {
   image: string; // URL to 1200x1200 image
   ingredients: Ingredient[];
   instructions: MultilingualText<string[]>;
+  personalNotes: MultilingualText; // Personal opinions, preferences, backstory
   keywords: string[]; // Filter keywords
   dateAdded: string; // ISO 8601 date string (YYYY-MM-DD)
 }

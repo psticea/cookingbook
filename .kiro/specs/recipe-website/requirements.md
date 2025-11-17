@@ -14,7 +14,7 @@ This document specifies the requirements for a multilingual recipe website. The 
 - **Language Selector**: A UI component positioned at the bottom of each page that switches the website language between Romanian and English
 - **Text Size Adjuster**: A UI component positioned at the bottom of each page that changes the text size across three predefined levels
 - **Theme Selector**: A UI component positioned at the bottom of each page that switches between dark and light visual themes
-- **Analytics System**: Google Analytics 4 (GA4) that tracks and records page access metrics
+- **Analytics System**: Cloudflare Web Analytics that tracks and records page access metrics without using cookies
 - **About Page**: A static page providing information about the website
 - **Cooking Basics Page**: A page containing fundamental cooking advice and pantry recommendations
 - **Category**: A classification grouping for recipes
@@ -47,9 +47,10 @@ This document specifies the requirements for a multilingual recipe website. The 
 3. WHEN a User views a Recipe Page, THE Recipe Website SHALL display the effort level at the top of the page
 4. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a list of ingredients
 5. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a list of instructions
-6. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a square recipe image with dimensions of 1200 by 1200 pixels
-7. THE Recipe Website SHALL position all interactive options at the bottom of the Recipe Page
-8. THE Recipe Website SHALL minimize visual distractions in the Recipe Page layout
+6. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a Personal Notes section after the instructions
+7. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a square recipe image with dimensions of 1200 by 1200 pixels
+8. THE Recipe Website SHALL position all interactive options at the bottom of the Recipe Page
+9. THE Recipe Website SHALL minimize visual distractions in the Recipe Page layout
 
 ### Requirement 3
 
