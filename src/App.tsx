@@ -22,7 +22,7 @@ function App() {
     <LanguageProvider>
       <TextSizeProvider>
         <ThemeProvider>
-          <BrowserRouter>
+          <BrowserRouter basename="/cookingbook">
             <div className="min-h-screen bg-primary-light dark:bg-primary-dark text-gray-900 dark:text-gray-100">
               <Suspense fallback={<LoadingFallback />}>
                 <Routes>
