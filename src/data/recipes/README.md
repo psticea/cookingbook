@@ -22,6 +22,9 @@ Simply create a new JSON file in the appropriate category folder. The recipe wil
 
 ```json
 {
+  "id": "recipe-name",
+  "category": "pasta",
+  "image": "/images/recipes/pasta/recipe-name.jpg",
   "title": {
     "ro": "Titlu în Română",
     "en": "Title in English"
@@ -61,6 +64,11 @@ Simply create a new JSON file in the appropriate category folder. The recipe wil
 }
 ```
 
+**Important:**
+- `id` must match the filename (without `.json`)
+- `category` must match the folder name
+- `image` path should follow the pattern `/images/recipes/{category}/{id}.jpg`
+
 ## Important Notes:
 
 - **Filename = Recipe ID**: The filename (without `.json`) becomes the recipe ID
@@ -69,6 +77,7 @@ Simply create a new JSON file in the appropriate category folder. The recipe wil
 - **Date-Based Sorting**: Recipes are sorted by `dateAdded` in ascending order (oldest first)
 - **No Manual Imports**: You don't need to edit any code files to add recipes
 - **Date Format**: Use ISO 8601 format (YYYY-MM-DD) for the `dateAdded` field
+- **Schema Validation**: Use `recipe.schema.json` to validate your recipes before adding them
 
 ## Effort Levels:
 - `"easy"` - Simple recipes
@@ -87,3 +96,44 @@ File: `src/data/recipes/pasta/spaghetti-carbonara.json`
 - Recipe ID: `spaghetti-carbonara`
 - Category: `pasta`
 - Will appear under "Pasta" section on homepage
+
+## Validating Recipes
+
+### Using JSON Schema
+
+A JSON Schema file (`recipe.schema.json`) is provided to validate your recipes before adding them.
+
+**Online Validation:**
+1. Go to https://www.jsonschemavalidator.net/
+2. Paste the contents of `recipe.schema.json` in the left panel
+3. Paste your recipe JSON in the right panel
+4. Check for validation errors
+
+**VS Code Validation:**
+1. Install the "JSON Schema Validator" extension
+2. Add this to the top of your recipe JSON file:
+```json
+{
+  "$schema": "../recipe.schema.json",
+  "title": { ... }
+}
+```
+3. VS Code will automatically validate as you type
+
+**Command Line Validation (using ajv-cli):**
+```bash
+# Install ajv-cli globally
+npm install -g ajv-cli
+
+# Validate a recipe
+ajv validate -s src/data/recipes/recipe.schema.json -d src/data/recipes/pasta/your-recipe.json
+```
+
+### Common Validation Errors:
+
+- **Missing required fields**: Ensure all required fields are present
+- **Wrong data types**: Check that numbers are numbers, strings are strings
+- **Invalid effortLevel**: Must be "easy", "medium", or "hard"
+- **Invalid dateAdded**: Must be in YYYY-MM-DD format
+- **Empty arrays**: Instructions and ingredients must have at least one item
+- **Missing translations**: Both "ro" and "en" must be provided for all text fields

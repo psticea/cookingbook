@@ -1,6 +1,7 @@
 {
   "id": "burger-clasic",
   "category": "burgers-and-wraps",
+  "image": "/images/recipes/burgers-and-wraps/burger-clasic.jpg",
   "title": {
     "ro": "Burger Clasic",
     "en": "Classic Burger"
