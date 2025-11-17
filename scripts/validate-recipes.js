@@ -15,7 +15,7 @@ const Ajv = require('ajv');
 const ajv = new Ajv({ allErrors: true });
 
 // Load schema
-const schemaPath = path.join(__dirname, '../src/data/recipes/recipe.schema.json');
+const schemaPath = path.join(__dirname, '../src/schemas/recipe.schema.json');
 const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'));
 const validate = ajv.compile(schema);
 

@@ -9,7 +9,7 @@ A JSON Schema file (`recipe.schema.json`) defines the structure and validation r
 ### Schema Location
 
 ```
-src/data/recipes/recipe.schema.json
+src/schemas/recipe.schema.json
 ```
 
 ## Validation Methods

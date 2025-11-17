@@ -77,7 +77,7 @@ Simply create a new JSON file in the appropriate category folder. The recipe wil
 - **Date-Based Sorting**: Recipes are sorted by `dateAdded` in ascending order (oldest first)
 - **No Manual Imports**: You don't need to edit any code files to add recipes
 - **Date Format**: Use ISO 8601 format (YYYY-MM-DD) for the `dateAdded` field
-- **Schema Validation**: Use `recipe.schema.json` to validate your recipes before adding them
+- **Schema Validation**: Use `src/schemas/recipe.schema.json` to validate your recipes before adding them
 
 ## Effort Levels:
 - `"easy"` - Simple recipes
