@@ -182,7 +182,8 @@ Displays a single recipe with all details.
 │ Recipe Title                     │
 │ Category Badge                   │
 ├─────────────────────────────────┤
-│ ⏱️ Prep Time | 🍽️ Servings | 💪 Effort │
+│ ⏱️ Prep Time | 🍽️ Servings | 🧩 Difficulty │
+│                        (1-3 puzzle icons) │
 ├─────────────────────────────────┤
 │                                  │
 │     [Recipe Image 1200x1200]    │
@@ -204,6 +205,11 @@ Displays a single recipe with all details.
 │ [Footer with selectors]         │
 └─────────────────────────────────┘
 ```
+
+**Difficulty Display:**
+- Easy: 🧩 (1 puzzle piece icon)
+- Medium: 🧩🧩 (2 puzzle piece icons)
+- Hard: 🧩🧩🧩 (3 puzzle piece icons)
 
 #### 2. IngredientScaler Component
 

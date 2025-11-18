@@ -14,15 +14,31 @@ interface RecipeCardProps {
  * Displays a recipe card with thumbnail, title, and metadata
  * Links to the recipe detail page
  * Category is not shown as it's displayed in the section header
+ * Effort level is shown using puzzle piece icons (1-3 pieces)
  * Images are 1200x800 (3:2 aspect ratio)
  */
 export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const { language } = useLanguage();
   const [imageError, setImageError] = React.useState(false);
 
-  // Get effort level translation
+  // Get effort level translation for tooltip
   const effortLevelKey = `effortLevel.${recipe.effortLevel}`;
   const effortLevel = getTranslation(effortLevelKey, language);
+
+  // Generate puzzle piece icons based on effort level
+  const getPuzzlePieces = (effortLevel: string): string => {
+    const puzzlePiece = '🧩';
+    switch (effortLevel) {
+      case 'easy':
+        return puzzlePiece;
+      case 'medium':
+        return puzzlePiece.repeat(2);
+      case 'hard':
+        return puzzlePiece.repeat(3);
+      default:
+        return puzzlePiece;
+    }
+  };
 
   // Construct image path from public/images/recipes folder
   // Use import.meta.env.BASE_URL to handle base path correctly
@@ -52,19 +68,18 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
           {recipe.title[language]}
         </h3>
 
-        {/* Recipe Metadata */}
+        {/* Recipe Metadata - Icons and numbers only */}
         <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
             <span>⏱️</span>
-            <span>{recipe.prepTime} {getTranslation('minutes', language)}</span>
+            <span className="font-medium">{recipe.prepTime}</span>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${recipe.servings}`}>
             <span>🍽️</span>
-            <span>{recipe.servings} {getTranslation('servings', language)}</span>
+            <span className="font-medium">{recipe.servings}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <span>💪</span>
-            <span>{effortLevel}</span>
+          <div className="flex items-center gap-1" title={effortLevel}>
+            <span>{getPuzzlePieces(recipe.effortLevel)}</span>
           </div>
         </div>
       </div>

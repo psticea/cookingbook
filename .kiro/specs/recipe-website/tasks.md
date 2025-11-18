@@ -424,6 +424,19 @@
   - Test ingredient scaling with grouped sections
   - _Requirements: 2.5, 2.6, 3.2_
 
+- [ ] 16B. Update difficulty display to use puzzle piece icons
+- [ ] 16B.1 Update RecipeHeader component to display puzzle piece icons
+  - Replace text-based effort level display with puzzle piece icons (🧩)
+  - Display 1 icon for easy, 2 icons for medium, 3 icons for hard
+  - Maintain responsive layout with prep time and servings
+  - _Requirements: 2.3, 2.4, 2.5, 2.6_
+
+- [ ] 16B.2 Update RecipeCard component to display puzzle piece icons
+  - Replace text-based effort level display with puzzle piece icons (🧩)
+  - Display 1 icon for easy, 2 icons for medium, 3 icons for hard
+  - Ensure icons are visible and properly sized in card layout
+  - _Requirements: 2.7_
+
 - [ ] 17. Prepare for static hosting deployment
   - Create deployment configuration files (netlify.toml, vercel.json) for various platforms
   - Create GitHub Actions workflow for GitHub Pages deployment

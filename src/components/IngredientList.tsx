@@ -6,6 +6,9 @@ import { IngredientScaler } from './IngredientScaler';
 
 interface IngredientListProps {
   ingredients: IngredientItem[];
+  prepTime: number;
+  servings: number;
+  effortLevel: 'easy' | 'medium' | 'hard';
 }
 
 /**
@@ -13,9 +16,16 @@ interface IngredientListProps {
  * Displays list of ingredients with quantities and units
  * Supports optional section headings mixed in with ingredients
  * Integrates IngredientScaler for adjusting quantities
+ * Shows recipe metadata (prep time, servings, difficulty) next to scaler
+ * Servings count updates dynamically based on multiplier
  * Supports both Romanian and English ingredient names, units, and section headings
  */
-export const IngredientList: React.FC<IngredientListProps> = ({ ingredients }) => {
+export const IngredientList: React.FC<IngredientListProps> = ({ 
+  ingredients, 
+  prepTime, 
+  servings, 
+  effortLevel 
+}) => {
   const { language } = useLanguage();
   const [multiplier, setMultiplier] = useState(1);
 
@@ -42,17 +52,63 @@ export const IngredientList: React.FC<IngredientListProps> = ({ ingredients }) =
     return 'section' in item;
   };
 
+  /**
+   * Generate puzzle piece icons based on effort level
+   */
+  const getPuzzlePieces = (effortLevel: string): string => {
+    const puzzlePiece = '🧩';
+    switch (effortLevel) {
+      case 'easy':
+        return puzzlePiece;
+      case 'medium':
+        return puzzlePiece.repeat(2);
+      case 'hard':
+        return puzzlePiece.repeat(3);
+      default:
+        return puzzlePiece;
+    }
+  };
+
+  // Calculate scaled servings
+  const scaledServings = Math.round(servings * multiplier);
+
+  // Get effort level translation for tooltip
+  const effortLevelText = getTranslation(effortLevel, language);
+
   return (
     <section className="mb-8">
+      {/* Recipe Metadata - Icons and numbers */}
+      <div className="flex items-center gap-4 mb-3 text-gray-700 dark:text-gray-300">
+        {/* Prep Time */}
+        <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${prepTime} ${getTranslation('minutes', language)}`}>
+          <span className="text-xl">⏱️</span>
+          <span className="text-sm font-medium">{prepTime}</span>
+        </div>
+
+        {/* Servings - Updates with multiplier */}
+        <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${scaledServings}`}>
+          <span className="text-xl">🍽️</span>
+          <span className="text-sm font-medium">{scaledServings}</span>
+        </div>
+
+        {/* Effort Level - Puzzle Pieces */}
+        <div className="flex items-center gap-1" title={`${getTranslation('effortLevel', language)}: ${effortLevelText}`}>
+          <span className="text-xl">{getPuzzlePieces(effortLevel)}</span>
+        </div>
+      </div>
+
+      {/* Ingredient Scaler */}
+      <div className="mb-4">
+        <IngredientScaler
+          currentMultiplier={multiplier}
+          onMultiplierChange={setMultiplier}
+        />
+      </div>
+
+      {/* Ingredients Section Heading */}
       <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
         {getTranslation('ingredients', language)}
       </h2>
-
-      {/* Ingredient Scaler */}
-      <IngredientScaler
-        currentMultiplier={multiplier}
-        onMultiplierChange={setMultiplier}
-      />
 
       {/* Ingredients List */}
       <ul className="space-y-2">

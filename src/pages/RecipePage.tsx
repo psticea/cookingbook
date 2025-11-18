@@ -86,8 +86,13 @@ const RecipePage: React.FC = () => {
           alt={recipe.title[language]}
         />
 
-        {/* Ingredient List with Scaler */}
-        <IngredientList ingredients={recipe.ingredients} />
+        {/* Ingredient List with Scaler and Metadata */}
+        <IngredientList 
+          ingredients={recipe.ingredients}
+          prepTime={recipe.prepTime}
+          servings={recipe.servings}
+          effortLevel={recipe.effortLevel}
+        />
 
         {/* Instruction List */}
         <InstructionList instructions={recipe.instructions} />

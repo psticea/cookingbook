@@ -47,14 +47,18 @@ This document specifies the requirements for a multilingual recipe website. The 
 1. WHEN a User views a Recipe Page, THE Recipe Website SHALL display the preparation time at the top of the page
 2. WHEN a User views a Recipe Page, THE Recipe Website SHALL display the number of servings at the top of the page
 3. WHEN a User views a Recipe Page, THE Recipe Website SHALL display the effort level at the top of the page
-4. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a list of ingredients
-5. WHERE a recipe has ingredient subsections defined, THE Recipe Website SHALL display ingredients grouped under their respective subsection headings
-6. WHERE a recipe has no ingredient subsections defined, THE Recipe Website SHALL display ingredients as a single ungrouped list
-7. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a list of instructions
-8. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a Personal Notes section after the instructions
-9. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a square recipe image with dimensions of 1200 by 1200 pixels
-10. THE Recipe Website SHALL position all interactive options at the bottom of the Recipe Page
-11. THE Recipe Website SHALL minimize visual distractions in the Recipe Page layout
+4. WHEN a User views a Recipe Page with easy effort level, THE Recipe Website SHALL display exactly one puzzle piece icon
+5. WHEN a User views a Recipe Page with medium effort level, THE Recipe Website SHALL display exactly two puzzle piece icons
+6. WHEN a User views a Recipe Page with hard effort level, THE Recipe Website SHALL display exactly three puzzle piece icons
+7. WHEN a User views a Recipe Card on the home page, THE Recipe Website SHALL display the effort level using puzzle piece icons
+8. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a list of ingredients
+9. WHERE a recipe has ingredient subsections defined, THE Recipe Website SHALL display ingredients grouped under their respective subsection headings
+10. WHERE a recipe has no ingredient subsections defined, THE Recipe Website SHALL display ingredients as a single ungrouped list
+11. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a list of instructions
+12. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a Personal Notes section after the instructions
+13. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a square recipe image with dimensions of 1200 by 1200 pixels
+14. THE Recipe Website SHALL position all interactive options at the bottom of the Recipe Page
+15. THE Recipe Website SHALL minimize visual distractions in the Recipe Page layout
 
 ### Requirement 3
 
