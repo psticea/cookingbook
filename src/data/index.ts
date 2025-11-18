@@ -1,22 +1,12 @@
 /**
  * Data exports for recipes, categories, filter keywords, and translations
- * Recipes are organized in 8 category folders for easy management
+ * Recipes are dynamically loaded from all 8 category folders
+ * Just add or remove JSON files - no need to update this file!
  */
 
 import categoriesData from './categories.json';
 import filterKeywordsData from './filter-keywords.json';
 import translationsData from './translations.json';
-
-// Import recipes from all 8 category folders
-import sarmaleCuMamaliga from './recipes/main-courses/sarmale-cu-mamaliga.json';
-import puiMarinatLaCuptor from './recipes/main-courses/pui-marinat-la-cuptor.json';
-import ciorbaDeBurta from './recipes/soups-and-stews/ciorba-de-burta.json';
-import spaghettiCarbonara from './recipes/pasta/spaghetti-carbonara.json';
-import omletaCuBranza from './recipes/breakfast/omleta-cu-branza.json';
-import puiCuLegume from './recipes/stir-fries/pui-cu-legume.json';
-import salataCaesar from './recipes/salads-and-bites/salata-caesar.json';
-import burgerClasic from './recipes/burgers-and-wraps/burger-clasic.json';
-import orezFiert from './recipes/basics/orez-fiert.json';
 
 import type { Recipe } from '../types/recipe';
 import type { FilterKeyword } from '../types/filter';
@@ -38,19 +28,17 @@ export const translations = translationsData as {
   en: Record<string, string>;
 };
 
-// Export all recipes from all category folders
-// Category is automatically set based on folder location
-export const recipes: Recipe[] = [
-  sarmaleCuMamaliga,
-  puiMarinatLaCuptor,
-  ciorbaDeBurta,
-  spaghettiCarbonara,
-  omletaCuBranza,
-  puiCuLegume,
-  salataCaesar,
-  burgerClasic,
-  orezFiert,
-] as Recipe[];
+// Dynamically import all recipe JSON files from all category folders
+// This uses Vite's import.meta.glob to automatically load all .json files
+// Just add or remove recipe files - they'll be loaded automatically!
+const recipeModules = import.meta.glob<{ default: Recipe }>('./recipes/**/*.json', { 
+  eager: true 
+});
+
+// Extract recipes from the imported modules
+export const recipes: Recipe[] = Object.values(recipeModules).map(
+  (module) => module.default
+);
 
 // Helper function to get recipe by ID
 export const getRecipeById = (id: string): Recipe | undefined => {

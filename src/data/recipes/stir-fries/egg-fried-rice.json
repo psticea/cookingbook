@@ -1,0 +1,166 @@
+{
+  "id": "egg-fried-rice",
+  "category": "stir-fries",
+  "title": {
+    "ro": "Orez Prăjit cu Ou",
+    "en": "Egg Fried Rice"
+  },
+  "prepTime": 20,
+  "servings": 2,
+  "effortLevel": "easy",
+  "image": "images/stir-fries/egg-fried-rice.jpg",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "orez alb gătit și răcit",
+        "en": "cooked and chilled white rice"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "căni",
+        "en": "cups"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei vegetal",
+        "en": "vegetable oil"
+      },
+      "quantity": 30,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ou mare",
+        "en": "large egg"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "morcovi și mazăre congelate cubulețe",
+        "en": "frozen diced carrots and peas"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă albă mică cubulețe",
+        "en": "small white onion diced"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "usturoi tocat",
+        "en": "garlic minced"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare și piper negru",
+        "en": "salt and black pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă verde feliată subțire",
+        "en": "green onions thinly sliced"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos de soia",
+        "en": "soy sauce"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei de susan prăjit",
+        "en": "toasted sesame oil"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos de stridii (opțional)",
+        "en": "oyster sauce (optional)"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Notă pentru orez proaspăt gătit: este important ca acesta să fie relativ uscat. Atâta timp cât întinzi orezul pe o farfurie sau tavă în timp ce este încă fierbinte și îi dai câteva minute pentru a permite evaporarea umezelii de suprafață, poți face orez prăjit excelent cu orez proaspăt.",
+      "Încălzește 1 lingură de ulei într-un wok pe foc mare până fumegă. Adaugă orezul și gătește, amestecând și aruncând, până când orezul devine brun deschis și prăjit și are o textură ușor gumată, aproximativ 3 minute.",
+      "Împinge orezul pe laterale, lăsând un spațiu la mijloc. Adaugă 1/2 lingură de ulei în spațiu. Adaugă ceapa, morcovul și usturoiul și gătește, amestecând ușor, până se înmoaie ușor și devine parfumat, aproximativ 2 minute. Amestecă cu orezul pentru a combina.",
+      "Adaugă sosul de soia și uleiul de susan și amestecă pentru a acoperi. Condimentează după gust cu sare și piper alb.",
+      "Împinge orezul pe o parte a wok-ului și adaugă restul de 1/2 lingură de ulei. Sparge oul în ulei și condimentează cu puțină sare. Folosește o spatulă pentru a amesteca oul, sfărâmându-l în bucăți mici. Amestecă oul și orezul împreună.",
+      "Adaugă mazărea congelată și continuă să amesteci și să agiti până când mazărea este decongelată și fiecare bob de orez este separat. Adaugă ceapa verde. Servește imediat."
+    ],
+    "en": [
+      "Note for fresh-cooked rice: it's important that it is relatively dry. So long as you spread the rice out on a plate or tray while it's still hot and give it a few minutes to allow some surface moisture to evaporate, you can make excellent fried rice with fresh rice.",
+      "Heat 1 Tbsp of oil in a wok over high heat until smoking. Add rice and cook, stirring and tossing, until the rice is pale brown and toasted and has a lightly chewy texture, about 3 minutes.",
+      "Press the rice up the sides, leaving a space in the middle. Add 1/2 Tbsp of oil to the space. Add onion, carrot, and garlic and cook, stirring gently, until lightly softened and fragrant, about 2 minutes. Toss with rice to combine.",
+      "Add soy sauce and sesame oil and toss to coat. Season to taste with salt and white pepper.",
+      "Push rice to the side of the wok and add remaining 1/2 Tbsp of oil. Break the egg into the oil and season with a little salt. Use a spatula to scramble the egg, breaking it up into small bits. Toss the egg and the rice together.",
+      "Add frozen peas and continue to toss and stir until peas are thawed and every grain of rice is separate. Add green onions. Serve immediately."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de la: https://www.seriouseats.com/easy-vegetable-fried-rice-recipe",
+    "en": "Recipe from: https://www.seriouseats.com/easy-vegetable-fried-rice-recipe"
+  },
+  "keywords": [
+    "easy",
+    "vegetarian",
+    "pan-fry",
+    "rice",
+    "carrots",
+    "soy-sauce"
+  ],
+  "dateAdded": "2025-11-17"
+}

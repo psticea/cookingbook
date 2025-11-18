@@ -1,0 +1,214 @@
+{
+  "id": "mary-me-chicken-pasta",
+  "category": "pasta",
+  "image": "images/pasta/mary-me-chicken-pasta.jpg",
+  "title": {
+    "ro": "Paste cu Pui Marry Me",
+    "en": "Marry Me Chicken Pasta"
+  },
+  "prepTime": 30,
+  "servings": 6,
+  "effortLevel": "medium",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "piepturi de pui feliate",
+        "en": "chicken breasts sliced"
+      },
+      "quantity": 800,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă medie tocată",
+        "en": "medium onion minced"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "usturoi tocat",
+        "en": "garlic minced"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      }
+    },
+    {
+      "name": {
+        "ro": "roșii uscate la soare tocate",
+        "en": "sundried tomatoes chopped"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "bulion de pui",
+        "en": "chicken stock"
+      },
+      "quantity": 300,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "smântână de gătit",
+        "en": "cooking cream"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "parmezan ras",
+        "en": "parmesan cheese grated"
+      },
+      "quantity": 60,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper negru măcinat",
+        "en": "ground black pepper"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei vegetal sau ulei de roșii uscate",
+        "en": "vegetable oil or sundried tomatoes oil"
+      },
+      "quantity": 30,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "unt nesărat",
+        "en": "unsalted butter"
+      },
+      "quantity": 28,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "fulgi de chili",
+        "en": "chili flakes"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "oregano",
+        "en": "oregano"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "cimbru",
+        "en": "thyme"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "frunze de busuioc proaspăt",
+        "en": "fresh basil leaves"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "paste de fiert pentru servit (opțional)",
+        "en": "pasta to boil for serving (optional)"
+      },
+      "quantity": 600,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Condimentează puiul cu sare și piper. Într-o tigaie mare, încălzește uleiul și rumenește puiul timp de 4-5 minute pe fiecare parte sau până devine auriu și bine gătit. Transferă pe o farfurie.",
+      "Adaugă untul în tigaie și gătește ceapa timp de 5 min. Adaugă usturoiul tocat și sotează timp de un minut sau până devine parfumat.",
+      "Adaugă bulionul de pui și deglazează tigaia, răzuind orice bucăți lipite de fundul tigăii cu o lingură de lemn.",
+      "Ajustează focul la mediu-mic și adaugă smântâna grasă și parmezanul. Lasă sosul să fiarbă câteva minute, apoi condimentează cu fulgi de chili, cimbru și oregano.",
+      "Condimentează cu sare și piper după gust, adaugă roșiile uscate la soare apoi pune puiul înapoi în sos și lasă sosul să fiarbă și să se îngroașe câteva minute.",
+      "Garnisește cu frunze de busuioc proaspăt tocate și servește cald peste paste sau orez sau piure de cartofi."
+    ],
+    "en": [
+      "Season chicken with salt and pepper. In a large skillet, heat the oil and brown the chicken for 4-5 minutes on each side or until golden brown and cooked through. Transfer onto a plate.",
+      "Add the butter to the skillet and cook the onions for 5 min. Add the minced garlic and saute for a minute or until it's fragrant.",
+      "Add the chicken stock, and deglaze the pan, scraping any bits stuck to the bottom of the pan with a wooden spoon.",
+      "Adjust the heat to medium-low, and add the heavy cream and the parmesan cheese. Allow the sauce to simmer for a couple of minutes, then season with chili flakes, thyme, and oregano.",
+      "Season with salt and pepper to your taste, add the sundried tomatoes then put the chicken back in the sauce and let the sauce simmer and thicken for a few more minutes.",
+      "Garnish with chopped fresh basil leaves and serve warm over pasta or rice or mashed potatoes."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de la: https://littlesunnykitchen.com/marry-me-chicken",
+    "en": "Recipe from: https://littlesunnykitchen.com/marry-me-chicken"
+  },
+  "keywords": ["medium", "chicken", "pan-fry", "pasta", "cooking-cream", "chicken-stock", "olive-oil"],
+  "dateAdded": "2025-11-17"
+}

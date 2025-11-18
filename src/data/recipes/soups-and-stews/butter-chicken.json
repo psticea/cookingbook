@@ -1,0 +1,215 @@
+{
+  "id": "butter-chicken",
+  "category": "soups-and-stews",
+  "title": {
+    "ro": "Pui cu Unt",
+    "en": "Butter Chicken"
+  },
+  "prepTime": 35,
+  "servings": 3,
+  "effortLevel": "medium",
+  "image": "images/soups-and-stews/butter-chicken.jpg",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "iaurt simplu gras",
+        "en": "plain yoghurt full fat"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "suc de lămâie",
+        "en": "lemon juice"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "pudră de turmeric",
+        "en": "tumeric powder"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "garam masala",
+        "en": "garam masala"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguriți",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "pudră de chili sau pudră de piper cayenne",
+        "en": "chilli powder or cayenne pepper powder"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "chimion măcinat",
+        "en": "ground cumin"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ghimbir proaspăt ras",
+        "en": "ginger freshly grated"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "usturoi zdrobit",
+        "en": "garlic crushed"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      }
+    },
+    {
+      "name": {
+        "ro": "file de pulpă de pui tăiate în bucăți mici",
+        "en": "chicken thigh fillets cut into bite size pieces"
+      },
+      "quantity": 750,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "unt SAU ulei vegetal",
+        "en": "butter OR vegetable oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "passata de roșii (aka piure de roșii)",
+        "en": "tomato passata (aka tomato puree)"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "smântână grasă/îngroșată",
+        "en": "heavy/thickened cream"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "zahăr",
+        "en": "sugar"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "orez alb pentru servit",
+        "en": "white rice to serve"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după necesitate",
+        "en": "as needed"
+      }
+    },
+    {
+      "name": {
+        "ro": "coriandru/cilantro (opțional)",
+        "en": "coriander/cilantro (optional)"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după necesitate",
+        "en": "as needed"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Marinadă: Combină ingredientele pentru marinadă (iaurt, suc de lămâie, turmeric, garam masala, pudră de chili, chimion, ghimbir, usturoi) cu puiul într-un bol. Acoperă și pune la frigider peste noapte, sau până la 24 de ore (minim 3 ore).",
+      "Gătește puiul: Încălzește untul (sau uleiul) pe foc mare într-o tigaie mare. Scoate puiul din marinadă dar nu șterge sau scuturi marinada de pe pui (dar nu turna marinada rămasă în bol în tigaie). Pune puiul în tigaie și gătește aproximativ 3 minute, sau până când puiul este alb peste tot (nu se rumenește cu adevărat din cauza marinadei).",
+      "Sos: Adaugă passata de roșii, smântâna, zahărul și sarea. De asemenea adaugă orice marinadă rămasă în bol. Reduce la foc mic și fierbe timp de 20 de minute. Fă un test de gust pentru a vedea dacă are nevoie de mai multă sare.",
+      "Garnisește cu frunze de coriandru/cilantro dacă folosești. Servește cu orez basmati."
+    ],
+    "en": [
+      "Marinade: Combine the marinade ingredients (yoghurt, lemon juice, tumeric, garam masala, chilli powder, cumin, ginger, garlic) with the chicken in a bowl. Cover and refrigerate overnight, or up to 24 hours (minimum 3 hrs).",
+      "Cook chicken: Heat the butter (or oil) over high heat in a large fry pan. Take the chicken out of the marinade but do not wipe or shake off the marinade from the chicken (but don't pour the marinade left in the bowl into the fry pan). Place chicken in the fry pan and cook for around 3 minutes, or until the chicken is white all over (it doesn't really brown because of the marinade).",
+      "Sauce: Add the tomato passata, cream, sugar and salt. Also add any remaining marinade left in the bowl. Turn down to low and simmer for 20 minutes. Do a taste test to see if it needs more salt.",
+      "Garnish with coriander/cilantro leaves if using. Serve with basmati rice."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de la: https://www.recipetineats.com/butter-chicken/",
+    "en": "Recipe from: https://www.recipetineats.com/butter-chicken/"
+  },
+  "keywords": [
+    "medium",
+    "chicken",
+    "pan-fry",
+    "cooking-cream"
+  ],
+  "dateAdded": "2025-11-17"
+}

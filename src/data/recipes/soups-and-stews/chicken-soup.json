@@ -1,7 +1,6 @@
 {
   "id": "chicken-soup",
   "category": "soups-and-stews",
-  "image": "/images/recipes/soups-and-stews/supa-de-pui.jpg",
   "title": {
     "ro": "Supă de Pui",
     "en": "Chicken Soup"
@@ -9,6 +8,7 @@
   "prepTime": 60,
   "servings": 4,
   "effortLevel": "easy",
+  "image": "/images/recipes/soups-and-stews/supa-de-pui.jpg",
   "ingredients": [
     {
       "name": {
@@ -171,6 +171,12 @@
     "ro": "Această supă de pui este rețeta clasică pe care o fac când vreau ceva reconfortant și sănătos. Secretul unei supe bune este să spumezi carnea la început și să fierbi legumele împreună cu carnea pentru a extrage toate aromele. Nu amestecați supa în timp ce fierbe pentru a rămâne limpede. Tăițeii se fierb direct în supă pentru mai mult gust.",
     "en": "This chicken soup is the classic recipe I make when I want something comforting and healthy. The secret to a good soup is to skim the chicken at the beginning and boil the vegetables together with the meat to extract all the flavors. Don't stir the soup while it's boiling to keep it clear. The noodles are boiled directly in the soup for more flavor."
   },
-  "keywords": ["chicken", "broth-based", "boiling", "carrots", "onions"],
-  "dateAdded": "2025-11-18"
+  "keywords": [
+    "chicken",
+    "broth-based",
+    "boiling",
+    "carrots",
+    "onions"
+  ],
+  "dateAdded": "2025-11-17"
 }

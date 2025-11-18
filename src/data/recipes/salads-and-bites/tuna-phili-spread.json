@@ -1,0 +1,111 @@
+{
+  "id": "tuna-phili-spread",
+  "category": "salads-and-bites",
+  "image": "images/salads-and-bites/tuna-phili-spread.jpg",
+  "title": {
+    "ro": "Pastă de Ton cu Philadelphia",
+    "en": "Tuna Phili Spread"
+  },
+  "prepTime": 10,
+  "servings": 4,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "brânză philadelphia",
+        "en": "philadelphia cheese"
+      },
+      "quantity": 300,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "smântână",
+        "en": "sour cream"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "conservă de ton bucăți",
+        "en": "can of tuna chunks"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "suc de lămâie",
+        "en": "lemon juice"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "pătrunjel tocat",
+        "en": "chopped parsley"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă verde feliată subțire",
+        "en": "green onions thinly sliced"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Scurge bucățile de ton înainte de a le adăuga.",
+      "Adaugă toate ingredientele, excluzând ceapa verde, într-un blender și mixează totul.",
+      "Garnisește cu ceapă verde. Adaugă mai multă sare dacă este necesar.",
+      "Servește cu pâine."
+    ],
+    "en": [
+      "Drain the tuna chunks before adding them.",
+      "Add all the ingredients, excluding the green onion to a blender and mix everything.",
+      "Garnish with green onions. Add more salt if needed.",
+      "Serve with bread."
+    ]
+  },
+  "personalNotes": {
+    "ro": "",
+    "en": ""
+  },
+  "keywords": ["easy", "fish", "no-cook"],
+  "dateAdded": "2025-11-17"
+}

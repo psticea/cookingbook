@@ -1,0 +1,162 @@
+{
+  "id": "potato-soup",
+  "category": "soups-and-stews",
+  "title": {
+    "ro": "Supă de Cartofi",
+    "en": "Potato Soup"
+  },
+  "prepTime": 30,
+  "servings": 6,
+  "effortLevel": "easy",
+  "image": "images/soups-and-stews/potato-soup.jpg",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "cuburi de bacon sau cabanos",
+        "en": "bacon or cabanos cubes"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "morcovi rași",
+        "en": "grated carrots"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă galbenă tocată fin",
+        "en": "fine chopped yellow onion"
+      },
+      "quantity": 300,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "cartofi tăiați cuburi de 1 cm",
+        "en": "potatoes cubed at 1 cm"
+      },
+      "quantity": 800,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare (sau vegeta conținând 15g sare)",
+        "en": "salt (or vegeta containing 15g salt)"
+      },
+      "quantity": 15,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "pătrunjel tocat fin",
+        "en": "finely chopped parsley"
+      },
+      "quantity": 10,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "mărar tocat fin",
+        "en": "finely chopped dill"
+      },
+      "quantity": 10,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei vegetal",
+        "en": "vegetable oil"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "gălbenușuri",
+        "en": "egg yolks"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "smântână",
+        "en": "sour cream"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "apă",
+        "en": "water"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "litri",
+        "en": "liters"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Într-o cratiță, adu la foc mediu 1 lingură de ulei, adaugă baconul și gătește timp de 2 minute.",
+      "Adaugă uleiul vegetal rămas și când este fierbinte adaugă ceapa și morcovii. Gătește aproximativ 3 minute până încep să se înmoaie.",
+      "Adaugă 2 litri de apă și încălzește amestecul până fierbe, apoi adaugă sarea.",
+      "Adaugă cartofii tăiați cuburi și fierbe aproximativ 15 minute, până când cartofii sunt bine gătiți.",
+      "Oprește focul și odată ce fierberea se oprește adaugă amestecul de gălbenușuri și smântână. Adaugă mărarul și pătrunjelul tocat. Gustă și adaugă mai multă sare dacă este necesar."
+    ],
+    "en": [
+      "In a saucepan, bring to medium heat 1 Tbsp of oil, add the bacon and cook for 2 minutes.",
+      "Add the remaining vegetable oil and when hot add the onions and carrots. Cook for about 3 minutes until they start softening.",
+      "Add 2 liters of water and heat the mix to a boil, then add the salt.",
+      "Add the cubed potatoes and boil for about 15 minutes, until the potatoes are well cooked.",
+      "Cut the heat and once the boiling stops add the mix of yolks and sour cream. Add the chopped dill and parsley. Taste and add more salt if needed."
+    ]
+  },
+  "personalNotes": {
+    "ro": "",
+    "en": ""
+  },
+  "keywords": [
+    "easy",
+    "boiling",
+    "potatoes",
+    "carrots"
+  ],
+  "dateAdded": "2025-11-17"
+}

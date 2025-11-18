@@ -1,0 +1,303 @@
+{
+  "id": "chicken-onion-stir-fry",
+  "category": "stir-fries",
+  "title": {
+    "ro": "Pui cu Ceapă la Tigaie",
+    "en": "Chicken and Onion Stir Fry"
+  },
+  "prepTime": 30,
+  "servings": 4,
+  "effortLevel": "medium",
+  "image": "images/stir-fries/chicken-onion-stir-fry.jpg",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "piepturi sau pulpe de pui fără os și piele",
+        "en": "boneless skinless chicken breasts or thighs"
+      },
+      "quantity": 450,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "căței de usturoi",
+        "en": "garlic cloves"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "ghimbir ras",
+        "en": "grated ginger"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguriți",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă verde împărțită",
+        "en": "green onions divided"
+      },
+      "quantity": 3.5,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "ardei gras roșu",
+        "en": "red bell pepper"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă galbenă mare",
+        "en": "large yellow onion"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei cu gust neutru împărțit",
+        "en": "neutral-tasting oil divided"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei de susan prăjit",
+        "en": "toasted sesame oil"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "section": {
+        "ro": "Marinadă",
+        "en": "Marinade"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos de soia",
+        "en": "soy sauce"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "vin Shaoxing",
+        "en": "Shaoxing wine"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper alb sau piper negru",
+        "en": "white pepper or black pepper"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "bicarbonat de sodiu",
+        "en": "baking soda"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei neutru",
+        "en": "neutral oil"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "amidon de porumb",
+        "en": "cornstarch"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "section": {
+        "ro": "Sos",
+        "en": "Sauce"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos de soia",
+        "en": "soy sauce"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos de stridii",
+        "en": "oyster sauce"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos de soia întunecat opțional pentru culoare",
+        "en": "dark soy sauce optional for color"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "zahăr",
+        "en": "sugar"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "vin Shaoxing",
+        "en": "Shaoxing wine"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "pudră de bulion de pui",
+        "en": "chicken bouillon powder"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "apă",
+        "en": "water"
+      },
+      "quantity": 5,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "amidon de porumb",
+        "en": "cornstarch"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Marinează Puiul: Taie puiul în bucăți mici și transferă într-un bol de amestecat. Adaugă toate ingredientele pentru marinadă (1/2 lingură sos de soia, 1 lingură vin Shaoxing, 1/4 linguriță piper alb, 1/4 linguriță bicarbonat, 1 lingură ulei neutru, 1 lingură amidon de porumb) și masează ușor. Acoperă și marinează la frigider timp de 10 minute.",
+      "Pregătește Legumele: Tocă fin căței de usturoi. Rade o bucată mică de ghimbir, aproximativ 2 linguriți. Taie părțile verzi ale cepei verzi în bucăți de 2 inch (5cm) și felii subțiri părțile albe. Taie ardeiul gras în bucăți mici, aproximativ 1/2 cană. Taie ceapa în bucăți groase de 1 inch (2.5 cm), apoi separă straturile astfel încât să fie ușor de prăjit.",
+      "Fă sosul: Amestecă împreună 1 lingură sos de soia, 2 linguri sos de stridii, 1/2 linguriță sos de soia întunecat (opțional), 1 lingură zahăr, 1 lingură vin Shaoxing, 1 linguriță pudră de bulion de pui, 5 linguri apă și 1 lingură amidon de porumb.",
+      "Gătește puiul: Într-un wok mare (sau tigaie), încălzește 1 lingură de ulei pe foc mare. Odată ce devine fierbinte, adaugă puiul marinat, întinde-l într-un singur strat și prăjește timp de 1 minut sau până când fundul este bine rumenit. Întoarce și gătește cealaltă parte timp de 3-4 minute sau până când puiul este bine gătit. Scoate din wok și pune deoparte.",
+      "Prăjește legumele: În același wok, adaugă 1 lingură de ulei și încălzește pe foc mare. Odată ce devine fierbinte, adaugă ceapa și întinde-o. Lasă să stea timp de 1 minut, sau până când ceapa este ușor arsă.",
+      "Adaugă aromatele: Adaugă usturoiul, ghimbirul și părțile albe ale cepei verzi. Sotează timp de 30 de secunde sau până devine parfumat.",
+      "Combină: Adaugă puiul înapoi în wok împreună cu ardeiul gras și sosul. Prăjește totul timp de 1 minut sau până când totul este bine acoperit.",
+      "Finalizează: Oprește focul. Adaugă 1 linguriță de ulei de susan și ceapa verde rămasă. Amestecă o dată finală. Servește cu orez fierbinte. Poftă bună!"
+    ],
+    "en": [
+      "Marinate Chicken: Cut the chicken into bite-sized pieces and transfer to a mixing bowl. Add all the marinade ingredients (1/2 Tbsp soy sauce, 1 Tbsp Shaoxing wine, 1/4 tsp white pepper, 1/4 tsp baking soda, 1 Tbsp neutral oil, 1 Tbsp cornstarch) and gently massage it. Cover and marinate in the fridge for 10 minutes.",
+      "Prep Vegetables: Finely chop the garlic cloves. Grate a small knob of ginger, about 2 teaspoons. Cut the green parts of the green onions into 2-inch (5cm) pieces and thinly slice the white parts. Cut the bell pepper into bite-sized pieces, about 1/2 cup. Slice the onions into 1-inch (2.5 cm) thick pieces, then separate the layers so that they're easy to stir-fry.",
+      "Make sauce: Mix together 1 Tbsp soy sauce, 2 Tbsp oyster sauce, 1/2 tsp dark soy sauce (optional), 1 Tbsp sugar, 1 Tbsp Shaoxing wine, 1 tsp chicken bouillon powder, 5 Tbsp water, and 1 Tbsp cornstarch.",
+      "Cook chicken: In a large wok (or pan), heat 1 tablespoon of oil over high heat. Once it gets nice and hot, add the marinated chicken, spread it out in a single layer, and sear for 1 minute or until the bottom is nicely browned. Flip and cook the other side for 3 to 4 minutes or until the chicken is cooked through. Remove from the wok and set aside.",
+      "Stir-fry vegetables: In the same wok, add 1 tablespoon of oil and heat it over high heat. Once it gets nice and hot, add the onion and spread it out. Let it sit for 1 minute, or until the onion is slightly charred.",
+      "Add aromatics: Add the garlic, ginger, and white parts of the green onions. Sauté for 30 seconds or until fragrant.",
+      "Combine: Add the chicken back into the wok along with the bell pepper and sauce. Stir-fry everything for 1 minute or until everything is nicely coated.",
+      "Finish: Turn the heat off. Add 1 teaspoon of sesame oil and the remaining green onions. Give it a final mix. Serve with hot rice. Enjoy!"
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de Aaron și Claire",
+    "en": "Recipe by Aaron and Claire"
+  },
+  "keywords": [
+    "medium",
+    "chicken",
+    "pan-fry",
+    "peppers",
+    "ginger",
+    "soy-sauce"
+  ],
+  "dateAdded": "2025-11-17"
+}

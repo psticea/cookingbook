@@ -1,0 +1,137 @@
+{
+  "id": "tomato-marinara-pasta",
+  "category": "pasta",
+  "image": "images/pasta/tomato-marinara-pasta.jpg",
+  "title": {
+    "ro": "Paste cu Sos Marinara de Roșii Proaspete",
+    "en": "Fresh Tomato Marinara Pasta"
+  },
+  "prepTime": 20,
+  "servings": 3,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "paste la alegere",
+        "en": "pasta of your choice"
+      },
+      "quantity": 300,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă mare cubulețe",
+        "en": "large onion diced"
+      },
+      "quantity": 1.5,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "usturoi feliat",
+        "en": "garlic sliced"
+      },
+      "quantity": 5,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei de măsline extravirgin",
+        "en": "extra virgin olive oil"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "praf",
+        "en": "pinch"
+      }
+    },
+    {
+      "name": {
+        "ro": "roșii cherry sau sos de paste",
+        "en": "cherry tomatoes or pasta sauce"
+      },
+      "quantity": 400,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "parmezan ras",
+        "en": "shredded parmesan cheese"
+      },
+      "quantity": 60,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "pătrunjel tocat grosier",
+        "en": "roughly chopped parsley"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "piept de pui prăjit (opțional)",
+        "en": "fried chicken breast (optional)"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Adu o oală cu apă sărată la fierbere (5g sare per litru de apă) și de asemenea adu o tigaie largă la foc mediu.",
+      "Adaugă ulei în tigaia largă. Odată ce începe să sclipească, adaugă ceapa tocată și usturoiul.",
+      "Când usturoiul și ceapa se înmoaie puțin, aproximativ 2-3 minute, adaugă roșiile cherry și acoperă cu capacul. Când apa fierbe adaugă pastele.",
+      "Odată ce roșiile încep să se spargă, ia o spatulă și zdrobește roșiile pentru a elibera sucurile. Reduce focul la mic, presară puțină sare și lasă să se reducă.",
+      "Scurge pastele și adaugă-le la sosul de roșii. Toarnă 1/4 cană de apă de paste și amestecă. (Adaugă puiul opțional)",
+      "Lasă sosul să se reducă și adaugă parmezanul. Amestecă pătrunjel împreună cu puțină apă și o rotire de piper."
+    ],
+    "en": [
+      "Bring a salted pot of water to a boil (5g salt per liter of water) as well as bring a wide saute pan to a medium heat.",
+      "Add oil to the wide saute pan. Once it starts to shimmer, add in the chopped onion and garlic.",
+      "When the garlic and onion soften a bit, approx 2-3 minutes, add in the cherry tomatoes and top it with the lid. When the water is boiling add in the pasta.",
+      "Once the tomatoes are starting to burst, grab a spatula and mash the tomatoes to release the juices. Turn the heat to low, sprinkle in some more salt, and let reduce.",
+      "Drain the pasta and add it to the tomato sauce. Pour in 1/4 cup of pasta water and toss. (Add the optional chicken)",
+      "Let the sauce reduce and add in the parmesan cheese. Toss in the parsley along with a little more water and crack of pepper."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de la: https://prohomecooks.com/blogs/recipes/4-easy-recipes-to-make-when-you-have-no-time",
+    "en": "Recipe from: https://prohomecooks.com/blogs/recipes/4-easy-recipes-to-make-when-you-have-no-time"
+  },
+  "keywords": ["easy", "vegetarian", "boiling", "pasta", "olive-oil"],
+  "dateAdded": "2025-11-17"
+}

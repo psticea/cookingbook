@@ -1,0 +1,206 @@
+{
+  "id": "chicken-taco-bowls",
+  "category": "soups-and-stews",
+  "title": {
+    "ro": "Boluri cu Pui Taco",
+    "en": "Chicken Taco Bowls"
+  },
+  "prepTime": 260,
+  "servings": 6,
+  "effortLevel": "easy",
+  "image": "images/soups-and-stews/chicken-taco-bowls.jpg",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "piepturi de pui",
+        "en": "chicken breasts"
+      },
+      "quantity": 600,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "borcan salsa",
+        "en": "jar salsa"
+      },
+      "quantity": 500,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "usturoi tocat",
+        "en": "garlic minced"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      }
+    },
+    {
+      "name": {
+        "ro": "conservă fasole neagră",
+        "en": "can black beans"
+      },
+      "quantity": 400,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "conservă porumb",
+        "en": "can of corn"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "pudră de chili",
+        "en": "chili powder"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "chimion măcinat",
+        "en": "ground cumin"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "oregano uscat",
+        "en": "dried oregano"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper cayenne",
+        "en": "cayenne pepper"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper negru proaspăt măcinat",
+        "en": "freshly cracked black pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      }
+    },
+    {
+      "name": {
+        "ro": "apă",
+        "en": "water"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "orez gătit",
+        "en": "cooked rice"
+      },
+      "quantity": 6,
+      "unit": {
+        "ro": "căni (600 g orez uscat)",
+        "en": "cups (600 g dry rice)"
+      }
+    },
+    {
+      "name": {
+        "ro": "cheddar ras",
+        "en": "shredded cheddar"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă verde feliată",
+        "en": "green onions sliced"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "coriandru proaspăt tocat",
+        "en": "fresh cilantro minced"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după necesitate",
+        "en": "as needed"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Pune piepturile de pui pe fundul unui slow cooker de 5 quart sau mai mare. Scurge fasolea neagră și adaugă-o în slow cooker împreună cu salsa și porumbul.",
+      "Adaugă 1/4 cană apă, plus usturoiul tocat, pudra de chili, chimionul, oregano, cayenne, puțin piper proaspăt măcinat (aproximativ 10-15 rotiri ale unei mori de piper).",
+      "Amestecă scurt ingredientele pentru a distribui condimentele. Fixează capacul pe slow cooker și gătește la foc mic timp de 8 ore sau la foc mare timp de 4 ore.",
+      "După 8 ore la foc mic sau 4 ore la foc mare, scoate cu grijă capacul slow cookerului. Amestecă cu o furculiță pentru a sfâșia puiul (ar trebui să fie foarte fraged și se va sfâșia ușor). Gustă amestecul de pui și adaugă sare dacă este necesar.",
+      "Pentru a construi bolurile, pune o cană de orez pe fundul unui bol și presară deasupra cu 1 cană din amestecul de pui sfâșiat. Presară deasupra cu puțină brânză cheddar și o presărare de ceapă verde feliată."
+    ],
+    "en": [
+      "Place the chicken breasts in the bottom of a 5 quart or larger slow cooker. Drain the black beans and add them to the slow cooker along with the salsa and corn.",
+      "Add 1/4 cup water, plus the minced garlic, chili powder, cumin, oregano, cayenne, some freshly cracked pepper (about 10-15 cranks of a pepper mill).",
+      "Give the ingredients a brief stir to distribute the spices. Secure the lid on your slow cooker and cook on low for 8 hours or high for 4 hours.",
+      "After 8 hours on low or 4 hours on high, carefully remove the lid of the slow cooker. Stir with a fork to shred the chicken (it should be very tender and will shred easily). Taste the chicken mixture and add salt if needed.",
+      "To build the bowls, place one cup of rice in the bottom of a bowl and top with 1 cup of the shredded chicken mixture. Top with a little cheddar cheese and a sprinkle of sliced green onions."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de la: https://www.budgetbytes.com/taco-chicken-bowls/",
+    "en": "Recipe from: https://www.budgetbytes.com/taco-chicken-bowls/"
+  },
+  "keywords": [
+    "easy",
+    "chicken",
+    "boiling",
+    "rice"
+  ],
+  "dateAdded": "2025-11-17"
+}

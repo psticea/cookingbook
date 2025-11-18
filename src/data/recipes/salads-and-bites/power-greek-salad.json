@@ -1,0 +1,214 @@
+{
+  "id": "power-greek-salad",
+  "category": "salads-and-bites",
+  "image": "images/salads-and-bites/power-greek-salad.jpg",
+  "title": {
+    "ro": "Salată Grecească Energizantă",
+    "en": "Power Greek Salad"
+  },
+  "prepTime": 20,
+  "servings": 2,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "piept de pui",
+        "en": "chicken breast"
+      },
+      "quantity": 250,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "maioneză",
+        "en": "mayo"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper negru proaspăt măcinat",
+        "en": "freshly cracked black pepper"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "salată romaine feliată",
+        "en": "romaine lettuce sliced"
+      },
+      "quantity": 150,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă roșie feliată",
+        "en": "red onion sliced"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "roșii cherry tăiate în jumătate",
+        "en": "grape tomatoes cut in half"
+      },
+      "quantity": 250,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "năut",
+        "en": "chickpeas"
+      },
+      "quantity": 150,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare și piper pentru condimentat",
+        "en": "salt and pepper to season"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei de măsline extravirgin",
+        "en": "extra virgin olive oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "suc de lămâie",
+        "en": "lemon juice"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "lămâie",
+        "en": "lemon"
+      }
+    },
+    {
+      "name": {
+        "ro": "oregano uscat",
+        "en": "dried oregano"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "mentă",
+        "en": "mint"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "fulgi de chili",
+        "en": "chili flakes"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "praf",
+        "en": "pinch"
+      }
+    },
+    {
+      "name": {
+        "ro": "oțet",
+        "en": "vinegar"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "praf",
+        "en": "pinch"
+      }
+    },
+    {
+      "name": {
+        "ro": "brânză feta/telemea cuburi",
+        "en": "cubed feta/telemea"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Începe prin a marina pieptul de pui cu maioneză și piper măcinat. Pune o tigaie pe foc mediu și așază puiul să se gătească.",
+      "Într-un bol mare, combină mixul de salată, ceapa, roșiile și năutul. Condimentează cu sare și piper.",
+      "În acest moment, întoarce puiul. Acum, să trecem la dressing.",
+      "Într-un recipient de plastic, adaugă împreună uleiul, sucul de lămâie, oregano, menta, fulgii de chili, oțetul și sarea. Închide cu capacul și scutură vigoroas pentru a emulsiona.",
+      "Scoate puiul din tigaie și taie-l felii. Adaugă feta și dressingul la salată și amestecă pentru a combina.",
+      "Servește cu puiul feliat și bucură-te!"
+    ],
+    "en": [
+      "Start by marinating the chicken breast with mayo and cracked black pepper. Set a skillet on medium heat and lay down the chicken to cook.",
+      "In a large bowl, combine the salad mix, onion, tomatoes, and chickpeas. Season with salt and pepper.",
+      "At this moment, flip the chicken. Now, let's move onto the dressing.",
+      "In a plastic container, add together the oil, lemon juice, oregano, mint, chili flakes, vinegar, and salt. Close with the lid and vigorously shake to emulsify.",
+      "Take the chicken out of the pan and slice up. Add feta and the dressing to the salad and toss to combine.",
+      "Serve with the sliced up chicken and enjoy!"
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de la: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals",
+    "en": "Recipe from: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals"
+  },
+  "keywords": ["easy", "chicken", "pan-fry", "peppers", "olive-oil"],
+  "dateAdded": "2025-11-17"
+}
