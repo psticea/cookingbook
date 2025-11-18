@@ -59,7 +59,13 @@
     "pantryStaplesDescription": "Păstrați întotdeauna în cămară: ulei, oțet, sare, piper, zahăr, făină, orez, paste, conserve de roșii, usturoi și ceapă. Aceste ingrediente de bază vă permit să pregătiți multe rețete.",
     "imageLoadError": "Imaginea nu a putut fi încărcată",
     "errorOccurred": "A apărut o eroare",
-    "tryAgain": "Încercați din nou"
+    "tryAgain": "Încercați din nou",
+    "close": "Închide",
+    "filters": "Filtre",
+    "difficulty": "Dificultate",
+    "clearAllFilters": "Șterge Toate Filtrele",
+    "ingredient": "Ingredient",
+    "ingredients": "Ingrediente"
   },
   "en": {
     "loading": "Loading...",
@@ -121,6 +127,12 @@
     "pantryStaplesDescription": "Always keep in your pantry: oil, vinegar, salt, pepper, sugar, flour, rice, pasta, canned tomatoes, garlic, and onions. These basic ingredients allow you to prepare many recipes.",
     "imageLoadError": "Image could not be loaded",
     "errorOccurred": "An error occurred",
-    "tryAgain": "Try again"
+    "tryAgain": "Try again",
+    "close": "Close",
+    "filters": "Filters",
+    "difficulty": "Difficulty",
+    "clearAllFilters": "Clear All Filters",
+    "ingredient": "Ingredient",
+    "ingredients": "Ingredients"
   }
 }

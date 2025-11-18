@@ -4,7 +4,7 @@
 
 import { MultilingualText } from './common';
 
-export type FilterKeywordType = 'meat' | 'vegetable' | 'sauce' | 'cooking';
+export type FilterKeywordType = 'difficulty' | 'meat' | 'vegetable' | 'sauce' | 'cooking';
 
 export interface FilterKeyword {
   id: string;

@@ -2,6 +2,10 @@ import React, { useState, useMemo } from 'react';
 import { Header } from '../components/Header';
 import { RecipeGrid } from '../components/RecipeGrid';
 import { Footer } from '../components/Footer';
+import { SideMenu } from '../components/SideMenu';
+import { FiltersSection } from '../components/FiltersSection';
+import { CategoriesSection } from '../components/CategoriesSection';
+import { MenuLinks } from '../components/MenuLinks';
 import { useRecipeData, getRecipesByCategory } from '../hooks/useRecipeData';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
@@ -19,20 +23,35 @@ const HomePage: React.FC = () => {
   const { language } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
 
-  // Filter recipes based on search query
-  // Only filter when 2+ characters are typed
+  // Filter recipes based on search query and selected keywords
+  // Search: Only filter when 2+ characters are typed
+  // Keywords: Show only recipes containing ALL selected keywords
   const filteredRecipes = useMemo(() => {
-    if (searchQuery.length < 2) {
-      return recipes;
+    let filtered = recipes;
+
+    // Apply keyword filtering
+    if (selectedKeywords.size > 0) {
+      filtered = filtered.filter((recipe: Recipe) => {
+        // Recipe must contain ALL selected keywords
+        return Array.from(selectedKeywords).every(keyword => 
+          recipe.keywords.includes(keyword)
+        );
+      });
     }
 
-    const query = searchQuery.toLowerCase();
-    return recipes.filter((recipe: Recipe) => {
-      const title = recipe.title[language].toLowerCase();
-      return title.includes(query);
-    });
-  }, [recipes, searchQuery, language]);
+    // Apply search filtering (only if 2+ characters)
+    if (searchQuery.length >= 2) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter((recipe: Recipe) => {
+        const title = recipe.title[language].toLowerCase();
+        return title.includes(query);
+      });
+    }
+
+    return filtered;
+  }, [recipes, searchQuery, selectedKeywords, language]);
 
   // Count total filtered recipes
   const totalFilteredCount = filteredRecipes.length;
@@ -40,6 +59,20 @@ const HomePage: React.FC = () => {
   // Toggle side menu
   const handleMenuToggle = () => {
     setIsSideMenuOpen(!isSideMenuOpen);
+  };
+
+  // Close side menu
+  const handleMenuClose = () => {
+    setIsSideMenuOpen(false);
+  };
+
+  // Handle category click - scroll to category section
+  const handleCategoryClick = (categoryId: string) => {
+    const element = document.getElementById(`category-${categoryId}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    handleMenuClose();
   };
 
   return (
@@ -50,6 +83,19 @@ const HomePage: React.FC = () => {
         onSearchChange={setSearchQuery}
         onMenuToggle={handleMenuToggle}
       />
+
+      {/* Side Menu */}
+      <SideMenu
+        isOpen={isSideMenuOpen}
+        onClose={handleMenuClose}
+      >
+        <FiltersSection
+          selectedKeywords={selectedKeywords}
+          onKeywordsChange={setSelectedKeywords}
+        />
+        <CategoriesSection onCategoryClick={handleCategoryClick} />
+        <MenuLinks onLinkClick={handleMenuClose} />
+      </SideMenu>
       
       <main className="flex-1 max-w-7xl mx-auto px-4 py-8 w-full">
         {loading && (
@@ -88,7 +134,11 @@ const HomePage: React.FC = () => {
                     if (categoryRecipes.length === 0) return null;
                     
                     return (
-                      <section key={category.id} className="category-section">
+                      <section 
+                        key={category.id} 
+                        id={`category-${category.id}`}
+                        className="category-section scroll-mt-20"
+                      >
                         <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
                           {category.name[language]}
                         </h2>
