@@ -17,21 +17,21 @@ export const InstructionList: React.FC<InstructionListProps> = ({ instructions }
   const { language } = useLanguage();
 
   return (
-    <section className="mb-8">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+    <section className="mb-6">
+      <h2 className="text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">
         {getTranslation('instructions', language)}
       </h2>
 
-      <ol className="space-y-3">
+      <ol className="space-y-2.5">
         {instructions[language].map((instruction, index) => (
           <li
             key={index}
-            className="flex gap-4 text-gray-800 dark:text-gray-200"
+            className="flex gap-3 text-gray-800 dark:text-gray-200"
           >
-            <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-accent-light dark:bg-accent-dark text-white font-bold text-sm">
+            <span className="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-accent-light dark:bg-accent-dark text-white font-bold text-sm">
               {index + 1}
             </span>
-            <p className="flex-1 pt-1 leading-relaxed">
+            <p className="flex-1 pt-0.5 leading-relaxed">
               {instruction}
             </p>
           </li>

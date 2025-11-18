@@ -27,7 +27,7 @@ export const RecipeImage: React.FC<RecipeImageProps> = ({ recipeId, category, al
   };
 
   return (
-    <div className="mb-6 w-full">
+    <div className="mb-4 w-full">
       <img
         src={imageError ? defaultImage : imagePath}
         alt={alt}

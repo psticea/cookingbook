@@ -76,9 +76,9 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   const effortLevelText = getTranslation(effortLevel, language);
 
   return (
-    <section className="mb-8">
+    <section className="mb-6">
       {/* Recipe Metadata - Icons and numbers */}
-      <div className="flex items-center gap-4 mb-3 text-gray-700 dark:text-gray-300">
+      <div className="flex items-center gap-4 mb-2 text-gray-700 dark:text-gray-300">
         {/* Prep Time */}
         <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${prepTime} ${getTranslation('minutes', language)}`}>
           <span className="text-xl">⏱️</span>
@@ -98,7 +98,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
       </div>
 
       {/* Ingredient Scaler */}
-      <div className="mb-4">
+      <div className="mb-3">
         <IngredientScaler
           currentMultiplier={multiplier}
           onMultiplierChange={setMultiplier}
@@ -106,18 +106,18 @@ export const IngredientList: React.FC<IngredientListProps> = ({
       </div>
 
       {/* Ingredients Section Heading */}
-      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+      <h2 className="text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">
         {getTranslation('ingredients', language)}
       </h2>
 
       {/* Ingredients List */}
-      <ul className="space-y-2">
+      <ul className="space-y-1.5">
         {ingredients.map((item, index) => {
           if (isSection(item)) {
             // Render section heading
             return (
-              <li key={index} className="mt-6 first:mt-0">
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+              <li key={index} className="mt-4 first:mt-0">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1.5">
                   {item.section[language]}
                 </h3>
               </li>
@@ -127,7 +127,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
             return (
               <li
                 key={index}
-                className="flex items-start gap-3 text-gray-800 dark:text-gray-200"
+                className="flex items-start gap-2 text-gray-800 dark:text-gray-200"
               >
                 <span className="text-accent-light dark:text-accent-dark mt-1">•</span>
                 <span>

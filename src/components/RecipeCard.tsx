@@ -62,9 +62,9 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       </div>
 
       {/* Recipe Info */}
-      <div className="p-4">
+      <div className="p-3">
         {/* Recipe Title */}
-        <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-gray-100 line-clamp-2">
+        <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-gray-100 line-clamp-2">
           {recipe.title[language]}
         </h3>
 

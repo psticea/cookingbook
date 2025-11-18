@@ -16,7 +16,7 @@ export const RecipeHeader: React.FC<RecipeHeaderProps> = ({ recipe }) => {
   const { language } = useLanguage();
 
   return (
-    <header className="mb-6">
+    <header className="mb-4">
       {/* Recipe Title */}
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
         {recipe.title[language]}
