@@ -33,7 +33,8 @@
   - Create route definitions for all pages (Home, Recipe, About, Cooking Basics)
   - Implement App component with Router and Suspense for lazy loading
   - Create basic page components (HomePage, RecipePage, AboutPage, CookingBasicsPage)
-  - _Requirements: 1.4, 9.1, 9.3_
+  - Create Header component with Home link, Search bar placeholder, and Menu button
+  - _Requirements: 1.4, 7.1, 7.2, 7.3, 7.4, 9.1, 9.3_
 
 - [x] 4. Implement user preference management system
 
@@ -120,8 +121,8 @@
 
   - Define all 8 recipe categories with folder names, Romanian and English names
   - Categories: breakfast, pasta, stir-fries, soups-and-stews, main-courses, burgers-and-wraps, salads-and-bites, basics
-  - Define filter keywords organized by type (meat, vegetable, sauce, cooking)
-  - _Requirements: 1.1, 1.2, 1.3, 7.2_
+  - Define filter keywords organized by type (difficulty, meat, cook, ingredient)
+  - _Requirements: 1.1, 1.2, 1.3, 7.9_
 
 - [x] 6.3 Create translations JSON file
 
@@ -240,7 +241,7 @@
   - Add Footer with preference selectors
   - _Requirements: 1.1, 1.5_
 
-- [x] 10. Implement search bar on HomePage
+- [x] 10. Implement search bar in Header
 
 
 
@@ -252,15 +253,24 @@
   - Accept searchQuery, onSearchChange, and language props
   - Display clear button (X symbol) when text is entered
   - Implement clear functionality to reset search text
-  - Style with Tailwind for responsive layout
+  - Style with Tailwind for responsive layout in Header center position
   - Add appropriate placeholder text in Romanian and English
-  - _Requirements: 7A.1, 7A.6, 7A.7_
+  - _Requirements: 7.3, 7A.1, 7A.6, 7A.7_
 
-- [x] 10.2 Update HomePage component with search functionality
+- [x] 10.2 Update Header component with SearchBar
+
+
+  - Integrate SearchBar component in the center of Header
+  - Only display SearchBar when on the homepage
+  - Pass search state and handlers from HomePage to Header
+  - Style Header with Home link on left, SearchBar in center, Menu button on right
+  - _Requirements: 7.1, 7.2, 7.3, 7.4, 7A.1_
+
+- [x] 10.3 Update HomePage component with search functionality
 
 
   - Add state for searchQuery
-  - Integrate SearchBar component above recipe grid
+  - Pass search state and handlers to Header component
   - Implement search filtering logic: filter by title in selected language when 2+ characters typed
   - Combine search filtering with keyword filtering (both must match)
   - Update recipe list in real-time as user types
@@ -268,28 +278,52 @@
   - Update filtered recipe count to reflect both search and keyword filters
   - _Requirements: 7A.2, 7A.3, 7A.4, 7A.5, 7A.8_
 
-- [ ] 11. Implement filter side menu on HomePage
-- [ ] 11.1 Create FilterMenu component
-  - Create side panel that slides in from the left or right
-  - Display filter keyword options grouped by type (meat, vegetable, sauce, cooking)
-  - Allow multiple keyword selection with checkboxes
-  - Accept isOpen, onClose, selectedKeywords, and onKeywordsChange props
-  - Implement close functionality (close button, click outside, Escape key)
-  - Add "Clear All Filters" button
+- [ ] 11. Implement side menu with filters, categories, and navigation
+- [ ] 11.1 Create SideMenu component
+  - Create side panel that slides in from the right, occupying 1/3 of screen width
+  - Implement four main sections: Filters, Categories, Cooking Basics, About
+  - Add close button and implement close functionality (close button, click outside, Escape key)
   - Style with Tailwind for responsive layout with smooth slide animation
-  - _Requirements: 7.1, 7.2, 7.3, 7.7_
+  - Accept isOpen, onClose, selectedKeywords, and onKeywordsChange props
+  - _Requirements: 7.4, 7.5, 7.6, 7.16, 7.17_
 
-- [ ] 11.2 Update HomePage component with filtering
-  - Add state for selectedKeywords and isFilterMenuOpen
-  - Add filter toggle button in header area
-  - Integrate FilterMenu component
+- [ ] 11.2 Create FiltersSection component (expandable)
+  - Create expandable/collapsible Filters section within SideMenu
+  - Display four filter subsections: Difficulty, Meat Type, Cook Type, Ingredient
+  - Each subsection should be expandable/collapsible
+  - Display filter keyword options grouped by type (difficulty, meat, cook, ingredient)
+  - Allow multiple keyword selection with checkboxes
+  - Add "Clear All Filters" button
+  - Update parent component state when keywords are selected/deselected
+  - _Requirements: 7.7, 7.8, 7.9, 7.10, 7.11, 7.12_
+
+- [ ] 11.3 Create CategoriesSection component (expandable)
+  - Create expandable/collapsible Categories section within SideMenu
+  - Display all 8 food categories as clickable links
+  - Implement smooth scroll to category section on homepage when clicked
+  - Each category section on homepage should have an ID for scrolling (e.g., #breakfast, #pasta)
+  - Close side menu after category is clicked
+  - _Requirements: 7.13, 7.14, 7.15_
+
+- [ ] 11.4 Add Cooking Basics and About links to SideMenu
+  - Add Cooking Basics link that navigates to /cooking-basics page
+  - Add About link that navigates to /about page
+  - Close side menu after link is clicked
+  - Style links consistently with other menu items
+  - _Requirements: 7.16, 7.17_
+
+- [ ] 11.5 Update HomePage component with side menu integration
+  - Add state for selectedKeywords and isSideMenuOpen
+  - Integrate SideMenu component
+  - Pass menu toggle handler to Header component for Menu button
   - Implement filtering logic: show only recipes containing ALL selected keywords
-  - Display filtered recipe count in header
+  - Display filtered recipe count
   - Update recipe list in real-time as keywords change
   - Show all recipes when no keywords selected
   - Maintain filter state when menu is closed
   - Ensure search and filter work together correctly
-  - _Requirements: 7.1, 7.3, 7.4, 7.5, 7.6, 7.7, 7A.8_
+  - Organize recipe grid by categories with section IDs for scrolling
+  - _Requirements: 7.5, 7.10, 7.11, 7.12, 7.15, 7.18, 7A.8_
 
 - [ ] 12. Create AboutPage component
   - Write content about the recipe website
@@ -337,11 +371,11 @@
   - Distribute recipes across categories: breakfast, pasta, stir-fries, soups-and-stews, main-courses, burgers-and-wraps, salads-and-bites, basics
   - Use descriptive filenames (e.g., pancakes.json, beef-stew.json, caesar-salad.json)
   - Ensure all recipes have complete data with Romanian and English translations
-  - Assign appropriate filter keywords to each recipe
+  - Assign appropriate filter keywords to each recipe from the four types: difficulty, meat type, cook type, ingredient
   - Include dateAdded field with ISO 8601 date format (YYYY-MM-DD) for each recipe
   - Use placeholder image paths (to be replaced with actual images later)
   - No need for sequential numbering - just add files to appropriate folders
-  - _Requirements: 1.1, 1.2, 1.3, 1.5, 1.6_
+  - _Requirements: 1.1, 1.2, 1.3, 1.5, 1.6, 7.9_
 
 - [ ] 17. Prepare for static hosting deployment
   - Create deployment configuration files (netlify.toml, vercel.json) for various platforms
@@ -362,20 +396,24 @@
 
 - [ ]* 19. Write unit tests for core functionality
   - Test IngredientScaler: verify scaling calculations (0.5x, 1x, 1.5x, 2x, etc.)
-  - Test filtering logic: verify recipes filtered correctly with multiple keywords
+  - Test filtering logic: verify recipes filtered correctly with multiple keywords from four filter types
   - Test search logic: verify recipes filtered correctly by title with 2+ characters
   - Test combined search and filter: verify both filters work together
+  - Test category scrolling: verify smooth scroll to category sections
   - Test useLocalStorage hook: verify read/write to localStorage
   - Test translation utility: verify correct translations returned
-  - _Requirements: 3.2, 6.4, 7A.3, 7A.8_
+  - _Requirements: 3.2, 6.4, 7.12, 7.15, 7A.3, 7A.8_
 
 - [ ]* 20. Write integration tests for user workflows
   - Test language switching: change language and verify all text updates
   - Test theme switching: toggle theme and verify CSS classes applied
   - Test text size adjustment: change size and verify HTML attribute updated
   - Test ingredient scaling: adjust scaler and verify quantities update
-  - Test filtering: select keywords and verify recipe list updates
+  - Test side menu: open/close menu and verify visibility
+  - Test filtering: expand filters section, select keywords from four types, and verify recipe list updates
+  - Test categories: expand categories section, click category, and verify scroll to section
   - Test search: type in search bar and verify recipe list updates
   - Test search clear: click X button and verify search is cleared
   - Test combined search and filter: use both and verify correct results
-  - _Requirements: 4.3, 4.4, 5.3, 6.4, 6.5, 3.3, 6.6, 7A.5, 7A.7, 7A.8_
+  - Test navigation: click Cooking Basics and About links in side menu
+  - _Requirements: 4.3, 4.4, 5.3, 6.4, 6.5, 3.3, 6.6, 7.5, 7.12, 7.15, 7.16, 7.17, 7A.5, 7A.7, 7A.8_

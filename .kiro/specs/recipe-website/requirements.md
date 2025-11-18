@@ -9,6 +9,8 @@ This document specifies the requirements for a multilingual recipe website. The 
 - **Recipe Website**: The web application system that displays and manages cooking recipes
 - **User**: A person accessing the Recipe Website through a web browser
 - **Recipe Page**: A web page displaying a single recipe with ingredients, instructions, and metadata
+- **Header**: A UI component at the top of each page containing navigation elements
+- **Side Menu**: A panel UI component that slides in from the side, occupying one-third of the screen width, containing navigation and filtering options
 - **Filter Menu**: A side panel UI component that allows Users to filter recipes based on keywords
 - **Ingredient Scaler**: A UI component that adjusts ingredient quantities based on serving size
 - **Language Selector**: A UI component positioned at the bottom of each page that switches the website language between Romanian and English
@@ -18,8 +20,8 @@ This document specifies the requirements for a multilingual recipe website. The 
 - **About Page**: A static page providing information about the website
 - **Cooking Basics Page**: A page containing fundamental cooking advice and pantry recommendations
 - **Category**: A classification grouping for recipes
-- **Filter Keyword**: A searchable term associated with recipes (e.g., meat type, vegetables, sauce, cooking type)
-- **Search Bar**: A text input UI component on the home page that filters recipes by title in real-time
+- **Filter Keyword**: A searchable term associated with recipes (e.g., difficulty, meat type, cook type, ingredient)
+- **Search Bar**: A text input UI component in the center of the Header that filters recipes by title in real-time
 
 ## Requirements
 
@@ -100,25 +102,36 @@ This document specifies the requirements for a multilingual recipe website. The 
 
 ### Requirement 7
 
-**User Story:** As a User, I want to filter recipes by keywords, so that I can find recipes matching specific criteria
+**User Story:** As a User, I want to navigate the website and access filtering options through a side menu, so that I can easily find recipes and access different sections
 
 #### Acceptance Criteria
 
-1. WHEN a User views the home page, THE Recipe Website SHALL display a Filter Menu toggle button
-2. THE Recipe Website SHALL associate each recipe with Filter Keywords from the following types: meat type, vegetables, sauce, and cooking type
-3. WHEN a User opens the Filter Menu, THE Recipe Website SHALL display Filter Keyword selection options in a side panel
-4. WHEN a User selects multiple Filter Keywords, THE Recipe Website SHALL display only recipes that contain all selected Filter Keywords on the home page
-5. WHEN a User selects zero Filter Keywords, THE Recipe Website SHALL display all available recipes on the home page
-6. THE Recipe Website SHALL update the displayed recipe list in real-time as Filter Keywords are selected or deselected
-7. WHEN a User closes the Filter Menu, THE Recipe Website SHALL maintain the selected filters and continue displaying the filtered recipe list
+1. WHEN a User views any page, THE Recipe Website SHALL display a Header component at the top
+2. THE Header SHALL display a Home link on the left side
+3. THE Header SHALL display a Search Bar in the center
+4. THE Header SHALL display a menu icon button on the right side
+5. WHEN a User clicks the menu icon, THE Recipe Website SHALL open a Side Menu that occupies one-third of the screen width
+6. THE Side Menu SHALL contain four sections: Filters, Categories, Cooking Basics, and About
+7. THE Filters section SHALL be expandable and collapsible
+8. WHEN the Filters section is expanded, THE Recipe Website SHALL display four filter subsections with keywords for filtering recipes
+9. THE Recipe Website SHALL associate each recipe with Filter Keywords from the following types: difficulty, meat type, cook type, and ingredient
+10. WHEN a User selects multiple Filter Keywords, THE Recipe Website SHALL display only recipes that contain all selected Filter Keywords on the home page
+11. WHEN a User selects zero Filter Keywords, THE Recipe Website SHALL display all available recipes on the home page
+12. THE Recipe Website SHALL update the displayed recipe list in real-time as Filter Keywords are selected or deselected
+13. THE Categories section SHALL be expandable and collapsible
+14. WHEN the Categories section is expanded, THE Recipe Website SHALL display all eight food categories available on the site
+15. WHEN a User clicks a category in the Side Menu, THE Recipe Website SHALL scroll to the selected category section on the homepage
+16. WHEN a User clicks Cooking Basics in the Side Menu, THE Recipe Website SHALL navigate to the Cooking Basics page
+17. WHEN a User clicks About in the Side Menu, THE Recipe Website SHALL navigate to the About page
+18. WHEN a User closes the Side Menu, THE Recipe Website SHALL maintain the selected filters and continue displaying the filtered recipe list
 
 ### Requirement 7A
 
-**User Story:** As a User, I want to search recipes by title, so that I can quickly find a specific recipe I'm looking for
+**User Story:** As a User, I want to search recipes by title from the header, so that I can quickly find a specific recipe I'm looking for
 
 #### Acceptance Criteria
 
-1. WHEN a User views the home page, THE Recipe Website SHALL display a Search Bar component
+1. WHEN a User views the home page, THE Recipe Website SHALL display a Search Bar component in the center of the Header
 2. THE Search Bar SHALL filter recipes based on the title in the currently selected language
 3. WHEN a User types at least 2 characters in the Search Bar, THE Recipe Website SHALL display only recipes whose titles contain the typed text
 4. WHEN a User types fewer than 2 characters in the Search Bar, THE Recipe Website SHALL display all recipes matching the current Filter Keywords

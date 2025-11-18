@@ -133,12 +133,21 @@ All recipe data will be stored as JSON files organized by category folders:
 ```
 App
 ├── Header
-│   └── Navigation
+│   ├── HomeLink
+│   ├── SearchBar
+│   └── MenuButton
+├── SideMenu (1/3 screen width)
+│   ├── FiltersSection (expandable)
+│   │   ├── DifficultyFilters
+│   │   ├── MeatTypeFilters
+│   │   ├── CookTypeFilters
+│   │   └── IngredientFilters
+│   ├── CategoriesSection (expandable)
+│   │   └── CategoryLinks (8 categories)
+│   ├── CookingBasicsLink
+│   └── AboutLink
 ├── Router
 │   ├── HomePage
-│   │   ├── SearchBar
-│   │   ├── FilterMenu (side panel)
-│   │   │   └── FilterControls
 │   │   └── RecipeGrid
 │   │       └── RecipeCard
 │   ├── RecipePage
@@ -210,50 +219,104 @@ Allows users to adjust ingredient quantities.
 - Minimum: 0.5x, Maximum: 3x
 - Increment step: 0.5x
 
-#### 3. FilterMenu Component
+#### 3. Header Component
 
-A side panel that slides in from the left or right to display filtering options.
+The main navigation bar at the top of every page.
 
 **Props:**
-- `isOpen: boolean` - Controls visibility of the side panel
+- `onMenuToggle: () => void` - Callback when menu button is clicked
+
+**Layout:**
+```
+┌─────────────────────────────────────────────┐
+│ [Home]    [Search Bar...]    [☰ Menu]      │
+└─────────────────────────────────────────────┘
+```
+
+**Behavior:**
+- Fixed at the top of the page
+- Home link on the left navigates to homepage
+- Search bar in the center (only visible on homepage)
+- Menu icon button on the right opens the side menu
+
+#### 4. SideMenu Component
+
+A side panel that slides in from the right, occupying one-third of the screen width.
+
+**Props:**
+- `isOpen: boolean` - Controls visibility of the side menu
 - `onClose: () => void` - Callback when menu should close
 - `selectedKeywords: Set<string>` - Currently selected filter keywords
 - `onKeywordsChange: (keywords: Set<string>) => void` - Callback when keywords change
 
-**Filter Categories:**
-- Meat Type (e.g., chicken, beef, pork, fish, vegetarian)
-- Vegetables (e.g., tomatoes, onions, peppers, potatoes)
-- Sauce (e.g., tomato-based, cream-based, oil-based)
-- Cooking Type (e.g., baking, frying, boiling, grilling)
+**Sections:**
+1. **Filters** (expandable)
+   - Difficulty (e.g., easy, medium, hard)
+   - Meat Type (e.g., chicken, beef, pork, fish, vegetarian)
+   - Cook Type (e.g., baking, frying, boiling, grilling, stir-fry)
+   - Ingredient (e.g., tomatoes, onions, peppers, potatoes, pasta, rice)
+
+2. **Categories** (expandable)
+   - Lists all 8 food categories
+   - Clicking a category scrolls to that section on the homepage
+
+3. **Cooking Basics** (link)
+   - Navigates to Cooking Basics page
+
+4. **About** (link)
+   - Navigates to About page
 
 **Behavior:**
-- Slides in from the side when opened
-- Displays filter keyword checkboxes grouped by category
+- Slides in from the right when opened
+- Occupies 1/3 of screen width
+- Filters and Categories sections are expandable/collapsible
+- Displays filter keyword checkboxes grouped by the four filter types
 - Updates parent component state when keywords are selected/deselected
 - Can be closed by clicking outside, pressing Escape, or clicking a close button
 - Maintains selected filters when closed
+- Category links scroll to the corresponding section on the homepage
 
 **Layout:**
 ```
 ┌─────────────────────────────────┐
-│ [X] Filters                      │
+│ [X] Close                        │
 ├─────────────────────────────────┤
-│ Meat Type                        │
-│ ☐ Chicken                       │
-│ ☐ Beef                          │
-│ ☐ Pork                          │
-│                                  │
-│ Vegetables                       │
-│ ☐ Tomatoes                      │
-│ ☐ Onions                        │
-│                                  │
-│ [Clear All Filters]             │
+│ ▼ Filters                        │
+│   ▼ Difficulty                   │
+│     ☐ Easy                       │
+│     ☐ Medium                     │
+│     ☐ Hard                       │
+│   ▼ Meat Type                    │
+│     ☐ Chicken                    │
+│     ☐ Beef                       │
+│     ☐ Pork                       │
+│   ▼ Cook Type                    │
+│     ☐ Baking                     │
+│     ☐ Frying                     │
+│   ▼ Ingredient                   │
+│     ☐ Tomatoes                   │
+│     ☐ Onions                     │
+│   [Clear All Filters]            │
+├─────────────────────────────────┤
+│ ▼ Categories                     │
+│   • Breakfast                    │
+│   • Pasta                        │
+│   • Stir-Fries                   │
+│   • Soups & Stews                │
+│   • Main Courses                 │
+│   • Burgers & Wraps              │
+│   • Salads & Bites               │
+│   • Basics                       │
+├─────────────────────────────────┤
+│ Cooking Basics                   │
+├─────────────────────────────────┤
+│ About                            │
 └─────────────────────────────────┘
 ```
 
-#### 4. SearchBar Component
+#### 5. SearchBar Component
 
-A text input component that filters recipes by title in real-time.
+A text input component in the Header that filters recipes by title in real-time.
 
 **Props:**
 - `searchQuery: string` - Current search text
@@ -261,11 +324,12 @@ A text input component that filters recipes by title in real-time.
 - `language: Language` - Current language for placeholder text
 
 **Behavior:**
-- Displays a text input field with search icon
+- Displays a text input field with search icon in the center of the Header
 - Shows a clear button (X symbol) when text is entered
 - Triggers filtering when at least 2 characters are typed
 - Clears search text when X button is clicked
 - Updates in real-time as user types
+- Only visible on the homepage
 
 **Layout:**
 ```
@@ -274,13 +338,13 @@ A text input component that filters recipes by title in real-time.
 └─────────────────────────────────┘
 ```
 
-#### 5. HomePage Component
+#### 6. HomePage Component
 
 Displays all recipes with integrated filtering and search.
 
 **State:**
 - `selectedKeywords: Set<string>` - Currently selected filter keywords
-- `isFilterMenuOpen: boolean` - Controls FilterMenu visibility
+- `isSideMenuOpen: boolean` - Controls SideMenu visibility
 - `searchQuery: string` - Current search text
 
 **Filtering Logic:**
@@ -298,30 +362,42 @@ const filteredRecipes = recipes.filter((recipe: Recipe) => {
 });
 ```
 
+**Category Scrolling:**
+- Each category section on the homepage has an ID (e.g., `#breakfast`, `#pasta`)
+- When a category is clicked in the SideMenu, the page scrolls to that section
+- Uses smooth scrolling behavior
+
 **Layout:**
 ```
 ┌─────────────────────────────────┐
-│ Header with Navigation           │
+│ [Home] [Search Bar...] [☰ Menu] │
 ├─────────────────────────────────┤
-│ [🔍 Filter] [Search Bar    ] [X]│
 │ All Recipes (X)                  │
 ├─────────────────────────────────┤
-│ [Recipe Grid]                    │
+│ [Recipe Grid by Category]        │
 │                                  │
+│ === Breakfast ===                │
+│ [Recipe Cards]                   │
+│                                  │
+│ === Pasta ===                    │
+│ [Recipe Cards]                   │
+│                                  │
+│ ... (all 8 categories)           │
 └─────────────────────────────────┘
 
-When filter menu is open:
-┌──────────┬──────────────────────┐
-│ Filter   │ Header               │
-│ Menu     ├──────────────────────┤
-│          │ [Search Bar    ] [X] │
-│ [Filters]│ All Recipes (X)      │
-│          │ [Recipe Grid]        │
-│          │                      │
-└──────────┴──────────────────────┘
+When side menu is open:
+┌──────────────────────┬──────────┐
+│ [Home] [Search] [☰]  │ Side     │
+├──────────────────────┤ Menu     │
+│ All Recipes (X)      │          │
+├──────────────────────┤ [Filters]│
+│ [Recipe Grid]        │ [Cats]   │
+│                      │ [Links]  │
+│                      │          │
+└──────────────────────┴──────────┘
 ```
 
-#### 6. Footer Component
+#### 7. Footer Component
 
 Contains all user preference controls.
 
@@ -349,7 +425,18 @@ Home (/)
 └── Cooking Basics (/cooking-basics)
 ```
 
-Note: Filtering is now integrated into the HomePage via a side menu, not a separate route.
+**Header Navigation:**
+- Home link: Always visible, navigates to homepage
+- Search bar: Only visible on homepage, filters recipes in real-time
+- Menu button: Opens side menu with filters, categories, and page links
+
+**Side Menu Navigation:**
+- Filters section: Expandable, filters recipes on homepage
+- Categories section: Expandable, scrolls to category sections on homepage
+- Cooking Basics: Link to /cooking-basics page
+- About: Link to /about page
+
+Note: Filtering and category navigation are integrated into the HomePage via the side menu, not separate routes.
 
 ## Data Models
 
@@ -428,7 +515,7 @@ interface Category {
 ```typescript
 interface FilterKeyword {
   id: string;
-  type: "meat" | "vegetable" | "sauce" | "cooking";
+  type: "difficulty" | "meat" | "cook" | "ingredient";
   label: {
     ro: string;
     en: string;
