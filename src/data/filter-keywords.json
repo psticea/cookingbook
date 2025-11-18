@@ -120,14 +120,6 @@
     }
   },
   {
-    "id": "spinach",
-    "type": "vegetable",
-    "label": {
-      "ro": "Spanac",
-      "en": "Spinach"
-    }
-  },
-  {
     "id": "tomato-based",
     "type": "sauce",
     "label": {
