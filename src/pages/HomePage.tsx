@@ -97,10 +97,10 @@ const HomePage: React.FC = () => {
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
       
-      <main className="flex-1 max-w-7xl mx-auto px-4 py-6 w-full">
+      <main className="flex-1 max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 w-full">
         {loading && (
           <div className="text-center py-8">
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
               {getTranslation('loading', language)}
             </p>
           </div>
@@ -108,7 +108,7 @@ const HomePage: React.FC = () => {
 
         {error && (
           <div className="text-center py-8">
-            <p className="text-xl text-red-600 dark:text-red-400">
+            <p className="text-lg sm:text-xl text-red-600 dark:text-red-400">
               {getTranslation('errorOccurred', language)}
             </p>
           </div>
@@ -119,14 +119,14 @@ const HomePage: React.FC = () => {
             {recipes.length > 0 && (
               <>
                 {/* Recipe count */}
-                <div className="mb-4">
-                  <p className="text-lg text-gray-700 dark:text-gray-300">
+                <div className="mb-4 sm:mb-6">
+                  <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300">
                     {getTranslation('allRecipes', language)} ({totalFilteredCount})
                   </p>
                 </div>
 
                 {/* Recipe sections by category */}
-                <div className="space-y-8">
+                <div className="space-y-6 sm:space-y-8">
                   {categories.map((category) => {
                     const categoryRecipes = getRecipesByCategory(filteredRecipes, category.id);
                     
@@ -137,9 +137,9 @@ const HomePage: React.FC = () => {
                       <section 
                         key={category.id} 
                         id={`category-${category.id}`}
-                        className="category-section scroll-mt-16"
+                        className="category-section scroll-mt-16 sm:scroll-mt-20"
                       >
-                        <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+                        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
                           {category.name[language]}
                         </h2>
                         <RecipeGrid recipes={categoryRecipes} />
@@ -151,7 +151,7 @@ const HomePage: React.FC = () => {
                 {/* No results message */}
                 {filteredRecipes.length === 0 && (
                   <div className="text-center py-8">
-                    <p className="text-xl text-gray-600 dark:text-gray-400">
+                    <p className="text-base sm:text-xl text-gray-600 dark:text-gray-400">
                       {getTranslation('noRecipesFound', language)}
                     </p>
                   </div>
@@ -161,7 +161,7 @@ const HomePage: React.FC = () => {
 
             {recipes.length === 0 && (
               <div className="text-center py-8">
-                <p className="text-xl text-gray-600 dark:text-gray-400">
+                <p className="text-base sm:text-xl text-gray-600 dark:text-gray-400">
                   {getTranslation('noRecipesFound', language)}
                 </p>
               </div>

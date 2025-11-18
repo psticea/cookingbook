@@ -24,17 +24,17 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
 
   return (
     <div className="border-b border-gray-200 dark:border-gray-700 pb-4">
-      {/* Section header */}
+      {/* Section header - touch-friendly */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between py-3 text-left"
+        className="w-full flex items-center justify-between py-3 text-left min-h-[44px]"
         aria-expanded={isExpanded}
       >
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
           {getTranslation('categories', language)}
         </h3>
         <svg
-          className={`h-5 w-5 text-gray-600 dark:text-gray-400 transform transition-transform ${
+          className={`h-5 w-5 sm:h-6 sm:w-6 text-gray-600 dark:text-gray-400 transform transition-transform ${
             isExpanded ? 'rotate-180' : ''
           }`}
           fill="none"
@@ -45,14 +45,14 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
         </svg>
       </button>
 
-      {/* Expanded content */}
+      {/* Expanded content - touch-friendly buttons */}
       {isExpanded && (
-        <div className="space-y-2 mt-2 ml-2">
+        <div className="space-y-1 mt-2 ml-2">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => handleCategoryClick(category.id)}
-              className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors"
+              className="w-full text-left px-3 py-2.5 text-sm sm:text-base text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors min-h-[44px] flex items-center"
             >
               • {category.name[language]}
             </button>

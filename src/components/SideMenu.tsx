@@ -63,7 +63,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
         aria-hidden="true"
       />
 
-      {/* Side Menu Panel */}
+      {/* Side Menu Panel - responsive width */}
       <div
         className={`fixed top-0 right-0 h-full w-full sm:w-2/3 md:w-1/2 lg:w-1/3 bg-white dark:bg-gray-800 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
@@ -72,14 +72,14 @@ export const SideMenu: React.FC<SideMenuProps> = ({
         aria-modal="true"
         aria-label={getTranslation('menu', language)}
       >
-        {/* Header with close button */}
-        <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex items-center justify-between z-10">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+        {/* Header with close button - touch-friendly */}
+        <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-10">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">
             {getTranslation('menu', language)}
           </h2>
           <button
             onClick={onClose}
-            className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
             aria-label={getTranslation('close', language)}
           >
             <svg
@@ -99,8 +99,8 @@ export const SideMenu: React.FC<SideMenuProps> = ({
           </button>
         </div>
 
-        {/* Menu content */}
-        <div className="px-6 py-4">
+        {/* Menu content - responsive padding */}
+        <div className="px-4 sm:px-6 py-3 sm:py-4">
           {children}
         </div>
       </div>

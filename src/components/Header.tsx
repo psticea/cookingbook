@@ -28,13 +28,13 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40">
-      <nav className="max-w-7xl mx-auto px-4 py-2">
-        <div className="flex items-center justify-between gap-4">
-          {/* Left: Home link */}
+      <nav className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-2 sm:py-3">
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
+          {/* Left: Home link - touch-friendly on mobile */}
           <div className="flex-shrink-0">
             <Link
               to="/"
-              className={`text-base font-medium transition-colors duration-200 whitespace-nowrap ${
+              className={`text-sm sm:text-base font-medium transition-colors duration-200 whitespace-nowrap min-h-[44px] flex items-center px-2 sm:px-0 ${
                 isHomePage
                   ? 'text-accent-light dark:text-accent-dark'
                   : 'text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark'
@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
           
           {/* Center: Search Bar - only shown on home page */}
-          <div className="flex-1 max-w-md mx-4">
+          <div className="flex-1 max-w-md mx-2 sm:mx-4">
             {showSearch && onSearchChange && isHomePage && (
               <SearchBar
                 searchQuery={searchQuery}
@@ -55,15 +55,15 @@ export const Header: React.FC<HeaderProps> = ({
             )}
           </div>
 
-          {/* Right: Menu button */}
+          {/* Right: Menu button - touch-friendly minimum 44x44px */}
           <div className="flex-shrink-0">
             <button
               onClick={onMenuToggle}
-              className="p-2 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
               aria-label={getTranslation('menu', language)}
             >
               <svg
-                className="h-6 w-6"
+                className="h-6 w-6 sm:h-7 sm:w-7"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

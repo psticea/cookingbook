@@ -37,32 +37,32 @@ export const IngredientScaler: React.FC<IngredientScalerProps> = ({
   };
 
   return (
-    <div className="flex items-center justify-center gap-4 mb-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 p-3 sm:p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+      <span className="text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300">
         {getTranslation('servingMultiplier', language)}:
       </span>
       
-      <div className="flex items-center gap-3">
-        {/* Decrement Button */}
+      <div className="flex items-center gap-3 sm:gap-4">
+        {/* Decrement Button - touch-friendly minimum 44x44px */}
         <button
           onClick={handleDecrement}
           disabled={currentMultiplier <= MIN_MULTIPLIER}
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-xl shadow-md hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="min-w-[44px] min-h-[44px] w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-xl sm:text-2xl shadow-md hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors active:scale-95"
           aria-label="Decrease multiplier"
         >
           −
         </button>
 
         {/* Current Multiplier Display */}
-        <span className="text-xl font-bold text-gray-900 dark:text-gray-100 min-w-[4rem] text-center">
+        <span className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 min-w-[4rem] sm:min-w-[5rem] text-center">
           {currentMultiplier.toFixed(1)}x
         </span>
 
-        {/* Increment Button */}
+        {/* Increment Button - touch-friendly minimum 44x44px */}
         <button
           onClick={handleIncrement}
           disabled={currentMultiplier >= MAX_MULTIPLIER}
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-xl shadow-md hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="min-w-[44px] min-h-[44px] w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-xl sm:text-2xl shadow-md hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors active:scale-95"
           aria-label="Increase multiplier"
         >
           +

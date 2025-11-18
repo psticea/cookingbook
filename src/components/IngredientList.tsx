@@ -78,27 +78,27 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   return (
     <section className="mb-6">
       {/* Recipe Metadata - Icons and numbers */}
-      <div className="flex items-center gap-4 mb-2 text-gray-700 dark:text-gray-300">
+      <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 text-gray-700 dark:text-gray-300">
         {/* Prep Time */}
         <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${prepTime} ${getTranslation('minutes', language)}`}>
-          <span className="text-xl">⏱️</span>
-          <span className="text-sm font-medium">{prepTime}</span>
+          <span className="text-lg sm:text-xl">⏱️</span>
+          <span className="text-sm sm:text-base font-medium">{prepTime}</span>
         </div>
 
         {/* Servings - Updates with multiplier */}
         <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${scaledServings}`}>
-          <span className="text-xl">🍽️</span>
-          <span className="text-sm font-medium">{scaledServings}</span>
+          <span className="text-lg sm:text-xl">🍽️</span>
+          <span className="text-sm sm:text-base font-medium">{scaledServings}</span>
         </div>
 
         {/* Effort Level - Puzzle Pieces */}
         <div className="flex items-center gap-1" title={`${getTranslation('effortLevel', language)}: ${effortLevelText}`}>
-          <span className="text-xl">{getPuzzlePieces(effortLevel)}</span>
+          <span className="text-lg sm:text-xl">{getPuzzlePieces(effortLevel)}</span>
         </div>
       </div>
 
       {/* Ingredient Scaler */}
-      <div className="mb-3">
+      <div className="mb-4">
         <IngredientScaler
           currentMultiplier={multiplier}
           onMultiplierChange={setMultiplier}
@@ -106,18 +106,18 @@ export const IngredientList: React.FC<IngredientListProps> = ({
       </div>
 
       {/* Ingredients Section Heading */}
-      <h2 className="text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">
+      <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
         {getTranslation('ingredients', language)}
       </h2>
 
       {/* Ingredients List */}
-      <ul className="space-y-1.5">
+      <ul className="space-y-2">
         {ingredients.map((item, index) => {
           if (isSection(item)) {
             // Render section heading
             return (
               <li key={index} className="mt-4 first:mt-0">
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1.5">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
                   {item.section[language]}
                 </h3>
               </li>
@@ -127,7 +127,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
             return (
               <li
                 key={index}
-                className="flex items-start gap-2 text-gray-800 dark:text-gray-200"
+                className="flex items-start gap-2 text-sm sm:text-base text-gray-800 dark:text-gray-200"
               >
                 <span className="text-accent-light dark:text-accent-dark mt-1">•</span>
                 <span>

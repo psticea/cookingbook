@@ -75,7 +75,7 @@ const RecipePage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
       <Header />
-      <main className="flex-1 max-w-4xl mx-auto px-4 py-8 w-full">
+      <main className="flex-1 max-w-4xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8 w-full">
         {/* Recipe Header */}
         <RecipeHeader recipe={recipe} />
 

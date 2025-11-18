@@ -349,7 +349,12 @@
   - Organize recipe grid by categories with section IDs for scrolling
   - _Requirements: 7.5, 7.10, 7.11, 7.12, 7.15, 7.18, 7A.8_
 
-- [ ] 12. Create AboutPage component
+- [x] 12. Create AboutPage component
+
+
+
+
+
   - Write content about the recipe website
   - Support both Romanian and English text
   - Style with Tailwind for clean, readable layout
@@ -363,7 +368,12 @@
   - Add Footer with preference selectors
   - _Requirements: 9.1, 9.2, 9.3_
 
-- [ ] 13. Create CookingBasicsPage component
+- [x] 13. Create CookingBasicsPage component
+
+
+
+
+
   - Write content about reading recipes thoroughly before cooking
   - Write content about preparing all ingredients before cooking (mise en place)
   - Write content about pantry staples to stock at home
@@ -372,7 +382,10 @@
   - Add Footer with preference selectors
   - _Requirements: 9.3, 9.4, 9.5, 9.6_
 
-- [ ] 14. Implement responsive design for mobile and desktop
+- [-] 14. Implement responsive design for mobile and desktop
+
+
+
   - Apply Tailwind responsive classes throughout all components
   - Test layouts at mobile (320px-767px), tablet (768px-1023px), and desktop (1024px+) breakpoints
   - Ensure touch-friendly button sizes on mobile (minimum 44x44px)

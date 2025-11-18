@@ -19,7 +19,7 @@ export const LanguageSelector: React.FC = () => {
     <div className="flex items-center gap-2">
       <button
         onClick={() => handleLanguageChange('ro')}
-        className={`px-2 py-1 text-sm rounded transition-colors ${
+        className={`min-w-[44px] min-h-[44px] px-3 py-2 text-sm sm:text-base rounded transition-colors ${
           language === 'ro'
             ? 'bg-accent-light dark:bg-accent-dark text-white font-semibold'
             : 'hover:bg-secondary-light dark:hover:bg-secondary-dark'
@@ -32,7 +32,7 @@ export const LanguageSelector: React.FC = () => {
       <span className="text-sm opacity-50">|</span>
       <button
         onClick={() => handleLanguageChange('en')}
-        className={`px-2 py-1 text-sm rounded transition-colors ${
+        className={`min-w-[44px] min-h-[44px] px-3 py-2 text-sm sm:text-base rounded transition-colors ${
           language === 'en'
             ? 'bg-accent-light dark:bg-accent-dark text-white font-semibold'
             : 'hover:bg-secondary-light dark:hover:bg-secondary-dark'
