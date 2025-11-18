@@ -16,7 +16,7 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
   onCategoryClick
 }) => {
   const { language } = useLanguage();
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleCategoryClick = (categoryId: string) => {
     onCategoryClick(categoryId);

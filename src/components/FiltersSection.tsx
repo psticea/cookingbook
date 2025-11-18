@@ -19,10 +19,7 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
   onKeywordsChange
 }) => {
   const { language } = useLanguage();
-  const [isExpanded, setIsExpanded] = useState(true);
-  const [expandedSubsections, setExpandedSubsections] = useState<Set<FilterKeywordType>>(
-    new Set(['meat', 'cooking', 'vegetable', 'sauce'])
-  );
+  const [isExpanded, setIsExpanded] = useState(false);
 
   // Group keywords by type
   const keywordsByType = (filterKeywords as FilterKeyword[]).reduce((acc, keyword) => {
@@ -41,16 +38,6 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
     { type: 'vegetable', labelKey: 'vegetables' },
     { type: 'sauce', labelKey: 'sauce' }
   ];
-
-  const toggleSubsection = (type: FilterKeywordType) => {
-    const newExpanded = new Set(expandedSubsections);
-    if (newExpanded.has(type)) {
-      newExpanded.delete(type);
-    } else {
-      newExpanded.add(type);
-    }
-    setExpandedSubsections(newExpanded);
-  };
 
   const handleKeywordToggle = (keywordId: string) => {
     const newKeywords = new Set(selectedKeywords);
@@ -97,52 +84,32 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
             const keywords = keywordsByType[type] || [];
             if (keywords.length === 0) return null;
 
-            const isSubsectionExpanded = expandedSubsections.has(type);
-
             return (
               <div key={type} className="ml-2">
                 {/* Subsection header */}
-                <button
-                  onClick={() => toggleSubsection(type)}
-                  className="w-full flex items-center justify-between py-2 text-left"
-                  aria-expanded={isSubsectionExpanded}
-                >
-                  <h4 className="text-base font-medium text-gray-800 dark:text-gray-200">
-                    {getTranslation(labelKey, language)}
-                  </h4>
-                  <svg
-                    className={`h-4 w-4 text-gray-500 dark:text-gray-500 transform transition-transform ${
-                      isSubsectionExpanded ? 'rotate-180' : ''
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
+                <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 py-2">
+                  {getTranslation(labelKey, language)}
+                </h4>
 
                 {/* Subsection keywords */}
-                {isSubsectionExpanded && (
-                  <div className="ml-4 space-y-2 mt-2">
-                    {keywords.map((keyword) => (
-                      <label
-                        key={keyword.id}
-                        className="flex items-center space-x-3 cursor-pointer group"
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedKeywords.has(keyword.id)}
-                          onChange={() => handleKeywordToggle(keyword.id)}
-                          className="h-4 w-4 text-accent-light dark:text-accent-dark border-gray-300 dark:border-gray-600 rounded focus:ring-accent-light dark:focus:ring-accent-dark"
-                        />
-                        <span className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100">
-                          {keyword.label[language]}
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                )}
+                <div className="ml-4 space-y-2 mt-2">
+                  {keywords.map((keyword) => (
+                    <label
+                      key={keyword.id}
+                      className="flex items-center space-x-3 cursor-pointer group"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedKeywords.has(keyword.id)}
+                        onChange={() => handleKeywordToggle(keyword.id)}
+                        className="h-4 w-4 text-accent-light dark:text-accent-dark border-gray-300 dark:border-gray-600 rounded focus:ring-accent-light dark:focus:ring-accent-dark"
+                      />
+                      <span className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100">
+                        {keyword.label[language]}
+                      </span>
+                    </label>
+                  ))}
+                </div>
               </div>
             );
           })}
