@@ -9,6 +9,7 @@ import translationsData from './translations.json';
 
 // Import recipes from all 8 category folders
 import sarmaleCuMamaliga from './recipes/main-courses/sarmale-cu-mamaliga.json';
+import puiMarinatLaCuptor from './recipes/main-courses/pui-marinat-la-cuptor.json';
 import ciorbaDeBurta from './recipes/soups-and-stews/ciorba-de-burta.json';
 import spaghettiCarbonara from './recipes/pasta/spaghetti-carbonara.json';
 import omletaCuBranza from './recipes/breakfast/omleta-cu-branza.json';
@@ -41,6 +42,7 @@ export const translations = translationsData as {
 // Category is automatically set based on folder location
 export const recipes: Recipe[] = [
   sarmaleCuMamaliga,
+  puiMarinatLaCuptor,
   ciorbaDeBurta,
   spaghettiCarbonara,
   omletaCuBranza,

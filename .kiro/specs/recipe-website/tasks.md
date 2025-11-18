@@ -181,10 +181,13 @@
 
 
   - Display list of ingredients with quantities and units
+  - Support both flat ingredient lists and grouped ingredient sections
+  - When ingredients are grouped, display section headings (e.g., "Marinade", "Sauce", "Main Ingredients")
+  - When ingredients are not grouped, display as a single list without headings
   - Integrate IngredientScaler component
-  - Calculate and display scaled quantities based on multiplier
-  - Support both Romanian and English ingredient names and units
-  - _Requirements: 2.4, 3.1, 3.2, 3.3_
+  - Calculate and display scaled quantities based on multiplier for all ingredients regardless of grouping
+  - Support both Romanian and English ingredient names, units, and section headings
+  - _Requirements: 2.4, 2.5, 2.6, 3.1, 3.2, 3.3_
 
 - [x] 8.5 Create InstructionList component
 
@@ -396,7 +399,30 @@
   - Include dateAdded field with ISO 8601 date format (YYYY-MM-DD) for each recipe
   - Use placeholder image paths (to be replaced with actual images later)
   - No need for sequential numbering - just add files to appropriate folders
+  - Optionally use ingredient subsections for recipes where logical grouping is beneficial (e.g., marinade, sauce, garnish)
   - _Requirements: 1.1, 1.2, 1.3, 1.5, 1.6, 7.9_
+
+- [ ] 16A. Implement ingredient subsections support
+- [ ] 16A.1 Update TypeScript interfaces for ingredient subsections
+  - Update Recipe interface to support both flat ingredient lists and grouped sections
+  - Add IngredientSection interface with sectionName and items properties
+  - Ensure backward compatibility with existing flat ingredient lists
+  - _Requirements: 2.5, 2.6_
+
+- [ ] 16A.2 Update IngredientList component to support subsections
+  - Add logic to detect whether ingredients are flat list or grouped sections
+  - When grouped, render section headings with appropriate styling
+  - When flat, render ingredients without section headings (existing behavior)
+  - Ensure ingredient scaling works correctly for both flat and grouped structures
+  - Apply consistent styling for section headings in both Romanian and English
+  - _Requirements: 2.5, 2.6, 3.1, 3.2, 3.3_
+
+- [ ]* 16A.3 Add unit tests for ingredient subsections
+  - Test detection of flat vs grouped ingredient structures
+  - Test rendering of section headings when ingredients are grouped
+  - Test rendering without section headings when ingredients are flat
+  - Test ingredient scaling with grouped sections
+  - _Requirements: 2.5, 2.6, 3.2_
 
 - [ ] 17. Prepare for static hosting deployment
   - Create deployment configuration files (netlify.toml, vercel.json) for various platforms

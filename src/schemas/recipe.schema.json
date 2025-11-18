@@ -80,54 +80,85 @@
     "ingredients": {
       "type": "array",
       "minItems": 1,
-      "description": "List of ingredients",
+      "description": "List of ingredients (can contain both ingredients and section headings)",
       "items": {
-        "type": "object",
-        "required": ["name", "quantity", "unit"],
-        "properties": {
-          "name": {
+        "oneOf": [
+          {
+            "description": "Regular ingredient with name, quantity, and unit",
             "type": "object",
-            "description": "Ingredient name in multiple languages",
-            "required": ["ro", "en"],
+            "required": ["name", "quantity", "unit"],
             "properties": {
-              "ro": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Ingredient name in Romanian"
+              "name": {
+                "type": "object",
+                "description": "Ingredient name in multiple languages",
+                "required": ["ro", "en"],
+                "properties": {
+                  "ro": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Ingredient name in Romanian"
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Ingredient name in English"
+                  }
+                },
+                "additionalProperties": false
               },
-              "en": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Ingredient name in English"
+              "quantity": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Quantity of ingredient"
+              },
+              "unit": {
+                "type": "object",
+                "description": "Unit of measurement in multiple languages",
+                "required": ["ro", "en"],
+                "properties": {
+                  "ro": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Unit in Romanian"
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Unit in English"
+                  }
+                },
+                "additionalProperties": false
               }
             },
             "additionalProperties": false
           },
-          "quantity": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Quantity of ingredient"
-          },
-          "unit": {
+          {
+            "description": "Section heading to group ingredients",
             "type": "object",
-            "description": "Unit of measurement in multiple languages",
-            "required": ["ro", "en"],
+            "required": ["section"],
             "properties": {
-              "ro": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Unit in Romanian"
-              },
-              "en": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Unit in English"
+              "section": {
+                "type": "object",
+                "description": "Section name in multiple languages",
+                "required": ["ro", "en"],
+                "properties": {
+                  "ro": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Section name in Romanian"
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Section name in English"
+                  }
+                },
+                "additionalProperties": false
               }
             },
             "additionalProperties": false
           }
-        },
-        "additionalProperties": false
+        ]
       }
     },
     "instructions": {

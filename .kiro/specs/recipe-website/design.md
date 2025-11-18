@@ -454,7 +454,7 @@ interface Recipe {
   servings: number;
   effortLevel: "easy" | "medium" | "hard";
   image: string; // Relative path to image
-  ingredients: Ingredient[];
+  ingredients: Ingredient[] | IngredientSection[]; // Can be flat list or grouped by sections
   instructions: {
     ro: string[];
     en: string[];
@@ -477,6 +477,47 @@ interface Ingredient {
     ro: string;
     en: string;
   };
+}
+
+interface IngredientSection {
+  section: {
+    ro: string;
+    en: string;
+  };
+}
+
+type IngredientItem = Ingredient | IngredientSection;
+```
+
+**Ingredient Structure:**
+- The ingredients array contains `IngredientItem[]` which can be either regular ingredients or section headings
+- Regular ingredients have `name`, `quantity`, and `unit` properties
+- Section headings have only a `section` property with multilingual text
+- Section headings can be placed anywhere in the array to visually group related ingredients
+- Use cases: separating marinade ingredients, sauce components, garnishes, or any logical grouping
+- The UI automatically detects item type and renders accordingly
+- All ingredient quantities are scaled uniformly by the IngredientScaler (sections are not affected)
+
+**Example - Simple Ingredient List:**
+```json
+{
+  "ingredients": [
+    { "name": { "ro": "ceapă", "en": "onion" }, "quantity": 1, "unit": { "ro": "buc", "en": "pcs" } },
+    { "name": { "ro": "usturoi", "en": "garlic" }, "quantity": 2, "unit": { "ro": "căței", "en": "cloves" } }
+  ]
+}
+```
+
+**Example - With Section Headings:**
+```json
+{
+  "ingredients": [
+    { "section": { "ro": "Marinadă", "en": "Marinade" } },
+    { "name": { "ro": "ulei de măsline", "en": "olive oil" }, "quantity": 3, "unit": { "ro": "linguri", "en": "tbsp" } },
+    { "name": { "ro": "usturoi", "en": "garlic" }, "quantity": 2, "unit": { "ro": "căței", "en": "cloves" } },
+    { "section": { "ro": "Ingrediente principale", "en": "Main Ingredients" } },
+    { "name": { "ro": "pui", "en": "chicken" }, "quantity": 500, "unit": { "ro": "g", "en": "g" } }
+  ]
 }
 ```
 
