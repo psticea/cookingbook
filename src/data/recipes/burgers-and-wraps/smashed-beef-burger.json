@@ -1,0 +1,174 @@
+{
+  "id": "smashed-beef-burger",
+  "category": "burgers-and-wraps",
+  "image": "images/burgers-and-wraps/smashed-beef-burger.jpg",
+  "title": {
+    "ro": "Burger de Vită Strivit",
+    "en": "Smashed Burger"
+  },
+  "prepTime": 20,
+  "servings": 2,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "carne tocată de vită",
+        "en": "ground beef"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă",
+        "en": "onion"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "chiflele pentru burger",
+        "en": "burger buns"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "broccoli",
+        "en": "broccoli"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "maioneză",
+        "en": "mayo"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "muștar",
+        "en": "mustard"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "murături tocate",
+        "en": "chopped pickles"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "boia",
+        "en": "paprika"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "praf",
+        "en": "pinch"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper",
+        "en": "pepper"
+      },
+      "quantity": 10,
+      "unit": {
+        "ro": "rotiri",
+        "en": "cranks"
+      }
+    },
+    {
+      "name": {
+        "ro": "brânză la alegere",
+        "en": "cheese of your choice"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "felii",
+        "en": "slices"
+      }
+    },
+    {
+      "name": {
+        "ro": "roșie feliată pentru servit",
+        "en": "sliced tomato to serve"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "felii",
+        "en": "slices"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "praf",
+        "en": "pinch"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Preîncălzește tigaia punând-o pe foc mediu.",
+      "Ia 100g de carne de vită și modelează în două bile. Taie ceapa felii.",
+      "Pune burgerii în tigaie și strivește-i cu o spatulă sau altă tigaie. Presară ceapă deasupra și condimentează cu sare.",
+      "Gătește 1 min apoi întoarce pentru a găti cealaltă parte. Între timp, taie grosier broccoli.",
+      "Apoi pune o felie de brânză chiar deasupra și lasă să se topească. Scoate odată ce burgerul este gătit, urmat de chifle pentru a se înmuia la abur. Scoate odată ce chiflele sunt înmuiate la abur.",
+      "Apoi picură puțin ulei, adaugă broccoli tocat împreună cu puțină apă și un praf de sare. Acoperă pentru a găti la abur.",
+      "Pentru sosul de burger, combină maioneza, muștar, murăturile, boia și piperul. Amestecă pentru a combina.",
+      "Întinde sosul de burger pe chifla și pune o roșie jos. Închide burgerul și servește cu broccoli!"
+    ],
+    "en": [
+      "Preheat the saute pan by setting it on medium heat.",
+      "Grab 100g of beef meat and shape into two balls. Cut up the onion into slices.",
+      "Place the burgers in the pan and smash down with a spatula or greased pan. Top with onion and season with salt.",
+      "Cook for 1 min then flip to cook the other side. In the meantime, roughly chop the broccoli.",
+      "Then place a slice of cheese right on top and let it melt. Remove once the burger is cooked, followed by the buns to steam. Remove once the buns are steamed.",
+      "Then drizzle in some oil, add in the chopped broccoli along with some water and a pinch of salt. Cover to steam.",
+      "For the burger sauce, combine the mayo, mustard, pickles, paprika, and pepper. Mix to combine.",
+      "Spread the burger sauce on the bun and place a tomato down. Close up the burger and serve with broccoli!"
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de la: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals",
+    "en": "Recipe from: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals"
+  },
+  "keywords": ["easy", "beef", "pan-fry"],
+  "dateAdded": "2025-11-17"
+}

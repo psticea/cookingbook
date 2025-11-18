@@ -1,0 +1,56 @@
+{
+  "id": "boil-rice",
+  "category": "basics",
+  "image": "images/basics/boil-rice.jpg",
+  "title": {
+    "ro": "Cum să Gătești Orez Jasmine",
+    "en": "How to Cook Jasmine Rice"
+  },
+  "prepTime": 23,
+  "servings": 4,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "orez jasmine",
+        "en": "jasmine rice"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "apă (apă de la robinet rece)",
+        "en": "water (cold tap water)"
+      },
+      "quantity": 1.25,
+      "unit": {
+        "ro": "căni",
+        "en": "cups"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Pune orezul și apa într-o cratiță medie (una cu capac bine închis). Adu la fierbere rapidă FĂRĂ CAPAC pe foc mediu-mare.",
+      "Reduce focul la mic sau mediu-mic astfel încât să fiarbă ușor, apoi pune capacul. Nu ridica capacul în timpul gătirii.",
+      "Gătește 12 minute sau până când apa este absorbită de orez - înclină oala pentru a verifica (dacă capacul nu e de sticlă, atunci ridică RAPID capacul pentru a verifica).",
+      "Păstrează capacul pus apoi scoate de pe foc. Lasă să stea 10 minute, afânează cu spatulă de cauciuc sau paletă de orez, apoi servește."
+    ],
+    "en": [
+      "Place rice and water in a medium saucepan (one with a tight fitting lid). Bring to rapid simmer with NO LID on medium high.",
+      "Turn down to low or medium low so it's simmering gently, then place lid on. Do not lift lid during cook.",
+      "Cook 12 minutes or until water is absorbed by rice - tilt pot to check (if lid not glass, then quickly lift lid to check).",
+      "Keep the lid on then remove from heat. Stand 10 minutes, fluff with rubber spatula or rice paddle, then serve."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de Nagi. Secretul pentru orez jasmine pufos este să folosești mai puțină apă decât de obicei pentru că este un orez mai moale - doar 1 1/4 căni pentru fiecare 1 cană de orez. Majoritatea rețetelor greșesc aici și orezul devine prea moale/lipicios. Clătirea este opțională - abia face diferență pentru pufozitate. Dacă clătești, trebuie să reduci apa cu 2 linguri pentru a compensa faptul că orezul devine înmuiat. 1 cană orez = 3 căni gătit = 3 până la 4 porții ca garnitură.",
+    "en": "Recipe by Nagi. The key to fluffy jasmine rice is to use less water than usual because it's a softer rice - only 1 1/4 cups for each 1 cup of rice. Most recipes get this wrong and the rice is way too soft/gummy. Rinsing is optional - it barely makes a difference to fluffiness. If you rinse, you need to reduce water by 2 tablespoons to factor in that the rice becomes waterlogged. 1 cup rice = 3 cups cooked = 3 to 4 servings as a side."
+  },
+  "keywords": ["easy", "vegetarian", "boiling", "rice"],
+  "dateAdded": "2025-11-17"
+}

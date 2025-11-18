@@ -1,0 +1,139 @@
+{
+  "id": "frittata",
+  "category": "breakfast",
+  "image": "images/breakfast/frittata.jpg",
+  "title": {
+    "ro": "Frittata",
+    "en": "Frittata"
+  },
+  "prepTime": 30,
+  "servings": 4,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "ouă mari",
+        "en": "large eggs"
+      },
+      "quantity": 5,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "lapte",
+        "en": "milk"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper",
+        "en": "pepper"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei de gătit",
+        "en": "cooking oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă galbenă",
+        "en": "yellow onion"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "spanac proaspăt",
+        "en": "fresh spinach"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "căni",
+        "en": "cups"
+      }
+    },
+    {
+      "name": {
+        "ro": "roșii cherry",
+        "en": "grape tomatoes"
+      },
+      "quantity": 150,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "brânză feta sfărâmată",
+        "en": "crumbled feta"
+      },
+      "quantity": 60,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Într-un bol mare, bate ouăle, laptele, sarea și piperul. Pune ouăle deoparte.",
+      "Taie o ceapă galbenă cubulețe. Încălzește o tigaie de 10 inch pe foc mediu, apoi adaugă uleiul de gătit și ceapa și sotează până când ceapa devine moale și translucidă.",
+      "Între timp, taie grosier spanacul și taie roșiile în jumătate.",
+      "Adaugă spanacul și roșiile în tigaie și amestecă pentru a combina cu ceapa.",
+      "Înainte ca spanacul să aibă șansa să se gătească sau să se ofilească, toarnă amestecul de ouă (este în regulă dacă ouăle nu acoperă complet legumele). Presară deasupra brânza feta sfărâmată.",
+      "Acoperă cu capac. Lasă frittata să continue să se gătească pe foc mediu până când ouăle sunt fixate (aproximativ 6 minute).",
+      "Lasă să se odihnească 5 minute înainte de a tăia și servi."
+    ],
+    "en": [
+      "In a large bowl, whisk together the eggs, milk, salt, and pepper. Set the eggs aside.",
+      "Dice one yellow onion. Heat a 10-inch skillet over medium heat, then add the cooking oil and onion and sauté until the onions are soft and translucent.",
+      "Meanwhile, roughly chop the spinach and slice the tomatoes in half.",
+      "Add the spinach and tomatoes to the skillet and stir to combine with the onions.",
+      "Before the spinach has a chance to cook or wilt, pour in the egg mixture (it's okay if the eggs don't fully cover the vegetables). Top with the crumbled feta.",
+      "Cover with lid. Let the frittata continue to cook over medium heat just until the eggs are set (about 6 minutes).",
+      "Let rest for 5 minutes before slicing and serving."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de la: https://www.budgetbytes.com/how-to-make-a-frittata/",
+    "en": "Recipe from: https://www.budgetbytes.com/how-to-make-a-frittata/"
+  },
+  "keywords": ["easy", "vegetarian", "pan-fry"],
+  "dateAdded": "2025-11-17"
+}

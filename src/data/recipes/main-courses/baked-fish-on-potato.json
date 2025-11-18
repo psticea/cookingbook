@@ -1,0 +1,213 @@
+{
+  "id": "baked-fish-on-potato",
+  "category": "main-courses",
+  "image": "images/main-courses/baked-fish-on-potato.jpg",
+  "title": {
+    "ro": "Pește la Cuptor pe Gratin de Cartofi",
+    "en": "Baked Fish on Potato Gratin"
+  },
+  "prepTime": 45,
+  "servings": 4,
+  "effortLevel": "medium",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "file de pește alb fără piele grosime 2cm",
+        "en": "white fish fillets skinless 2cm thick"
+      },
+      "quantity": 640,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare de gătit/kosher",
+        "en": "cooking/kosher salt"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper negru",
+        "en": "black pepper"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "unt nesărat",
+        "en": "unsalted butter"
+      },
+      "quantity": 50,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "praz mare doar partea albă și verde deschis",
+        "en": "large leeks white and pale green part only"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "căței de usturoi tocați",
+        "en": "garlic cloves minced"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "cartofi mijlocii amidonoși curățați",
+        "en": "medium starchy potatoes peeled"
+      },
+      "quantity": 500,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare de gătit/kosher",
+        "en": "cooking/kosher salt"
+      },
+      "quantity": 0.75,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper negru",
+        "en": "black pepper"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "vin alb sec",
+        "en": "dry white wine"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "bulion/supă de legume cu sodiu redus",
+        "en": "vegetable stock/broth low sodium"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "smântână grasă/îngroșată",
+        "en": "thickened/heavy cream"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "pesmet panko",
+        "en": "panko breadcrumbs"
+      },
+      "quantity": 0.75,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei de măsline extravirgin",
+        "en": "extra virgin olive oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "parmezan ras fin",
+        "en": "parmesan finely shredded"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Preîncălzește cuptorul la 180°C/350°F (160°C ventilator) cu un raft la mijloc.",
+      "Cartofi: Taie cartofii în sferturi, apoi felii de 4mm grosime. Pune cartofii tăiați într-un bol mare cu apă (previne întunecare, îndepărtează amidonul în exces astfel încât se gătește mai repede). Scurge înainte de utilizare.",
+      "Topping crocant: Amestecă panko și ulei de măsline într-un bol. Apoi adaugă parmezanul.",
+      "Condimentează peștele: Presară sare și piper pe ambele părți ale fileurilor de pește. Pune deoparte.",
+      "Sotează: Topește untul într-o tigaie mare rezistentă la cuptor (30cm) pe foc mare până devine spumos. Adaugă prazul și usturoiul, apoi gătește timp de 3 minute.",
+      "Sotează cartofii: Adaugă cartofii, sare și piper. Gătește timp de 6 minute, amestecând regulat. Cartofii ar trebui să fie pe jumătate gătiți în această etapă.",
+      "Reduce vinul și bulionul: Toarnă vinul alb. Fierbe rapid până se evaporă în mare parte (aproximativ 1 minut). Toarnă bulionul, apoi fierbe timp de 1 1/2 minute sau până se reduce la jumătate.",
+      "Pune peștele deasupra: Oprește aragazul. Pune peștele deasupra cartofilor, cu partea de prezentare în sus. Toarnă smântâna peste tot, vizând acoperire completă. Presară cu pesmet panko.",
+      "Coace timp de 30 de minute.",
+      "Colorează toppingul: Comută la grătarul cuptorului (broiler) pe mare și mută tigaia pe raftul de sus. Grătarează/broilează 4 minute sau până devine auriu.",
+      "Odihnește: Scoate și lasă să se odihnească 5 minute, apoi servește! Mănâncă peștele și gratinul împreună cu fiecare înghițitură pentru plăcere maximă la mâncare!"
+    ],
+    "en": [
+      "Preheat the oven to 180°C/350°F (160°C fan) with a shelf in the middle.",
+      "Potatoes: Cut the potatoes into quarters, then sliced 4mm thick. Place cut potato in a large bowl of water (prevents from going brown, removes excess starch so it cooks quicker). Drain before use.",
+      "Crunchy topping: Mix panko and olive oil in a bowl. Then stir in parmesan.",
+      "Season fish: Sprinkle salt and pepper on both sides of the fish fillets. Set aside.",
+      "Sauté: Melt butter in a large oven-proof skillet (30cm) over high heat until foamy. Add leek and garlic, then cook for 3 minutes.",
+      "Sauté potatoes: Add potato, salt and pepper. Cook for 6 minutes, stirring regularly. The potatoes should be half cooked at this stage.",
+      "Reduce wine and stock: Pour in white wine. Simmer rapidly until it is mostly evaporated (about 1 minute). Pour in stock, then simmer for 1 1/2 minutes or until reduced by half.",
+      "Top with fish: Turn the stove off. Place fish on top of the potatoes, presentation side up. Pour cream all over, aiming for full coverage. Sprinkle with panko breadcrumbs.",
+      "Bake for 30 minutes.",
+      "Colour topping: Switch to the oven grill (broiler) on high and move the skillet up to the top shelf. Grill/broil 4 minutes or until golden.",
+      "Rest: Remove and rest for 5 minutes, then serve! Eat the fish and gratin together with each mouthful for maximum eating pleasure!"
+    ]
+  },
+  "personalNotes": {
+    "ro": "",
+    "en": ""
+  },
+  "keywords": ["medium", "fish", "oven-baked", "potatoes", "cooking-cream", "olive-oil"],
+  "dateAdded": "2025-11-17"
+}
