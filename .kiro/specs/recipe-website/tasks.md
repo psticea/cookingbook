@@ -246,6 +246,8 @@
 
 
 
+
+
 - [x] 10.1 Create SearchBar component
 
 
@@ -260,6 +262,8 @@
 - [x] 10.2 Update Header component with SearchBar
 
 
+
+
   - Integrate SearchBar component in the center of Header
   - Only display SearchBar when on the homepage
   - Pass search state and handlers from HomePage to Header
@@ -267,6 +271,8 @@
   - _Requirements: 7.1, 7.2, 7.3, 7.4, 7A.1_
 
 - [x] 10.3 Update HomePage component with search functionality
+
+
 
 
   - Add state for searchQuery

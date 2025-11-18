@@ -18,6 +18,7 @@ const HomePage: React.FC = () => {
   const { recipes, loading, error } = useRecipeData();
   const { language } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
   // Filter recipes based on search query
   // Only filter when 2+ characters are typed
@@ -36,12 +37,18 @@ const HomePage: React.FC = () => {
   // Count total filtered recipes
   const totalFilteredCount = filteredRecipes.length;
 
+  // Toggle side menu
+  const handleMenuToggle = () => {
+    setIsSideMenuOpen(!isSideMenuOpen);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header 
         showSearch={true}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
+        onMenuToggle={handleMenuToggle}
       />
       
       <main className="flex-1 max-w-7xl mx-auto px-4 py-8 w-full">

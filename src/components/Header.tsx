@@ -8,58 +8,76 @@ interface HeaderProps {
   showSearch?: boolean;
   searchQuery?: string;
   onSearchChange?: (query: string) => void;
+  onMenuToggle?: () => void;
 }
 
 /**
  * Header component
- * Displays navigation links to all main pages
- * Optionally displays search bar on home page
+ * Layout: Home link (left) | Search bar (center) | Menu button (right)
+ * Search bar only visible on homepage
  */
 export const Header: React.FC<HeaderProps> = ({ 
   showSearch = false, 
   searchQuery = '', 
-  onSearchChange 
+  onSearchChange,
+  onMenuToggle
 }) => {
   const { language } = useLanguage();
   const location = useLocation();
-
-  const navLinks = [
-    { path: '/', label: getTranslation('home', language) },
-    { path: '/cooking-basics', label: getTranslation('cookingBasics', language) },
-  ];
+  const isHomePage = location.pathname === '/';
 
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-md">
+    <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40">
       <nav className="max-w-7xl mx-auto px-4 py-4">
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-          {/* Navigation Links */}
-          {navLinks.map((link) => {
-            const isActive = location.pathname === link.path;
-            return (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-base font-medium transition-colors duration-200 whitespace-nowrap ${
-                  isActive
-                    ? 'text-accent-light dark:text-accent-dark border-b-2 border-accent-light dark:border-accent-dark'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark'
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+        <div className="flex items-center justify-between gap-4">
+          {/* Left: Home link */}
+          <div className="flex-shrink-0">
+            <Link
+              to="/"
+              className={`text-base font-medium transition-colors duration-200 whitespace-nowrap ${
+                isHomePage
+                  ? 'text-accent-light dark:text-accent-dark'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark'
+              }`}
+            >
+              {getTranslation('home', language)}
+            </Link>
+          </div>
           
-          {/* Search Bar - only shown on home page */}
-          {showSearch && onSearchChange && (
-            <div className="w-64">
+          {/* Center: Search Bar - only shown on home page */}
+          <div className="flex-1 max-w-md mx-4">
+            {showSearch && onSearchChange && isHomePage && (
               <SearchBar
                 searchQuery={searchQuery}
                 onSearchChange={onSearchChange}
                 language={language}
               />
-            </div>
-          )}
+            )}
+          </div>
+
+          {/* Right: Menu button */}
+          <div className="flex-shrink-0">
+            <button
+              onClick={onMenuToggle}
+              className="p-2 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors"
+              aria-label={getTranslation('menu', language)}
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </nav>
     </header>

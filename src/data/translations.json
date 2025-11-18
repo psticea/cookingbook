@@ -2,6 +2,7 @@
   "ro": {
     "loading": "Se încarcă...",
     "home": "Acasă",
+    "menu": "Meniu",
     "filter": "Filtrare",
     "about": "Despre",
     "cookingBasics": "Bazele Gătitului",
@@ -63,6 +64,7 @@
   "en": {
     "loading": "Loading...",
     "home": "Home",
+    "menu": "Menu",
     "filter": "Filter",
     "about": "About",
     "cookingBasics": "Cooking Basics",
