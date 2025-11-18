@@ -16,15 +16,15 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="mt-auto border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
+      <div className="max-w-7xl mx-auto px-4 py-3">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
           <Link
             to="/about"
             className="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors"
           >
             {getTranslation('about', language)}
           </Link>
-          <div className="h-4 w-px bg-gray-300 dark:bg-gray-600 hidden sm:block" />
+          <div className="h-4 w-px bg-gray-300 dark:bg-gray-600" />
           <LanguageSelector />
           <TextSizeSelector />
           <ThemeSelector />

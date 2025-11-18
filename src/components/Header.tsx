@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40">
-      <nav className="max-w-7xl mx-auto px-4 py-4">
+      <nav className="max-w-7xl mx-auto px-4 py-2">
         <div className="flex items-center justify-between gap-4">
           {/* Left: Home link */}
           <div className="flex-shrink-0">
