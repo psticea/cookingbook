@@ -562,13 +562,19 @@ interface Category {
 ```typescript
 interface FilterKeyword {
   id: string;
-  type: "difficulty" | "meat" | "cook" | "ingredient";
+  type: "difficulty" | "meatType" | "cookType" | "ingredient";
   label: {
     ro: string;
     en: string;
   };
 }
 ```
+
+**Filter Categories and Values:**
+- **difficulty**: easy, medium, hard
+- **meatType**: chicken, beef, fish, vegetarian
+- **cookType**: oven-baked, pan-fry, boiling, no-cook
+- **ingredient**: potatoes, pasta, rice, peppers, carrots, ginger, chicken-stock, cooking-cream, olive-oil, soy-sauce
 
 ### Translation Model
 

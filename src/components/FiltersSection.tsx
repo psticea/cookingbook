@@ -33,10 +33,9 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
   // Define subsection order and labels
   const subsections: { type: FilterKeywordType; labelKey: string }[] = [
     { type: 'difficulty', labelKey: 'difficulty' },
-    { type: 'meat', labelKey: 'meatType' },
-    { type: 'cooking', labelKey: 'cookingMethod' },
-    { type: 'vegetable', labelKey: 'vegetables' },
-    { type: 'sauce', labelKey: 'sauce' }
+    { type: 'meatType', labelKey: 'meatType' },
+    { type: 'cookType', labelKey: 'cookType' },
+    { type: 'ingredient', labelKey: 'ingredient' }
   ];
 
   const handleKeywordToggle = (keywordId: string) => {
@@ -79,6 +78,16 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
       {/* Expanded content */}
       {isExpanded && (
         <div className="space-y-4 mt-2">
+          {/* Clear all button at the top */}
+          {selectedKeywords.size > 0 && (
+            <button
+              onClick={handleClearAll}
+              className="w-full px-4 py-2 text-sm font-medium text-white bg-accent-light dark:bg-accent-dark rounded-md hover:opacity-90 transition-opacity"
+            >
+              {getTranslation('clearAllFilters', language)}
+            </button>
+          )}
+
           {/* Filter subsections */}
           {subsections.map(({ type, labelKey }) => {
             const keywords = keywordsByType[type] || [];
@@ -113,16 +122,6 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
               </div>
             );
           })}
-
-          {/* Clear all button */}
-          {selectedKeywords.size > 0 && (
-            <button
-              onClick={handleClearAll}
-              className="w-full mt-4 px-4 py-2 text-sm font-medium text-white bg-accent-light dark:bg-accent-dark rounded-md hover:opacity-90 transition-opacity"
-            >
-              {getTranslation('clearAllFilters', language)}
-            </button>
-          )}
         </div>
       )}
     </div>

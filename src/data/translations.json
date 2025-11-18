@@ -65,7 +65,8 @@
     "difficulty": "Dificultate",
     "clearAllFilters": "Șterge Toate Filtrele",
     "ingredient": "Ingredient",
-    "ingredients": "Ingrediente"
+    "ingredients": "Ingrediente",
+    "cookType": "Metodă de Gătit"
   },
   "en": {
     "loading": "Loading...",
@@ -133,6 +134,7 @@
     "difficulty": "Difficulty",
     "clearAllFilters": "Clear All Filters",
     "ingredient": "Ingredient",
-    "ingredients": "Ingredients"
+    "ingredients": "Ingredients",
+    "cookType": "Cooking Method"
   }
 }

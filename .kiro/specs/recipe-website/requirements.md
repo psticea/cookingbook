@@ -120,7 +120,8 @@ This document specifies the requirements for a multilingual recipe website. The 
 6. THE Side Menu SHALL contain four sections: Filters, Categories, Cooking Basics, and About
 7. THE Filters section SHALL be expandable and collapsible
 8. WHEN the Filters section is expanded, THE Recipe Website SHALL display four filter subsections with keywords for filtering recipes
-9. THE Recipe Website SHALL associate each recipe with Filter Keywords from the following types: difficulty, meat type, cook type, and ingredient
+9. THE Recipe Website SHALL associate each recipe with Filter Keywords from exactly four types: difficulty (easy, medium, hard), meatType (chicken, beef, fish, vegetarian), cookType (oven-baked, pan-fry, boiling, no-cook), and ingredient (potatoes, pasta, rice, peppers, carrots, ginger, chicken-stock, cooking-cream, olive-oil, soy-sauce)
+9A. THE Recipe Website SHALL display a "Clear All Filters" button at the top of the Filters section
 10. WHEN a User selects multiple Filter Keywords, THE Recipe Website SHALL display only recipes that contain all selected Filter Keywords on the home page
 11. WHEN a User selects zero Filter Keywords, THE Recipe Website SHALL display all available recipes on the home page
 12. THE Recipe Website SHALL update the displayed recipe list in real-time as Filter Keywords are selected or deselected

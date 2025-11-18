@@ -1,7 +1,31 @@
 [
   {
+    "id": "easy",
+    "type": "difficulty",
+    "label": {
+      "ro": "Ușor",
+      "en": "Easy"
+    }
+  },
+  {
+    "id": "medium",
+    "type": "difficulty",
+    "label": {
+      "ro": "Mediu",
+      "en": "Medium"
+    }
+  },
+  {
+    "id": "hard",
+    "type": "difficulty",
+    "label": {
+      "ro": "Dificil",
+      "en": "Hard"
+    }
+  },
+  {
     "id": "chicken",
-    "type": "meat",
+    "type": "meatType",
     "label": {
       "ro": "Pui",
       "en": "Chicken"
@@ -9,210 +33,138 @@
   },
   {
     "id": "beef",
-    "type": "meat",
+    "type": "meatType",
     "label": {
       "ro": "Vită",
       "en": "Beef"
     }
   },
   {
-    "id": "pork",
-    "type": "meat",
-    "label": {
-      "ro": "Porc",
-      "en": "Pork"
-    }
-  },
-  {
     "id": "fish",
-    "type": "meat",
+    "type": "meatType",
     "label": {
       "ro": "Pește",
       "en": "Fish"
     }
   },
   {
-    "id": "lamb",
-    "type": "meat",
-    "label": {
-      "ro": "Miel",
-      "en": "Lamb"
-    }
-  },
-  {
     "id": "vegetarian",
-    "type": "meat",
+    "type": "meatType",
     "label": {
       "ro": "Vegetarian",
       "en": "Vegetarian"
     }
   },
   {
-    "id": "tomatoes",
-    "type": "vegetable",
-    "label": {
-      "ro": "Roșii",
-      "en": "Tomatoes"
-    }
-  },
-  {
-    "id": "onions",
-    "type": "vegetable",
-    "label": {
-      "ro": "Ceapă",
-      "en": "Onions"
-    }
-  },
-  {
-    "id": "peppers",
-    "type": "vegetable",
-    "label": {
-      "ro": "Ardei",
-      "en": "Peppers"
-    }
-  },
-  {
-    "id": "potatoes",
-    "type": "vegetable",
-    "label": {
-      "ro": "Cartofi",
-      "en": "Potatoes"
-    }
-  },
-  {
-    "id": "carrots",
-    "type": "vegetable",
-    "label": {
-      "ro": "Morcovi",
-      "en": "Carrots"
-    }
-  },
-  {
-    "id": "cabbage",
-    "type": "vegetable",
-    "label": {
-      "ro": "Varză",
-      "en": "Cabbage"
-    }
-  },
-  {
-    "id": "mushrooms",
-    "type": "vegetable",
-    "label": {
-      "ro": "Ciuperci",
-      "en": "Mushrooms"
-    }
-  },
-  {
-    "id": "eggplant",
-    "type": "vegetable",
-    "label": {
-      "ro": "Vinete",
-      "en": "Eggplant"
-    }
-  },
-  {
-    "id": "zucchini",
-    "type": "vegetable",
-    "label": {
-      "ro": "Dovlecei",
-      "en": "Zucchini"
-    }
-  },
-  {
-    "id": "tomato-based",
-    "type": "sauce",
-    "label": {
-      "ro": "Pe Bază de Roșii",
-      "en": "Tomato-Based"
-    }
-  },
-  {
-    "id": "cream-based",
-    "type": "sauce",
-    "label": {
-      "ro": "Pe Bază de Smântână",
-      "en": "Cream-Based"
-    }
-  },
-  {
-    "id": "oil-based",
-    "type": "sauce",
-    "label": {
-      "ro": "Pe Bază de Ulei",
-      "en": "Oil-Based"
-    }
-  },
-  {
-    "id": "broth-based",
-    "type": "sauce",
-    "label": {
-      "ro": "Pe Bază de Bulion",
-      "en": "Broth-Based"
-    }
-  },
-  {
-    "id": "wine-based",
-    "type": "sauce",
-    "label": {
-      "ro": "Pe Bază de Vin",
-      "en": "Wine-Based"
-    }
-  },
-  {
-    "id": "baking",
-    "type": "cooking",
+    "id": "oven-baked",
+    "type": "cookType",
     "label": {
       "ro": "La Cuptor",
-      "en": "Baking"
+      "en": "Oven-Baked"
     }
   },
   {
-    "id": "frying",
-    "type": "cooking",
+    "id": "pan-fry",
+    "type": "cookType",
     "label": {
-      "ro": "Prăjit",
-      "en": "Frying"
+      "ro": "Prăjit la Tigaie",
+      "en": "Pan-Fry"
     }
   },
   {
     "id": "boiling",
-    "type": "cooking",
+    "type": "cookType",
     "label": {
       "ro": "Fiert",
       "en": "Boiling"
     }
   },
   {
-    "id": "grilling",
-    "type": "cooking",
+    "id": "no-cook",
+    "type": "cookType",
     "label": {
-      "ro": "La Grătar",
-      "en": "Grilling"
+      "ro": "Fără Gătit",
+      "en": "No-Cook"
     }
   },
   {
-    "id": "steaming",
-    "type": "cooking",
+    "id": "potatoes",
+    "type": "ingredient",
     "label": {
-      "ro": "La Aburi",
-      "en": "Steaming"
+      "ro": "Cartofi",
+      "en": "Potatoes"
     }
   },
   {
-    "id": "slow-cooking",
-    "type": "cooking",
+    "id": "pasta",
+    "type": "ingredient",
     "label": {
-      "ro": "Gătit Înăbușit",
-      "en": "Slow Cooking"
+      "ro": "Paste",
+      "en": "Pasta"
     }
   },
   {
-    "id": "stir-frying",
-    "type": "cooking",
+    "id": "rice",
+    "type": "ingredient",
     "label": {
-      "ro": "Săltare",
-      "en": "Stir-Frying"
+      "ro": "Orez",
+      "en": "Rice"
+    }
+  },
+  {
+    "id": "peppers",
+    "type": "ingredient",
+    "label": {
+      "ro": "Ardei",
+      "en": "Peppers"
+    }
+  },
+  {
+    "id": "carrots",
+    "type": "ingredient",
+    "label": {
+      "ro": "Morcovi",
+      "en": "Carrots"
+    }
+  },
+  {
+    "id": "ginger",
+    "type": "ingredient",
+    "label": {
+      "ro": "Ghimbir",
+      "en": "Ginger"
+    }
+  },
+  {
+    "id": "chicken-stock",
+    "type": "ingredient",
+    "label": {
+      "ro": "Bulion de Pui",
+      "en": "Chicken Stock"
+    }
+  },
+  {
+    "id": "cooking-cream",
+    "type": "ingredient",
+    "label": {
+      "ro": "Smântână de Gătit",
+      "en": "Cooking Cream"
+    }
+  },
+  {
+    "id": "olive-oil",
+    "type": "ingredient",
+    "label": {
+      "ro": "Ulei de Măsline",
+      "en": "Olive Oil"
+    }
+  },
+  {
+    "id": "soy-sauce",
+    "type": "ingredient",
+    "label": {
+      "ro": "Sos de Soia",
+      "en": "Soy Sauce"
     }
   }
 ]
