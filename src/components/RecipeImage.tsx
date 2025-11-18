@@ -18,7 +18,8 @@ export const RecipeImage: React.FC<RecipeImageProps> = ({ recipeId, category, al
   const [imageError, setImageError] = useState(false);
   
   // Construct image path from public/images/recipes folder
-  const imagePath = `/images/recipes/${category}/${recipeId}.jpg`;
+  // Use import.meta.env.BASE_URL to handle base path correctly
+  const imagePath = `${import.meta.env.BASE_URL}images/recipes/${category}/${recipeId}.jpg`;
   const defaultImage = defaultImageUrl;
 
   const handleImageError = () => {
