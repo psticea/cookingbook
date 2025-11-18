@@ -25,11 +25,11 @@ export const TextSizeProvider: React.FC<TextSizeProviderProps> = ({ children }) 
     const root = document.documentElement;
     
     // Remove existing text size classes
-    root.classList.remove('text-base', 'text-lg');
+    root.classList.remove('text-base', 'text-xl');
     
     // Add appropriate class based on text size
     if (textSize === 'large') {
-      root.classList.add('text-lg');
+      root.classList.add('text-xl');
     } else {
       root.classList.add('text-base');
     }

@@ -25,7 +25,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const effortLevel = getTranslation(effortLevelKey, language);
 
   // Construct image path from public/images/recipes folder
-  const imagePath = `/images/recipes/${recipe.category}/${recipe.id}.jpg`;
+  // Use import.meta.env.BASE_URL to handle base path correctly
+  const imagePath = `${import.meta.env.BASE_URL}images/recipes/${recipe.category}/${recipe.id}.jpg`;
   const defaultImage = defaultImageUrl;
 
   return (
