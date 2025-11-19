@@ -92,6 +92,9 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
             const keywords = keywordsByType[type] || [];
             if (keywords.length === 0) return null;
 
+            // Limit ingredients to first 6
+            const displayKeywords = type === 'ingredient' ? keywords.slice(0, 6) : keywords;
+
             return (
               <div key={type} className="ml-2">
                 {/* Subsection header */}
@@ -101,7 +104,7 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
 
                 {/* Subsection keywords - touch-friendly checkboxes */}
                 <div className="ml-2 sm:ml-4 space-y-0 mt-0.5">
-                  {keywords.map((keyword) => (
+                  {displayKeywords.map((keyword) => (
                     <label
                       key={keyword.id}
                       className="flex items-center space-x-3 cursor-pointer group min-h-[36px] py-0"

@@ -61,91 +61,51 @@ const AboutPage: React.FC = () => {
           </h1>
           
           <div className="space-y-3 text-gray-700 dark:text-gray-300">
-            <p className="text-base leading-relaxed">
-              {getTranslation('aboutDescription', language)}
-            </p>
-
             {language === 'ro' ? (
               <>
-                <section className="mt-4">
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    Despre Acest Site
-                  </h2>
-                  <p className="text-base leading-relaxed">
-                    Acest site a fost creat pentru a împărtăși rețete delicioase și ușor de urmat. 
-                    Fiecare rețetă include instrucțiuni clare, ingrediente măsurate cu precizie și 
-                    sfaturi personale pentru a vă ajuta să obțineți cele mai bune rezultate.
-                  </p>
-                </section>
-
-                <section className="mt-4">
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    Caracteristici
-                  </h2>
-                  <ul className="list-disc list-inside space-y-1 leading-relaxed text-base">
-                    <li>Rețete organizate în 8 categorii pentru navigare ușoară</li>
-                    <li>Scalare automată a ingredientelor pentru diferite porții</li>
-                    <li>Suport pentru limbile română și engleză</li>
-                    <li>Temă întunecată și luminoasă pentru confortul ochilor</li>
-                    <li>Ajustare mărime text pentru citire confortabilă</li>
-                    <li>Filtrare după dificultate, tip de carne, metodă de gătit și ingrediente</li>
-                    <li>Căutare rapidă după titlul rețetei</li>
-                    <li>Design responsive pentru mobil și desktop</li>
-                  </ul>
-                </section>
-
-                <section className="mt-4">
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    Filosofia Noastră
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    Credem că gătitul ar trebui să fie o experiență plăcută și accesibilă pentru toată lumea. 
-                    De aceea, rețetele noastre sunt testate, clare și includ sfaturi personale pentru a vă 
-                    ajuta să reușiți de fiecare dată. Fie că sunteți începător sau bucătar experimentat, 
-                    veți găsi aici rețete care vă vor inspira.
-                  </p>
-                </section>
+                <p className="text-base leading-relaxed">
+                  Salut!
+                </p>
+                <p className="text-base leading-relaxed">
+                  Bine ai venit pe site-ul meu cu rețete.
+                </p>
+                <p className="text-base leading-relaxed">
+                  Aici o să găsești rețetele mele preferate.
+                </p>
+                <p className="text-base leading-relaxed">
+                  Multe sunt preluate de pe alte website-uri, dar cu ingrediente și instrucțiuni ajustate în funcție de preferințele mele. 
+                  Pentru fiecare rețetă preluată vei găsi și link-ul în notele rețetei.
+                </p>
+                <p className="text-base leading-relaxed">
+                  Spor la gătit!
+                </p>
+                <p className="text-base leading-relaxed font-medium">
+                  Paul Sticea<br />
+                  psticea@gmail.com
+                </p>
               </>
             ) : (
               <>
-                <section className="mt-4">
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    About This Site
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    This site was created to share delicious and easy-to-follow recipes. 
-                    Each recipe includes clear instructions, precisely measured ingredients, and 
-                    personal tips to help you achieve the best results.
-                  </p>
-                </section>
-
-                <section className="mt-4">
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    Features
-                  </h2>
-                  <ul className="list-disc list-inside space-y-1 leading-relaxed text-base">
-                    <li>Recipes organized into 8 categories for easy navigation</li>
-                    <li>Automatic ingredient scaling for different serving sizes</li>
-                    <li>Support for Romanian and English languages</li>
-                    <li>Dark and light themes for eye comfort</li>
-                    <li>Text size adjustment for comfortable reading</li>
-                    <li>Filter by difficulty, meat type, cooking method, and ingredients</li>
-                    <li>Quick search by recipe title</li>
-                    <li>Responsive design for mobile and desktop</li>
-                  </ul>
-                </section>
-
-                <section className="mt-4">
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    Our Philosophy
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    We believe that cooking should be an enjoyable and accessible experience for everyone. 
-                    That's why our recipes are tested, clear, and include personal tips to help you 
-                    succeed every time. Whether you're a beginner or an experienced cook, 
-                    you'll find recipes here that will inspire you.
-                  </p>
-                </section>
+                <p className="text-base leading-relaxed">
+                  Hello!
+                </p>
+                <p className="text-base leading-relaxed">
+                  Welcome to my recipe website.
+                </p>
+                <p className="text-base leading-relaxed">
+                  Here you'll find my favorite recipes.
+                </p>
+                <p className="text-base leading-relaxed">
+                  Many are adapted from other websites, but with ingredients and instructions adjusted according to my preferences. 
+                  For each adapted recipe, you'll find the link in the recipe notes.
+                </p>
+                <p className="text-base leading-relaxed">
+                  Happy cooking!
+                </p>
+                <p className="text-base leading-relaxed font-medium">
+                  Paul Sticea<br />
+                  psticea@gmail.com
+                </p>
               </>
             )}
           </div>
