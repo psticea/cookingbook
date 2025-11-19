@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { RecipeGrid } from '../components/RecipeGrid';
 import { Footer } from '../components/Footer';
@@ -21,9 +22,33 @@ import { Recipe } from '../types';
 const HomePage: React.FC = () => {
   const { recipes, loading, error } = useRecipeData();
   const { language } = useLanguage();
+  const location = useLocation();
   const [searchQuery, setSearchQuery] = useState('');
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
+
+  // Handle navigation from other pages (category scroll or filters)
+  useEffect(() => {
+    if (location.state) {
+      const state = location.state as { scrollToCategory?: string; selectedKeywords?: string[] };
+      
+      // Handle category scrolling
+      if (state.scrollToCategory) {
+        // Wait for DOM to be ready
+        setTimeout(() => {
+          const element = document.getElementById(`category-${state.scrollToCategory}`);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+      
+      // Handle filter keywords
+      if (state.selectedKeywords) {
+        setSelectedKeywords(new Set(state.selectedKeywords));
+      }
+    }
+  }, [location.state]);
 
   // Filter recipes based on search query and selected keywords
   // Search: Only filter when 2+ characters are typed

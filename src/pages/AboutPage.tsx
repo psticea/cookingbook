@@ -1,6 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { SideMenu } from '../components/SideMenu';
+import { FiltersSection } from '../components/FiltersSection';
+import { CategoriesSection } from '../components/CategoriesSection';
+import { MenuLinks } from '../components/MenuLinks';
 import { useLanguage } from '../hooks/useLanguage';
 import { useTheme } from '../hooks/useTheme';
 import { getTranslation } from '../utils/translations';
@@ -8,7 +13,31 @@ import { getTranslation } from '../utils/translations';
 const AboutPage: React.FC = () => {
   const { language } = useLanguage();
   const { theme } = useTheme();
+  const navigate = useNavigate();
   const giscusRef = useRef<HTMLDivElement>(null);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
+
+  // Toggle side menu
+  const handleMenuToggle = () => {
+    setIsSideMenuOpen(!isSideMenuOpen);
+  };
+
+  // Close side menu
+  const handleMenuClose = () => {
+    setIsSideMenuOpen(false);
+  };
+
+  // Handle category click - navigate to home page and scroll to category
+  const handleCategoryClick = (categoryId: string) => {
+    navigate('/', { state: { scrollToCategory: categoryId } });
+  };
+
+  // Handle keyword change - navigate to home page with filters
+  const handleKeywordsChange = (keywords: Set<string>) => {
+    setSelectedKeywords(keywords);
+    navigate('/', { state: { selectedKeywords: Array.from(keywords) } });
+  };
 
   // Load Giscus script dynamically
   useEffect(() => {
@@ -52,7 +81,21 @@ const AboutPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header onMenuToggle={handleMenuToggle} />
+
+      {/* Side Menu */}
+      <SideMenu
+        isOpen={isSideMenuOpen}
+        onClose={handleMenuClose}
+      >
+        <FiltersSection
+          selectedKeywords={selectedKeywords}
+          onKeywordsChange={handleKeywordsChange}
+        />
+        <CategoriesSection onCategoryClick={handleCategoryClick} />
+        <MenuLinks onLinkClick={handleMenuClose} />
+      </SideMenu>
+
       <main className="flex-1 container mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8 max-w-4xl">
         {/* About Section */}
         <article className="prose dark:prose-invert max-w-none">
