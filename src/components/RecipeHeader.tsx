@@ -18,7 +18,7 @@ export const RecipeHeader: React.FC<RecipeHeaderProps> = ({ recipe }) => {
   return (
     <header className="mb-4 sm:mb-6">
       {/* Recipe Title */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
+      <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
         {recipe.title[language]}
       </h1>
     </header>

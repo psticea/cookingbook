@@ -9,7 +9,11 @@
                    img-src 'self' data:; 
                    script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com;
                    connect-src 'self' https://cloudflareinsights.com;
-                   style-src 'self' 'unsafe-inline';">
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                   font-src 'self' https://fonts.gstatic.com;">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>Cooking Book - Rețete Delicioase</title>
     
     <!-- Single Page Apps for GitHub Pages -->

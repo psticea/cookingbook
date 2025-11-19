@@ -64,22 +64,22 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       {/* Recipe Info */}
       <div className="p-3 sm:p-4">
         {/* Recipe Title */}
-        <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3 text-gray-900 dark:text-gray-100 line-clamp-2">
+        <h3 className="text-lg font-bold mb-2 sm:mb-3 text-gray-900 dark:text-gray-100 line-clamp-2">
           {recipe.title[language]}
         </h3>
 
         {/* Recipe Metadata - Icons and numbers only */}
-        <div className="flex items-center justify-between text-sm sm:text-base text-gray-600 dark:text-gray-400">
+        <div className="flex items-center justify-between text-base text-gray-600 dark:text-gray-400">
           <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
-            <span className="text-base sm:text-lg">⏱️</span>
+            <span className="text-lg">⏱️</span>
             <span className="font-medium">{recipe.prepTime}</span>
           </div>
           <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${recipe.servings}`}>
-            <span className="text-base sm:text-lg">🍽️</span>
+            <span className="text-lg">🍽️</span>
             <span className="font-medium">{recipe.servings}</span>
           </div>
           <div className="flex items-center gap-1" title={effortLevel}>
-            <span className="text-base sm:text-lg">{getPuzzlePieces(recipe.effortLevel)}</span>
+            <span className="text-lg">{getPuzzlePieces(recipe.effortLevel)}</span>
           </div>
         </div>
       </div>

@@ -74,7 +74,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
       >
         {/* Header with close button - touch-friendly */}
         <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-10">
-          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
             {getTranslation('menu', language)}
           </h2>
           <button

@@ -13,7 +13,7 @@ const CookingBasicsPage: React.FC = () => {
       <main className="flex-1 container mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8 max-w-4xl">
         {/* Cooking Basics Section */}
         <article className="prose dark:prose-invert max-w-none">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-gray-100">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-gray-100">
             {getTranslation('cookingBasicsTitle', language)}
           </h1>
           
@@ -22,16 +22,16 @@ const CookingBasicsPage: React.FC = () => {
               <>
                 {/* Read Recipe Thoroughly */}
                 <section>
-                  <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
                     📖 Citiți Rețeta Complet Înainte de a Începe
                   </h2>
-                  <p className="leading-relaxed text-sm sm:text-base">
+                  <p className="leading-relaxed text-base">
                     Înainte de a începe să gătiți, citiți întreaga rețetă de la început până la sfârșit. 
                     Acest lucru vă ajută să înțelegeți pașii și să vă pregătiți mental pentru proces. 
                     Veți evita surprizele neplăcute, cum ar fi descoperirea că aveți nevoie de un ingredient 
                     pe care nu îl aveți sau că un pas necesită timp suplimentar de așteptare.
                   </p>
-                  <p className="leading-relaxed mt-3 sm:mt-4 text-sm sm:text-base">
+                  <p className="leading-relaxed mt-3 sm:mt-4 text-base">
                     Verificați dacă aveți toate echipamentele necesare (tigăi, oale, ustensile) și 
                     asigurați-vă că înțelegeți termenii de gătit folosiți în rețetă. Dacă întâlniți 
                     ceva necunoscut, căutați informații înainte de a începe.
@@ -40,7 +40,7 @@ const CookingBasicsPage: React.FC = () => {
 
                 {/* Mise en Place */}
                 <section>
-                  <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
                     🔪 Pregătiți Toate Ingredientele (Mise en Place)
                   </h2>
                   <p className="leading-relaxed">

@@ -382,7 +382,9 @@
   - Add Footer with preference selectors
   - _Requirements: 9.3, 9.4, 9.5, 9.6_
 
-- [-] 14. Implement responsive design for mobile and desktop
+- [x] 14. Implement responsive design for mobile and desktop
+
+
 
 
 

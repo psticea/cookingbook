@@ -56,12 +56,12 @@ const AboutPage: React.FC = () => {
       <main className="flex-1 container mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8 max-w-4xl">
         {/* About Section */}
         <article className="prose dark:prose-invert max-w-none">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-gray-100">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-gray-100">
             {getTranslation('aboutTitle', language)}
           </h1>
           
           <div className="space-y-4 sm:space-y-6 text-gray-700 dark:text-gray-300">
-            <p className="text-base sm:text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed">
               {getTranslation('aboutDescription', language)}
             </p>
 
@@ -79,10 +79,10 @@ const AboutPage: React.FC = () => {
                 </section>
 
                 <section className="mt-6 sm:mt-8">
-                  <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
                     Caracteristici
                   </h2>
-                  <ul className="list-disc list-inside space-y-2 leading-relaxed text-sm sm:text-base">
+                  <ul className="list-disc list-inside space-y-2 leading-relaxed text-base">
                     <li>Rețete organizate în 8 categorii pentru navigare ușoară</li>
                     <li>Scalare automată a ingredientelor pentru diferite porții</li>
                     <li>Suport pentru limbile română și engleză</li>
@@ -95,10 +95,10 @@ const AboutPage: React.FC = () => {
                 </section>
 
                 <section className="mt-6 sm:mt-8">
-                  <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
                     Filosofia Noastră
                   </h2>
-                  <p className="leading-relaxed text-sm sm:text-base">
+                  <p className="leading-relaxed text-base">
                     Credem că gătitul ar trebui să fie o experiență plăcută și accesibilă pentru toată lumea. 
                     De aceea, rețetele noastre sunt testate, clare și includ sfaturi personale pentru a vă 
                     ajuta să reușiți de fiecare dată. Fie că sunteți începător sau bucătar experimentat, 
@@ -109,10 +109,10 @@ const AboutPage: React.FC = () => {
             ) : (
               <>
                 <section className="mt-6 sm:mt-8">
-                  <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
                     About This Site
                   </h2>
-                  <p className="leading-relaxed text-sm sm:text-base">
+                  <p className="leading-relaxed text-base">
                     This site was created to share delicious and easy-to-follow recipes. 
                     Each recipe includes clear instructions, precisely measured ingredients, and 
                     personal tips to help you achieve the best results.
@@ -120,10 +120,10 @@ const AboutPage: React.FC = () => {
                 </section>
 
                 <section className="mt-6 sm:mt-8">
-                  <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
                     Features
                   </h2>
-                  <ul className="list-disc list-inside space-y-2 leading-relaxed text-sm sm:text-base">
+                  <ul className="list-disc list-inside space-y-2 leading-relaxed text-base">
                     <li>Recipes organized into 8 categories for easy navigation</li>
                     <li>Automatic ingredient scaling for different serving sizes</li>
                     <li>Support for Romanian and English languages</li>
@@ -136,10 +136,10 @@ const AboutPage: React.FC = () => {
                 </section>
 
                 <section className="mt-6 sm:mt-8">
-                  <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
                     Our Philosophy
                   </h2>
-                  <p className="leading-relaxed text-sm sm:text-base">
+                  <p className="leading-relaxed text-base">
                     We believe that cooking should be an enjoyable and accessible experience for everyone. 
                     That's why our recipes are tested, clear, and include personal tips to help you 
                     succeed every time. Whether you're a beginner or an experienced cook, 
