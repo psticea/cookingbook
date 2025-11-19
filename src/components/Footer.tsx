@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
           {/* About link - touch-friendly */}
           <Link
             to="/about"
-            className="text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors min-h-[44px] flex items-center px-2"
+            className="text-base sm:text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors min-h-[44px] flex items-center px-2"
           >
             {getTranslation('about', language)}
           </Link>

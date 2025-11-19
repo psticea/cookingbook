@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex-shrink-0">
             <Link
               to="/"
-              className={`text-sm sm:text-base font-medium transition-colors duration-200 whitespace-nowrap min-h-[44px] flex items-center px-2 sm:px-0 ${
+              className={`text-base sm:text-lg font-medium transition-colors duration-200 whitespace-nowrap min-h-[44px] flex items-center px-2 sm:px-0 ${
                 isHomePage
                   ? 'text-accent-light dark:text-accent-dark'
                   : 'text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark'

@@ -113,10 +113,13 @@ const AboutPage: React.FC = () => {
                   Bine ai venit pe site-ul meu cu rețete.
                 </p>
                 <p className="text-base leading-relaxed">
-                  Aici o să găsești rețetele mele preferate.
+                  Aici o să găsești rețetele mele preferate în română și engleză.
                 </p>
                 <p className="text-base leading-relaxed">
-                  Multe sunt preluate de pe alte website-uri, dar cu ingrediente și instrucțiuni ajustate în funcție de preferințele mele. 
+                  Nu sunt reclame, pop-up-uri sau trackere, doar rețete grozave.
+                </p>
+                <p className="text-base leading-relaxed">
+                  Multe rețetele sunt preluate de pe alte website-uri, dar cu ingrediente și instrucțiuni ajustate în funcție de preferințele mele. 
                   Pentru fiecare rețetă preluată vei găsi și link-ul în notele rețetei.
                 </p>
                 <p className="text-base leading-relaxed">
@@ -136,10 +139,13 @@ const AboutPage: React.FC = () => {
                   Welcome to my recipe website.
                 </p>
                 <p className="text-base leading-relaxed">
-                  Here you'll find my favorite recipes.
+                  Here you'll find my favorite recipes in both English and Romanian.
                 </p>
                 <p className="text-base leading-relaxed">
-                  Many are adapted from other websites, but with ingredients and instructions adjusted according to my preferences. 
+                  No ads, no pop-ups, no trackers, just great recipes.
+                </p>
+                <p className="text-base leading-relaxed">
+                  Many recipes are adapted from other websites, but with ingredients and instructions adjusted according to my preferences. 
                   For each adapted recipe, you'll find the link in the recipe notes.
                 </p>
                 <p className="text-base leading-relaxed">
