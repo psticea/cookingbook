@@ -77,32 +77,55 @@ export const IngredientList: React.FC<IngredientListProps> = ({
 
   return (
     <section className="mb-6">
-      {/* Recipe Metadata - Icons and numbers */}
-      <div className="flex items-center gap-3 sm:gap-4 mb-2 text-gray-700 dark:text-gray-300">
-        {/* Prep Time */}
-        <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${prepTime} ${getTranslation('minutes', language)}`}>
-          <span className="text-xl">⏱️</span>
-          <span className="text-lg font-medium">{prepTime}</span>
+      {/* Combined Metadata and Scaler */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4 p-3 sm:p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+        {/* Left: Recipe Metadata */}
+        <div className="flex items-center gap-3 sm:gap-4 text-gray-700 dark:text-gray-300">
+          {/* Prep Time */}
+          <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${prepTime} ${getTranslation('minutes', language)}`}>
+            <span className="text-xl">⏱️</span>
+            <span className="text-lg font-medium">{prepTime}</span>
+          </div>
+
+          {/* Servings - Updates with multiplier */}
+          <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${scaledServings}`}>
+            <span className="text-xl">🍽️</span>
+            <span className="text-lg font-medium">{scaledServings}</span>
+          </div>
+
+          {/* Effort Level - Puzzle Pieces */}
+          <div className="flex items-center gap-1" title={`${getTranslation('effortLevel', language)}: ${effortLevelText}`}>
+            <span className="text-xl">{getPuzzlePieces(effortLevel)}</span>
+          </div>
         </div>
 
-        {/* Servings - Updates with multiplier */}
-        <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${scaledServings}`}>
-          <span className="text-xl">🍽️</span>
-          <span className="text-lg font-medium">{scaledServings}</span>
-        </div>
+        {/* Right: Multiplier Controls */}
+        <div className="flex items-center gap-3">
+          {/* Decrement Button */}
+          <button
+            onClick={() => multiplier > 0.5 && setMultiplier(multiplier - 0.5)}
+            disabled={multiplier <= 0.5}
+            className="min-w-[44px] min-h-[44px] w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-xl shadow-md hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors active:scale-95"
+            aria-label="Decrease multiplier"
+          >
+            −
+          </button>
 
-        {/* Effort Level - Puzzle Pieces */}
-        <div className="flex items-center gap-1" title={`${getTranslation('effortLevel', language)}: ${effortLevelText}`}>
-          <span className="text-xl">{getPuzzlePieces(effortLevel)}</span>
-        </div>
-      </div>
+          {/* Current Multiplier Display */}
+          <span className="text-xl font-bold text-gray-900 dark:text-gray-100 min-w-[3.5rem] text-center">
+            {multiplier.toFixed(1)}x
+          </span>
 
-      {/* Ingredient Scaler */}
-      <div className="mb-4">
-        <IngredientScaler
-          currentMultiplier={multiplier}
-          onMultiplierChange={setMultiplier}
-        />
+          {/* Increment Button */}
+          <button
+            onClick={() => multiplier < 3 && setMultiplier(multiplier + 0.5)}
+            disabled={multiplier >= 3}
+            className="min-w-[44px] min-h-[44px] w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-xl shadow-md hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors active:scale-95"
+            aria-label="Increase multiplier"
+          >
+            +
+          </button>
+        </div>
       </div>
 
       {/* Ingredients Section Heading */}

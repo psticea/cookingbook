@@ -111,17 +111,6 @@
     },
     {
       "name": {
-        "ro": "vin alb sec",
-        "en": "dry white wine"
-      },
-      "quantity": 0.5,
-      "unit": {
-        "ro": "cană",
-        "en": "cup"
-      }
-    },
-    {
-      "name": {
         "ro": "bulion/supă de legume cu sodiu redus",
         "en": "vegetable stock/broth low sodium"
       },
@@ -184,7 +173,7 @@
       "Condimentează peștele: Presară sare și piper pe ambele părți ale fileurilor de pește. Pune deoparte.",
       "Sotează: Topește untul într-o tigaie mare rezistentă la cuptor (30cm) pe foc mare până devine spumos. Adaugă prazul și usturoiul, apoi gătește timp de 3 minute.",
       "Sotează cartofii: Adaugă cartofii, sare și piper. Gătește timp de 6 minute, amestecând regulat. Cartofii ar trebui să fie pe jumătate gătiți în această etapă.",
-      "Reduce vinul și bulionul: Toarnă vinul alb. Fierbe rapid până se evaporă în mare parte (aproximativ 1 minut). Toarnă bulionul, apoi fierbe timp de 1 1/2 minute sau până se reduce la jumătate.",
+      "Reduce bulionul: Toarnă bulionul, apoi fierbe timp de 1 1/2 minute sau până se reduce la jumătate.",
       "Pune peștele deasupra: Oprește aragazul. Pune peștele deasupra cartofilor, cu partea de prezentare în sus. Toarnă smântâna peste tot, vizând acoperire completă. Presară cu pesmet panko.",
       "Coace timp de 30 de minute.",
       "Colorează toppingul: Comută la grătarul cuptorului (broiler) pe mare și mută tigaia pe raftul de sus. Grătarează/broilează 4 minute sau până devine auriu.",
@@ -197,7 +186,7 @@
       "Season fish: Sprinkle salt and pepper on both sides of the fish fillets. Set aside.",
       "Sauté: Melt butter in a large oven-proof skillet (30cm) over high heat until foamy. Add leek and garlic, then cook for 3 minutes.",
       "Sauté potatoes: Add potato, salt and pepper. Cook for 6 minutes, stirring regularly. The potatoes should be half cooked at this stage.",
-      "Reduce wine and stock: Pour in white wine. Simmer rapidly until it is mostly evaporated (about 1 minute). Pour in stock, then simmer for 1 1/2 minutes or until reduced by half.",
+      "Reduce stock: Pour in stock, then simmer for 1 1/2 minutes or until reduced by half.",
       "Top with fish: Turn the stove off. Place fish on top of the potatoes, presentation side up. Pour cream all over, aiming for full coverage. Sprinkle with panko breadcrumbs.",
       "Bake for 30 minutes.",
       "Colour topping: Switch to the oven grill (broiler) on high and move the skillet up to the top shelf. Grill/broil 4 minutes or until golden.",

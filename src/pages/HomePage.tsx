@@ -122,7 +122,7 @@ const HomePage: React.FC = () => {
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
       
-      <main className="flex-1 max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 w-full">
+      <main className="flex-1 max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 w-full">
         {loading && (
           <div className="text-center py-8">
             <p className="text-xl text-gray-600 dark:text-gray-400">

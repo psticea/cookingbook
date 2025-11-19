@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="mt-auto border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-2.5">
+      <div className="max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-2.5">
         <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
           {/* About link - touch-friendly */}
           <Link
