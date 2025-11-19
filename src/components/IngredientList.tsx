@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { IngredientItem } from '../types/recipe';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
-import { IngredientScaler } from './IngredientScaler';
 
 interface IngredientListProps {
   ingredients: IngredientItem[];
