@@ -48,6 +48,11 @@ const RecipePage: React.FC = () => {
     navigate('/', { state: { selectedKeywords: Array.from(keywords) } });
   };
 
+  // Scroll to top when recipe changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
   useEffect(() => {
     // If loading is complete and recipe is not found, show error and redirect
     if (!loading && !recipe && id) {
