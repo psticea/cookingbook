@@ -144,14 +144,14 @@ const HomePage: React.FC = () => {
             {recipes.length > 0 && (
               <>
                 {/* Recipe count */}
-                <div className="mb-3">
+                <div className="mb-6">
                   <p className="text-lg text-gray-700 dark:text-gray-300">
                     {getTranslation('allRecipes', language)} ({totalFilteredCount})
                   </p>
                 </div>
 
                 {/* Recipe sections by category */}
-                <div className="space-y-4">
+                <div className="space-y-8">
                   {categories.map((category) => {
                     const categoryRecipes = getRecipesByCategory(filteredRecipes, category.id);
                     
@@ -164,7 +164,7 @@ const HomePage: React.FC = () => {
                         id={`category-${category.id}`}
                         className="category-section scroll-mt-16 sm:scroll-mt-20"
                       >
-                        <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">
+                        <h2 className="text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">
                           {category.name[language]}
                         </h2>
                         <RecipeGrid recipes={categoryRecipes} />
