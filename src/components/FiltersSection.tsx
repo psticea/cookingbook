@@ -32,7 +32,6 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
 
   // Define subsection order and labels
   const subsections: { type: FilterKeywordType; labelKey: string }[] = [
-    { type: 'difficulty', labelKey: 'difficulty' },
     { type: 'meatType', labelKey: 'meatType' },
     { type: 'cookType', labelKey: 'cookType' },
     { type: 'ingredient', labelKey: 'ingredient' }
@@ -53,11 +52,11 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
   };
 
   return (
-    <div className="border-b border-gray-200 dark:border-gray-700 pb-4">
+    <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
       {/* Main section header - touch-friendly */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between py-3 text-left min-h-[44px]"
+        className="w-full flex items-center justify-between py-2 text-left min-h-[44px]"
         aria-expanded={isExpanded}
       >
         <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
@@ -77,7 +76,7 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
 
       {/* Expanded content */}
       {isExpanded && (
-        <div className="space-y-4 mt-2">
+        <div className="space-y-2 mt-1">
           {/* Clear all button at the top - touch-friendly */}
           {selectedKeywords.size > 0 && (
             <button
@@ -96,16 +95,16 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
             return (
               <div key={type} className="ml-2">
                 {/* Subsection header */}
-                <h4 className="text-sm sm:text-base font-medium text-gray-800 dark:text-gray-200 py-2">
+                <h4 className="text-sm sm:text-base font-medium text-gray-800 dark:text-gray-200 py-1">
                   {getTranslation(labelKey, language)}
                 </h4>
 
                 {/* Subsection keywords - touch-friendly checkboxes */}
-                <div className="ml-2 sm:ml-4 space-y-2 mt-2">
+                <div className="ml-2 sm:ml-4 space-y-0 mt-0.5">
                   {keywords.map((keyword) => (
                     <label
                       key={keyword.id}
-                      className="flex items-center space-x-3 cursor-pointer group min-h-[44px] py-1"
+                      className="flex items-center space-x-3 cursor-pointer group min-h-[36px] py-0"
                     >
                       <input
                         type="checkbox"

@@ -73,7 +73,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
         aria-label={getTranslation('menu', language)}
       >
         {/* Header with close button - touch-friendly */}
-        <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-10">
+        <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-2 flex items-center justify-between z-10">
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
             {getTranslation('menu', language)}
           </h2>
@@ -100,7 +100,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
         </div>
 
         {/* Menu content - responsive padding */}
-        <div className="px-4 sm:px-6 py-3 sm:py-4">
+        <div className="px-4 sm:px-6 py-2">
           {children}
         </div>
       </div>

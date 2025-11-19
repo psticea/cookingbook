@@ -56,33 +56,33 @@ const AboutPage: React.FC = () => {
       <main className="flex-1 container mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8 max-w-4xl">
         {/* About Section */}
         <article className="prose dark:prose-invert max-w-none">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-gray-100">
+          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-gray-100">
             {getTranslation('aboutTitle', language)}
           </h1>
           
-          <div className="space-y-4 sm:space-y-6 text-gray-700 dark:text-gray-300">
-            <p className="text-lg leading-relaxed">
+          <div className="space-y-3 text-gray-700 dark:text-gray-300">
+            <p className="text-base leading-relaxed">
               {getTranslation('aboutDescription', language)}
             </p>
 
             {language === 'ro' ? (
               <>
-                <section className="mt-8">
-                  <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                <section className="mt-4">
+                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Despre Acest Site
                   </h2>
-                  <p className="leading-relaxed">
+                  <p className="text-base leading-relaxed">
                     Acest site a fost creat pentru a împărtăși rețete delicioase și ușor de urmat. 
                     Fiecare rețetă include instrucțiuni clare, ingrediente măsurate cu precizie și 
                     sfaturi personale pentru a vă ajuta să obțineți cele mai bune rezultate.
                   </p>
                 </section>
 
-                <section className="mt-6 sm:mt-8">
-                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                <section className="mt-4">
+                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Caracteristici
                   </h2>
-                  <ul className="list-disc list-inside space-y-2 leading-relaxed text-base">
+                  <ul className="list-disc list-inside space-y-1 leading-relaxed text-base">
                     <li>Rețete organizate în 8 categorii pentru navigare ușoară</li>
                     <li>Scalare automată a ingredientelor pentru diferite porții</li>
                     <li>Suport pentru limbile română și engleză</li>
@@ -94,8 +94,8 @@ const AboutPage: React.FC = () => {
                   </ul>
                 </section>
 
-                <section className="mt-6 sm:mt-8">
-                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                <section className="mt-4">
+                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Filosofia Noastră
                   </h2>
                   <p className="leading-relaxed text-base">
@@ -108,8 +108,8 @@ const AboutPage: React.FC = () => {
               </>
             ) : (
               <>
-                <section className="mt-6 sm:mt-8">
-                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                <section className="mt-4">
+                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     About This Site
                   </h2>
                   <p className="leading-relaxed text-base">
@@ -119,11 +119,11 @@ const AboutPage: React.FC = () => {
                   </p>
                 </section>
 
-                <section className="mt-6 sm:mt-8">
-                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                <section className="mt-4">
+                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Features
                   </h2>
-                  <ul className="list-disc list-inside space-y-2 leading-relaxed text-base">
+                  <ul className="list-disc list-inside space-y-1 leading-relaxed text-base">
                     <li>Recipes organized into 8 categories for easy navigation</li>
                     <li>Automatic ingredient scaling for different serving sizes</li>
                     <li>Support for Romanian and English languages</li>
@@ -135,8 +135,8 @@ const AboutPage: React.FC = () => {
                   </ul>
                 </section>
 
-                <section className="mt-6 sm:mt-8">
-                  <h2 className="text-2xl font-semibold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+                <section className="mt-4">
+                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Our Philosophy
                   </h2>
                   <p className="leading-relaxed text-base">

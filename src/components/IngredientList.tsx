@@ -78,17 +78,17 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   return (
     <section className="mb-6">
       {/* Recipe Metadata - Icons and numbers */}
-      <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 text-gray-700 dark:text-gray-300">
+      <div className="flex items-center gap-3 sm:gap-4 mb-2 text-gray-700 dark:text-gray-300">
         {/* Prep Time */}
         <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${prepTime} ${getTranslation('minutes', language)}`}>
           <span className="text-xl">⏱️</span>
-          <span className="text-base font-medium">{prepTime}</span>
+          <span className="text-lg font-medium">{prepTime}</span>
         </div>
 
         {/* Servings - Updates with multiplier */}
         <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${scaledServings}`}>
           <span className="text-xl">🍽️</span>
-          <span className="text-base font-medium">{scaledServings}</span>
+          <span className="text-lg font-medium">{scaledServings}</span>
         </div>
 
         {/* Effort Level - Puzzle Pieces */}
@@ -106,12 +106,12 @@ export const IngredientList: React.FC<IngredientListProps> = ({
       </div>
 
       {/* Ingredients Section Heading */}
-      <h2 className="text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+      <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">
         {getTranslation('ingredients', language)}
       </h2>
 
       {/* Ingredients List */}
-      <ul className="space-y-2">
+      <ul className="space-y-1">
         {ingredients.map((item, index) => {
           if (isSection(item)) {
             // Render section heading

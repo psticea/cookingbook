@@ -23,11 +23,11 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
   };
 
   return (
-    <div className="border-b border-gray-200 dark:border-gray-700 pb-4">
+    <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
       {/* Section header - touch-friendly */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between py-3 text-left min-h-[44px]"
+        className="w-full flex items-center justify-between py-2 text-left min-h-[44px]"
         aria-expanded={isExpanded}
       >
         <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
@@ -47,12 +47,12 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
 
       {/* Expanded content - touch-friendly buttons */}
       {isExpanded && (
-        <div className="space-y-1 mt-2 ml-2">
+        <div className="space-y-0.5 mt-1 ml-2">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => handleCategoryClick(category.id)}
-              className="w-full text-left px-3 py-2.5 text-sm sm:text-base text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors min-h-[44px] flex items-center"
+              className="w-full text-left px-3 py-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors min-h-[36px] flex items-center"
             >
               • {category.name[language]}
             </button>

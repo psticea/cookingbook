@@ -16,21 +16,32 @@ export const MenuLinks: React.FC<MenuLinksProps> = ({ onLinkClick }) => {
   const { language } = useLanguage();
 
   return (
-    <div className="space-y-2 mt-4">
-      <Link
-        to="/cooking-basics"
-        onClick={onLinkClick}
-        className="block w-full text-left px-3 py-3 text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors min-h-[44px] flex items-center"
-      >
-        {getTranslation('cookingBasics', language)}
-      </Link>
-      <Link
-        to="/about"
-        onClick={onLinkClick}
-        className="block w-full text-left px-3 py-3 text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors min-h-[44px] flex items-center"
-      >
-        {getTranslation('about', language)}
-      </Link>
-    </div>
+    <>
+      {/* Cooking Basics - top-level section */}
+      <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
+        <Link
+          to="/cooking-basics"
+          onClick={onLinkClick}
+          className="w-full flex items-center justify-between py-2 text-left min-h-[44px] hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors px-2"
+        >
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+            {getTranslation('cookingBasics', language)}
+          </h3>
+        </Link>
+      </div>
+
+      {/* About - top-level section */}
+      <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
+        <Link
+          to="/about"
+          onClick={onLinkClick}
+          className="w-full flex items-center justify-between py-2 text-left min-h-[44px] hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors px-2"
+        >
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+            {getTranslation('about', language)}
+          </h3>
+        </Link>
+      </div>
+    </>
   );
 };

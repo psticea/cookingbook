@@ -18,11 +18,11 @@ export const InstructionList: React.FC<InstructionListProps> = ({ instructions }
 
   return (
     <section className="mb-6">
-      <h2 className="text-2xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-gray-100">
+      <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">
         {getTranslation('instructions', language)}
       </h2>
 
-      <ol className="space-y-3 sm:space-y-4">
+      <ol className="space-y-2">
         {instructions[language].map((instruction, index) => (
           <li
             key={index}

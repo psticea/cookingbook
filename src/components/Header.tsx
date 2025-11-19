@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40">
-      <nav className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-2 sm:py-3">
+      <nav className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-1.5">
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Left: Home link - touch-friendly on mobile */}
           <div className="flex-shrink-0">
