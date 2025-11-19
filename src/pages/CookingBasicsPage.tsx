@@ -68,7 +68,7 @@ const CookingBasicsPage: React.FC = () => {
                 </p>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     📖 Citește rețeta complet înainte să începi să gătești
                   </h2>
                   <p className="leading-relaxed text-base">
@@ -77,8 +77,8 @@ const CookingBasicsPage: React.FC = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    🔪 Pregătește toate ingredientele în avans pe masa de gătit
+                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                    🥕 Pregătește toate ingredientele în avans pe masa de gătit
                   </h2>
                   <p className="leading-relaxed text-base">
                     Asta te ajută să gătești mai relaxat când ai totul la îndemână.
@@ -86,7 +86,7 @@ const CookingBasicsPage: React.FC = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     🧂 Pe cât posibil nu exclude niciun condiment
                   </h2>
                   <p className="leading-relaxed text-base">
@@ -95,7 +95,7 @@ const CookingBasicsPage: React.FC = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     🔪 Asigură-te că folosești un cuțit bine ascuțit
                   </h2>
                   <p className="leading-relaxed text-base">
@@ -118,7 +118,7 @@ const CookingBasicsPage: React.FC = () => {
                 </p>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     📖 Read the recipe completely before you start cooking
                   </h2>
                   <p className="leading-relaxed text-base">
@@ -127,8 +127,8 @@ const CookingBasicsPage: React.FC = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    🔪 Prepare all ingredients in advance on the cooking table
+                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                    🥕 Prepare all ingredients in advance on the cooking table
                   </h2>
                   <p className="leading-relaxed text-base">
                     This helps you cook more relaxed when you have everything at hand.
@@ -136,7 +136,7 @@ const CookingBasicsPage: React.FC = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     🧂 As much as possible, don't exclude any seasoning
                   </h2>
                   <p className="leading-relaxed text-base">
@@ -145,7 +145,7 @@ const CookingBasicsPage: React.FC = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     🔪 Make sure you use a well-sharpened knife
                   </h2>
                   <p className="leading-relaxed text-base">
