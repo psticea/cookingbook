@@ -26,6 +26,13 @@ export const Header: React.FC<HeaderProps> = ({
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isHomePage) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40">
       <nav className="max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-1.5">
@@ -34,6 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex-shrink-0">
             <Link
               to="/"
+              onClick={handleHomeClick}
               className={`text-base sm:text-lg font-medium transition-colors duration-200 whitespace-nowrap min-h-[44px] flex items-center px-2 sm:px-0 ${
                 isHomePage
                   ? 'text-accent-light dark:text-accent-dark'

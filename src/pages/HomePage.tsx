@@ -27,6 +27,39 @@ const HomePage: React.FC = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
 
+  // Save scroll position before leaving the page
+  useEffect(() => {
+    const saveScrollPosition = () => {
+      sessionStorage.setItem('homeScrollPosition', window.scrollY.toString());
+    };
+
+    window.addEventListener('beforeunload', saveScrollPosition);
+    
+    return () => {
+      window.removeEventListener('beforeunload', saveScrollPosition);
+    };
+  }, []);
+
+  // Restore scroll position when returning to the page
+  useEffect(() => {
+    const savedPosition = sessionStorage.getItem('homeScrollPosition');
+    
+    // Only restore if coming back from another page (not on initial load or filter change)
+    if (savedPosition && !location.state) {
+      const position = parseInt(savedPosition, 10);
+      // Wait for content to load
+      setTimeout(() => {
+        window.scrollTo(0, position);
+        sessionStorage.removeItem('homeScrollPosition');
+      }, 100);
+    }
+  }, [location.state]);
+
+  // Scroll to top when filters change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedKeywords]);
+
   // Handle navigation from other pages (category scroll or filters)
   useEffect(() => {
     if (location.state) {
@@ -164,9 +197,12 @@ const HomePage: React.FC = () => {
                         id={`category-${category.id}`}
                         className="category-section scroll-mt-16 sm:scroll-mt-20"
                       >
-                        <h2 className="text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">
-                          {category.name[language]}
-                        </h2>
+                        <div className="flex items-center gap-3 mb-4">
+                          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                            {category.name[language]}
+                          </h2>
+                          <div className="flex-1 h-px bg-gradient-to-r from-gray-300 dark:from-gray-600 to-transparent"></div>
+                        </div>
                         <RecipeGrid recipes={categoryRecipes} />
                       </section>
                     );
