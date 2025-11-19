@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({
             <Link
               to="/"
               onClick={handleHomeClick}
-              className="text-base sm:text-lg font-medium transition-colors duration-200 whitespace-nowrap min-h-[44px] flex items-center px-2 sm:px-0 text-accent-light dark:text-accent-dark hover:opacity-80"
+              className="text-lg font-medium transition-colors duration-200 whitespace-nowrap min-h-[44px] flex items-center px-2 sm:px-0 text-accent-light dark:text-accent-dark hover:opacity-80"
             >
               {getTranslation('home', language)}
             </Link>
