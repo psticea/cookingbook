@@ -68,15 +68,15 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
           {recipe.title[language]}
         </h3>
 
-        {/* Recipe Metadata - Icons and numbers only */}
+        {/* Recipe Metadata - Icons and numbers with labels */}
         <div className="flex items-center justify-between text-gray-600 dark:text-gray-400">
           <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
             <span className="text-lg">⏱️</span>
-            <span className="text-lg font-medium">{recipe.prepTime}</span>
+            <span className="text-sm font-medium">{recipe.prepTime} {getTranslation('minutes', language)}</span>
           </div>
           <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${recipe.servings}`}>
             <span className="text-lg">🍽️</span>
-            <span className="text-lg font-medium">{recipe.servings}</span>
+            <span className="text-sm font-medium">{recipe.servings} {getTranslation('servings', language)}</span>
           </div>
           <div className="flex items-center gap-1" title={effortLevel}>
             <span className="text-lg">{getPuzzlePieces(recipe.effortLevel)}</span>

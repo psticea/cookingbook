@@ -99,13 +99,13 @@ export const IngredientList: React.FC<IngredientListProps> = ({
           {/* Prep Time */}
           <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${prepTime} ${getTranslation('minutes', language)}`}>
             <span className="text-xl">⏱️</span>
-            <span className="text-lg font-medium">{prepTime}</span>
+            <span className="text-base font-medium">{prepTime} {getTranslation('minutes', language)}</span>
           </div>
 
           {/* Servings - Updates with multiplier */}
           <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${scaledServings}`}>
             <span className="text-xl">🍽️</span>
-            <span className="text-lg font-medium">{scaledServings}</span>
+            <span className="text-base font-medium">{scaledServings} {getTranslation('servings', language)}</span>
           </div>
 
           {/* Effort Level - Puzzle Pieces */}
@@ -149,13 +149,13 @@ export const IngredientList: React.FC<IngredientListProps> = ({
       </h2>
 
       {/* Ingredients List */}
-      <ul className="space-y-1">
+      <ul className="space-y-0">
         {ingredients.map((item, index) => {
           if (isSection(item)) {
             // Render section heading (not clickable)
             return (
-              <li key={index} className="mt-4 first:mt-0">
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+              <li key={index} className="mt-3 first:mt-0">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">
                   {item.section[language]}
                 </h3>
               </li>
@@ -167,7 +167,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
               <li
                 key={index}
                 onClick={() => toggleIngredient(index)}
-                className="flex items-start gap-2 text-base text-gray-800 dark:text-gray-200 cursor-pointer py-1 px-1 -mx-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="flex items-start gap-2 text-base text-gray-800 dark:text-gray-200 cursor-pointer py-0.5 px-1 -mx-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 role="checkbox"
                 aria-checked={isChecked}
                 tabIndex={0}
