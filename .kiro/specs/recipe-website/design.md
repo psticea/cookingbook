@@ -225,6 +225,41 @@ Allows users to adjust ingredient quantities.
 - Minimum: 0.5x, Maximum: 3x
 - Increment step: 0.5x
 
+#### 2A. Ingredient Checkboxes
+
+Interactive checkboxes for tracking ingredient usage while cooking.
+
+**Implementation:**
+- Integrated into the IngredientList component
+- Each ingredient item is rendered as a clickable checkbox
+- Section headings are not checkable
+
+**State Management:**
+- Component-level state using `useState` with `Set<number>` to track checked ingredient indices
+- State is not persisted to localStorage
+- State resets when component unmounts (user navigates away)
+- State is maintained while user remains on the recipe page
+
+**Visual Styling for Checked Ingredients:**
+- Checked ingredients display with strikethrough text and reduced opacity
+- Tailwind classes: `line-through opacity-50`
+- Checkbox icon changes from empty to checked
+- Smooth transition animation for visual feedback
+
+**User Interaction:**
+- Click anywhere on the ingredient item to toggle checkbox
+- Compact spacing maintains clean, minimal layout
+- Visual feedback on hover/active states
+
+**Layout Example:**
+```
+Ingredients (Scaler: - 1x +)
+☐ 2 cups flour
+☐ 1 tsp salt
+☑ 3 eggs (dimmed with strikethrough)
+☐ 1 cup milk
+```
+
 #### 3. Header Component
 
 The main navigation bar at the top of every page.
@@ -665,6 +700,30 @@ Example usage:
 </div>
 ```
 
+## Correctness Properties
+
+*A property is a characteristic or behavior that should hold true across all valid executions of a system-essentially, a formal statement about what the system should do. Properties serve as the bridge between human-readable specifications and machine-verifiable correctness guarantees.*
+
+### Property 1: Checkbox rendering for ingredients
+
+*For any* recipe with ingredients, the rendered ingredient list should contain a checkbox element for each ingredient item (excluding section headings)
+**Validates: Requirements 3A.1**
+
+### Property 2: Checkbox toggle behavior
+
+*For any* ingredient checkbox, clicking it once should change its state from unchecked to checked, and clicking it again should change its state from checked to unchecked
+**Validates: Requirements 3A.2**
+
+### Property 3: Visual styling for checked ingredients
+
+*For any* ingredient that is in the checked state, the rendered element should include visual styling classes that indicate completion (such as strikethrough and reduced opacity)
+**Validates: Requirements 3A.3**
+
+### Property 4: State persistence within session
+
+*For any* set of checked ingredients on a recipe page, while the user remains on that page, the checked states should remain unchanged unless explicitly toggled by the user
+**Validates: Requirements 3A.5**
+
 ## Error Handling
 
 ### Client-Side Error Scenarios
@@ -706,6 +765,10 @@ Example usage:
 1. **Component Tests**
    - RecipePage: Renders all recipe data correctly
    - IngredientScaler: Calculates scaled quantities correctly
+   - IngredientList: Renders checkboxes for each ingredient (Property 1)
+   - IngredientList: Toggles checkbox state on click (Property 2)
+   - IngredientList: Applies visual styling to checked ingredients (Property 3)
+   - IngredientList: Maintains checked state during component lifecycle (Property 4)
    - FilterPage: Filters recipes based on selected keywords
    - Footer: Persists preferences to localStorage
 
@@ -734,7 +797,12 @@ Example usage:
    - Adjust scaler → All ingredient quantities update
    - Navigate away and back → Scaler resets to 1x
 
-4. **Filtering**
+4. **Ingredient Checkboxes**
+   - Click ingredient → Checkbox toggles and visual styling updates
+   - Check multiple ingredients → All maintain their checked state
+   - Navigate away and back → All checkboxes reset to unchecked
+
+5. **Filtering**
    - Select keywords → Recipe list updates
    - Clear all keywords → All recipes shown
 

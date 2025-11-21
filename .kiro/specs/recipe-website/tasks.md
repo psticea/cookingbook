@@ -189,6 +189,42 @@
   - Support both Romanian and English ingredient names, units, and section headings
   - _Requirements: 2.4, 2.5, 2.6, 3.1, 3.2, 3.3_
 
+- [x] 8.4A Add checkbox functionality to IngredientList component
+
+
+
+
+
+  - Add component state to track checked ingredients using Set<number> for ingredient indices
+  - Render each ingredient as a clickable checkbox (section headings remain non-clickable)
+  - Implement toggle functionality: clicking an ingredient toggles its checked state
+  - Apply visual styling to checked ingredients (strikethrough with line-through and reduced opacity with opacity-50)
+  - Use compact spacing to maintain clean, minimal layout
+  - Maintain checked state while user remains on the page
+  - State resets when component unmounts (user navigates away)
+  - _Requirements: 3A.1, 3A.2, 3A.3, 3A.4, 3A.5, 3A.6_
+
+- [ ]* 8.4B Write unit tests for ingredient checkboxes
+  - **Property 1: Checkbox rendering for ingredients**
+  - Test that checkboxes are rendered for each ingredient (excluding section headings)
+  - **Validates: Requirements 3A.1**
+
+- [ ]* 8.4C Write unit tests for checkbox toggle behavior
+  - **Property 2: Checkbox toggle behavior**
+  - Test that clicking an ingredient toggles its state from unchecked to checked and back
+  - **Validates: Requirements 3A.2**
+
+- [ ]* 8.4D Write unit tests for checked ingredient styling
+  - **Property 3: Visual styling for checked ingredients**
+  - Test that checked ingredients have appropriate CSS classes (line-through, opacity-50)
+  - **Validates: Requirements 3A.3**
+
+- [ ]* 8.4E Write unit tests for state persistence
+  - **Property 4: State persistence within session**
+  - Test that checked states are maintained while on the page
+  - Test that checked states reset when component unmounts and remounts
+  - **Validates: Requirements 3A.5**
+
 - [x] 8.5 Create InstructionList component
 
 
@@ -484,6 +520,7 @@
   - Test theme switching: toggle theme and verify CSS classes applied
   - Test text size adjustment: change size and verify HTML attribute updated
   - Test ingredient scaling: adjust scaler and verify quantities update
+  - Test ingredient checkboxes: click ingredients, verify checked state and styling, navigate away and back, verify reset
   - Test side menu: open/close menu and verify visibility
   - Test filtering: expand filters section, select keywords from four types, and verify recipe list updates
   - Test categories: expand categories section, click category, and verify scroll to section
@@ -491,4 +528,4 @@
   - Test search clear: click X button and verify search is cleared
   - Test combined search and filter: use both and verify correct results
   - Test navigation: click Cooking Basics and About links in side menu
-  - _Requirements: 4.3, 4.4, 5.3, 6.4, 6.5, 3.3, 6.6, 7.5, 7.12, 7.15, 7.16, 7.17, 7A.5, 7A.7, 7A.8_
+  - _Requirements: 4.3, 4.4, 5.3, 6.4, 6.5, 3.3, 3A.2, 3A.3, 3A.4, 6.6, 7.5, 7.12, 7.15, 7.16, 7.17, 7A.5, 7A.7, 7A.8_

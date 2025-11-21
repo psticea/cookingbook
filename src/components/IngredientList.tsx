@@ -27,6 +27,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
 }) => {
   const { language } = useLanguage();
   const [multiplier, setMultiplier] = useState(1);
+  const [checkedIngredients, setCheckedIngredients] = useState<Set<number>>(new Set());
 
   /**
    * Calculate scaled quantity based on multiplier
@@ -49,6 +50,21 @@ export const IngredientList: React.FC<IngredientListProps> = ({
    */
   const isSection = (item: IngredientItem): item is { section: { ro: string; en: string } } => {
     return 'section' in item;
+  };
+
+  /**
+   * Toggle checkbox state for an ingredient
+   */
+  const toggleIngredient = (index: number) => {
+    setCheckedIngredients(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
   };
 
   /**
@@ -136,7 +152,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
       <ul className="space-y-1">
         {ingredients.map((item, index) => {
           if (isSection(item)) {
-            // Render section heading
+            // Render section heading (not clickable)
             return (
               <li key={index} className="mt-4 first:mt-0">
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
@@ -145,14 +161,30 @@ export const IngredientList: React.FC<IngredientListProps> = ({
               </li>
             );
           } else {
-            // Render ingredient
+            // Render ingredient with checkbox
+            const isChecked = checkedIngredients.has(index);
             return (
               <li
                 key={index}
-                className="flex items-start gap-2 text-base text-gray-800 dark:text-gray-200"
+                onClick={() => toggleIngredient(index)}
+                className="flex items-start gap-2 text-base text-gray-800 dark:text-gray-200 cursor-pointer py-1 px-1 -mx-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                role="checkbox"
+                aria-checked={isChecked}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleIngredient(index);
+                  }
+                }}
               >
-                <span className="text-accent-light dark:text-accent-dark mt-1">•</span>
-                <span>
+                {/* Checkbox Icon */}
+                <span className="text-lg mt-0.5 flex-shrink-0 min-w-[24px]">
+                  {isChecked ? '☑' : '☐'}
+                </span>
+                
+                {/* Ingredient Text */}
+                <span className={isChecked ? 'line-through opacity-50' : ''}>
                   <span className="font-semibold">
                     {getScaledQuantity(item.quantity)} {item.unit[language]}
                   </span>

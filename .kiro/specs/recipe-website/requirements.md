@@ -70,6 +70,19 @@ This document specifies the requirements for a multilingual recipe website. The 
 2. WHEN a User adjusts the Ingredient Scaler, THE Recipe Website SHALL recalculate all ingredient quantities proportionally
 3. WHEN a User adjusts the Ingredient Scaler, THE Recipe Website SHALL update the displayed ingredient quantities in real-time
 
+### Requirement 3A
+
+**User Story:** As a User, I want to check off ingredients as I add them while cooking, so that I can track which ingredients I have already used and avoid missing any
+
+#### Acceptance Criteria
+
+1. WHEN a User views a Recipe Page, THE Recipe Website SHALL display each ingredient as a clickable checkbox
+2. WHEN a User clicks an ingredient checkbox, THE Recipe Website SHALL toggle the ingredient between checked and unchecked states
+3. WHEN an ingredient is checked, THE Recipe Website SHALL apply visual styling to indicate completion
+4. WHEN a User navigates away from a Recipe Page and returns, THE Recipe Website SHALL reset all ingredient checkboxes to unchecked state
+5. WHILE a User remains on a Recipe Page, THE Recipe Website SHALL maintain the checked states of ingredients
+6. THE Recipe Website SHALL display ingredients in a compact layout with minimal spacing
+
 ### Requirement 4
 
 **User Story:** As a User, I want to switch between Romanian and English languages, so that I can read recipes in my preferred language
