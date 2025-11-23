@@ -154,7 +154,7 @@ App
 │   │   ├── RecipeHeader (prep time, servings, effort)
 │   │   ├── RecipeImage
 │   │   ├── IngredientList
-│   │   │   └── IngredientScaler
+│   │   │   └── ServingsSlider
 │   │   └── InstructionList
 │   ├── AboutPage
 │   └── CookingBasicsPage
@@ -174,7 +174,7 @@ Displays a single recipe with all details.
 - `recipeId: string` - Unique identifier for the recipe
 
 **State:**
-- `servingMultiplier: number` - Current scaling factor for ingredients (default: 1)
+- `currentServings: number` - Currently selected number of servings (default: recipe's original servings)
 
 **Layout:**
 ```
@@ -190,7 +190,8 @@ Displays a single recipe with all details.
 │                                  │
 ├─────────────────────────────────┤
 │ Ingredients                      │
-│ [Scaler: - 1x +]                │
+│ Servings: [1 ━━━━●━━━━ 8]      │
+│           (yellow marker at 4)   │
 │ • Ingredient 1 (scaled qty)     │
 │ • Ingredient 2 (scaled qty)     │
 ├─────────────────────────────────┤
@@ -211,19 +212,30 @@ Displays a single recipe with all details.
 - Medium: 🧩🧩 (2 puzzle piece icons)
 - Hard: 🧩🧩🧩 (3 puzzle piece icons)
 
-#### 2. IngredientScaler Component
+#### 2. Servings Slider Component
 
-Allows users to adjust ingredient quantities.
+Allows users to adjust ingredient quantities by selecting the desired number of servings.
 
 **Props:**
-- `currentMultiplier: number`
-- `onMultiplierChange: (multiplier: number) => void`
+- `originalServings: number` - The recipe's original number of servings
+- `currentServings: number` - The currently selected number of servings
+- `onServingsChange: (servings: number) => void` - Callback when servings change
 
 **Behavior:**
-- Provides buttons to increment/decrement by 0.5x
-- Displays current multiplier (e.g., "0.5x", "1x", "1.5x", "2x", "2.5x", "3x")
-- Minimum: 0.5x, Maximum: 3x
-- Increment step: 0.5x
+- Displays a horizontal slider control
+- Range: 1 to 8 servings
+- Initial value: Set to recipe's original servings
+- Yellow marker indicates the original servings position on the slider
+- Displays current servings number above or next to the slider
+- Smooth dragging interaction
+- Updates ingredient quantities in real-time as slider moves
+
+**Visual Design:**
+- Slider track with clear visual feedback
+- Yellow marker/indicator at original servings position
+- Current servings value displayed prominently
+- Touch-friendly slider thumb for mobile devices
+- Responsive design for mobile and desktop
 
 #### 2A. Ingredient Checkboxes
 

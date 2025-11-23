@@ -168,26 +168,30 @@
   - Make responsive for mobile and desktop
   - _Requirements: 2.6_
 
-- [x] 8.3 Create IngredientScaler component
+- [ ] 8.3 Create Servings Slider component
 
 
-  - Display current multiplier (0.5x to 3x in 0.5x increments)
-  - Implement increment and decrement buttons
-  - Clamp values between 0.5x and 3x
-  - Call onMultiplierChange callback when value changes
-  - _Requirements: 3.1, 3.2, 3.3_
+  - Create horizontal slider input (HTML range input or custom slider)
+  - Set range from 1 to 8 servings
+  - Initialize slider to recipe's original servings value
+  - Display current servings number prominently
+  - Add yellow marker/indicator at original servings position on slider track
+  - Implement onChange handler to call onServingsChange callback
+  - Style with Tailwind for responsive design (mobile and desktop)
+  - Ensure touch-friendly slider thumb for mobile devices
+  - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7_
 
-- [x] 8.4 Create IngredientList component
+- [ ] 8.4 Create IngredientList component
 
 
   - Display list of ingredients with quantities and units
   - Support both flat ingredient lists and grouped ingredient sections
   - When ingredients are grouped, display section headings (e.g., "Marinade", "Sauce", "Main Ingredients")
   - When ingredients are not grouped, display as a single list without headings
-  - Integrate IngredientScaler component
-  - Calculate and display scaled quantities based on multiplier for all ingredients regardless of grouping
+  - Integrate Servings Slider component
+  - Calculate and display scaled quantities based on ratio between current servings and original servings for all ingredients regardless of grouping
   - Support both Romanian and English ingredient names, units, and section headings
-  - _Requirements: 2.4, 2.5, 2.6, 3.1, 3.2, 3.3_
+  - _Requirements: 2.4, 2.5, 2.6, 3.1, 3.2, 3.3, 3.5, 3.6, 3.7_
 
 - [x] 8.4A Add checkbox functionality to IngredientList component
 
@@ -506,20 +510,20 @@
   - _Requirements: 2.6_
 
 - [ ]* 19. Write unit tests for core functionality
-  - Test IngredientScaler: verify scaling calculations (0.5x, 1x, 1.5x, 2x, etc.)
+  - Test Servings Slider: verify scaling calculations based on servings ratio (1-8 servings)
   - Test filtering logic: verify recipes filtered correctly with multiple keywords from four filter types
   - Test search logic: verify recipes filtered correctly by title with 2+ characters
   - Test combined search and filter: verify both filters work together
   - Test category scrolling: verify smooth scroll to category sections
   - Test useLocalStorage hook: verify read/write to localStorage
   - Test translation utility: verify correct translations returned
-  - _Requirements: 3.2, 6.4, 7.12, 7.15, 7A.3, 7A.8_
+  - _Requirements: 3.2, 3.5, 3.6, 6.4, 7.12, 7.15, 7A.3, 7A.8_
 
 - [ ]* 20. Write integration tests for user workflows
   - Test language switching: change language and verify all text updates
   - Test theme switching: toggle theme and verify CSS classes applied
   - Test text size adjustment: change size and verify HTML attribute updated
-  - Test ingredient scaling: adjust scaler and verify quantities update
+  - Test servings slider: adjust slider and verify quantities update proportionally
   - Test ingredient checkboxes: click ingredients, verify checked state and styling, navigate away and back, verify reset
   - Test side menu: open/close menu and verify visibility
   - Test filtering: expand filters section, select keywords from four types, and verify recipe list updates

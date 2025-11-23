@@ -66,9 +66,13 @@ This document specifies the requirements for a multilingual recipe website. The 
 
 #### Acceptance Criteria
 
-1. WHEN a User views a Recipe Page, THE Recipe Website SHALL display an Ingredient Scaler component
-2. WHEN a User adjusts the Ingredient Scaler, THE Recipe Website SHALL recalculate all ingredient quantities proportionally
-3. WHEN a User adjusts the Ingredient Scaler, THE Recipe Website SHALL update the displayed ingredient quantities in real-time
+1. WHEN a User views a Recipe Page, THE Recipe Website SHALL display a servings slider component
+2. THE Recipe Website SHALL set the slider initial value to the recipe's original number of servings
+3. THE Recipe Website SHALL allow the User to adjust servings from 1 to 8 using the slider
+4. THE Recipe Website SHALL display a yellow marker on the slider indicating the recipe's original number of servings
+5. WHEN a User adjusts the servings slider, THE Recipe Website SHALL recalculate all ingredient quantities proportionally based on the ratio between selected servings and original servings
+6. WHEN a User adjusts the servings slider, THE Recipe Website SHALL update the displayed ingredient quantities in real-time
+7. WHEN a User adjusts the servings slider, THE Recipe Website SHALL update the displayed servings count in real-time
 
 ### Requirement 3A
 
