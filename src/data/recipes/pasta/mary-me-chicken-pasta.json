@@ -12,8 +12,8 @@
   "ingredients": [
     {
       "name": {
-        "ro": "piepturi de pui tăiate în bucăți mici",
-        "en": "chicken breasts cut in bite-size chunks"
+        "ro": "piept de pui tăiat în bucăți mici",
+        "en": "chicken breast cut in bite-size chunks"
       },
       "quantity": 400,
       "unit": {
@@ -45,8 +45,8 @@
     },
     {
       "name": {
-        "ro": "roșii uscate la soare tocate",
-        "en": "sundried tomatoes chopped"
+        "ro": "roșii uscate la soare tăiate în bucăți mici",
+        "en": "sundried tomatoes chopped in small pieces"
       },
       "quantity": 100,
       "unit": {
@@ -56,7 +56,7 @@
     },
     {
       "name": {
-        "ro": "bulion de pui",
+        "ro": "supă de pui",
         "en": "chicken stock"
       },
       "quantity": 300,
@@ -111,8 +111,8 @@
     },
     {
       "name": {
-        "ro": "ulei vegetal sau ulei de roșii uscate",
-        "en": "vegetable oil or sundried tomatoes oil"
+        "ro": "ulei de roșii uscate sau ulei vegetal",
+        "en": "sundried tomatoes oil or vegetable oil"
       },
       "quantity": 30,
       "unit": {
@@ -122,8 +122,8 @@
     },
     {
       "name": {
-        "ro": "unt nesărat",
-        "en": "unsalted butter"
+        "ro": "unt",
+        "en": "butter"
       },
       "quantity": 28,
       "unit": {
@@ -136,7 +136,7 @@
         "ro": "fulgi de chili",
         "en": "chili flakes"
       },
-      "quantity": 1,
+      "quantity": 0.5,
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
@@ -147,7 +147,7 @@
         "ro": "oregano",
         "en": "oregano"
       },
-      "quantity": 0.5,
+      "quantity": 1,
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
@@ -158,7 +158,7 @@
         "ro": "cimbru",
         "en": "thyme"
       },
-      "quantity": 0.5,
+      "quantity": 1,
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
@@ -166,13 +166,13 @@
     },
     {
       "name": {
-        "ro": "frunze de busuioc proaspăt",
-        "en": "fresh basil leaves"
+        "ro": "busuioc proaspăt",
+        "en": "fresh basil"
       },
       "quantity": 1,
       "unit": {
-        "ro": "linguriță",
-        "en": "tsp"
+        "ro": "lingură",
+        "en": "tbsp"
       }
     },
     {
@@ -189,15 +189,15 @@
   ],
   "instructions": {
     "ro": [
-      "Condimentează puiul cu sare și piper. Într-o tigaie mare, încălzește uleiul și rumenește puiul timp de 4-5 minute pe fiecare parte sau până devine auriu și bine gătit. Transferă pe o farfurie.",
+      "Condimentează puiul cu sare și piper. Într-o tigaie mare, încălzește uleiul și rumenește puiul timp de 5-7 minute până devine auriu și bine gătit. Transferă pe o farfurie.",
       "Adaugă untul în tigaie și gătește ceapa timp de 5 min. Adaugă usturoiul tocat și sotează timp de un minut sau până devine parfumat.",
-      "Adaugă bulionul de pui și deglazează tigaia, răzuind orice bucăți lipite de fundul tigăii cu o lingură de lemn.",
-      "Ajustează focul la mediu-mic și adaugă smântâna grasă și parmezanul. Lasă sosul să fiarbă câteva minute, apoi condimentează cu fulgi de chili, cimbru și oregano.",
+      "Adaugă supa de pui și deglazează tigaia, răzuind orice bucăți lipite de fundul tigăii cu o lingură de lemn.",
+      "Ajustează focul la mediu-mic și adaugă smântâna de gătit și parmezanul. Lasă sosul să fiarbă câteva minute, apoi condimentează cu fulgi de chili, cimbru și oregano.",
       "Condimentează cu sare și piper după gust, adaugă roșiile uscate la soare apoi pune puiul înapoi în sos și lasă sosul să fiarbă și să se îngroașe câteva minute.",
       "Amestecă cu pastele fierte și garnisește cu frunze de busuioc proaspăt măruntite pentru a servi."
     ],
     "en": [
-      "Season chicken with salt and pepper. In a large skillet, heat the oil and brown the chicken for 4-5 minutes on each side or until golden brown and cooked through. Transfer onto a plate.",
+      "Season chicken with salt and pepper. In a large skillet, heat the oil and brown the chicken for 5-7 minutes until golden brown and cooked through. Transfer onto a plate.",
       "Add the butter to the skillet and cook the onions for 5 min. Add the minced garlic and saute for a minute or until it's fragrant.",
       "Add the chicken stock, and deglaze the pan, scraping any bits stuck to the bottom of the pan with a wooden spoon.",
       "Adjust the heat to medium-low, and add the heavy cream and the parmesan cheese. Allow the sauce to simmer for a couple of minutes, then season with chili flakes, thyme, and oregano.",
@@ -206,8 +206,8 @@
     ]
   },
   "personalNotes": {
-    "ro": "Rețetă de la: https://littlesunnykitchen.com/marry-me-chicken",
-    "en": "Recipe from: https://littlesunnykitchen.com/marry-me-chicken"
+    "ro": "Unele roșii uscate la soare sunt mai bune decât altele. Eu folosesc doar Roșii Uscate la Soare Franz Josef Exclusive (găsite la Kaufland sau online).\n\nRețetă inspirată de: https://littlesunnykitchen.com/marry-me-chicken",
+    "en": "Some sundried tomatoes are better than others. I only use Sundried Tomatoes Franz Josef Exclusive (found at Kaufland or online).\n\nRecipe inspired by: https://littlesunnykitchen.com/marry-me-chicken"
   },
   "keywords": ["medium", "chicken", "pan-fry", "pasta", "cooking-cream", "chicken-stock", "olive-oil"],
   "dateAdded": "2025-11-17"
