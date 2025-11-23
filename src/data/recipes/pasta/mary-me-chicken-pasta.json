@@ -7,15 +7,15 @@
     "en": "Marry Me Chicken Pasta"
   },
   "prepTime": 30,
-  "servings": 6,
+  "servings": 5,
   "effortLevel": "medium",
   "ingredients": [
     {
       "name": {
-        "ro": "piepturi de pui feliate",
-        "en": "chicken breasts sliced"
+        "ro": "piepturi de pui tăiate în bucăți mici",
+        "en": "chicken breasts cut in bite-size chunks"
       },
-      "quantity": 800,
+      "quantity": 400,
       "unit": {
         "ro": "g",
         "en": "g"
@@ -23,7 +23,7 @@
     },
     {
       "name": {
-        "ro": "ceapă medie tocată",
+        "ro": "ceapă medie marunțită",
         "en": "medium onion minced"
       },
       "quantity": 1,
@@ -177,10 +177,10 @@
     },
     {
       "name": {
-        "ro": "paste de fiert pentru servit (opțional)",
-        "en": "pasta to boil for serving (optional)"
+        "ro": "paste de fiert pentru servit",
+        "en": "pasta to boil for serving"
       },
-      "quantity": 600,
+      "quantity": 500,
       "unit": {
         "ro": "g",
         "en": "g"
@@ -194,7 +194,7 @@
       "Adaugă bulionul de pui și deglazează tigaia, răzuind orice bucăți lipite de fundul tigăii cu o lingură de lemn.",
       "Ajustează focul la mediu-mic și adaugă smântâna grasă și parmezanul. Lasă sosul să fiarbă câteva minute, apoi condimentează cu fulgi de chili, cimbru și oregano.",
       "Condimentează cu sare și piper după gust, adaugă roșiile uscate la soare apoi pune puiul înapoi în sos și lasă sosul să fiarbă și să se îngroașe câteva minute.",
-      "Garnisește cu frunze de busuioc proaspăt tocate și servește cald peste paste sau orez sau piure de cartofi."
+      "Amestecă cu pastele fierte și garnisește cu frunze de busuioc proaspăt măruntite pentru a servi."
     ],
     "en": [
       "Season chicken with salt and pepper. In a large skillet, heat the oil and brown the chicken for 4-5 minutes on each side or until golden brown and cooked through. Transfer onto a plate.",
@@ -202,7 +202,7 @@
       "Add the chicken stock, and deglaze the pan, scraping any bits stuck to the bottom of the pan with a wooden spoon.",
       "Adjust the heat to medium-low, and add the heavy cream and the parmesan cheese. Allow the sauce to simmer for a couple of minutes, then season with chili flakes, thyme, and oregano.",
       "Season with salt and pepper to your taste, add the sundried tomatoes then put the chicken back in the sauce and let the sauce simmer and thicken for a few more minutes.",
-      "Garnish with chopped fresh basil leaves and serve warm over pasta or rice or mashed potatoes."
+      "Mix with boiled pasta and garnish with chopped fresh basil leaves to serve."
     ]
   },
   "personalNotes": {
