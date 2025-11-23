@@ -168,7 +168,12 @@
   - Make responsive for mobile and desktop
   - _Requirements: 2.6_
 
-- [ ] 8.3 Create Servings Slider component
+- [x] 8.3 Create Servings Slider component
+
+
+
+
+
 
 
   - Create horizontal slider input (HTML range input or custom slider)

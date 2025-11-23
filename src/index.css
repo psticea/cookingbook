@@ -24,3 +24,67 @@ body {
 #root {
   min-height: 100vh;
 }
+
+/* Custom Slider Styles for Servings Slider */
+/* Webkit browsers (Chrome, Safari, Edge) */
+input[type="range"].slider-thumb::-webkit-slider-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #3b82f6; /* Blue color */
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease;
+}
+
+input[type="range"].slider-thumb::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+input[type="range"].slider-thumb::-webkit-slider-thumb:active {
+  transform: scale(1.2);
+}
+
+/* Firefox */
+input[type="range"].slider-thumb::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #3b82f6; /* Blue color */
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease;
+}
+
+input[type="range"].slider-thumb::-moz-range-thumb:hover {
+  transform: scale(1.1);
+}
+
+input[type="range"].slider-thumb::-moz-range-thumb:active {
+  transform: scale(1.2);
+}
+
+/* Dark mode slider thumb */
+.dark input[type="range"].slider-thumb::-webkit-slider-thumb {
+  border-color: #1f2937;
+}
+
+.dark input[type="range"].slider-thumb::-moz-range-thumb {
+  border-color: #1f2937;
+}
+
+/* Ensure touch-friendly size on mobile */
+@media (max-width: 640px) {
+  input[type="range"].slider-thumb::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+  }
+  
+  input[type="range"].slider-thumb::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+  }
+}

@@ -26,15 +26,16 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   effortLevel 
 }) => {
   const { language } = useLanguage();
-  const [multiplier, setMultiplier] = useState(1);
+  const [currentServings, setCurrentServings] = useState(servings);
   const [checkedIngredients, setCheckedIngredients] = useState<Set<number>>(new Set());
 
   /**
-   * Calculate scaled quantity based on multiplier
+   * Calculate scaled quantity based on servings ratio
    * Formats the number to remove unnecessary decimals
    */
   const getScaledQuantity = (quantity: number): string => {
-    const scaled = quantity * multiplier;
+    const ratio = currentServings / servings;
+    const scaled = quantity * ratio;
     
     // If the result is a whole number, don't show decimals
     if (scaled % 1 === 0) {
@@ -84,28 +85,28 @@ export const IngredientList: React.FC<IngredientListProps> = ({
     }
   };
 
-  // Calculate scaled servings
-  const scaledServings = Math.round(servings * multiplier);
-
   // Get effort level translation for tooltip
   const effortLevelText = getTranslation(effortLevel, language);
+
+  // Calculate the position of the yellow marker (original servings) as a percentage
+  const markerPosition = ((servings - 1) / (8 - 1)) * 100;
 
   return (
     <section className="mb-6">
       {/* Combined Metadata and Scaler */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4 p-3 sm:p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-        {/* Left: Recipe Metadata */}
-        <div className="flex items-center gap-3 sm:gap-4 text-gray-700 dark:text-gray-300">
+      <div className="flex flex-col gap-4 mb-4 p-3 sm:p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+        {/* Top: Recipe Metadata */}
+        <div className="flex items-center justify-center gap-3 sm:gap-4 text-gray-700 dark:text-gray-300">
           {/* Prep Time */}
           <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${prepTime} ${getTranslation('minutes', language)}`}>
             <span className="text-xl">⏱️</span>
             <span className="text-base font-medium">{prepTime} {getTranslation('minutes', language)}</span>
           </div>
 
-          {/* Servings - Updates with multiplier */}
-          <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${scaledServings}`}>
+          {/* Servings - Updates with slider */}
+          <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${currentServings}`}>
             <span className="text-xl">🍽️</span>
-            <span className="text-base font-medium">{scaledServings} {getTranslation('servings', language)}</span>
+            <span className="text-base font-medium">{currentServings} {getTranslation('servings', language)}</span>
           </div>
 
           {/* Effort Level - Puzzle Pieces */}
@@ -114,32 +115,40 @@ export const IngredientList: React.FC<IngredientListProps> = ({
           </div>
         </div>
 
-        {/* Right: Multiplier Controls */}
-        <div className="flex items-center gap-3">
-          {/* Decrement Button */}
-          <button
-            onClick={() => multiplier > 0.5 && setMultiplier(multiplier - 0.5)}
-            disabled={multiplier <= 0.5}
-            className="min-w-[44px] min-h-[44px] w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-xl shadow-md hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors active:scale-95"
-            aria-label="Decrease multiplier"
-          >
-            −
-          </button>
+        {/* Bottom: Servings Slider */}
+        <div className="flex flex-col gap-2">
+          {/* Slider Container with Yellow Marker */}
+          <div className="relative px-2 py-1">
+            {/* Range Slider */}
+            <input
+              type="range"
+              min="1"
+              max="8"
+              step="1"
+              value={currentServings}
+              onChange={(e) => setCurrentServings(Number(e.target.value))}
+              className="w-full h-2 bg-gray-300 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer slider-thumb"
+              aria-label={`${getTranslation('servings', language)}: ${currentServings}`}
+            />
+            
+            {/* Yellow Marker - Triangle below slider at original servings position */}
+            <div 
+              className="absolute bottom-0 w-0 h-0 pointer-events-none"
+              style={{ 
+                left: `calc(${markerPosition}%)`,
+                borderLeft: '8px solid transparent',
+                borderRight: '8px solid transparent',
+                borderBottom: '10px solid #fbbf24',
+              }}
+              title={`Original: ${servings} ${getTranslation('servings', language)}`}
+            />
+          </div>
 
-          {/* Current Multiplier Display */}
-          <span className="text-xl font-bold text-gray-900 dark:text-gray-100 min-w-[3.5rem] text-center">
-            {multiplier.toFixed(1)}x
-          </span>
-
-          {/* Increment Button */}
-          <button
-            onClick={() => multiplier < 3 && setMultiplier(multiplier + 0.5)}
-            disabled={multiplier >= 3}
-            className="min-w-[44px] min-h-[44px] w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-xl shadow-md hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors active:scale-95"
-            aria-label="Increase multiplier"
-          >
-            +
-          </button>
+          {/* Servings Range Labels */}
+          <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 px-2">
+            <span>1</span>
+            <span>8</span>
+          </div>
         </div>
       </div>
 
