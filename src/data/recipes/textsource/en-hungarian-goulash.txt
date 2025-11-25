@@ -1,0 +1,55 @@
+id
+en-hungarian-goulash
+
+category
+soups-and-stews
+
+title
+Hungarian Goulash
+
+prepTime
+140
+
+servings
+5
+
+effortLevel
+medium
+
+image
+images/soups-and-stews/hungarian-goulash.jpg
+
+ingredients
+beef chuck cut in cubes - 600 g
+cooking salt - 1.5 tsp
+black pepper - 1 tsp
+extra virgin olive oil - 1 Tbsp
+unsalted butter - 30 g
+brown onions cut into squares - 2 pcs
+garlic cloves minced - 5 pcs
+bell peppers (red and yellow) cut into squares - 2 pcs
+tomatoes cut into wedges - 2 pcs
+Hungarian-style paprika - 4 Tbsp
+low-sodium beef stock - 1000 ml
+carrots peeled and cut into pieces - 2 pcs
+potatoes cut into cubes - 800 g
+finely chopped parsley - 1 Tbsp
+
+instructions
+Season the beef with half the salt and pepper.
+Heat oil and melt butter in a large heavy-based pot over medium-high heat. Cook onions for about 6 minutes until the edges turn light golden.
+Add beef and stir for about 2 minutes until the outside changes from red to brown. It will not brown deeply and that's expected.
+Add garlic, bell peppers, and tomato. Stir for 3 minutes; the tomato will mostly break down.
+Add paprika and the remaining salt and pepper. Stir for 30 seconds.
+Add beef stock, stir, and bring to a gentle simmer. Reduce heat to ultra low, cover with a lid, and cook for 1.5 hours, stirring occasionally to ensure the base does not catch.
+Stir in potato and carrot. Cover and continue cooking on low heat for another 30 minutes, or until beef is fall-apart tender. If needed, cook an additional 10 minutes at a time.
+Ladle into bowls and sprinkle with parsley. Serve as is or with bread for dunking.
+
+personalNotes
+Recipe inspired by: https://www.recipetineats.com/hungarian-goulash-recipe
+
+keywords
+medium, beef, boiling
+
+dateAdded
+2025-11-25

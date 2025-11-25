@@ -16,11 +16,13 @@ export const RecipeHeader: React.FC<RecipeHeaderProps> = ({ recipe }) => {
   const { language } = useLanguage();
 
   return (
-    <header className="mb-4 sm:mb-6">
-      {/* Recipe Title */}
-      <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
-        {recipe.title[language]}
-      </h1>
+    <header className="mb-6 sm:mb-8">
+      {/* Recipe Title with decorative underline */}
+      <div className="border-b-4 border-amber-400 dark:border-amber-500 pb-3 mb-2 inline-block">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
+          {recipe.title[language]}
+        </h1>
+      </div>
     </header>
   );
 };

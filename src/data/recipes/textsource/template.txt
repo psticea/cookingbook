@@ -1,0 +1,12 @@
+id
+category
+title
+prepTime
+servings
+effortLevel
+image
+ingredients
+instructions
+personalNotes
+keywords
+dateAdded

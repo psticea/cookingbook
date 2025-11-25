@@ -1,0 +1,55 @@
+id
+ro-hungarian-goulash
+
+category
+soups-and-stews
+
+title
+Gulaș Unguresc
+
+prepTime
+140
+
+servings
+5
+
+effortLevel
+medium
+
+image
+images/soups-and-stews/hungarian-goulash.jpg
+
+ingredients
+carne de vită tăiată în cuburi - 600 g
+sare de gătit - 1.5 linguriță
+piper negru - 1 linguriță
+ulei de măsline extravirgin - 1 lingură
+unt - 30 g
+ceapă maro tăiată în cuburi - 2 buc
+căței de usturoi tocați - 5 buc
+ardei grași (roșu și galben) tăiați în cuburi - 2 buc
+roșii tăiate în felii - 2 buc
+boia ungurească - 60 ml
+supă de vită cu conținut scăzut de sodiu - 1000 ml
+morcovi curățați și tăiați în bucăți - 2 buc
+cartofi tăiați în cuburi - 600 g
+pătrunjel verde tocat mărunt - 1 lingură
+
+instructions
+Condimentează carnea de vită cu jumătate din sare și piper.
+Încălzește uleiul și topește untul într-o oală mare cu fund gros la foc mediu-mare. Gătește ceapa timp de aproximativ 6 minute până când marginile devin ușor aurii.
+Adaugă carnea de vită și amestecă timp de aproximativ 2 minute până când exteriorul se schimbă din roșu în maro. Nu se va rumeni profund și este de așteptat.
+Adaugă usturoiul, ardeii grași și roșiile. Amestecă timp de 3 minute; roșiile se vor desface în mare parte.
+Adaugă boia și restul de sare și piper. Amestecă timp de 30 de secunde.
+Adaugă supa de vită, amestecă și adu la o fierbere ușoară. Reduce focul la minim, acoperă cu un capac și gătește timp de 1,5 ore, amestecând ocazional pentru a te asigura că baza nu se prinde.
+Adaugă cartofii și morcovii. Acoperă și continuă să gătești la foc mic încă 30 de minute, sau până când carnea devine fragedă. Dacă este necesar, gătește încă 10 minute odată.
+Servește în boluri și presară cu pătrunjel. Servește așa cum este sau cu pâine pentru înmuiat.
+
+personalNotes
+Rețetă inspirată de: https://www.recipetineats.com/hungarian-goulash-recipe
+
+keywords
+medium, beef, boiling
+
+dateAdded
+2025-11-25

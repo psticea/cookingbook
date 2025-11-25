@@ -1,0 +1,196 @@
+{
+  "id": "hungarian-goulash",
+  "category": "soups-and-stews",
+  "image": "images/soups-and-stews/hungarian-goulash.jpg",
+  "title": {
+    "ro": "Gulaș Unguresc",
+    "en": "Hungarian Goulash"
+  },
+  "prepTime": 140,
+  "servings": 5,
+  "effortLevel": "medium",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "carne de vită tăiată în cuburi",
+        "en": "beef chuck cut in cubes"
+      },
+      "quantity": 600,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "sare de gătit",
+        "en": "cooking salt"
+      },
+      "quantity": 1.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "piper negru",
+        "en": "black pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei de măsline extravirgin",
+        "en": "extra virgin olive oil"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "unt",
+        "en": "butter"
+      },
+      "quantity": 30,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "ceapă maro tăiată în cuburi",
+        "en": "brown onions cut into squares"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "căței de usturoi tocați",
+        "en": "garlic cloves minced"
+      },
+      "quantity": 5,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "ardei grași (roșu și galben) tăiați în cuburi",
+        "en": "bell peppers (red and yellow) cut into squares"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "roșii tăiate în felii",
+        "en": "tomatoes cut into wedges"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "boia ungurească",
+        "en": "Hungarian-style paprika"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      }
+    },
+    {
+      "name": {
+        "ro": "supă de vită cu conținut scăzut de sodiu",
+        "en": "low-sodium beef stock"
+      },
+      "quantity": 1000,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      }
+    },
+    {
+      "name": {
+        "ro": "morcovi curățați și tăiați în bucăți",
+        "en": "carrots peeled and cut into pieces"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "cartofi tăiați în cuburi",
+        "en": "potatoes cut into cubes"
+      },
+      "quantity": 600,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "pătrunjel verde tocat mărunt",
+        "en": "finely chopped parsley"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Condimentează carnea de vită cu jumătate din sare și piper.",
+      "Încălzește uleiul și topește untul într-o oală mare cu fund gros la foc mediu-mare. Gătește ceapa timp de aproximativ 6 minute până când marginile devin ușor aurii.",
+      "Adaugă carnea de vită și amestecă timp de aproximativ 2 minute până când exteriorul se schimbă din roșu în maro. Nu se va rumeni profund și este de așteptat.",
+      "Adaugă usturoiul, ardeii grași și roșiile. Amestecă timp de 3 minute; roșiile se vor desface în mare parte.",
+      "Adaugă boia și restul de sare și piper. Amestecă timp de 30 de secunde.",
+      "Adaugă supa de vită, amestecă și adu la o fierbere ușoară. Reduce focul la minim, acoperă cu un capac și gătește timp de 1,5 ore, amestecând ocazional pentru a te asigura că baza nu se prinde.",
+      "Adaugă cartofii și morcovii. Acoperă și continuă să gătești la foc mic încă 30 de minute, sau până când carnea devine fragedă. Dacă este necesar, gătește încă 10 minute odată.",
+      "Servește în boluri și presară cu pătrunjel. Servește așa cum este sau cu pâine pentru înmuiat."
+    ],
+    "en": [
+      "Season the beef with half the salt and pepper.",
+      "Heat oil and melt butter in a large heavy-based pot over medium-high heat. Cook onions for about 6 minutes until the edges turn light golden.",
+      "Add beef and stir for about 2 minutes until the outside changes from red to brown. It will not brown deeply and that's expected.",
+      "Add garlic, bell peppers, and tomato. Stir for 3 minutes; the tomato will mostly break down.",
+      "Add paprika and the remaining salt and pepper. Stir for 30 seconds.",
+      "Add beef stock, stir, and bring to a gentle simmer. Reduce heat to ultra low, cover with a lid, and cook for 1.5 hours, stirring occasionally to ensure the base does not catch.",
+      "Stir in potato and carrot. Cover and continue cooking on low heat for another 30 minutes, or until beef is fall-apart tender. If needed, cook an additional 10 minutes at a time.",
+      "Ladle into bowls and sprinkle with parsley. Serve as is or with bread for dunking."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă inspirată de: https://www.recipetineats.com/hungarian-goulash-recipe",
+    "en": "Recipe inspired by: https://www.recipetineats.com/hungarian-goulash-recipe"
+  },
+  "keywords": ["medium", "beef", "boiling", "potatoes", "carrots"],
+  "dateAdded": "2025-11-25"
+}
