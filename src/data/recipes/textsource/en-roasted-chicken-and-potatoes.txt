@@ -1,0 +1,49 @@
+id
+en-roasted-chicken-and-potatoes
+
+category
+main-courses
+
+title
+Roasted Chicken and Potatoes
+
+prepTime
+50
+
+servings
+6
+
+effortLevel
+medium
+
+image
+images/main-courses/roasted-chicken-and-potatoes.jpg
+
+ingredients
+baby potatoes halved - 1.2 kg
+virgin olive oil - 5 Tbsp
+lemons - 2 pcs
+chicken thighs or breasts - 6 pcs
+garlic cloves lightly smashed - 6 pcs
+fresh parsley minced - 1 cup
+dried oregano - 2 Tbsp
+granulated garlic - 1 Tbsp
+salt - to taste
+pepper - to taste
+
+instructions
+Add potatoes to a pan with salted water to heat up, then simmer until they are tenderized, for about 5 min. Preheat the convection oven to 240 Celsius.
+For the marinade: In a bowl, toss together the parsley, the juice from one lemon, the crushed garlic, 3 Tbsp olive oil, 1 tsp of salt and some crushed pepper. Transfer half of the marinade to a large bowl.
+Add the granulated garlic, the dried oregano, a bit more salt and 2 Tbsp of olive oil. Add the chicken. Drain the simmering potatoes and add them as well. Toss everything to mix.
+When everything is nicely coated, spread in a tray on a cooking sheet. Add the remaining 2 lemon halves in the tray and toss in the oven to roast, until everything is crispy, for 30-40 minutes.
+Remove the charred lemon halves and squeeze the juice over the potatoes and chicken. Move the potatoes and the chicken to a bowl, add the remaining marinade and toss to coat everything.
+Serve with fresh herbs/salad.
+
+personalNotes
+Recipe from: One-Pan Roasted Chicken and Potatoes | Kenji's Cooking Show
+
+keywords
+medium, chicken, oven-baked, potatoes, olive-oil
+
+dateAdded
+2025-11-17

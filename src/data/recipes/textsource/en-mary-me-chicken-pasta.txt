@@ -1,0 +1,55 @@
+id
+en-mary-me-chicken-pasta
+
+category
+pasta
+
+title
+Marry Me Chicken Pasta
+
+prepTime
+30
+
+servings
+6
+
+effortLevel
+medium
+
+image
+images/pasta/mary-me-chicken-pasta.jpg
+
+ingredients
+chicken breasts sliced - 800 g
+medium onion minced - 1 pcs
+garlic minced - 4 cloves
+sundried tomatoes chopped - 100 g
+chicken stock - 300 ml
+cooking cream - 200 ml
+parmesan cheese grated - 60 g
+salt - 1/2 tsp
+ground black pepper - 1/2 tsp
+vegetable oil or sundried tomatoes oil - 2 Tbsp (30 ml)
+unsalted butter - 2 Tbsp (28 g)
+chili flakes - 1 tsp
+oregano - 1/2 tsp
+thyme - 1/2 tsp
+fresh basil leaves - 1 tsp
+pasta to boil for serving (optional) - 600 g
+
+instructions
+Season chicken with salt and pepper. In a large skillet, heat the oil and brown the chicken for 4-5 minutes on each side or until golden brown and cooked through. Transfer onto a plate.
+Add the butter to the skillet and cook the onions for 5 min. Add the minced garlic and saute for a minute or until it's fragrant.
+Add the chicken stock, and deglaze the pan, scraping any bits stuck to the bottom of the pan with a wooden spoon.
+Adjust the heat to medium-low, and add the heavy cream and the parmesan cheese. Allow the sauce to simmer for a couple of minutes, then season with chili flakes, thyme, and oregano.
+Season with salt and pepper to your taste, add the sundried tomatoes then put the chicken back in the sauce and let the sauce simmer and thicken for a few more minutes.
+Garnish with chopped fresh basil leaves and serve warm over pasta or rice or mashed potatoes.
+
+personalNotes
+Recipe from: https://littlesunnykitchen.com/marry-me-chicken
+
+keywords
+medium, chicken, pan-fry, pasta, cooking-cream, chicken-stock, olive-oil
+
+dateAdded
+2025-11-17

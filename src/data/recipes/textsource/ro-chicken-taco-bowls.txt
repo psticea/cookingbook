@@ -1,0 +1,53 @@
+id
+ro-chicken-taco-bowls
+
+category
+soups-and-stews
+
+title
+Boluri cu Pui Taco
+
+prepTime
+260
+
+servings
+6
+
+effortLevel
+easy
+
+image
+images/soups-and-stews/chicken-taco-bowls.jpg
+
+ingredients
+piepturi de pui - 600 g
+borcan salsa - 500 ml
+usturoi tocat - 2 căței
+conservă fasole neagră - 400 ml
+conservă porumb - 200 ml
+pudră de chili - 1 lingură
+chimion măcinat - 1/2 lingură
+oregano uscat - 1/2 linguriță
+piper cayenne - 1/4 linguriță
+piper negru proaspăt măcinat - după gust
+apă - 1/4 cană
+orez gătit - 6 căni (600 g orez uscat)
+cheddar ras - 200 g
+ceapă verde feliată - 3 buc
+coriandru proaspăt tocat - după necesitate
+
+instructions
+Pune piepturile de pui pe fundul unui slow cooker de 5 quart sau mai mare. Scurge fasolea neagră și adaugă-o în slow cooker împreună cu salsa și porumbul.
+Adaugă 1/4 cană apă, plus usturoiul tocat, pudra de chili, chimionul, oregano, cayenne, puțin piper proaspăt măcinat (aproximativ 10-15 rotiri ale unei mori de piper).
+Amestecă scurt ingredientele pentru a distribui condimentele. Fixează capacul pe slow cooker și gătește la foc mic timp de 8 ore sau la foc mare timp de 4 ore.
+După 8 ore la foc mic sau 4 ore la foc mare, scoate cu grijă capacul slow cookerului. Amestecă cu o furculiță pentru a sfâșia puiul (ar trebui să fie foarte fraged și se va sfâșia ușor). Gustă amestecul de pui și adaugă sare dacă este necesar.
+Pentru a construi bolurile, pune o cană de orez pe fundul unui bol și presară deasupra cu 1 cană din amestecul de pui sfâșiat. Presară deasupra cu puțină brânză cheddar și o presărare de ceapă verde feliată.
+
+personalNotes
+Rețetă de la: https://www.budgetbytes.com/taco-chicken-bowls/
+
+keywords
+easy, chicken, boiling, rice
+
+dateAdded
+2025-11-17

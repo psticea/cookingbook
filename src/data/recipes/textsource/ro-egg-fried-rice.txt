@@ -1,0 +1,50 @@
+id
+ro-egg-fried-rice
+
+category
+stir-fries
+
+title
+Orez Prăjit cu Ou
+
+prepTime
+20
+
+servings
+2
+
+effortLevel
+easy
+
+image
+images/stir-fries/egg-fried-rice.jpg
+
+ingredients
+orez alb gătit și răcit - 2 căni
+ulei vegetal - 30 g
+ou mare - 1 buc
+morcovi și mazăre congelate cubulețe - 200 g
+ceapă albă mică cubulețe - 1 buc
+usturoi tocat - 3 căței
+sare și piper negru - după gust
+ceapă verde feliată subțire - 3 buc
+sos de soia - 1/2 linguriță
+ulei de susan prăjit - 1 linguriță
+sos de stridii (opțional) - 1 linguriță
+
+instructions
+Notă pentru orez proaspăt gătit: este important ca acesta să fie relativ uscat. Atâta timp cât întinzi orezul pe o farfurie sau tavă în timp ce este încă fierbinte și îi dai câteva minute pentru a permite evaporarea umezelii de suprafață, poți face orez prăjit excelent cu orez proaspăt.
+Încălzește 1 lingură de ulei într-un wok pe foc mare până fumegă. Adaugă orezul și gătește, amestecând și aruncând, până când orezul devine brun deschis și prăjit și are o textură ușor gumată, aproximativ 3 minute.
+Împinge orezul pe laterale, lăsând un spațiu la mijloc. Adaugă 1/2 lingură de ulei în spațiu. Adaugă ceapa, morcovul și usturoiul și gătește, amestecând ușor, până se înmoaie ușor și devine parfumat, aproximativ 2 minute. Amestecă cu orezul pentru a combina.
+Adaugă sosul de soia și uleiul de susan și amestecă pentru a acoperi. Condimentează după gust cu sare și piper alb.
+Împinge orezul pe o parte a wok-ului și adaugă restul de 1/2 lingură de ulei. Sparge oul în ulei și condimentează cu puțină sare. Folosește o spatulă pentru a amesteca oul, sfărâmându-l în bucăți mici. Amestecă oul și orezul împreună.
+Adaugă mazărea congelată și continuă să amesteci și să agiti până când mazărea este decongelată și fiecare bob de orez este separat. Adaugă ceapa verde. Servește imediat.
+
+personalNotes
+Rețetă de la: https://www.seriouseats.com/easy-vegetable-fried-rice-recipe
+
+keywords
+easy, vegetarian, pan-fry, rice, carrots, soy-sauce
+
+dateAdded
+2025-11-17

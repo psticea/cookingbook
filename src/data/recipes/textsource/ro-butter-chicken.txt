@@ -1,0 +1,53 @@
+id
+ro-butter-chicken
+
+category
+soups-and-stews
+
+title
+Pui cu Unt
+
+prepTime
+35
+
+servings
+3
+
+effortLevel
+medium
+
+image
+images/soups-and-stews/butter-chicken.jpg
+
+ingredients
+iaurt simplu gras - 1/2 cană
+suc de lămâie - 1 lingură
+pudră de turmeric - 1 linguriță
+garam masala - 2 linguriți
+pudră de chili sau pudră de piper cayenne - 1/2 linguriță
+chimion măcinat - 1 linguriță
+ghimbir proaspăt ras - 1 lingură
+usturoi zdrobit - 2 căței
+file de pulpă de pui tăiate în bucăți mici - 750 g
+unt SAU ulei vegetal - 2 linguri
+passata de roșii (aka piure de roșii) - 1 cană
+smântână grasă/îngroșată - 1 cană
+zahăr - 1 lingură
+sare - 1 linguriță
+orez alb pentru servit - după necesitate
+coriandru/cilantro (opțional) - după necesitate
+
+instructions
+Marinadă: Combină ingredientele pentru marinadă (iaurt, suc de lămâie, turmeric, garam masala, pudră de chili, chimion, ghimbir, usturoi) cu puiul într-un bol. Acoperă și pune la frigider peste noapte, sau până la 24 de ore (minim 3 ore).
+Gătește puiul: Încălzește untul (sau uleiul) pe foc mare într-o tigaie mare. Scoate puiul din marinadă dar nu șterge sau scuturi marinada de pe pui (dar nu turna marinada rămasă în bol în tigaie). Pune puiul în tigaie și gătește aproximativ 3 minute, sau până când puiul este alb peste tot (nu se rumenește cu adevărat din cauza marinadei).
+Sos: Adaugă passata de roșii, smântâna, zahărul și sarea. De asemenea adaugă orice marinadă rămasă în bol. Reduce la foc mic și fierbe timp de 20 de minute. Fă un test de gust pentru a vedea dacă are nevoie de mai multă sare.
+Garnisește cu frunze de coriandru/cilantro dacă folosești. Servește cu orez basmati.
+
+personalNotes
+Rețetă de la: https://www.recipetineats.com/butter-chicken/
+
+keywords
+medium, chicken, pan-fry, cooking-cream
+
+dateAdded
+2025-11-17

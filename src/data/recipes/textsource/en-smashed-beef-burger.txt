@@ -1,0 +1,53 @@
+id
+en-smashed-beef-burger
+
+category
+burgers-and-wraps
+
+title
+Smashed Burger
+
+prepTime
+20
+
+servings
+2
+
+effortLevel
+easy
+
+image
+images/burgers-and-wraps/smashed-beef-burger.jpg
+
+ingredients
+ground beef - 200 g
+onion - 1 pcs
+burger buns - 4 pcs
+broccoli - 1 pcs
+mayo - 2 Tbsp
+mustard - 1 Tbsp
+chopped pickles - 1 Tbsp
+paprika - 1 pinch
+pepper - 10-15 cranks
+cheese of your choice - 2 slices
+sliced tomato to serve - 2 slices
+salt - 1 pinch
+
+instructions
+Preheat the saute pan by setting it on medium heat.
+Grab 100g of beef meat and shape into two balls. Cut up the onion into slices.
+Place the burgers in the pan and smash down with a spatula or greased pan. Top with onion and season with salt.
+Cook for 1 min then flip to cook the other side. In the meantime, roughly chop the broccoli.
+Then place a slice of cheese right on top and let it melt. Remove once the burger is cooked, followed by the buns to steam. Remove once the buns are steamed.
+Then drizzle in some oil, add in the chopped broccoli along with some water and a pinch of salt. Cover to steam.
+For the burger sauce, combine the mayo, mustard, pickles, paprika, and pepper. Mix to combine.
+Spread the burger sauce on the bun and place a tomato down. Close up the burger and serve with broccoli!
+
+personalNotes
+Recipe from: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals
+
+keywords
+easy, beef, pan-fry
+
+dateAdded
+2025-11-17

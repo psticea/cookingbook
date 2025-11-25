@@ -1,0 +1,53 @@
+id
+en-butter-chicken
+
+category
+soups-and-stews
+
+title
+Butter Chicken
+
+prepTime
+35
+
+servings
+3
+
+effortLevel
+medium
+
+image
+images/soups-and-stews/butter-chicken.jpg
+
+ingredients
+plain yoghurt full fat - 1/2 cup
+lemon juice - 1 Tbsp
+tumeric powder - 1 tsp
+garam masala - 2 tsp
+chilli powder or cayenne pepper powder - 1/2 tsp
+ground cumin - 1 tsp
+ginger freshly grated - 1 Tbsp
+garlic crushed - 2 cloves
+chicken thigh fillets cut into bite size pieces - 750 g
+butter OR vegetable oil - 2 Tbsp
+tomato passata (aka tomato puree) - 1 cup
+heavy/thickened cream - 1 cup
+sugar - 1 Tbsp
+salt - 1 tsp
+white rice to serve - as needed
+coriander/cilantro (optional) - as needed
+
+instructions
+Marinade: Combine the marinade ingredients (yoghurt, lemon juice, tumeric, garam masala, chilli powder, cumin, ginger, garlic) with the chicken in a bowl. Cover and refrigerate overnight, or up to 24 hours (minimum 3 hrs).
+Cook chicken: Heat the butter (or oil) over high heat in a large fry pan. Take the chicken out of the marinade but do not wipe or shake off the marinade from the chicken (but don't pour the marinade left in the bowl into the fry pan). Place chicken in the fry pan and cook for around 3 minutes, or until the chicken is white all over (it doesn't really brown because of the marinade).
+Sauce: Add the tomato passata, cream, sugar and salt. Also add any remaining marinade left in the bowl. Turn down to low and simmer for 20 minutes. Do a taste test to see if it needs more salt.
+Garnish with coriander/cilantro leaves if using. Serve with basmati rice.
+
+personalNotes
+Recipe from: https://www.recipetineats.com/butter-chicken/
+
+keywords
+medium, chicken, pan-fry, cooking-cream
+
+dateAdded
+2025-11-17

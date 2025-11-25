@@ -1,0 +1,43 @@
+id
+en-tropical-yogurt-parfaits
+
+category
+breakfast
+
+title
+Tropical Yogurt Parfaits
+
+prepTime
+20
+
+servings
+6
+
+effortLevel
+easy
+
+image
+images/breakfast/tropical-yogurt-parfaits.jpg
+
+ingredients
+rolled oats - 1 1/2 cup
+plain or vanilla flavored yogurt - 2 cups
+bananas - 3 pcs
+pineapple chunks in juice - 900 g can
+mango - 1 1/2 pcs
+shredded coconut - 6 Tbsp
+
+instructions
+Add 1/4 cup rolled oats to the bottom of four 400g mason jars, or another container of comparable size. Add 1/3 cup of yogurt on top of the oats in each jar.
+Slice the bananas, drain the pineapple (the juice can be saved for smoothies), and dice the mango. Divide the sliced bananas, pineapple chunks, and mango between the four jars. Layering the bananas between the yogurt and pineapple will help prevent the banana from browning.
+Top each jar off with a tablespoon of shredded coconut.
+Refrigerate the jars overnight to allow the oats time to soak and soften. Use a spoon to stir the ingredients in the jar just before eating. Refrigerate the parfaits for up to five days.
+
+personalNotes
+Recipe from: https://www.budgetbytes.com/tropical-yogurt-parfaits/
+
+keywords
+easy, vegetarian, no-cook
+
+dateAdded
+2025-11-17

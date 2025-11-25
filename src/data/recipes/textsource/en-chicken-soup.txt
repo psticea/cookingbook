@@ -1,0 +1,54 @@
+id
+en-chicken-soup
+
+category
+soups-and-stews
+
+title
+Chicken Soup
+
+prepTime
+60
+
+servings
+4
+
+effortLevel
+easy
+
+image
+/images/recipes/soups-and-stews/supa-de-pui.jpg
+
+ingredients
+chicken drumsticks - 800 g
+carrots - 3 pcs
+onion - 2 pcs
+garlic - 6 cloves
+parsley root - 2 pcs
+celery root - 0.5 pcs
+whole peppercorns - 1 tsp
+bay leaves - 2 pcs
+fresh parsley (stems) - 1 bunch
+noodles - 120 g
+fresh parsley (for serving) - 1 handful
+salt - 1 to taste
+
+instructions
+Put the chicken in salted water to boil and skim before it reaches a rolling boil. Do not stir.
+When boiling, reduce to low heat and add the vegetables: three carrots, two quartered onions, 6 garlic cloves, two parsley roots, half celery root, one teaspoon whole peppercorns, two bay leaves, and parsley stems.
+Add more water and boil for 30 minutes.
+Remove everything and strain the soup.
+Boil 120 g noodles in the strained soup and turn off the heat.
+Clean the drumsticks and chop the meat.
+Cut the carrot into rounds and some parsley root into rounds.
+Add back to the soup the parsley, carrot, and chicken.
+Add fresh parsley at the end.
+
+personalNotes
+This chicken soup is the classic recipe I make when I want something comforting and healthy. The secret to a good soup is to skim the chicken at the beginning and boil the vegetables together with the meat to extract all the flavors. Don't stir the soup while it's boiling to keep it clear. The noodles are boiled directly in the soup for more flavor.
+
+keywords
+easy, chicken, boiling, carrots
+
+dateAdded
+2025-11-17

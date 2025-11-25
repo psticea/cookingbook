@@ -1,0 +1,55 @@
+id
+en-power-greek-salad
+
+category
+salads-and-bites
+
+title
+Power Greek Salad
+
+prepTime
+20
+
+servings
+2
+
+effortLevel
+easy
+
+image
+images/salads-and-bites/power-greek-salad.jpg
+
+ingredients
+chicken breast - 250 g
+mayo - 1 Tbsp
+freshly cracked black pepper - 1/2 Tbsp
+romaine lettuce sliced - 150 g
+red onion sliced - 1/2 pcs
+grape tomatoes cut in half - 250 g
+chickpeas - 150 g
+salt and pepper to season - to taste
+extra virgin olive oil - 2 Tbsp
+lemon juice - 1/2 lemon
+dried oregano - 1/4 tsp
+mint - 1/4 tsp
+chili flakes - 1 pinch
+vinegar - 1 Tbsp
+salt - 1 pinch
+cubed feta/telemea - 100 g
+
+instructions
+Start by marinating the chicken breast with mayo and cracked black pepper. Set a skillet on medium heat and lay down the chicken to cook.
+In a large bowl, combine the salad mix, onion, tomatoes, and chickpeas. Season with salt and pepper.
+At this moment, flip the chicken. Now, let's move onto the dressing.
+In a plastic container, add together the oil, lemon juice, oregano, mint, chili flakes, vinegar, and salt. Close with the lid and vigorously shake to emulsify.
+Take the chicken out of the pan and slice up. Add feta and the dressing to the salad and toss to combine.
+Serve with the sliced up chicken and enjoy!
+
+personalNotes
+Recipe from: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals
+
+keywords
+easy, chicken, pan-fry, peppers, olive-oil
+
+dateAdded
+2025-11-17

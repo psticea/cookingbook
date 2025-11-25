@@ -1,0 +1,49 @@
+id
+ro-potato-soup
+
+category
+soups-and-stews
+
+title
+Supă de Cartofi
+
+prepTime
+30
+
+servings
+6
+
+effortLevel
+easy
+
+image
+images/soups-and-stews/potato-soup.jpg
+
+ingredients
+cuburi de bacon sau cabanos - 200 g
+morcovi rași - 200 g
+ceapă galbenă tocată fin - 300 g
+cartofi tăiați cuburi de 1 cm - 800 g
+sare (sau vegeta conținând 15g sare) - 15 g
+pătrunjel tocat fin - 10 g
+mărar tocat fin - 10 g
+ulei vegetal - 3 linguri
+gălbenușuri - 2 buc
+smântână - 4 linguri
+apă - 2 litri
+
+instructions
+Într-o cratiță, adu la foc mediu 1 lingură de ulei, adaugă baconul și gătește timp de 2 minute.
+Adaugă uleiul vegetal rămas și când este fierbinte adaugă ceapa și morcovii. Gătește aproximativ 3 minute până încep să se înmoaie.
+Adaugă 2 litri de apă și încălzește amestecul până fierbe, apoi adaugă sarea.
+Adaugă cartofii tăiați cuburi și fierbe aproximativ 15 minute, până când cartofii sunt bine gătiți.
+Oprește focul și odată ce fierberea se oprește adaugă amestecul de gălbenușuri și smântână. Adaugă mărarul și pătrunjelul tocat. Gustă și adaugă mai multă sare dacă este necesar.
+
+personalNotes
+
+
+keywords
+easy, boiling, potatoes, carrots
+
+dateAdded
+2025-11-17

@@ -1,0 +1,44 @@
+id
+en-tuna-phili-spread
+
+category
+salads-and-bites
+
+title
+Tuna Phili Spread
+
+prepTime
+10
+
+servings
+4
+
+effortLevel
+easy
+
+image
+images/salads-and-bites/tuna-phili-spread.jpg
+
+ingredients
+philadelphia cheese - 300 g
+sour cream - 2 Tbsp
+can of tuna chunks - 200 g
+lemon juice - 2 Tbsp
+chopped parsley - 2 Tbsp
+green onions thinly sliced - 4 pcs
+salt - to taste
+
+instructions
+Drain the tuna chunks before adding them.
+Add all the ingredients, excluding the green onion to a blender and mix everything.
+Garnish with green onions. Add more salt if needed.
+Serve with bread.
+
+personalNotes
+
+
+keywords
+easy, fish, no-cook
+
+dateAdded
+2025-11-17

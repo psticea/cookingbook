@@ -1,0 +1,43 @@
+id
+ro-tropical-yogurt-parfaits
+
+category
+breakfast
+
+title
+Parfaituri cu Iaurt Tropical
+
+prepTime
+20
+
+servings
+6
+
+effortLevel
+easy
+
+image
+images/breakfast/tropical-yogurt-parfaits.jpg
+
+ingredients
+fulgi de ovăz - 1 1/2 cană
+iaurt simplu sau cu aromă de vanilie - 2 căni
+banane - 3 buc
+bucăți de ananas în suc - 900 g cutie
+mango - 1 1/2 buc
+nucă de cocos rasă - 6 linguri
+
+instructions
+Adaugă 1/4 cană de fulgi de ovăz pe fundul a patru borcane mason de 400g, sau alt recipient de dimensiune comparabilă. Adaugă 1/3 cană de iaurt deasupra fulgilor de ovăz în fiecare borcan.
+Taie bananele felii, scurge ananasul (sucul poate fi păstrat pentru smoothie-uri) și taie mangoul cubulețe. Împarte bananele feliate, bucățile de ananas și mangoul între cele patru borcane. Stratificarea bananelor între iaurt și ananas va ajuta la prevenirea întunecirii bananei.
+Presară deasupra fiecărui borcan o lingură de nucă de cocos rasă.
+Pune borcanele la frigider peste noapte pentru a permite fulgilor de ovăz timp să se înmoaie și să se înmuie. Folosește o lingură pentru a amesteca ingredientele din borcan chiar înainte de a mânca. Păstrează parfaiturile la frigider până la cinci zile.
+
+personalNotes
+Rețetă de la: https://www.budgetbytes.com/tropical-yogurt-parfaits/
+
+keywords
+easy, vegetarian, no-cook
+
+dateAdded
+2025-11-17

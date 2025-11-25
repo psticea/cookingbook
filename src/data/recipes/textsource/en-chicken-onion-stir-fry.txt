@@ -1,0 +1,63 @@
+id
+en-chicken-onion-stir-fry
+
+category
+stir-fries
+
+title
+Chicken and Onion Stir Fry
+
+prepTime
+30
+
+servings
+4
+
+effortLevel
+medium
+
+image
+images/stir-fries/chicken-onion-stir-fry.jpg
+
+ingredients
+boneless skinless chicken breasts or thighs - 450 g
+garlic cloves - 3 pcs
+grated ginger - 2 tsp
+green onions divided - 3-4 pcs
+red bell pepper - 1/2 pcs
+large yellow onion - 1 pcs
+neutral-tasting oil divided - 2 Tbsp
+toasted sesame oil - 1 tsp
+soy sauce (marinade) - 1/2 Tbsp
+Shaoxing wine (marinade) - 1 Tbsp
+white pepper or black pepper - 1/4 tsp
+baking soda - 1/4 tsp
+neutral oil (marinade) - 1 Tbsp
+cornstarch (marinade) - 1 Tbsp
+soy sauce (sauce) - 1 Tbsp
+oyster sauce - 2 Tbsp
+dark soy sauce optional for color - 1/2 tsp
+sugar - 1 Tbsp
+Shaoxing wine (sauce) - 1 Tbsp
+chicken bouillon powder - 1 tsp
+water - 5 Tbsp
+cornstarch (sauce) - 1 Tbsp
+
+instructions
+Marinate Chicken: Cut the chicken into bite-sized pieces and transfer to a mixing bowl. Add all the marinade ingredients (1/2 Tbsp soy sauce, 1 Tbsp Shaoxing wine, 1/4 tsp white pepper, 1/4 tsp baking soda, 1 Tbsp neutral oil, 1 Tbsp cornstarch) and gently massage it. Cover and marinate in the fridge for 10 minutes.
+Prep Vegetables: Finely chop the garlic cloves. Grate a small knob of ginger, about 2 teaspoons. Cut the green parts of the green onions into 2-inch (5cm) pieces and thinly slice the white parts. Cut the bell pepper into bite-sized pieces, about 1/2 cup. Slice the onions into 1-inch (2.5 cm) thick pieces, then separate the layers so that they're easy to stir-fry.
+Make sauce: Mix together 1 Tbsp soy sauce, 2 Tbsp oyster sauce, 1/2 tsp dark soy sauce (optional), 1 Tbsp sugar, 1 Tbsp Shaoxing wine, 1 tsp chicken bouillon powder, 5 Tbsp water, and 1 Tbsp cornstarch.
+Cook chicken: In a large wok (or pan), heat 1 tablespoon of oil over high heat. Once it gets nice and hot, add the marinated chicken, spread it out in a single layer, and sear for 1 minute or until the bottom is nicely browned. Flip and cook the other side for 3 to 4 minutes or until the chicken is cooked through. Remove from the wok and set aside.
+Stir-fry vegetables: In the same wok, add 1 tablespoon of oil and heat it over high heat. Once it gets nice and hot, add the onion and spread it out. Let it sit for 1 minute, or until the onion is slightly charred.
+Add aromatics: Add the garlic, ginger, and white parts of the green onions. Sauté for 30 seconds or until fragrant.
+Combine: Add the chicken back into the wok along with the bell pepper and sauce. Stir-fry everything for 1 minute or until everything is nicely coated.
+Finish: Turn the heat off. Add 1 teaspoon of sesame oil and the remaining green onions. Give it a final mix. Serve with hot rice. Enjoy!
+
+personalNotes
+Recipe by Aaron and Claire
+
+keywords
+medium, chicken, pan-fry, peppers, ginger, soy-sauce
+
+dateAdded
+2025-11-17

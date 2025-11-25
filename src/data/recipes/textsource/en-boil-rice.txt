@@ -1,0 +1,39 @@
+id
+en-boil-rice
+
+category
+basics
+
+title
+How to Cook Jasmine Rice
+
+prepTime
+23
+
+servings
+4
+
+effortLevel
+easy
+
+image
+images/basics/boil-rice.jpg
+
+ingredients
+jasmine rice - 1 cup
+water (cold tap water) - 1 1/4 cups
+
+instructions
+Place rice and water in a medium saucepan (one with a tight fitting lid). Bring to rapid simmer with NO LID on medium high.
+Turn down to low or medium low so it's simmering gently, then place lid on. Do not lift lid during cook.
+Cook 12 minutes or until water is absorbed by rice - tilt pot to check (if lid not glass, then quickly lift lid to check).
+Keep the lid on then remove from heat. Stand 10 minutes, fluff with rubber spatula or rice paddle, then serve.
+
+personalNotes
+Recipe by Nagi. The key to fluffy jasmine rice is to use less water than usual because it's a softer rice - only 1 1/4 cups for each 1 cup of rice. Most recipes get this wrong and the rice is way too soft/gummy. Rinsing is optional - it barely makes a difference to fluffiness. If you rinse, you need to reduce water by 2 tablespoons to factor in that the rice becomes waterlogged. 1 cup rice = 3 cups cooked = 3 to 4 servings as a side.
+
+keywords
+easy, vegetarian, boiling, rice
+
+dateAdded
+2025-11-17

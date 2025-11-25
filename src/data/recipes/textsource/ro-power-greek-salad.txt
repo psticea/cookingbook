@@ -1,0 +1,55 @@
+id
+ro-power-greek-salad
+
+category
+salads-and-bites
+
+title
+Salată Grecească Energizantă
+
+prepTime
+20
+
+servings
+2
+
+effortLevel
+easy
+
+image
+images/salads-and-bites/power-greek-salad.jpg
+
+ingredients
+piept de pui - 250 g
+maioneză - 1 lingură
+piper negru proaspăt măcinat - 1/2 lingură
+salată romaine feliată - 150 g
+ceapă roșie feliată - 1/2 buc
+roșii cherry tăiate în jumătate - 250 g
+năut - 150 g
+sare și piper pentru condimentat - după gust
+ulei de măsline extravirgin - 2 linguri
+suc de lămâie - 1/2 lămâie
+oregano uscat - 1/4 linguriță
+mentă - 1/4 linguriță
+fulgi de chili - 1 praf
+oțet - 1 lingură
+sare - 1 praf
+brânză feta/telemea cuburi - 100 g
+
+instructions
+Începe prin a marina pieptul de pui cu maioneză și piper măcinat. Pune o tigaie pe foc mediu și așază puiul să se gătească.
+Într-un bol mare, combină mixul de salată, ceapa, roșiile și năutul. Condimentează cu sare și piper.
+În acest moment, întoarce puiul. Acum, să trecem la dressing.
+Într-un recipient de plastic, adaugă împreună uleiul, sucul de lămâie, oregano, menta, fulgii de chili, oțetul și sarea. Închide cu capacul și scutură vigoroas pentru a emulsiona.
+Scoate puiul din tigaie și taie-l felii. Adaugă feta și dressingul la salată și amestecă pentru a combina.
+Servește cu puiul feliat și bucură-te!
+
+personalNotes
+Rețetă de la: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals
+
+keywords
+easy, chicken, pan-fry, peppers, olive-oil
+
+dateAdded
+2025-11-17

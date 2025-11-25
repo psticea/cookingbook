@@ -1,0 +1,50 @@
+id
+en-egg-fried-rice
+
+category
+stir-fries
+
+title
+Egg Fried Rice
+
+prepTime
+20
+
+servings
+2
+
+effortLevel
+easy
+
+image
+images/stir-fries/egg-fried-rice.jpg
+
+ingredients
+cooked and chilled white rice - 2 cups
+vegetable oil - 30 g
+large egg - 1 pcs
+frozen diced carrots and peas - 200 g
+small white onion diced - 1 pcs
+garlic minced - 3 cloves
+salt and black pepper - to taste
+green onions thinly sliced - 3 pcs
+soy sauce - 1/2 tsp
+toasted sesame oil - 1 tsp
+oyster sauce (optional) - 1 tsp
+
+instructions
+Note for fresh-cooked rice: it's important that it is relatively dry. So long as you spread the rice out on a plate or tray while it's still hot and give it a few minutes to allow some surface moisture to evaporate, you can make excellent fried rice with fresh rice.
+Heat 1 Tbsp of oil in a wok over high heat until smoking. Add rice and cook, stirring and tossing, until the rice is pale brown and toasted and has a lightly chewy texture, about 3 minutes.
+Press the rice up the sides, leaving a space in the middle. Add 1/2 Tbsp of oil to the space. Add onion, carrot, and garlic and cook, stirring gently, until lightly softened and fragrant, about 2 minutes. Toss with rice to combine.
+Add soy sauce and sesame oil and toss to coat. Season to taste with salt and white pepper.
+Push rice to the side of the wok and add remaining 1/2 Tbsp of oil. Break the egg into the oil and season with a little salt. Use a spatula to scramble the egg, breaking it up into small bits. Toss the egg and the rice together.
+Add frozen peas and continue to toss and stir until peas are thawed and every grain of rice is separate. Add green onions. Serve immediately.
+
+personalNotes
+Recipe from: https://www.seriouseats.com/easy-vegetable-fried-rice-recipe
+
+keywords
+easy, vegetarian, pan-fry, rice, carrots, soy-sauce
+
+dateAdded
+2025-11-17

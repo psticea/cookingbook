@@ -1,0 +1,49 @@
+id
+en-frittata
+
+category
+breakfast
+
+title
+Frittata
+
+prepTime
+30
+
+servings
+4
+
+effortLevel
+easy
+
+image
+images/breakfast/frittata.jpg
+
+ingredients
+large eggs - 5 pcs
+milk - 1/4 cup
+salt - 1/2 tsp
+pepper - 1/4 tsp
+cooking oil - 2 Tbsp
+yellow onion - 1 pcs
+fresh spinach - 2 cups
+grape tomatoes - 150 g
+crumbled feta - 60 g
+
+instructions
+In a large bowl, whisk together the eggs, milk, salt, and pepper. Set the eggs aside.
+Dice one yellow onion. Heat a 10-inch skillet over medium heat, then add the cooking oil and onion and sauté until the onions are soft and translucent.
+Meanwhile, roughly chop the spinach and slice the tomatoes in half.
+Add the spinach and tomatoes to the skillet and stir to combine with the onions.
+Before the spinach has a chance to cook or wilt, pour in the egg mixture (it's okay if the eggs don't fully cover the vegetables). Top with the crumbled feta.
+Cover with lid. Let the frittata continue to cook over medium heat just until the eggs are set (about 6 minutes).
+Let rest for 5 minutes before slicing and serving.
+
+personalNotes
+Recipe from: https://www.budgetbytes.com/how-to-make-a-frittata/
+
+keywords
+easy, vegetarian, pan-fry
+
+dateAdded
+2025-11-17

@@ -1,0 +1,59 @@
+id
+en-baked-fish-on-potato
+
+category
+main-courses
+
+title
+Baked Fish on Potato Gratin
+
+prepTime
+45
+
+servings
+4
+
+effortLevel
+medium
+
+image
+images/main-courses/baked-fish-on-potato.jpg
+
+ingredients
+white fish fillets skinless 2cm thick - 4 x 160 g
+cooking/kosher salt - 1/2 tsp
+black pepper - 1/4 tsp
+unsalted butter - 3 Tbsp (50 g)
+large leeks white and pale green part only - 2 pcs
+garlic cloves minced - 3 pcs
+medium starchy potatoes peeled - 2 pcs (250 g each)
+cooking/kosher salt - 3/4 tsp
+black pepper - 1/2 tsp
+dry white wine - 1/2 cup
+vegetable stock/broth low sodium - 1/2 cup
+thickened/heavy cream - 1 cup
+panko breadcrumbs - 3/4 cup
+extra virgin olive oil - 2 Tbsp
+parmesan finely shredded - 1/4 cup
+
+instructions
+Preheat the oven to 180°C/350°F (160°C fan) with a shelf in the middle.
+Potatoes: Cut the potatoes into quarters, then sliced 4mm thick. Place cut potato in a large bowl of water (prevents from going brown, removes excess starch so it cooks quicker). Drain before use.
+Crunchy topping: Mix panko and olive oil in a bowl. Then stir in parmesan.
+Season fish: Sprinkle salt and pepper on both sides of the fish fillets. Set aside.
+Sauté: Melt butter in a large oven-proof skillet (30cm) over high heat until foamy. Add leek and garlic, then cook for 3 minutes.
+Sauté potatoes: Add potato, salt and pepper. Cook for 6 minutes, stirring regularly. The potatoes should be half cooked at this stage.
+Reduce wine and stock: Pour in white wine. Simmer rapidly until it is mostly evaporated (about 1 minute). Pour in stock, then simmer for 1 1/2 minutes or until reduced by half.
+Top with fish: Turn the stove off. Place fish on top of the potatoes, presentation side up. Pour cream all over, aiming for full coverage. Sprinkle with panko breadcrumbs.
+Bake for 30 minutes.
+Colour topping: Switch to the oven grill (broiler) on high and move the skillet up to the top shelf. Grill/broil 4 minutes or until golden.
+Rest: Remove and rest for 5 minutes, then serve! Eat the fish and gratin together with each mouthful for maximum eating pleasure!
+
+personalNotes
+
+
+keywords
+medium, fish, oven-baked, potatoes, cooking-cream, olive-oil
+
+dateAdded
+2025-11-17

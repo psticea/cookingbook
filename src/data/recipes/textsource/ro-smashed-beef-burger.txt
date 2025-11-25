@@ -1,0 +1,53 @@
+id
+ro-smashed-beef-burger
+
+category
+burgers-and-wraps
+
+title
+Burger de Vită Strivit
+
+prepTime
+20
+
+servings
+2
+
+effortLevel
+easy
+
+image
+images/burgers-and-wraps/smashed-beef-burger.jpg
+
+ingredients
+carne tocată de vită - 200 g
+ceapă - 1 buc
+chiflele pentru burger - 4 buc
+broccoli - 1 buc
+maioneză - 2 linguri
+muștar - 1 lingură
+murături tocate - 1 lingură
+boia - 1 praf
+piper - 10-15 rotiri
+brânză la alegere - 2 felii
+roșie feliată pentru servit - 2 felii
+sare - 1 praf
+
+instructions
+Preîncălzește tigaia punând-o pe foc mediu.
+Ia 100g de carne de vită și modelează în două bile. Taie ceapa felii.
+Pune burgerii în tigaie și strivește-i cu o spatulă sau altă tigaie. Presară ceapă deasupra și condimentează cu sare.
+Gătește 1 min apoi întoarce pentru a găti cealaltă parte. Între timp, taie grosier broccoli.
+Apoi pune o felie de brânză chiar deasupra și lasă să se topească. Scoate odată ce burgerul este gătit, urmat de chifle pentru a se înmuia la abur. Scoate odată ce chiflele sunt înmuiate la abur.
+Apoi picură puțin ulei, adaugă broccoli tocat împreună cu puțină apă și un praf de sare. Acoperă pentru a găti la abur.
+Pentru sosul de burger, combină maioneza, muștar, murăturile, boia și piperul. Amestecă pentru a combina.
+Întinde sosul de burger pe chifla și pune o roșie jos. Închide burgerul și servește cu broccoli!
+
+personalNotes
+Rețetă de la: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals
+
+keywords
+easy, beef, pan-fry
+
+dateAdded
+2025-11-17

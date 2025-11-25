@@ -1,0 +1,63 @@
+id
+ro-chicken-onion-stir-fry
+
+category
+stir-fries
+
+title
+Pui cu Ceapă la Tigaie
+
+prepTime
+30
+
+servings
+4
+
+effortLevel
+medium
+
+image
+images/stir-fries/chicken-onion-stir-fry.jpg
+
+ingredients
+piepturi sau pulpe de pui fără os și piele - 450 g
+căței de usturoi - 3 buc
+ghimbir ras - 2 linguriți
+ceapă verde împărțită - 3-4 buc
+ardei gras roșu - 1/2 buc
+ceapă galbenă mare - 1 buc
+ulei cu gust neutru împărțit - 2 linguri
+ulei de susan prăjit - 1 linguriță
+sos de soia (marinadă) - 1/2 lingură
+vin Shaoxing (marinadă) - 1 lingură
+piper alb sau piper negru - 1/4 linguriță
+bicarbonat de sodiu - 1/4 linguriță
+ulei neutru (marinadă) - 1 lingură
+amidon de porumb (marinadă) - 1 lingură
+sos de soia (sos) - 1 lingură
+sos de stridii - 2 linguri
+sos de soia întunecat opțional pentru culoare - 1/2 linguriță
+zahăr - 1 lingură
+vin Shaoxing (sos) - 1 lingură
+pudră de bulion de pui - 1 linguriță
+apă - 5 linguri
+amidon de porumb (sos) - 1 lingură
+
+instructions
+Marinează Puiul: Taie puiul în bucăți mici și transferă într-un bol de amestecat. Adaugă toate ingredientele pentru marinadă (1/2 lingură sos de soia, 1 lingură vin Shaoxing, 1/4 linguriță piper alb, 1/4 linguriță bicarbonat, 1 lingură ulei neutru, 1 lingură amidon de porumb) și masează ușor. Acoperă și marinează la frigider timp de 10 minute.
+Pregătește Legumele: Tocă fin căței de usturoi. Rade o bucată mică de ghimbir, aproximativ 2 linguriți. Taie părțile verzi ale cepei verzi în bucăți de 2 inch (5cm) și felii subțiri părțile albe. Taie ardeiul gras în bucăți mici, aproximativ 1/2 cană. Taie ceapa în bucăți groase de 1 inch (2.5 cm), apoi separă straturile astfel încât să fie ușor de prăjit.
+Fă sosul: Amestecă împreună 1 lingură sos de soia, 2 linguri sos de stridii, 1/2 linguriță sos de soia întunecat (opțional), 1 lingură zahăr, 1 lingură vin Shaoxing, 1 linguriță pudră de bulion de pui, 5 linguri apă și 1 lingură amidon de porumb.
+Gătește puiul: Într-un wok mare (sau tigaie), încălzește 1 lingură de ulei pe foc mare. Odată ce devine fierbinte, adaugă puiul marinat, întinde-l într-un singur strat și prăjește timp de 1 minut sau până când fundul este bine rumenit. Întoarce și gătește cealaltă parte timp de 3-4 minute sau până când puiul este bine gătit. Scoate din wok și pune deoparte.
+Prăjește legumele: În același wok, adaugă 1 lingură de ulei și încălzește pe foc mare. Odată ce devine fierbinte, adaugă ceapa și întinde-o. Lasă să stea timp de 1 minut, sau până când ceapa este ușor arsă.
+Adaugă aromatele: Adaugă usturoiul, ghimbirul și părțile albe ale cepei verzi. Sotează timp de 30 de secunde sau până devine parfumat.
+Combină: Adaugă puiul înapoi în wok împreună cu ardeiul gras și sosul. Prăjește totul timp de 1 minut sau până când totul este bine acoperit.
+Finalizează: Oprește focul. Adaugă 1 linguriță de ulei de susan și ceapa verde rămasă. Amestecă o dată finală. Servește cu orez fierbinte. Poftă bună!
+
+personalNotes
+Rețetă de Aaron și Claire
+
+keywords
+medium, chicken, pan-fry, peppers, ginger, soy-sauce
+
+dateAdded
+2025-11-17

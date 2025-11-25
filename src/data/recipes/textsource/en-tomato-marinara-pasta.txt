@@ -1,0 +1,48 @@
+id
+en-tomato-marinara-pasta
+
+category
+pasta
+
+title
+Fresh Tomato Marinara Pasta
+
+prepTime
+20
+
+servings
+3
+
+effortLevel
+easy
+
+image
+images/pasta/tomato-marinara-pasta.jpg
+
+ingredients
+pasta of your choice - 300 g
+large onion diced - 1 1/2 pcs
+garlic sliced - 5 cloves
+extra virgin olive oil - 3 Tbsp
+salt - 1 pinch
+cherry tomatoes or pasta sauce - 400 g
+shredded parmesan cheese - 60 g
+roughly chopped parsley - 1/4 cup
+fried chicken breast (optional) - 1 pcs
+
+instructions
+Bring a salted pot of water to a boil (5g salt per liter of water) as well as bring a wide saute pan to a medium heat.
+Add oil to the wide saute pan. Once it starts to shimmer, add in the chopped onion and garlic.
+When the garlic and onion soften a bit, approx 2-3 minutes, add in the cherry tomatoes and top it with the lid. When the water is boiling add in the pasta.
+Once the tomatoes are starting to burst, grab a spatula and mash the tomatoes to release the juices. Turn the heat to low, sprinkle in some more salt, and let reduce.
+Drain the pasta and add it to the tomato sauce. Pour in 1/4 cup of pasta water and toss. (Add the optional chicken)
+Let the sauce reduce and add in the parmesan cheese. Toss in the parsley along with a little more water and crack of pepper.
+
+personalNotes
+Recipe from: https://prohomecooks.com/blogs/recipes/4-easy-recipes-to-make-when-you-have-no-time
+
+keywords
+easy, vegetarian, boiling, pasta, olive-oil
+
+dateAdded
+2025-11-17

@@ -1,0 +1,54 @@
+id
+ro-chicken-soup
+
+category
+soups-and-stews
+
+title
+Supă de Pui
+
+prepTime
+60
+
+servings
+4
+
+effortLevel
+easy
+
+image
+/images/recipes/soups-and-stews/supa-de-pui.jpg
+
+ingredients
+pulpe de pui - 800 g
+morcovi - 3 buc
+ceapă - 2 buc
+usturoi - 6 căței
+pătrunjel (rădăcină) - 2 buc
+țelină (rădăcină) - 0.5 buc
+boabe de piper întregi - 1 linguriță
+foi de dafin - 2 buc
+pătrunjel verde (cotoare) - 1 legătură
+tăiței - 120 g
+pătrunjel verde (pentru servit) - 1 mână
+sare - 1 după gust
+
+instructions
+Puneți carnea la fiert în apă cu sare și spumați înainte să dea în clocot. Nu amestecați.
+Când fierbe, dați la foc mic și adăugați legumele: trei morcovi, două cepe crestate, 6 căței de usturoi, doi pătrunjei rădăcină, jumătate țelină, o linguriță boabe de piper întregi, două foi de dafin și cotoare de pătrunjel.
+Completați cu apă și fierbeți pentru 30 de minute.
+Scoateți totul și strecurați supa.
+Fierbeți 120 g tăiței în supa strecurată și opriți focul.
+Curățați pulpele și mărunțiți-le.
+Tăiați morcovul rondele și puțin pătrunjel rădăcină rondele.
+Adăugați înapoi în supă pătrunjel, morcov și pulpe.
+Adăugați la sfârșit și pătrunjel verde crud.
+
+personalNotes
+Această supă de pui este rețeta clasică pe care o fac când vreau ceva reconfortant și sănătos. Secretul unei supe bune este să spumezi carnea la început și să fierbi legumele împreună cu carnea pentru a extrage toate aromele. Nu amestecați supa în timp ce fierbe pentru a rămâne limpede. Tăițeii se fierb direct în supă pentru mai mult gust.
+
+keywords
+chicken, broth-based, boiling, carrots, onions
+
+dateAdded
+2025-11-17

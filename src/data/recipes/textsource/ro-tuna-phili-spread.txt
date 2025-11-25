@@ -1,0 +1,44 @@
+id
+ro-tuna-phili-spread
+
+category
+salads-and-bites
+
+title
+Pastă de Ton cu Philadelphia
+
+prepTime
+10
+
+servings
+4
+
+effortLevel
+easy
+
+image
+images/salads-and-bites/tuna-phili-spread.jpg
+
+ingredients
+brânză philadelphia - 300 g
+smântână - 2 linguri
+conservă de ton bucăți - 200 g
+suc de lămâie - 2 linguri
+pătrunjel tocat - 2 linguri
+ceapă verde feliată subțire - 4 buc
+sare - după gust
+
+instructions
+Scurge bucățile de ton înainte de a le adăuga.
+Adaugă toate ingredientele, excluzând ceapa verde, într-un blender și mixează totul.
+Garnisește cu ceapă verde. Adaugă mai multă sare dacă este necesar.
+Servește cu pâine.
+
+personalNotes
+
+
+keywords
+easy, fish, no-cook
+
+dateAdded
+2025-11-17

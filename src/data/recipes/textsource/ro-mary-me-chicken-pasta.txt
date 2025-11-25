@@ -1,0 +1,55 @@
+id
+ro-mary-me-chicken-pasta
+
+category
+pasta
+
+title
+Paste cu Pui Marry Me
+
+prepTime
+30
+
+servings
+6
+
+effortLevel
+medium
+
+image
+images/pasta/mary-me-chicken-pasta.jpg
+
+ingredients
+piepturi de pui feliate - 800 g
+ceapă medie tocată - 1 buc
+usturoi tocat - 4 căței
+roșii uscate la soare tocate - 100 g
+bulion de pui - 300 ml
+smântână de gătit - 200 ml
+parmezan ras - 60 g
+sare - 1/2 linguriță
+piper negru măcinat - 1/2 linguriță
+ulei vegetal sau ulei de roșii uscate - 2 linguri (30 ml)
+unt nesărat - 2 linguri (28 g)
+fulgi de chili - 1 linguriță
+oregano - 1/2 linguriță
+cimbru - 1/2 linguriță
+frunze de busuioc proaspăt - 1 linguriță
+paste de fiert pentru servit (opțional) - 600 g
+
+instructions
+Condimentează puiul cu sare și piper. Într-o tigaie mare, încălzește uleiul și rumenește puiul timp de 4-5 minute pe fiecare parte sau până devine auriu și bine gătit. Transferă pe o farfurie.
+Adaugă untul în tigaie și gătește ceapa timp de 5 min. Adaugă usturoiul tocat și sotează timp de un minut sau până devine parfumat.
+Adaugă bulionul de pui și deglazează tigaia, răzuind orice bucăți lipite de fundul tigăii cu o lingură de lemn.
+Ajustează focul la mediu-mic și adaugă smântâna grasă și parmezanul. Lasă sosul să fiarbă câteva minute, apoi condimentează cu fulgi de chili, cimbru și oregano.
+Condimentează cu sare și piper după gust, adaugă roșiile uscate la soare apoi pune puiul înapoi în sos și lasă sosul să fiarbă și să se îngroașe câteva minute.
+Garnisește cu frunze de busuioc proaspăt tocate și servește cald peste paste sau orez sau piure de cartofi.
+
+personalNotes
+Rețetă de la: https://littlesunnykitchen.com/marry-me-chicken
+
+keywords
+medium, chicken, pan-fry, pasta, cooking-cream, chicken-stock, olive-oil
+
+dateAdded
+2025-11-17

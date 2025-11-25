@@ -1,0 +1,53 @@
+id
+en-chicken-taco-bowls
+
+category
+soups-and-stews
+
+title
+Chicken Taco Bowls
+
+prepTime
+260
+
+servings
+6
+
+effortLevel
+easy
+
+image
+images/soups-and-stews/chicken-taco-bowls.jpg
+
+ingredients
+chicken breasts - 600 g
+jar salsa - 500 ml
+garlic minced - 2 cloves
+can black beans - 400 ml
+can of corn - 200 ml
+chili powder - 1 Tbsp
+ground cumin - 1/2 Tbsp
+dried oregano - 1/2 tsp
+cayenne pepper - 1/4 tsp
+freshly cracked black pepper - to taste
+water - 1/4 cup
+cooked rice - 6 cups (600 g dry rice)
+shredded cheddar - 200 g
+green onions sliced - 3 pcs
+fresh cilantro minced - as needed
+
+instructions
+Place the chicken breasts in the bottom of a 5 quart or larger slow cooker. Drain the black beans and add them to the slow cooker along with the salsa and corn.
+Add 1/4 cup water, plus the minced garlic, chili powder, cumin, oregano, cayenne, some freshly cracked pepper (about 10-15 cranks of a pepper mill).
+Give the ingredients a brief stir to distribute the spices. Secure the lid on your slow cooker and cook on low for 8 hours or high for 4 hours.
+After 8 hours on low or 4 hours on high, carefully remove the lid of the slow cooker. Stir with a fork to shred the chicken (it should be very tender and will shred easily). Taste the chicken mixture and add salt if needed.
+To build the bowls, place one cup of rice in the bottom of a bowl and top with 1 cup of the shredded chicken mixture. Top with a little cheddar cheese and a sprinkle of sliced green onions.
+
+personalNotes
+Recipe from: https://www.budgetbytes.com/taco-chicken-bowls/
+
+keywords
+easy, chicken, boiling, rice
+
+dateAdded
+2025-11-17

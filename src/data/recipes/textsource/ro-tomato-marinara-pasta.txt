@@ -1,0 +1,48 @@
+id
+ro-tomato-marinara-pasta
+
+category
+pasta
+
+title
+Paste cu Sos Marinara de Roșii Proaspete
+
+prepTime
+20
+
+servings
+3
+
+effortLevel
+easy
+
+image
+images/pasta/tomato-marinara-pasta.jpg
+
+ingredients
+paste la alegere - 300 g
+ceapă mare cubulețe - 1 1/2 buc
+usturoi feliat - 5 căței
+ulei de măsline extravirgin - 3 linguri
+sare - 1 praf
+roșii cherry sau sos de paste - 400 g
+parmezan ras - 60 g
+pătrunjel tocat grosier - 1/4 cană
+piept de pui prăjit (opțional) - 1 buc
+
+instructions
+Adu o oală cu apă sărată la fierbere (5g sare per litru de apă) și de asemenea adu o tigaie largă la foc mediu.
+Adaugă ulei în tigaia largă. Odată ce începe să sclipească, adaugă ceapa tocată și usturoiul.
+Când usturoiul și ceapa se înmoaie puțin, aproximativ 2-3 minute, adaugă roșiile cherry și acoperă cu capacul. Când apa fierbe adaugă pastele.
+Odată ce roșiile încep să se spargă, ia o spatulă și zdrobește roșiile pentru a elibera sucurile. Reduce focul la mic, presară puțină sare și lasă să se reducă.
+Scurge pastele și adaugă-le la sosul de roșii. Toarnă 1/4 cană de apă de paste și amestecă. (Adaugă puiul opțional)
+Lasă sosul să se reducă și adaugă parmezanul. Amestecă pătrunjel împreună cu puțină apă și o rotire de piper.
+
+personalNotes
+Rețetă de la: https://prohomecooks.com/blogs/recipes/4-easy-recipes-to-make-when-you-have-no-time
+
+keywords
+easy, vegetarian, boiling, pasta, olive-oil
+
+dateAdded
+2025-11-17

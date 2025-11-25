@@ -1,0 +1,49 @@
+id
+en-potato-soup
+
+category
+soups-and-stews
+
+title
+Potato Soup
+
+prepTime
+30
+
+servings
+6
+
+effortLevel
+easy
+
+image
+images/soups-and-stews/potato-soup.jpg
+
+ingredients
+bacon or cabanos cubes - 200 g
+grated carrots - 200 g
+fine chopped yellow onion - 300 g
+potatoes cubed at 1 cm - 800 g
+salt (or vegeta containing 15g salt) - 15 g
+finely chopped parsley - 10 g
+finely chopped dill - 10 g
+vegetable oil - 3 Tbsp
+egg yolks - 2 pcs
+sour cream - 4 Tbsp
+water - 2 liters
+
+instructions
+In a saucepan, bring to medium heat 1 Tbsp of oil, add the bacon and cook for 2 minutes.
+Add the remaining vegetable oil and when hot add the onions and carrots. Cook for about 3 minutes until they start softening.
+Add 2 liters of water and heat the mix to a boil, then add the salt.
+Add the cubed potatoes and boil for about 15 minutes, until the potatoes are well cooked.
+Cut the heat and once the boiling stops add the mix of yolks and sour cream. Add the chopped dill and parsley. Taste and add more salt if needed.
+
+personalNotes
+
+
+keywords
+easy, boiling, potatoes, carrots
+
+dateAdded
+2025-11-17
