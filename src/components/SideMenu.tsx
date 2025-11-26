@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
+import { LanguageSelector } from './LanguageSelector';
 
 interface SideMenuProps {
   isOpen: boolean;
@@ -100,8 +101,15 @@ export const SideMenu: React.FC<SideMenuProps> = ({
         </div>
 
         {/* Menu content - responsive padding */}
-        <div className="px-4 sm:px-6 py-2">
+        <div className="px-4 sm:px-6 py-2 pb-20">
           {children}
+        </div>
+
+        {/* Footer with Language Selector - sticky at bottom */}
+        <div className="sticky bottom-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-4">
+          <div className="flex items-center justify-center">
+            <LanguageSelector />
+          </div>
         </div>
       </div>
     </>

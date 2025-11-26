@@ -12,8 +12,8 @@
   "ingredients": [
     {
       "name": {
-        "ro": "carne de vită tăiată în cuburi",
-        "en": "beef chuck cut in cubes"
+        "ro": "carne de vită tăiată în cuburi de 2.5 cm",
+        "en": "beef chuck cut in 2.5 cm cubes"
       },
       "quantity": 600,
       "unit": {
@@ -67,8 +67,8 @@
     },
     {
       "name": {
-        "ro": "ceapă maro tăiată în cuburi",
-        "en": "brown onions cut into squares"
+        "ro": "ceapă galbenă tăiată în cuburi de 1 cm",
+        "en": "brown onions cut into 1 cm squares"
       },
       "quantity": 2,
       "unit": {
@@ -89,8 +89,8 @@
     },
     {
       "name": {
-        "ro": "ardei grași (roșu și galben) tăiați în cuburi",
-        "en": "bell peppers (red and yellow) cut into squares"
+        "ro": "ardei grași (roșu și galben) tăiați în cuburi de 2 cm",
+        "en": "bell peppers (red and yellow) cut into 2 cm squares"
       },
       "quantity": 2,
       "unit": {
@@ -100,8 +100,8 @@
     },
     {
       "name": {
-        "ro": "roșii tăiate în felii",
-        "en": "tomatoes cut into wedges"
+        "ro": "roșii tăiate în 8 felii apoi înjumătățite",
+        "en": "tomatoes cut into 8 wedges then halved"
       },
       "quantity": 2,
       "unit": {
@@ -133,8 +133,8 @@
     },
     {
       "name": {
-        "ro": "morcovi curățați și tăiați în bucăți",
-        "en": "carrots peeled and cut into pieces"
+        "ro": "morcovi curățați, tăiați în sferturi pe lungime apoi în bucăți de 1 cm",
+        "en": "carrots peeled, cut in quarters lengthwise then into 1 cm pieces"
       },
       "quantity": 2,
       "unit": {
@@ -144,8 +144,8 @@
     },
     {
       "name": {
-        "ro": "cartofi tăiați în cuburi",
-        "en": "potatoes cut into cubes"
+        "ro": "cartofi tăiați în cuburi de 1.2 cm",
+        "en": "potatoes cut into 1.2 cm cubes"
       },
       "quantity": 600,
       "unit": {

@@ -9,11 +9,11 @@ interface RecipeGridProps {
 /**
  * RecipeGrid component
  * Displays a responsive grid of recipe cards
- * 1 column on mobile, 2-3 columns on tablet, 3-4 columns on desktop
+ * 1 column on mobile, 2 columns on tablet, 3 columns on desktop
  */
 export const RecipeGrid: React.FC<RecipeGridProps> = ({ recipes }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
       {recipes.map((recipe) => (
         <RecipeCard key={recipe.id} recipe={recipe} />
       ))}
