@@ -24,11 +24,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const placeholder = language === 'ro' ? 'Caută rețete...' : 'Search recipes...';
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full group">
       {/* Search icon */}
-      <div className="absolute inset-y-0 left-0 pl-2 sm:pl-3 flex items-center pointer-events-none">
+      <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
         <svg
-          className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
+          className="h-5 w-5 text-amber-500 group-focus-within:text-amber-600 transition-colors"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -43,31 +43,31 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         </svg>
       </div>
 
-      {/* Text input - touch-friendly height on mobile */}
+      {/* Text input - enhanced with gradient border on focus */}
       <input
         type="text"
         value={searchQuery}
         onChange={(e) => onSearchChange(e.target.value)}
         placeholder={placeholder}
-        className="block w-full pl-8 sm:pl-9 pr-10 sm:pr-11 py-2.5 sm:py-2 text-base 
-                   border border-gray-300 dark:border-gray-600 rounded-lg 
+        className="block w-full pl-10 sm:pl-12 pr-12 sm:pr-14 py-2.5 sm:py-3 text-base sm:text-lg
+                   border-2 border-gray-200 dark:border-gray-600 rounded-xl 
                    bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
                    placeholder-gray-400 dark:placeholder-gray-500
-                   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                   transition-colors min-h-[44px] sm:min-h-0"
+                   focus:outline-none focus:border-amber-500 dark:focus:border-amber-400 focus:ring-4 focus:ring-amber-100 dark:focus:ring-amber-900/30
+                   transition-all duration-200 min-h-[44px] sm:min-h-0 shadow-sm"
         aria-label={placeholder}
       />
 
-      {/* Clear button (X symbol) - touch-friendly minimum 44x44px on mobile */}
+      {/* Clear button (X symbol) - enhanced styling */}
       {searchQuery && (
         <button
           onClick={handleClear}
-          className="absolute inset-y-0 right-0 pr-2 sm:pr-3 flex items-center text-gray-400 hover:text-gray-600 
-                     dark:hover:text-gray-300 transition-colors min-w-[44px] justify-center"
+          className="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center text-gray-400 hover:text-red-500 
+                     dark:hover:text-red-400 transition-all duration-200 min-w-[44px] justify-center transform hover:scale-125"
           aria-label={language === 'ro' ? 'Șterge căutarea' : 'Clear search'}
         >
           <svg
-            className="h-4 w-4 sm:h-5 sm:w-5"
+            className="h-5 w-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

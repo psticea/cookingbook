@@ -48,37 +48,51 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   return (
     <Link
       to={`/recipe/${recipe.id}`}
-      className="block bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+      className="block bg-white dark:bg-gray-800/60 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:scale-105 transform border border-white/20 dark:border-gray-700/30"
     >
-      {/* Recipe Image */}
-      <div className="aspect-[3/2] w-full overflow-hidden bg-gray-200 dark:bg-gray-700">
+      {/* Recipe Image Container */}
+      <div className="aspect-[3/2] w-full overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 relative">
         <img
           src={imageError ? defaultImage : imagePath}
           alt={recipe.title[language]}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           loading="lazy"
           onError={() => setImageError(true)}
         />
+        
+        {/* Difficulty Badge Overlay */}
+        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className={`px-3 py-1 rounded-full text-white text-sm font-semibold backdrop-blur-sm ${
+            recipe.effortLevel === 'easy' ? 'bg-green-500/80' :
+            recipe.effortLevel === 'medium' ? 'bg-amber-500/80' :
+            'bg-red-500/80'
+          }`}>
+            {effortLevel}
+          </div>
+        </div>
+        
+        {/* Dark overlay on hover */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
       </div>
 
       {/* Recipe Info */}
       <div className="p-3 sm:p-4">
         {/* Recipe Title */}
-        <h3 className="text-lg font-bold mb-2 sm:mb-3 text-gray-900 dark:text-gray-100 line-clamp-2">
+        <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-gray-100 line-clamp-2 font-display group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">
           {recipe.title[language]}
         </h3>
 
         {/* Recipe Metadata - Icons and numbers with labels */}
-        <div className="flex items-center justify-between text-gray-600 dark:text-gray-400">
-          <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
-            <span className="text-lg">⏱️</span>
-            <span className="text-sm font-medium">{recipe.prepTime} {getTranslation('minutes', language)}</span>
+        <div className="flex items-center justify-between text-gray-600 dark:text-gray-400 text-sm">
+          <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-gray-50 dark:bg-gray-700/40" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
+            <span className="text-base">⏱️</span>
+            <span className="font-medium">{recipe.prepTime}m</span>
           </div>
-          <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${recipe.servings}`}>
-            <span className="text-lg">🍽️</span>
-            <span className="text-sm font-medium">{recipe.servings} {getTranslation('servings', language)}</span>
+          <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-gray-50 dark:bg-gray-700/40" title={`${getTranslation('servings', language)}: ${recipe.servings}`}>
+            <span className="text-base">🍽️</span>
+            <span className="font-medium">{recipe.servings}</span>
           </div>
-          <div className="flex items-center gap-1" title={effortLevel}>
+          <div className="flex items-center justify-center px-2 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 border border-amber-200 dark:border-amber-800/50" title={effortLevel}>
             <span className="text-lg">{getPuzzlePieces(recipe.effortLevel)}</span>
           </div>
         </div>

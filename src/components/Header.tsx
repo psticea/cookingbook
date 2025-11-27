@@ -34,15 +34,25 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40">
-      <nav className="max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-1.5">
+    <header className="glass sticky top-0 z-40 shadow-lg">
+      <nav className="max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-2">
         <div className="flex items-center justify-between gap-2 sm:gap-4">
-          {/* Left: Home link - touch-friendly on mobile */}
-          <div className="flex-shrink-0">
+          {/* Left: Logo and Home link - touch-friendly on mobile */}
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-md">
+              <span className="text-white font-bold text-lg">🍳</span>
+            </div>
             <Link
               to="/"
               onClick={handleHomeClick}
-              className="text-lg font-medium transition-colors duration-200 whitespace-nowrap min-h-[44px] flex items-center px-2 sm:px-0 text-accent-light dark:text-accent-dark hover:opacity-80"
+              className="hidden sm:block text-xl font-bold font-display text-gradient whitespace-nowrap min-h-[44px] flex items-center px-0 hover:scale-105 transform transition-transform"
+            >
+              {getTranslation('home', language)}
+            </Link>
+            <Link
+              to="/"
+              onClick={handleHomeClick}
+              className="sm:hidden text-sm font-bold text-accent-light dark:text-accent-dark whitespace-nowrap min-h-[44px] flex items-center px-1 hover:scale-105 transform transition-transform"
             >
               {getTranslation('home', language)}
             </Link>
@@ -63,7 +73,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex-shrink-0">
             <button
               onClick={onMenuToggle}
-              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all rounded-lg transform hover:scale-110"
               aria-label={getTranslation('menu', language)}
             >
               <svg

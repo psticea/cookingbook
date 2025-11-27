@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Header } from '../components/Header';
+import { HeroSection } from '../components/HeroSection';
 import { RecipeGrid } from '../components/RecipeGrid';
 import { Footer } from '../components/Footer';
 import { SideMenu } from '../components/SideMenu';
@@ -176,15 +177,18 @@ const HomePage: React.FC = () => {
           <>
             {recipes.length > 0 && (
               <>
+                {/* Hero Section */}
+                <HeroSection totalRecipes={recipes.length} />
+
                 {/* Recipe count */}
                 <div className="mb-6">
-                  <p className="text-lg text-gray-700 dark:text-gray-300">
-                    {getTranslation('allRecipes', language)} ({totalFilteredCount})
+                  <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                    {getTranslation('allRecipes', language)} <span className="text-amber-600 dark:text-amber-400">({totalFilteredCount})</span>
                   </p>
                 </div>
 
                 {/* Recipe sections by category */}
-                <div className="space-y-8">
+                <div className="space-y-10">
                   {categories.map((category) => {
                     const categoryRecipes = getRecipesByCategory(filteredRecipes, category.id);
                     
@@ -195,13 +199,15 @@ const HomePage: React.FC = () => {
                       <section 
                         key={category.id} 
                         id={`category-${category.id}`}
-                        className="category-section scroll-mt-16 sm:scroll-mt-20"
+                        className="category-section scroll-mt-16 sm:scroll-mt-20 animate-fade-in"
                       >
-                        <div className="flex items-center gap-3 mb-4">
-                          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                            {category.name[language]}
-                          </h2>
-                          <div className="flex-1 h-px bg-gradient-to-r from-gray-300 dark:from-gray-600 to-transparent"></div>
+                        <div className="flex items-center gap-4 mb-6">
+                          <div>
+                            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 font-display">
+                              {category.name[language]}
+                            </h2>
+                            <div className="h-1 w-20 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mt-2"></div>
+                          </div>
                         </div>
                         <RecipeGrid recipes={categoryRecipes} />
                       </section>

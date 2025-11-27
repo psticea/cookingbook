@@ -52,14 +52,15 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
   };
 
   return (
-    <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
+    <div className="rounded-lg bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-gray-800/50 dark:to-gray-900/50 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm p-4 mb-4">
       {/* Main section header - touch-friendly */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between py-2 text-left min-h-[44px]"
+        className="w-full flex items-center justify-between py-2 text-left min-h-[44px] group"
         aria-expanded={isExpanded}
       >
-        <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+          <span>🔍</span>
           {getTranslation('filters', language)}
         </h3>
         <svg
@@ -76,14 +77,14 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
 
       {/* Expanded content */}
       {isExpanded && (
-        <div className="space-y-2 mt-1">
+        <div className="space-y-3 mt-4 border-t border-gray-200 dark:border-gray-700 pt-4">
           {/* Clear all button at the top - touch-friendly */}
           {selectedKeywords.size > 0 && (
             <button
               onClick={handleClearAll}
-              className="w-full px-4 py-2.5 text-sm sm:text-base font-medium text-white bg-accent-light dark:bg-accent-dark rounded-md hover:opacity-90 transition-opacity min-h-[44px]"
+              className="w-full px-4 py-2.5 text-sm sm:text-base font-medium text-white bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 dark:from-red-600 dark:to-red-700 dark:hover:from-red-700 dark:hover:to-red-800 rounded-lg transition-all min-h-[44px] shadow-md hover:shadow-lg transform hover:scale-105"
             >
-              {getTranslation('clearAllFilters', language)}
+              ✕ {getTranslation('clearAllFilters', language)}
             </button>
           )}
 
@@ -96,29 +97,27 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
             const displayKeywords = type === 'ingredient' ? keywords.slice(0, 6) : keywords;
 
             return (
-              <div key={type} className="ml-2">
+              <div key={type} className="space-y-2">
                 {/* Subsection header */}
-                <h4 className="text-sm sm:text-base font-medium text-gray-800 dark:text-gray-200 py-1">
+                <h4 className="text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wider">
                   {getTranslation(labelKey, language)}
                 </h4>
 
-                {/* Subsection keywords - touch-friendly checkboxes */}
-                <div className="ml-2 sm:ml-4 space-y-0 mt-0.5">
+                {/* Subsection keywords - enhanced chip style */}
+                <div className="flex flex-wrap gap-2">
                   {displayKeywords.map((keyword) => (
-                    <label
+                    <button
                       key={keyword.id}
-                      className="flex items-center space-x-3 cursor-pointer group min-h-[36px] py-0"
+                      onClick={() => handleKeywordToggle(keyword.id)}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all transform hover:scale-105 min-h-[44px] flex items-center justify-center whitespace-nowrap ${
+                        selectedKeywords.has(keyword.id)
+                          ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
+                          : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:border-amber-400 dark:hover:border-amber-400'
+                      }`}
                     >
-                      <input
-                        type="checkbox"
-                        checked={selectedKeywords.has(keyword.id)}
-                        onChange={() => handleKeywordToggle(keyword.id)}
-                        className="h-5 w-5 sm:h-4 sm:w-4 text-accent-light dark:text-accent-dark border-gray-300 dark:border-gray-600 rounded focus:ring-accent-light dark:focus:ring-accent-dark flex-shrink-0"
-                      />
-                      <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100">
-                        {keyword.label[language]}
-                      </span>
-                    </label>
+                      {selectedKeywords.has(keyword.id) && '✓ '}
+                      {keyword.label[language]}
+                    </button>
                   ))}
                 </div>
               </div>
