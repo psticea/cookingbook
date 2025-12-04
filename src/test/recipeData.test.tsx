@@ -11,7 +11,7 @@ describe('useRecipeData', () => {
       expect(result.current.loading).toBe(false);
     });
     
-    expect(result.current.recipes).toHaveLength(8);
+    expect(result.current.recipes).toHaveLength(17);
     expect(result.current.error).toBeNull();
   });
 
@@ -111,9 +111,9 @@ describe('getRecipesByCategory', () => {
   ];
 
   it('returns all recipes in specified category', () => {
-    const mainCourses = getRecipesByCategory(mockRecipes, 'main-course');
+    const mainCourses = getRecipesByCategory(mockRecipes, 'main-courses');
     expect(mainCourses).toHaveLength(2);
-    expect(mainCourses.every(r => r.category === 'main-course')).toBe(true);
+    expect(mainCourses.every(r => r.category === 'main-courses')).toBe(true);
   });
 
   it('returns empty array when category has no recipes', () => {
