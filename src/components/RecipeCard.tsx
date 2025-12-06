@@ -61,8 +61,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
           onError={() => setImageError(true)}
         />
         {/* Overlay Title */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gray-900/80 backdrop-blur-sm px-3 py-2">
-          <h3 className="text-base sm:text-lg font-bold text-white line-clamp-2">
+        <div className="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-sm px-3 py-2">
+          <h3 className="text-base sm:text-lg font-bold text-white line-clamp-2 drop-shadow-lg">
             {recipe.title[language]}
           </h3>
         </div>
@@ -72,11 +72,11 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       <div className="p-2 sm:p-3 flex items-center justify-between text-gray-600 dark:text-gray-400">
         <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
           <span className="text-base sm:text-lg">⏱️</span>
-          <span className="text-xs sm:text-sm font-medium">{recipe.prepTime} {getTranslation('minutes', language)}</span>
+          <span className="text-sm font-medium">{recipe.prepTime} {getTranslation('minutes', language)}</span>
         </div>
         <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${recipe.servings}`}>
           <span className="text-base sm:text-lg">🍽️</span>
-          <span className="text-xs sm:text-sm font-medium">{recipe.servings} {getTranslation('servings', language)}</span>
+          <span className="text-sm font-medium">{recipe.servings} {getTranslation('servings', language)}</span>
         </div>
         <div className="flex items-center gap-1" title={effortLevel}>
           <span className="text-base sm:text-lg">{getPuzzlePieces(recipe.effortLevel)}</span>
