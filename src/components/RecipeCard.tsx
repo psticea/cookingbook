@@ -63,7 +63,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
         {/* Overlay Title - Floating Bubble */}
         <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-auto sm:max-w-[80%]">
           <div className="inline-block bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-lg px-2 py-1 sm:px-2.5 sm:py-1.5 shadow-lg">
-            <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-gray-100 line-clamp-2">
+            <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 line-clamp-2">
               {recipe.title[language]}
             </h3>
           </div>
