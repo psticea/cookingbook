@@ -28,47 +28,45 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ totalRecipes }) => {
   const content = taglines[language as keyof typeof taglines] || taglines.en;
 
   return (
-    <div className="relative mb-8 overflow-hidden rounded-2xl">
-      {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 dark:from-amber-600 dark:via-orange-600 dark:to-red-600"></div>
+    <div className="relative mb-12 overflow-hidden">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-indigo-950/20 dark:via-neutral-900 dark:to-purple-950/20"></div>
       
-      {/* Decorative pattern overlay */}
-      <div className="absolute inset-0 opacity-10 dark:opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px)',
-          backgroundSize: '50px 50px',
-        }}></div>
+      {/* Decorative elements */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.02]">
+        <div className="absolute top-10 right-10 w-64 h-64 bg-indigo-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-64 h-64 bg-purple-500 rounded-full blur-3xl"></div>
       </div>
 
       {/* Content */}
-      <div className="relative px-6 sm:px-8 py-12 sm:py-16 flex flex-col items-center text-center">
-        <h1 className="text-4xl sm:text-5xl font-bold text-white font-display mb-3 drop-shadow-lg">
+      <div className="relative px-6 sm:px-8 py-16 sm:py-20 flex flex-col items-center text-center">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-white font-display mb-4 tracking-tight">
           {content.title}
         </h1>
         
-        <p className="text-lg sm:text-xl text-white/95 font-medium mb-6 drop-shadow-md max-w-2xl">
+        <p className="text-lg sm:text-xl text-neutral-600 dark:text-neutral-400 font-medium mb-3 max-w-2xl">
           {content.subtitle}
         </p>
 
-        <p className="text-base sm:text-lg text-white/85 mb-8 drop-shadow-md max-w-2xl">
+        <p className="text-base sm:text-lg text-neutral-500 dark:text-neutral-500 mb-10 max-w-2xl">
           {content.description}
         </p>
 
         {/* Stats */}
-        <div className="flex gap-8 justify-center flex-wrap">
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/30">
-            <div className="text-3xl sm:text-4xl font-bold text-white drop-shadow">{totalRecipes}</div>
-            <div className="text-sm text-white/90 mt-1">{language === 'ro' ? 'Rețete' : 'Recipes'}</div>
+        <div className="flex gap-6 justify-center flex-wrap">
+          <div className="bg-white/60 dark:bg-neutral-800/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-neutral-200/50 dark:border-neutral-700/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="text-3xl sm:text-4xl font-bold text-indigo-600 dark:text-indigo-400">{totalRecipes}</div>
+            <div className="text-sm text-neutral-600 dark:text-neutral-400 mt-1 font-medium">{language === 'ro' ? 'Rețete' : 'Recipes'}</div>
           </div>
           
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/30">
-            <div className="text-3xl sm:text-4xl font-bold text-white drop-shadow">✨</div>
-            <div className="text-sm text-white/90 mt-1">{language === 'ro' ? 'Testate' : 'Tested'}</div>
+          <div className="bg-white/60 dark:bg-neutral-800/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-neutral-200/50 dark:border-neutral-700/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="text-3xl sm:text-4xl font-bold text-indigo-600 dark:text-indigo-400">✨</div>
+            <div className="text-sm text-neutral-600 dark:text-neutral-400 mt-1 font-medium">{language === 'ro' ? 'Testate' : 'Tested'}</div>
           </div>
           
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/30">
-            <div className="text-3xl sm:text-4xl font-bold text-white drop-shadow">🌍</div>
-            <div className="text-sm text-white/90 mt-1">{language === 'ro' ? 'Bilingv' : 'Bilingual'}</div>
+          <div className="bg-white/60 dark:bg-neutral-800/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-neutral-200/50 dark:border-neutral-700/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="text-3xl sm:text-4xl font-bold text-indigo-600 dark:text-indigo-400">🌍</div>
+            <div className="text-sm text-neutral-600 dark:text-neutral-400 mt-1 font-medium">{language === 'ro' ? 'Bilingv' : 'Bilingual'}</div>
           </div>
         </div>
       </div>
