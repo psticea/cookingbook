@@ -60,11 +60,13 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
           loading="lazy"
           onError={() => setImageError(true)}
         />
-        {/* Overlay Title */}
-        <div className="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-sm px-3 py-2">
-          <h3 className="text-base sm:text-lg font-bold text-white line-clamp-2 drop-shadow-lg">
-            {recipe.title[language]}
-          </h3>
+        {/* Overlay Title - Floating Bubble */}
+        <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-auto sm:max-w-[85%]">
+          <div className="inline-block bg-white rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 shadow-lg">
+            <h3 className="text-sm sm:text-base font-bold text-gray-900 line-clamp-2">
+              {recipe.title[language]}
+            </h3>
+          </div>
         </div>
       </div>
 
