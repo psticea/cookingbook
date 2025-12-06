@@ -16,8 +16,9 @@ This is a React-based recipe website built with TypeScript and Vite, offering a 
 - **Personal Notes**: Add and save custom notes to any recipe for your own modifications
 - **Responsive Design**: Mobile-first approach optimized for all devices
 - **Cooking Basics**: Dedicated page with fundamental cooking techniques and tips
-- **Recipe Images**: All recipes include 1200x1200px square images
-- **Hosted on Azure Static Web Apps**
+- **Recipe Images**: All recipes include 1200x800px images
+- **About Page**: Dedicated page with information about the site and Giscus-powered comments
+- **Hosted on GitHub Pages**
 
 ## Tech Stack
 
