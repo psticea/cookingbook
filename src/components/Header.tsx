@@ -34,12 +34,12 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="glass sticky top-0 z-40 shadow-lg">
-      <nav className="max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-2">
+    <header className="glass sticky top-0 z-40 shadow-sm">
+      <nav className="max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Left: Logo and Home link - touch-friendly on mobile */}
           <div className="flex-shrink-0 flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-md">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-sm">
               <span className="text-white font-bold text-lg">🍳</span>
             </div>
             <Link
@@ -73,7 +73,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex-shrink-0">
             <button
               onClick={onMenuToggle}
-              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all rounded-lg transform hover:scale-110"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-neutral-700 dark:text-neutral-300 hover:text-accent-light dark:hover:text-accent-dark hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all rounded-xl transform hover:scale-105"
               aria-label={getTranslation('menu', language)}
             >
               <svg

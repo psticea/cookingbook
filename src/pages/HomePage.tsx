@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Header } from '../components/Header';
-import { HeroSection } from '../components/HeroSection';
 import { RecipeGrid } from '../components/RecipeGrid';
 import { Footer } from '../components/Footer';
 import { SideMenu } from '../components/SideMenu';
@@ -177,13 +176,10 @@ const HomePage: React.FC = () => {
           <>
             {recipes.length > 0 && (
               <>
-                {/* Hero Section */}
-                <HeroSection totalRecipes={recipes.length} />
-
-                {/* Recipe count */}
-                <div className="mb-6">
-                  <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
-                    {getTranslation('allRecipes', language)} <span className="text-amber-600 dark:text-amber-400">({totalFilteredCount})</span>
+                {/* Recipe count - now displayed prominently at the top */}
+                <div className="mb-8">
+                  <p className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+                    {getTranslation('allRecipes', language)} <span className="text-indigo-600 dark:text-indigo-400">({totalFilteredCount})</span>
                   </p>
                 </div>
 
@@ -203,10 +199,10 @@ const HomePage: React.FC = () => {
                       >
                         <div className="flex items-center gap-4 mb-6">
                           <div>
-                            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 font-display">
+                            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-100 font-display">
                               {category.name[language]}
                             </h2>
-                            <div className="h-1 w-20 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mt-2"></div>
+                            <div className="h-1 w-20 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full mt-2"></div>
                           </div>
                         </div>
                         <RecipeGrid recipes={categoryRecipes} />
@@ -218,7 +214,7 @@ const HomePage: React.FC = () => {
                 {/* No results message */}
                 {filteredRecipes.length === 0 && (
                   <div className="text-center py-8">
-                    <p className="text-xl text-gray-600 dark:text-gray-400">
+                    <p className="text-xl text-neutral-600 dark:text-neutral-400">
                       {getTranslation('noRecipesFound', language)}
                     </p>
                   </div>
@@ -228,7 +224,7 @@ const HomePage: React.FC = () => {
 
             {recipes.length === 0 && (
               <div className="text-center py-8">
-                <p className="text-xl text-gray-600 dark:text-gray-400">
+                <p className="text-xl text-neutral-600 dark:text-neutral-400">
                   {getTranslation('noRecipesFound', language)}
                 </p>
               </div>
