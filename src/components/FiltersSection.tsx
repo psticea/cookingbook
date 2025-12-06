@@ -81,7 +81,7 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
           {selectedKeywords.size > 0 && (
             <button
               onClick={handleClearAll}
-              className="w-full px-4 py-2.5 text-sm sm:text-base font-medium text-white bg-accent-light dark:bg-accent-dark rounded-md hover:opacity-90 transition-opacity min-h-[44px]"
+              className="w-full px-4 py-2.5 text-base sm:text-lg font-medium text-white bg-accent-light dark:bg-accent-dark rounded-md hover:opacity-90 transition-opacity min-h-[44px]"
             >
               {getTranslation('clearAllFilters', language)}
             </button>
@@ -98,7 +98,7 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
             return (
               <div key={type} className="ml-2">
                 {/* Subsection header */}
-                <h4 className="text-sm sm:text-base font-medium text-gray-800 dark:text-gray-200 py-1">
+                <h4 className="text-base sm:text-lg font-medium text-gray-800 dark:text-gray-200 py-1">
                   {getTranslation(labelKey, language)}
                 </h4>
 
@@ -115,7 +115,7 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
                         onChange={() => handleKeywordToggle(keyword.id)}
                         className="h-5 w-5 sm:h-4 sm:w-4 text-accent-light dark:text-accent-dark border-gray-300 dark:border-gray-600 rounded focus:ring-accent-light dark:focus:ring-accent-dark flex-shrink-0"
                       />
-                      <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100">
+                      <span className="text-base sm:text-lg text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100">
                         {keyword.label[language]}
                       </span>
                     </label>

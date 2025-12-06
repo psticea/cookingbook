@@ -36,7 +36,7 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
           <button
             key={category.id}
             onClick={() => handleCategoryClick(category.id)}
-            className="w-full text-left px-3 py-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors min-h-[36px] flex items-center"
+            className="w-full text-left px-3 py-2 text-base sm:text-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors min-h-[36px] flex items-center"
           >
             • {category.name[language]}
           </button>

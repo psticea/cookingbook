@@ -31,7 +31,7 @@ export const ThemeSelector: React.FC = () => {
       >
         {getTranslation('dark', language)}
       </button>
-      <span className="text-sm opacity-50">|</span>
+      <span className="text-base opacity-50">|</span>
       <button
         onClick={() => handleThemeChange('light')}
         className={`min-w-[44px] min-h-[44px] px-3 py-2 text-base rounded transition-colors ${
