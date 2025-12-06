@@ -11,8 +11,9 @@ interface RecipeCardProps {
 
 /**
  * RecipeCard component
- * Displays a recipe card with thumbnail, title, and metadata
+ * Displays a compact recipe card with image and overlay title
  * Links to the recipe detail page
+ * Title is overlayed on the image with a semi-transparent background
  * Category is not shown as it's displayed in the section header
  * Effort level is shown using puzzle piece icons (1-3 pieces)
  * Images are 1200x800 (3:2 aspect ratio)
@@ -50,8 +51,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       to={`/recipe/${recipe.id}`}
       className="block bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
     >
-      {/* Recipe Image */}
-      <div className="aspect-[3/2] w-full overflow-hidden bg-gray-200 dark:bg-gray-700">
+      {/* Recipe Image with Overlay Title */}
+      <div className="relative aspect-[3/2] w-full overflow-hidden bg-gray-200 dark:bg-gray-700">
         <img
           src={imageError ? defaultImage : imagePath}
           alt={recipe.title[language]}
@@ -59,28 +60,26 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
           loading="lazy"
           onError={() => setImageError(true)}
         />
+        {/* Overlay Title */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gray-900/80 backdrop-blur-sm px-3 py-2">
+          <h3 className="text-base sm:text-lg font-bold text-white line-clamp-2">
+            {recipe.title[language]}
+          </h3>
+        </div>
       </div>
 
-      {/* Recipe Info */}
-      <div className="p-3 sm:p-4">
-        {/* Recipe Title */}
-        <h3 className="text-lg font-bold mb-2 sm:mb-3 text-gray-900 dark:text-gray-100 line-clamp-2">
-          {recipe.title[language]}
-        </h3>
-
-        {/* Recipe Metadata - Icons and numbers with labels */}
-        <div className="flex items-center justify-between text-gray-600 dark:text-gray-400">
-          <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
-            <span className="text-lg">⏱️</span>
-            <span className="text-sm font-medium">{recipe.prepTime} {getTranslation('minutes', language)}</span>
-          </div>
-          <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${recipe.servings}`}>
-            <span className="text-lg">🍽️</span>
-            <span className="text-sm font-medium">{recipe.servings} {getTranslation('servings', language)}</span>
-          </div>
-          <div className="flex items-center gap-1" title={effortLevel}>
-            <span className="text-lg">{getPuzzlePieces(recipe.effortLevel)}</span>
-          </div>
+      {/* Recipe Metadata - Icons and numbers with labels */}
+      <div className="p-2 sm:p-3 flex items-center justify-between text-gray-600 dark:text-gray-400">
+        <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
+          <span className="text-base sm:text-lg">⏱️</span>
+          <span className="text-xs sm:text-sm font-medium">{recipe.prepTime} {getTranslation('minutes', language)}</span>
+        </div>
+        <div className="flex items-center gap-1" title={`${getTranslation('servings', language)}: ${recipe.servings}`}>
+          <span className="text-base sm:text-lg">🍽️</span>
+          <span className="text-xs sm:text-sm font-medium">{recipe.servings} {getTranslation('servings', language)}</span>
+        </div>
+        <div className="flex items-center gap-1" title={effortLevel}>
+          <span className="text-base sm:text-lg">{getPuzzlePieces(recipe.effortLevel)}</span>
         </div>
       </div>
     </Link>
