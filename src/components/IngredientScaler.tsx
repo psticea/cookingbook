@@ -38,7 +38,7 @@ export const IngredientScaler: React.FC<IngredientScalerProps> = ({
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 p-3 sm:p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-      <span className="text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300">
+      <span className="text-base sm:text-lg font-medium text-gray-700 dark:text-gray-300">
         {getTranslation('servingMultiplier', language)}:
       </span>
       

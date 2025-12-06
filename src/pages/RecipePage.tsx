@@ -93,7 +93,7 @@ const RecipePage: React.FC = () => {
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
               {getTranslation('recipeNotFoundMessage', language)}
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-500">
+            <p className="text-base text-gray-500 dark:text-gray-500">
               {getTranslation('backToHome', language)}...
             </p>
           </div>

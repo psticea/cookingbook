@@ -145,7 +145,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
           </div>
 
           {/* Servings Range Labels */}
-          <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 px-2">
+          <div className="flex justify-between text-base text-gray-500 dark:text-gray-400 px-2">
             <span>1</span>
             <span>8</span>
           </div>
