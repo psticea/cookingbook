@@ -7,6 +7,7 @@ import { IngredientItem } from '../types/recipe';
 
 /**
  * Conversion factors for unit normalization
+ * Note: Cup conversions are approximations that vary by ingredient density
  */
 const CONVERSIONS = {
   // Teaspoon conversions (approximate)
@@ -15,7 +16,7 @@ const CONVERSIONS = {
   // Tablespoon conversions
   TBSP_TO_GRAMS: 15,
   TBSP_TO_ML: 15,
-  // Cup conversions (approximate)
+  // Cup conversions (rough estimates, actual values vary by ingredient)
   CUP_TO_GRAMS: 200,
   CUP_TO_ML: 240,
   // Larger units
@@ -167,7 +168,8 @@ export function calculateIngredientCost(
   const priceConfig = matchIngredient(ingredientName);
   
   if (!priceConfig) {
-    // Use fallback: 0.2 RON per serving
+    // Use fallback: 0.2 RON per serving for ingredients without configured prices
+    // This provides a reasonable estimate while keeping recipe costs visible
     return {
       totalCost: 0.2 * servings,
       costPerServing: 0.2,
