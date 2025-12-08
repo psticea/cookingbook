@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { IngredientItem, Ingredient } from '../types/recipe';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
@@ -81,6 +81,16 @@ export const IngredientList: React.FC<IngredientListProps> = ({
 
   // Calculate the position of the yellow marker (original servings) as a percentage
   const markerPosition = ((servings - 1) / (8 - 1)) * 100;
+
+  // Memoize ingredient costs to avoid recalculation on every render
+  const ingredientCosts = useMemo(() => {
+    return ingredients.map((item) => {
+      if (isIngredientItem(item)) {
+        return calculateIngredientCost(item, currentServings, language);
+      }
+      return null;
+    });
+  }, [ingredients, currentServings, language]);
 
   return (
     <section className="mb-6">
@@ -170,8 +180,10 @@ export const IngredientList: React.FC<IngredientListProps> = ({
             // Render ingredient with checkbox and cost
             const isChecked = checkedIngredients.has(index);
             
-            // Calculate cost for this ingredient with current servings
-            const ingredientCost = calculateIngredientCost(item, currentServings, language);
+            // Get pre-calculated cost for this ingredient
+            const ingredientCost = ingredientCosts[index];
+            
+            if (!ingredientCost) return null;
             
             return (
               <li

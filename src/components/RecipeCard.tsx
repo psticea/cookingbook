@@ -23,8 +23,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const { language } = useLanguage();
   const [imageError, setImageError] = React.useState(false);
 
-  // Calculate recipe cost
-  const recipeCost = calculateRecipeCost(recipe, language);
+  // Calculate recipe cost - memoized to avoid recalculation on every render
+  const recipeCost = React.useMemo(() => calculateRecipeCost(recipe, language), [recipe, language]);
 
   // Construct image path from public/images/recipes folder
   // Use import.meta.env.BASE_URL to handle base path correctly
