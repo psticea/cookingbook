@@ -149,7 +149,7 @@ export function calculateRecipeCost(
   }
   
   const totalCost = ingredientCosts.reduce((sum, cost) => sum + cost.totalCost, 0);
-  const pricePerServing = ingredientCosts.reduce((sum, cost) => sum + cost.costPerServing, 0);
+  const pricePerServing = totalCost / servings;
   
   return {
     totalCost: Math.round(totalCost * 100) / 100, // Round to 2 decimals

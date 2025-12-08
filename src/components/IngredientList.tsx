@@ -28,11 +28,32 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   const [currentServings, setCurrentServings] = useState(servings);
   const [checkedIngredients, setCheckedIngredients] = useState<Set<number>>(new Set());
 
+  /**
+   * Type guard to check if an item is a section heading
+   */
+  const isSection = (item: IngredientItem): item is { section: { ro: string; en: string } } => {
+    return 'section' in item;
+  };
+
   // Calculate recipe cost (memoized to avoid recalculation on every render)
   const recipeCost = useMemo(() => 
     calculateRecipeCost(ingredients, servings, language),
     [ingredients, servings, language]
   );
+
+  // Pre-compute ingredient index mapping (memoized)
+  // Maps ingredient array index to ingredientCost array index (skipping sections)
+  const ingredientCostIndexMap = useMemo(() => {
+    const map = new Map<number, number>();
+    let costIndex = 0;
+    ingredients.forEach((item, index) => {
+      if (!isSection(item)) {
+        map.set(index, costIndex);
+        costIndex++;
+      }
+    });
+    return map;
+  }, [ingredients]);
 
   /**
    * Calculate scaled quantity based on servings ratio
@@ -49,13 +70,6 @@ export const IngredientList: React.FC<IngredientListProps> = ({
     
     // Otherwise, show up to 2 decimal places and remove trailing zeros
     return scaled.toFixed(2).replace(/\.?0+$/, '');
-  };
-
-  /**
-   * Type guard to check if an item is a section heading
-   */
-  const isSection = (item: IngredientItem): item is { section: { ro: string; en: string } } => {
-    return 'section' in item;
   };
 
   /**
@@ -164,14 +178,9 @@ export const IngredientList: React.FC<IngredientListProps> = ({
           } else {
             // Render ingredient with checkbox and price
             const isChecked = checkedIngredients.has(index);
-            // Find corresponding ingredient cost (skip section headings when counting)
-            let ingredientIndex = 0;
-            for (let i = 0; i < index; i++) {
-              if (!isSection(ingredients[i])) {
-                ingredientIndex++;
-              }
-            }
-            const ingredientCost = recipeCost.ingredientCosts[ingredientIndex];
+            // Get ingredient cost using pre-computed index map
+            const costIndex = ingredientCostIndexMap.get(index);
+            const ingredientCost = costIndex !== undefined ? recipeCost.ingredientCosts[costIndex] : undefined;
             
             return (
               <li
