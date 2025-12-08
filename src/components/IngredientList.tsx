@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { IngredientItem } from '../types/recipe';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
+import { calculateRecipeCosts, formatPrice } from '../utils/pricing';
 
 interface IngredientListProps {
   ingredients: IngredientItem[];
   prepTime: number;
   servings: number;
-  effortLevel: 'easy' | 'medium' | 'hard';
 }
 
 /**
@@ -15,19 +15,23 @@ interface IngredientListProps {
  * Displays list of ingredients with quantities and units
  * Supports optional section headings mixed in with ingredients
  * Integrates IngredientScaler for adjusting quantities
- * Shows recipe metadata (prep time, servings, difficulty) next to scaler
+ * Shows recipe metadata (prep time, servings, price info) next to scaler
+ * Shows price per serving and total recipe cost
+ * Shows individual ingredient costs in lighter text
  * Servings count updates dynamically based on multiplier
  * Supports both Romanian and English ingredient names, units, and section headings
  */
 export const IngredientList: React.FC<IngredientListProps> = ({ 
   ingredients, 
   prepTime, 
-  servings, 
-  effortLevel 
+  servings
 }) => {
   const { language } = useLanguage();
   const [currentServings, setCurrentServings] = useState(servings);
   const [checkedIngredients, setCheckedIngredients] = useState<Set<number>>(new Set());
+
+  // Calculate costs for current servings
+  const costs = calculateRecipeCosts(ingredients, currentServings, language);
 
   /**
    * Calculate scaled quantity based on servings ratio
@@ -68,26 +72,6 @@ export const IngredientList: React.FC<IngredientListProps> = ({
     });
   };
 
-  /**
-   * Generate puzzle piece icons based on effort level
-   */
-  const getPuzzlePieces = (effortLevel: string): string => {
-    const puzzlePiece = '🧩';
-    switch (effortLevel) {
-      case 'easy':
-        return puzzlePiece;
-      case 'medium':
-        return puzzlePiece.repeat(2);
-      case 'hard':
-        return puzzlePiece.repeat(3);
-      default:
-        return puzzlePiece;
-    }
-  };
-
-  // Get effort level translation for tooltip
-  const effortLevelText = getTranslation(effortLevel, language);
-
   // Calculate the position of the yellow marker (original servings) as a percentage
   const markerPosition = ((servings - 1) / (8 - 1)) * 100;
 
@@ -109,10 +93,17 @@ export const IngredientList: React.FC<IngredientListProps> = ({
             <span className="text-base font-medium">{currentServings} {getTranslation('servings', language)}</span>
           </div>
 
-          {/* Effort Level - Puzzle Pieces */}
-          <div className="flex items-center gap-1" title={`${getTranslation('effortLevel', language)}: ${effortLevelText}`}>
-            <span className="text-xl">{getPuzzlePieces(effortLevel)}</span>
+          {/* Price per serving */}
+          <div className="flex items-center gap-1" title={`${getTranslation('pricePerServing', language)}: ${formatPrice(costs.pricePerServing)} RON`}>
+            <span className="text-xl">💰</span>
+            <span className="text-base font-medium">{formatPrice(costs.pricePerServing)} RON</span>
           </div>
+        </div>
+
+        {/* Price Summary */}
+        <div className="flex flex-col items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+          <div>{formatPrice(costs.pricePerServing)} RON / {getTranslation('serving', language)}</div>
+          <div>{formatPrice(costs.totalCost)} RON {getTranslation('total', language)}</div>
         </div>
 
         {/* Bottom: Servings Slider */}
@@ -172,6 +163,8 @@ export const IngredientList: React.FC<IngredientListProps> = ({
           } else {
             // Render ingredient with checkbox
             const isChecked = checkedIngredients.has(index);
+            const ingredientCost = costs.ingredientCosts.get(index);
+            
             return (
               <li
                 key={index}
@@ -192,13 +185,18 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                   {isChecked ? '☑' : '☐'}
                 </span>
                 
-                {/* Ingredient Text */}
-                <span className={isChecked ? 'line-through opacity-50' : ''}>
+                {/* Ingredient Text and Price */}
+                <span className={`flex-1 ${isChecked ? 'line-through opacity-50' : ''}`}>
                   <span className="font-semibold">
                     {getScaledQuantity(item.quantity)} {item.unit[language]}
                   </span>
                   {' '}
                   {item.name[language]}
+                  {ingredientCost && (
+                    <span className="ml-2 text-sm text-gray-500 dark:text-gray-400">
+                      ({formatPrice(ingredientCost.totalCost)} RON)
+                    </span>
+                  )}
                 </span>
               </li>
             );

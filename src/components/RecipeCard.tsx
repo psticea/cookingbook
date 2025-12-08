@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Recipe } from '../types/recipe';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
+import { calculateRecipeCosts, formatPrice } from '../utils/pricing';
 import defaultImageUrl from '/default-image.jpg';
 
 interface RecipeCardProps {
@@ -15,31 +16,15 @@ interface RecipeCardProps {
  * Links to the recipe detail page
  * Title is overlayed on the image with a semi-transparent background
  * Category is not shown as it's displayed in the section header
- * Effort level is shown using puzzle piece icons (1-3 pieces)
+ * Price per serving is shown instead of difficulty puzzle pieces
  * Images are 1200x800 (3:2 aspect ratio)
  */
 export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const { language } = useLanguage();
   const [imageError, setImageError] = React.useState(false);
 
-  // Get effort level translation for tooltip
-  const effortLevelKey = `effortLevel.${recipe.effortLevel}`;
-  const effortLevel = getTranslation(effortLevelKey, language);
-
-  // Generate puzzle piece icons based on effort level
-  const getPuzzlePieces = (effortLevel: string): string => {
-    const puzzlePiece = '🧩';
-    switch (effortLevel) {
-      case 'easy':
-        return puzzlePiece;
-      case 'medium':
-        return puzzlePiece.repeat(2);
-      case 'hard':
-        return puzzlePiece.repeat(3);
-      default:
-        return puzzlePiece;
-    }
-  };
+  // Calculate recipe costs
+  const costs = calculateRecipeCosts(recipe.ingredients, recipe.servings, language);
 
   // Construct image path from public/images/recipes folder
   // Use import.meta.env.BASE_URL to handle base path correctly
@@ -80,8 +65,9 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
           <span className="text-base sm:text-lg">🍽️</span>
           <span className="text-base font-medium">{recipe.servings} {getTranslation('servings', language)}</span>
         </div>
-        <div className="flex items-center gap-1" title={effortLevel}>
-          <span className="text-base sm:text-lg">{getPuzzlePieces(recipe.effortLevel)}</span>
+        <div className="flex items-center gap-1" title={`${getTranslation('pricePerServing', language)}: ${formatPrice(costs.pricePerServing)} RON`}>
+          <span className="text-base sm:text-lg">💰</span>
+          <span className="text-base font-medium">{formatPrice(costs.pricePerServing)} RON</span>
         </div>
       </div>
     </Link>
