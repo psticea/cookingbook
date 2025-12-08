@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useRecipeData, getRecipeById } from '../hooks/useRecipeData';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
+import { calculateRecipeCost } from '../utils/pricing';
 import { Header } from '../components/Header';
 import { RecipeHeader } from '../components/RecipeHeader';
 import { RecipeImage } from '../components/RecipeImage';
@@ -26,6 +27,9 @@ const RecipePage: React.FC = () => {
 
   // Find the recipe by ID
   const recipe = id ? getRecipeById(recipes, id) : undefined;
+
+  // Calculate recipe cost
+  const recipeCost = recipe ? calculateRecipeCost(recipe, language) : null;
 
   // Toggle side menu
   const handleMenuToggle = () => {
@@ -137,7 +141,8 @@ const RecipePage: React.FC = () => {
           ingredients={recipe.ingredients}
           prepTime={recipe.prepTime}
           servings={recipe.servings}
-          effortLevel={recipe.effortLevel}
+          pricePerServing={recipeCost?.pricePerServing || 0}
+          totalCostRecipe={recipeCost?.totalCostRecipe || 0}
         />
 
         {/* Instruction List */}

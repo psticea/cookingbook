@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { IngredientItem } from '../types/recipe';
+import { IngredientItem, Ingredient } from '../types/recipe';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
+import { calculateIngredientCost, formatPrice } from '../utils/pricing';
 
 interface IngredientListProps {
   ingredients: IngredientItem[];
   prepTime: number;
   servings: number;
-  effortLevel: 'easy' | 'medium' | 'hard';
+  pricePerServing: number;
+  totalCostRecipe: number;
 }
 
 /**
@@ -15,15 +17,17 @@ interface IngredientListProps {
  * Displays list of ingredients with quantities and units
  * Supports optional section headings mixed in with ingredients
  * Integrates IngredientScaler for adjusting quantities
- * Shows recipe metadata (prep time, servings, difficulty) next to scaler
+ * Shows recipe metadata (prep time, servings, price per serving, total cost) next to scaler
  * Servings count updates dynamically based on multiplier
+ * Shows individual ingredient costs in lighter text
  * Supports both Romanian and English ingredient names, units, and section headings
  */
 export const IngredientList: React.FC<IngredientListProps> = ({ 
   ingredients, 
   prepTime, 
-  servings, 
-  effortLevel 
+  servings,
+  pricePerServing,
+  totalCostRecipe,
 }) => {
   const { language } = useLanguage();
   const [currentServings, setCurrentServings] = useState(servings);
@@ -54,6 +58,13 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   };
 
   /**
+   * Type guard to check if an item is an ingredient
+   */
+  const isIngredientItem = (item: IngredientItem): item is Ingredient => {
+    return 'name' in item && 'quantity' in item && 'unit' in item && !('section' in item);
+  };
+
+  /**
    * Toggle checkbox state for an ingredient
    */
   const toggleIngredient = (index: number) => {
@@ -67,26 +78,6 @@ export const IngredientList: React.FC<IngredientListProps> = ({
       return newSet;
     });
   };
-
-  /**
-   * Generate puzzle piece icons based on effort level
-   */
-  const getPuzzlePieces = (effortLevel: string): string => {
-    const puzzlePiece = '🧩';
-    switch (effortLevel) {
-      case 'easy':
-        return puzzlePiece;
-      case 'medium':
-        return puzzlePiece.repeat(2);
-      case 'hard':
-        return puzzlePiece.repeat(3);
-      default:
-        return puzzlePiece;
-    }
-  };
-
-  // Get effort level translation for tooltip
-  const effortLevelText = getTranslation(effortLevel, language);
 
   // Calculate the position of the yellow marker (original servings) as a percentage
   const markerPosition = ((servings - 1) / (8 - 1)) * 100;
@@ -109,10 +100,16 @@ export const IngredientList: React.FC<IngredientListProps> = ({
             <span className="text-base font-medium">{currentServings} {getTranslation('servings', language)}</span>
           </div>
 
-          {/* Effort Level - Puzzle Pieces */}
-          <div className="flex items-center gap-1" title={`${getTranslation('effortLevel', language)}: ${effortLevelText}`}>
-            <span className="text-xl">{getPuzzlePieces(effortLevel)}</span>
+          {/* Price per serving */}
+          <div className="flex items-center gap-1" title={`${(pricePerServing * (currentServings / servings)).toFixed(2)} RON / serving`}>
+            <span className="text-xl">💰</span>
+            <span className="text-base font-medium">{(pricePerServing * (currentServings / servings)).toFixed(2)} RON</span>
           </div>
+        </div>
+
+        {/* Price Summary - below metadata */}
+        <div className="flex flex-col items-center gap-1 text-gray-600 dark:text-gray-400 text-sm">
+          <div>{(totalCostRecipe * (currentServings / servings)).toFixed(2)} RON total</div>
         </div>
 
         {/* Bottom: Servings Slider */}
@@ -169,9 +166,13 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                 </h3>
               </li>
             );
-          } else {
-            // Render ingredient with checkbox
+          } else if (isIngredientItem(item)) {
+            // Render ingredient with checkbox and cost
             const isChecked = checkedIngredients.has(index);
+            
+            // Calculate cost for this ingredient with current servings
+            const ingredientCost = calculateIngredientCost(item, currentServings, language);
+            
             return (
               <li
                 key={index}
@@ -192,17 +193,22 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                   {isChecked ? '☑' : '☐'}
                 </span>
                 
-                {/* Ingredient Text */}
-                <span className={isChecked ? 'line-through opacity-50' : ''}>
+                {/* Ingredient Text with Cost */}
+                <span className={`flex-1 ${isChecked ? 'line-through opacity-50' : ''}`}>
                   <span className="font-semibold">
                     {getScaledQuantity(item.quantity)} {item.unit[language]}
                   </span>
                   {' '}
                   {item.name[language]}
+                  {' '}
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    ({formatPrice(ingredientCost.costPerRecipe)})
+                  </span>
                 </span>
               </li>
             );
           }
+          return null;
         })}
       </ul>
     </section>
