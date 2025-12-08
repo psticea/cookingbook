@@ -137,7 +137,6 @@ const RecipePage: React.FC = () => {
           ingredients={recipe.ingredients}
           prepTime={recipe.prepTime}
           servings={recipe.servings}
-          effortLevel={recipe.effortLevel}
         />
 
         {/* Instruction List */}

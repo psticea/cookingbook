@@ -1,0 +1,204 @@
+{
+  "ingredients": {
+    "salt": {
+      "name": "Salt",
+      "unit_type": "mass",
+      "price_per_1000": 1.5
+    },
+    "olive_oil": {
+      "name": "Olive oil",
+      "unit_type": "volume",
+      "price_per_1000": 25.0
+    },
+    "pepper": {
+      "name": "Black pepper",
+      "unit_type": "mass",
+      "price_per_1000": 40.0
+    },
+    "oregano": {
+      "name": "Dried oregano",
+      "unit_type": "mass",
+      "price_per_1000": 35.0
+    },
+    "garlic": {
+      "name": "Garlic",
+      "unit_type": "mass",
+      "price_per_1000": 12.0
+    },
+    "lemon": {
+      "name": "Lemon juice",
+      "unit_type": "volume",
+      "price_per_1000": 15.0
+    },
+    "water": {
+      "name": "Water",
+      "unit_type": "volume",
+      "price_per_1000": 0.05
+    },
+    "soy_sauce": {
+      "name": "Soy sauce",
+      "unit_type": "volume",
+      "price_per_1000": 18.0
+    },
+    "onion": {
+      "name": "Onion",
+      "unit_type": "mass",
+      "price_per_1000": 4.0
+    },
+    "mayo": {
+      "name": "Mayonnaise",
+      "unit_type": "mass",
+      "price_per_1000": 12.0
+    },
+    "butter": {
+      "name": "Butter",
+      "unit_type": "mass",
+      "price_per_1000": 30.0
+    },
+    "chili": {
+      "name": "Chili flakes",
+      "unit_type": "mass",
+      "price_per_1000": 45.0
+    },
+    "sour_cream": {
+      "name": "Sour cream",
+      "unit_type": "mass",
+      "price_per_1000": 15.0
+    },
+    "green_onion": {
+      "name": "Green onions",
+      "unit_type": "mass",
+      "price_per_1000": 8.0
+    },
+    "cumin": {
+      "name": "Ground cumin",
+      "unit_type": "mass",
+      "price_per_1000": 38.0
+    },
+    "sugar": {
+      "name": "Sugar",
+      "unit_type": "mass",
+      "price_per_1000": 4.0
+    },
+    "parsley": {
+      "name": "Parsley",
+      "unit_type": "mass",
+      "price_per_1000": 15.0
+    },
+    "vegetable_oil": {
+      "name": "Vegetable oil",
+      "unit_type": "volume",
+      "price_per_1000": 10.0
+    },
+    "sesame_oil": {
+      "name": "Sesame oil",
+      "unit_type": "volume",
+      "price_per_1000": 35.0
+    },
+    "wine": {
+      "name": "Shaoxing wine",
+      "unit_type": "volume",
+      "price_per_1000": 20.0
+    },
+    "cornstarch": {
+      "name": "Cornstarch",
+      "unit_type": "mass",
+      "price_per_1000": 8.0
+    },
+    "rice": {
+      "name": "Rice",
+      "unit_type": "mass",
+      "price_per_1000": 5.0
+    },
+    "egg": {
+      "name": "Egg",
+      "unit_type": "piece",
+      "price_per_piece": 0.8
+    },
+    "milk": {
+      "name": "Milk",
+      "unit_type": "volume",
+      "price_per_1000": 6.0
+    },
+    "spinach": {
+      "name": "Spinach",
+      "unit_type": "mass",
+      "price_per_1000": 12.0
+    },
+    "tomato": {
+      "name": "Tomatoes",
+      "unit_type": "mass",
+      "price_per_1000": 8.0
+    },
+    "feta": {
+      "name": "Feta cheese",
+      "unit_type": "mass",
+      "price_per_1000": 25.0
+    },
+    "oats": {
+      "name": "Oats",
+      "unit_type": "mass",
+      "price_per_1000": 6.0
+    },
+    "yogurt": {
+      "name": "Yogurt",
+      "unit_type": "mass",
+      "price_per_1000": 8.0
+    },
+    "banana": {
+      "name": "Banana",
+      "unit_type": "piece",
+      "price_per_piece": 1.2
+    },
+    "pineapple": {
+      "name": "Pineapple",
+      "unit_type": "mass",
+      "price_per_1000": 10.0
+    },
+    "mango": {
+      "name": "Mango",
+      "unit_type": "piece",
+      "price_per_piece": 8.0
+    },
+    "coconut": {
+      "name": "Shredded coconut",
+      "unit_type": "mass",
+      "price_per_1000": 20.0
+    },
+    "beef": {
+      "name": "Ground beef",
+      "unit_type": "mass",
+      "price_per_1000": 35.0
+    },
+    "bun": {
+      "name": "Burger bun",
+      "unit_type": "piece",
+      "price_per_piece": 1.5
+    },
+    "broccoli": {
+      "name": "Broccoli",
+      "unit_type": "mass",
+      "price_per_1000": 10.0
+    },
+    "mustard": {
+      "name": "Mustard",
+      "unit_type": "mass",
+      "price_per_1000": 15.0
+    },
+    "paprika": {
+      "name": "Paprika",
+      "unit_type": "mass",
+      "price_per_1000": 35.0
+    },
+    "cheese": {
+      "name": "Cheese",
+      "unit_type": "mass",
+      "price_per_1000": 30.0
+    },
+    "fish": {
+      "name": "White fish",
+      "unit_type": "mass",
+      "price_per_1000": 40.0
+    }
+  }
+}
