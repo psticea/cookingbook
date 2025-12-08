@@ -66,7 +66,10 @@
     "clearAllFilters": "Șterge Toate Filtrele",
     "ingredient": "Ingredient",
     "ingredients": "Ingrediente",
-    "cookType": "Metodă de Gătit"
+    "cookType": "Metodă de Gătit",
+    "pricePerServing": "Preț per porție",
+    "serving": "porție",
+    "total": "total"
   },
   "en": {
     "loading": "Loading...",
@@ -135,6 +138,9 @@
     "clearAllFilters": "Clear All Filters",
     "ingredient": "Ingredient",
     "ingredients": "Ingredients",
-    "cookType": "Cooking Method"
+    "cookType": "Cooking Method",
+    "pricePerServing": "Price per serving",
+    "serving": "serving",
+    "total": "total"
   }
 }

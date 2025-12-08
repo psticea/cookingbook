@@ -1,0 +1,204 @@
+{
+  "ingredients": {
+    "salt": {
+      "name": "Salt",
+      "unit_type": "mass",
+      "price_per_1000": 0.5
+    },
+    "olive_oil": {
+      "name": "Extra virgin olive oil",
+      "unit_type": "volume",
+      "price_per_1000": 25.0
+    },
+    "pepper": {
+      "name": "Black pepper",
+      "unit_type": "mass",
+      "price_per_1000": 15.0
+    },
+    "garlic": {
+      "name": "Garlic",
+      "unit_type": "piece",
+      "price_per_piece": 0.15
+    },
+    "soy_sauce": {
+      "name": "Soy sauce",
+      "unit_type": "volume",
+      "price_per_1000": 8.0
+    },
+    "water": {
+      "name": "Water",
+      "unit_type": "volume",
+      "price_per_1000": 0.01
+    },
+    "lemon": {
+      "name": "Lemon juice",
+      "unit_type": "piece",
+      "price_per_piece": 1.5
+    },
+    "oregano": {
+      "name": "Dried oregano",
+      "unit_type": "mass",
+      "price_per_1000": 20.0
+    },
+    "butter": {
+      "name": "Butter",
+      "unit_type": "mass",
+      "price_per_1000": 12.0
+    },
+    "chili_flakes": {
+      "name": "Chili flakes",
+      "unit_type": "mass",
+      "price_per_1000": 25.0
+    },
+    "sesame_oil": {
+      "name": "Toasted sesame oil",
+      "unit_type": "volume",
+      "price_per_1000": 30.0
+    },
+    "shaoxing_wine": {
+      "name": "Shaoxing wine",
+      "unit_type": "volume",
+      "price_per_1000": 12.0
+    },
+    "cornstarch": {
+      "name": "Cornstarch",
+      "unit_type": "mass",
+      "price_per_1000": 4.0
+    },
+    "sugar": {
+      "name": "Sugar",
+      "unit_type": "mass",
+      "price_per_1000": 3.0
+    },
+    "vegetable_oil": {
+      "name": "Vegetable oil",
+      "unit_type": "volume",
+      "price_per_1000": 8.0
+    },
+    "green_onion": {
+      "name": "Green onions",
+      "unit_type": "piece",
+      "price_per_piece": 0.8
+    },
+    "cumin": {
+      "name": "Ground cumin",
+      "unit_type": "mass",
+      "price_per_1000": 18.0
+    },
+    "onion": {
+      "name": "Onion",
+      "unit_type": "piece",
+      "price_per_piece": 0.8
+    },
+    "parsley": {
+      "name": "Parsley",
+      "unit_type": "mass",
+      "price_per_1000": 15.0
+    },
+    "sour_cream": {
+      "name": "Sour cream",
+      "unit_type": "volume",
+      "price_per_1000": 10.0
+    },
+    "mayo": {
+      "name": "Mayonnaise",
+      "unit_type": "volume",
+      "price_per_1000": 12.0
+    },
+    "egg": {
+      "name": "Egg",
+      "unit_type": "piece",
+      "price_per_piece": 0.8
+    },
+    "milk": {
+      "name": "Milk",
+      "unit_type": "volume",
+      "price_per_1000": 5.0
+    },
+    "cooking_oil": {
+      "name": "Cooking oil",
+      "unit_type": "volume",
+      "price_per_1000": 8.0
+    },
+    "spinach": {
+      "name": "Fresh spinach",
+      "unit_type": "mass",
+      "price_per_1000": 12.0
+    },
+    "tomato": {
+      "name": "Tomatoes",
+      "unit_type": "mass",
+      "price_per_1000": 6.0
+    },
+    "feta": {
+      "name": "Feta cheese",
+      "unit_type": "mass",
+      "price_per_1000": 20.0
+    },
+    "oats": {
+      "name": "Rolled oats",
+      "unit_type": "mass",
+      "price_per_1000": 4.0
+    },
+    "yogurt": {
+      "name": "Yogurt",
+      "unit_type": "volume",
+      "price_per_1000": 8.0
+    },
+    "banana": {
+      "name": "Banana",
+      "unit_type": "piece",
+      "price_per_piece": 0.6
+    },
+    "pineapple": {
+      "name": "Pineapple",
+      "unit_type": "mass",
+      "price_per_1000": 8.0
+    },
+    "mango": {
+      "name": "Mango",
+      "unit_type": "piece",
+      "price_per_piece": 4.0
+    },
+    "coconut": {
+      "name": "Shredded coconut",
+      "unit_type": "mass",
+      "price_per_1000": 15.0
+    },
+    "chicken": {
+      "name": "Chicken breast",
+      "unit_type": "mass",
+      "price_per_1000": 18.0
+    },
+    "chicken_stock": {
+      "name": "Chicken stock",
+      "unit_type": "volume",
+      "price_per_1000": 6.0
+    },
+    "cream": {
+      "name": "Cooking cream",
+      "unit_type": "volume",
+      "price_per_1000": 10.0
+    },
+    "parmesan": {
+      "name": "Parmesan cheese",
+      "unit_type": "mass",
+      "price_per_1000": 35.0
+    },
+    "thyme": {
+      "name": "Thyme",
+      "unit_type": "mass",
+      "price_per_1000": 20.0
+    },
+    "basil": {
+      "name": "Fresh basil",
+      "unit_type": "mass",
+      "price_per_1000": 18.0
+    },
+    "pasta": {
+      "name": "Pasta",
+      "unit_type": "mass",
+      "price_per_1000": 5.0
+    }
+  }
+}
