@@ -3,6 +3,25 @@
  */
 
 import pricesData from '../data/prices.json';
+import { IngredientItem } from '../types/recipe';
+
+/**
+ * Conversion factors for unit normalization
+ */
+const CONVERSIONS = {
+  // Teaspoon conversions (approximate)
+  TSP_TO_GRAMS: 5,
+  TSP_TO_ML: 5,
+  // Tablespoon conversions
+  TBSP_TO_GRAMS: 15,
+  TBSP_TO_ML: 15,
+  // Cup conversions (approximate)
+  CUP_TO_GRAMS: 200,
+  CUP_TO_ML: 240,
+  // Larger units
+  KG_TO_GRAMS: 1000,
+  LITERS_TO_ML: 1000,
+} as const;
 
 export interface PriceConfig {
   name: string;
@@ -48,7 +67,13 @@ function findCommonSubstring(str1: string, str2: string, minLength: number = 4):
   
   let longestMatch = '';
   
+  // Early termination: if remaining string is shorter than current longest match, we can stop
   for (let i = 0; i < clean1.length; i++) {
+    // Skip if remaining string can't produce a longer match
+    if (clean1.length - i <= longestMatch.length) {
+      break;
+    }
+    
     for (let len = minLength; i + len <= clean1.length; len++) {
       const substring = clean1.substring(i, i + len);
       if (clean2.includes(substring) && substring.length > longestMatch.length) {
@@ -102,21 +127,21 @@ function normalizeQuantity(quantity: number, unit: string, unitType: 'mass' | 'v
   const unitLower = unit.toLowerCase();
   
   if (unitType === 'mass') {
-    if (unitLower === 'kg') return quantity * 1000;
+    if (unitLower === 'kg') return quantity * CONVERSIONS.KG_TO_GRAMS;
     if (unitLower === 'g') return quantity;
     // For other units like tsp, tbsp - these are tricky because they depend on ingredient
     // We'll make some reasonable assumptions
-    if (unitLower === 'tsp' || unitLower === 'linguriță') return quantity * 5; // ~5g per tsp
-    if (unitLower === 'tbsp' || unitLower === 'lingură') return quantity * 15; // ~15g per tbsp
-    if (unitLower === 'cup') return quantity * 200; // ~200g per cup (average)
-    if (unitLower === 'cups') return quantity * 200;
+    if (unitLower === 'tsp' || unitLower === 'linguriță') return quantity * CONVERSIONS.TSP_TO_GRAMS;
+    if (unitLower === 'tbsp' || unitLower === 'lingură') return quantity * CONVERSIONS.TBSP_TO_GRAMS;
+    if (unitLower === 'cup') return quantity * CONVERSIONS.CUP_TO_GRAMS;
+    if (unitLower === 'cups') return quantity * CONVERSIONS.CUP_TO_GRAMS;
   } else if (unitType === 'volume') {
-    if (unitLower === 'l' || unitLower === 'liters') return quantity * 1000;
+    if (unitLower === 'l' || unitLower === 'liters') return quantity * CONVERSIONS.LITERS_TO_ML;
     if (unitLower === 'ml') return quantity;
-    if (unitLower === 'tsp' || unitLower === 'linguriță') return quantity * 5; // 5ml per tsp
-    if (unitLower === 'tbsp' || unitLower === 'lingură') return quantity * 15; // 15ml per tbsp
-    if (unitLower === 'cup') return quantity * 240; // 240ml per cup
-    if (unitLower === 'cups') return quantity * 240;
+    if (unitLower === 'tsp' || unitLower === 'linguriță') return quantity * CONVERSIONS.TSP_TO_ML;
+    if (unitLower === 'tbsp' || unitLower === 'lingură') return quantity * CONVERSIONS.TBSP_TO_ML;
+    if (unitLower === 'cup') return quantity * CONVERSIONS.CUP_TO_ML;
+    if (unitLower === 'cups') return quantity * CONVERSIONS.CUP_TO_ML;
   } else if (unitType === 'piece') {
     if (unitLower === 'pcs' || unitLower === 'piece' || unitLower === 'pieces' || 
         unitLower === 'buc' || unitLower === 'cloves' || unitLower === 'căței') {
@@ -178,7 +203,7 @@ export interface RecipeCosts {
 }
 
 export function calculateRecipeCosts(
-  ingredients: Array<{ name: { ro: string; en: string }; quantity: number; unit: { ro: string; en: string } } | { section: any }>,
+  ingredients: IngredientItem[],
   servings: number,
   language: 'ro' | 'en' = 'en'
 ): RecipeCosts {
