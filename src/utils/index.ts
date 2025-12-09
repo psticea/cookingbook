@@ -4,7 +4,7 @@
 
 export { getTranslation } from './translations';
 export { 
-  fuzzyMatchIngredient,
+  matchIngredientById,
   calculateIngredientCost,
   calculateRecipeCost,
   formatPrice,

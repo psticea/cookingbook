@@ -1,6 +1,6 @@
 /**
  * Pricing utilities for recipe cost calculation
- * Implements fuzzy ingredient matching and cost calculations based on prices.json
+ * Implements ID-based ingredient matching and cost calculations based on prices.json
  */
 
 import pricesData from '../data/prices.json';
@@ -35,63 +35,10 @@ export interface RecipeCost {
 
 // Constants
 const FALLBACK_COST_PER_SERVING = 0.2; // RON per serving for unmatched ingredients
-const MIN_MATCH_LENGTH = 4; // Minimum consecutive letters for fuzzy match
 
 // Type guard for Ingredient (vs IngredientSection)
 function isIngredient(item: any): item is Ingredient {
   return 'name' in item && 'quantity' in item && 'unit' in item && !('section' in item);
-}
-
-/**
- * Normalize a string for matching: lowercase, remove non-letters
- */
-function normalizeForMatching(str: string): string {
-  return str.toLowerCase().replace(/[^a-z]/g, '');
-}
-
-/**
- * Check if two strings share a substring of at least minLength consecutive letters
- */
-function hasCommonSubstring(str1: string, str2: string, minLength: number): boolean {
-  const normalized1 = normalizeForMatching(str1);
-  const normalized2 = normalizeForMatching(str2);
-  
-  // Check all substrings of str1 of length >= minLength
-  for (let i = 0; i < normalized1.length - minLength + 1; i++) {
-    for (let len = minLength; len <= normalized1.length - i; len++) {
-      const substring = normalized1.substring(i, i + len);
-      if (normalized2.includes(substring)) {
-        return true;
-      }
-    }
-  }
-  
-  return false;
-}
-
-/**
- * Find the longest common substring between two strings
- */
-function longestCommonSubstring(str1: string, str2: string): number {
-  const normalized1 = normalizeForMatching(str1);
-  const normalized2 = normalizeForMatching(str2);
-  let maxLength = 0;
-  
-  for (let i = 0; i < normalized1.length; i++) {
-    for (let j = 0; j < normalized2.length; j++) {
-      let length = 0;
-      while (
-        i + length < normalized1.length &&
-        j + length < normalized2.length &&
-        normalized1[i + length] === normalized2[j + length]
-      ) {
-        length++;
-      }
-      maxLength = Math.max(maxLength, length);
-    }
-  }
-  
-  return maxLength;
 }
 
 /**
@@ -109,40 +56,6 @@ export function matchIngredientById(
     }
   }
   return undefined;
-}
-
-/**
- * Fuzzy match an ingredient name to price config entries
- * Returns the best matching price config, or undefined if no match
- */
-export function fuzzyMatchIngredient(
-  ingredientName: string,
-  prices: PricesData = pricesData as PricesData
-): PriceConfig | undefined {
-  const candidates: Array<{ key: string; config: PriceConfig; matchLength: number }> = [];
-  
-  // Try to match against all price entries
-  for (const [key, config] of Object.entries(prices.ingredients)) {
-    // Check match against key
-    if (hasCommonSubstring(ingredientName, key, MIN_MATCH_LENGTH)) {
-      const matchLength = longestCommonSubstring(ingredientName, key);
-      candidates.push({ key, config, matchLength });
-    }
-    // Check match against name field
-    else if (hasCommonSubstring(ingredientName, config.name, MIN_MATCH_LENGTH)) {
-      const matchLength = longestCommonSubstring(ingredientName, config.name);
-      candidates.push({ key, config, matchLength });
-    }
-  }
-  
-  // No matches found
-  if (candidates.length === 0) {
-    return undefined;
-  }
-  
-  // Sort by longest match and return the best one
-  candidates.sort((a, b) => b.matchLength - a.matchLength);
-  return candidates[0].config;
 }
 
 /**
@@ -220,15 +133,10 @@ export function calculateIngredientCost(
   const ingredientName = ingredient.name[language];
   const unit = ingredient.unit[language];
   
-  // Try to match by ID first (preferred method)
+  // Match by ID only
   let priceConfig: PriceConfig | undefined;
   if (ingredient.ingredientId !== undefined) {
     priceConfig = matchIngredientById(ingredient.ingredientId, prices);
-  }
-  
-  // Fall back to fuzzy matching if no ID or ID not found
-  if (!priceConfig) {
-    priceConfig = fuzzyMatchIngredient(ingredientName, prices);
   }
   
   if (!priceConfig) {
