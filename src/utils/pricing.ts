@@ -8,6 +8,7 @@ import { Ingredient, Recipe } from '../types/recipe';
 
 // Price configuration types
 export interface PriceConfig {
+  id?: number;            // Optional 3-digit ingredient ID (100-999)
   name: string;
   unit_type: 'mass' | 'volume' | 'piece';
   price_per_1000?: number;  // For mass/volume

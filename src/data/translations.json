@@ -66,7 +66,17 @@
     "clearAllFilters": "Șterge Toate Filtrele",
     "ingredient": "Ingredient",
     "ingredients": "Ingrediente",
-    "cookType": "Metodă de Gătit"
+    "cookType": "Metodă de Gătit",
+    "ingredientPrices": "Prețuri Ingrediente",
+    "priceList": "Listă de Prețuri",
+    "ingredientId": "ID Ingredient",
+    "ingredientName": "Nume Ingredient",
+    "unitType": "Tip Unitate",
+    "price": "Preț",
+    "perKilogram": "per kg",
+    "perLiter": "per litru",
+    "perPiece": "per bucată",
+    "searchIngredients": "Caută ingrediente..."
   },
   "en": {
     "loading": "Loading...",
@@ -135,6 +145,16 @@
     "clearAllFilters": "Clear All Filters",
     "ingredient": "Ingredient",
     "ingredients": "Ingredients",
-    "cookType": "Cooking Method"
+    "cookType": "Cooking Method",
+    "ingredientPrices": "Ingredient Prices",
+    "priceList": "Price List",
+    "ingredientId": "Ingredient ID",
+    "ingredientName": "Ingredient Name",
+    "unitType": "Unit Type",
+    "price": "Price",
+    "perKilogram": "per kg",
+    "perLiter": "per liter",
+    "perPiece": "per piece",
+    "searchIngredients": "Search ingredients..."
   }
 }
