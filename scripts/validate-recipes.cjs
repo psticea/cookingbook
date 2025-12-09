@@ -4,7 +4,7 @@
  * Recipe Validation Script
  * 
  * Validates all recipe JSON files against the recipe schema.
- * Run with: node scripts/validate-recipes.js
+ * Run with: node scripts/validate-recipes.cjs
  */
 
 const fs = require('fs');
