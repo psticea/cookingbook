@@ -128,6 +128,12 @@
                   }
                 },
                 "additionalProperties": false
+              },
+              "ingredientId": {
+                "type": "integer",
+                "minimum": 100,
+                "maximum": 999,
+                "description": "3-digit ingredient ID for matching with prices.json"
               }
             },
             "additionalProperties": false

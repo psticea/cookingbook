@@ -19,7 +19,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 149
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "lingură",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 109
     },
     {
       "name": {
@@ -41,7 +43,8 @@
       "unit": {
         "ro": "lingură",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 102
     },
     {
       "name": {
@@ -52,7 +55,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 155
     },
     {
       "name": {
@@ -63,7 +67,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 156
     },
     {
       "name": {
@@ -74,7 +79,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 125
     },
     {
       "name": {
@@ -85,7 +91,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 157
     },
     {
       "name": {
@@ -107,7 +114,8 @@
       "unit": {
         "ro": "linguri",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 101
     },
     {
       "name": {
@@ -118,7 +126,8 @@
       "unit": {
         "ro": "lămâie",
         "en": "lemon"
-      }
+      },
+      "ingredientId": 158
     },
     {
       "name": {
@@ -162,7 +171,8 @@
       "unit": {
         "ro": "lingură",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 159
     },
     {
       "name": {
@@ -184,7 +194,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 126
     }
   ],
   "instructions": {
@@ -209,6 +220,12 @@
     "ro": "Rețetă de la: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals",
     "en": "Recipe from: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals"
   },
-  "keywords": ["easy", "chicken", "pan-fry", "peppers", "olive-oil"],
+  "keywords": [
+    "easy",
+    "chicken",
+    "pan-fry",
+    "peppers",
+    "olive-oil"
+  ],
   "dateAdded": "2025-11-17"
 }

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  fuzzyMatchIngredient,
+  matchIngredientById,
   calculateIngredientCost,
   calculateRecipeCost,
   formatPrice,
@@ -14,26 +14,31 @@ import { Recipe, Ingredient } from '../types/recipe';
 const mockPrices: PricesData = {
   ingredients: {
     olive_oil: {
+      id: 101,
       name: 'Olive oil',
       unit_type: 'volume',
       price_per_1000: 15.0,
     },
     flour: {
+      id: 102,
       name: 'White flour',
       unit_type: 'mass',
       price_per_1000: 3.0,
     },
     eggs: {
+      id: 103,
       name: 'Eggs',
       unit_type: 'piece',
       price_per_piece: 0.8,
     },
     salt: {
+      id: 104,
       name: 'Salt',
       unit_type: 'mass',
       price_per_1000: 1.5,
     },
     chicken: {
+      id: 105,
       name: 'Chicken breast',
       unit_type: 'mass',
       price_per_1000: 25.0,
@@ -41,66 +46,36 @@ const mockPrices: PricesData = {
   },
 };
 
-describe('fuzzyMatchIngredient', () => {
-  it('matches ingredient by exact key', () => {
-    const result = fuzzyMatchIngredient('olive_oil', mockPrices);
+describe('matchIngredientById', () => {
+  it('matches ingredient by exact ID', () => {
+    const result = matchIngredientById(101, mockPrices);
     expect(result).toBeDefined();
     expect(result?.name).toBe('Olive oil');
   });
 
-  it('matches ingredient by name field', () => {
-    const result = fuzzyMatchIngredient('Olive oil', mockPrices);
-    expect(result).toBeDefined();
-    expect(result?.name).toBe('Olive oil');
-  });
-
-  it('matches with fuzzy substring (4+ letters)', () => {
-    const result = fuzzyMatchIngredient('extra virgin olive oil', mockPrices);
-    expect(result).toBeDefined();
-    expect(result?.name).toBe('Olive oil');
-  });
-
-  it('matches case-insensitively', () => {
-    const result = fuzzyMatchIngredient('OLIVE OIL', mockPrices);
-    expect(result).toBeDefined();
-    expect(result?.name).toBe('Olive oil');
-  });
-
-  it('matches with special characters removed', () => {
-    const result = fuzzyMatchIngredient('olive-oil-extra', mockPrices);
-    expect(result).toBeDefined();
-    expect(result?.name).toBe('Olive oil');
-  });
-
-  it('returns undefined for no match', () => {
-    const result = fuzzyMatchIngredient('xyz', mockPrices);
+  it('returns undefined for non-existent ID', () => {
+    const result = matchIngredientById(999, mockPrices);
     expect(result).toBeUndefined();
   });
 
-  it('returns undefined for substring too short (< 4 letters)', () => {
-    const result = fuzzyMatchIngredient('abc', mockPrices);
-    expect(result).toBeUndefined();
-  });
-
-  it('prefers longest matching substring', () => {
-    const result = fuzzyMatchIngredient('white flour premium', mockPrices);
-    expect(result).toBeDefined();
-    expect(result?.name).toBe('White flour');
-  });
-
-  it('matches partial words', () => {
-    const result = fuzzyMatchIngredient('chicken breast', mockPrices);
-    expect(result).toBeDefined();
-    expect(result?.name).toBe('Chicken breast');
+  it('matches different ingredient types', () => {
+    const oil = matchIngredientById(101, mockPrices);
+    const flour = matchIngredientById(102, mockPrices);
+    const eggs = matchIngredientById(103, mockPrices);
+    
+    expect(oil?.name).toBe('Olive oil');
+    expect(flour?.name).toBe('White flour');
+    expect(eggs?.name).toBe('Eggs');
   });
 });
 
 describe('calculateIngredientCost - mass ingredients', () => {
-  it('calculates cost for grams', () => {
+  it('calculates cost for grams with ID', () => {
     const ingredient: Ingredient = {
       name: { en: 'white flour', ro: 'făină albă' },
       quantity: 250,
       unit: { en: 'g', ro: 'g' },
+      ingredientId: 102,
     };
     
     const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
@@ -110,11 +85,42 @@ describe('calculateIngredientCost - mass ingredients', () => {
     expect(result.costPerServing).toBe(0.19); // 0.75 / 4 = 0.1875, rounded to 0.19
   });
 
+  it('uses ID matching for ingredients', () => {
+    const ingredient: Ingredient = {
+      name: { en: 'unknown name', ro: 'nume necunoscut' },
+      quantity: 250,
+      unit: { en: 'g', ro: 'g' },
+      ingredientId: 102, // flour ID
+    };
+    
+    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
+    
+    expect(result.matched).toBe(true);
+    expect(result.costPerRecipe).toBe(0.75); // Matched by ID
+    expect(result.costPerServing).toBe(0.19);
+  });
+
+  it('uses fallback if ID not found', () => {
+    const ingredient: Ingredient = {
+      name: { en: 'white flour', ro: 'făină albă' },
+      quantity: 250,
+      unit: { en: 'g', ro: 'g' },
+      ingredientId: 999, // Non-existent ID
+    };
+    
+    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
+    
+    expect(result.matched).toBe(false); // Falls back to default pricing
+    expect(result.costPerServing).toBe(0.2); // Fallback price
+    expect(result.costPerRecipe).toBe(0.8); // 0.2 * 4 servings
+  });
+
   it('calculates cost for kilograms', () => {
     const ingredient: Ingredient = {
       name: { en: 'flour', ro: 'făină' },
       quantity: 1,
       unit: { en: 'kg', ro: 'kg' },
+      ingredientId: 102,
     };
     
     const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
@@ -129,6 +135,7 @@ describe('calculateIngredientCost - mass ingredients', () => {
       name: { en: 'salt', ro: 'sare' },
       quantity: 5,
       unit: { en: 'g', ro: 'g' },
+      ingredientId: 104,
     };
     
     const result = calculateIngredientCost(ingredient, 2, 'en', mockPrices);
@@ -144,6 +151,7 @@ describe('calculateIngredientCost - volume ingredients', () => {
       name: { en: 'olive oil', ro: 'ulei de măsline' },
       quantity: 50,
       unit: { en: 'ml', ro: 'ml' },
+      ingredientId: 101,
     };
     
     const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
@@ -158,6 +166,7 @@ describe('calculateIngredientCost - volume ingredients', () => {
       name: { en: 'olive oil', ro: 'ulei de măsline' },
       quantity: 0.5,
       unit: { en: 'l', ro: 'l' },
+      ingredientId: 101,
     };
     
     const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
@@ -174,6 +183,7 @@ describe('calculateIngredientCost - piece ingredients', () => {
       name: { en: 'eggs', ro: 'ouă' },
       quantity: 3,
       unit: { en: 'pcs', ro: 'buc' },
+      ingredientId: 103,
     };
     
     const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
@@ -188,6 +198,7 @@ describe('calculateIngredientCost - piece ingredients', () => {
       name: { en: 'eggs', ro: 'ouă' },
       quantity: 2.5,
       unit: { en: 'pcs', ro: 'buc' },
+      ingredientId: 103,
     };
     
     const result = calculateIngredientCost(ingredient, 2, 'en', mockPrices);
@@ -243,16 +254,19 @@ describe('calculateRecipeCost', () => {
           name: { en: 'flour', ro: 'făină' },
           quantity: 200,
           unit: { en: 'g', ro: 'g' },
+          ingredientId: 102,
         },
         {
           name: { en: 'olive oil', ro: 'ulei de măsline' },
           quantity: 30,
           unit: { en: 'ml', ro: 'ml' },
+          ingredientId: 101,
         },
         {
           name: { en: 'eggs', ro: 'ouă' },
           quantity: 2,
           unit: { en: 'pcs', ro: 'buc' },
+          ingredientId: 103,
         },
       ],
       instructions: { en: ['Test'], ro: ['Test'] },
@@ -287,6 +301,7 @@ describe('calculateRecipeCost', () => {
           name: { en: 'flour', ro: 'făină' },
           quantity: 100,
           unit: { en: 'g', ro: 'g' },
+          ingredientId: 102,
         },
       ] as any,
       instructions: { en: ['Test'], ro: ['Test'] },
@@ -315,11 +330,13 @@ describe('calculateRecipeCost', () => {
           name: { en: 'flour', ro: 'făină' },
           quantity: 100,
           unit: { en: 'g', ro: 'g' },
+          ingredientId: 102,
         },
         {
           name: { en: 'mystery ingredient', ro: 'ingredient misterios' },
           quantity: 50,
           unit: { en: 'g', ro: 'g' },
+          // No ingredientId - should use fallback
         },
       ],
       instructions: { en: ['Test'], ro: ['Test'] },
@@ -380,6 +397,7 @@ describe('rounding behavior', () => {
       name: { en: 'salt', ro: 'sare' },
       quantity: 3,
       unit: { en: 'g', ro: 'g' },
+      ingredientId: 104,
     };
     
     const result = calculateIngredientCost(ingredient, 7, 'en', mockPrices);
@@ -395,6 +413,7 @@ describe('rounding behavior', () => {
       name: { en: 'flour', ro: 'făină' },
       quantity: 333,
       unit: { en: 'g', ro: 'g' },
+      ingredientId: 102,
     };
     
     const result = calculateIngredientCost(ingredient, 3, 'en', mockPrices);

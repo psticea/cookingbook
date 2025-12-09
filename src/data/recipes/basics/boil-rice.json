@@ -19,7 +19,8 @@
       "unit": {
         "ro": "cană",
         "en": "cup"
-      }
+      },
+      "ingredientId": 121
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "căni",
         "en": "cups"
-      }
+      },
+      "ingredientId": 106
     }
   ],
   "instructions": {
@@ -51,6 +53,11 @@
     "ro": "Rețetă de Nagi. Secretul pentru orez jasmine pufos este să folosești mai puțină apă decât de obicei pentru că este un orez mai moale - doar 1 1/4 căni pentru fiecare 1 cană de orez. Majoritatea rețetelor greșesc aici și orezul devine prea moale/lipicios. Clătirea este opțională - abia face diferență pentru pufozitate. Dacă clătești, trebuie să reduci apa cu 2 linguri pentru a compensa faptul că orezul devine înmuiat. 1 cană orez = 3 căni gătit = 3 până la 4 porții ca garnitură.",
     "en": "Recipe by Nagi. The key to fluffy jasmine rice is to use less water than usual because it's a softer rice - only 1 1/4 cups for each 1 cup of rice. Most recipes get this wrong and the rice is way too soft/gummy. Rinsing is optional - it barely makes a difference to fluffiness. If you rinse, you need to reduce water by 2 tablespoons to factor in that the rice becomes waterlogged. 1 cup rice = 3 cups cooked = 3 to 4 servings as a side."
   },
-  "keywords": ["easy", "vegetarian", "boiling", "rice"],
+  "keywords": [
+    "easy",
+    "vegetarian",
+    "boiling",
+    "rice"
+  ],
   "dateAdded": "2025-11-17"
 }

@@ -19,7 +19,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 160
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "linguri",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 112
     },
     {
       "name": {
@@ -41,7 +43,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 161
     },
     {
       "name": {
@@ -52,7 +55,8 @@
       "unit": {
         "ro": "linguri",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 158
     },
     {
       "name": {
@@ -63,7 +67,8 @@
       "unit": {
         "ro": "linguri",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 116
     },
     {
       "name": {
@@ -74,7 +79,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 113
     },
     {
       "name": {
@@ -106,6 +112,10 @@
     "ro": "Credit pentru această rețetă îi revine lui Rebeca, care a învățat rețeta de la un influencer de Instagram.",
     "en": "Credit for this recipe goes to Rebeca, who learned the recipe from an Instagram influencer."
   },
-  "keywords": ["easy", "fish", "no-cook"],
+  "keywords": [
+    "easy",
+    "fish",
+    "no-cook"
+  ],
   "dateAdded": "2025-11-17"
 }

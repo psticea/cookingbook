@@ -19,7 +19,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 142
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "linguri",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 101
     },
     {
       "name": {
@@ -41,7 +43,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 105
     },
     {
       "name": {
@@ -52,7 +55,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 147
     },
     {
       "name": {
@@ -63,7 +67,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 104
     },
     {
       "name": {
@@ -74,7 +79,8 @@
       "unit": {
         "ro": "cană",
         "en": "cup"
-      }
+      },
+      "ingredientId": 116
     },
     {
       "name": {
@@ -85,7 +91,8 @@
       "unit": {
         "ro": "linguri",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 103
     },
     {
       "name": {
@@ -96,7 +103,8 @@
       "unit": {
         "ro": "lingură",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 148
     },
     {
       "name": {
@@ -143,6 +151,12 @@
     "ro": "Rețetă de la: One-Pan Roasted Chicken and Potatoes | Kenji's Cooking Show",
     "en": "Recipe from: One-Pan Roasted Chicken and Potatoes | Kenji's Cooking Show"
   },
-  "keywords": ["medium", "chicken", "oven-baked", "potatoes", "olive-oil"],
+  "keywords": [
+    "medium",
+    "chicken",
+    "oven-baked",
+    "potatoes",
+    "olive-oil"
+  ],
   "dateAdded": "2025-11-17"
 }

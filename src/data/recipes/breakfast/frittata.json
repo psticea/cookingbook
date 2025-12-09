@@ -19,7 +19,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 122
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "cană",
         "en": "cup"
-      }
+      },
+      "ingredientId": 123
     },
     {
       "name": {
@@ -41,7 +43,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 100
     },
     {
       "name": {
@@ -63,7 +66,8 @@
       "unit": {
         "ro": "linguri",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 117
     },
     {
       "name": {
@@ -74,7 +78,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 108
     },
     {
       "name": {
@@ -85,7 +90,8 @@
       "unit": {
         "ro": "căni",
         "en": "cups"
-      }
+      },
+      "ingredientId": 124
     },
     {
       "name": {
@@ -96,7 +102,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 125
     },
     {
       "name": {
@@ -107,7 +114,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 126
     }
   ],
   "instructions": {
@@ -134,6 +142,10 @@
     "ro": "Rețetă de la: https://www.budgetbytes.com/how-to-make-a-frittata/",
     "en": "Recipe from: https://www.budgetbytes.com/how-to-make-a-frittata/"
   },
-  "keywords": ["easy", "vegetarian", "pan-fry"],
+  "keywords": [
+    "easy",
+    "vegetarian",
+    "pan-fry"
+  ],
   "dateAdded": "2025-11-17"
 }

@@ -19,7 +19,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 140
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 100
     },
     {
       "name": {
@@ -52,7 +54,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 110
     },
     {
       "name": {
@@ -63,7 +66,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 141
     },
     {
       "name": {
@@ -74,7 +78,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 104
     },
     {
       "name": {
@@ -85,7 +90,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 142
     },
     {
       "name": {
@@ -96,7 +102,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 100
     },
     {
       "name": {
@@ -107,7 +114,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 102
     },
     {
       "name": {
@@ -118,7 +126,8 @@
       "unit": {
         "ro": "cană",
         "en": "cup"
-      }
+      },
+      "ingredientId": 143
     },
     {
       "name": {
@@ -129,7 +138,8 @@
       "unit": {
         "ro": "cană",
         "en": "cup"
-      }
+      },
+      "ingredientId": 144
     },
     {
       "name": {
@@ -140,7 +150,8 @@
       "unit": {
         "ro": "cană",
         "en": "cup"
-      }
+      },
+      "ingredientId": 145
     },
     {
       "name": {
@@ -151,7 +162,8 @@
       "unit": {
         "ro": "linguri",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 101
     },
     {
       "name": {
@@ -162,7 +174,8 @@
       "unit": {
         "ro": "cană",
         "en": "cup"
-      }
+      },
+      "ingredientId": 146
     }
   ],
   "instructions": {
@@ -197,6 +210,13 @@
     "ro": "Credit pentru această rețetă îi revine lui Nagi. Rețeta originală: https://www.recipetineats.com/creamy-baked-fish-on-potato-gratin/#recipe",
     "en": "Credit for this recipe goes to Nagi. Original recipe: https://www.recipetineats.com/creamy-baked-fish-on-potato-gratin/#recipe"
   },
-  "keywords": ["medium", "fish", "oven-baked", "potatoes", "cooking-cream", "olive-oil"],
+  "keywords": [
+    "medium",
+    "fish",
+    "oven-baked",
+    "potatoes",
+    "cooking-cream",
+    "olive-oil"
+  ],
   "dateAdded": "2025-11-17"
 }
