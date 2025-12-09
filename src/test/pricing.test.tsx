@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   fuzzyMatchIngredient,
+  matchIngredientById,
   calculateIngredientCost,
   calculateRecipeCost,
   formatPrice,
@@ -14,32 +15,60 @@ import { Recipe, Ingredient } from '../types/recipe';
 const mockPrices: PricesData = {
   ingredients: {
     olive_oil: {
+      id: 101,
       name: 'Olive oil',
       unit_type: 'volume',
       price_per_1000: 15.0,
     },
     flour: {
+      id: 102,
       name: 'White flour',
       unit_type: 'mass',
       price_per_1000: 3.0,
     },
     eggs: {
+      id: 103,
       name: 'Eggs',
       unit_type: 'piece',
       price_per_piece: 0.8,
     },
     salt: {
+      id: 104,
       name: 'Salt',
       unit_type: 'mass',
       price_per_1000: 1.5,
     },
     chicken: {
+      id: 105,
       name: 'Chicken breast',
       unit_type: 'mass',
       price_per_1000: 25.0,
     },
   },
 };
+
+describe('matchIngredientById', () => {
+  it('matches ingredient by exact ID', () => {
+    const result = matchIngredientById(101, mockPrices);
+    expect(result).toBeDefined();
+    expect(result?.name).toBe('Olive oil');
+  });
+
+  it('returns undefined for non-existent ID', () => {
+    const result = matchIngredientById(999, mockPrices);
+    expect(result).toBeUndefined();
+  });
+
+  it('matches different ingredient types', () => {
+    const oil = matchIngredientById(101, mockPrices);
+    const flour = matchIngredientById(102, mockPrices);
+    const eggs = matchIngredientById(103, mockPrices);
+    
+    expect(oil?.name).toBe('Olive oil');
+    expect(flour?.name).toBe('White flour');
+    expect(eggs?.name).toBe('Eggs');
+  });
+});
 
 describe('fuzzyMatchIngredient', () => {
   it('matches ingredient by exact key', () => {
@@ -108,6 +137,35 @@ describe('calculateIngredientCost - mass ingredients', () => {
     expect(result.matched).toBe(true);
     expect(result.costPerRecipe).toBe(0.75); // (250/1000) * 3.0 = 0.75
     expect(result.costPerServing).toBe(0.19); // 0.75 / 4 = 0.1875, rounded to 0.19
+  });
+
+  it('prefers ID matching over fuzzy matching', () => {
+    const ingredient: Ingredient = {
+      name: { en: 'unknown name', ro: 'nume necunoscut' },
+      quantity: 250,
+      unit: { en: 'g', ro: 'g' },
+      ingredientId: 102, // flour ID
+    };
+    
+    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
+    
+    expect(result.matched).toBe(true);
+    expect(result.costPerRecipe).toBe(0.75); // Matched by ID, not name
+    expect(result.costPerServing).toBe(0.19);
+  });
+
+  it('falls back to fuzzy matching if ID not found', () => {
+    const ingredient: Ingredient = {
+      name: { en: 'white flour', ro: 'făină albă' },
+      quantity: 250,
+      unit: { en: 'g', ro: 'g' },
+      ingredientId: 999, // Non-existent ID
+    };
+    
+    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
+    
+    expect(result.matched).toBe(true); // Still matched via fuzzy
+    expect(result.costPerRecipe).toBe(0.75);
   });
 
   it('calculates cost for kilograms', () => {

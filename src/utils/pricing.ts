@@ -95,6 +95,23 @@ function longestCommonSubstring(str1: string, str2: string): number {
 }
 
 /**
+ * Match ingredient by ID to price config entries
+ * Returns the price config with matching ID, or undefined if not found
+ */
+export function matchIngredientById(
+  ingredientId: number,
+  prices: PricesData = pricesData as PricesData
+): PriceConfig | undefined {
+  // Find the price entry with matching ID
+  for (const config of Object.values(prices.ingredients)) {
+    if (config.id === ingredientId) {
+      return config;
+    }
+  }
+  return undefined;
+}
+
+/**
  * Fuzzy match an ingredient name to price config entries
  * Returns the best matching price config, or undefined if no match
  */
@@ -203,8 +220,16 @@ export function calculateIngredientCost(
   const ingredientName = ingredient.name[language];
   const unit = ingredient.unit[language];
   
-  // Try to find a matching price
-  const priceConfig = fuzzyMatchIngredient(ingredientName, prices);
+  // Try to match by ID first (preferred method)
+  let priceConfig: PriceConfig | undefined;
+  if (ingredient.ingredientId !== undefined) {
+    priceConfig = matchIngredientById(ingredient.ingredientId, prices);
+  }
+  
+  // Fall back to fuzzy matching if no ID or ID not found
+  if (!priceConfig) {
+    priceConfig = fuzzyMatchIngredient(ingredientName, prices);
+  }
   
   if (!priceConfig) {
     // Use fallback: 0.2 RON per serving

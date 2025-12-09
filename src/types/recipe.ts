@@ -10,6 +10,7 @@ export interface Ingredient {
   name: MultilingualText;
   quantity: number;
   unit: MultilingualText;
+  ingredientId?: number; // Optional 3-digit ingredient ID for price matching
 }
 
 export interface IngredientSection {
