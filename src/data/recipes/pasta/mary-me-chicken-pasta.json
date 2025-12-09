@@ -19,7 +19,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 149
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 108
     },
     {
       "name": {
@@ -41,7 +43,8 @@
       "unit": {
         "ro": "căței",
         "en": "cloves"
-      }
+      },
+      "ingredientId": 104
     },
     {
       "name": {
@@ -52,7 +55,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 150
     },
     {
       "name": {
@@ -63,7 +67,8 @@
       "unit": {
         "ro": "ml",
         "en": "ml"
-      }
+      },
+      "ingredientId": 151
     },
     {
       "name": {
@@ -74,7 +79,8 @@
       "unit": {
         "ro": "ml",
         "en": "ml"
-      }
+      },
+      "ingredientId": 144
     },
     {
       "name": {
@@ -85,7 +91,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 146
     },
     {
       "name": {
@@ -96,7 +103,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 100
     },
     {
       "name": {
@@ -107,7 +115,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 102
     },
     {
       "name": {
@@ -118,7 +127,8 @@
       "unit": {
         "ro": "ml",
         "en": "ml"
-      }
+      },
+      "ingredientId": 117
     },
     {
       "name": {
@@ -129,7 +139,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 110
     },
     {
       "name": {
@@ -140,7 +151,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 111
     },
     {
       "name": {
@@ -151,7 +163,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 103
     },
     {
       "name": {
@@ -162,7 +175,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 152
     },
     {
       "name": {
@@ -173,7 +187,8 @@
       "unit": {
         "ro": "lingură",
         "en": "tbsp"
-      }
+      },
+      "ingredientId": 153
     },
     {
       "name": {
@@ -184,7 +199,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 154
     }
   ],
   "instructions": {
@@ -209,6 +225,14 @@
     "ro": "Unele roșii uscate la soare sunt mai bune decât altele. Eu folosesc doar Roșii Uscate la Soare Franz Josef Exclusive (găsite la Kaufland sau online).\n\nRețetă inspirată de: https://littlesunnykitchen.com/marry-me-chicken",
     "en": "Some sundried tomatoes are better than others. I only use Sundried Tomatoes Franz Josef Exclusive (found at Kaufland or online).\n\nRecipe inspired by: https://littlesunnykitchen.com/marry-me-chicken"
   },
-  "keywords": ["medium", "chicken", "pan-fry", "pasta", "cooking-cream", "chicken-stock", "olive-oil"],
+  "keywords": [
+    "medium",
+    "chicken",
+    "pan-fry",
+    "pasta",
+    "cooking-cream",
+    "chicken-stock",
+    "olive-oil"
+  ],
   "dateAdded": "2025-11-17"
 }

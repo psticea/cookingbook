@@ -19,7 +19,8 @@
       "unit": {
         "ro": "căni",
         "en": "cups"
-      }
+      },
+      "ingredientId": 121
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 117
     },
     {
       "name": {
@@ -41,7 +43,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 122
     },
     {
       "name": {
@@ -52,7 +55,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 185
     },
     {
       "name": {
@@ -63,7 +67,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 108
     },
     {
       "name": {
@@ -74,7 +79,8 @@
       "unit": {
         "ro": "căței",
         "en": "cloves"
-      }
+      },
+      "ingredientId": 104
     },
     {
       "name": {
@@ -96,7 +102,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 113
     },
     {
       "name": {
@@ -107,7 +114,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 107
     },
     {
       "name": {
@@ -118,7 +126,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 118
     },
     {
       "name": {
@@ -129,7 +138,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 183
     }
   ],
   "instructions": {

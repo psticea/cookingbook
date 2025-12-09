@@ -19,7 +19,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 167
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 168
     },
     {
       "name": {
@@ -41,7 +43,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 108
     },
     {
       "name": {
@@ -52,7 +55,8 @@
       "unit": {
         "ro": "căței",
         "en": "cloves"
-      }
+      },
+      "ingredientId": 104
     },
     {
       "name": {
@@ -63,7 +67,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 169
     },
     {
       "name": {
@@ -74,7 +79,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 170
     },
     {
       "name": {
@@ -85,7 +91,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 171
     },
     {
       "name": {
@@ -96,7 +103,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 172
     },
     {
       "name": {
@@ -107,7 +115,8 @@
       "unit": {
         "ro": "legătură",
         "en": "bunch"
-      }
+      },
+      "ingredientId": 116
     },
     {
       "name": {
@@ -118,7 +127,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 173
     },
     {
       "name": {
@@ -129,7 +139,8 @@
       "unit": {
         "ro": "mână",
         "en": "handful"
-      }
+      },
+      "ingredientId": 116
     },
     {
       "name": {

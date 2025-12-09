@@ -19,7 +19,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 149
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "ml",
         "en": "ml"
-      }
+      },
+      "ingredientId": 174
     },
     {
       "name": {
@@ -41,7 +43,8 @@
       "unit": {
         "ro": "căței",
         "en": "cloves"
-      }
+      },
+      "ingredientId": 104
     },
     {
       "name": {
@@ -52,7 +55,8 @@
       "unit": {
         "ro": "ml",
         "en": "ml"
-      }
+      },
+      "ingredientId": 175
     },
     {
       "name": {
@@ -63,7 +67,8 @@
       "unit": {
         "ro": "ml",
         "en": "ml"
-      }
+      },
+      "ingredientId": 176
     },
     {
       "name": {
@@ -74,7 +79,8 @@
       "unit": {
         "ro": "lingură",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 111
     },
     {
       "name": {
@@ -85,7 +91,8 @@
       "unit": {
         "ro": "lingură",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 114
     },
     {
       "name": {
@@ -96,7 +103,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 103
     },
     {
       "name": {
@@ -129,7 +137,8 @@
       "unit": {
         "ro": "cană",
         "en": "cup"
-      }
+      },
+      "ingredientId": 106
     },
     {
       "name": {
@@ -140,7 +149,8 @@
       "unit": {
         "ro": "căni (600 g orez uscat)",
         "en": "cups (600 g dry rice)"
-      }
+      },
+      "ingredientId": 121
     },
     {
       "name": {
@@ -151,7 +161,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 139
     },
     {
       "name": {
@@ -162,7 +173,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 113
     },
     {
       "name": {
@@ -173,7 +185,8 @@
       "unit": {
         "ro": "după necesitate",
         "en": "as needed"
-      }
+      },
+      "ingredientId": 166
     }
   ],
   "instructions": {

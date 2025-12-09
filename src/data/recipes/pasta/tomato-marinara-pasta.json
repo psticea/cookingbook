@@ -19,7 +19,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 154
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 108
     },
     {
       "name": {
@@ -41,7 +43,8 @@
       "unit": {
         "ro": "căței",
         "en": "cloves"
-      }
+      },
+      "ingredientId": 104
     },
     {
       "name": {
@@ -52,7 +55,8 @@
       "unit": {
         "ro": "linguri",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 101
     },
     {
       "name": {
@@ -74,7 +78,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 125
     },
     {
       "name": {
@@ -85,7 +90,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 146
     },
     {
       "name": {
@@ -96,7 +102,8 @@
       "unit": {
         "ro": "cană",
         "en": "cup"
-      }
+      },
+      "ingredientId": 116
     },
     {
       "name": {
@@ -107,7 +114,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 149
     }
   ],
   "instructions": {
@@ -132,6 +140,12 @@
     "ro": "Rețetă de la: https://prohomecooks.com/blogs/recipes/4-easy-recipes-to-make-when-you-have-no-time",
     "en": "Recipe from: https://prohomecooks.com/blogs/recipes/4-easy-recipes-to-make-when-you-have-no-time"
   },
-  "keywords": ["easy", "vegetarian", "boiling", "pasta", "olive-oil"],
+  "keywords": [
+    "easy",
+    "vegetarian",
+    "boiling",
+    "pasta",
+    "olive-oil"
+  ],
   "dateAdded": "2025-11-17"
 }

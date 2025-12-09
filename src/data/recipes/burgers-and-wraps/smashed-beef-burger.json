@@ -19,7 +19,8 @@
       "unit": {
         "ro": "g",
         "en": "g"
-      }
+      },
+      "ingredientId": 133
     },
     {
       "name": {
@@ -30,7 +31,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 108
     },
     {
       "name": {
@@ -41,7 +43,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 134
     },
     {
       "name": {
@@ -52,7 +55,8 @@
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 135
     },
     {
       "name": {
@@ -63,7 +67,8 @@
       "unit": {
         "ro": "linguri",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 109
     },
     {
       "name": {
@@ -74,7 +79,8 @@
       "unit": {
         "ro": "lingură",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 136
     },
     {
       "name": {
@@ -85,7 +91,8 @@
       "unit": {
         "ro": "lingură",
         "en": "Tbsp"
-      }
+      },
+      "ingredientId": 137
     },
     {
       "name": {
@@ -118,7 +125,8 @@
       "unit": {
         "ro": "felii",
         "en": "slices"
-      }
+      },
+      "ingredientId": 139
     },
     {
       "name": {
@@ -129,7 +137,8 @@
       "unit": {
         "ro": "felii",
         "en": "slices"
-      }
+      },
+      "ingredientId": 125
     },
     {
       "name": {
@@ -169,6 +178,10 @@
     "ro": "Rețetă de la: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals",
     "en": "Recipe from: https://prohomecooks.com/blogs/recipes/ethans-15-minute-meals"
   },
-  "keywords": ["easy", "beef", "pan-fry"],
+  "keywords": [
+    "easy",
+    "beef",
+    "pan-fry"
+  ],
   "dateAdded": "2025-11-17"
 }

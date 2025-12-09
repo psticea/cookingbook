@@ -10,19 +10,19 @@
       "id": 101,
       "name": "Olive oil",
       "unit_type": "volume",
-      "price_per_1000": 15.0
+      "price_per_1000": 15
     },
     "pepper": {
       "id": 102,
       "name": "Black pepper",
       "unit_type": "mass",
-      "price_per_1000": 45.0
+      "price_per_1000": 45
     },
     "oregano": {
       "id": 103,
       "name": "Dried oregano",
       "unit_type": "mass",
-      "price_per_1000": 35.0
+      "price_per_1000": 35
     },
     "garlic": {
       "id": 104,
@@ -46,7 +46,7 @@
       "id": 107,
       "name": "Soy sauce",
       "unit_type": "volume",
-      "price_per_1000": 8.0
+      "price_per_1000": 8
     },
     "onion": {
       "id": 108,
@@ -58,25 +58,25 @@
       "id": 109,
       "name": "Mayonnaise",
       "unit_type": "volume",
-      "price_per_1000": 12.0
+      "price_per_1000": 12
     },
     "butter": {
       "id": 110,
       "name": "Butter",
       "unit_type": "mass",
-      "price_per_1000": 20.0
+      "price_per_1000": 20
     },
     "chili": {
       "id": 111,
       "name": "Chili flakes",
       "unit_type": "mass",
-      "price_per_1000": 40.0
+      "price_per_1000": 40
     },
     "sour_cream": {
       "id": 112,
       "name": "Sour cream",
       "unit_type": "volume",
-      "price_per_1000": 10.0
+      "price_per_1000": 10
     },
     "green_onion": {
       "id": 113,
@@ -88,49 +88,49 @@
       "id": 114,
       "name": "Ground cumin",
       "unit_type": "mass",
-      "price_per_1000": 30.0
+      "price_per_1000": 30
     },
     "sugar": {
       "id": 115,
       "name": "Sugar",
       "unit_type": "mass",
-      "price_per_1000": 4.0
+      "price_per_1000": 4
     },
     "parsley": {
       "id": 116,
       "name": "Parsley",
       "unit_type": "mass",
-      "price_per_1000": 15.0
+      "price_per_1000": 15
     },
     "vegetable_oil": {
       "id": 117,
       "name": "Vegetable oil",
       "unit_type": "volume",
-      "price_per_1000": 8.0
+      "price_per_1000": 8
     },
     "sesame_oil": {
       "id": 118,
       "name": "Sesame oil",
       "unit_type": "volume",
-      "price_per_1000": 25.0
+      "price_per_1000": 25
     },
     "wine": {
       "id": 119,
       "name": "Cooking wine",
       "unit_type": "volume",
-      "price_per_1000": 12.0
+      "price_per_1000": 12
     },
     "cornstarch": {
       "id": 120,
       "name": "Cornstarch",
       "unit_type": "mass",
-      "price_per_1000": 6.0
+      "price_per_1000": 6
     },
     "rice": {
       "id": 121,
       "name": "Rice",
       "unit_type": "mass",
-      "price_per_1000": 5.0
+      "price_per_1000": 5
     },
     "egg": {
       "id": 122,
@@ -142,37 +142,37 @@
       "id": 123,
       "name": "Milk",
       "unit_type": "volume",
-      "price_per_1000": 6.0
+      "price_per_1000": 6
     },
     "spinach": {
       "id": 124,
       "name": "Spinach",
       "unit_type": "mass",
-      "price_per_1000": 12.0
+      "price_per_1000": 12
     },
     "tomato": {
       "id": 125,
       "name": "Tomatoes",
       "unit_type": "mass",
-      "price_per_1000": 8.0
+      "price_per_1000": 8
     },
     "feta": {
       "id": 126,
       "name": "Feta cheese",
       "unit_type": "mass",
-      "price_per_1000": 25.0
+      "price_per_1000": 25
     },
     "oats": {
       "id": 127,
       "name": "Rolled oats",
       "unit_type": "mass",
-      "price_per_1000": 5.0
+      "price_per_1000": 5
     },
     "yogurt": {
       "id": 128,
       "name": "Yogurt",
       "unit_type": "volume",
-      "price_per_1000": 8.0
+      "price_per_1000": 8
     },
     "banana": {
       "id": 129,
@@ -184,25 +184,25 @@
       "id": 130,
       "name": "Pineapple",
       "unit_type": "piece",
-      "price_per_piece": 8.0
+      "price_per_piece": 8
     },
     "mango": {
       "id": 131,
       "name": "Mango",
       "unit_type": "piece",
-      "price_per_piece": 6.0
+      "price_per_piece": 6
     },
     "coconut": {
       "id": 132,
       "name": "Shredded coconut",
       "unit_type": "mass",
-      "price_per_1000": 15.0
+      "price_per_1000": 15
     },
     "ground_beef": {
       "id": 133,
       "name": "Ground beef",
       "unit_type": "mass",
-      "price_per_1000": 28.0
+      "price_per_1000": 28
     },
     "bun": {
       "id": 134,
@@ -214,31 +214,307 @@
       "id": 135,
       "name": "Broccoli",
       "unit_type": "mass",
-      "price_per_1000": 10.0
+      "price_per_1000": 10
     },
     "mustard": {
       "id": 136,
       "name": "Mustard",
       "unit_type": "volume",
-      "price_per_1000": 10.0
+      "price_per_1000": 10
     },
     "pickle": {
       "id": 137,
       "name": "Pickles",
       "unit_type": "mass",
-      "price_per_1000": 12.0
+      "price_per_1000": 12
     },
     "paprika": {
       "id": 138,
       "name": "Paprika",
       "unit_type": "mass",
-      "price_per_1000": 30.0
+      "price_per_1000": 30
     },
     "cheese": {
       "id": 139,
       "name": "Cheese",
       "unit_type": "mass",
-      "price_per_1000": 22.0
+      "price_per_1000": 22
+    },
+    "white_fish": {
+      "id": 140,
+      "name": "White fish fillet",
+      "unit_type": "mass",
+      "price_per_1000": 35
+    },
+    "leek": {
+      "id": 141,
+      "name": "Leek",
+      "unit_type": "piece",
+      "price_per_piece": 2
+    },
+    "potato": {
+      "id": 142,
+      "name": "Potatoes",
+      "unit_type": "mass",
+      "price_per_1000": 4
+    },
+    "vegetable_stock": {
+      "id": 143,
+      "name": "Vegetable stock",
+      "unit_type": "volume",
+      "price_per_1000": 7
+    },
+    "cream": {
+      "id": 144,
+      "name": "Cooking cream",
+      "unit_type": "volume",
+      "price_per_1000": 12
+    },
+    "panko": {
+      "id": 145,
+      "name": "Panko breadcrumbs",
+      "unit_type": "mass",
+      "price_per_1000": 12
+    },
+    "parmesan": {
+      "id": 146,
+      "name": "Parmesan cheese",
+      "unit_type": "mass",
+      "price_per_1000": 45
+    },
+    "chicken_thigh": {
+      "id": 147,
+      "name": "Chicken thigh",
+      "unit_type": "piece",
+      "price_per_piece": 3
+    },
+    "garlic_powder": {
+      "id": 148,
+      "name": "Garlic powder",
+      "unit_type": "mass",
+      "price_per_1000": 20
+    },
+    "chicken_breast": {
+      "id": 149,
+      "name": "Chicken breast",
+      "unit_type": "mass",
+      "price_per_1000": 28
+    },
+    "sundried_tomato": {
+      "id": 150,
+      "name": "Sundried tomatoes",
+      "unit_type": "mass",
+      "price_per_1000": 40
+    },
+    "chicken_stock": {
+      "id": 151,
+      "name": "Chicken stock",
+      "unit_type": "volume",
+      "price_per_1000": 8
+    },
+    "thyme": {
+      "id": 152,
+      "name": "Thyme",
+      "unit_type": "mass",
+      "price_per_1000": 30
+    },
+    "basil": {
+      "id": 153,
+      "name": "Fresh basil",
+      "unit_type": "mass",
+      "price_per_1000": 20
+    },
+    "pasta": {
+      "id": 154,
+      "name": "Pasta",
+      "unit_type": "mass",
+      "price_per_1000": 8
+    },
+    "romaine_lettuce": {
+      "id": 155,
+      "name": "Romaine lettuce",
+      "unit_type": "mass",
+      "price_per_1000": 12
+    },
+    "red_onion": {
+      "id": 156,
+      "name": "Red onion",
+      "unit_type": "piece",
+      "price_per_piece": 0.8
+    },
+    "chickpea": {
+      "id": 157,
+      "name": "Chickpeas",
+      "unit_type": "mass",
+      "price_per_1000": 8
+    },
+    "lemon_juice": {
+      "id": 158,
+      "name": "Lemon juice",
+      "unit_type": "volume",
+      "price_per_1000": 10
+    },
+    "vinegar": {
+      "id": 159,
+      "name": "Vinegar",
+      "unit_type": "volume",
+      "price_per_1000": 6
+    },
+    "cream_cheese": {
+      "id": 160,
+      "name": "Cream cheese",
+      "unit_type": "mass",
+      "price_per_1000": 20
+    },
+    "tuna_can": {
+      "id": 161,
+      "name": "Canned tuna",
+      "unit_type": "mass",
+      "price_per_1000": 25
+    },
+    "turmeric": {
+      "id": 162,
+      "name": "Turmeric",
+      "unit_type": "mass",
+      "price_per_1000": 25
+    },
+    "garam_masala": {
+      "id": 163,
+      "name": "Garam masala",
+      "unit_type": "mass",
+      "price_per_1000": 40
+    },
+    "ginger": {
+      "id": 164,
+      "name": "Ginger",
+      "unit_type": "mass",
+      "price_per_1000": 18
+    },
+    "tomato_passata": {
+      "id": 165,
+      "name": "Tomato passata",
+      "unit_type": "volume",
+      "price_per_1000": 8
+    },
+    "chicken_drumstick": {
+      "id": 166,
+      "name": "Chicken drumstick",
+      "unit_type": "piece",
+      "price_per_piece": 2.5
+    },
+    "carrot": {
+      "id": 167,
+      "name": "Carrots",
+      "unit_type": "mass",
+      "price_per_1000": 5
+    },
+    "parsley_root": {
+      "id": 168,
+      "name": "Parsley root",
+      "unit_type": "piece",
+      "price_per_piece": 1.5
+    },
+    "celery_root": {
+      "id": 169,
+      "name": "Celery root",
+      "unit_type": "piece",
+      "price_per_piece": 3
+    },
+    "peppercorn": {
+      "id": 170,
+      "name": "Whole peppercorns",
+      "unit_type": "mass",
+      "price_per_1000": 40
+    },
+    "bay_leaf": {
+      "id": 171,
+      "name": "Bay leaf",
+      "unit_type": "piece",
+      "price_per_piece": 0.1
+    },
+    "noodles": {
+      "id": 172,
+      "name": "Noodles",
+      "unit_type": "mass",
+      "price_per_1000": 10
+    },
+    "salsa": {
+      "id": 173,
+      "name": "Salsa",
+      "unit_type": "volume",
+      "price_per_1000": 12
+    },
+    "black_beans_can": {
+      "id": 174,
+      "name": "Canned black beans",
+      "unit_type": "volume",
+      "price_per_1000": 8
+    },
+    "corn_can": {
+      "id": 175,
+      "name": "Canned corn",
+      "unit_type": "volume",
+      "price_per_1000": 7
+    },
+    "chili_powder": {
+      "id": 176,
+      "name": "Chili powder",
+      "unit_type": "mass",
+      "price_per_1000": 35
+    },
+    "beef_chuck": {
+      "id": 177,
+      "name": "Beef chuck",
+      "unit_type": "mass",
+      "price_per_1000": 35
+    },
+    "bell_pepper": {
+      "id": 178,
+      "name": "Bell pepper",
+      "unit_type": "piece",
+      "price_per_piece": 2.5
+    },
+    "beef_stock": {
+      "id": 179,
+      "name": "Beef stock",
+      "unit_type": "volume",
+      "price_per_1000": 10
+    },
+    "bacon": {
+      "id": 180,
+      "name": "Bacon",
+      "unit_type": "mass",
+      "price_per_1000": 30
+    },
+    "dill": {
+      "id": 181,
+      "name": "Dill",
+      "unit_type": "mass",
+      "price_per_1000": 15
+    },
+    "egg_yolk": {
+      "id": 182,
+      "name": "Egg yolk",
+      "unit_type": "piece",
+      "price_per_piece": 0.3
+    },
+    "oyster_sauce": {
+      "id": 183,
+      "name": "Oyster sauce",
+      "unit_type": "volume",
+      "price_per_1000": 10
+    },
+    "chicken_bouillon": {
+      "id": 184,
+      "name": "Chicken bouillon",
+      "unit_type": "mass",
+      "price_per_1000": 15
+    },
+    "carrot_peas_mix": {
+      "id": 185,
+      "name": "Frozen carrots and peas",
+      "unit_type": "mass",
+      "price_per_1000": 10
     }
   }
 }
