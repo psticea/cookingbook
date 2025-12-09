@@ -50,16 +50,19 @@ Create a new JSON prices file (e.g. `config/prices.json`), containing:
 {
   "ingredients": {
     "olive_oil": {
+      "id": 100,
       "name": "Olive oil",
       "unit_type": "volume",
       "price_per_1000": 6.5
     },
     "flour_white": {
+      "id": 101,
       "name": "White flour",
       "unit_type": "mass",
       "price_per_1000": 1.2
     },
     "egg": {
+      "id": 102,
       "name": "Egg",
       "unit_type": "piece",
       "price_per_piece": 0.8
@@ -104,32 +107,47 @@ Recipes may already exist in another format (YAML, Markdown frontmatter, etc.). 
 
 ---
 
-## Ingredient Matching (Fuzzy)
+## Ingredient Matching (ID-Based)
 
-Ingredients in recipes **do not need to exactly match** the IDs in `prices.json`. Matching is **fuzzy**:
+Ingredients in recipes are matched to prices using a **3-digit ingredient ID**:
 
-- For each recipe ingredient name (e.g. `"white flour"`), the system should try to find an ingredient in `prices.json` where:
-  - There exists a common substring of at least **4 consecutive letters** between:
-    - The recipe ingredient name, and
-    - Either the ingredient ID (key) or its `"name"` field in the JSON file.
-- Matching should be **case-insensitive** and may ignore non-letter characters (implementation detail left to the agent).
+- Each ingredient in a recipe has an `ingredientId` field (3-digit number: 100-999)
+- Each ingredient in `prices.json` has a corresponding `id` field (3-digit number)
+- Matching is done by exact ID match: `recipe.ingredient.ingredientId === prices.ingredients[key].id`
 
-**Example fuzzy matches:**
+**Example:**
 
-- `"white flour"` ↔ `"flour_white"` (common substring `"flou"` or `"flour"`)
-- `"extra virgin olive oil"` ↔ `"olive_oil"` (common substring `"oliv"` or `"olive"`)
-- `"whole milk 3.5%"` ↔ `"milk"` (common substring `"milk"`)
+Recipe ingredient:
+```json
+{
+  "name": "white flour",
+  "quantity": 250,
+  "unit": "g",
+  "ingredientId": 101
+}
+```
 
-If multiple candidates match:
+Prices entry:
+```json
+{
+  "ingredients": {
+    "flour_white": {
+      "id": 101,
+      "name": "White flour",
+      "unit_type": "mass",
+      "price_per_1000": 1.2
+    }
+  }
+}
+```
 
-- The agent should define a deterministic strategy, e.g.:
-  - Prefer the longest common substring,
-  - Or prefer an exact word match before substring,
-  - Or log a warning for ambiguous matches.
-
-If **no ingredient** from `prices.json` has a matching 4-letter substring:
+If **no ingredient** from `prices.json` has a matching ID:
 
 - That ingredient is considered **missing-priced** and will use the fallback rule below.
+
+**Legacy Support (Deprecated):**
+
+For backward compatibility, if an ingredient does not have an `ingredientId` field, the system falls back to fuzzy name matching (4 consecutive letters). This is deprecated and will be removed in future versions.
 
 ---
 
@@ -296,6 +314,7 @@ Styling details (color, font size, parentheses, tooltips) are left to the implem
      - Top-level `"ingredients"` object.
      - Each key is an ingredient ID (string).
      - Each value is an object:
+       - `"id"`: number (3-digit ingredient ID: 100-999)
        - `"name"`: string (human-friendly name)
        - `"unit_type"`: `"mass"`, `"volume"`, or `"piece"`
        - For `"mass"` / `"volume"`:
@@ -303,17 +322,21 @@ Styling details (color, font size, parentheses, tooltips) are left to the implem
        - For `"piece"`:
          - `"price_per_piece"`: number (RON per piece)
 
-2. **Fuzzy ingredient matching**
-   - Implement case-insensitive fuzzy matching:
+2. **ID-based ingredient matching**
+   - Implement exact ID matching:
+     - Match recipe `ingredientId` with prices `id` field
+     - Each ingredient ID is a 3-digit number (100-999)
+   - For backward compatibility, fall back to fuzzy name matching if `ingredientId` is not present
+   - Legacy fuzzy matching (deprecated):
      - Match if there is a substring of at least **4 consecutive letters** shared between:
        - Recipe ingredient name
        - And either:
-         - Ingredient ID, or
+         - Ingredient key, or
          - Ingredient `"name"` in JSON.
    - Implement a deterministic tie-breaker for multiple matches.
    - Log or expose information when:
      - No match is found (fallback used),
-     - Multiple candidates are ambiguous (if relevant).
+     - Fuzzy matching is used (deprecated path).
 
 3. **Cost calculations**
    - Implement:
@@ -369,6 +392,31 @@ Styling details (color, font size, parentheses, tooltips) are left to the implem
 - How to expose warnings or logs for:
   - Ambiguous fuzzy matches.
   - Ingredients where the fallback cost is used.
+
+---
+
+## Additional Features
+
+### Ingredient Prices Page
+
+Create a new page (`/prices`) that displays all ingredients from `prices.json`:
+
+- Accessible from the side menu
+- Shows a table or list of all ingredients with their prices
+- Display columns:
+  - Ingredient ID (3-digit number)
+  - Ingredient name
+  - Unit type (mass/volume/piece)
+  - Price (formatted appropriately based on unit type)
+- Support both Romanian and English translations
+- Searchable/filterable by name or ID
+
+**UI Requirements:**
+- Clean, readable table layout
+- Responsive design for mobile
+- Sorted alphabetically by name (default)
+- Optional: Group by unit type
+- Add translation keys for "Ingredient Prices", "Price List", etc.
 
 ---
 
