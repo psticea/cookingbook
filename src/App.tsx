@@ -9,6 +9,7 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 const RecipePage = lazy(() => import('./pages/RecipePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const CookingBasicsPage = lazy(() => import('./pages/CookingBasicsPage'));
+const PricesPage = lazy(() => import('./pages/PricesPage'));
 
 // Loading fallback component
 const LoadingFallback: React.FC = () => (
@@ -30,6 +31,7 @@ function App() {
                   <Route path="/recipe/:id" element={<RecipePage />} />
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/cooking-basics" element={<CookingBasicsPage />} />
+                  <Route path="/prices" element={<PricesPage />} />
                 </Routes>
               </Suspense>
             </div>

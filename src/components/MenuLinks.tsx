@@ -30,6 +30,19 @@ export const MenuLinks: React.FC<MenuLinksProps> = ({ onLinkClick }) => {
         </Link>
       </div>
 
+      {/* Ingredient Prices - top-level section */}
+      <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
+        <Link
+          to="/prices"
+          onClick={onLinkClick}
+          className="w-full flex items-center justify-between py-2 text-left min-h-[44px] hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors px-2"
+        >
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+            {getTranslation('ingredientPrices', language)}
+          </h3>
+        </Link>
+      </div>
+
       {/* About - top-level section */}
       <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
         <Link
