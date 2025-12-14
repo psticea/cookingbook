@@ -83,14 +83,22 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   const markerPosition = ((servings - 1) / (8 - 1)) * 100;
 
   // Memoize ingredient costs to avoid recalculation on every render
+  // Note: Calculate costs based on ORIGINAL servings, then scale them for display
   const ingredientCosts = useMemo(() => {
     return ingredients.map((item) => {
       if (isIngredientItem(item)) {
-        return calculateIngredientCost(item, currentServings, language);
+        const cost = calculateIngredientCost(item, servings, language);
+        // Scale the cost to currentServings for display
+        const ratio = currentServings / servings;
+        return {
+          ...cost,
+          costPerRecipe: Math.round(cost.costPerRecipe * ratio * 100) / 100,
+          // costPerServing remains unchanged
+        };
       }
       return null;
     });
-  }, [ingredients, currentServings, language]);
+  }, [ingredients, currentServings, servings, language]);
 
   return (
     <section className="mb-6">
@@ -111,9 +119,9 @@ export const IngredientList: React.FC<IngredientListProps> = ({
           </div>
 
           {/* Price per serving */}
-          <div className="flex items-center gap-1" title={`${(pricePerServing * (currentServings / servings)).toFixed(2)} RON / serving`}>
+          <div className="flex items-center gap-1" title={`${pricePerServing.toFixed(2)} RON / serving`}>
             <span className="text-xl">💰</span>
-            <span className="text-base font-medium">{(pricePerServing * (currentServings / servings)).toFixed(2)} RON</span>
+            <span className="text-base font-medium">{pricePerServing.toFixed(2)} RON</span>
           </div>
         </div>
 
