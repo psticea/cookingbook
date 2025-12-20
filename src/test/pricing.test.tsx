@@ -30,7 +30,7 @@ const mockPrices: PricesData = {
     eggs: {
       id: 103,
       name: 'Eggs',
-      category: 'Dairy',
+      category: 'Proteins',
       unit_type: 'piece',
       price_per_piece: 0.8,
     },
@@ -434,7 +434,7 @@ describe('ingredient categorization', () => {
   it('assigns correct categories to ingredients', () => {
     expect(mockPrices.ingredients.olive_oil.category).toBe('Pantry');
     expect(mockPrices.ingredients.flour.category).toBe('Pantry');
-    expect(mockPrices.ingredients.eggs.category).toBe('Dairy');
+    expect(mockPrices.ingredients.eggs.category).toBe('Proteins');
     expect(mockPrices.ingredients.salt.category).toBe('Spices & Seasonings');
     expect(mockPrices.ingredients.chicken.category).toBe('Proteins');
   });

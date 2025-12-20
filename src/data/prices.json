@@ -157,7 +157,7 @@
     "egg": {
       "id": 122,
       "name": "Egg",
-      "category": "Dairy",
+      "category": "Proteins",
       "unit_type": "piece",
       "price_per_piece": 0.8
     },
@@ -577,7 +577,7 @@
     "egg_yolk": {
       "id": 182,
       "name": "Egg yolk",
-      "category": "Dairy",
+      "category": "Proteins",
       "unit_type": "piece",
       "price_per_piece": 0.3
     },
