@@ -1,0 +1,12 @@
+in the prices pages i want all ingredients to be split in 5 categories:
+Proteins 
+Dairy 
+Fruits and Vegetables
+Spices & Seasonings 
+Pantry 
+
+So each ingredient used for the prices page will have a new field in the json which is the category.
+and based on that the page will have the five categories with each ingredients under its category.
+
+Also odon't show the ingredient id in the page. tihs is just in the json to be internaly used for the matching on each recipe page. 
+but it should not be displayed to the user, it is meaningless for him
