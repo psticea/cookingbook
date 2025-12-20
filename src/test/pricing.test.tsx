@@ -16,30 +16,35 @@ const mockPrices: PricesData = {
     olive_oil: {
       id: 101,
       name: 'Olive oil',
+      category: 'Pantry',
       unit_type: 'volume',
       price_per_1000: 15.0,
     },
     flour: {
       id: 102,
       name: 'White flour',
+      category: 'Pantry',
       unit_type: 'mass',
       price_per_1000: 3.0,
     },
     eggs: {
       id: 103,
       name: 'Eggs',
+      category: 'Proteins',
       unit_type: 'piece',
       price_per_piece: 0.8,
     },
     salt: {
       id: 104,
       name: 'Salt',
+      category: 'Spices & Seasonings',
       unit_type: 'mass',
       price_per_1000: 1.5,
     },
     chicken: {
       id: 105,
       name: 'Chicken breast',
+      category: 'Proteins',
       unit_type: 'mass',
       price_per_1000: 25.0,
     },
@@ -422,5 +427,33 @@ describe('rounding behavior', () => {
     expect(result.costPerRecipe).toBe(1.0);
     // 0.999 / 3 = 0.333, rounds to 0.33
     expect(result.costPerServing).toBe(0.33);
+  });
+});
+
+describe('ingredient categorization', () => {
+  it('assigns correct categories to ingredients', () => {
+    expect(mockPrices.ingredients.olive_oil.category).toBe('Pantry');
+    expect(mockPrices.ingredients.flour.category).toBe('Pantry');
+    expect(mockPrices.ingredients.eggs.category).toBe('Proteins');
+    expect(mockPrices.ingredients.salt.category).toBe('Spices & Seasonings');
+    expect(mockPrices.ingredients.chicken.category).toBe('Proteins');
+  });
+
+  it('all categories are valid enum values', () => {
+    const validCategories = ['Proteins', 'Dairy', 'Fruits and Vegetables', 'Spices & Seasonings', 'Pantry'];
+    
+    Object.values(mockPrices.ingredients).forEach((ingredient) => {
+      expect(validCategories).toContain(ingredient.category);
+    });
+  });
+
+  it('all actual price data has valid categories', async () => {
+    const pricesData = await import('../data/prices.json');
+    const validCategories = ['Proteins', 'Dairy', 'Fruits and Vegetables', 'Spices & Seasonings', 'Pantry'];
+    
+    Object.values(pricesData.ingredients).forEach((ingredient: any) => {
+      expect(ingredient).toHaveProperty('category');
+      expect(validCategories).toContain(ingredient.category);
+    });
   });
 });

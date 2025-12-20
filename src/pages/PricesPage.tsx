@@ -18,6 +18,15 @@ const PricesPage: React.FC = () => {
 
   const prices = pricesData as PricesData;
 
+  // Define category order
+  const categoryOrder = [
+    'Proteins',
+    'Dairy',
+    'Fruits and Vegetables',
+    'Spices & Seasonings',
+    'Pantry',
+  ] as const;
+
   // Toggle side menu
   const handleMenuToggle = () => {
     setIsSideMenuOpen(!isSideMenuOpen);
@@ -44,17 +53,23 @@ const PricesPage: React.FC = () => {
     ...ingredient,
   }));
 
-  // Filter and sort ingredients
+  // Filter ingredients by search term
   const filteredIngredients = ingredientsArray
     .filter((ingredient) => {
       const searchLower = searchTerm.toLowerCase();
       return (
         ingredient.name.toLowerCase().includes(searchLower) ||
-        ingredient.key.toLowerCase().includes(searchLower) ||
-        (ingredient.id && ingredient.id.toString().includes(searchLower))
+        ingredient.key.toLowerCase().includes(searchLower)
       );
-    })
-    .sort((a, b) => a.name.localeCompare(b.name));
+    });
+
+  // Group ingredients by category
+  const ingredientsByCategory = categoryOrder.reduce((acc, category) => {
+    acc[category] = filteredIngredients
+      .filter((ingredient) => ingredient.category === category)
+      .sort((a, b) => a.name.localeCompare(b.name));
+    return acc;
+  }, {} as Record<typeof categoryOrder[number], typeof ingredientsArray>);
 
   // Format price based on unit type
   const formatPrice = (ingredient: typeof ingredientsArray[0]) => {
@@ -103,54 +118,65 @@ const PricesPage: React.FC = () => {
           {filteredIngredients.length} {getTranslation('ingredients', language).toLowerCase()}
         </p>
 
-        {/* Ingredients Table */}
-        <div className="overflow-x-auto bg-white dark:bg-gray-800 rounded-lg shadow">
-          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-            <thead className="bg-gray-50 dark:bg-gray-700">
-              <tr>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                  {getTranslation('ingredientId', language)}
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                  {getTranslation('ingredientName', language)}
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                  {getTranslation('unitType', language)}
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                  {getTranslation('price', language)}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-              {filteredIngredients.map((ingredient) => (
-                <tr
-                  key={ingredient.key}
-                  className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                >
-                  <td className="px-4 py-3 whitespace-nowrap text-sm font-mono text-gray-900 dark:text-gray-100">
-                    {ingredient.id || '—'}
-                  </td>
-                  <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                    {ingredient.name}
-                  </td>
-                  <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400 capitalize">
-                    {ingredient.unit_type}
-                  </td>
-                  <td className="px-4 py-3 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-gray-100">
-                    {formatPrice(ingredient)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* Ingredients by Category */}
+        <div className="space-y-8">
+          {categoryOrder.map((category) => {
+            const categoryIngredients = ingredientsByCategory[category];
+            if (categoryIngredients.length === 0) return null;
+
+            return (
+              <div key={category} className="bg-white dark:bg-gray-800 rounded-lg shadow">
+                {/* Category Header */}
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 px-4 py-3 bg-gray-50 dark:bg-gray-700 rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                  {category}
+                </h2>
+
+                {/* Ingredients Table */}
+                <div className="overflow-x-auto">
+                  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                    <thead className="bg-gray-50 dark:bg-gray-700">
+                      <tr>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                          {getTranslation('ingredientName', language)}
+                        </th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                          {getTranslation('unitType', language)}
+                        </th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                          {getTranslation('price', language)}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                      {categoryIngredients.map((ingredient) => (
+                        <tr
+                          key={ingredient.key}
+                          className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                        >
+                          <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
+                            {ingredient.name}
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400 capitalize">
+                            {ingredient.unit_type}
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-gray-100">
+                            {formatPrice(ingredient)}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Empty State */}
         {filteredIngredients.length === 0 && (
           <div className="text-center py-12">
             <p className="text-gray-500 dark:text-gray-400">
-              {getTranslation('noRecipesFound', language)}
+              {getTranslation('noIngredientsFound', language)}
             </p>
           </div>
         )}
