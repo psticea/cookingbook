@@ -429,3 +429,31 @@ describe('rounding behavior', () => {
     expect(result.costPerServing).toBe(0.33);
   });
 });
+
+describe('ingredient categorization', () => {
+  it('assigns correct categories to ingredients', () => {
+    expect(mockPrices.ingredients.olive_oil.category).toBe('Pantry');
+    expect(mockPrices.ingredients.flour.category).toBe('Pantry');
+    expect(mockPrices.ingredients.eggs.category).toBe('Dairy');
+    expect(mockPrices.ingredients.salt.category).toBe('Spices & Seasonings');
+    expect(mockPrices.ingredients.chicken.category).toBe('Proteins');
+  });
+
+  it('all categories are valid enum values', () => {
+    const validCategories = ['Proteins', 'Dairy', 'Fruits and Vegetables', 'Spices & Seasonings', 'Pantry'];
+    
+    Object.values(mockPrices.ingredients).forEach((ingredient) => {
+      expect(validCategories).toContain(ingredient.category);
+    });
+  });
+
+  it('all actual price data has valid categories', async () => {
+    const pricesData = await import('../data/prices.json');
+    const validCategories = ['Proteins', 'Dairy', 'Fruits and Vegetables', 'Spices & Seasonings', 'Pantry'];
+    
+    Object.values(pricesData.ingredients).forEach((ingredient: any) => {
+      expect(ingredient).toHaveProperty('category');
+      expect(validCategories).toContain(ingredient.category);
+    });
+  });
+});
