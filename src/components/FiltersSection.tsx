@@ -104,21 +104,24 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
 
                 {/* Subsection keywords - modern button-style selectors */}
                 <div className="ml-2 sm:ml-4 flex flex-wrap gap-2 mt-1">
-                  {displayKeywords.map((keyword) => (
-                    <button
-                      key={keyword.id}
-                      onClick={() => handleKeywordToggle(keyword.id)}
-                      className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors min-h-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark ${
-                        selectedKeywords.has(keyword.id)
-                          ? 'bg-accent-light dark:bg-accent-dark text-white'
-                          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                      }`}
-                      aria-pressed={selectedKeywords.has(keyword.id)}
-                      aria-label={`${getTranslation('filter', language)}: ${keyword.label[language]}`}
-                    >
-                      {keyword.label[language]}
-                    </button>
-                  ))}
+                  {displayKeywords.map((keyword) => {
+                    const isSelected = selectedKeywords.has(keyword.id);
+                    const baseClasses = 'px-3 py-1.5 rounded-full text-sm font-medium transition-colors min-h-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2';
+                    const selectedClasses = 'bg-accent-light dark:bg-accent-dark text-white focus:ring-white dark:focus:ring-gray-900';
+                    const unselectedClasses = 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:ring-accent-light dark:focus:ring-accent-dark';
+                    
+                    return (
+                      <button
+                        key={keyword.id}
+                        onClick={() => handleKeywordToggle(keyword.id)}
+                        className={`${baseClasses} ${isSelected ? selectedClasses : unselectedClasses}`}
+                        aria-pressed={isSelected}
+                        aria-label={`${getTranslation('filter', language)}: ${keyword.label[language]}`}
+                      >
+                        {keyword.label[language]}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             );
