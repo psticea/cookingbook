@@ -102,23 +102,22 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
                   {getTranslation(labelKey, language)}
                 </h4>
 
-                {/* Subsection keywords - touch-friendly checkboxes */}
-                <div className="ml-2 sm:ml-4 space-y-0 mt-0.5">
+                {/* Subsection keywords - modern button-style selectors */}
+                <div className="ml-2 sm:ml-4 flex flex-wrap gap-2 mt-1">
                   {displayKeywords.map((keyword) => (
-                    <label
+                    <button
                       key={keyword.id}
-                      className="flex items-center space-x-3 cursor-pointer group min-h-[36px] py-0"
+                      onClick={() => handleKeywordToggle(keyword.id)}
+                      className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors min-h-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark ${
+                        selectedKeywords.has(keyword.id)
+                          ? 'bg-accent-light dark:bg-accent-dark text-white'
+                          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                      }`}
+                      aria-pressed={selectedKeywords.has(keyword.id)}
+                      aria-label={`${getTranslation('filter', language)}: ${keyword.label[language]}`}
                     >
-                      <input
-                        type="checkbox"
-                        checked={selectedKeywords.has(keyword.id)}
-                        onChange={() => handleKeywordToggle(keyword.id)}
-                        className="h-5 w-5 sm:h-4 sm:w-4 text-accent-light dark:text-accent-dark border-gray-300 dark:border-gray-600 rounded focus:ring-accent-light dark:focus:ring-accent-dark flex-shrink-0"
-                      />
-                      <span className="text-base text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100">
-                        {keyword.label[language]}
-                      </span>
-                    </label>
+                      {keyword.label[language]}
+                    </button>
                   ))}
                 </div>
               </div>
