@@ -1,0 +1,102 @@
+{
+  "id": "simple-iceberg-salad",
+  "category": "basics",
+  "image": "images/basics/simple-iceberg-salad.jpg",
+  "title": {
+    "ro": "Salată Simplă de Iceberg",
+    "en": "Simple Iceberg Salad"
+  },
+  "prepTime": 10,
+  "servings": 6,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "salată iceberg",
+        "en": "iceberg lettuce"
+      },
+      "quantity": 500,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 186
+    },
+    {
+      "name": {
+        "ro": "ulei vegetal",
+        "en": "vegetable oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      },
+      "ingredientId": 117
+    },
+    {
+      "name": {
+        "ro": "oțet (de vin alb sau cidru de mere, preferat)",
+        "en": "vinegar (white wine or apple cider preferred)"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      },
+      "ingredientId": 159
+    },
+    {
+      "name": {
+        "ro": "sare (sau după gust)",
+        "en": "salt (or to taste)"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "piper negru",
+        "en": "black pepper"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 102
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Îndepărtează și aruncă frunzele exterioare ale salatei iceberg.",
+      "Spală salata temeinic sub apă rece.",
+      "Scutură apa în exces și usucă complet folosind o centrifugă pentru salată sau un prosop de bucătărie curat. (Salata uscată este importantă pentru a preveni o salată apoasă.)",
+      "Taie sau rupe salata în bucăți de mărimea unei înghițituri și pune-o într-un bol mare.",
+      "Într-un bol mic, amestecă uleiul vegetal, oțetul, sarea și piperul negru până se combină. Toarnă dressingul peste salată exact înainte de servire.",
+      "Amestecă ușor până când salata este acoperită uniform. Gustă și ajustează condimentarea dacă este necesar. Servește imediat."
+    ],
+    "en": [
+      "Remove and discard the outer leaves of the iceberg lettuce.",
+      "Wash the lettuce thoroughly under cold water.",
+      "Shake off excess water and dry completely using a salad spinner or clean kitchen towel. (Dry lettuce is important to prevent a watery salad.)",
+      "Cut or tear the lettuce into bite-sized pieces and place in a large bowl.",
+      "In a small bowl, mix the vegetable oil, vinegar, salt, and black pepper until combined. Pour the dressing over the lettuce just before serving.",
+      "Gently toss until the lettuce is evenly coated. Taste and adjust seasoning if needed. Serve immediately."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Această salată simplă este perfectă ca garnitură sau ca bază pentru alte ingrediente. Pentru cele mai bune rezultate, asigură-te că salata este perfect uscată înainte de a adăuga dressingul. Poți varia dressingul adăugând muștar sau usturoi dacă dorești mai multă aromă.",
+    "en": "This simple salad is perfect as a side dish or as a base for other ingredients. For best results, make sure the lettuce is completely dry before adding the dressing. You can vary the dressing by adding mustard or garlic if you want more flavor."
+  },
+  "keywords": [
+    "easy",
+    "vegetarian",
+    "no-cook"
+  ],
+  "dateAdded": "2025-12-29"
+}

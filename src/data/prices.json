@@ -601,6 +601,13 @@
       "category": "Fruits and Vegetables",
       "unit_type": "mass",
       "price_per_1000": 10
+    },
+    "iceberg_lettuce": {
+      "id": 186,
+      "name": "Iceberg lettuce",
+      "category": "Fruits and Vegetables",
+      "unit_type": "mass",
+      "price_per_1000": 10
     }
   }
 }
