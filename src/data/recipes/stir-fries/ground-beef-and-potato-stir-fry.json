@@ -189,10 +189,10 @@
         "ro": "amidon de porumb",
         "en": "cornstarch"
       },
-      "quantity": 15,
+      "quantity": 8,
       "unit": {
-        "ro": "ml",
-        "en": "ml"
+        "ro": "g",
+        "en": "g"
       },
       "ingredientId": 120
     }
