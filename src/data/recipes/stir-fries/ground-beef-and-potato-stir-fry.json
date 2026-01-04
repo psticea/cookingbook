@@ -1,0 +1,236 @@
+{
+  "id": "ground-beef-and-potato-stir-fry",
+  "category": "stir-fries",
+  "title": {
+    "ro": "Tocană de Carne Tocată și Cartofi",
+    "en": "Ground Beef and Potato Stir-Fry"
+  },
+  "prepTime": 35,
+  "servings": 3,
+  "effortLevel": "medium",
+  "image": "images/stir-fries/ground-beef-and-potato-stir-fry.jpg",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "cartofi",
+        "en": "potatoes"
+      },
+      "quantity": 650,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 142
+    },
+    {
+      "name": {
+        "ro": "ardei gras roșu",
+        "en": "red bell pepper"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 178
+    },
+    {
+      "name": {
+        "ro": "usturoi",
+        "en": "garlic cloves"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      },
+      "ingredientId": 104
+    },
+    {
+      "name": {
+        "ro": "ghimbir ras",
+        "en": "grated ginger"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 164
+    },
+    {
+      "name": {
+        "ro": "ceapă verde",
+        "en": "green onions"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 113
+    },
+    {
+      "name": {
+        "ro": "ulei vegetal",
+        "en": "neutral-tasting oil"
+      },
+      "quantity": 45,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 117
+    },
+    {
+      "name": {
+        "ro": "sare kosher",
+        "en": "kosher salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "carne tocată de vită",
+        "en": "ground beef"
+      },
+      "quantity": 450,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 133
+    },
+    {
+      "name": {
+        "ro": "ulei de susan prăjit",
+        "en": "toasted sesame oil"
+      },
+      "quantity": 7.5,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 118
+    },
+    {
+      "section": {
+        "ro": "Sos",
+        "en": "Sauce"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos de soia",
+        "en": "soy sauce"
+      },
+      "quantity": 45,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 107
+    },
+    {
+      "name": {
+        "ro": "sos de stridii",
+        "en": "oyster sauce"
+      },
+      "quantity": 15,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 183
+    },
+    {
+      "name": {
+        "ro": "mirin",
+        "en": "mirin"
+      },
+      "quantity": 30,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 187
+    },
+    {
+      "name": {
+        "ro": "piper negru",
+        "en": "black pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      },
+      "ingredientId": 102
+    },
+    {
+      "name": {
+        "ro": "apă",
+        "en": "water"
+      },
+      "quantity": 60,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 106
+    },
+    {
+      "name": {
+        "ro": "amidon de porumb",
+        "en": "cornstarch"
+      },
+      "quantity": 15,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 120
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Pregătiți ingredientele: Tăiați cartofii și ardeii grași în cuburi mici de 1 cm. Tocați fin usturoiul. Tăiați ceapa verde în felii subțiri, separând partea albă de partea verde.",
+      "Pregătiți sosul: Într-un recipient mic, adăugați toate ingredientele sosului și amestecați bine. Lăsați deoparte.",
+      "Fierbeți cartofii pentru 4 minute pentru a se găti mai repede în tigaie. Într-un wok mare (sau tigaie), adăugați 2 linguri de ulei și încălziți la foc mediu-mare. Odată ce se încinge bine, adăugați cartofii, condimentați cu un praf de sare și prăjiți timp de 8 minute sau până devin aurii și sunt gata. Scoateți din wok și puneți deoparte.",
+      "În același wok, adăugați 1 lingură de ulei și încălziți la foc mare. Odată încins, adăugați carnea tocată și întindeți-o uniform. Prăjiți timp de 1-2 minute sau până când partea de jos se rumenește frumos.",
+      "Întoarceți, sfărâmați carnea și prăjiți timp de 3 minute. (Pentru a evapora majoritatea lichidului și a topi grăsimea, asigurați-vă că o amestecați continuu.)",
+      "Adăugați usturoiul, ghimbirul și părțile albe ale cepei verzi. Sotați timp de 1-2 minute la foc mediu-mare.",
+      "Adăugați cartofii și ardeii grași. Prăjiți timp de 1 minut sau până când totul este bine acoperit în ulei.",
+      "Amestecați sosul rapid și turnați-l. Amestecați totul împreună timp de 1 minut. Opriți focul, adăugați uleiul de susan și amestecați o ultimă dată. Transferați pe o farfurie de servire și terminați cu părțile verzi ale cepei verzi. Serviți cu orez fierbinte. Poftă bună!"
+    ],
+    "en": [
+      "Prep the vegetables: Cut the potatoes and bell peppers into small, 1 cm cubes. Finely chop the garlic cloves. Thinly slice the green onions, separating the whites and greens.",
+      "Make the sauce: In a small container, add all the sauce ingredients and mix well. Set aside.",
+      "Paraboil the potatoes for 4 minutes so they cook faster in the pan. In a large wok (or pan), add 2 tablespoons of oil and heat over medium-high heat. Once it gets nice and hot, add the potatoes, season with a pinch of salt, and sear for 8 minutes, or until golden brown and cooked through. Remove from the wok and set aside.",
+      "In the same wok, add 1 tablespoon of oil and heat over high heat. Once heated, add the ground beef and spread it out evenly. Sear for 1 to 2 minutes or until the bottom is nicely browned.",
+      "Flip, break up the beef, and stir-fry for 3 minutes. (To evaporate most of the liquid and render out the fat, make sure to keep stirring it.)",
+      "Add the garlic, ginger, and white parts of the green onions. Sauté for 1 to 2 minutes over medium-high heat.",
+      "Add the potatoes and bell peppers. Stir-fry for 1 minute or until everything is nicely coated in the oil.",
+      "Give the sauce a quick stir and pour it in. Toss everything together for 1 minute. Turn the heat off, add the sesame oil, and give it a final mix. Transfer to a serving plate and finish with the green parts of the green onions. Serve with hot rice. Enjoy!"
+    ]
+  },
+  "personalNotes": {
+    "ro": "Sursă: Ground Beef and Potato Stir-Fry",
+    "en": "Source: Ground Beef and Potato Stir-Fry"
+  },
+  "keywords": [
+    "medium",
+    "beef",
+    "pan-fry",
+    "potatoes",
+    "peppers",
+    "ginger",
+    "soy-sauce"
+  ],
+  "dateAdded": "2026-01-04"
+}

@@ -608,6 +608,13 @@
       "category": "Fruits and Vegetables",
       "unit_type": "mass",
       "price_per_1000": 10
+    },
+    "mirin": {
+      "id": 187,
+      "name": "Mirin",
+      "category": "Pantry",
+      "unit_type": "volume",
+      "price_per_1000": 12
     }
   }
 }
