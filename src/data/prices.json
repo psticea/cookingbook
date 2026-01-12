@@ -615,6 +615,20 @@
       "category": "Pantry",
       "unit_type": "volume",
       "price_per_1000": 12
+    },
+    "green_cabbage": {
+      "id": 188,
+      "name": "Green cabbage",
+      "category": "Fruits and Vegetables",
+      "unit_type": "mass",
+      "price_per_1000": 4
+    },
+    "white_pepper": {
+      "id": 189,
+      "name": "White pepper",
+      "category": "Spices & Seasonings",
+      "unit_type": "mass",
+      "price_per_1000": 45
     }
   }
 }
