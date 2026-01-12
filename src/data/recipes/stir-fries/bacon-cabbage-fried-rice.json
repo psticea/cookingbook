@@ -1,0 +1,226 @@
+{
+  "id": "bacon-cabbage-fried-rice",
+  "category": "stir-fries",
+  "title": {
+    "ro": "Orez Prăjit cu Bacon și Varză",
+    "en": "Bacon and Cabbage Fried Rice"
+  },
+  "prepTime": 30,
+  "servings": 4,
+  "effortLevel": "medium",
+  "image": "images/stir-fries/bacon-cabbage-fried-rice.jpg",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "orez alb gătit și răcit",
+        "en": "cooked and cooled white rice"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "căni",
+        "en": "cups"
+      },
+      "ingredientId": 121
+    },
+    {
+      "name": {
+        "ro": "bacon tăiat în fâșii",
+        "en": "uncooked bacon strips"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 180
+    },
+    {
+      "name": {
+        "ro": "varză verde",
+        "en": "green cabbage"
+      },
+      "quantity": 300,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 188
+    },
+    {
+      "name": {
+        "ro": "ceapă verde feliată",
+        "en": "green onions sliced"
+      },
+      "quantity": 5,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 113
+    },
+    {
+      "name": {
+        "ro": "usturoi tocat",
+        "en": "garlic cloves"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      },
+      "ingredientId": 104
+    },
+    {
+      "name": {
+        "ro": "ou mare",
+        "en": "large egg"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 122
+    },
+    {
+      "name": {
+        "ro": "sare kosher",
+        "en": "kosher salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "ulei vegetal",
+        "en": "neutral-tasting oil"
+      },
+      "quantity": 60,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 117
+    },
+    {
+      "name": {
+        "ro": "ulei de susan prăjit",
+        "en": "toasted sesame oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 118
+    },
+    {
+      "section": {
+        "ro": "Sos",
+        "en": "Sauce"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos de soia",
+        "en": "soy sauce"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "tbsp"
+      },
+      "ingredientId": 107
+    },
+    {
+      "name": {
+        "ro": "sos de stridii",
+        "en": "oyster sauce"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "tbsp"
+      },
+      "ingredientId": 183
+    },
+    {
+      "name": {
+        "ro": "vin Shaoxing sau mirin",
+        "en": "Shaoxing wine or mirin"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "tbsp"
+      },
+      "ingredientId": 187
+    },
+    {
+      "name": {
+        "ro": "bulion de pui praf",
+        "en": "chicken bouillon powder"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "lingură",
+        "en": "tbsp"
+      },
+      "ingredientId": 184
+    },
+    {
+      "name": {
+        "ro": "piper alb",
+        "en": "white pepper"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 189
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Pregătirea ingredientelor: Tăiați baconul și varza în bucăți mici. Feliați subțire ceapa verde, separând părțile albe de cele verzi. Tocați fin usturoiul.",
+      "Bateți ouăle cu un praf de sare.",
+      "Pregătirea sosului: Combinați toate ingredientele pentru sos într-un recipient mic și amestecați bine.",
+      "Prepararea orezului prăjit: Într-un wok mare (sau tigaie), încălziți 1 lingură de ulei la foc mediu-mare. Odată ce se încinge bine, adăugați baconul și gătiți timp de 2 minute, sau până când începe să se rumenească.",
+      "Adăugați usturoiul și părțile albe ale cepei verzi. Sotați timp de 1 minut sau până devine parfumat. Adăugați varza și prăjiți timp de 1 minut, sau până când începe să se înmoaie. Scoateți totul din wok și puneți deoparte.",
+      "În același wok, adăugați 2 linguri de ulei și încălziți la foc mare. Odată ce se încinge bine, turnați ouăle bătute și gătiți timp de 30 de secunde sau până când partea de jos este ușor rumenită. Întoarceți și gătiți cealaltă parte pentru încă 30 de secunde.",
+      "Împingeți ouăle pe o parte a wok-ului și adăugați 1 lingură de ulei în spațiul liber. Adăugați orezul gătit și răcit. Mutați ouăle deasupra orezului, spargeți-le în bucăți mai mici și prăjiți timp de 2 minute sau până când sunt uniform amestecate.",
+      "Adăugați înapoi în wok amestecul de varză și bacon. Prăjiți timp de 1 minut pentru a combina.",
+      "Turnați sosul pe marginile wok-ului și lăsați-l să stea 20 de secunde pentru a se carameliza. Prăjiți totul împreună timp de 2 minute sau până când fiecare bob de orez este acoperit uniform.",
+      "Gustați și ajustați cu mai multă sare dacă este necesar. Opriți focul. Adăugați părțile verzi ale cepei verzi și uleiul de susan. Amestecați o dată finală. Serviți fierbinte și bucurați-vă!"
+    ],
+    "en": [
+      "Prep Ingredients: Cut the bacon and cabbage into bite-sized pieces. Thinly slice the green onions, separating the whites and greens. Finely chop the garlic cloves.",
+      "Beat the eggs with a pinch of salt.",
+      "Make the sauce: Combine all the sauce ingredients in a small container and mix well.",
+      "Make Bacon and Cabbage Fried Rice: In a large wok (or pan), heat 1 tablespoon of oil over medium-high heat. Once it gets nice and hot, add the bacon and cook for 2 minutes, or until it starts to brown.",
+      "Add the garlic and white parts of the green onions. Sauté for 1 minute or until fragrant. Add the cabbage and stir-fry it for 1 minute, or until it starts to soften. Remove everything from the wok and set aside.",
+      "In the same wok, add 2 tablespoons of oil and heat over high heat. Once it gets nice and hot, pour in the beaten eggs and cook for 30 seconds or until the bottom is lightly browned. Flip and cook the other side for another 30 seconds.",
+      "Push the eggs to one side of the wok and add 1 tablespoon of oil to the empty space. Add the cooked and cooled rice. Move the eggs to the top of the rice, break them into smaller pieces, and stir-fry for 2 minutes or until evenly mixed.",
+      "Add the cabbage and bacon mixture back into the wok. Stir-fry for 1 minute to combine.",
+      "Pour the sauce around the edges of the wok and let it sit for 20 seconds to caramelize. Stir-fry everything together for 2 minutes or until every grain of rice is evenly coated.",
+      "Taste and adjust with more salt if needed. Turn the heat off. Add the green parts of the green onions and the sesame oil. Give it a final mix. Serve hot and enjoy!"
+    ]
+  },
+  "personalNotes": {
+    "ro": "O variantă delicioasă de orez prăjit care combină baconul sărat și crocant cu varza ușor dulce. Perfectă pentru a folosi resturile de orez de la o zi la alta. Asigurați-vă că orezul este bine răcit înainte de a-l folosi pentru cea mai bună textură.",
+    "en": "A delicious twist on fried rice that combines salty, crispy bacon with slightly sweet cabbage. Perfect for using up leftover rice from the day before. Make sure your rice is well chilled before using for the best texture."
+  },
+  "keywords": [
+    "medium",
+    "pan-fry",
+    "rice",
+    "bacon",
+    "soy-sauce"
+  ],
+  "dateAdded": "2026-01-12"
+}
