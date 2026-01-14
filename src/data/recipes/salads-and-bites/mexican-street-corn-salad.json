@@ -1,0 +1,171 @@
+{
+  "id": "mexican-street-corn-salad",
+  "category": "salads-and-bites",
+  "image": "images/salads-and-bites/mexican-street-corn-salad.jpg",
+  "title": {
+    "ro": "Salată Mexicană de Porumb (Esquites)",
+    "en": "Mexican Street Corn Salad (Esquites)"
+  },
+  "prepTime": 20,
+  "servings": 4,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "ulei vegetal",
+        "en": "vegetable oil"
+      },
+      "quantity": 30,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 117
+    },
+    {
+      "name": {
+        "ro": "porumb congelat",
+        "en": "frozen corn"
+      },
+      "quantity": 800,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 190
+    },
+    {
+      "name": {
+        "ro": "brânză feta sau Cotija, mărunțită fin",
+        "en": "feta or Cotija cheese, finely crumbled"
+      },
+      "quantity": 60,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 126
+    },
+    {
+      "name": {
+        "ro": "ceapă verde felii subțiri, doar partea verde",
+        "en": "scallions finely sliced, green parts only"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 113
+    },
+    {
+      "name": {
+        "ro": "coriandru proaspăt, tocat fin",
+        "en": "fresh cilantro leaves, finely chopped"
+      },
+      "quantity": 15,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 191
+    },
+    {
+      "name": {
+        "ro": "ardei jalapeño, fără semințe și cotoare, tocat fin",
+        "en": "jalapeño pepper, seeded and stemmed, finely chopped"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 192
+    },
+    {
+      "name": {
+        "ro": "căței de usturoi, presați sau măcinați fin",
+        "en": "medium cloves garlic, pressed or minced"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      },
+      "ingredientId": 104
+    },
+    {
+      "name": {
+        "ro": "maioneză",
+        "en": "mayonnaise"
+      },
+      "quantity": 30,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 109
+    },
+    {
+      "name": {
+        "ro": "suc proaspăt de lime",
+        "en": "fresh lime juice"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lime",
+        "en": "lime"
+      },
+      "ingredientId": 193
+    },
+    {
+      "name": {
+        "ro": "pudră de chili sau fulgi de chili iute",
+        "en": "chile powder or hot chile flakes"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      },
+      "ingredientId": 194
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      },
+      "ingredientId": 100
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Încălzește uleiul într-o tigaie antiadezivă mare sau wok la foc mare până devine strălucitor. Adaugă boabele de porumb, condimentează cu sare după gust, amestecă o dată sau de două ori, și lasă să se prăjească fără a mișca până se rumenește pe o parte, aproximativ 2 minute.",
+      "Amestecă porumbul, și lasă din nou să se rumenească pe a doua parte, încă aproximativ 2 minute. Continuă să amesteci și să rumenești până când porumbul este bine rumenit din toate părțile, aproximativ 10 minute în total. Transferă într-un bol mare.",
+      "Adaugă brânza, ceapa verde, coriandrul, ardeiul jalapeño, usturoiul, maioneza, sucul de lime și pudra de chili și amestecă bine pentru a combina.",
+      "Gustă și ajustează condimentarea cu sare și mai multă pudră de chili după preferință. Servește imediat."
+    ],
+    "en": [
+      "Heat oil in a large nonstick skillet or wok over high heat until shimmering. Add corn kernels, season to taste with salt, toss once or twice, and cook without moving until charred on one side, about 2 minutes.",
+      "Toss corn, stir, and repeat until charred on second side, about 2 minutes longer. Continue tossing and charring until corn is well charred all over, about 10 minutes total. Transfer to a large bowl.",
+      "Add cheese, scallions, cilantro, jalapeño, garlic, mayonnaise, lime juice, and chile powder and toss to combine.",
+      "Taste and adjust seasoning with salt and more chile powder to taste. Serve immediately."
+    ]
+  },
+  "personalNotes": {
+    "ro": "O rețetă vibrantă și plină de gust, inspirată de clasica mâncare de stradă mexicană esquites. Porumbul prăjit până se rumenește adaugă o adâncime de aromă fumată, iar combinația de brânză, lime și chili creează un echilibru perfect de cremos, acid și picant. Perfectă ca acompaniament la grătar sau ca aperitiv festiv.",
+    "en": "A vibrant and flavorful recipe inspired by the classic Mexican street food esquites. The charred corn adds a deep smoky flavor, and the combination of cheese, lime, and chile creates a perfect balance of creamy, tangy, and spicy. Perfect as a side dish for grilling or as a festive appetizer."
+  },
+  "keywords": [
+    "easy",
+    "vegetarian",
+    "pan-fry",
+    "peppers"
+  ],
+  "dateAdded": "2026-01-14"
+}
