@@ -629,6 +629,41 @@
       "category": "Spices & Seasonings",
       "unit_type": "mass",
       "price_per_1000": 45
+    },
+    "frozen_corn": {
+      "id": 190,
+      "name": "Frozen corn",
+      "category": "Fruits and Vegetables",
+      "unit_type": "mass",
+      "price_per_1000": 8
+    },
+    "cilantro": {
+      "id": 191,
+      "name": "Fresh cilantro",
+      "category": "Fruits and Vegetables",
+      "unit_type": "mass",
+      "price_per_1000": 15
+    },
+    "jalapeno": {
+      "id": 192,
+      "name": "Jalapeño pepper",
+      "category": "Fruits and Vegetables",
+      "unit_type": "piece",
+      "price_per_piece": 0.5
+    },
+    "lime": {
+      "id": 193,
+      "name": "Lime",
+      "category": "Fruits and Vegetables",
+      "unit_type": "piece",
+      "price_per_piece": 1.0
+    },
+    "chile_powder": {
+      "id": 194,
+      "name": "Chile powder",
+      "category": "Spices & Seasonings",
+      "unit_type": "mass",
+      "price_per_1000": 35
     }
   }
 }
