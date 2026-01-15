@@ -1,0 +1,228 @@
+{
+  "id": "papricas-de-pui-cu-galuste",
+  "category": "soups-and-stews",
+  "title": {
+    "ro": "Papricaș de Pui cu Găluște",
+    "en": "Chicken Paprikash with Dumplings"
+  },
+  "prepTime": 50,
+  "servings": 4,
+  "effortLevel": "medium",
+  "image": "images/soups-and-stews/papricas-de-pui-cu-galuste.jpg",
+  "ingredients": [
+    {
+      "section": {
+        "ro": "Pentru papricaș",
+        "en": "For the paprikash"
+      }
+    },
+    {
+      "name": {
+        "ro": "cepe mari",
+        "en": "large onions"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 108
+    },
+    {
+      "name": {
+        "ro": "morcov",
+        "en": "carrot"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pc"
+      },
+      "ingredientId": 167
+    },
+    {
+      "name": {
+        "ro": "ardei roșii",
+        "en": "red bell peppers"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 178
+    },
+    {
+      "name": {
+        "ro": "piept de pui, tăiat cuburi",
+        "en": "chicken breast, cubed"
+      },
+      "quantity": 600,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 149
+    },
+    {
+      "name": {
+        "ro": "ulei",
+        "en": "vegetable oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "tbsp"
+      },
+      "ingredientId": 117
+    },
+    {
+      "name": {
+        "ro": "boia dulce",
+        "en": "sweet paprika"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "tbsp"
+      },
+      "ingredientId": 138
+    },
+    {
+      "name": {
+        "ro": "foi de dafin",
+        "en": "bay leaves"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 171
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "piper",
+        "en": "black pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      },
+      "ingredientId": 102
+    },
+    {
+      "name": {
+        "ro": "apă",
+        "en": "water"
+      },
+      "quantity": 500,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 106
+    },
+    {
+      "name": {
+        "ro": "pătrunjel verde",
+        "en": "fresh parsley"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "legătură",
+        "en": "bunch"
+      },
+      "ingredientId": 116
+    },
+    {
+      "section": {
+        "ro": "Pentru găluște",
+        "en": "For the dumplings"
+      }
+    },
+    {
+      "name": {
+        "ro": "ouă",
+        "en": "eggs"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 122
+    },
+    {
+      "name": {
+        "ro": "făină",
+        "en": "all-purpose flour"
+      },
+      "quantity": 150,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 195
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 100
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Încinge uleiul într-o oală și călește ceapa tocată cu un praf de sare, la foc mediu, până devine sticloasă.",
+      "Adaugă morcovul și ardeiul tocate mărunt și continuă călirea 3–4 minute, până se înmoaie și își lasă aroma.",
+      "Pune pieptul de pui tăiat cuburi, amestecă bine și lasă-l 2–3 minute pe foc, doar cât să se albească ușor.",
+      "Ia oala de pe foc, adaugă boiaua, amestecă rapid, apoi completează imediat cu apă caldă cât să acopere ingredientele.",
+      "Adaugă foile de dafin, sare și piper după gust și lasă să fiarbă la foc mic aproximativ 25–30 de minute, până puiul este fraged și sosul începe să se lege.",
+      "Între timp, pregătește găluștele: bate ouăle cu sarea, apoi adaugă făina treptat, amestecând, până obții un aluat gros, dar curgător, care cade greu de pe lingură.",
+      "Când sosul fierbe ușor, pune găluștele cu lingura direct în oală. Fierbe 6–8 minute, fără a amesteca energic, până găluștele se ridică la suprafață și sunt bine fierte.",
+      "Potrivește gustul de sare și piper, oprește focul și presară pătrunjel verde tocat înainte de servire."
+    ],
+    "en": [
+      "Heat the oil in a pot and sauté the chopped onion with a pinch of salt over medium heat until translucent.",
+      "Add the finely chopped carrot and bell pepper and continue sautéing for 3–4 minutes, until they soften and release their aroma.",
+      "Add the cubed chicken breast, mix well, and cook for 2–3 minutes, just until it turns slightly white.",
+      "Remove the pot from heat, add the paprika, stir quickly, then immediately add enough hot water to cover the ingredients.",
+      "Add the bay leaves, salt, and pepper to taste, and simmer over low heat for approximately 25–30 minutes, until the chicken is tender and the sauce begins to thicken.",
+      "Meanwhile, prepare the dumplings: beat the eggs with the salt, then gradually add the flour, mixing, until you get a thick but pourable batter that falls slowly from the spoon.",
+      "When the sauce is gently boiling, drop the dumplings with a spoon directly into the pot. Boil for 6–8 minutes, without stirring vigorously, until the dumplings rise to the surface and are fully cooked.",
+      "Adjust the salt and pepper to taste, turn off the heat, and sprinkle with chopped fresh parsley before serving."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Papricașul de pui cu găluște este o rețetă tradițională românească reconfortantă, perfectă pentru zilele friguroase. Secretul unui papricaș reușit este să adaugi boiaua după ce scoți oala de pe foc pentru a nu se amărî, apoi să adaugi imediat apă caldă. Găluștele se fierb direct în sos, absorbind toate aromele. Este important să nu amesteci prea mult după ce pui găluștele, pentru a nu le rupe. Acest preparat se poate servi ca mâncare principală și este deosebit de aromat datorită combinației de boia și legume.",
+    "en": "Chicken paprikash with dumplings is a comforting traditional Romanian recipe, perfect for cold days. The secret to a successful paprikash is to add the paprika after removing the pot from heat to prevent bitterness, then immediately add hot water. The dumplings are cooked directly in the sauce, absorbing all the flavors. It's important not to stir too much after adding the dumplings to avoid breaking them. This dish can be served as a main course and is particularly aromatic thanks to the combination of paprika and vegetables."
+  },
+  "keywords": [
+    "chicken",
+    "medium",
+    "boiling",
+    "peppers",
+    "carrots"
+  ],
+  "dateAdded": "2026-01-15"
+}

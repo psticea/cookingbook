@@ -664,6 +664,13 @@
       "category": "Spices & Seasonings",
       "unit_type": "mass",
       "price_per_1000": 35
+    },
+    "flour": {
+      "id": 195,
+      "name": "All-purpose flour",
+      "category": "Pantry",
+      "unit_type": "mass",
+      "price_per_1000": 3
     }
   }
 }
