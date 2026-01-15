@@ -8,7 +8,7 @@
   "prepTime": 50,
   "servings": 4,
   "effortLevel": "medium",
-  "image": "/images/recipes/soups-and-stews/papricas-de-pui-cu-galuste.jpg",
+  "image": "images/soups-and-stews/papricas-de-pui-cu-galuste.jpg",
   "ingredients": [
     {
       "section": {
@@ -109,7 +109,8 @@
       "unit": {
         "ro": "după gust",
         "en": "to taste"
-      }
+      },
+      "ingredientId": 100
     },
     {
       "name": {
@@ -120,7 +121,8 @@
       "unit": {
         "ro": "după gust",
         "en": "to taste"
-      }
+      },
+      "ingredientId": 102
     },
     {
       "name": {
@@ -185,7 +187,8 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 100
     }
   ],
   "instructions": {
