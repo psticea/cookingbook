@@ -668,7 +668,7 @@
     "flour": {
       "id": 195,
       "name": "All-purpose flour",
-      "category": "Baking",
+      "category": "Pantry",
       "unit_type": "mass",
       "price_per_1000": 3
     }
