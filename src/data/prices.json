@@ -671,6 +671,27 @@
       "category": "Pantry",
       "unit_type": "mass",
       "price_per_1000": 3
+    },
+    "bok_choy": {
+      "id": 196,
+      "name": "Bok choy",
+      "category": "Fruits and Vegetables",
+      "unit_type": "mass",
+      "price_per_1000": 12
+    },
+    "zucchini": {
+      "id": 197,
+      "name": "Zucchini",
+      "category": "Fruits and Vegetables",
+      "unit_type": "mass",
+      "price_per_1000": 7
+    },
+    "birds_eye_chili": {
+      "id": 198,
+      "name": "Birds eye chili",
+      "category": "Fruits and Vegetables",
+      "unit_type": "piece",
+      "price_per_piece": 0.3
     }
   }
 }

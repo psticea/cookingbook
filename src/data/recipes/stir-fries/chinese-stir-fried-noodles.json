@@ -1,0 +1,261 @@
+{
+  "id": "chinese-stir-fried-noodles",
+  "category": "stir-fries",
+  "title": {
+    "ro": "Tăiței Chinezești Prăjiți",
+    "en": "Chinese Stir Fried Noodles"
+  },
+  "prepTime": 30,
+  "servings": 3,
+  "effortLevel": "medium",
+  "image": "images/stir-fries/chinese-stir-fried-noodles.jpg",
+  "ingredients": [
+    {
+      "section": {
+        "ro": "Tăiței (alegeți proaspeți sau uscați)",
+        "en": "Noodles (choose fresh or dried)"
+      }
+    },
+    {
+      "name": {
+        "ro": "tăiței proaspeți",
+        "en": "fresh noodles"
+      },
+      "quantity": 300,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 172
+    },
+    {
+      "name": {
+        "ro": "tăiței uscați, gatiți conform instrucțiunilor de pe pachet",
+        "en": "dried noodles, prepared per packet instructions"
+      },
+      "quantity": 225,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 172
+    },
+    {
+      "section": {
+        "ro": "Ingrediente de bază",
+        "en": "Main ingredients"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei vegetal",
+        "en": "vegetable oil"
+      },
+      "quantity": 6,
+      "unit": {
+        "ro": "linguri",
+        "en": "tbsp"
+      },
+      "ingredientId": 117
+    },
+    {
+      "name": {
+        "ro": "proteine (carne, pui sau tofu)",
+        "en": "proteins (meat, chicken or tofu)"
+      },
+      "quantity": 225,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      }
+    },
+    {
+      "name": {
+        "ro": "legume feliate (ceapă, morcovi, zucchini, bok choy, varză, broccoli)",
+        "en": "chopped vegetables (onions, carrots, zucchini, bok choy, cabbage, broccoli)"
+      },
+      "quantity": 6,
+      "unit": {
+        "ro": "căni",
+        "en": "cups"
+      }
+    },
+    {
+      "name": {
+        "ro": "apă",
+        "en": "water"
+      },
+      "quantity": 195,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 106
+    },
+    {
+      "section": {
+        "ro": "Sos chinezesc pentru stir-fry",
+        "en": "Chinese Stir Fry Sauce"
+      }
+    },
+    {
+      "name": {
+        "ro": "sos de soia",
+        "en": "light soy sauce"
+      },
+      "quantity": 120,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 107
+    },
+    {
+      "name": {
+        "ro": "sos de stridii",
+        "en": "oyster sauce"
+      },
+      "quantity": 120,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 183
+    },
+    {
+      "name": {
+        "ro": "vin chinezesc (sau sherry sec)",
+        "en": "Chinese wine (or dry sherry)"
+      },
+      "quantity": 60,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 119
+    },
+    {
+      "name": {
+        "ro": "amidon de porumb",
+        "en": "cornstarch"
+      },
+      "quantity": 60,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 120
+    },
+    {
+      "name": {
+        "ro": "zahăr",
+        "en": "sugar"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "tbsp"
+      },
+      "ingredientId": 115
+    },
+    {
+      "name": {
+        "ro": "ulei de susan prăjit",
+        "en": "toasted sesame oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "tbsp"
+      },
+      "ingredientId": 118
+    },
+    {
+      "name": {
+        "ro": "piper alb",
+        "en": "ground white pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 189
+    },
+    {
+      "section": {
+        "ro": "Arome de bază (opțional)",
+        "en": "Base Flavourings (optional)"
+      }
+    },
+    {
+      "name": {
+        "ro": "usturoi tocat fin",
+        "en": "garlic clove, finely chopped"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      },
+      "ingredientId": 104
+    },
+    {
+      "name": {
+        "ro": "ghimbir tocat fin",
+        "en": "ginger, finely chopped"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 164
+    },
+    {
+      "name": {
+        "ro": "ardei iute birds eye, tocat fin",
+        "en": "birds eye chilli, finely chopped"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 198
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Pregătiți proteinele tăindu-le împotriva fibrelor în felii de 0.5cm sau cuburi de 2cm.",
+      "Încălziți uleiul în wok la foc mare. Când uleiul este fierbinte, adăugați aromele de bază alese (usturoi, ghimbir, ardei iute) și prăjiți aproximativ 10 secunde - aveți grijă să nu se ardă!",
+      "Adăugați ingredientele în ordinea timpului de gătit, începând cu cele care necesită cel mai mult timp, dar nu adăugați legumele cu frunze. Începeți cu ceapa și proteinele (împreună), urmate de broccoli și alte legume în formă de buchete, apoi morcovi, tulpini de legume cu frunze, zucchini și alte legume ferme, și în final varza și alte legume care necesită puțin timp de gătit. NU adăugați germinații de fasole sau legumele cu frunze - le veți adăuga la pasul următor.",
+      "Scoateți de pe foc, adăugați legumele cu frunze (partea cu frunze a bok choy, spanac etc.) și germinații de fasole (dacă folosiți), tăițeii (folosiți degetele pentru a-i separa), sosul, apa și aromele extra (opțional).",
+      "Returnați pe foc, amestecați ușor timp de 1 minut pentru a încălzi tăițeii și pentru ca sosul să se îngroașe. Dacă apa se evaporă prea repede, adăugați puțin mai multă.",
+      "Serviți imediat."
+    ],
+    "en": [
+      "Prepare the protein by slicing them against the grain into 1/4 inch (0.5cm) slices or 2/3 inch (2cm) cubes.",
+      "Heat oil in wok over high heat. When oil is hot, add Base Flavouring of choice (garlic, ginger, chilli) and stir fry for about 10 seconds - don't let them burn!",
+      "Add ingredients in order of length of time to cook, starting with those that take the longest but do not add leafy greens. Start with onion and proteins (together), followed by broccoli and other vegetables in floret form, followed by carrots, stems of leafy greens, zucchini and other firm vegetables, and lastly cabbage and other vegetables that take little time to cook. DO NOT add bean sprouts or leafy greens - you will add them in the next step.",
+      "Remove from heat, add leafy greens (leafy part of bok choy, spinach etc) and bean sprouts (if using), the noodles (use your fingers to break them up), the Sauce, water and Extra Flavours (optional).",
+      "Return to heat, gently toss for 1 minute to heat through the noodles and for the sauce to thicken. If the water evaporates too quickly, add a bit more.",
+      "Serve immediately."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă adaptată de la: https://www.recipetineats.com/chinese-stir-fried-noodles-build-your-own/#recipe. Aceasta este o rețetă versatilă care vă permite să folosiți orice legume și proteine aveți la îndemână. Sosul poate fi pregătit în avans și păstrat la frigider.",
+    "en": "Recipe adapted from: https://www.recipetineats.com/chinese-stir-fried-noodles-build-your-own/#recipe. This is a versatile recipe that allows you to use whatever vegetables and proteins you have on hand. The sauce can be made ahead and stored in the fridge."
+  },
+  "keywords": [
+    "medium",
+    "pan-fry",
+    "noodles",
+    "soy-sauce",
+    "ginger",
+    "garlic",
+    "carrots",
+    "broccoli"
+  ],
+  "dateAdded": "2026-01-22"
+}
