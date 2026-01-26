@@ -449,7 +449,7 @@ describe('ingredient categorization', () => {
 
   it('all actual price data has valid categories', async () => {
     const pricesData = await import('../data/prices.json');
-    const validCategories = ['Proteins', 'Dairy', 'Fruits and Vegetables', 'Spices & Seasonings', 'Pantry'];
+    const validCategories = ['Proteins', 'Dairy', 'Fruits and Vegetables', 'Spices & Seasonings', 'Pantry', 'Meat & Poultry', 'Seafood', 'Grains & Pasta', 'Baking'];
     
     Object.values(pricesData.ingredients).forEach((ingredient: any) => {
       expect(ingredient).toHaveProperty('category');

@@ -1,0 +1,255 @@
+{
+  "id": "ciorba-de-varza",
+  "category": "soups-and-stews",
+  "title": {
+    "ro": "Ciorbă de Varză",
+    "en": "Cabbage Soup"
+  },
+  "prepTime": 80,
+  "servings": 6,
+  "effortLevel": "medium",
+  "image": "images/soups-and-stews/ciorba-de-varza.jpg",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "varză medie",
+        "en": "medium cabbage"
+      },
+      "quantity": 1000,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 188
+    },
+    {
+      "name": {
+        "ro": "ardei roșu",
+        "en": "red bell pepper"
+      },
+      "quantity": 250,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 178
+    },
+    {
+      "name": {
+        "ro": "ceapă albă",
+        "en": "white onion"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 199
+    },
+    {
+      "name": {
+        "ro": "cabanos",
+        "en": "cabanos sausage"
+      },
+      "quantity": 300,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 200
+    },
+    {
+      "name": {
+        "ro": "ulei",
+        "en": "vegetable oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "tbsp"
+      },
+      "ingredientId": 117
+    },
+    {
+      "name": {
+        "ro": "boia dulce",
+        "en": "sweet paprika"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 138
+    },
+    {
+      "name": {
+        "ro": "bulion de pui",
+        "en": "chicken bouillon"
+      },
+      "quantity": 700,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 184
+    },
+    {
+      "name": {
+        "ro": "gălbenușuri",
+        "en": "egg yolks"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 182
+    },
+    {
+      "name": {
+        "ro": "smântână",
+        "en": "sour cream"
+      },
+      "quantity": 80,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 112
+    },
+    {
+      "name": {
+        "ro": "cimbru uscat",
+        "en": "dried thyme"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 152
+    },
+    {
+      "name": {
+        "ro": "foi de dafin",
+        "en": "bay leaves"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 171
+    },
+    {
+      "name": {
+        "ro": "piper măcinat",
+        "en": "ground black pepper"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 102
+    },
+    {
+      "name": {
+        "ro": "vegeta",
+        "en": "vegeta seasoning"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 201
+    },
+    {
+      "name": {
+        "ro": "chilli flakes",
+        "en": "chili flakes"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 111
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "apă",
+        "en": "water"
+      },
+      "quantity": 2500,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 106
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Tăiați varza fidelușă și frecați-o cu o linguriță de sare. Lăsați-o 30 de minute la înmuiat.",
+      "Tăiați ceapa cubulețe, ardeiul roșu fâșii și cabanosul rondele.",
+      "Încălziți uleiul într-o oală mare și călește ceapa cu jumătate de linguriță de sare pentru 5 minute până devine translucidă.",
+      "Adăugați ardeiul roșu și călește încă 2-3 minute.",
+      "Adăugați cabanosul și călește 2-3 minute până se rumenește ușor.",
+      "Adăugați boiaua dulce și amestecați rapid pentru a preveni arderea.",
+      "Turnați apa (2.5 litri) și aduceți la fierbere.",
+      "Scurgeți varza bine de apa eliberată și adăugați-o în oală. Fierbeți 30-40 minute la foc mediu până varza devine fragedă.",
+      "Adăugați jumătate din bulion (350 ml) și lăsați să dea 2 clocote.",
+      "Adăugați cimbrul, foile de dafin, piperul măcinat, vegeta și chilli flakes. Amestecați bine.",
+      "Într-un bol separat, amestecați gălbenușurile cu smântâna și restul de bulion (350 ml).",
+      "Temperați amestecul de gălbenușuri adăugând treptat câteva linguri de zeamă fierbinte din supă, amestecând continuu.",
+      "Turnați amestecul temperat în oală și amestecați ușor.",
+      "Lăsați ciorba pe foc mic încă 2-3 minute, fără să mai fiarbă.",
+      "Gustați și ajustați sarea cu jumătate de linguriță dacă este necesar. Serviți cald."
+    ],
+    "en": [
+      "Cut the cabbage into thin strips and rub it with one teaspoon of salt. Let it sit for 30 minutes to soften.",
+      "Dice the onion, slice the red bell pepper into strips, and slice the cabanos into rounds.",
+      "Heat the oil in a large pot and sauté the onion with half a teaspoon of salt for 5 minutes until translucent.",
+      "Add the red bell pepper and sauté for another 2-3 minutes.",
+      "Add the cabanos and sauté for 2-3 minutes until lightly browned.",
+      "Add the sweet paprika and stir quickly to prevent burning.",
+      "Pour in the water (2.5 liters) and bring to a boil.",
+      "Drain the cabbage well from the released water and add it to the pot. Boil for 30-40 minutes over medium heat until the cabbage is tender.",
+      "Add half of the bouillon (350 ml) and let it boil for 2 cycles.",
+      "Add the thyme, bay leaves, ground pepper, vegeta, and chili flakes. Stir well.",
+      "In a separate bowl, mix the egg yolks with the sour cream and the remaining bouillon (350 ml).",
+      "Temper the egg yolk mixture by gradually adding a few spoonfuls of hot soup broth, stirring continuously.",
+      "Pour the tempered mixture into the pot and stir gently.",
+      "Keep the soup on low heat for another 2-3 minutes, without boiling.",
+      "Taste and adjust the salt with half a teaspoon if needed. Serve hot."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Această ciorbă de varză este o rețetă tradițională românească, perfectă pentru zilele reci. Secretul constă în frecarea varzei cu sare pentru a o face mai fragedă și în temperarea gălbenușurilor pentru a obține o textură cremoasă fără a se tăia. Cabanos-ul adaugă o aromă afumată distinctă, dar poate fi înlocuit cu alt tip de cârnat afumat. Asigurați-vă că adăugați amestecul de smântână treptat și nu mai fierbeți supa după aceea pentru a preveni tăierea.",
+    "en": "This cabbage soup is a traditional Romanian recipe, perfect for cold days. The secret lies in rubbing the cabbage with salt to make it more tender and tempering the egg yolks to achieve a creamy texture without curdling. The cabanos adds a distinctive smoky flavor, but can be replaced with other types of smoked sausage. Make sure to add the sour cream mixture gradually and don't boil the soup afterwards to prevent curdling."
+  },
+  "keywords": [
+    "cabbage",
+    "broth-based",
+    "boiling",
+    "medium",
+    "traditional",
+    "sausage"
+  ],
+  "dateAdded": "2026-01-26"
+}

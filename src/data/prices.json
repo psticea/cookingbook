@@ -692,6 +692,27 @@
       "category": "Fruits and Vegetables",
       "unit_type": "piece",
       "price_per_piece": 0.3
+    },
+    "white_onion": {
+      "id": 199,
+      "name": "White onion",
+      "category": "Fruits and Vegetables",
+      "unit_type": "piece",
+      "price_per_piece": 0.8
+    },
+    "cabanos": {
+      "id": 200,
+      "name": "Cabanos sausage",
+      "category": "Meat & Poultry",
+      "unit_type": "mass",
+      "price_per_1000": 25
+    },
+    "vegeta": {
+      "id": 201,
+      "name": "Vegeta seasoning",
+      "category": "Spices & Seasonings",
+      "unit_type": "mass",
+      "price_per_1000": 20
     }
   }
 }
