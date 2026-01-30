@@ -11,6 +11,7 @@ import { MenuLinks } from '../components/MenuLinks';
 import { useRecipeData, getRecipesByCategory } from '../hooks/useRecipeData';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
+import { calculateRecipeCost } from '../utils/pricing';
 import { categories } from '../data';
 import { Recipe } from '../types';
 
@@ -123,6 +124,14 @@ const HomePage: React.FC = () => {
         const dateB = new Date(b.dateAdded).getTime();
         const comparison = dateA - dateB;
         return sortOrder === 'asc' ? comparison : -comparison;
+      } else if (sortField === 'prepTime') {
+        const comparison = a.prepTime - b.prepTime;
+        return sortOrder === 'asc' ? comparison : -comparison;
+      } else if (sortField === 'pricePerServing') {
+        const priceA = calculateRecipeCost(a, language).pricePerServing;
+        const priceB = calculateRecipeCost(b, language).pricePerServing;
+        const comparison = priceA - priceB;
+        return sortOrder === 'asc' ? comparison : -comparison;
       }
       return 0;
     });
@@ -166,12 +175,6 @@ const HomePage: React.FC = () => {
         isOpen={isSideMenuOpen}
         onClose={handleMenuClose}
       >
-        <SortSection
-          sortField={sortField}
-          sortOrder={sortOrder}
-          onSortFieldChange={setSortField}
-          onSortOrderChange={setSortOrder}
-        />
         <FiltersSection
           selectedKeywords={selectedKeywords}
           onKeywordsChange={setSelectedKeywords}
@@ -202,11 +205,19 @@ const HomePage: React.FC = () => {
             {recipes.length > 0 && (
               <>
                 {/* Recipe count */}
-                <div className="mb-6">
+                <div className="mb-4">
                   <p className="text-lg text-gray-700 dark:text-gray-300">
                     {getTranslation('allRecipes', language)} ({totalFilteredCount})
                   </p>
                 </div>
+
+                {/* Sorting Controls */}
+                <SortSection
+                  sortField={sortField}
+                  sortOrder={sortOrder}
+                  onSortFieldChange={setSortField}
+                  onSortOrderChange={setSortOrder}
+                />
 
                 {/* Recipe sections by category */}
                 <div className="space-y-8">

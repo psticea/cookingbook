@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
 
-export type SortField = 'name' | 'dateAdded';
+export type SortField = 'name' | 'dateAdded' | 'prepTime' | 'pricePerServing';
 export type SortOrder = 'asc' | 'desc';
 
 interface SortSectionProps {
@@ -14,8 +14,8 @@ interface SortSectionProps {
 
 /**
  * SortSection component
- * Expandable/collapsible section for sorting controls
- * Allows users to sort recipes by name or date added in ascending/descending order
+ * Horizontal inline sorting controls displayed on the home page
+ * Allows users to sort recipes by name, date added, cooking time, or price in ascending/descending order
  */
 export const SortSection: React.FC<SortSectionProps> = ({
   sortField,
@@ -24,97 +24,62 @@ export const SortSection: React.FC<SortSectionProps> = ({
   onSortOrderChange
 }) => {
   const { language } = useLanguage();
-  const [isExpanded, setIsExpanded] = useState(false);
 
   const sortFields: { value: SortField; labelKey: string }[] = [
     { value: 'name', labelKey: 'sortByName' },
-    { value: 'dateAdded', labelKey: 'sortByDateAdded' }
-  ];
-
-  const sortOrders: { value: SortOrder; labelKey: string }[] = [
-    { value: 'asc', labelKey: 'ascending' },
-    { value: 'desc', labelKey: 'descending' }
+    { value: 'dateAdded', labelKey: 'sortByDateAdded' },
+    { value: 'prepTime', labelKey: 'sortByPrepTime' },
+    { value: 'pricePerServing', labelKey: 'sortByPrice' }
   ];
 
   return (
-    <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
-      {/* Main section header - touch-friendly */}
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between py-2 text-left min-h-[44px]"
-        aria-expanded={isExpanded}
-      >
-        <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
-          {getTranslation('sortBy', language)}
-        </h3>
-        <svg
-          className={`h-5 w-5 sm:h-6 sm:w-6 text-gray-600 dark:text-gray-400 transform transition-transform ${
-            isExpanded ? 'rotate-180' : ''
-          }`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-
-      {/* Expanded content */}
-      {isExpanded && (
-        <div className="space-y-2 mt-1">
-          {/* Sort Field Selection */}
-          <div className="ml-2">
-            <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 py-1">
-              {getTranslation('sortField', language)}
-            </h4>
-            <div className="ml-2 sm:ml-4 flex flex-wrap gap-2 mt-1">
-              {sortFields.map((field) => {
-                const isSelected = sortField === field.value;
-                const baseClasses = 'px-3 py-1.5 rounded-full text-sm font-medium transition-colors min-h-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2';
-                const selectedClasses = 'bg-accent-light dark:bg-accent-dark text-white focus:ring-white dark:focus:ring-gray-900';
-                const unselectedClasses = 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:ring-accent-light dark:focus:ring-accent-dark';
-                
-                return (
-                  <button
-                    key={field.value}
-                    onClick={() => onSortFieldChange(field.value)}
-                    className={`${baseClasses} ${isSelected ? selectedClasses : unselectedClasses}`}
-                    aria-pressed={isSelected}
-                  >
-                    {getTranslation(field.labelKey, language)}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Sort Order Selection */}
-          <div className="ml-2">
-            <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 py-1">
-              {getTranslation('sortOrder', language)}
-            </h4>
-            <div className="ml-2 sm:ml-4 flex flex-wrap gap-2 mt-1">
-              {sortOrders.map((order) => {
-                const isSelected = sortOrder === order.value;
-                const baseClasses = 'px-3 py-1.5 rounded-full text-sm font-medium transition-colors min-h-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2';
-                const selectedClasses = 'bg-accent-light dark:bg-accent-dark text-white focus:ring-white dark:focus:ring-gray-900';
-                const unselectedClasses = 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:ring-accent-light dark:focus:ring-accent-dark';
-                
-                return (
-                  <button
-                    key={order.value}
-                    onClick={() => onSortOrderChange(order.value)}
-                    className={`${baseClasses} ${isSelected ? selectedClasses : unselectedClasses}`}
-                    aria-pressed={isSelected}
-                  >
-                    {getTranslation(order.labelKey, language)}
-                  </button>
-                );
-              })}
-            </div>
+    <div className="mb-6 border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+        {/* Sort By Label and Field Buttons */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 flex-1">
+          <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+            {getTranslation('sortBy', language)}:
+          </label>
+          <div className="flex flex-wrap gap-2">
+            {sortFields.map((field) => {
+              const isSelected = sortField === field.value;
+              const baseClasses = 'px-3 py-1.5 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+              const selectedClasses = 'bg-accent-light dark:bg-accent-dark text-white focus:ring-white dark:focus:ring-gray-900';
+              const unselectedClasses = 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:ring-accent-light dark:focus:ring-accent-dark';
+              
+              return (
+                <button
+                  key={field.value}
+                  onClick={() => onSortFieldChange(field.value)}
+                  className={`${baseClasses} ${isSelected ? selectedClasses : unselectedClasses}`}
+                  aria-pressed={isSelected}
+                >
+                  {getTranslation(field.labelKey, language)}
+                </button>
+              );
+            })}
           </div>
         </div>
-      )}
+
+        {/* Sort Order Toggle */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => onSortOrderChange(sortOrder === 'asc' ? 'desc' : 'asc')}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark"
+            title={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
+          >
+            <svg 
+              className={`w-5 h-5 transition-transform ${sortOrder === 'desc' ? 'rotate-180' : ''}`}
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+            </svg>
+            <span>{getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
