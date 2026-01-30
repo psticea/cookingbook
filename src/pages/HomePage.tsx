@@ -5,6 +5,7 @@ import { RecipeGrid } from '../components/RecipeGrid';
 import { Footer } from '../components/Footer';
 import { SideMenu } from '../components/SideMenu';
 import { FiltersSection } from '../components/FiltersSection';
+import { SortSection, SortField, SortOrder } from '../components/SortSection';
 import { CategoriesSection } from '../components/CategoriesSection';
 import { MenuLinks } from '../components/MenuLinks';
 import { useRecipeData, getRecipesByCategory } from '../hooks/useRecipeData';
@@ -26,6 +27,8 @@ const HomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
+  const [sortField, setSortField] = useState<SortField>('dateAdded');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
 
   // Save scroll position before leaving the page
   useEffect(() => {
@@ -108,8 +111,24 @@ const HomePage: React.FC = () => {
       });
     }
 
-    return filtered;
-  }, [recipes, searchQuery, selectedKeywords, language]);
+    // Apply sorting
+    const sorted = [...filtered].sort((a, b) => {
+      if (sortField === 'name') {
+        const nameA = a.title[language].toLowerCase();
+        const nameB = b.title[language].toLowerCase();
+        const comparison = nameA.localeCompare(nameB);
+        return sortOrder === 'asc' ? comparison : -comparison;
+      } else if (sortField === 'dateAdded') {
+        const dateA = new Date(a.dateAdded).getTime();
+        const dateB = new Date(b.dateAdded).getTime();
+        const comparison = dateA - dateB;
+        return sortOrder === 'asc' ? comparison : -comparison;
+      }
+      return 0;
+    });
+
+    return sorted;
+  }, [recipes, searchQuery, selectedKeywords, language, sortField, sortOrder]);
 
   // Count total filtered recipes
   const totalFilteredCount = filteredRecipes.length;
@@ -147,6 +166,12 @@ const HomePage: React.FC = () => {
         isOpen={isSideMenuOpen}
         onClose={handleMenuClose}
       >
+        <SortSection
+          sortField={sortField}
+          sortOrder={sortOrder}
+          onSortFieldChange={setSortField}
+          onSortOrderChange={setSortOrder}
+        />
         <FiltersSection
           selectedKeywords={selectedKeywords}
           onKeywordsChange={setSelectedKeywords}
