@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
   // Scroll to top when filters change
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [selectedKeywords]);
+  }, [selectedKeywords, selectedCategory]);
 
   // Handle navigation from other pages (category scroll or filters)
   useEffect(() => {
