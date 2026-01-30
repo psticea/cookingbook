@@ -113,28 +113,41 @@ const HomePage: React.FC = () => {
     }
 
     // Apply sorting
-    const sorted = [...filtered].sort((a, b) => {
-      if (sortField === 'name') {
-        const nameA = a.title[language].toLowerCase();
-        const nameB = b.title[language].toLowerCase();
-        const comparison = nameA.localeCompare(nameB);
+    let sorted: Recipe[];
+    
+    if (sortField === 'pricePerServing') {
+      // For price sorting, pre-calculate prices to avoid redundant calculations
+      const recipesWithPrices = filtered.map(recipe => ({
+        recipe,
+        price: calculateRecipeCost(recipe, language).pricePerServing
+      }));
+      
+      recipesWithPrices.sort((a, b) => {
+        const comparison = a.price - b.price;
         return sortOrder === 'asc' ? comparison : -comparison;
-      } else if (sortField === 'dateAdded') {
-        const dateA = new Date(a.dateAdded).getTime();
-        const dateB = new Date(b.dateAdded).getTime();
-        const comparison = dateA - dateB;
-        return sortOrder === 'asc' ? comparison : -comparison;
-      } else if (sortField === 'prepTime') {
-        const comparison = a.prepTime - b.prepTime;
-        return sortOrder === 'asc' ? comparison : -comparison;
-      } else if (sortField === 'pricePerServing') {
-        const priceA = calculateRecipeCost(a, language).pricePerServing;
-        const priceB = calculateRecipeCost(b, language).pricePerServing;
-        const comparison = priceA - priceB;
-        return sortOrder === 'asc' ? comparison : -comparison;
-      }
-      return 0;
-    });
+      });
+      
+      sorted = recipesWithPrices.map(item => item.recipe);
+    } else {
+      // For other sorting fields, sort directly
+      sorted = [...filtered].sort((a, b) => {
+        if (sortField === 'name') {
+          const nameA = a.title[language].toLowerCase();
+          const nameB = b.title[language].toLowerCase();
+          const comparison = nameA.localeCompare(nameB);
+          return sortOrder === 'asc' ? comparison : -comparison;
+        } else if (sortField === 'dateAdded') {
+          const dateA = new Date(a.dateAdded).getTime();
+          const dateB = new Date(b.dateAdded).getTime();
+          const comparison = dateA - dateB;
+          return sortOrder === 'asc' ? comparison : -comparison;
+        } else if (sortField === 'prepTime') {
+          const comparison = a.prepTime - b.prepTime;
+          return sortOrder === 'asc' ? comparison : -comparison;
+        }
+        return 0;
+      });
+    }
 
     return sorted;
   }, [recipes, searchQuery, selectedKeywords, language, sortField, sortOrder]);
