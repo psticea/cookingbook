@@ -6,6 +6,7 @@ import { Footer } from '../components/Footer';
 import { SideMenu } from '../components/SideMenu';
 import { FiltersSection } from '../components/FiltersSection';
 import { SortSection, SortField, SortOrder } from '../components/SortSection';
+import { CategoryFilter } from '../components/CategoryFilter';
 import { CategoriesSection } from '../components/CategoriesSection';
 import { MenuLinks } from '../components/MenuLinks';
 import { useRecipeData, getRecipesByCategory } from '../hooks/useRecipeData';
@@ -28,6 +29,7 @@ const HomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [sortField, setSortField] = useState<SortField>('dateAdded');
   const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
 
@@ -90,8 +92,14 @@ const HomePage: React.FC = () => {
   // Filter recipes based on search query and selected keywords
   // Search: Only filter when 2+ characters are typed
   // Keywords: Show only recipes containing ALL selected keywords
+  // Category: Filter by selected category if one is selected
   const filteredRecipes = useMemo(() => {
     let filtered = recipes;
+
+    // Apply category filtering
+    if (selectedCategory) {
+      filtered = filtered.filter((recipe: Recipe) => recipe.category === selectedCategory);
+    }
 
     // Apply keyword filtering
     if (selectedKeywords.size > 0) {
@@ -150,7 +158,7 @@ const HomePage: React.FC = () => {
     }
 
     return sorted;
-  }, [recipes, searchQuery, selectedKeywords, language, sortField, sortOrder]);
+  }, [recipes, searchQuery, selectedKeywords, selectedCategory, language, sortField, sortOrder]);
 
   // Count total filtered recipes
   const totalFilteredCount = filteredRecipes.length;
@@ -230,6 +238,12 @@ const HomePage: React.FC = () => {
                   sortOrder={sortOrder}
                   onSortFieldChange={setSortField}
                   onSortOrderChange={setSortOrder}
+                />
+
+                {/* Category Filter */}
+                <CategoryFilter
+                  selectedCategory={selectedCategory}
+                  onCategoryChange={setSelectedCategory}
                 />
 
                 {/* Recipe sections by category */}
