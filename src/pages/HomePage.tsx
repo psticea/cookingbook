@@ -5,7 +5,7 @@ import { RecipeGrid } from '../components/RecipeGrid';
 import { Footer } from '../components/Footer';
 import { SideMenu } from '../components/SideMenu';
 import { FiltersSection } from '../components/FiltersSection';
-import { SortSection, SortField, SortOrder } from '../components/SortSection';
+import { SortField, SortOrder } from '../components/SortSection';
 import { CategoryFilter } from '../components/CategoryFilter';
 import { CategoriesSection } from '../components/CategoriesSection';
 import { MenuLinks } from '../components/MenuLinks';
@@ -32,6 +32,7 @@ const HomePage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [sortField, setSortField] = useState<SortField>('dateAdded');
   const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
+  const [showCategories, setShowCategories] = useState(true);
 
   // Save scroll position before leaving the page
   useEffect(() => {
@@ -120,48 +121,59 @@ const HomePage: React.FC = () => {
       });
     }
 
-    // Apply sorting
-    let sorted: Recipe[];
-    
-    if (sortField === 'pricePerServing') {
-      // For price sorting, pre-calculate prices to avoid redundant calculations
-      const recipesWithPrices = filtered.map(recipe => ({
-        recipe,
-        price: calculateRecipeCost(recipe, language).pricePerServing
-      }));
-      
-      recipesWithPrices.sort((a, b) => {
-        const comparison = a.price - b.price;
-        return sortOrder === 'asc' ? comparison : -comparison;
-      });
-      
-      sorted = recipesWithPrices.map(item => item.recipe);
-    } else {
-      // For other sorting fields, sort directly
-      sorted = [...filtered].sort((a, b) => {
-        if (sortField === 'name') {
-          const nameA = a.title[language].toLowerCase();
-          const nameB = b.title[language].toLowerCase();
-          const comparison = nameA.localeCompare(nameB);
+    return filtered;
+  }, [recipes, searchQuery, selectedKeywords, selectedCategory, language]);
+
+  // Apply sorting - either globally or within categories
+  const sortedRecipes = useMemo(() => {
+    const sortRecipeList = (recipesToSort: Recipe[]): Recipe[] => {
+      if (sortField === 'pricePerServing') {
+        // For price sorting, pre-calculate prices to avoid redundant calculations
+        const recipesWithPrices = recipesToSort.map(recipe => ({
+          recipe,
+          price: calculateRecipeCost(recipe, language).pricePerServing
+        }));
+        
+        recipesWithPrices.sort((a, b) => {
+          const comparison = a.price - b.price;
           return sortOrder === 'asc' ? comparison : -comparison;
-        } else if (sortField === 'dateAdded') {
-          const dateA = new Date(a.dateAdded).getTime();
-          const dateB = new Date(b.dateAdded).getTime();
-          const comparison = dateA - dateB;
-          return sortOrder === 'asc' ? comparison : -comparison;
-        } else if (sortField === 'prepTime') {
-          const comparison = a.prepTime - b.prepTime;
-          return sortOrder === 'asc' ? comparison : -comparison;
-        }
-        return 0;
-      });
+        });
+        
+        return recipesWithPrices.map(item => item.recipe);
+      } else {
+        // For other sorting fields, sort directly
+        return [...recipesToSort].sort((a, b) => {
+          if (sortField === 'name') {
+            const nameA = a.title[language].toLowerCase();
+            const nameB = b.title[language].toLowerCase();
+            const comparison = nameA.localeCompare(nameB);
+            return sortOrder === 'asc' ? comparison : -comparison;
+          } else if (sortField === 'dateAdded') {
+            const dateA = new Date(a.dateAdded).getTime();
+            const dateB = new Date(b.dateAdded).getTime();
+            const comparison = dateA - dateB;
+            return sortOrder === 'asc' ? comparison : -comparison;
+          } else if (sortField === 'prepTime') {
+            const comparison = a.prepTime - b.prepTime;
+            return sortOrder === 'asc' ? comparison : -comparison;
+          }
+          return 0;
+        });
+      }
+    };
+
+    // If categories are disabled, sort all recipes together
+    if (!showCategories) {
+      return sortRecipeList(filteredRecipes);
     }
 
-    return sorted;
-  }, [recipes, searchQuery, selectedKeywords, selectedCategory, language, sortField, sortOrder]);
+    // If categories are enabled, we'll sort within each category later
+    // Return the filtered recipes as-is
+    return filteredRecipes;
+  }, [filteredRecipes, sortField, sortOrder, language, showCategories]);
 
   // Count total filtered recipes
-  const totalFilteredCount = filteredRecipes.length;
+  const totalFilteredCount = sortedRecipes.length;
 
   // Toggle side menu
   const handleMenuToggle = () => {
@@ -232,13 +244,82 @@ const HomePage: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Sorting Controls */}
-                <SortSection
-                  sortField={sortField}
-                  sortOrder={sortOrder}
-                  onSortFieldChange={setSortField}
-                  onSortOrderChange={setSortOrder}
-                />
+                {/* Control Section: Categories Toggle, Sorting, and Order */}
+                <div className="mb-6 border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                    {/* Categories Toggle */}
+                    <div className="flex items-center gap-3">
+                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                        {getTranslation('groupByCategories', language)}:
+                      </label>
+                      <button
+                        onClick={() => setShowCategories(!showCategories)}
+                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark ${
+                          showCategories ? 'bg-accent-light dark:bg-accent-dark' : 'bg-gray-300 dark:bg-gray-600'
+                        }`}
+                        role="switch"
+                        aria-checked={showCategories}
+                        aria-label={getTranslation('groupByCategories', language)}
+                      >
+                        <span
+                          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                            showCategories ? 'translate-x-6' : 'translate-x-1'
+                          }`}
+                        />
+                      </button>
+                    </div>
+
+                    {/* Sort By Label and Field Buttons */}
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 flex-1">
+                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                        {getTranslation('sortBy', language)}:
+                      </label>
+                      <div className="flex flex-wrap gap-2">
+                        {[
+                          { value: 'name' as SortField, labelKey: 'sortByName' },
+                          { value: 'dateAdded' as SortField, labelKey: 'sortByDateAdded' },
+                          { value: 'prepTime' as SortField, labelKey: 'sortByPrepTime' },
+                          { value: 'pricePerServing' as SortField, labelKey: 'sortByPrice' }
+                        ].map((field) => {
+                          const isSelected = sortField === field.value;
+                          const baseClasses = 'px-3 py-1.5 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+                          const selectedClasses = 'bg-accent-light dark:bg-accent-dark text-white focus:ring-white dark:focus:ring-gray-900';
+                          const unselectedClasses = 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:ring-accent-light dark:focus:ring-accent-dark';
+                          
+                          return (
+                            <button
+                              key={field.value}
+                              onClick={() => setSortField(field.value)}
+                              className={`${baseClasses} ${isSelected ? selectedClasses : unselectedClasses}`}
+                              aria-pressed={isSelected}
+                            >
+                              {getTranslation(field.labelKey, language)}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Sort Order Toggle */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+                        className="flex items-center justify-center px-3 py-1.5 rounded-md text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark"
+                        title={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
+                        aria-label={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
+                      >
+                        <svg 
+                          className={`w-5 h-5 transition-transform ${sortOrder === 'desc' ? 'rotate-180' : ''}`}
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Category Filter */}
                 <CategoryFilter
@@ -246,34 +327,79 @@ const HomePage: React.FC = () => {
                   onCategoryChange={setSelectedCategory}
                 />
 
-                {/* Recipe sections by category */}
-                <div className="space-y-8">
-                  {categories.map((category) => {
-                    const categoryRecipes = getRecipesByCategory(filteredRecipes, category.id);
-                    
-                    // Only show category if it has recipes
-                    if (categoryRecipes.length === 0) return null;
-                    
-                    return (
-                      <section 
-                        key={category.id} 
-                        id={`category-${category.id}`}
-                        className="category-section scroll-mt-16 sm:scroll-mt-20"
-                      >
-                        <div className="flex items-center gap-3 mb-4">
-                          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                            {category.name[language]}
-                          </h2>
-                          <div className="flex-1 h-px bg-gradient-to-r from-gray-300 dark:from-gray-600 to-transparent"></div>
-                        </div>
-                        <RecipeGrid recipes={categoryRecipes} />
-                      </section>
-                    );
-                  })}
-                </div>
+                {/* Recipe sections by category or flat list */}
+                {showCategories ? (
+                  // Display recipes grouped by category
+                  <div className="space-y-8">
+                    {categories.map((category) => {
+                      const categoryRecipes = getRecipesByCategory(sortedRecipes, category.id);
+                      
+                      // Only show category if it has recipes
+                      if (categoryRecipes.length === 0) return null;
+                      
+                      // Sort recipes within this category
+                      const sortRecipesInCategory = (recipesToSort: Recipe[]): Recipe[] => {
+                        if (sortField === 'pricePerServing') {
+                          const recipesWithPrices = recipesToSort.map(recipe => ({
+                            recipe,
+                            price: calculateRecipeCost(recipe, language).pricePerServing
+                          }));
+                          
+                          recipesWithPrices.sort((a, b) => {
+                            const comparison = a.price - b.price;
+                            return sortOrder === 'asc' ? comparison : -comparison;
+                          });
+                          
+                          return recipesWithPrices.map(item => item.recipe);
+                        } else {
+                          return [...recipesToSort].sort((a, b) => {
+                            if (sortField === 'name') {
+                              const nameA = a.title[language].toLowerCase();
+                              const nameB = b.title[language].toLowerCase();
+                              const comparison = nameA.localeCompare(nameB);
+                              return sortOrder === 'asc' ? comparison : -comparison;
+                            } else if (sortField === 'dateAdded') {
+                              const dateA = new Date(a.dateAdded).getTime();
+                              const dateB = new Date(b.dateAdded).getTime();
+                              const comparison = dateA - dateB;
+                              return sortOrder === 'asc' ? comparison : -comparison;
+                            } else if (sortField === 'prepTime') {
+                              const comparison = a.prepTime - b.prepTime;
+                              return sortOrder === 'asc' ? comparison : -comparison;
+                            }
+                            return 0;
+                          });
+                        }
+                      };
+
+                      const sortedCategoryRecipes = sortRecipesInCategory(categoryRecipes);
+                      
+                      return (
+                        <section 
+                          key={category.id} 
+                          id={`category-${category.id}`}
+                          className="category-section scroll-mt-16 sm:scroll-mt-20"
+                        >
+                          <div className="flex items-center gap-3 mb-4">
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                              {category.name[language]}
+                            </h2>
+                            <div className="flex-1 h-px bg-gradient-to-r from-gray-300 dark:from-gray-600 to-transparent"></div>
+                          </div>
+                          <RecipeGrid recipes={sortedCategoryRecipes} />
+                        </section>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  // Display all recipes in a flat list (no category sections)
+                  <div className="space-y-8">
+                    <RecipeGrid recipes={sortedRecipes} />
+                  </div>
+                )}
 
                 {/* No results message */}
-                {filteredRecipes.length === 0 && (
+                {sortedRecipes.length === 0 && (
                   <div className="text-center py-8">
                     <p className="text-xl text-gray-600 dark:text-gray-400">
                       {getTranslation('noRecipesFound', language)}

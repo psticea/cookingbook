@@ -65,8 +65,9 @@ export const SortSection: React.FC<SortSectionProps> = ({
         <div className="flex items-center gap-2">
           <button
             onClick={() => onSortOrderChange(sortOrder === 'asc' ? 'desc' : 'asc')}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark"
+            className="flex items-center justify-center px-3 py-1.5 rounded-md text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark"
             title={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
+            aria-label={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
           >
             <svg 
               className={`w-5 h-5 transition-transform ${sortOrder === 'desc' ? 'rotate-180' : ''}`}
@@ -76,7 +77,6 @@ export const SortSection: React.FC<SortSectionProps> = ({
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
             </svg>
-            <span>{getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}</span>
           </button>
         </div>
       </div>
