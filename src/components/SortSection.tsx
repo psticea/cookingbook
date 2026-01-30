@@ -65,7 +65,7 @@ export const SortSection: React.FC<SortSectionProps> = ({
           {/* Sort Field Selection */}
           <div className="ml-2">
             <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 py-1">
-              {getTranslation('sortBy', language)}
+              {getTranslation('sortField', language)}
             </h4>
             <div className="ml-2 sm:ml-4 flex flex-wrap gap-2 mt-1">
               {sortFields.map((field) => {
@@ -91,7 +91,7 @@ export const SortSection: React.FC<SortSectionProps> = ({
           {/* Sort Order Selection */}
           <div className="ml-2">
             <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 py-1">
-              {getTranslation('sortBy', language)} ({getTranslation(sortField === 'name' ? 'sortByName' : 'sortByDateAdded', language)})
+              {getTranslation('sortOrder', language)}
             </h4>
             <div className="ml-2 sm:ml-4 flex flex-wrap gap-2 mt-1">
               {sortOrders.map((order) => {
