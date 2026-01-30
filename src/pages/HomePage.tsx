@@ -5,11 +5,13 @@ import { RecipeGrid } from '../components/RecipeGrid';
 import { Footer } from '../components/Footer';
 import { SideMenu } from '../components/SideMenu';
 import { FiltersSection } from '../components/FiltersSection';
+import { SortSection, SortField, SortOrder } from '../components/SortSection';
 import { CategoriesSection } from '../components/CategoriesSection';
 import { MenuLinks } from '../components/MenuLinks';
 import { useRecipeData, getRecipesByCategory } from '../hooks/useRecipeData';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
+import { calculateRecipeCost } from '../utils/pricing';
 import { categories } from '../data';
 import { Recipe } from '../types';
 
@@ -26,6 +28,8 @@ const HomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
+  const [sortField, setSortField] = useState<SortField>('dateAdded');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
 
   // Save scroll position before leaving the page
   useEffect(() => {
@@ -108,8 +112,45 @@ const HomePage: React.FC = () => {
       });
     }
 
-    return filtered;
-  }, [recipes, searchQuery, selectedKeywords, language]);
+    // Apply sorting
+    let sorted: Recipe[];
+    
+    if (sortField === 'pricePerServing') {
+      // For price sorting, pre-calculate prices to avoid redundant calculations
+      const recipesWithPrices = filtered.map(recipe => ({
+        recipe,
+        price: calculateRecipeCost(recipe, language).pricePerServing
+      }));
+      
+      recipesWithPrices.sort((a, b) => {
+        const comparison = a.price - b.price;
+        return sortOrder === 'asc' ? comparison : -comparison;
+      });
+      
+      sorted = recipesWithPrices.map(item => item.recipe);
+    } else {
+      // For other sorting fields, sort directly
+      sorted = [...filtered].sort((a, b) => {
+        if (sortField === 'name') {
+          const nameA = a.title[language].toLowerCase();
+          const nameB = b.title[language].toLowerCase();
+          const comparison = nameA.localeCompare(nameB);
+          return sortOrder === 'asc' ? comparison : -comparison;
+        } else if (sortField === 'dateAdded') {
+          const dateA = new Date(a.dateAdded).getTime();
+          const dateB = new Date(b.dateAdded).getTime();
+          const comparison = dateA - dateB;
+          return sortOrder === 'asc' ? comparison : -comparison;
+        } else if (sortField === 'prepTime') {
+          const comparison = a.prepTime - b.prepTime;
+          return sortOrder === 'asc' ? comparison : -comparison;
+        }
+        return 0;
+      });
+    }
+
+    return sorted;
+  }, [recipes, searchQuery, selectedKeywords, language, sortField, sortOrder]);
 
   // Count total filtered recipes
   const totalFilteredCount = filteredRecipes.length;
@@ -177,11 +218,19 @@ const HomePage: React.FC = () => {
             {recipes.length > 0 && (
               <>
                 {/* Recipe count */}
-                <div className="mb-6">
+                <div className="mb-4">
                   <p className="text-lg text-gray-700 dark:text-gray-300">
                     {getTranslation('allRecipes', language)} ({totalFilteredCount})
                   </p>
                 </div>
+
+                {/* Sorting Controls */}
+                <SortSection
+                  sortField={sortField}
+                  sortOrder={sortOrder}
+                  onSortFieldChange={setSortField}
+                  onSortOrderChange={setSortOrder}
+                />
 
                 {/* Recipe sections by category */}
                 <div className="space-y-8">
