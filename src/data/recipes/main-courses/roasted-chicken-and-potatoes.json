@@ -7,15 +7,15 @@
     "en": "Roasted Chicken and Potatoes"
   },
   "prepTime": 50,
-  "servings": 6,
+  "servings": 4,
   "effortLevel": "medium",
   "ingredients": [
     {
       "name": {
-        "ro": "cartofi mici tăiați în jumătate",
-        "en": "baby potatoes halved"
+        "ro": "cartofi (mici tăiați în jumătate, medii în 4-6 bucăți)",
+        "en": "potatoes (small halved, medium into 4-6 pieces)"
       },
-      "quantity": 1200,
+      "quantity": 800,
       "unit": {
         "ro": "g",
         "en": "g"
@@ -36,25 +36,25 @@
     },
     {
       "name": {
-        "ro": "lămâi",
-        "en": "lemons"
+        "ro": "suc de lămâie",
+        "en": "lemon juice"
       },
-      "quantity": 2,
+      "quantity": 3,
       "unit": {
-        "ro": "buc",
-        "en": "pcs"
+        "ro": "linguri",
+        "en": "Tbsp"
       },
       "ingredientId": 105
     },
     {
       "name": {
-        "ro": "pulpe sau piepturi de pui",
-        "en": "chicken thighs or breasts"
+        "ro": "pulpe sau piepturi de pui tăiate în bucăți",
+        "en": "chicken thighs or breast in chunks"
       },
-      "quantity": 6,
+      "quantity": 800,
       "unit": {
-        "ro": "buc",
-        "en": "pcs"
+        "ro": "g",
+        "en": "g"
       },
       "ingredientId": 147
     },
@@ -131,19 +131,21 @@
   ],
   "instructions": {
     "ro": [
-      "Adaugă cartofii într-o cratiță cu apă sărată pentru a încălzi, apoi fierbe până se înmoaie, aproximativ 5 min. Preîncălzește cuptorul cu convecție la 240 Celsius.",
-      "Pentru marinadă: Într-un bol, amestecă pătrunjel, sucul dintr-o lămâie, usturoiul zdrobit, 3 linguri ulei de măsline, 1 linguriță de sare și puțin piper zdrobit. Transferă jumătate din marinadă într-un bol mare.",
-      "Adaugă usturoiul granulat, oregano uscat, puțină sare și 2 linguri de ulei de măsline. Adaugă puiul. Scurge cartofii care fierb și adaugă-i de asemenea. Amestecă totul pentru a combina.",
-      "Când totul este bine acoperit, întinde într-o tavă pe o foaie de gătit. Adaugă cele 2 jumătăți de lămâie rămase în tavă și pune în cuptor pentru a se rumeni, până totul devine crocant, timp de 30-40 minute.",
-      "Scoate jumătățile de lămâie arse și stoarce sucul peste cartofi și pui. Mută cartofii și puiul într-un bol, adaugă marinada rămasă și amestecă pentru a acoperi totul.",
+      "Taie cartofii: cei mici în jumătate, cei medii în 4-6 bucăți. Adaugă cartofii într-o cratiță cu apă sărată și fierbe pentru 6 minute pentru a-i parboli. Preîncălzește cuptorul cu convecție la 240 Celsius.",
+      "Pentru marinadă: Într-un bol, amestecă pătrunjel, 3 linguri de suc de lămâie, usturoiul zdrobit, 3 linguri ulei de măsline, 1 linguriță de sare și puțin piper zdrobit. Transferă jumătate din marinadă într-un bol mare.",
+      "Adaugă usturoiul granulat, oregano uscat, puțină sare și 2 linguri de ulei de măsline. Adaugă puiul. Scurge cartofii parboliți și adaugă-i de asemenea. Amestecă totul pentru a combina.",
+      "Când totul este bine acoperit, întinde într-o tavă pe o foaie de gătit. Pune în cuptor pentru a se rumeni, timp de 25 minute.",
+      "Ultimele 5 minute folosește grătarul (broiler) pentru o crustă frumoasă și crocantă.",
+      "Mută cartofii și puiul într-un bol, adaugă marinada rămasă și amestecă pentru a acoperi totul.",
       "Servește cu ierburi proaspete/salată."
     ],
     "en": [
-      "Add potatoes to a pan with salted water to heat up, then simmer until they are tenderized, for about 5 min. Preheat the convection oven to 240 Celsius.",
-      "For the marinade: In a bowl, toss together the parsley, the juice from one lemon, the crushed garlic, 3 Tbsp olive oil, 1 tsp of salt and some crushed pepper. Transfer half of the marinade to a large bowl.",
-      "Add the granulated garlic, the dried oregano, a bit more salt and 2 Tbsp of olive oil. Add the chicken. Drain the simmering potatoes and add them as well. Toss everything to mix.",
-      "When everything is nicely coated, spread in a tray on a cooking sheet. Add the remaining 2 lemon halves in the tray and toss in the oven to roast, until everything is crispy, for 30-40 minutes.",
-      "Remove the charred lemon halves and squeeze the juice over the potatoes and chicken. Move the potatoes and the chicken to a bowl, add the remaining marinade and toss to coat everything.",
+      "Cut the potatoes: small ones in half, medium ones into 4-6 pieces. Add potatoes to a pan with salted water and boil for 6 minutes to parboil them. Preheat the convection oven to 240 Celsius.",
+      "For the marinade: In a bowl, toss together the parsley, 3 Tbsp lemon juice, the crushed garlic, 3 Tbsp olive oil, 1 tsp of salt and some crushed pepper. Transfer half of the marinade to a large bowl.",
+      "Add the granulated garlic, the dried oregano, a bit more salt and 2 Tbsp of olive oil. Add the chicken. Drain the parboiled potatoes and add them as well. Toss everything to mix.",
+      "When everything is nicely coated, spread in a tray on a cooking sheet. Toss in the oven to roast for 25 minutes.",
+      "For the last 5 minutes use the broiler for a nice crispy crust.",
+      "Move the potatoes and the chicken to a bowl, add the remaining marinade and toss to coat everything.",
       "Serve with fresh herbs/salad."
     ]
   },
