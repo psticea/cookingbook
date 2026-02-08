@@ -12,8 +12,8 @@
   "ingredients": [
     {
       "name": {
-        "ro": "cartofi mici tăiați în jumătate",
-        "en": "baby potatoes halved"
+        "ro": "cartofi",
+        "en": "potatoes"
       },
       "quantity": 1200,
       "unit": {
