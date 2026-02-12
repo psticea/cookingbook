@@ -40,25 +40,17 @@ export const SortSection: React.FC<SortSectionProps> = ({
           <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
             {getTranslation('sortBy', language)}:
           </label>
-          <div className="flex flex-wrap gap-2">
-            {sortFields.map((field) => {
-              const isSelected = sortField === field.value;
-              const baseClasses = 'px-3 py-1.5 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
-              const selectedClasses = 'bg-accent-light dark:bg-accent-dark text-white focus:ring-white dark:focus:ring-gray-900';
-              const unselectedClasses = 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:ring-accent-light dark:focus:ring-accent-dark';
-              
-              return (
-                <button
-                  key={field.value}
-                  onClick={() => onSortFieldChange(field.value)}
-                  className={`${baseClasses} ${isSelected ? selectedClasses : unselectedClasses}`}
-                  aria-pressed={isSelected}
-                >
-                  {getTranslation(field.labelKey, language)}
-                </button>
-              );
-            })}
-          </div>
+          <select 
+            value={sortField}
+            onChange={(e) => onSortFieldChange(e.target.value as SortField)}
+            className="px-3 py-1.5 rounded-md text-sm font-medium border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark focus:ring-offset-2"
+          >
+            {sortFields.map((field) => (
+              <option key={field.value} value={field.value}>
+                {getTranslation(field.labelKey, language)}
+              </option>
+            ))}
+          </select>
         </div>
 
         {/* Sort Order Toggle */}
