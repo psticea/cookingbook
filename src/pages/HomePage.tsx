@@ -6,7 +6,6 @@ import { Footer } from '../components/Footer';
 import { SideMenu } from '../components/SideMenu';
 import { FiltersSection } from '../components/FiltersSection';
 import { SortField, SortOrder } from '../components/SortSection';
-import { CategoryFilter } from '../components/CategoryFilter';
 import { CategoriesSection } from '../components/CategoriesSection';
 import { MenuLinks } from '../components/MenuLinks';
 import { useRecipeData, getRecipesByCategory } from '../hooks/useRecipeData';
@@ -29,7 +28,6 @@ const HomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [sortField, setSortField] = useState<SortField>('dateAdded');
   const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
   const [showCategories, setShowCategories] = useState(true);
@@ -65,7 +63,7 @@ const HomePage: React.FC = () => {
   // Scroll to top when filters change
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [selectedKeywords, selectedCategory]);
+  }, [selectedKeywords]);
 
   // Handle navigation from other pages (category scroll or filters)
   useEffect(() => {
@@ -97,11 +95,6 @@ const HomePage: React.FC = () => {
   const filteredRecipes = useMemo(() => {
     let filtered = recipes;
 
-    // Apply category filtering
-    if (selectedCategory) {
-      filtered = filtered.filter((recipe: Recipe) => recipe.category === selectedCategory);
-    }
-
     // Apply keyword filtering
     if (selectedKeywords.size > 0) {
       filtered = filtered.filter((recipe: Recipe) => {
@@ -122,7 +115,7 @@ const HomePage: React.FC = () => {
     }
 
     return filtered;
-  }, [recipes, searchQuery, selectedKeywords, selectedCategory, language]);
+  }, [recipes, searchQuery, selectedKeywords, language]);
 
   // Apply sorting - either globally or within categories
   const sortedRecipes = useMemo(() => {
@@ -312,12 +305,6 @@ const HomePage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Category Filter */}
-                <CategoryFilter
-                  selectedCategory={selectedCategory}
-                  onCategoryChange={setSelectedCategory}
-                />
 
                 {/* Recipe sections by category or flat list */}
                 {showCategories ? (
