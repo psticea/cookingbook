@@ -6,7 +6,7 @@ export type Language = 'ro' | 'en';
 
 export type TextSize = 'normal' | 'large';
 
-export type Theme = 'dark' | 'light';
+export type Theme = 'dark' | 'light' | 'retro';
 
 /**
  * Generic type for multilingual content

@@ -88,3 +88,223 @@ input[type="range"].slider-thumb::-moz-range-thumb:active {
     height: 28px;
   }
 }
+
+/* ============================================================
+   RETRO TERMINAL THEME
+   CRT Monitor / Green Phosphor on Black
+   ============================================================ */
+
+/* Force monospace font and square corners for all elements */
+.retro * {
+  font-family: 'Courier New', Courier, monospace !important;
+  border-radius: 0 !important;
+}
+
+/* Base background and text */
+.retro body,
+.retro #root {
+  background-color: #0a0a0a;
+  color: #00ff41;
+}
+
+/* Green glow text for major elements */
+.retro h1,
+.retro h2,
+.retro h3,
+.retro h4,
+.retro h5,
+.retro h6 {
+  color: #00ff41 !important;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6) !important;
+}
+
+.retro p,
+.retro span,
+.retro label,
+.retro li,
+.retro td,
+.retro th {
+  color: #00ff41 !important;
+}
+
+/* Dim color for muted/secondary text */
+.retro .text-gray-400,
+.retro .text-gray-500,
+.retro .text-gray-600 {
+  color: #009920 !important;
+  text-shadow: none !important;
+}
+
+/* Links */
+.retro a {
+  color: #00ff41 !important;
+  text-decoration: none;
+}
+
+.retro a:hover {
+  color: #66ff88 !important;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.8) !important;
+}
+
+/* Backgrounds – override all whites and grays */
+.retro header,
+.retro footer,
+.retro nav,
+.retro main,
+.retro aside {
+  background-color: #0a0a0a !important;
+  border-color: #00ff41 !important;
+}
+
+.retro .bg-white,
+.retro .bg-gray-50,
+.retro .bg-gray-100,
+.retro .bg-gray-200 {
+  background-color: #0a0a0a !important;
+}
+
+.retro .bg-gray-700,
+.retro .bg-gray-800,
+.retro .bg-gray-900 {
+  background-color: #0d1a0d !important;
+}
+
+/* Borders */
+.retro .border,
+.retro .border-t,
+.retro .border-b,
+.retro .border-l,
+.retro .border-r,
+.retro [class*="border-gray"] {
+  border-color: #00ff41 !important;
+}
+
+/* Shadows → phosphor glow */
+.retro .shadow-md {
+  box-shadow: 0 0 6px rgba(0, 255, 65, 0.4), inset 0 0 6px rgba(0, 255, 65, 0.05) !important;
+}
+
+.retro .shadow-xl,
+.retro .shadow-2xl {
+  box-shadow: 0 0 12px rgba(0, 255, 65, 0.6), inset 0 0 12px rgba(0, 255, 65, 0.05) !important;
+}
+
+/* Buttons */
+.retro button {
+  background-color: #0a0a0a !important;
+  color: #00ff41 !important;
+  border: 1px solid #00ff41 !important;
+}
+
+.retro button:hover {
+  background-color: #00ff41 !important;
+  color: #0a0a0a !important;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.7) !important;
+}
+
+/* Active/selected button (accent) */
+.retro .bg-accent-light,
+.retro .bg-accent-dark {
+  background-color: #00ff41 !important;
+  color: #0a0a0a !important;
+}
+
+.retro .text-accent-light,
+.retro .text-accent-dark {
+  color: #00ff41 !important;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6) !important;
+}
+
+/* Form inputs and selects */
+.retro input,
+.retro select,
+.retro textarea {
+  background-color: #0a0a0a !important;
+  color: #00ff41 !important;
+  border: 1px solid #00ff41 !important;
+  outline-color: #00ff41 !important;
+}
+
+.retro input::placeholder,
+.retro textarea::placeholder {
+  color: #009920 !important;
+}
+
+.retro input:focus,
+.retro select:focus,
+.retro textarea:focus {
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.5) !important;
+  outline: none !important;
+}
+
+/* Range slider */
+.retro input[type="range"].slider-thumb::-webkit-slider-thumb {
+  background: #00ff41 !important;
+  border-color: #0a0a0a !important;
+  box-shadow: 0 0 6px rgba(0, 255, 65, 0.7) !important;
+}
+
+.retro input[type="range"].slider-thumb::-moz-range-thumb {
+  background: #00ff41 !important;
+  border-color: #0a0a0a !important;
+  box-shadow: 0 0 6px rgba(0, 255, 65, 0.7) !important;
+}
+
+/* Toggle switch */
+.retro [role="switch"] {
+  background-color: #009920 !important;
+  border: 1px solid #00ff41 !important;
+}
+
+.retro [role="switch"][aria-checked="true"] {
+  background-color: #00ff41 !important;
+}
+
+/* Recipe card image – desaturate and add green tint */
+.retro img {
+  filter: grayscale(50%) sepia(80%) hue-rotate(80deg) saturate(2) brightness(0.65) !important;
+}
+
+/* Overlay on recipe image title bubble */
+.retro .backdrop-blur-sm {
+  background-color: rgba(0, 17, 0, 0.75) !important;
+  backdrop-filter: none !important;
+}
+
+/* Gradient divider lines */
+.retro .bg-gradient-to-r {
+  background: linear-gradient(to right, #00ff41, transparent) !important;
+}
+
+/* Scrollbar styling */
+.retro ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.retro ::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+.retro ::-webkit-scrollbar-thumb {
+  background: #00ff41;
+  box-shadow: 0 0 4px rgba(0, 255, 65, 0.5);
+}
+
+/* CRT scanline effect overlay */
+.retro #root::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}

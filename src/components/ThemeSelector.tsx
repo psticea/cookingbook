@@ -6,7 +6,7 @@ import { getTranslation } from '../utils/translations';
 
 /**
  * ThemeSelector component
- * Displays dark and light theme options
+ * Displays dark, light, and retro theme options
  * Highlights the currently selected theme
  */
 export const ThemeSelector: React.FC = () => {
@@ -43,6 +43,19 @@ export const ThemeSelector: React.FC = () => {
         aria-pressed={theme === 'light'}
       >
         {getTranslation('light', language)}
+      </button>
+      <span className="text-base opacity-50">|</span>
+      <button
+        onClick={() => handleThemeChange('retro')}
+        className={`min-w-[44px] min-h-[44px] px-3 py-2 text-base rounded transition-colors ${
+          theme === 'retro'
+            ? 'bg-accent-light dark:bg-accent-dark text-white font-semibold'
+            : 'hover:bg-secondary-light dark:hover:bg-secondary-dark'
+        }`}
+        aria-label={getTranslation('retro', language)}
+        aria-pressed={theme === 'retro'}
+      >
+        {getTranslation('retro', language)}
       </button>
     </div>
   );

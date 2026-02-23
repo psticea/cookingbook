@@ -24,10 +24,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   useEffect(() => {
     const root = document.documentElement;
     
+    root.classList.remove('dark', 'retro');
     if (theme === 'dark') {
       root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
+    } else if (theme === 'retro') {
+      root.classList.add('retro');
     }
   }, [theme]);
 

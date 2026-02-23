@@ -68,7 +68,6 @@
     "difficulty": "Dificultate",
     "clearAllFilters": "Șterge Toate Filtrele",
     "ingredient": "Ingredient",
-    "ingredients": "Ingrediente",
     "cookType": "Metodă de Gătit",
     "sortBy": "Sortare",
     "sortField": "Sortare după",
@@ -91,7 +90,8 @@
     "searchIngredients": "Caută ingrediente...",
     "groupByCategories": "Grupare pe Categorii",
     "showCategories": "Arată Categoriile",
-    "hideCategories": "Ascunde Categoriile"
+    "hideCategories": "Ascunde Categoriile",
+    "retro": "Retro"
   },
   "en": {
     "loading": "Loading...",
@@ -162,7 +162,6 @@
     "difficulty": "Difficulty",
     "clearAllFilters": "Clear All Filters",
     "ingredient": "Ingredient",
-    "ingredients": "Ingredients",
     "cookType": "Cooking Method",
     "sortBy": "Sort By",
     "sortField": "Sort By",
@@ -185,6 +184,7 @@
     "searchIngredients": "Search ingredients...",
     "groupByCategories": "Group by Categories",
     "showCategories": "Show Categories",
-    "hideCategories": "Hide Categories"
+    "hideCategories": "Hide Categories",
+    "retro": "Retro"
   }
 }
