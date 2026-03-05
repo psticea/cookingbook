@@ -10,17 +10,28 @@ export default {
     extend: {
       colors: {
         primary: {
-          light: '#ffffff',
-          dark: '#1a1a1a',
+          light: '#fecc06',
+          dark: '#f9c701',
         },
         secondary: {
-          light: '#f5f5f5',
-          dark: '#2d2d2d',
+          light: '#7af8ff',
+          dark: '#007e85',
         },
         accent: {
-          light: '#e74c3c',
-          dark: '#ff6b6b',
+          light: '#3460fe',
+          dark: '#012dcb',
         },
+        surface: {
+          light: '#fffefa',
+          dark: '#050400',
+        },
+        'text-main': {
+          light: '#1f1700',
+          dark: '#fff7e0',
+        },
+      },
+      borderRadius: {
+        '2xl': '16px',
       },
     },
   },

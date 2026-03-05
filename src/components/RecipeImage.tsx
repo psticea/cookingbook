@@ -27,13 +27,13 @@ export const RecipeImage: React.FC<RecipeImageProps> = ({ recipeId, category, al
   };
 
   return (
-    <div className="mb-4 w-full">
+    <div className="w-full">
       <img
         src={imageError ? defaultImage : imagePath}
         alt={alt}
         loading="lazy"
         onError={handleImageError}
-        className="w-full aspect-[3/2] object-cover rounded-lg shadow-md"
+        className="w-full aspect-video object-cover"
       />
     </div>
   );

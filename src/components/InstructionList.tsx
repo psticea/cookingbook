@@ -17,11 +17,7 @@ export const InstructionList: React.FC<InstructionListProps> = ({ instructions }
   const { language } = useLanguage();
 
   return (
-    <section className="mb-6">
-      <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-        {getTranslation('instructions', language)}
-      </h2>
-
+    <div className="space-y-2">
       <ol className="space-y-2">
         {instructions[language].map((instruction, index) => (
           <li
@@ -37,6 +33,6 @@ export const InstructionList: React.FC<InstructionListProps> = ({ instructions }
           </li>
         ))}
       </ol>
-    </section>
+    </div>
   );
 };

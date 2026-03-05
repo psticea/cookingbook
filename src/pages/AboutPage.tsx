@@ -80,7 +80,7 @@ const AboutPage: React.FC = () => {
   }, [language, theme]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-surface-light dark:bg-surface-dark">
       <Header onMenuToggle={handleMenuToggle} />
 
       {/* Side Menu */}

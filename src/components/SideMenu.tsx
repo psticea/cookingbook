@@ -66,7 +66,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
 
       {/* Side Menu Panel - responsive width */}
       <div
-        className={`fixed top-0 right-0 h-full w-3/5 md:w-1/2 lg:w-1/3 bg-white dark:bg-gray-800 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed top-0 right-0 h-full w-3/5 md:w-1/2 lg:w-1/3 bg-surface-light dark:bg-surface-dark shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -74,13 +74,13 @@ export const SideMenu: React.FC<SideMenuProps> = ({
         aria-label={getTranslation('menu', language)}
       >
         {/* Header with close button - touch-friendly */}
-        <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-2 flex items-center justify-between z-10">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+        <div className="sticky top-0 bg-surface-light dark:bg-surface-dark border-b border-gray-200 dark:border-zinc-700 px-4 sm:px-6 py-2 flex items-center justify-between z-10">
+          <h2 className="text-xl font-bold text-text-main-light dark:text-text-main-dark">
             {getTranslation('menu', language)}
           </h2>
           <button
             onClick={onClose}
-            className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-text-main-light/60 dark:text-text-main-dark/60 hover:text-text-main-light dark:hover:text-text-main-dark transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-zinc-800"
             aria-label={getTranslation('close', language)}
           >
             <svg
@@ -106,7 +106,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
         </div>
 
         {/* Footer with Language Selector - sticky at bottom */}
-        <div className="sticky bottom-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-4">
+        <div className="sticky bottom-0 bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-zinc-700 px-4 sm:px-6 py-4">
           <div className="flex items-center justify-center">
             <LanguageSelector />
           </div>

@@ -34,10 +34,10 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   return (
     <Link
       to={`/recipe/${recipe.id}`}
-      className="block bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+      className="block bg-surface-light dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
     >
       {/* Recipe Image with Overlay Title */}
-      <div className="relative aspect-[3/2] w-full overflow-hidden bg-gray-200 dark:bg-gray-700">
+      <div className="relative aspect-[3/2] w-full overflow-hidden bg-gray-200 dark:bg-zinc-700">
         <img
           src={imageError ? defaultImage : imagePath}
           alt={recipe.title[language]}
@@ -47,8 +47,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
         />
         {/* Overlay Title - Floating Bubble */}
         <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-auto sm:max-w-[80%]">
-          <div className="inline-block bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-lg px-2 py-1 sm:px-2.5 sm:py-1.5 shadow-lg">
-            <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 line-clamp-2">
+          <div className="inline-block bg-surface-light/60 dark:bg-surface-dark/60 backdrop-blur-sm rounded-lg px-2 py-1 sm:px-2.5 sm:py-1.5 shadow-lg">
+            <h3 className="text-base font-bold text-text-main-light dark:text-text-main-dark line-clamp-2">
               {recipe.title[language]}
             </h3>
           </div>
@@ -56,7 +56,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       </div>
 
       {/* Recipe Metadata - Icons and numbers with labels */}
-      <div className="p-2 sm:p-3 flex items-center justify-between text-gray-600 dark:text-gray-400">
+      <div className="p-2 sm:p-3 flex items-center justify-between text-text-main-light/60 dark:text-text-main-dark/60">
         <div className="flex items-center gap-1" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
           <span className="text-base sm:text-lg">⏱️</span>
           <span className="text-base font-medium">{recipe.prepTime} {getTranslation('minutes', language)}</span>

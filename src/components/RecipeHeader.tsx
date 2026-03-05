@@ -16,9 +16,8 @@ export const RecipeHeader: React.FC<RecipeHeaderProps> = ({ recipe }) => {
   const { language } = useLanguage();
 
   return (
-    <header className="mb-8 sm:mb-10">
-      {/* Recipe Title - minimalist design */}
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 dark:text-gray-100 tracking-tight">
+    <header className="mb-4">
+      <h1 className="text-3xl font-bold text-text-main-light dark:text-text-main-dark tracking-tight">
         {recipe.title[language]}
       </h1>
     </header>

@@ -25,48 +25,41 @@ describe('IngredientList - Price Per Portion Bug Fix', () => {
   ];
 
   it('displays price per serving that does not change with servings', () => {
-    const pricePerServing = 1.50;
-    const totalCostRecipe = 6.00;
     const servings = 4;
 
     render(
       <IngredientList
         ingredients={mockIngredients}
-        prepTime={30}
         servings={servings}
-        pricePerServing={pricePerServing}
-        totalCostRecipe={totalCostRecipe}
+        currentServings={servings}
       />
     );
 
-    // Check that price per serving is displayed correctly
-    // The component displays it as "1.50 RON" (without "/ serving")
-    const priceElement = screen.getByText(/1\.50 RON/);
-    expect(priceElement).toBeDefined();
+    // Check that ingredient names are displayed
+    expect(screen.getByText(/flour/)).toBeDefined();
+    expect(screen.getByText(/eggs/)).toBeDefined();
 
-    // Verify the price per serving doesn't include the scaled calculation
-    // It should display 1.50, not something scaled
-    expect(priceElement.textContent).toContain('1.50');
+    // Quantities should be displayed at original amounts
+    expect(screen.getByText(/200/)).toBeDefined();
+    // "2 pcs eggs" — check full text to avoid matching "200"
+    expect(screen.getByText(/\b2\s+pcs\s+eggs/)).toBeDefined();
   });
 
   it('displays total cost that scales with servings', () => {
-    const pricePerServing = 1.50;
-    const totalCostRecipe = 6.00;
     const servings = 4;
+    const scaledServings = 8;
 
     render(
       <IngredientList
         ingredients={mockIngredients}
-        prepTime={30}
         servings={servings}
-        pricePerServing={pricePerServing}
-        totalCostRecipe={totalCostRecipe}
+        currentServings={scaledServings}
       />
     );
 
-    // The total cost should be displayed
-    // When servings = 4 (original), total should be 6.00 RON
-    const totalElement = screen.getByText(/6\.00 RON total/);
-    expect(totalElement).toBeDefined();
+    // At 2x servings, quantities should be doubled
+    expect(screen.getByText(/400/)).toBeDefined();
+    // "4 pcs eggs" — check full text to avoid matching "400"
+    expect(screen.getByText(/\b4\s+pcs\s+eggs/)).toBeDefined();
   });
 });

@@ -24,11 +24,11 @@ export const PersonalNotes: React.FC<PersonalNotesProps> = ({ notes }) => {
 
   return (
     <section className="mb-6">
-      <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-        {getTranslation('personalNotes', language)}
-      </h2>
-      <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 p-3 sm:p-4 rounded-r-lg">
-        <p className="text-base text-gray-800 dark:text-gray-200 leading-relaxed whitespace-pre-line">
+      <div className="bg-secondary-light dark:bg-secondary-dark rounded-2xl p-5 shadow-sm">
+        <h3 className="font-bold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
+          {getTranslation('personalNotes', language)}
+        </h3>
+        <p className="text-text-main-light dark:text-text-main-dark opacity-80 leading-relaxed whitespace-pre-line">
           {notes[language]}
         </p>
       </div>
