@@ -83,7 +83,7 @@ const PricesPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-surface-light dark:bg-surface-dark">
       <Header onMenuToggle={handleMenuToggle} />
 
       {/* Side Menu */}

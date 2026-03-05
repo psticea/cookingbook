@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40">
+    <header className="bg-surface-light dark:bg-surface-dark shadow-md sticky top-0 z-40">
       <nav className="max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-1.5">
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Left: Home link - touch-friendly on mobile */}
@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex-shrink-0">
             <button
               onClick={onMenuToggle}
-              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-text-main-light dark:text-text-main-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-zinc-800"
               aria-label={getTranslation('menu', language)}
             >
               <svg

@@ -18,39 +18,39 @@ export const MenuLinks: React.FC<MenuLinksProps> = ({ onLinkClick }) => {
   return (
     <>
       {/* Cooking Basics - top-level section */}
-      <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
+      <div className="border-b border-gray-200 dark:border-zinc-700 pb-2">
         <Link
           to="/cooking-basics"
           onClick={onLinkClick}
-          className="w-full flex items-center justify-between py-2 text-left min-h-[44px] hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors px-2"
+          className="w-full flex items-center justify-between py-2 text-left min-h-[44px] hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-md transition-colors px-2"
         >
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+          <h3 className="text-base sm:text-lg font-semibold text-text-main-light dark:text-text-main-dark">
             {getTranslation('cookingBasics', language)}
           </h3>
         </Link>
       </div>
 
       {/* Ingredient Prices - top-level section */}
-      <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
+      <div className="border-b border-gray-200 dark:border-zinc-700 pb-2">
         <Link
           to="/prices"
           onClick={onLinkClick}
-          className="w-full flex items-center justify-between py-2 text-left min-h-[44px] hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors px-2"
+          className="w-full flex items-center justify-between py-2 text-left min-h-[44px] hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-md transition-colors px-2"
         >
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+          <h3 className="text-base sm:text-lg font-semibold text-text-main-light dark:text-text-main-dark">
             {getTranslation('ingredientPrices', language)}
           </h3>
         </Link>
       </div>
 
       {/* About - top-level section */}
-      <div className="border-b border-gray-200 dark:border-gray-700 pb-2">
+      <div className="border-b border-gray-200 dark:border-zinc-700 pb-2">
         <Link
           to="/about"
           onClick={onLinkClick}
-          className="w-full flex items-center justify-between py-2 text-left min-h-[44px] hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors px-2"
+          className="w-full flex items-center justify-between py-2 text-left min-h-[44px] hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-md transition-colors px-2"
         >
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+          <h3 className="text-base sm:text-lg font-semibold text-text-main-light dark:text-text-main-dark">
             {getTranslation('about', language)}
           </h3>
         </Link>
