@@ -1,7 +1,6 @@
 import React from 'react';
 import { MultilingualText } from '../types/common';
 import { useLanguage } from '../hooks/useLanguage';
-import { getTranslation } from '../utils/translations';
 
 interface InstructionListProps {
   instructions: MultilingualText<string[]>;
