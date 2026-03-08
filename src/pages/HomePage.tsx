@@ -241,7 +241,7 @@ const HomePage: React.FC = () => {
                   {/* Categories Toggle */}
                   <button
                     onClick={() => setShowCategories(!showCategories)}
-                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark ${
+                    className={`flex items-center justify-center w-8 h-8 rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark ${
                       showCategories
                         ? 'border-accent-light dark:border-accent-dark text-accent-light dark:text-accent-dark bg-accent-light/10 dark:bg-accent-dark/10'
                         : 'border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500'
@@ -251,17 +251,16 @@ const HomePage: React.FC = () => {
                     aria-label={getTranslation('groupByCategories', language)}
                     title={getTranslation('groupByCategories', language)}
                   >
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h8M4 18h8" />
                     </svg>
-                    {getTranslation('categories', language)}
                   </button>
 
                   {/* Sort field */}
                   <select
                     value={sortField}
                     onChange={(e) => setSortField(e.target.value as SortField)}
-                    className="px-2.5 py-1 rounded-full text-xs font-medium border border-gray-300 dark:border-gray-600 bg-transparent text-gray-600 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark focus:ring-offset-2 transition-colors cursor-pointer"
+                    className="px-2.5 py-1 rounded-full text-sm font-medium border border-gray-300 dark:border-gray-600 bg-transparent text-gray-600 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark focus:ring-offset-2 transition-colors cursor-pointer"
                   >
                     {[
                       { value: 'name' as SortField, labelKey: 'sortByName' },
@@ -347,7 +346,7 @@ const HomePage: React.FC = () => {
                           className="category-section scroll-mt-16 sm:scroll-mt-20"
                         >
                           <div className="flex items-center gap-3 mb-4">
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                            <h2 className="text-xl font-bold text-text-main-light dark:text-text-main-dark border-l-4 border-accent-light dark:border-accent-dark pl-2">
                               {category.name[language]}
                             </h2>
                             <div className="flex-1 h-px bg-gradient-to-r from-gray-300 dark:from-gray-600 to-transparent"></div>
