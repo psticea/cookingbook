@@ -31,22 +31,22 @@ input[type="checkbox"].ingredient-checkbox {
   height: 20px;
   border-radius: 5px;
   border: 2px solid #d1d5db;
-  accent-color: #3460fe;
+  accent-color: #d1c366;
   cursor: pointer;
   flex-shrink: 0;
 }
 
 .dark input[type="checkbox"].ingredient-checkbox {
   border-color: #52525b;
-  accent-color: #012dcb;
+  accent-color: #998b2e;
 }
 
 input[type="checkbox"].ingredient-checkbox:checked {
-  background-color: #3460fe;
-  border-color: #3460fe;
+  background-color: #d1c366;
+  border-color: #d1c366;
 }
 
 .dark input[type="checkbox"].ingredient-checkbox:checked {
-  background-color: #012dcb;
-  border-color: #012dcb;
+  background-color: #998b2e;
+  border-color: #998b2e;
 }
