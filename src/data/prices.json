@@ -720,6 +720,13 @@
       "category": "Seafood",
       "unit_type": "mass",
       "price_per_1000": 45
+    },
+    "cornmeal": {
+      "id": 203,
+      "name": "Cornmeal",
+      "category": "Grains & Pasta",
+      "unit_type": "mass",
+      "price_per_1000": 4
     }
   }
 }
