@@ -1,0 +1,76 @@
+{
+  "id": "mamaliga",
+  "category": "basics",
+  "image": "images/basics/mamaliga.jpg",
+  "title": {
+    "ro": "Mămăligă",
+    "en": "Polenta (Romanian Cornmeal Mush)"
+  },
+  "prepTime": 25,
+  "servings": 4,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "apă",
+        "en": "water"
+      },
+      "quantity": 1000,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 106
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 5,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "mălai",
+        "en": "cornmeal"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 203
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Pentru mămăligă este ideal să se folosească un ceaun sau o oală de fontă cu fundul mai gros. Turnați apa în oală, adăugați sarea și puneți pe foc până când apa începe să fiarbă.",
+      "Când apa clocotește, adăugați mălaiul sub formă de ploaie. Amestecați continuu cu un tel în formă de pară, care va preveni formarea cocoloașelor.",
+      "Continuați să amestecați chiar și după ce ați adăugat tot mălaiul, până când mămăliga reîncepe să fiarbă. Reduceți focul la minimum, deoarece mămăliga are tendința să împroaște cu stropi fierbinți în timp ce fierbe. Amestecați în continuare încă 3-4 minute.",
+      "Acoperiți oala cu capacul și fierbeți la foc minim încă 15 minute. În acest timp, descoperiți oala și amestecați energic de trei ori.",
+      "Mămăliga este acum suficient de fiartă și o puteți servi imediat. Dacă doriți să o răsturnați, acesta este momentul ideal pentru a o turna în forme sau pentru a o folosi la mămăligă în straturi la cuptor."
+    ],
+    "en": [
+      "For best results, use a cast iron pot or cauldron with a thick bottom. Pour the water into the pot, add the salt, and heat over medium-high until it comes to a boil.",
+      "Once the water is boiling, add the cornmeal in a slow, steady stream. Stir continuously with a balloon whisk to prevent lumps from forming.",
+      "Keep stirring after all the cornmeal has been added, until the polenta returns to a boil. Reduce the heat to the lowest setting, as polenta tends to splatter with hot droplets while it bubbles. Continue stirring for another 3-4 minutes.",
+      "Cover the pot with a lid and cook on the lowest heat for another 15 minutes. During this time, uncover and stir vigorously three times.",
+      "The polenta is now fully cooked and can be served immediately. If you wish to unmold it, this is the ideal time to pour it into molds, or use it for layered polenta bakes."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Cantitatea de mălai poate fi ajustată între 200 și 250 de grame, în funcție de cât de dens doriți să fie rezultatul. Un mălai mai slab poate necesita până la 250 g. Sursa: lauralaurentiu.ro",
+    "en": "The amount of cornmeal can be adjusted between 200 and 250 grams depending on how thick you want the final result. A coarser cornmeal may need up to 250 g. Source: lauralaurentiu.ro"
+  },
+  "keywords": [
+    "easy",
+    "vegetarian",
+    "boiling"
+  ],
+  "dateAdded": "2026-03-08"
+}
