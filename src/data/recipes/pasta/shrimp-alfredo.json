@@ -1,0 +1,154 @@
+{
+  "id": "shrimp-alfredo",
+  "category": "pasta",
+  "image": "images/pasta/shrimp-alfredo.jpg",
+  "title": {
+    "ro": "Paste Alfredo cu Creveți",
+    "en": "Shrimp Alfredo"
+  },
+  "prepTime": 30,
+  "servings": 3,
+  "effortLevel": "medium",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "creveți medii, curățați de coji și vena intestinală",
+        "en": "medium shrimp, peeled and deveined"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 202
+    },
+    {
+      "name": {
+        "ro": "fettuccine",
+        "en": "fettuccine"
+      },
+      "quantity": 250,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 154
+    },
+    {
+      "name": {
+        "ro": "unt, împărțit",
+        "en": "butter, divided"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "tbsp"
+      },
+      "ingredientId": 110
+    },
+    {
+      "name": {
+        "ro": "usturoi tocat",
+        "en": "garlic, minced"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      },
+      "ingredientId": 104
+    },
+    {
+      "name": {
+        "ro": "smântână pentru frișcă",
+        "en": "heavy cream"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 144
+    },
+    {
+      "name": {
+        "ro": "parmezan ras",
+        "en": "parmesan cheese, grated"
+      },
+      "quantity": 70,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 146
+    },
+    {
+      "name": {
+        "ro": "sare (sau după gust)",
+        "en": "salt (or to taste)"
+      },
+      "quantity": 0.125,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "piper proaspăt măcinat (sau după gust)",
+        "en": "freshly cracked pepper (or to taste)"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 102
+    },
+    {
+      "name": {
+        "ro": "pătrunjel proaspăt tocat (opțional)",
+        "en": "chopped fresh parsley (optional)"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "tbsp"
+      },
+      "ingredientId": 116
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Aduce o oală cu apă la fiert pentru fettuccine. Odată ce fierbe, adaugă fettuccine și fierbe până devine al dente (7-10 minute). Rezervă ½ cană din apa cu amidon înainte de a scurge pastele într-o strecurătoare.",
+      "În timp ce fettuccine fierbe, pregătește creveții și sosul alfredo. Pune creveții curățați pe un tocător și tamponează cu prosoape de hârtie. Asezonează creveții cu un praf de sare și piper.",
+      "Adaugă 1 lingură de unt într-o tigaie mare. Odată fierbinte, rotește tigaia pentru a acoperi suprafața cu unt. Adaugă creveții și gătește-i 1-2 minute pe fiecare parte, sau până devin opaci și roz (nu supragăti creveții). Transferă creveții gătiți într-un bol curat.",
+      "Reduce focul la mediu-mic. Adaugă 1 lingură de unt în tigaie împreună cu usturoiul tocat. Sotează usturoiul 1-2 minute, sau până devine foarte parfumat dar fără să se ardă.",
+      "Adaugă smântâna pentru frișcă în tigaie și amestecă pentru a dizolva orice reziduuri de pe fundul tigăii. Lasă smântâna să ajungă la un fierbere ușor.",
+      "Incorporează parmezanul în smântâna fierbinte până se topește complet. Asezonează sosul cu sare și piper.",
+      "Adaugă pastele fierte și scurse și creveții gătiți înapoi în tigaie cu sosul (asigură-te că adaugi și orice lichid din bolul cu creveți). Amestecă totul până se acoperă bine cu sos. Dacă sosul devine prea gros, adaugă puțin din apa de paste rezervată pentru a-l subția. Garnisește cu pătrunjel proaspăt tocat și servește!"
+    ],
+    "en": [
+      "Bring a pot of water to a boil for the fettuccine. Once boiling, add the fettuccine and cook until tender (7-10 minutes). Reserve ½ cup of the starchy pasta water before draining in a colander.",
+      "While the fettuccine is cooking, prepare the shrimp and alfredo sauce. Place the peeled shrimp on a cutting board and pat dry with a paper towel. Season with a pinch of salt and pepper.",
+      "Add 1 tablespoon of butter to a large skillet over medium-high heat. Once hot, swirl to coat the surface. Add the shrimp and cook for 1-2 minutes on each side, just until opaque and pink (do not overcook). Transfer the cooked shrimp to a clean bowl.",
+      "Reduce the heat to medium-low. Add the remaining 1 tablespoon of butter to the skillet along with the minced garlic. Sauté for 1-2 minutes, until very fragrant but not browned.",
+      "Pour in the heavy cream and whisk to lift any browned bits off the bottom of the skillet. Allow the cream to come up to a gentle simmer.",
+      "Whisk in the Parmesan until fully melted and smooth. Season the sauce with salt and pepper.",
+      "Add the drained pasta and cooked shrimp back to the skillet (including any juices from the bowl of shrimp). Toss until everything is well coated in the sauce. If the sauce is too thick, add a splash of the reserved pasta water to loosen it. Top with chopped fresh parsley and serve!"
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă inspirată de: https://www.budgetbytes.com/shrimp-alfredo-pasta/",
+    "en": "Recipe inspired by: https://www.budgetbytes.com/shrimp-alfredo-pasta/"
+  },
+  "keywords": [
+    "medium",
+    "fish",
+    "pan-fry",
+    "boiling",
+    "pasta"
+  ],
+  "dateAdded": "2026-03-08"
+}

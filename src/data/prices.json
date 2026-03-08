@@ -713,6 +713,13 @@
       "category": "Spices & Seasonings",
       "unit_type": "mass",
       "price_per_1000": 20
+    },
+    "shrimp": {
+      "id": 202,
+      "name": "Shrimp",
+      "category": "Seafood",
+      "unit_type": "mass",
+      "price_per_1000": 45
     }
   }
 }
