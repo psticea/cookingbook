@@ -230,80 +230,67 @@ const HomePage: React.FC = () => {
           <>
             {recipes.length > 0 && (
               <>
-                {/* Recipe count */}
-                <div className="mb-4">
-                  <p className="text-lg text-gray-700 dark:text-gray-300">
-                    {getTranslation('allRecipes', language)} ({totalFilteredCount})
-                  </p>
-                </div>
+                {/* Compact control bar: count + categories toggle + sort */}
+                <div className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-2 w-full min-w-0">
+                  {/* Recipe count badge */}
+                  <span className="inline-flex items-center justify-center min-w-[1.5rem] h-6 px-1.5 rounded-full bg-accent-light dark:bg-accent-dark text-white text-xs font-semibold shrink-0">
+                    {totalFilteredCount}
+                  </span>
+                  <span className="flex-1" />
 
-                {/* Control Section: Categories Toggle, Sorting, and Order */}
-                <div className="mb-6 border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                    {/* Categories Toggle */}
-                    <div className="flex items-center gap-3">
-                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
-                        {getTranslation('groupByCategories', language)}:
-                      </label>
-                      <button
-                        onClick={() => setShowCategories(!showCategories)}
-                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark ${
-                          showCategories ? 'bg-accent-light dark:bg-accent-dark' : 'bg-gray-300 dark:bg-gray-600'
-                        }`}
-                        role="switch"
-                        aria-checked={showCategories}
-                        aria-label={getTranslation('groupByCategories', language)}
-                      >
-                        <span
-                          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                            showCategories ? 'translate-x-6' : 'translate-x-1'
-                          }`}
-                        />
-                      </button>
-                    </div>
+                  {/* Categories Toggle */}
+                  <button
+                    onClick={() => setShowCategories(!showCategories)}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark ${
+                      showCategories
+                        ? 'border-accent-light dark:border-accent-dark text-accent-light dark:text-accent-dark bg-accent-light/10 dark:bg-accent-dark/10'
+                        : 'border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500'
+                    }`}
+                    role="switch"
+                    aria-checked={showCategories}
+                    aria-label={getTranslation('groupByCategories', language)}
+                    title={getTranslation('groupByCategories', language)}
+                  >
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h8M4 18h8" />
+                    </svg>
+                    {getTranslation('categories', language)}
+                  </button>
 
-                    {/* Sort By Label and Field Buttons */}
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 flex-1">
-                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
-                        {getTranslation('sortBy', language)}:
-                      </label>
-                      <select 
-                        value={sortField}
-                        onChange={(e) => setSortField(e.target.value as SortField)}
-                        className="px-3 py-1.5 rounded-md text-sm font-medium border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark focus:ring-offset-2"
-                      >
-                        {[
-                          { value: 'name' as SortField, labelKey: 'sortByName' },
-                          { value: 'dateAdded' as SortField, labelKey: 'sortByDateAdded' },
-                          { value: 'prepTime' as SortField, labelKey: 'sortByPrepTime' },
-                          { value: 'pricePerServing' as SortField, labelKey: 'sortByPrice' }
-                        ].map((field) => (
-                          <option key={field.value} value={field.value}>
-                            {getTranslation(field.labelKey, language)}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                  {/* Sort field */}
+                  <select
+                    value={sortField}
+                    onChange={(e) => setSortField(e.target.value as SortField)}
+                    className="px-2.5 py-1 rounded-full text-xs font-medium border border-gray-300 dark:border-gray-600 bg-transparent text-gray-600 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark focus:ring-offset-2 transition-colors cursor-pointer"
+                  >
+                    {[
+                      { value: 'name' as SortField, labelKey: 'sortByName' },
+                      { value: 'dateAdded' as SortField, labelKey: 'sortByDateAdded' },
+                      { value: 'prepTime' as SortField, labelKey: 'sortByPrepTime' },
+                      { value: 'pricePerServing' as SortField, labelKey: 'sortByPrice' }
+                    ].map((field) => (
+                      <option key={field.value} value={field.value}>
+                        {getTranslation(field.labelKey, language)}
+                      </option>
+                    ))}
+                  </select>
 
-                    {/* Sort Order Toggle */}
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                        className="flex items-center justify-center px-3 py-1.5 rounded-md text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark"
-                        title={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
-                        aria-label={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
-                      >
-                        <svg 
-                          className={`w-5 h-5 transition-transform ${sortOrder === 'desc' ? 'rotate-180' : ''}`}
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
+                  {/* Sort order */}
+                  <button
+                    onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+                    className="flex items-center justify-center w-7 h-7 rounded-full border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500 hover:text-gray-700 dark:hover:text-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark"
+                    title={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
+                    aria-label={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
+                  >
+                    <svg
+                      className={`w-3.5 h-3.5 transition-transform ${sortOrder === 'desc' ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  </button>
                 </div>
 
                 {/* Recipe sections by category or flat list */}
