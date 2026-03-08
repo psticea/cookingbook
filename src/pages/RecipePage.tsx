@@ -214,7 +214,7 @@ const RecipePage: React.FC = () => {
           </div>
 
           {/* Tabbed Card - Ingredients / Instructions */}
-          <div className="border border-gray-200 dark:border-zinc-700 rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 shadow-sm">
+          <div className="-mx-5 sm:mx-0 rounded-none sm:rounded-2xl border border-gray-200 dark:border-zinc-700 overflow-hidden bg-white dark:bg-zinc-900 shadow-sm">
             {/* Tab Buttons */}
             <div className="flex">
               <button
