@@ -84,7 +84,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
           if (!ingredientCost) return null;
 
           return (
-            <label key={index} className="flex items-center gap-4 cursor-pointer group">
+            <label key={index} className="flex items-center gap-2.5 cursor-pointer group">
               <input
                 type="checkbox"
                 checked={isChecked}

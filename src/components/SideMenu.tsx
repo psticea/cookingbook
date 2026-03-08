@@ -66,7 +66,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
 
       {/* Side Menu Panel - responsive width */}
       <div
-        className={`fixed top-0 right-0 h-full w-3/5 md:w-1/2 lg:w-1/3 bg-surface-light dark:bg-surface-dark shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed top-0 right-0 h-full w-4/5 md:w-1/2 lg:w-1/3 bg-surface-light dark:bg-surface-dark shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"

@@ -27,9 +27,9 @@ body {
 
 /* Ingredient checkbox styles */
 input[type="checkbox"].ingredient-checkbox {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
   border: 2px solid #d1d5db;
   accent-color: #3460fe;
   cursor: pointer;

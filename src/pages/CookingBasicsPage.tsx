@@ -53,117 +53,72 @@ const CookingBasicsPage: React.FC = () => {
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
 
-      <main className="flex-1 container mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8 max-w-4xl">
-        {/* Cooking Basics Section */}
-        <article className="prose dark:prose-invert max-w-none">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-gray-100">
-            {getTranslation('cookingBasicsTitle', language)}
-          </h1>
-          
-          <div className="space-y-4 text-gray-700 dark:text-gray-300">
+      <main className="flex-1 w-full max-w-4xl mx-auto px-5 pt-6 pb-8 space-y-6">
+        {/* Page Title */}
+        <h1 className="text-3xl font-bold text-text-main-light dark:text-text-main-dark tracking-tight">
+          {getTranslation('cookingBasicsTitle', language)}
+        </h1>
+
+        {/* Content Card */}
+        <div className="border border-gray-200 dark:border-zinc-700 rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 shadow-sm">
+          <div className="p-5 space-y-5 text-base leading-relaxed text-text-main-light dark:text-text-main-dark">
             {language === 'ro' ? (
               <>
-                <p className="text-base leading-relaxed">
-                  Din experiența mea scriu mai jos câteva reguli de bază pentru gătit:
-                </p>
+                <p>Din experiența mea scriu mai jos câteva reguli de bază pentru gătit:</p>
 
-                <section>
-                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    📖 Citește rețeta complet înainte să începi să gătești
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    Așa nu o să ai surprize pe parcurs.
-                  </p>
-                </section>
+                <div className="border-l-4 border-accent-light dark:border-accent-dark pl-4">
+                  <h2 className="text-lg font-bold mb-1">📖 Citește rețeta complet înainte să începi să gătești</h2>
+                  <p>Așa nu o să ai surprize pe parcurs.</p>
+                </div>
 
-                <section>
-                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    🥕 Pregătește toate ingredientele în avans pe masa de gătit
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    Asta te ajută să gătești mai relaxat când ai totul la îndemână.
-                  </p>
-                </section>
+                <div className="border-l-4 border-accent-light dark:border-accent-dark pl-4">
+                  <h2 className="text-lg font-bold mb-1">🥕 Pregătește toate ingredientele în avans pe masa de gătit</h2>
+                  <p>Asta te ajută să gătești mai relaxat când ai totul la îndemână.</p>
+                </div>
 
-                <section>
-                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    🧂 Pe cât posibil nu exclude niciun condiment
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    E un cost mic care face o diferență mare la final.
-                  </p>
-                </section>
+                <div className="border-l-4 border-accent-light dark:border-accent-dark pl-4">
+                  <h2 className="text-lg font-bold mb-1">🧂 Pe cât posibil nu exclude niciun condiment</h2>
+                  <p>E un cost mic care face o diferență mare la final.</p>
+                </div>
 
-                <section>
-                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    🔪 Asigură-te că folosești un cuțit bine ascuțit
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    Asta înseamnă că orice cuțit trebuie ascuțit o dată la câteva săptămâni.
-                  </p>
-                </section>
+                <div className="border-l-4 border-accent-light dark:border-accent-dark pl-4">
+                  <h2 className="text-lg font-bold mb-1">🔪 Asigură-te că folosești un cuțit bine ascuțit</h2>
+                  <p>Asta înseamnă că orice cuțit trebuie ascuțit o dată la câteva săptămâni.</p>
+                </div>
 
-                <p className="text-base leading-relaxed italic">
-                  Va urma….
-                </p>
-
-                <p className="text-base leading-relaxed font-medium">
-                  Spor la gătit!
-                </p>
+                <p className="italic">Va urma….</p>
+                <p className="font-semibold">Spor la gătit!</p>
               </>
             ) : (
               <>
-                <p className="text-base leading-relaxed">
-                  From my experience, I write below a few basic rules for cooking:
-                </p>
+                <p>From my experience, I write below a few basic rules for cooking:</p>
 
-                <section>
-                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    📖 Read the recipe completely before you start cooking
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    This way you won't have surprises along the way.
-                  </p>
-                </section>
+                <div className="border-l-4 border-accent-light dark:border-accent-dark pl-4">
+                  <h2 className="text-lg font-bold mb-1">📖 Read the recipe completely before you start cooking</h2>
+                  <p>This way you won't have surprises along the way.</p>
+                </div>
 
-                <section>
-                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    🥕 Prepare all ingredients in advance on the cooking table
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    This helps you cook more relaxed when you have everything at hand.
-                  </p>
-                </section>
+                <div className="border-l-4 border-accent-light dark:border-accent-dark pl-4">
+                  <h2 className="text-lg font-bold mb-1">🥕 Prepare all ingredients in advance on the cooking table</h2>
+                  <p>This helps you cook more relaxed when you have everything at hand.</p>
+                </div>
 
-                <section>
-                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    🧂 As much as possible, don't exclude any seasoning
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    It's a small cost that makes a big difference in the end.
-                  </p>
-                </section>
+                <div className="border-l-4 border-accent-light dark:border-accent-dark pl-4">
+                  <h2 className="text-lg font-bold mb-1">🧂 As much as possible, don't exclude any seasoning</h2>
+                  <p>It's a small cost that makes a big difference in the end.</p>
+                </div>
 
-                <section>
-                  <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    🔪 Make sure you use a well-sharpened knife
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    This means any knife should be sharpened once every few weeks.
-                  </p>
-                </section>
+                <div className="border-l-4 border-accent-light dark:border-accent-dark pl-4">
+                  <h2 className="text-lg font-bold mb-1">🔪 Make sure you use a well-sharpened knife</h2>
+                  <p>This means any knife should be sharpened once every few weeks.</p>
+                </div>
 
-                <p className="text-base leading-relaxed italic">
-                  To be continued….
-                </p>
-
-                <p className="text-base leading-relaxed font-medium">
-                  Happy cooking!
-                </p>
+                <p className="italic">To be continued….</p>
+                <p className="font-semibold">Happy cooking!</p>
               </>
             )}
           </div>
-        </article>
+        </div>
       </main>
       <Footer />
     </div>
