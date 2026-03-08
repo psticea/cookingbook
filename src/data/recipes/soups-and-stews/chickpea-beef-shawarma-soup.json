@@ -1,0 +1,292 @@
+{
+  "id": "chickpea-beef-shawarma-soup",
+  "category": "soups-and-stews",
+  "title": {
+    "ro": "Supă de Vită și Năut în Stil Shawarma",
+    "en": "Chickpea Beef Shawarma Soup"
+  },
+  "prepTime": 35,
+  "servings": 4,
+  "effortLevel": "easy",
+  "image": "images/soups-and-stews/chickpea-beef-shawarma-soup.jpg",
+  "ingredients": [
+    {
+      "section": {
+        "ro": "Condimente",
+        "en": "Spices"
+      }
+    },
+    {
+      "name": {
+        "ro": "pudră de chimion",
+        "en": "cumin powder"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 114
+    },
+    {
+      "name": {
+        "ro": "coriandru măcinat",
+        "en": "ground coriander"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 204
+    },
+    {
+      "name": {
+        "ro": "boia de ardei",
+        "en": "paprika"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 138
+    },
+    {
+      "name": {
+        "ro": "scorțișoară măcinată",
+        "en": "cinnamon powder"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 205
+    },
+    {
+      "name": {
+        "ro": "piper cayenne (ajustați după gust)",
+        "en": "cayenne pepper (adjust to taste)"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 206
+    },
+    {
+      "name": {
+        "ro": "piper negru",
+        "en": "black pepper"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 102
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 100
+    },
+    {
+      "section": {
+        "ro": "Supă",
+        "en": "Soup"
+      }
+    },
+    {
+      "name": {
+        "ro": "ulei de măsline",
+        "en": "olive oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      },
+      "ingredientId": 101
+    },
+    {
+      "name": {
+        "ro": "căței de usturoi, tocați mărunt",
+        "en": "garlic cloves, minced"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 104
+    },
+    {
+      "name": {
+        "ro": "ceapă, tocată mărunt",
+        "en": "onion, finely chopped"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pc"
+      },
+      "ingredientId": 108
+    },
+    {
+      "name": {
+        "ro": "carne de vită tocată",
+        "en": "ground beef"
+      },
+      "quantity": 500,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 133
+    },
+    {
+      "name": {
+        "ro": "pastă de tomate",
+        "en": "tomato paste"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      },
+      "ingredientId": 207
+    },
+    {
+      "name": {
+        "ro": "morcovi, curățați și tăiați (aproximativ cât năuții)",
+        "en": "carrots, peeled and chopped (about the size of chickpeas)"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 167
+    },
+    {
+      "name": {
+        "ro": "năut la conservă, scurs și clătit",
+        "en": "canned chickpeas, drained and rinsed"
+      },
+      "quantity": 600,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 157
+    },
+    {
+      "name": {
+        "ro": "roșii tocate la conservă",
+        "en": "canned crushed tomatoes"
+      },
+      "quantity": 400,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 208
+    },
+    {
+      "name": {
+        "ro": "supă de pui",
+        "en": "chicken broth"
+      },
+      "quantity": 750,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 151
+    },
+    {
+      "name": {
+        "ro": "spanac, tocat grosier (un mănunchi, aprox. 200 g)",
+        "en": "spinach, roughly chopped (1 bunch, approx. 200 g)"
+      },
+      "quantity": 200,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 124
+    },
+    {
+      "section": {
+        "ro": "Garnituri (recomandate)",
+        "en": "Garnishes (recommended)"
+      }
+    },
+    {
+      "name": {
+        "ro": "iaurt simplu (sau smântână)",
+        "en": "plain yoghurt (or sour cream)"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după necesitate",
+        "en": "as needed"
+      },
+      "ingredientId": 128
+    },
+    {
+      "name": {
+        "ro": "coriandru/cilantro proaspăt, tocat",
+        "en": "chopped fresh coriander/cilantro"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după necesitate",
+        "en": "as needed"
+      },
+      "ingredientId": 191
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Încălzește uleiul într-o oală mare la foc mare. Adaugă usturoiul și ceapa, gătește timp de 1 minut până când încep să devină translucide.",
+      "Adaugă carnea de vită tocată și gătește, sfărâmând-o pe măsură ce o amesteci. Când s-a schimbat în mare parte din roz în maro deschis, adaugă condimentele.",
+      "Gătește timp de 1 minut, apoi adaugă pasta de tomate și gătește încă 1 minut. (Miroase incredibil!)",
+      "Adaugă morcovii, năutul, roșiile tocate și supa de pui. Amestecă și adu la fierbere.",
+      "Acoperă cu un capac, reduce focul astfel încât să fiarbă energic, dar nu prea rapid. Gătește timp de 10 minute până când morcovii sunt fragezi, dar nu prea moi – îmi place să mai aibă puțin mușcătură, dacă vrei să fie foarte moi, mai lasă-i puțin.",
+      "Adaugă spanacul. Odată ce s-a ofilit, ajustează sarea, piperul și picantul (cayenne) după gust, și adaugă apă dacă vrei mai mult lichid.",
+      "Pune cu polonicul în boluri, adaugă o lingură de iaurt și o presăratură generoasă de coriandru. Poftă bună!"
+    ],
+    "en": [
+      "Heat oil in a large pot over high heat. Add garlic and onion, cook for 1 minute until starting to turn translucent.",
+      "Add the ground beef and cook, breaking it up as you go. When it has mostly turned from pink to light brown, add the spices.",
+      "Cook for 1 minute, then add tomato paste and cook for another 1 minute. (It smells amazing!)",
+      "Add carrots, chickpeas, crushed tomatoes, and chicken broth. Stir and bring to a simmer.",
+      "Cover with a lid, lower heat so it is bubbling energetically but not too rapidly. Cook for 10 minutes until carrots are tender but not overly soft – a little bite is ideal; keep cooking if you prefer them softer.",
+      "Stir through the spinach. Once wilted, adjust salt, pepper, and spiciness (cayenne) to taste, and add water if you want more liquid.",
+      "Ladle into bowls, add a dollop of yoghurt and a generous sprinkling of coriander. Enjoy!"
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă inspirată de: https://www.recipetineats.com/lamb-shawarma-chickpea-soup/#recipe",
+    "en": "Recipe inspired by: https://www.recipetineats.com/lamb-shawarma-chickpea-soup/#recipe"
+  },
+  "keywords": [
+    "easy",
+    "beef",
+    "boiling",
+    "carrots",
+    "chicken-stock"
+  ],
+  "dateAdded": "2026-03-08"
+}
