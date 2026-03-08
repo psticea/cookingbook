@@ -727,6 +727,41 @@
       "category": "Grains & Pasta",
       "unit_type": "mass",
       "price_per_1000": 4
+    },
+    "coriander_powder": {
+      "id": 204,
+      "name": "Ground coriander",
+      "category": "Spices & Seasonings",
+      "unit_type": "mass",
+      "price_per_1000": 30
+    },
+    "cinnamon": {
+      "id": 205,
+      "name": "Cinnamon powder",
+      "category": "Spices & Seasonings",
+      "unit_type": "mass",
+      "price_per_1000": 25
+    },
+    "cayenne": {
+      "id": 206,
+      "name": "Cayenne pepper",
+      "category": "Spices & Seasonings",
+      "unit_type": "mass",
+      "price_per_1000": 35
+    },
+    "tomato_paste": {
+      "id": 207,
+      "name": "Tomato paste",
+      "category": "Pantry",
+      "unit_type": "volume",
+      "price_per_1000": 10
+    },
+    "crushed_tomato_can": {
+      "id": 208,
+      "name": "Canned crushed tomatoes",
+      "category": "Pantry",
+      "unit_type": "mass",
+      "price_per_1000": 5
     }
   }
 }
