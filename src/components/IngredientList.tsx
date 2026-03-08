@@ -68,7 +68,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   }, [ingredients, currentServings, servings, language]);
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-4 space-y-2">
       {ingredients.map((item, index) => {
         if (isSection(item)) {
           return (

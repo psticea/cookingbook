@@ -156,7 +156,7 @@ const RecipePage: React.FC = () => {
         />
 
         {/* Content Container */}
-        <div className="max-w-4xl mx-auto px-5 pt-6 pb-8 space-y-6">
+        <div className="w-full px-5 pt-6 pb-8 space-y-6">
           {/* Recipe Title */}
           <RecipeHeader recipe={recipe} />
 
