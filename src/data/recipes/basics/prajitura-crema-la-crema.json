@@ -1,0 +1,120 @@
+{
+  "id": "prajitura-crema-la-crema",
+  "category": "basics",
+  "image": "images/basics/prajitura-crema-la-crema.jpg",
+  "title": {
+    "ro": "Prăjitură Cremă la Cremă",
+    "en": "Layered Cream Cake"
+  },
+  "prepTime": 60,
+  "servings": 8,
+  "effortLevel": "medium",
+  "ingredients": [
+    {
+      "section": {
+        "ro": "Blat",
+        "en": "Sponge Base"
+      }
+    },
+    {
+      "name": { "ro": "ouă", "en": "eggs" },
+      "quantity": 6,
+      "unit": { "ro": "buc", "en": "pcs" },
+      "ingredientId": 122
+    },
+    {
+      "name": { "ro": "zahăr", "en": "sugar" },
+      "quantity": 6,
+      "unit": { "ro": "linguri", "en": "tbsp" },
+      "ingredientId": 115
+    },
+    {
+      "name": { "ro": "Creme Ole de ciocolată Dr.Oetker", "en": "Creme Ole chocolate powder Dr.Oetker" },
+      "quantity": 1,
+      "unit": { "ro": "plic", "en": "packet" },
+      "ingredientId": 211
+    },
+    {
+      "section": {
+        "ro": "Cremă",
+        "en": "Cream Filling"
+      }
+    },
+    {
+      "name": { "ro": "frișcă lichidă", "en": "whipping cream" },
+      "quantity": 250,
+      "unit": { "ro": "ml", "en": "ml" },
+      "ingredientId": 209
+    },
+    {
+      "name": { "ro": "lapte rece", "en": "cold milk" },
+      "quantity": 150,
+      "unit": { "ro": "ml", "en": "ml" },
+      "ingredientId": 123
+    },
+    {
+      "name": { "ro": "Creme Ole de vanilie Dr.Oetker", "en": "Creme Ole vanilla powder Dr.Oetker" },
+      "quantity": 1,
+      "unit": { "ro": "plic", "en": "packet" },
+      "ingredientId": 212
+    },
+    {
+      "section": {
+        "ro": "Glazură",
+        "en": "Chocolate Glaze"
+      }
+    },
+    {
+      "name": { "ro": "ciocolată", "en": "dark chocolate" },
+      "quantity": 100,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 210
+    },
+    {
+      "name": { "ro": "frișcă lichidă", "en": "whipping cream" },
+      "quantity": 50,
+      "unit": { "ro": "ml", "en": "ml" },
+      "ingredientId": 209
+    },
+    {
+      "name": { "ro": "unt", "en": "butter" },
+      "quantity": 50,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 110
+    },
+    {
+      "name": { "ro": "coniac", "en": "cognac" },
+      "quantity": 1,
+      "unit": { "ro": "lingură", "en": "tbsp" },
+      "ingredientId": 213
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Separă albușurile de gălbenușuri. Bate albușurile spumă cu zahărul până obții o compoziție fermă, ca la bezea.",
+      "Adaugă câte un gălbenuș pe rând, bătând puțin după fiecare.",
+      "Adaugă plicul de Creme Ole de ciocolată și amestecă ușor până la omogenizare.",
+      "Toarnă aluatul într-o tavă de 20x30 cm tapetată cu hârtie de copt. Coace la 180°C timp de 25-30 de minute. Apasă blatul cu degetul – dacă adâncitura dispare imediat, este copt. Lasă să se răcească complet.",
+      "Pentru cremă: pune frișca lichidă, laptele rece și plicul de Creme Ole de vanilie într-un bol. Bate cu mixerul aproximativ 1 minut, până crema se întărește bine.",
+      "Întinde crema uniform pe suprafața blatului răcit și pune la frigider.",
+      "Pentru glazură: topește ciocolata într-un ibric împreună cu frișca lichidă, untul și coniacul. Amestecă până obții o compoziție omogenă și lasă să se răcească până ajunge la temperatura camerei.",
+      "Toarnă glazura pe prăjitură și întinde uniform. Dă la frigider până se întărește glazura."
+    ],
+    "en": [
+      "Separate the egg whites from the yolks. Beat the whites with the sugar until stiff peaks form, like a meringue.",
+      "Add one egg yolk at a time, beating briefly after each addition.",
+      "Add the packet of Creme Ole chocolate powder and mix gently until combined.",
+      "Pour the batter into a 20x30 cm baking pan lined with parchment paper. Bake at 180°C for 25-30 minutes. Press the surface lightly with your finger – if the indentation springs back immediately, it is done. Let cool completely.",
+      "For the cream: combine the whipping cream, cold milk and Creme Ole vanilla powder in a bowl. Beat with a mixer for about 1 minute until the cream thickens well.",
+      "Spread the cream evenly over the cooled sponge base and refrigerate.",
+      "For the glaze: melt the chocolate in a small saucepan together with the whipping cream, butter and cognac. Stir until smooth and let cool to room temperature.",
+      "Pour the glaze over the cake and spread evenly. Refrigerate until the glaze sets."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Am preparat-o în foarte multe variante, chiar și sub formă de tort, și a avut întotdeauna un succes teribil. În sezonul căpșunilor, recomand să o faceți cu Creme Ole de căpșuni în loc de vanilie – este delicioasă!",
+    "en": "I've made this in many variations, even as a layer cake, and it has always been a huge success. During strawberry season, I recommend using Creme Ole strawberry flavor instead of vanilla – it's delicious!"
+  },
+  "keywords": ["medium", "vegetarian", "oven-baked"],
+  "dateAdded": "2026-03-10"
+}

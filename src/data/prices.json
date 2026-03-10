@@ -762,6 +762,41 @@
       "category": "Pantry",
       "unit_type": "mass",
       "price_per_1000": 5
+    },
+    "whipping_cream": {
+      "id": 209,
+      "name": "Whipping cream",
+      "category": "Dairy",
+      "unit_type": "volume",
+      "price_per_1000": 35
+    },
+    "dark_chocolate": {
+      "id": 210,
+      "name": "Dark chocolate",
+      "category": "Baking",
+      "unit_type": "mass",
+      "price_per_1000": 40
+    },
+    "creme_ole_chocolate": {
+      "id": 211,
+      "name": "Creme Ole chocolate powder (Dr.Oetker)",
+      "category": "Baking",
+      "unit_type": "piece",
+      "price_per_piece": 10
+    },
+    "creme_ole_vanilla": {
+      "id": 212,
+      "name": "Creme Ole vanilla powder (Dr.Oetker)",
+      "category": "Baking",
+      "unit_type": "piece",
+      "price_per_piece": 10
+    },
+    "cognac": {
+      "id": 213,
+      "name": "Cognac / Brandy",
+      "category": "Pantry",
+      "unit_type": "volume",
+      "price_per_1000": 80
     }
   }
 }
