@@ -797,6 +797,27 @@
       "category": "Pantry",
       "unit_type": "volume",
       "price_per_1000": 80
+    },
+    "smoked_salmon": {
+      "id": 214,
+      "name": "Smoked salmon",
+      "category": "Seafood",
+      "unit_type": "mass",
+      "price_per_1000": 80
+    },
+    "sourdough_bread": {
+      "id": 215,
+      "name": "Sourdough bread",
+      "category": "Grains & Pasta",
+      "unit_type": "piece",
+      "price_per_piece": 8
+    },
+    "kiwi": {
+      "id": 216,
+      "name": "Kiwi",
+      "category": "Fruits and Vegetables",
+      "unit_type": "piece",
+      "price_per_piece": 1.5
     }
   }
 }
