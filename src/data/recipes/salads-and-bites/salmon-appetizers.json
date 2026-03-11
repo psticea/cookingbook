@@ -1,0 +1,110 @@
+{
+  "id": "salmon-appetizers",
+  "category": "salads-and-bites",
+  "image": "images/salads-and-bites/salmon-appetizers.jpg",
+  "title": {
+    "ro": "Aperitive cu Somon Afumat",
+    "en": "Salmon Appetizers"
+  },
+  "prepTime": 15,
+  "servings": 2,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "somon afumat",
+        "en": "smoked salmon"
+      },
+      "quantity": 80,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 214
+    },
+    {
+      "name": {
+        "ro": "brânză philadelphia",
+        "en": "philadelphia cheese"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      },
+      "ingredientId": 160
+    },
+    {
+      "name": {
+        "ro": "lămâie feliată",
+        "en": "lemon slices"
+      },
+      "quantity": 3,
+      "unit": {
+        "ro": "felii",
+        "en": "slices"
+      },
+      "ingredientId": 105
+    },
+    {
+      "name": {
+        "ro": "pâine sourdough",
+        "en": "sourdough bread"
+      },
+      "quantity": 4,
+      "unit": {
+        "ro": "felii",
+        "en": "slices"
+      },
+      "ingredientId": 215
+    },
+    {
+      "name": {
+        "ro": "pătrunjel proaspăt cu frunze plate",
+        "en": "fresh flat leaf parsley"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "câteva crenguțe",
+        "en": "a few sprigs"
+      },
+      "ingredientId": 116
+    },
+    {
+      "name": {
+        "ro": "kiwi (opțional)",
+        "en": "kiwi (optional)"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "câteva felii",
+        "en": "a few slices"
+      },
+      "ingredientId": 216
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Pune feliile de pâine în toaster (opțional). Între timp, feliați lămâia. Îndepărtați coaja albă, care este de obicei amară. Tăiați fiecare felie în triunghiuri mici urmând membranele albe. Veți avea nevoie de aproximativ 2-3 felii de lămâie.",
+      "Întindeți brânza pe feliile de pâine. Tăiați în bucăți de mărime potrivită pentru o îmbucătură (în orice formă doriți).",
+      "Tăiați somonul în fâșii și aranjați-le pe fiecare bucată de pâine. Adăugați un triunghi mic de lămâie deasupra și garnisiți cu pătrunjel proaspăt. Sau cu o felie de kiwi!",
+      "Aranjați pe o farfurie, tocător sau pe o tavă și serviți!"
+    ],
+    "en": [
+      "Toast the bread slices (optional). Meanwhile, slice the lemon. Cut off the white pith, which is usually bitter. Cut each slice into tiny triangles following the white membranes. You will need about 2-3 lemon slices.",
+      "Spread the cheese over the bread slices. Cut into bite-size pieces (any shape you like).",
+      "Cut the salmon into strips and arrange on each piece of bread. Top with a tiny lemon triangle and garnish with fresh parsley. Or with a slice of kiwi!",
+      "Arrange on a plate, chopping board, or a tray and serve!"
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă originală de pe https://www.instructables.com/Easy-Smoked-Salmon-Bites/",
+    "en": "Original recipe from https://www.instructables.com/Easy-Smoked-Salmon-Bites/"
+  },
+  "keywords": [
+    "easy",
+    "fish",
+    "no-cook"
+  ],
+  "dateAdded": "2026-03-11"
+}
