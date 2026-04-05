@@ -230,55 +230,58 @@ const HomePage: React.FC = () => {
           <>
             {recipes.length > 0 && (
               <>
-                {/* Compact control bar: count + categories toggle + sort */}
-                <div className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-2 w-full min-w-0">
+                {/* Control bar: count + categories toggle + sort pills */}
+                <div className="mb-5 flex flex-wrap items-center gap-2 w-full min-w-0">
                   {/* Recipe count badge */}
-                  <span className="inline-flex items-center justify-center min-w-[1.5rem] h-6 px-1.5 rounded-full bg-accent-light dark:bg-accent-dark text-white text-xs font-semibold shrink-0">
+                  <span className="inline-flex items-center justify-center min-w-[1.5rem] h-7 px-2 rounded-full bg-accent-light dark:bg-accent-dark text-white text-xs font-semibold shrink-0">
                     {totalFilteredCount}
                   </span>
                   <span className="flex-1" />
 
-                  {/* Categories Toggle */}
+                  {/* Categories Toggle - pill with label */}
                   <button
                     onClick={() => setShowCategories(!showCategories)}
-                    className={`flex items-center justify-center w-8 h-8 rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark ${
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium border transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark ${
                       showCategories
-                        ? 'border-accent-light dark:border-accent-dark text-accent-light dark:text-accent-dark bg-accent-light/10 dark:bg-accent-dark/10'
-                        : 'border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500'
+                        ? 'border-accent-light dark:border-accent-dark text-white bg-accent-light dark:bg-accent-dark'
+                        : 'border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500'
                     }`}
                     role="switch"
                     aria-checked={showCategories}
                     aria-label={getTranslation('groupByCategories', language)}
-                    title={getTranslation('groupByCategories', language)}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h8M4 18h8" />
                     </svg>
+                    {getTranslation('categories', language)}
                   </button>
 
-                  {/* Sort field */}
-                  <select
-                    value={sortField}
-                    onChange={(e) => setSortField(e.target.value as SortField)}
-                    className="px-2.5 py-1 rounded-full text-sm font-medium border border-gray-300 dark:border-gray-600 bg-transparent text-gray-600 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark focus:ring-offset-2 transition-colors cursor-pointer"
-                  >
+                  {/* Sort field pills */}
+                  <div className="inline-flex items-center rounded-full border border-gray-300 dark:border-gray-600 overflow-hidden">
                     {[
                       { value: 'name' as SortField, labelKey: 'sortByName' },
                       { value: 'dateAdded' as SortField, labelKey: 'sortByDateAdded' },
                       { value: 'prepTime' as SortField, labelKey: 'sortByPrepTime' },
                       { value: 'pricePerServing' as SortField, labelKey: 'sortByPrice' }
-                    ].map((field) => (
-                      <option key={field.value} value={field.value}>
+                    ].map((field, idx, arr) => (
+                      <button
+                        key={field.value}
+                        onClick={() => setSortField(field.value)}
+                        className={`px-2.5 py-1.5 text-xs font-medium transition-colors ${
+                          sortField === field.value
+                            ? 'bg-accent-light dark:bg-accent-dark text-white'
+                            : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-800'
+                        } ${idx < arr.length - 1 ? 'border-r border-gray-300 dark:border-gray-600' : ''}`}
+                      >
                         {getTranslation(field.labelKey, language)}
-                      </option>
+                      </button>
                     ))}
-                  </select>
+                  </div>
 
-                  {/* Sort order */}
+                  {/* Sort order pill with label */}
                   <button
                     onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                    className="flex items-center justify-center w-7 h-7 rounded-full border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500 hover:text-gray-700 dark:hover:text-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark"
-                    title={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark"
                     aria-label={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
                   >
                     <svg
@@ -289,6 +292,7 @@ const HomePage: React.FC = () => {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                     </svg>
+                    {sortOrder === 'asc' ? '↑' : '↓'}
                   </button>
                 </div>
 
