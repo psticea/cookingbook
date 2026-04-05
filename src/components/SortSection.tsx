@@ -15,7 +15,7 @@ interface SortSectionProps {
 /**
  * SortSection component
  * Horizontal inline sorting controls displayed on the home page
- * Allows users to sort recipes by name, date added, cooking time, or price in ascending/descending order
+ * Allows users to sort recipes by name, cooking time, or price in ascending/descending order
  */
 export const SortSection: React.FC<SortSectionProps> = ({
   sortField,
@@ -27,7 +27,6 @@ export const SortSection: React.FC<SortSectionProps> = ({
 
   const sortFields: { value: SortField; labelKey: string }[] = [
     { value: 'name', labelKey: 'sortByName' },
-    { value: 'dateAdded', labelKey: 'sortByDateAdded' },
     { value: 'prepTime', labelKey: 'sortByPrepTime' },
     { value: 'pricePerServing', labelKey: 'sortByPrice' }
   ];
