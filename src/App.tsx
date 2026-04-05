@@ -24,7 +24,7 @@ function App() {
       <TextSizeProvider>
         <ThemeProvider>
           <BrowserRouter basename="/cookingbook">
-            <div className="min-h-screen bg-primary-light dark:bg-primary-dark text-gray-900 dark:text-gray-100">
+            <div className="min-h-screen bg-primary-light dark:bg-primary-dark text-gray-900 dark:text-gray-100 lg:max-w-[40vw] mx-auto">
               <Suspense fallback={<LoadingFallback />}>
                 <Routes>
                   <Route path="/" element={<HomePage />} />
