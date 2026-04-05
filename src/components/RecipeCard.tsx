@@ -49,7 +49,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
 
       {/* Title + Metadata below image */}
       <div className="p-2.5 space-y-1.5">
-        <h3 className="text-sm font-bold text-text-main-light dark:text-text-main-dark line-clamp-2 leading-tight">
+        <h3 className="text-base font-bold text-text-main-light dark:text-text-main-dark line-clamp-2 leading-tight">
           {recipe.title[language]}
         </h3>
 
@@ -57,9 +57,6 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
         <div className="flex items-center gap-1.5 flex-wrap">
           <span className="inline-flex items-center gap-0.5 text-sm text-text-main-light/60 dark:text-text-main-dark/60 bg-primary-light/15 dark:bg-primary-dark/15 rounded-full px-2.5 py-0.5" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
             ⏱️ {recipe.prepTime}{getTranslation('minutes', language).substring(0, 1)}
-          </span>
-          <span className="inline-flex items-center gap-0.5 text-sm text-text-main-light/60 dark:text-text-main-dark/60 bg-secondary-light/15 dark:bg-secondary-dark/15 rounded-full px-2.5 py-0.5" title={`${getTranslation('servings', language)}: ${recipe.servings}`}>
-            🍽️ {recipe.servings}
           </span>
           <span className="inline-flex items-center gap-0.5 text-sm text-text-main-light/60 dark:text-text-main-dark/60 bg-accent-light/15 dark:bg-accent-dark/15 rounded-full px-2.5 py-0.5" title={formatPricePerServing(recipeCost.pricePerServing)}>
             💰 {recipeCost.pricePerServing.toFixed(2)}

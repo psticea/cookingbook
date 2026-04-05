@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
-  const [sortField, setSortField] = useState<SortField>('dateAdded');
+  const [sortField, setSortField] = useState<SortField>('name');
   const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
   const [showCategories, setShowCategories] = useState(true);
 
@@ -260,7 +260,6 @@ const HomePage: React.FC = () => {
                   <div className="inline-flex items-center rounded-full border border-gray-300 dark:border-gray-600 overflow-hidden">
                     {[
                       { value: 'name' as SortField, labelKey: 'sortByName' },
-                      { value: 'dateAdded' as SortField, labelKey: 'sortByDateAdded' },
                       { value: 'prepTime' as SortField, labelKey: 'sortByPrepTime' },
                       { value: 'pricePerServing' as SortField, labelKey: 'sortByPrice' }
                     ].map((field, idx, arr) => (
