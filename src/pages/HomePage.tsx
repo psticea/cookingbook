@@ -141,11 +141,6 @@ const HomePage: React.FC = () => {
             const nameB = b.title[language].toLowerCase();
             const comparison = nameA.localeCompare(nameB);
             return sortOrder === 'asc' ? comparison : -comparison;
-          } else if (sortField === 'dateAdded') {
-            const dateA = new Date(a.dateAdded).getTime();
-            const dateB = new Date(b.dateAdded).getTime();
-            const comparison = dateA - dateB;
-            return sortOrder === 'asc' ? comparison : -comparison;
           } else if (sortField === 'prepTime') {
             const comparison = a.prepTime - b.prepTime;
             return sortOrder === 'asc' ? comparison : -comparison;
@@ -325,11 +320,6 @@ const HomePage: React.FC = () => {
                               const nameA = a.title[language].toLowerCase();
                               const nameB = b.title[language].toLowerCase();
                               const comparison = nameA.localeCompare(nameB);
-                              return sortOrder === 'asc' ? comparison : -comparison;
-                            } else if (sortField === 'dateAdded') {
-                              const dateA = new Date(a.dateAdded).getTime();
-                              const dateB = new Date(b.dateAdded).getTime();
-                              const comparison = dateA - dateB;
                               return sortOrder === 'asc' ? comparison : -comparison;
                             } else if (sortField === 'prepTime') {
                               const comparison = a.prepTime - b.prepTime;
