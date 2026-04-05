@@ -2,7 +2,7 @@ import React from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
 
-export type SortField = 'name' | 'dateAdded' | 'prepTime' | 'pricePerServing';
+export type SortField = 'name' | 'prepTime' | 'pricePerServing';
 export type SortOrder = 'asc' | 'desc';
 
 interface SortSectionProps {
