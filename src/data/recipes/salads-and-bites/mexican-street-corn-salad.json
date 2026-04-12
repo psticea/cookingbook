@@ -15,31 +15,31 @@
         "ro": "ulei vegetal",
         "en": "vegetable oil"
       },
-      "quantity": 30,
+      "quantity": 2,
       "unit": {
-        "ro": "ml",
-        "en": "ml"
+        "ro": "linguri",
+        "en": "tablespoons"
       },
       "ingredientId": 117
     },
     {
       "name": {
-        "ro": "porumb congelat",
-        "en": "frozen corn"
+        "ro": "boabe de porumb congelat",
+        "en": "frozen corn kernel"
       },
-      "quantity": 800,
+      "quantity": 3,
       "unit": {
-        "ro": "g",
-        "en": "g"
+        "ro": "căni",
+        "en": "cups"
       },
       "ingredientId": 190
     },
     {
       "name": {
-        "ro": "brânză feta sau Cotija, mărunțită fin",
-        "en": "feta or Cotija cheese, finely crumbled"
+        "ro": "brânză Cotija/parmezan, mărunțită fin",
+        "en": "Cotija cheese/parmesan, finely crumbled"
       },
-      "quantity": 60,
+      "quantity": 50,
       "unit": {
         "ro": "g",
         "en": "g"
@@ -49,33 +49,33 @@
     {
       "name": {
         "ro": "ceapă verde felii subțiri, doar partea verde",
-        "en": "scallions finely sliced, green parts only"
+        "en": "finely sliced scallions, green parts only"
       },
-      "quantity": 4,
+      "quantity": 0.5,
       "unit": {
-        "ro": "buc",
-        "en": "pcs"
+        "ro": "cană",
+        "en": "cup"
       },
       "ingredientId": 113
     },
     {
       "name": {
-        "ro": "coriandru proaspăt, tocat fin",
+        "ro": "frunze proaspete de coriandru, tocate fin",
         "en": "fresh cilantro leaves, finely chopped"
       },
-      "quantity": 15,
+      "quantity": 0.5,
       "unit": {
-        "ro": "g",
-        "en": "g"
+        "ro": "cană",
+        "en": "cup"
       },
       "ingredientId": 191
     },
     {
       "name": {
-        "ro": "ardei jalapeño, fără semințe și cotoare, tocat fin",
-        "en": "jalapeño pepper, seeded and stemmed, finely chopped"
+        "ro": "ardei gras, fără semințe și cotoare, tocat fin",
+        "en": "bell pepper, seeded and stemmed, finely chopped"
       },
-      "quantity": 1,
+      "quantity": 0.5,
       "unit": {
         "ro": "buc",
         "en": "pcs"
@@ -84,13 +84,13 @@
     },
     {
       "name": {
-        "ro": "căței de usturoi, presați sau măcinați fin",
-        "en": "medium cloves garlic, pressed or minced"
+        "ro": "cătei de usturoi, presat sau măcinat fin",
+        "en": "clove garlic, pressed or minced"
       },
-      "quantity": 2,
+      "quantity": 1,
       "unit": {
-        "ro": "căței",
-        "en": "cloves"
+        "ro": "cătei",
+        "en": "clove"
       },
       "ingredientId": 104
     },
@@ -99,10 +99,10 @@
         "ro": "maioneză",
         "en": "mayonnaise"
       },
-      "quantity": 30,
+      "quantity": 2,
       "unit": {
-        "ro": "ml",
-        "en": "ml"
+        "ro": "linguri",
+        "en": "tablespoons"
       },
       "ingredientId": 109
     },
@@ -113,22 +113,10 @@
       },
       "quantity": 1,
       "unit": {
-        "ro": "lime",
-        "en": "lime"
+        "ro": "lingură",
+        "en": "tablespoon"
       },
       "ingredientId": 193
-    },
-    {
-      "name": {
-        "ro": "pudră de chili sau fulgi de chili iute",
-        "en": "chile powder or hot chile flakes"
-      },
-      "quantity": 1,
-      "unit": {
-        "ro": "după gust",
-        "en": "to taste"
-      },
-      "ingredientId": 194
     },
     {
       "name": {
@@ -147,19 +135,19 @@
     "ro": [
       "Încălzește uleiul într-o tigaie antiadezivă mare sau wok la foc mare până devine strălucitor. Adaugă boabele de porumb, condimentează cu sare după gust, amestecă o dată sau de două ori, și lasă să se prăjească fără a mișca până se rumenește pe o parte, aproximativ 2 minute.",
       "Amestecă porumbul, și lasă din nou să se rumenească pe a doua parte, încă aproximativ 2 minute. Continuă să amesteci și să rumenești până când porumbul este bine rumenit din toate părțile, aproximativ 10 minute în total. Transferă într-un bol mare.",
-      "Adaugă brânza, ceapa verde, coriandrul, ardeiul jalapeño, usturoiul, maioneza, sucul de lime și pudra de chili și amestecă bine pentru a combina.",
-      "Gustă și ajustează condimentarea cu sare și mai multă pudră de chili după preferință. Servește imediat."
+      "Adaugă brânza, ceapa verde, coriandrul, ardeiul gras, usturoiul, maioneza și sucul de lime și amestecă bine pentru a combina.",
+      "Gustă și ajustează condimentarea cu sare după preferință. Servește imediat."
     ],
     "en": [
       "Heat oil in a large nonstick skillet or wok over high heat until shimmering. Add corn kernels, season to taste with salt, toss once or twice, and cook without moving until charred on one side, about 2 minutes.",
       "Toss corn, stir, and repeat until charred on second side, about 2 minutes longer. Continue tossing and charring until corn is well charred all over, about 10 minutes total. Transfer to a large bowl.",
-      "Add cheese, scallions, cilantro, jalapeño, garlic, mayonnaise, lime juice, and chile powder and toss to combine.",
-      "Taste and adjust seasoning with salt and more chile powder to taste. Serve immediately."
+      "Add cheese, scallions, cilantro, bell pepper, garlic, mayonnaise, lime juice and toss to combine.",
+      "Taste and adjust seasoning with salt to taste. Serve immediately."
     ]
   },
   "personalNotes": {
-    "ro": "O rețetă vibrantă și plină de gust, inspirată de clasica mâncare de stradă mexicană esquites. Porumbul prăjit până se rumenește adaugă o adâncime de aromă fumată, iar combinația de brânză, lime și chili creează un echilibru perfect de cremos, acid și picant. Perfectă ca acompaniament la grătar sau ca aperitiv festiv.",
-    "en": "A vibrant and flavorful recipe inspired by the classic Mexican street food esquites. The charred corn adds a deep smoky flavor, and the combination of cheese, lime, and chile creates a perfect balance of creamy, tangy, and spicy. Perfect as a side dish for grilling or as a festive appetizer."
+    "ro": "O rețetă vibrantă și plină de gust, inspirată de clasica mâncare de stradă mexicană esquites. Porumbul prăjit până se rumenește adaugă o adâncime de aromă fumată, iar combinația de brânză, lime și ardei gras creează un echilibru perfect de cremos și acid. Perfectă ca acompaniament la grătar sau ca aperitiv festiv.",
+    "en": "A vibrant and flavorful recipe inspired by the classic Mexican street food esquites. The charred corn adds a deep smoky flavor, and the combination of cheese, lime, and bell pepper creates a perfect balance of creamy and tangy. Perfect as a side dish for grilling or as a festive appetizer."
   },
   "keywords": [
     "easy",
