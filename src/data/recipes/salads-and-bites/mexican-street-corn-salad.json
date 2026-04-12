@@ -27,10 +27,10 @@
         "ro": "boabe de porumb congelat",
         "en": "frozen corn kernel"
       },
-      "quantity": 510,
+      "quantity": 3,
       "unit": {
-        "ro": "g",
-        "en": "g"
+        "ro": "căni",
+        "en": "cups"
       },
       "ingredientId": 190
     },
