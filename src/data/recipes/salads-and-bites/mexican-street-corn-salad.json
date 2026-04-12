@@ -123,12 +123,36 @@
         "ro": "sare",
         "en": "salt"
       },
-      "quantity": 1,
+      "quantity": 0.25,
       "unit": {
-        "ro": "după gust",
-        "en": "to taste"
+        "ro": "linguriță",
+        "en": "tsp"
       },
       "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "boia afumată picantă",
+        "en": "hot smoked paprika"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 217
+    },
+    {
+      "name": {
+        "ro": "smântână",
+        "en": "sour cream"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "tablespoon"
+      },
+      "ingredientId": 218
     }
   ],
   "instructions": {
