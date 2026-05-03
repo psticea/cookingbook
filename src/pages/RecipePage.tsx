@@ -49,7 +49,7 @@ const RecipePage: React.FC = () => {
     if (servings > 1) setCurrentServings(servings - 1);
   };
   const handleIncrement = () => {
-    if (servings < 8) setCurrentServings(servings + 1);
+    if (servings < 12) setCurrentServings(servings + 1);
   };
 
   // Toggle side menu
@@ -204,7 +204,7 @@ const RecipePage: React.FC = () => {
               </span>
               <button
                 onClick={handleIncrement}
-                disabled={servings >= 8}
+                disabled={servings >= 12}
                 className="bg-accent-light dark:bg-accent-dark text-white rounded-full w-10 h-10 flex items-center justify-center active:scale-95 transition-transform disabled:opacity-50"
                 aria-label="Increase servings"
               >
