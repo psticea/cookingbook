@@ -19,11 +19,11 @@ export const PersonalNotes: React.FC<PersonalNotesProps> = ({ notes }) => {
   if (!notes[language] || notes[language].trim() === '') return null;
 
   return (
-    <section className="rounded-2xl p-5 border border-dashed border-brand-warm bg-[#fff5f5] dark:bg-[#3a2925]">
-      <h3 className="font-display text-sm font-bold text-brand-warm mb-1.5 tracking-[0.08em] uppercase">
+    <section className="mt-6 bg-card-light dark:bg-card-dark rounded-r-2xl border-l-4 border-brand-warm py-4 pl-5 pr-5">
+      <h3 className="font-sans text-[11px] font-bold tracking-[0.14em] uppercase text-brand-warm mb-2">
         {getTranslation('personalNotes', language)}
       </h3>
-      <p className="text-base text-ink-muted-light dark:text-ink-muted-dark leading-relaxed whitespace-pre-line">
+      <p className="font-serif italic text-base leading-relaxed text-ink-muted-light dark:text-ink-muted-dark whitespace-pre-line">
         {notes[language]}
       </p>
     </section>

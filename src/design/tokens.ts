@@ -24,66 +24,64 @@
 export const colors = {
   // ---------- Brand (fixed across light/dark) ----------
   brand: {
-    yellow: '#f5cb5c',         // servings strip highlight, accents
+    yellow: '#f3d77a',         // softer cream-yellow (was #f5cb5c)
     accent: '#4f772d',         // primary action green (light theme)
     'accent-bright': '#6b9c3d', // primary action green (dark theme)
-    warm: '#e07a5f',           // terracotta — notes, category pill on recipe
+    warm: '#c95a3c',           // deeper, more confident terracotta (was #e07a5f)
+    'warm-bright': '#dd7a5a',  // for dark mode
     pink: '#e198ac',           // secondary accent
   },
 
   // ---------- Page backgrounds (the canvas behind cards) ----------
   bg: {
-    light: '#f8f6f3',
-    dark: '#1c1d24',
+    light: '#f7f4ef',          // warm cream (was #f8f6f3)
+    dark: '#131317',           // deeper near-black (was #1c1d24)
   },
 
   // ---------- Card surfaces (3 stacked layers) ----------
   card: {
     light: '#ffffff',
-    dark: '#272832',
+    dark: '#1d1d22',
   },
   'card-2': {
-    // Inner rows inside a card (ingredient rows, sub-bg)
-    light: '#fafafa',
-    dark: '#31323e',
+    light: '#faf7f2',          // warm cream tint (was #fafafa)
+    dark: '#23242a',
   },
   'card-3': {
-    // Tab tracks, deepest inset surface
-    light: '#f0f0f0',
-    dark: '#3b3d4a',
+    light: '#f0ebe3',          // warm sand (was #f0f0f0)
+    dark: '#2c2d34',
   },
 
   // ---------- Text colors ----------
   ink: {
-    light: '#111111',
-    dark: '#f2f3f7',
+    light: '#1a1a1d',
+    dark: '#f5f5f8',
   },
   'ink-muted': {
-    light: '#666666',
-    dark: '#b8bac4',
+    light: '#6b6b73',
+    dark: '#a4a4ac',
   },
   'ink-soft': {
-    light: '#999999',
-    dark: '#868892',
+    light: '#a5a5ad',
+    dark: '#6c6d76',
   },
 
   // ---------- Borders / dividers ----------
   line: {
-    light: '#eaeaea',
-    dark: '#3a3c47',
+    light: '#ece8e0',          // warmer hairline (was #eaeaea)
+    dark: '#2c2d34',
   },
   'line-2': {
-    // Subtle hairlines inside cards
-    light: '#f0f0f0',
-    dark: '#2f3039',
+    light: '#f2efe9',
+    dark: '#25262c',
   },
 
   // ---------- Legacy aliases (kept for backward compatibility) ----------
-  primary: { light: '#f5cb5c', dark: '#f5cb5c' },
-  secondary: { light: '#e07a5f', dark: '#e07a5f' },
+  primary: { light: '#f3d77a', dark: '#f3d77a' },
+  secondary: { light: '#c95a3c', dark: '#dd7a5a' },
   accent: { light: '#4f772d', dark: '#6b9c3d' },
-  surface: { light: '#f8f6f3', dark: '#1c1d24' },
-  'text-main': { light: '#111111', dark: '#f2f3f7' },
+  surface: { light: '#f7f4ef', dark: '#131317' },
+  'text-main': { light: '#1a1a1d', dark: '#f5f5f8' },
 } as const;
 
 // ============================================================
@@ -92,8 +90,15 @@ export const colors = {
 export const typography = {
   // Font families
   fontFamily: {
-    sans: ['Outfit', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-    display: ['Plus Jakarta Sans', 'Outfit', 'system-ui', 'sans-serif'],
+    // Body / UI
+    sans: ['Inter', 'Outfit', 'system-ui', 'sans-serif'],
+    // Editorial headings and display numerals
+    serif: ['Fraunces', 'Georgia', 'serif'],
+    // Tabular quantities (ingredient list)
+    mono: ['JetBrains Mono', 'SFMono-Regular', 'Menlo', 'monospace'],
+    // Legacy alias — points at the serif so existing `font-display` usages
+    // pick up the editorial look without code changes.
+    display: ['Fraunces', 'Georgia', 'serif'],
   },
 
   /**

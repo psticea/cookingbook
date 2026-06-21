@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recipe Page — 10/10 redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     10/10 RECIPE PAGE
+     ------------------------------------------------------------
+     Principles:
+       1. Image-led — title and category live OVER the photo so
+          the page opens with intent, no floating empty card.
+       2. Confident, equal-weight stat strip (no nested borders,
+          large display numerals, hairline dividers only).
+       3. Ingredient rows tightened: quantity in tabular numerics
+          using ink color (not loud orange); cost is the smallest
+          element on the row so the eye is never pulled to the
+          far right empty zone.
+       4. A real lead — italic one-liner under the title gives
+          context the previous version was missing.
+       5. Numbered instructions feel deliberate.
+       6. Warm cream background + generous whitespace inside cards,
+          tight whitespace between sections.
+     ============================================================ */
+
+  :root {
+    --bg:           #f7f4ef;
+    --card:         #ffffff;
+    --card-2:       #faf7f2;
+    --card-3:       #f0ebe3;
+    --ink:          #1a1a1d;
+    --ink-muted:    #6b6b73;
+    --ink-soft:     #a5a5ad;
+    --line:         #ece8e0;
+    --line-2:       #f2efe9;
+    --brand-accent: #4f772d;
+    --brand-warm:   #c95a3c;     /* deeper than #e07a5f, more confident */
+    --brand-cream:  #f3d77a;     /* gentler than pure yellow */
+  }
+  .dark {
+    --bg:           #131317;
+    --card:         #1d1d22;
+    --card-2:       #23242a;
+    --card-3:       #2c2d34;
+    --ink:          #f5f5f8;
+    --ink-muted:    #a4a4ac;
+    --ink-soft:     #6c6d76;
+    --line:         #2c2d34;
+    --line-2:       #25262c;
+    --brand-accent: #6b9c3d;
+    --brand-warm:   #dd7a5a;
+    --brand-cream:  #f5d676;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink);
+    background: #e9ebef;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { display: block; max-width: 100%; }
+  button { font-family: inherit; }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', 'Inter', serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+  }
+
+  /* page chrome */
+  .page-head {
+    text-align: center;
+    padding: 48px 20px 22px;
+    background: #16181d;
+    color: #fff;
+  }
+  .page-head h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 600;
+  }
+  .page-head p {
+    opacity: .65;
+    margin-top: 10px;
+    font-size: 14px;
+    max-width: 560px;
+    margin-inline: auto;
+  }
+  .pair {
+    display: grid; grid-template-columns: 1fr;
+    gap: 50px; justify-items: center;
+    max-width: 1100px;
+    margin: 50px auto 80px;
+    padding: 0 20px;
+  }
+  @media (min-width: 900px) {
+    .pair { grid-template-columns: 1fr 1fr; }
+  }
+  .phone-wrap { width: 100%; max-width: 420px; }
+  .phone-tag {
+    text-align: center;
+    font: 600 11px 'Inter', sans-serif;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: #666;
+  }
+
+  /* phone frame */
+  .frame {
+    width: 100%;
+    border-radius: 38px;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--ink);
+    box-shadow: 0 30px 80px -25px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.06);
+  }
+  .dark.frame { box-shadow: 0 30px 80px -25px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.04); }
+
+  /* ===== app header (translucent over hero) ===== */
+  .app-header {
+    position: absolute; top: 0; left: 0; right: 0;
+    z-index: 5;
+    padding: 16px 18px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .app-header .home {
+    color: #fff;
+    font: 600 14px 'Inter', sans-serif;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(0,0,0,.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+  .app-header .menu-btn {
+    width: 40px; height: 40px;
+    border: none; cursor: pointer;
+    border-radius: 999px;
+    background: rgba(0,0,0,.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    display: grid; place-items: center;
+    font-size: 18px;
+  }
+
+  /* ===== hero with text overlay (3:2 to match real recipe photos) ===== */
+  .hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+  }
+  .hero img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .hero::after {
+    /* shorter, stronger gradient since the image is wider/shorter */
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 30%,
+      rgba(0,0,0,.20) 55%,
+      rgba(0,0,0,.82) 100%
+    );
+  }
+  .hero-content {
+    position: absolute;
+    left: 20px; right: 20px; bottom: 18px;
+    z-index: 2;
+    color: #fff;
+  }
+  .hero-content .cat {
+    display: inline-block;
+    font: 700 10.5px 'Inter', sans-serif;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--brand-cream);
+    background: rgba(0,0,0,.35);
+    backdrop-filter: blur(6px);
+    padding: 5px 11px;
+    border-radius: 999px;
+  }
+  .hero-content h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.05;
+    margin-top: 10px;
+    color: #fff;
+    text-shadow: 0 2px 14px rgba(0,0,0,.4);
+  }
+
+  /* ===== stat strip (just below hero, edge-to-edge) ===== */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    align-items: stretch;
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat-cell {
+    text-align: center;
+    padding: 18px 8px 18px;
+    position: relative;
+  }
+  .stat-cell + .stat-cell::before {
+    /* hairline divider */
+    content: '';
+    position: absolute;
+    left: 0; top: 18px; bottom: 18px;
+    width: 1px;
+    background: var(--line);
+  }
+  .stat-cell .num {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-cell .num .unit-small {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    margin-left: 2px;
+  }
+  .stat-cell .label {
+    font: 700 10px 'Inter', sans-serif;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+  /* serving cell with inline stepper */
+  .stat-cell.serv .num-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px;
+  }
+  .stat-cell.serv button {
+    width: 28px; height: 28px;
+    border: 1px solid var(--line);
+    background: var(--card-2);
+    border-radius: 999px;
+    color: var(--ink);
+    font: 700 14px 'Inter', sans-serif;
+    cursor: pointer;
+    display: grid; place-items: center;
+    transition: .15s;
+  }
+  .stat-cell.serv button:hover {
+    background: var(--brand-accent);
+    color: #fff;
+    border-color: transparent;
+  }
+
+  /* ===== body sections ===== */
+  .body {
+    padding: 22px 18px 32px;
+    background: var(--bg);
+  }
+
+  /* segmented tabs — underline style */
+  .tabs {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid var(--line);
+    margin: 0 -2px 22px;
+    padding: 0 2px;
+  }
+  .tabs button {
+    flex: 1;
+    border: none;
+    background: none;
+    padding: 12px 0 14px;
+    font: 700 14px 'Inter', sans-serif;
+    letter-spacing: .04em;
+    color: var(--ink-soft);
+    cursor: pointer;
+    position: relative;
+    transition: color .15s;
+  }
+  .tabs button.on {
+    color: var(--ink);
+  }
+  .tabs button.on::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    height: 2px;
+    background: var(--brand-warm);
+    border-radius: 2px;
+  }
+  .tabs .count {
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-left: 6px;
+    font-size: 12px;
+  }
+
+  /* ===== ingredient rows ===== */
+  .ing-list {
+    display: grid;
+    gap: 2px;
+  }
+  .ing {
+    display: grid;
+    grid-template-columns: 22px 78px 1fr auto;
+    align-items: center;
+    column-gap: 14px;
+    padding: 12px 6px;
+    border-bottom: 1px solid var(--line-2);
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .ing:last-child { border-bottom: none; }
+  .ing:hover { background: var(--card-2); border-radius: 8px; }
+  .ing input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border: 1.5px solid var(--ink-soft);
+    border-radius: 6px;
+    cursor: pointer;
+    display: grid; place-items: center;
+    transition: .15s;
+  }
+  .ing input[type="checkbox"]:checked {
+    background: var(--brand-warm);
+    border-color: var(--brand-warm);
+  }
+  .ing input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .ing .qty {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .ing .name {
+    font-size: 15.5px;
+    color: var(--ink);
+  }
+  .ing .cost {
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+  .ing.done .qty,
+  .ing.done .name {
+    color: var(--ink-soft);
+    text-decoration: line-through;
+  }
+
+  /* ===== instructions list ===== */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    display: grid;
+    gap: 18px;
+  }
+  .steps li {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    column-gap: 14px;
+    align-items: start;
+  }
+  .steps li::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--brand-warm);
+    line-height: 1;
+    padding-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .steps li p {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  /* ===== personal notes — warm callout ===== */
+  .note {
+    margin-top: 26px;
+    padding: 18px 20px;
+    background: var(--card);
+    border-left: 4px solid var(--brand-warm);
+    border-radius: 4px 16px 16px 4px;
+  }
+  .note h4 {
+    font-family: 'Inter', sans-serif;
+    font: 700 11px 'Inter', sans-serif;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--brand-warm);
+    margin-bottom: 8px;
+  }
+  .note p {
+    font: italic 400 15px 'Fraunces', serif;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  /* section divider headline (optional) */
+  .section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin: 30px 0 14px;
+  }
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--ink);
+  }
+  .section-head .meta {
+    font: 700 10px 'Inter', sans-serif;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* notes for the assessor */
+  .legend {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .legend h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #16181d;
+  }
+  .legend ul {
+    margin: 8px 0 0 18px;
+  }
+  .legend li {
+    margin-bottom: 4px;
+  }
+
+  footer.foot {
+    text-align: center;
+    padding: 36px 20px 60px;
+    color: #888;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <h1>Recipe Page — 10/10 redesign</h1>
+  <p>Image-led, confident typography, no nested boxes, tight visual rhythm. Light and dark side-by-side.</p>
+</header>
+
+<section class="legend">
+  <h3>What changed vs the current page</h3>
+  <ul>
+    <li><strong>Image-led:</strong> title and category sit <em>over</em> the photo with a soft dark gradient — eliminates the "floating card under an empty image" look.</li>
+    <li><strong>One stat strip, three equal cells:</strong> hairline dividers instead of nested boxes; numerals use the Fraunces serif at 28px so all three (time, servings, price) carry equal weight.</li>
+    <li><strong>Inline servings stepper</strong> sits next to the number — no separate yellow band, no wasted horizontal space.</li>
+    <li><strong>Ingredient rows in 4 columns:</strong> [✓ box] · [qty right-aligned, mono] · [name] · [small cost]. Quantity uses ink color (not loud orange); cost is the smallest, most muted element so the eye never tracks across empty space.</li>
+    <li><strong>Tabs as underline,</strong> not pill switcher — calmer, less competing chrome under the stat strip.</li>
+    <li><strong>Numbered instructions</strong> use deliberate Fraunces "01 / 02 / 03" markers — feels editorial, not utilitarian.</li>
+    <li><strong>Personal notes</strong> styled as an editorial side-note (warm bar + italic quote).</li>
+  </ul>
+</section>
+
+<div class="pair">
+  <!-- LIGHT -->
+  <div class="phone-wrap">
+    <div class="phone-tag">☀ Light</div>
+    <article class="frame">
+      <div style="position: relative;">
+        <div class="app-header">
+          <a href="#" class="home">← Acasă</a>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="hero">
+          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="" />
+          <div class="hero-content">
+            <span class="cat">Mic Dejun</span>
+            <h1>Frittata cu spanac<br />și roșii cherry</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat-cell">
+          <div class="num">30<span class="unit-small">min</span></div>
+          <div class="label">Timp</div>
+        </div>
+        <div class="stat-cell serv">
+          <div class="num-row">
+            <button>−</button>
+            <div class="num">4</div>
+            <button>+</button>
+          </div>
+          <div class="label">Porții</div>
+        </div>
+        <div class="stat-cell">
+          <div class="num">2.43</div>
+          <div class="label">Ron / porție</div>
+        </div>
+      </div>
+
+      <div class="body">
+        <div class="tabs">
+          <button class="on">Ingrediente <span class="count">12</span></button>
+          <button>Instrucțiuni <span class="count">6</span></button>
+        </div>
+
+        <div class="ing-list">
+          <label class="ing">
+            <input type="checkbox" />
+            <span class="qty">5 buc</span>
+            <span class="name">ouă mari</span>
+            <span class="cost">4.00</span>
+          </label>
+          <label class="ing">
+            <input type="checkbox" />
+            <span class="qty">0.25 cană</span>
+            <span class="name">lapte integral</span>
+            <span class="cost">0.36</span>
+          </label>
+          <label class="ing">
+            <input type="checkbox" checked />
+            <span class="qty">0.5 lingrt.</span>
+            <span class="name">sare kosher</span>
+            <span class="cost">0.05</span>
+          </label>
+          <label class="ing done">
+            <input type="checkbox" checked />
+            <span class="qty">0.25 lingrt.</span>
+            <span class="name">piper negru proaspăt măcinat</span>
+            <span class="cost">0.10</span>
+          </label>
+          <label class="ing">
+            <input type="checkbox" />
+            <span class="qty">100 g</span>
+            <span class="name">spanac proaspăt</span>
+            <span class="cost">1.80</span>
+          </label>
+          <label class="ing">
+            <input type="checkbox" />
+            <span class="qty">12 buc</span>
+            <span class="name">roșii cherry</span>
+            <span class="cost">2.40</span>
+          </label>
+          <label class="ing">
+            <input type="checkbox" />
+            <span class="qty">50 g</span>
+            <span class="name">brânză feta</span>
+            <span class="cost">2.20</span>
+          </label>
+        </div>
+
+        <div class="note">
+          <h4>Notă personală</h4>
+          <p>Funcționează la fel de bine cu mozzarella în loc de feta — dar feta dă un plus de aciditate care echilibrează roșiile coapte.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- DARK -->
+  <div class="phone-wrap">
+    <div class="phone-tag">☾ Dark</div>
+    <article class="frame dark">
+      <div style="position: relative;">
+        <div class="app-header">
+          <a href="#" class="home">← Acasă</a>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="hero">
+          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="" />
+          <div class="hero-content">
+            <span class="cat">Mic Dejun</span>
+            <h1>Frittata cu spanac<br />și roșii cherry</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat-cell">
+          <div class="num">30<span class="unit-small">min</span></div>
+          <div class="label">Timp</div>
+        </div>
+        <div class="stat-cell serv">
+          <div class="num-row">
+            <button>−</button>
+            <div class="num">4</div>
+            <button>+</button>
+          </div>
+          <div class="label">Porții</div>
+        </div>
+        <div class="stat-cell">
+          <div class="num">2.43</div>
+          <div class="label">Ron / porție</div>
+        </div>
+      </div>
+
+      <div class="body">
+        <div class="tabs">
+          <button>Ingrediente <span class="count">12</span></button>
+          <button class="on">Instrucțiuni <span class="count">6</span></button>
+        </div>
+
+        <ol class="steps">
+          <li><p>Pre-încălzește cuptorul la <strong>190 °C</strong>. Unge o tavă rotundă de 24 cm cu unt sau ulei.</p></li>
+          <li><p>Bate ouăle cu laptele, sarea și piperul până devin omogene și puțin spumoase.</p></li>
+          <li><p>Așază spanacul pe fundul tăvii, presară roșiile tăiate în jumătăți, apoi adaugă feta.</p></li>
+          <li><p>Toarnă amestecul de ouă peste legume; nu amesteca — lasă straturile să se distribuie singure.</p></li>
+          <li><p>Coace 22–25 de minute, până se umflă ușor în mijloc și se rumenește pe margini.</p></li>
+          <li><p>Lasă 5 minute să se odihnească înainte de a porționa. Servește călduță sau la temperatura camerei.</p></li>
+        </ol>
+
+        <div class="note">
+          <h4>Notă personală</h4>
+          <p>Funcționează la fel de bine cu mozzarella în loc de feta — dar feta dă un plus de aciditate care echilibrează roșiile coapte.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<footer class="foot">
+  Two themes, same anatomy. Approve and I'll port this directly into the React components.
+</footer>
+
+</body>
+</html>

@@ -7,23 +7,25 @@ interface InstructionListProps {
 }
 
 /**
- * InstructionList — Card Stack design.
- * Compact numbered steps inside a single rounded card with hairline separators.
+ * InstructionList — editorial design.
+ * Numbered steps with serif "01 / 02 / 03" markers and ample reading width.
  */
 export const InstructionList: React.FC<InstructionListProps> = ({ instructions }) => {
   const { language } = useLanguage();
 
   return (
-    <ol className="bg-card-2-light dark:bg-card-2-dark rounded-2xl px-4 divide-y divide-line-2-light dark:divide-line-2-dark list-none">
+    <ol className="grid gap-5 px-1 py-1 list-none">
       {instructions[language].map((instruction, index) => (
         <li
           key={index}
-          className="flex gap-3 py-4 text-base text-ink-light dark:text-ink-dark"
+          className="grid grid-cols-[2.25rem_1fr] gap-x-4 items-start"
         >
-          <span className="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-lg bg-brand-warm text-white font-bold text-sm">
-            {index + 1}
+          <span className="font-serif font-semibold text-2xl text-brand-warm leading-none tabular-nums pt-0.5">
+            {String(index + 1).padStart(2, '0')}
           </span>
-          <p className="flex-1 pt-0.5 leading-relaxed">{instruction}</p>
+          <p className="text-base leading-relaxed text-ink-light dark:text-ink-dark">
+            {instruction}
+          </p>
         </li>
       ))}
     </ol>

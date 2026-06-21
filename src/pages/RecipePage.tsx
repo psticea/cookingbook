@@ -5,7 +5,6 @@ import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
 import { calculateRecipeCost } from '../utils/pricing';
 import { Header } from '../components/Header';
-import { RecipeHeader } from '../components/RecipeHeader';
 import { RecipeImage } from '../components/RecipeImage';
 import { IngredientList } from '../components/IngredientList';
 import { InstructionList } from '../components/InstructionList';
@@ -128,11 +127,17 @@ const RecipePage: React.FC = () => {
     );
   }
 
+  // Count actual ingredient items (skip section headers) for the tab badge
+  const ingredientCount = recipe.ingredients.filter((i) => 'name' in i).length;
+  const instructionCount = recipe.instructions[language].length;
+  const categoryName = (() => {
+    const cat = categories.find((c) => c.id === recipe.category);
+    return cat ? cat.name[language] : recipe.category;
+  })();
+
   // Render recipe page
   return (
     <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
-      <Header onMenuToggle={handleMenuToggle} />
-
       {/* Side Menu */}
       <SideMenu
         isOpen={isSideMenuOpen}
@@ -147,109 +152,134 @@ const RecipePage: React.FC = () => {
       </SideMenu>
 
       <main className="flex-1 w-full">
-        {/* Hero image, edge-to-edge */}
-        <div className="relative">
+        {/* Hero with translucent overlay header + category + title */}
+        <section className="relative">
+          {/* Overlay header (no shared Header on recipe page — translucent pills) */}
+          <div className="absolute top-0 left-0 right-0 z-10 px-4 py-3 sm:py-4 flex items-center justify-between">
+            <button
+              onClick={() => navigate('/')}
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-semibold text-white bg-black/40 backdrop-blur-md hover:bg-black/55 transition-colors"
+            >
+              ← {getTranslation('home', language)}
+            </button>
+            <button
+              onClick={handleMenuToggle}
+              className="w-10 h-10 grid place-items-center rounded-full text-white bg-black/40 backdrop-blur-md hover:bg-black/55 transition-colors"
+              aria-label={getTranslation('menu', language)}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Hero image — keeps the recipe photo's native 3:2 ratio */}
           <RecipeImage
             recipeId={recipe.id}
             category={recipe.category}
             alt={recipe.title[language]}
           />
-        </div>
 
-        {/* Overlay card — title + category */}
-        <div className="relative -mt-12 px-3 sm:px-5 z-10">
-          <div className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 pt-5 pb-4 sm:px-6 sm:pt-6 sm:pb-5">
-            <span className="inline-block bg-brand-warm text-white text-xs font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
-              {(() => {
-                const cat = categories.find((c) => c.id === recipe.category);
-                return cat ? cat.name[language] : recipe.category;
-              })()}
+          {/* Dark gradient at bottom of image for title legibility */}
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/80" />
+
+          {/* Category + title sit on top of the hero */}
+          <div className="absolute left-5 right-5 bottom-4 sm:bottom-5 z-[2]">
+            <span className="inline-block text-[11px] font-bold tracking-[0.14em] uppercase text-brand-yellow bg-black/35 backdrop-blur-sm px-3 py-1 rounded-full">
+              {categoryName}
             </span>
-            <div className="mt-3">
-              <RecipeHeader recipe={recipe} />
+            <h1 className="font-serif font-semibold text-white text-2xl sm:text-3xl leading-tight mt-2.5 [text-shadow:_0_2px_14px_rgba(0,0,0,.45)]">
+              {recipe.title[language]}
+            </h1>
+          </div>
+        </section>
+
+        {/* Stat strip — hairline-divided, three equal cells, sits below the image */}
+        <section className="grid grid-cols-[1fr_1.4fr_1fr] bg-card-light dark:bg-card-dark border-b border-line-light dark:border-line-dark">
+          <div className="text-center py-4 px-2">
+            <div className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums">
+              {recipe.prepTime}
+              <span className="text-base font-medium text-ink-muted-light dark:text-ink-muted-dark ml-1">
+                {getTranslation('minutes', language).substring(0, 3)}
+              </span>
             </div>
-
-            {/* Integrated stat strip — time | servings (with stepper) | price/serving */}
-            <div className="mt-5 grid grid-cols-3 rounded-2xl overflow-hidden border border-line-light dark:border-line-dark">
-              {/* Time */}
-              <div className="flex flex-col items-center justify-center py-3 px-2 bg-card-2-light dark:bg-card-2-dark">
-                <span className="text-xl leading-none mb-1">⏱️</span>
-                <span className="font-display text-xl font-bold text-ink-light dark:text-ink-dark leading-none">
-                  {recipe.prepTime}
-                </span>
-                <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-muted-light dark:text-ink-muted-dark mt-1">
-                  {getTranslation('minutes', language).substring(0, 3)}
-                </span>
-              </div>
-
-              {/* Servings with inline stepper */}
-              <div
-                className="flex flex-col items-center justify-center py-3 px-2 border-x border-line-light dark:border-line-dark"
-                style={{ background: 'linear-gradient(180deg, #f5cb5c 0%, #fde68a 100%)' }}
-              >
-                <div className="flex items-center gap-2.5 text-ink-light">
-                  <button
-                    onClick={handleDecrement}
-                    disabled={servings <= 1}
-                    className="w-7 h-7 flex items-center justify-center rounded-md bg-white/90 text-ink-light font-bold text-base shadow-card active:scale-95 transition-transform disabled:opacity-40"
-                    aria-label="Decrease servings"
-                  >
-                    −
-                  </button>
-                  <span className="font-display text-xl font-bold leading-none tabular-nums min-w-[1.25rem] text-center">
-                    {servings}
-                  </span>
-                  <button
-                    onClick={handleIncrement}
-                    disabled={servings >= 12}
-                    className="w-7 h-7 flex items-center justify-center rounded-md bg-white/90 text-ink-light font-bold text-base shadow-card active:scale-95 transition-transform disabled:opacity-40"
-                    aria-label="Increase servings"
-                  >
-                    +
-                  </button>
-                </div>
-                <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-light/75 mt-1.5">
-                  {getTranslation('servings', language)}
-                </span>
-              </div>
-
-              {/* Price per serving */}
-              <div className="flex flex-col items-center justify-center py-3 px-2 bg-card-2-light dark:bg-card-2-dark">
-                <span className="text-xl leading-none mb-1">💰</span>
-                <span className="font-display text-xl font-bold text-ink-light dark:text-ink-dark leading-none tabular-nums">
-                  {pricePerServing.toFixed(2)}
-                </span>
-                <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-muted-light dark:text-ink-muted-dark mt-1">
-                  RON / p
-                </span>
-              </div>
+            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
+              {getTranslation('prepTime', language)}
             </div>
           </div>
-        </div>
 
-        {/* Body sections — tight mobile padding so lists span near-full-width */}
-        <div className="px-3 sm:px-5 pt-5 pb-8 space-y-4">
-          {/* Tabs */}
-          <div className="flex gap-1 bg-card-3-light dark:bg-card-3-dark rounded-2xl p-1">
+          <div className="text-center py-4 px-2 border-x border-line-light dark:border-line-dark">
+            <div className="flex items-center justify-center gap-2.5">
+              <button
+                onClick={handleDecrement}
+                disabled={servings <= 1}
+                className="w-7 h-7 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-sm font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors"
+                aria-label="Decrease servings"
+              >
+                −
+              </button>
+              <span className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums min-w-[1.5rem]">
+                {servings}
+              </span>
+              <button
+                onClick={handleIncrement}
+                disabled={servings >= 12}
+                className="w-7 h-7 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-sm font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors"
+                aria-label="Increase servings"
+              >
+                +
+              </button>
+            </div>
+            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
+              {getTranslation('servings', language)}
+            </div>
+          </div>
+
+          <div className="text-center py-4 px-2">
+            <div className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums">
+              {pricePerServing.toFixed(2)}
+            </div>
+            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
+              RON / {getTranslation('servings', language).toLowerCase().slice(0, 6)}
+            </div>
+          </div>
+        </section>
+
+        {/* Body — tight outer padding so list rows reach near the edges */}
+        <div className="px-4 sm:px-5 pt-4 pb-8 space-y-4">
+          {/* Underline tabs with counts */}
+          <div className="flex gap-6 border-b border-line-light dark:border-line-dark">
             <button
               onClick={() => setActiveTab('ingredients')}
-              className={`flex-1 py-2.5 text-base font-semibold rounded-xl transition-colors ${
+              className={`relative flex-1 py-3 text-sm font-bold tracking-wide transition-colors ${
                 activeTab === 'ingredients'
-                  ? 'bg-card-light dark:bg-card-dark text-ink-light dark:text-ink-dark shadow-card'
-                  : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
+                  ? 'text-ink-light dark:text-ink-dark'
+                  : 'text-ink-soft-light dark:text-ink-soft-dark hover:text-ink-muted-light dark:hover:text-ink-muted-dark'
               }`}
             >
               {getTranslation('ingredients', language)}
+              <span className="ml-1.5 text-xs font-medium text-ink-soft-light dark:text-ink-soft-dark">
+                {ingredientCount}
+              </span>
+              {activeTab === 'ingredients' && (
+                <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-brand-warm rounded-full" />
+              )}
             </button>
             <button
               onClick={() => setActiveTab('instructions')}
-              className={`flex-1 py-2.5 text-base font-semibold rounded-xl transition-colors ${
+              className={`relative flex-1 py-3 text-sm font-bold tracking-wide transition-colors ${
                 activeTab === 'instructions'
-                  ? 'bg-card-light dark:bg-card-dark text-ink-light dark:text-ink-dark shadow-card'
-                  : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
+                  ? 'text-ink-light dark:text-ink-dark'
+                  : 'text-ink-soft-light dark:text-ink-soft-dark hover:text-ink-muted-light dark:hover:text-ink-muted-dark'
               }`}
             >
               {getTranslation('instructions', language)}
+              <span className="ml-1.5 text-xs font-medium text-ink-soft-light dark:text-ink-soft-dark">
+                {instructionCount}
+              </span>
+              {activeTab === 'instructions' && (
+                <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-brand-warm rounded-full" />
+              )}
             </button>
           </div>
 

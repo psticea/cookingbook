@@ -68,12 +68,12 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   }, [ingredients, currentServings, servings, language]);
 
   return (
-    <div className="bg-card-2-light dark:bg-card-2-dark rounded-2xl px-3 sm:px-4 divide-y divide-line-2-light dark:divide-line-2-dark">
+    <div className="grid gap-0.5">
       {ingredients.map((item, index) => {
         if (isSection(item)) {
           return (
-            <div key={index} className="pt-4 pb-2 first:pt-3">
-              <h3 className="font-display text-base font-bold text-ink-light dark:text-ink-dark tracking-tight">
+            <div key={index} className="pt-4 pb-2 first:pt-2">
+              <h3 className="font-serif text-lg font-semibold text-ink-light dark:text-ink-dark tracking-tight">
                 {item.section[language]}
               </h3>
             </div>
@@ -86,7 +86,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
           return (
             <label
               key={index}
-              className="flex items-center gap-3 py-3 cursor-pointer group"
+              className="grid grid-cols-[20px_auto_1fr_auto] items-center gap-x-3 sm:gap-x-4 py-3 border-b border-line-2-light dark:border-line-2-dark last:border-b-0 cursor-pointer hover:bg-card-2-light dark:hover:bg-card-2-dark transition-colors rounded-md px-1"
             >
               <input
                 type="checkbox"
@@ -95,19 +95,20 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                 className="ingredient-checkbox"
               />
 
-              {/* Quantity badge — colored, fixed width, tabular */}
+              {/* Quantity in mono numerals, right-aligned for clean vertical column */}
               <span
-                className={`flex-none inline-flex items-center justify-center min-w-[3.25rem] px-2 py-1 rounded-lg text-sm font-bold tabular-nums ${
+                className={`font-mono text-sm font-semibold tabular-nums text-right min-w-[3.75rem] ${
                   isChecked
-                    ? 'bg-card-3-light dark:bg-card-3-dark text-ink-soft-light dark:text-ink-soft-dark line-through'
-                    : 'bg-brand-warm/12 text-brand-warm dark:bg-brand-warm/20'
+                    ? 'text-ink-soft-light dark:text-ink-soft-dark line-through'
+                    : 'text-ink-light dark:text-ink-dark'
                 }`}
               >
                 {getScaledQuantity(item.quantity)} {item.unit[language]}
               </span>
 
+              {/* Ingredient name takes remaining horizontal space */}
               <span
-                className={`flex-1 text-base ${
+                className={`text-base ${
                   isChecked
                     ? 'line-through text-ink-soft-light dark:text-ink-soft-dark'
                     : 'text-ink-light dark:text-ink-dark'
@@ -116,7 +117,8 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                 {item.name[language]}
               </span>
 
-              <span className="text-sm font-semibold text-ink-soft-light dark:text-ink-soft-dark tabular-nums whitespace-nowrap">
+              {/* Cost — smallest element, muted, never competes for the eye */}
+              <span className="text-xs font-medium text-ink-soft-light dark:text-ink-soft-dark tabular-nums whitespace-nowrap">
                 {formatPrice(ingredientCost.costPerRecipe)}
               </span>
             </label>
