@@ -68,12 +68,12 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   }, [ingredients, currentServings, servings, language]);
 
   return (
-    <div className="p-4 space-y-2">
+    <div className="bg-card-2-light dark:bg-card-2-dark rounded-2xl px-4 divide-y divide-line-2-light dark:divide-line-2-dark">
       {ingredients.map((item, index) => {
         if (isSection(item)) {
           return (
-            <div key={index} className="mt-2 first:mt-0">
-              <h3 className="text-lg font-semibold text-text-main-light dark:text-text-main-dark mb-1">
+            <div key={index} className="pt-4 pb-2 first:pt-3">
+              <h3 className="font-display text-base font-bold text-ink-light dark:text-ink-dark">
                 {item.section[language]}
               </h3>
             </div>
@@ -84,19 +84,27 @@ export const IngredientList: React.FC<IngredientListProps> = ({
           if (!ingredientCost) return null;
 
           return (
-            <label key={index} className="flex items-center gap-2.5 cursor-pointer group">
+            <label
+              key={index}
+              className="flex items-center gap-3 py-3 cursor-pointer group"
+            >
               <input
                 type="checkbox"
                 checked={isChecked}
                 onChange={() => toggleIngredient(index)}
                 className="ingredient-checkbox"
               />
-              <span className={`text-lg ${isChecked ? 'line-through text-gray-400 dark:text-gray-500' : 'text-text-main-light dark:text-text-main-dark'}`}>
+              <span
+                className={`flex-1 text-sm sm:text-base ${
+                  isChecked
+                    ? 'line-through text-ink-soft-light dark:text-ink-soft-dark'
+                    : 'text-ink-light dark:text-ink-dark'
+                }`}
+              >
                 {getScaledQuantity(item.quantity)} {item.unit[language]} {item.name[language]}
-                {' '}
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                  ({formatPrice(ingredientCost.costPerRecipe)})
-                </span>
+              </span>
+              <span className="text-xs sm:text-sm text-ink-soft-light dark:text-ink-soft-dark tabular-nums">
+                {formatPrice(ingredientCost.costPerRecipe)}
               </span>
             </label>
           );

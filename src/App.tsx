@@ -13,8 +13,8 @@ const PricesPage = lazy(() => import('./pages/PricesPage'));
 
 // Loading fallback component
 const LoadingFallback: React.FC = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <div className="text-xl text-gray-600 dark:text-gray-400">Loading...</div>
+  <div className="min-h-screen flex items-center justify-center bg-bg-light dark:bg-bg-dark">
+    <div className="text-xl text-ink-muted-light dark:text-ink-muted-dark">Loading...</div>
   </div>
 );
 
@@ -24,7 +24,7 @@ function App() {
       <TextSizeProvider>
         <ThemeProvider>
           <BrowserRouter basename="/cookingbook">
-            <div className="min-h-screen bg-primary-light dark:bg-primary-dark text-gray-900 dark:text-gray-100 lg:max-w-[40vw] mx-auto">
+            <div className="min-h-screen bg-bg-light dark:bg-bg-dark text-ink-light dark:text-ink-dark lg:max-w-[40vw] mx-auto">
               <Suspense fallback={<LoadingFallback />}>
                 <Routes>
                   <Route path="/" element={<HomePage />} />

@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: 'Raleway', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,34 +21,49 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background: #f8f6f3;
+}
+
+.dark body {
+  background: #1c1d24;
 }
 
 #root {
   min-height: 100vh;
 }
 
-/* Ingredient checkbox styles */
+/* Display headings use the Plus Jakarta Sans cut */
+h1, h2, h3, .font-display {
+  font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Ingredient checkbox styles — terracotta accent in card-stack design */
 input[type="checkbox"].ingredient-checkbox {
   width: 20px;
   height: 20px;
-  border-radius: 5px;
-  border: 2px solid #d1d5db;
-  accent-color: #d1c366;
+  border-radius: 6px;
+  border: 2px solid #d4d4d8;
+  accent-color: #e07a5f;
   cursor: pointer;
   flex-shrink: 0;
 }
 
 .dark input[type="checkbox"].ingredient-checkbox {
-  border-color: #52525b;
-  accent-color: #998b2e;
+  border-color: #4a4b56;
+  accent-color: #e07a5f;
 }
 
 input[type="checkbox"].ingredient-checkbox:checked {
-  background-color: #d1c366;
-  border-color: #d1c366;
+  background-color: #e07a5f;
+  border-color: #e07a5f;
 }
 
-.dark input[type="checkbox"].ingredient-checkbox:checked {
-  background-color: #998b2e;
-  border-color: #998b2e;
+/* Hide scrollbar but keep scroll for filter chip rows */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

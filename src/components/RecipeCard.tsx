@@ -11,54 +11,51 @@ interface RecipeCardProps {
 }
 
 /**
- * RecipeCard component
- * Displays a compact recipe card with image and overlay title
- * Links to the recipe detail page
- * Title is overlayed on the image with a semi-transparent background
- * Category is not shown as it's displayed in the section header
- * Price per serving is shown instead of difficulty puzzle pieces
- * Images are 1200x800 (3:2 aspect ratio)
+ * RecipeCard — Card Stack design.
+ * Square image, title below with two compact metadata pills.
  */
 export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const { language } = useLanguage();
   const [imageError, setImageError] = React.useState(false);
 
-  // Calculate recipe cost - memoized to avoid recalculation on every render
-  const recipeCost = React.useMemo(() => calculateRecipeCost(recipe, language), [recipe, language]);
+  const recipeCost = React.useMemo(
+    () => calculateRecipeCost(recipe, language),
+    [recipe, language]
+  );
 
-  // Construct image path from public/images/recipes folder
-  // Use import.meta.env.BASE_URL to handle base path correctly
   const imagePath = `${import.meta.env.BASE_URL}images/recipes/${recipe.category}/${recipe.id}.jpg`;
-  const defaultImage = defaultImageUrl;
 
   return (
     <Link
       to={`/recipe/${recipe.id}`}
-      className="block bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+      className="group block bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-card hover:shadow-overlay hover:-translate-y-0.5 transition-all duration-300"
     >
-      {/* Recipe Image - clean, no overlay */}
-      <div className="aspect-square w-full overflow-hidden bg-gray-200 dark:bg-zinc-700">
+      <div className="aspect-square w-full overflow-hidden bg-card-2-light dark:bg-card-2-dark">
         <img
-          src={imageError ? defaultImage : imagePath}
+          src={imageError ? defaultImageUrl : imagePath}
           alt={recipe.title[language]}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
           onError={() => setImageError(true)}
         />
       </div>
 
-      {/* Title + Metadata below image */}
-      <div className="p-2.5 space-y-1.5">
-        <h3 className="text-base font-bold text-text-main-light dark:text-text-main-dark line-clamp-2 leading-tight">
+      <div className="px-3 py-2.5 space-y-1.5">
+        <h3 className="font-display text-sm font-bold text-ink-light dark:text-ink-dark leading-tight line-clamp-2 min-h-[2.5em]">
           {recipe.title[language]}
         </h3>
 
-        {/* Compact metadata pills */}
         <div className="flex items-center gap-1.5 flex-wrap">
-          <span className="inline-flex items-center gap-0.5 text-sm text-text-main-light/60 dark:text-text-main-dark/60 bg-primary-light/15 dark:bg-primary-dark/15 rounded-full px-2.5 py-0.5" title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}>
-            ⏱️ {recipe.prepTime}{getTranslation('minutes', language).substring(0, 1)}
+          <span
+            className="inline-flex items-center gap-1 text-[11px] font-semibold text-ink-muted-light dark:text-ink-muted-dark bg-card-2-light dark:bg-card-2-dark rounded-full px-2 py-0.5"
+            title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}
+          >
+            ⏱ {recipe.prepTime}m
           </span>
-          <span className="inline-flex items-center gap-0.5 text-sm text-text-main-light/60 dark:text-text-main-dark/60 bg-accent-light/15 dark:bg-accent-dark/15 rounded-full px-2.5 py-0.5" title={formatPricePerServing(recipeCost.pricePerServing)}>
+          <span
+            className="inline-flex items-center gap-1 text-[11px] font-semibold text-ink-muted-light dark:text-ink-muted-dark bg-card-2-light dark:bg-card-2-dark rounded-full px-2 py-0.5"
+            title={formatPricePerServing(recipeCost.pricePerServing)}
+          >
             💰 {recipeCost.pricePerServing.toFixed(2)}
           </span>
         </div>

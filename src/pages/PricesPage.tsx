@@ -10,6 +10,14 @@ import { getTranslation } from '../utils/translations';
 import pricesData from '../data/prices.json';
 import type { PricesData } from '../utils/pricing';
 
+const CATEGORY_META: Record<string, { emoji: string }> = {
+  Proteins: { emoji: '🥩' },
+  Dairy: { emoji: '🧀' },
+  'Fruits and Vegetables': { emoji: '🥦' },
+  'Spices & Seasonings': { emoji: '🧂' },
+  Pantry: { emoji: '🫙' },
+};
+
 const PricesPage: React.FC = () => {
   const { language } = useLanguage();
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -18,7 +26,6 @@ const PricesPage: React.FC = () => {
 
   const prices = pricesData as PricesData;
 
-  // Define category order
   const categoryOrder = [
     'Proteins',
     'Dairy',
@@ -27,43 +34,24 @@ const PricesPage: React.FC = () => {
     'Pantry',
   ] as const;
 
-  // Toggle side menu
-  const handleMenuToggle = () => {
-    setIsSideMenuOpen(!isSideMenuOpen);
-  };
+  const handleMenuToggle = () => setIsSideMenuOpen(!isSideMenuOpen);
+  const handleMenuClose = () => setIsSideMenuOpen(false);
+  const handleCategoryClick = () => {};
+  const handleKeywordsChange = () => {};
 
-  // Close side menu
-  const handleMenuClose = () => {
-    setIsSideMenuOpen(false);
-  };
-
-  // Handle category click
-  const handleCategoryClick = () => {
-    // Not used on this page, but required by component
-  };
-
-  // Handle keywords change
-  const handleKeywordsChange = () => {
-    // Not used on this page, but required by component
-  };
-
-  // Get all ingredients as array
   const ingredientsArray = Object.entries(prices.ingredients).map(([key, ingredient]) => ({
     key,
     ...ingredient,
   }));
 
-  // Filter ingredients by search term
-  const filteredIngredients = ingredientsArray
-    .filter((ingredient) => {
-      const searchLower = searchTerm.toLowerCase();
-      return (
-        ingredient.name.toLowerCase().includes(searchLower) ||
-        ingredient.key.toLowerCase().includes(searchLower)
-      );
-    });
+  const filteredIngredients = ingredientsArray.filter((ingredient) => {
+    const searchLower = searchTerm.toLowerCase();
+    return (
+      ingredient.name.toLowerCase().includes(searchLower) ||
+      ingredient.key.toLowerCase().includes(searchLower)
+    );
+  });
 
-  // Group ingredients by category
   const ingredientsByCategory = categoryOrder.reduce((acc, category) => {
     acc[category] = filteredIngredients
       .filter((ingredient) => ingredient.category === category)
@@ -71,7 +59,6 @@ const PricesPage: React.FC = () => {
     return acc;
   }, {} as Record<typeof categoryOrder[number], typeof ingredientsArray>);
 
-  // Format price based on unit type
   const formatPrice = (ingredient: typeof ingredientsArray[0]) => {
     if (ingredient.unit_type === 'mass') {
       return `${ingredient.price_per_1000?.toFixed(2)} RON ${getTranslation('perKilogram', language)}`;
@@ -83,10 +70,9 @@ const PricesPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-surface-light dark:bg-surface-dark">
+    <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
       <Header onMenuToggle={handleMenuToggle} />
 
-      {/* Side Menu */}
       <SideMenu isOpen={isSideMenuOpen} onClose={handleMenuClose}>
         <FiltersSection
           selectedKeywords={selectedKeywords}
@@ -96,86 +82,84 @@ const PricesPage: React.FC = () => {
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
 
-      <main className="flex-1 max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8 w-full">
-        {/* Page Title */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 dark:text-gray-100 tracking-tight mb-6">
-          {getTranslation('ingredientPrices', language)}
-        </h1>
+      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-5 pt-5 pb-8 space-y-4">
+        {/* Intro card */}
+        <section className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6">
+          <span className="inline-block bg-brand-yellow text-ink-light text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
+            {language === 'ro' ? 'Referință' : 'Reference'}
+          </span>
+          <h1 className="font-display text-2xl sm:text-3xl font-bold text-ink-light dark:text-ink-dark mt-3 mb-1.5 tracking-tight">
+            {getTranslation('ingredientPrices', language)}
+          </h1>
+          <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark">
+            {language === 'ro'
+              ? 'Prețurile folosite pentru estimarea costului rețetelor.'
+              : 'Prices used to estimate the cost of recipes.'}
+          </p>
+        </section>
 
-        {/* Search Box */}
-        <div className="mb-6">
+        {/* Search */}
+        <div className="bg-card-light dark:bg-card-dark border border-line-light dark:border-line-dark rounded-2xl px-4 py-3 flex items-center gap-3">
+          <span className="text-ink-soft-light dark:text-ink-soft-dark">🔍</span>
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder={getTranslation('searchIngredients', language)}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="flex-1 bg-transparent border-none outline-none text-sm sm:text-base text-ink-light dark:text-ink-dark placeholder:text-ink-soft-light dark:placeholder:text-ink-soft-dark"
           />
         </div>
 
-        {/* Ingredients Count */}
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+        <p className="text-xs text-ink-muted-light dark:text-ink-muted-dark pl-1">
           {filteredIngredients.length} {getTranslation('ingredients', language).toLowerCase()}
         </p>
 
-        {/* Ingredients by Category */}
-        <div className="space-y-8">
+        {/* Grouped tables */}
+        <div className="space-y-3">
           {categoryOrder.map((category) => {
             const categoryIngredients = ingredientsByCategory[category];
             if (categoryIngredients.length === 0) return null;
+            const meta = CATEGORY_META[category];
 
             return (
-              <div key={category} className="bg-white dark:bg-gray-800 rounded-lg shadow">
-                {/* Category Header */}
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 px-4 py-3 bg-gray-50 dark:bg-gray-700 rounded-t-lg border-b border-gray-200 dark:border-gray-600">
-                  {category}
-                </h2>
-
-                {/* Ingredients Table */}
-                <div className="overflow-x-auto">
-                  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead className="bg-gray-50 dark:bg-gray-700">
-                      <tr>
-                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                          {getTranslation('ingredientName', language)}
-                        </th>
-                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                          {getTranslation('unitType', language)}
-                        </th>
-                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                          {getTranslation('price', language)}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                      {categoryIngredients.map((ingredient) => (
-                        <tr
-                          key={ingredient.key}
-                          className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                        >
-                          <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                            {ingredient.name}
-                          </td>
-                          <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400 capitalize">
-                            {ingredient.unit_type}
-                          </td>
-                          <td className="px-4 py-3 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-gray-100">
-                            {formatPrice(ingredient)}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              <section
+                key={category}
+                className="bg-card-light dark:bg-card-dark rounded-2xl shadow-card overflow-hidden"
+              >
+                <header className="bg-card-2-light dark:bg-card-2-dark px-4 py-2.5 border-b border-line-light dark:border-line-dark flex items-center gap-2">
+                  <span className="text-base">{meta?.emoji ?? '•'}</span>
+                  <h2 className="text-xs font-bold tracking-[0.08em] uppercase text-ink-muted-light dark:text-ink-muted-dark">
+                    {category}
+                  </h2>
+                </header>
+                <ul className="divide-y divide-line-2-light dark:divide-line-2-dark">
+                  {categoryIngredients.map((ingredient) => (
+                    <li
+                      key={ingredient.key}
+                      className="px-4 py-3 flex items-center justify-between gap-3 hover:bg-card-2-light dark:hover:bg-card-2-dark transition-colors"
+                    >
+                      <div className="min-w-0">
+                        <div className="text-sm font-semibold text-ink-light dark:text-ink-dark truncate">
+                          {ingredient.name}
+                        </div>
+                        <div className="text-[11px] text-ink-soft-light dark:text-ink-soft-dark capitalize">
+                          {ingredient.unit_type}
+                        </div>
+                      </div>
+                      <div className="text-sm font-bold text-brand-accent tabular-nums whitespace-nowrap">
+                        {formatPrice(ingredient)}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             );
           })}
         </div>
 
-        {/* Empty State */}
         {filteredIngredients.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark">
               {getTranslation('noIngredientsFound', language)}
             </p>
           </div>

@@ -12,15 +12,15 @@ interface HeaderProps {
 }
 
 /**
- * Header component
- * Layout: Home link (left) | Search bar (center) | Menu button (right)
- * Search bar only visible on homepage
+ * Header — Card Stack design.
+ * Layout: brand link (left) | optional search (center) | menu button (right).
+ * Brand reads "Paul's Cookbook" on the home page; "← Home" on other pages.
  */
-export const Header: React.FC<HeaderProps> = ({ 
-  showSearch = false, 
-  searchQuery = '', 
+export const Header: React.FC<HeaderProps> = ({
+  showSearch = false,
+  searchQuery = '',
   onSearchChange,
-  onMenuToggle
+  onMenuToggle,
 }) => {
   const { language } = useLanguage();
   const location = useLocation();
@@ -34,22 +34,22 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="bg-surface-light dark:bg-surface-dark shadow-md sticky top-0 z-40">
-      <nav className="max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-1.5">
-        <div className="flex items-center justify-between gap-2 sm:gap-4">
-          {/* Left: Home link - touch-friendly on mobile */}
+    <header className="bg-card-light dark:bg-card-dark border-b border-line-light dark:border-line-dark sticky top-0 z-40">
+      <nav className="max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-2">
+        <div className="flex items-center justify-between gap-2 sm:gap-3">
+          {/* Left: brand / back link */}
           <div className="flex-shrink-0">
             <Link
               to="/"
               onClick={handleHomeClick}
-              className="text-lg font-medium transition-colors duration-200 whitespace-nowrap min-h-[44px] flex items-center px-2 sm:px-0 text-accent-light dark:text-accent-dark hover:opacity-80"
+              className="font-display font-bold text-base sm:text-lg whitespace-nowrap min-h-[44px] flex items-center px-2 sm:px-0 text-brand-accent dark:text-brand-accent-bright hover:opacity-80 transition-opacity"
             >
-              {getTranslation('home', language)}
+              {isHomePage ? "Paul's Cookbook" : `← ${getTranslation('home', language)}`}
             </Link>
           </div>
-          
-          {/* Center: Search Bar - only shown on home page */}
-          <div className="flex-1 max-w-md mx-2 sm:mx-4">
+
+          {/* Center: search (home only) */}
+          <div className="flex-1 max-w-md mx-2 sm:mx-3">
             {showSearch && onSearchChange && isHomePage && (
               <SearchBar
                 searchQuery={searchQuery}
@@ -59,26 +59,15 @@ export const Header: React.FC<HeaderProps> = ({
             )}
           </div>
 
-          {/* Right: Menu button - touch-friendly minimum 44x44px */}
+          {/* Right: menu */}
           <div className="flex-shrink-0">
             <button
               onClick={onMenuToggle}
-              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-text-main-light dark:text-text-main-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-zinc-800"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-ink-light dark:text-ink-dark hover:bg-card-2-light dark:hover:bg-card-2-dark transition-colors rounded-xl"
               aria-label={getTranslation('menu', language)}
             >
-              <svg
-                className="h-6 w-6 sm:h-7 sm:w-7"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>

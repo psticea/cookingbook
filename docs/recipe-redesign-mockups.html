@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recipe Page — 10 Redesign Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --brand-green: #4ac994;
+    --brand-pink: #e198ac;
+    --brand-gold: #d1c366;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #e9eef0;
+    color: #111;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+
+  /* ===== Page chrome ===== */
+  .page-head {
+    text-align: center;
+    padding: 56px 20px 28px;
+    background: #11201b;
+    color: #f4fbf9;
+  }
+  .page-head h1 { font-family: 'Fraunces', serif; font-size: clamp(28px, 5vw, 46px); font-weight: 600; letter-spacing: -0.02em; }
+  .page-head p { opacity: .7; margin-top: 10px; font-size: 15px; }
+
+  /* sticky jump nav */
+  nav.jump {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+    padding: 12px 14px;
+    background: rgba(17,32,27,.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  nav.jump a {
+    color: #d7e6df; text-decoration: none; font-size: 12.5px; font-weight: 600;
+    padding: 6px 11px; border-radius: 999px; border: 1px solid rgba(255,255,255,.14);
+    transition: .2s;
+  }
+  nav.jump a:hover { background: var(--brand-green); color: #06140e; border-color: transparent; }
+
+  .mock-wrap { max-width: 1180px; margin: 0 auto; padding: 60px 20px; }
+  .mock-label {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    margin: 0 auto 26px; max-width: 480px; text-align: left;
+  }
+  .mock-label .num {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px;
+    color: #fff; background: #11201b; width: 30px; height: 30px; border-radius: 50%;
+    display: grid; place-items: center; flex: none;
+  }
+  .mock-label h2 { font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+  .mock-label span { font-size: 13px; color: #5b6b64; }
+
+  /* generic phone frame so designs read as "mobile recipe page" */
+  .frame {
+    max-width: 480px; margin: 0 auto;
+    border-radius: 30px; overflow: hidden;
+    box-shadow: 0 30px 70px -25px rgba(15,30,25,.45), 0 0 0 1px rgba(0,0,0,.04);
+    background: #fff;
+  }
+  .hero { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+
+  /* ============================================================
+     1. EDITORIAL MAGAZINE
+     ============================================================ */
+  .m1 { background: #fbfaf7; font-family: 'Inter', sans-serif; }
+  .m1 .hero { aspect-ratio: 4/5; }
+  .m1 .body { padding: 26px 24px 34px; }
+  .m1 .kicker { font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: #b08968; font-weight: 700; }
+  .m1 h1.title { font-family: 'Fraunces', serif; font-size: 40px; line-height: 1.02; font-weight: 600; margin: 10px 0 18px; letter-spacing: -.02em; }
+  .m1 .meta-row { display: flex; gap: 0; border-top: 1px solid #e6e2d8; border-bottom: 1px solid #e6e2d8; }
+  .m1 .meta-row div { flex: 1; padding: 14px 6px; text-align: center; border-right: 1px solid #e6e2d8; }
+  .m1 .meta-row div:last-child { border-right: 0; }
+  .m1 .meta-row .v { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; }
+  .m1 .meta-row .l { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #9c9485; margin-top: 3px; }
+  .m1 .serv { display: flex; align-items: center; justify-content: space-between; margin: 22px 0; }
+  .m1 .serv span { font-family: 'Fraunces', serif; font-size: 17px; }
+  .m1 .stepper { display: flex; align-items: center; gap: 16px; }
+  .m1 .stepper button { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #11201b; background: none; font-size: 18px; cursor: pointer; }
+  .m1 .tabs { display: flex; gap: 26px; border-bottom: 2px solid #11201b; margin-bottom: 18px; }
+  .m1 .tabs b { font-family: 'Fraunces', serif; font-size: 21px; padding-bottom: 8px; cursor: pointer; }
+  .m1 .tabs b.off { color: #c3bcae; }
+  .m1 ul.ing { list-style: none; }
+  .m1 ul.ing li { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #ece8de; font-size: 16px; }
+  .m1 ul.ing li .ck { width: 18px; height: 18px; border: 1.5px solid #b9b1a1; border-radius: 4px; flex: none; }
+  .m1 ul.ing li .cost { margin-left: auto; color: #a59b89; font-size: 13px; }
+  .m1 .note { margin-top: 26px; padding: 22px; background: #11201b; color: #f3efe6; border-radius: 4px; }
+  .m1 .note h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; margin-bottom: 8px; }
+  .m1 .note p { font-size: 14px; opacity: .82; }
+
+  /* ============================================================
+     2. SOFT MINIMAL (brand palette)
+     ============================================================ */
+  .m2 { background: #f4fbf9; padding: 0; }
+  .m2 .body { padding: 22px 20px 30px; }
+  .m2 .hero { aspect-ratio: 3/2; border-radius: 0 0 28px 28px; }
+  .m2 h1.title { font-size: 28px; font-weight: 800; letter-spacing: -.02em; color: #071811; margin: 18px 2px 16px; }
+  .m2 .cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 9px; }
+  .m2 .cards div { background: var(--brand-green); color: #06160f; border-radius: 18px; padding: 12px 4px; text-align: center; }
+  .m2 .cards .e { font-size: 20px; }
+  .m2 .cards .t { font-size: 10.5px; font-weight: 700; letter-spacing: .04em; margin-top: 4px; }
+  .m2 .serv { display: flex; justify-content: center; margin: 20px 0; }
+  .m2 .serv .pill { display: inline-flex; align-items: center; gap: 18px; background: #fff; border-radius: 999px; padding: 7px; box-shadow: 0 6px 18px -8px rgba(0,0,0,.18); }
+  .m2 .serv button { width: 40px; height: 40px; border: none; border-radius: 50%; background: var(--brand-gold); color: #fff; font-size: 20px; cursor: pointer; }
+  .m2 .serv b { font-weight: 600; }
+  .m2 .tabcard { background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 8px 24px -16px rgba(0,0,0,.25); }
+  .m2 .tabs { display: flex; }
+  .m2 .tabs button { flex: 1; border: none; padding: 14px; font-weight: 700; font-size: 14px; cursor: pointer; background: #fff; color: #94a39c; }
+  .m2 .tabs button.on { background: var(--brand-gold); color: #fff; }
+  .m2 .ing { padding: 16px; }
+  .m2 .ing label { display: flex; align-items: center; gap: 10px; padding: 9px 0; font-size: 15.5px; }
+  .m2 .ing input { width: 18px; height: 18px; accent-color: var(--brand-green); }
+  .m2 .ing .cost { color: #9aa6a0; font-size: 13px; }
+  .m2 .note { margin-top: 18px; background: var(--brand-pink); border-radius: 22px; padding: 20px; }
+  .m2 .note h4 { font-size: 16px; margin-bottom: 6px; color: #3a0d1c; }
+  .m2 .note p { font-size: 14px; color: #3a0d1c; opacity: .8; }
+
+  /* ============================================================
+     3. BRUTALIST MONO
+     ============================================================ */
+  .m3 { background: #f4f3ee; font-family: 'JetBrains Mono', monospace; }
+  .m3 .frameinner { border: 2px solid #111; }
+  .m3 .hero { border-bottom: 2px solid #111; filter: grayscale(.15) contrast(1.05); }
+  .m3 .body { padding: 20px; }
+  .m3 .kicker { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; background: #111; color: #f4f3ee; display: inline-block; padding: 3px 8px; }
+  .m3 h1.title { font-size: 30px; font-weight: 700; line-height: 1.04; margin: 14px 0; text-transform: uppercase; letter-spacing: -.01em; }
+  .m3 .meta { display: grid; grid-template-columns: 1fr 1fr; }
+  .m3 .meta div { border: 1px solid #111; padding: 10px 12px; margin: -0.5px; }
+  .m3 .meta .l { font-size: 10px; text-transform: uppercase; opacity: .6; }
+  .m3 .meta .v { font-size: 18px; font-weight: 700; }
+  .m3 .serv { display: flex; align-items: center; justify-content: space-between; border: 1px solid #111; margin-top: 14px; padding: 8px 12px; }
+  .m3 .serv button { width: 30px; height: 30px; border: 1px solid #111; background: #111; color: #fff; font-size: 16px; cursor: pointer; }
+  .m3 .tabs { display: flex; margin-top: 18px; }
+  .m3 .tabs button { flex: 1; border: 1px solid #111; background: #fff; padding: 10px; font-family: inherit; font-weight: 700; font-size: 12px; text-transform: uppercase; cursor: pointer; }
+  .m3 .tabs button.on { background: #111; color: #fff; }
+  .m3 ul.ing { list-style: none; border: 1px solid #111; border-top: none; }
+  .m3 ul.ing li { display: flex; gap: 10px; padding: 9px 12px; border-bottom: 1px dashed #bbb; font-size: 13px; }
+  .m3 ul.ing li:last-child { border-bottom: none; }
+  .m3 ul.ing li .cost { margin-left: auto; opacity: .55; }
+  .m3 ul.ing li .ck { font-weight: 700; }
+  .m3 .note { border: 1px solid #111; margin-top: 16px; padding: 14px; }
+  .m3 .note h4 { font-size: 12px; text-transform: uppercase; margin-bottom: 8px; }
+  .m3 .note p { font-size: 13px; }
+
+  /* ============================================================
+     4. WARM KITCHEN / HANDWRITTEN
+     ============================================================ */
+  .m4 { background: #fff7ec; }
+  .m4 .body { padding: 0 24px 32px; }
+  .m4 .hero { aspect-ratio: 1/1; border-radius: 50%; width: 220px; height: 220px; margin: -90px auto 0; border: 8px solid #fff7ec; box-shadow: 0 20px 40px -20px rgba(120,70,20,.5); position: relative; z-index: 2; }
+  .m4 .top { height: 150px; background: linear-gradient(135deg,#f0a868,#e07a5f); }
+  .m4 .hand { font-family: 'Caveat', cursive; color: #c1573e; font-size: 26px; text-align: center; margin-top: 14px; }
+  .m4 h1.title { font-family: 'Playfair Display', serif; font-size: 32px; text-align: center; color: #5a2c18; margin: 2px 0 18px; }
+  .m4 .meta { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .m4 .meta div { background: #fff; border-radius: 14px; padding: 10px 16px; text-align: center; box-shadow: 0 6px 16px -10px rgba(150,90,40,.4); }
+  .m4 .meta .e { font-size: 18px; }
+  .m4 .meta .v { font-weight: 700; color: #7a3d20; font-size: 14px; }
+  .m4 .serv { text-align: center; margin: 20px 0; }
+  .m4 .serv .pill { display: inline-flex; align-items: center; gap: 16px; background: #e07a5f; color: #fff; border-radius: 999px; padding: 6px 8px; }
+  .m4 .serv button { width: 34px; height: 34px; border: none; border-radius: 50%; background: rgba(255,255,255,.25); color: #fff; font-size: 18px; cursor: pointer; }
+  .m4 .sec-h { font-family: 'Caveat', cursive; font-size: 28px; color: #c1573e; margin: 20px 0 6px; }
+  .m4 .ing label { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px dotted #e3c4a0; font-size: 16px; color: #5a3a22; }
+  .m4 .ing input { accent-color: #e07a5f; width: 18px; height: 18px; }
+  .m4 .ing .cost { margin-left: auto; color: #b08a5f; font-size: 13px; }
+  .m4 ol.steps { list-style: none; counter-reset: s; margin-top: 6px; }
+  .m4 ol.steps li { counter-increment: s; display: flex; gap: 12px; padding: 8px 0; font-size: 15px; color: #5a3a22; }
+  .m4 ol.steps li::before { content: counter(s); font-family: 'Playfair Display', serif; color: #e07a5f; font-size: 22px; font-weight: 700; flex: none; width: 26px; }
+  .m4 .note { margin-top: 20px; background: #fce8d4; border-radius: 18px; padding: 18px; border: 1px dashed #e0a878; }
+  .m4 .note h4 { font-family: 'Caveat', cursive; font-size: 24px; color: #c1573e; }
+  .m4 .note p { font-size: 14px; color: #6b432a; }
+
+  /* ============================================================
+     5. SWISS GRID
+     ============================================================ */
+  .m5 { background: #fff; font-family: 'Inter', sans-serif; }
+  .m5 .frameinner { border: 1px solid #111; }
+  .m5 .topbar { display: flex; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid #111; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+  .m5 .topbar b { color: #e63946; }
+  .m5 h1.title { font-size: 44px; font-weight: 800; letter-spacing: -.04em; line-height: .95; padding: 22px 18px 18px; }
+  .m5 .hero { border-top: 1px solid #111; border-bottom: 1px solid #111; }
+  .m5 .grid { display: grid; grid-template-columns: repeat(4,1fr); }
+  .m5 .grid div { padding: 14px 12px; border-right: 1px solid #111; }
+  .m5 .grid div:last-child { border-right: none; }
+  .m5 .grid .l { font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: #888; }
+  .m5 .grid .v { font-size: 22px; font-weight: 800; margin-top: 4px; }
+  .m5 .serv { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #111; padding: 12px 18px; }
+  .m5 .serv .ttl { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+  .m5 .serv button { width: 30px; height: 30px; border: 1px solid #111; background: #fff; cursor: pointer; font-size: 16px; }
+  .m5 .cols { display: grid; grid-template-columns: 1fr; border-top: 1px solid #111; }
+  .m5 .colh { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; padding: 12px 18px; background: #e63946; color: #fff; }
+  .m5 .ing { padding: 8px 18px 14px; }
+  .m5 .ing label { display: flex; gap: 10px; align-items: center; padding: 7px 0; font-size: 14px; border-bottom: 1px solid #eee; }
+  .m5 .ing input { accent-color: #e63946; }
+  .m5 .ing .cost { margin-left: auto; color: #999; font-size: 12px; }
+  .m5 ol.steps { padding: 8px 18px 16px; counter-reset: s; list-style: none; }
+  .m5 ol.steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; gap: 4px; padding: 8px 0; font-size: 14px; border-bottom: 1px solid #eee; }
+  .m5 ol.steps li::before { content: counter(s,decimal-leading-zero); color: #e63946; font-weight: 800; }
+  .m5 .note { border-top: 1px solid #111; padding: 16px 18px; }
+  .m5 .note h4 { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 8px; }
+  .m5 .note p { font-size: 14px; }
+
+  /* ============================================================
+     5A–5D. SWISS GRID VARIATIONS (restrained colour)
+     Shared base — black/white, one optional accent per variant.
+     ============================================================ */
+  .sg { font-family: 'Inter', sans-serif; background: #fff; }
+  .sg .frameinner { border: 1px solid #111; }
+  .sg .topbar { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 16px; border-bottom: 1px solid #111; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; }
+  .sg .hero { border-top: 1px solid #111; border-bottom: 1px solid #111; }
+  .sg .serv { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #111; padding: 11px 16px; }
+  .sg .serv .ttl { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; }
+  .sg .serv .st { display: flex; align-items: center; gap: 12px; }
+  .sg .serv button { width: 30px; height: 30px; border: 1px solid #111; background: #fff; cursor: pointer; font-size: 16px; }
+  .sg .ing label { display: flex; gap: 10px; align-items: center; padding: 8px 0; font-size: 14px; border-bottom: 1px solid #ededed; }
+  .sg .ing .cost { margin-left: auto; color: #999; font-size: 12px; font-variant-numeric: tabular-nums; }
+  .sg ol.steps { counter-reset: s; list-style: none; }
+  .sg ol.steps li { counter-increment: s; display: grid; grid-template-columns: 36px 1fr; gap: 6px; padding: 9px 0; font-size: 14px; border-bottom: 1px solid #ededed; }
+
+  /* 5A — SWISS MONO: pure black & white, no accent, type-led */
+  .sga h1.title { font-size: 46px; font-weight: 800; letter-spacing: -.045em; line-height: .92; padding: 20px 16px 16px; }
+  .sga .grid { display: grid; grid-template-columns: repeat(4,1fr); }
+  .sga .grid div { padding: 13px 12px; border-right: 1px solid #111; }
+  .sga .grid div:last-child { border-right: none; }
+  .sga .grid .l { font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: #888; }
+  .sga .grid .v { font-size: 22px; font-weight: 800; margin-top: 4px; }
+  .sga .colh { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; padding: 11px 16px; border-top: 1px solid #111; font-weight: 700; }
+  .sga .ing { padding: 6px 16px 12px; }
+  .sga .ing input { accent-color: #111; }
+  .sga ol.steps { padding: 6px 16px 14px; }
+  .sga ol.steps li::before { content: counter(s,decimal-leading-zero); font-weight: 800; }
+  .sga .note { border-top: 1px solid #111; padding: 14px 16px; }
+  .sga .note h4 { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 8px; }
+  .sga .note p { font-size: 14px; }
+
+  /* 5B — SWISS RAIL: left label rail, single ink-blue accent */
+  .sgb { --ac: #1f4fd6; }
+  .sgb .topbar b { color: var(--ac); }
+  .sgb h1.title { font-size: 38px; font-weight: 800; letter-spacing: -.035em; line-height: .96; padding: 18px 16px; }
+  .sgb .row { display: grid; grid-template-columns: 84px 1fr; border-top: 1px solid #111; }
+  .sgb .row .rl { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: #888; padding: 12px; border-right: 1px solid #111; }
+  .sgb .row .rc { padding: 10px 14px; }
+  .sgb .grid4 { display: grid; grid-template-columns: repeat(4,1fr); }
+  .sgb .grid4 .v { font-size: 18px; font-weight: 800; }
+  .sgb .grid4 .l { font-size: 9px; text-transform: uppercase; letter-spacing: .08em; color: #888; }
+  .sgb .ing input { accent-color: var(--ac); }
+  .sgb ol.steps li::before { content: counter(s,decimal-leading-zero); color: var(--ac); font-weight: 800; }
+  .sgb .note p { font-size: 14px; }
+  .sgb .note h4 { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 6px; color: var(--ac); }
+
+  /* 5C — SWISS DARK: inverted, white on black, hairline accent */
+  .sgc { background: #111; }
+  .sgc .frameinner { border-color: #111; background: #111; color: #f4f4f2; }
+  .sgc .topbar { border-color: #333; color: #f4f4f2; }
+  .sgc .topbar b { color: #d8d2c4; }
+  .sgc h1.title { font-size: 42px; font-weight: 800; letter-spacing: -.04em; line-height: .94; padding: 20px 16px 16px; color: #fff; }
+  .sgc .hero { border-color: #333; filter: grayscale(.1); }
+  .sgc .grid { display: grid; grid-template-columns: repeat(4,1fr); }
+  .sgc .grid div { padding: 13px 12px; border-right: 1px solid #333; }
+  .sgc .grid div:last-child { border-right: none; }
+  .sgc .grid .l { font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: #8a8a85; }
+  .sgc .grid .v { font-size: 21px; font-weight: 800; margin-top: 4px; color: #fff; }
+  .sgc .serv { border-color: #333; }
+  .sgc .serv button { border-color: #555; background: #111; color: #f4f4f2; }
+  .sgc .colh { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; padding: 11px 16px; border-top: 1px solid #333; font-weight: 700; color: #d8d2c4; }
+  .sgc .ing { padding: 6px 16px 12px; }
+  .sgc .ing label { border-color: #2a2a2a; }
+  .sgc .ing input { accent-color: #f4f4f2; }
+  .sgc .ing .cost { color: #8a8a85; }
+  .sgc ol.steps { padding: 6px 16px 14px; }
+  .sgc ol.steps li { border-color: #2a2a2a; }
+  .sgc ol.steps li::before { content: counter(s,decimal-leading-zero); font-weight: 800; color: #fff; }
+  .sgc .note { border-top: 1px solid #333; padding: 14px 16px; }
+  .sgc .note h4 { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 8px; color: #d8d2c4; }
+  .sgc .note p { font-size: 14px; color: #c4c4bd; }
+
+  /* 5D — SWISS INDEX: giant index number, tabular, one warm accent */
+  .sgd { --ac: #c9622b; }
+  .sgd .head { display: grid; grid-template-columns: auto 1fr; align-items: end; gap: 14px; padding: 16px; border-bottom: 1px solid #111; }
+  .sgd .head .no { font-size: 60px; font-weight: 800; line-height: .78; letter-spacing: -.04em; color: var(--ac); }
+  .sgd .head h1.title { font-size: 26px; font-weight: 800; letter-spacing: -.025em; line-height: 1; }
+  .sgd .head .cat { font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .sgd .grid { display: grid; grid-template-columns: repeat(4,1fr); }
+  .sgd .grid div { padding: 12px; border-right: 1px solid #111; }
+  .sgd .grid div:last-child { border-right: none; }
+  .sgd .grid .l { font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: #888; }
+  .sgd .grid .v { font-size: 19px; font-weight: 800; margin-top: 3px; font-variant-numeric: tabular-nums; }
+  .sgd .colh { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; padding: 11px 16px; border-top: 1px solid #111; color: var(--ac); font-weight: 700; }
+  .sgd .ing { padding: 6px 16px 12px; }
+  .sgd .ing input { accent-color: var(--ac); }
+  .sgd ol.steps { padding: 6px 16px 14px; }
+  .sgd ol.steps li::before { content: counter(s,decimal-leading-zero); color: var(--ac); font-weight: 800; }
+  .sgd .note { border-top: 1px solid #111; padding: 14px 16px; }
+  .sgd .note h4 { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 8px; }
+  .sgd .note p { font-size: 14px; }
+
+  /* ============================================================
+     6. DARK LUXE
+     ============================================================ */
+  .m6 { background: #0e0f10; color: #ece7df; }
+  .m6 .hero { aspect-ratio: 3/2; filter: brightness(.85) saturate(1.05); }
+  .m6 .body { padding: 26px 24px 32px; }
+  .m6 .kicker { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #c8a24a; }
+  .m6 h1.title { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 600; line-height: 1.04; margin: 8px 0 20px; }
+  .m6 .meta { display: flex; gap: 0; border-top: 1px solid #2a2b2c; border-bottom: 1px solid #2a2b2c; }
+  .m6 .meta div { flex: 1; text-align: center; padding: 16px 4px; border-right: 1px solid #2a2b2c; }
+  .m6 .meta div:last-child { border-right: none; }
+  .m6 .meta .v { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #e8cf8f; }
+  .m6 .meta .l { font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: #7c7468; margin-top: 2px; }
+  .m6 .serv { display: flex; align-items: center; justify-content: center; gap: 22px; margin: 24px 0; }
+  .m6 .serv button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #c8a24a; color: #c8a24a; background: none; font-size: 18px; cursor: pointer; }
+  .m6 .serv b { font-family: 'Cormorant Garamond', serif; font-size: 22px; }
+  .m6 .tabs { display: flex; gap: 28px; justify-content: center; margin-bottom: 18px; }
+  .m6 .tabs b { font-family: 'Cormorant Garamond', serif; font-size: 22px; letter-spacing: .02em; cursor: pointer; padding-bottom: 6px; border-bottom: 1px solid transparent; }
+  .m6 .tabs b.on { border-color: #c8a24a; color: #e8cf8f; }
+  .m6 .tabs b.off { color: #6b6459; }
+  .m6 ul.ing { list-style: none; }
+  .m6 ul.ing li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1d1e1f; font-size: 15px; }
+  .m6 ul.ing li .dot { width: 6px; height: 6px; border-radius: 50%; background: #c8a24a; flex: none; }
+  .m6 ul.ing li .cost { margin-left: auto; color: #8a826f; font-size: 13px; }
+  .m6 .note { margin-top: 26px; border: 1px solid #2a2b2c; border-radius: 2px; padding: 22px; background: linear-gradient(160deg,#141413,#0e0f10); }
+  .m6 .note h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #e8cf8f; margin-bottom: 8px; }
+  .m6 .note p { font-size: 14px; color: #b3ac9f; }
+
+  /* ============================================================
+     7. SIDEBAR SPLIT (desktop two-column)
+     ============================================================ */
+  .m7frame { max-width: 920px; margin: 0 auto; background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 30px 70px -30px rgba(15,30,25,.4); }
+  .m7 { display: grid; grid-template-columns: 1.1fr 1fr; }
+  .m7 .left { position: relative; }
+  .m7 .left img { width: 100%; height: 100%; object-fit: cover; min-height: 520px; }
+  .m7 .left .cap { position: absolute; left: 24px; bottom: 24px; right: 24px; color: #fff; }
+  .m7 .left .cap .kicker { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; opacity: .85; }
+  .m7 .left .cap h1 { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 600; margin-top: 6px; text-shadow: 0 2px 20px rgba(0,0,0,.5); }
+  .m7 .left::after { content:''; position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,.55), transparent 55%); }
+  .m7 .right { padding: 28px 28px 32px; }
+  .m7 .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .m7 .chips span { font-size: 12px; background: #eef4f1; color: #1d6b4e; border-radius: 999px; padding: 6px 12px; font-weight: 600; }
+  .m7 .serv { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+  .m7 .serv button { width: 32px; height: 32px; border-radius: 8px; border: 1px solid #d4ddd8; background: #f6faf8; cursor: pointer; font-size: 16px; }
+  .m7 h3.h { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: #1d6b4e; margin: 22px 0 10px; }
+  .m7 .ing label { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 15px; border-bottom: 1px solid #f1f1f1; }
+  .m7 .ing input { accent-color: var(--brand-green); }
+  .m7 .ing .cost { margin-left: auto; color: #9aa6a0; font-size: 13px; }
+  .m7 ol.steps { counter-reset: s; list-style: none; }
+  .m7 ol.steps li { counter-increment: s; display: flex; gap: 14px; padding: 10px 0; font-size: 15px; }
+  .m7 ol.steps li::before { content: counter(s); flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--brand-green); color: #fff; font-weight: 700; font-size: 13px; display: grid; place-items: center; }
+  .m7 .note { margin-top: 22px; background: #faf4f6; border-left: 3px solid var(--brand-pink); border-radius: 0 12px 12px 0; padding: 18px; }
+  .m7 .note h4 { font-size: 14px; margin-bottom: 6px; }
+  .m7 .note p { font-size: 14px; color: #6b5b61; }
+  @media (max-width: 760px){ .m7 { grid-template-columns: 1fr; } .m7 .left img{ min-height: 320px; } }
+
+  /* ============================================================
+     8. TIMELINE STEPS
+     ============================================================ */
+  .m8 { background: #f5f7f6; }
+  .m8 .hero { aspect-ratio: 3/2; }
+  .m8 .body { padding: 24px 22px 32px; }
+  .m8 h1.title { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 16px; }
+  .m8 .meta { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+  .m8 .meta div { flex: none; background: #fff; border: 1px solid #e6eae8; border-radius: 14px; padding: 10px 14px; display: flex; align-items: center; gap: 8px; }
+  .m8 .meta .e { font-size: 16px; }
+  .m8 .meta .v { font-weight: 700; font-size: 14px; }
+  .m8 .meta .l { font-size: 11px; color: #8a948f; }
+  .m8 .serv { display: flex; align-items: center; gap: 14px; margin: 20px 0; background: #fff; border-radius: 14px; padding: 10px 14px; border: 1px solid #e6eae8; }
+  .m8 .serv button { width: 32px; height: 32px; border-radius: 8px; border: none; background: #1f2d27; color: #fff; cursor: pointer; font-size: 16px; }
+  .m8 .serv .lab { font-size: 13px; color: #8a948f; margin-left: auto; }
+  .m8 h3.h { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #5a675f; margin: 20px 0 10px; }
+  .m8 .ing { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .m8 .ing label { display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e6eae8; border-radius: 12px; padding: 10px; font-size: 13.5px; }
+  .m8 .ing input { accent-color: #2f9e6e; }
+  .m8 .ing .cost { margin-left: auto; color: #9aa6a0; font-size: 12px; }
+  .m8 .timeline { position: relative; margin-top: 10px; padding-left: 26px; }
+  .m8 .timeline::before { content:''; position:absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: #d3ddd8; }
+  .m8 .timeline .step { position: relative; padding: 6px 0 16px; }
+  .m8 .timeline .step::before { content:''; position:absolute; left: -22px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: #2f9e6e; box-shadow: 0 0 0 4px #f5f7f6; }
+  .m8 .timeline .step .t { font-size: 11px; font-weight: 700; color: #2f9e6e; letter-spacing: .06em; }
+  .m8 .timeline .step p { font-size: 14.5px; margin-top: 2px; }
+  .m8 .note { margin-top: 18px; background: #fff; border-radius: 16px; padding: 18px; border: 1px solid #e6eae8; }
+  .m8 .note h4 { font-size: 14px; margin-bottom: 6px; }
+  .m8 .note p { font-size: 14px; color: #5d6862; }
+
+  /* ============================================================
+     9. ZEN / JAPANDI
+     ============================================================ */
+  .m9 { background: #efeae1; color: #3a352d; }
+  .m9 .body { padding: 0 30px 40px; }
+  .m9 .hero { aspect-ratio: 16/10; }
+  .m9 .kicker { text-align: center; font-size: 11px; letter-spacing: .35em; text-transform: uppercase; color: #a99d86; margin-top: 30px; }
+  .m9 h1.title { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 40px; text-align: center; margin: 8px 0 26px; letter-spacing: .01em; }
+  .m9 .meta { display: flex; justify-content: center; gap: 34px; margin-bottom: 30px; }
+  .m9 .meta div { text-align: center; }
+  .m9 .meta .v { font-family: 'Cormorant Garamond', serif; font-size: 26px; }
+  .m9 .meta .l { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #a99d86; margin-top: 2px; }
+  .m9 .serv { display: flex; align-items: center; justify-content: center; gap: 26px; margin-bottom: 30px; }
+  .m9 .serv button { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #c5b9a3; background: none; color: #6b6253; font-size: 16px; cursor: pointer; }
+  .m9 .serv b { font-family: 'Cormorant Garamond', serif; font-size: 20px; }
+  .m9 .rule { height: 1px; background: #d8cfbf; margin: 0 auto 22px; max-width: 60px; }
+  .m9 h3.h { font-family: 'Cormorant Garamond', serif; font-size: 22px; text-align: center; margin-bottom: 14px; }
+  .m9 .ing label { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid #e2dbcd; font-size: 15px; justify-content: center; text-align: center; }
+  .m9 .ing input { accent-color: #8a7d63; }
+  .m9 .ing .cost { color: #b1a692; font-size: 13px; }
+  .m9 ol.steps { counter-reset: s; list-style: none; max-width: 360px; margin: 0 auto; }
+  .m9 ol.steps li { counter-increment: s; text-align: center; padding: 14px 0; border-bottom: 1px solid #e2dbcd; font-size: 15px; }
+  .m9 ol.steps li::before { content: '— ' counter(s) ' —'; display: block; font-family: 'Cormorant Garamond', serif; color: #a99d86; font-size: 16px; margin-bottom: 4px; }
+  .m9 .note { margin-top: 28px; text-align: center; }
+  .m9 .note h4 { font-family: 'Cormorant Garamond', serif; font-size: 22px; margin-bottom: 8px; }
+  .m9 .note p { font-size: 14px; color: #6b6253; font-style: italic; }
+
+  /* ============================================================
+     10. BOLD GRADIENT / GLASS
+     ============================================================ */
+  .m10 { background: radial-gradient(120% 80% at 0% 0%, #ff8a5b 0%, #d44d9c 45%, #6b3fd4 100%); padding: 22px; }
+  .m10 .glass { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); border-radius: 28px; backdrop-filter: blur(16px); overflow: hidden; color: #fff; }
+  .m10 .hero { aspect-ratio: 3/2; }
+  .m10 .body { padding: 22px; }
+  .m10 h1.title { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -.02em; }
+  .m10 .kicker { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; opacity: .85; }
+  .m10 .cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin: 18px 0; }
+  .m10 .cards div { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.22); border-radius: 16px; padding: 12px 4px; text-align: center; }
+  .m10 .cards .e { font-size: 18px; }
+  .m10 .cards .t { font-size: 11px; font-weight: 700; margin-top: 4px; }
+  .m10 .serv { display: flex; justify-content: center; margin-bottom: 18px; }
+  .m10 .serv .pill { display: inline-flex; align-items: center; gap: 16px; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: 6px; }
+  .m10 .serv button { width: 38px; height: 38px; border-radius: 50%; border: none; background: #fff; color: #6b3fd4; font-size: 18px; font-weight: 700; cursor: pointer; }
+  .m10 .tabs { display: flex; background: rgba(255,255,255,.14); border-radius: 999px; padding: 4px; margin-bottom: 16px; }
+  .m10 .tabs button { flex: 1; border: none; background: none; color: #fff; padding: 10px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; }
+  .m10 .tabs button.on { background: #fff; color: #6b3fd4; }
+  .m10 .ing label { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.16); font-size: 15px; }
+  .m10 .ing input { accent-color: #fff; }
+  .m10 .ing .cost { margin-left: auto; opacity: .8; font-size: 13px; }
+  .m10 .note { margin-top: 18px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.22); border-radius: 18px; padding: 18px; }
+  .m10 .note h4 { font-size: 15px; margin-bottom: 6px; }
+  .m10 .note p { font-size: 14px; opacity: .9; }
+
+  footer.foot { text-align: center; padding: 40px 20px 70px; color: #5b6b64; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <h1>Recipe Page — 10 Redesigns</h1>
+  <p>Modern · elegant · timeless · minimalist · creative — every mock keeps all elements: hero, title, metadata (time / servings / price-per-serving / total), serving stepper, ingredients with cost + checkboxes, numbered steps, personal notes.</p>
+</header>
+
+<nav class="jump">
+  <a href="#m1">01 Editorial</a>
+  <a href="#m2">02 Soft Minimal</a>
+  <a href="#m3">03 Brutalist</a>
+  <a href="#m4">04 Warm Kitchen</a>
+  <a href="#m5">05 Swiss Grid</a>
+  <a href="#m5a">05A Swiss Mono</a>
+  <a href="#m5b">05B Swiss Rail</a>
+  <a href="#m5c">05C Swiss Dark</a>
+  <a href="#m5d">05D Swiss Index</a>
+  <a href="#m6">06 Dark Luxe</a>
+  <a href="#m7">07 Sidebar Split</a>
+  <a href="#m8">08 Timeline</a>
+  <a href="#m9">09 Japandi</a>
+  <a href="#m10">10 Gradient Glass</a>
+</nav>
+
+<!-- sample image used across all mocks -->
+<!-- using a neutral food photo placeholder -->
+
+<!-- ============ 1 ============ -->
+<section class="mock-wrap" id="m1">
+  <div class="mock-label"><span class="num">01</span><h2>Editorial Magazine</h2><span>Fraunces serif, tall hero, rule-lined meta — cookbook feel.</span></div>
+  <div class="frame m1">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="body">
+      <div class="kicker">Pasta · Dinner</div>
+      <h1 class="title">Marry&nbsp;Me Chicken Pasta</h1>
+      <div class="meta-row">
+        <div><div class="v">35′</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/ Serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><span>4 servings</span><div class="stepper"><button>−</button><b>4</b><button>+</button></div></div>
+      <div class="tabs"><b>Ingredients</b><b class="off">Method</b></div>
+      <ul class="ing">
+        <li><span class="ck"></span>400 g chicken breast <span class="cost">3.20</span></li>
+        <li><span class="ck"></span>300 g penne pasta <span class="cost">0.90</span></li>
+        <li><span class="ck"></span>200 ml heavy cream <span class="cost">1.10</span></li>
+        <li><span class="ck"></span>50 g sun-dried tomatoes <span class="cost">1.40</span></li>
+        <li><span class="ck"></span>40 g parmesan <span class="cost">0.80</span></li>
+      </ul>
+      <div class="note"><h4>From my kitchen</h4><p>The sauce should coat the back of a spoon — pull it off the heat a touch early, it thickens as it rests.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="mock-wrap" id="m2">
+  <div class="mock-label"><span class="num">02</span><h2>Soft Minimal</h2><span>Your brand palette, rounded cards, airy & friendly.</span></div>
+  <div class="frame m2">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="body">
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="cards">
+        <div><div class="e">⏱️</div><div class="t">35 MIN</div></div>
+        <div><div class="e">👥</div><div class="t">4 SERV</div></div>
+        <div><div class="e">💰</div><div class="t">2.40/P</div></div>
+        <div><div class="e">🧾</div><div class="t">9.60</div></div>
+      </div>
+      <div class="serv"><div class="pill"><button>−</button><b>4 servings</b><button>+</button></div></div>
+      <div class="tabcard">
+        <div class="tabs"><button class="on">Ingredients</button><button>Instructions</button></div>
+        <div class="ing">
+          <label><input type="checkbox" />400 g chicken breast <span class="cost">(3.20)</span></label>
+          <label><input type="checkbox" />300 g penne pasta <span class="cost">(0.90)</span></label>
+          <label><input type="checkbox" />200 ml heavy cream <span class="cost">(1.10)</span></label>
+          <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">(1.40)</span></label>
+        </div>
+      </div>
+      <div class="note"><h4>Personal notes</h4><p>A weeknight hero — double the sauce, you'll want extra for bread.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="mock-wrap" id="m3">
+  <div class="mock-label"><span class="num">03</span><h2>Brutalist Mono</h2><span>Monospace, hard borders, high contrast — confident & technical.</span></div>
+  <div class="frame m3"><div class="frameinner">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="body">
+      <span class="kicker">PASTA / 04</span>
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="meta">
+        <div><div class="l">TIME</div><div class="v">35 MIN</div></div>
+        <div><div class="l">SERVES</div><div class="v">4</div></div>
+        <div><div class="l">PER SERV</div><div class="v">2.40</div></div>
+        <div><div class="l">TOTAL</div><div class="v">9.60</div></div>
+      </div>
+      <div class="serv"><span>SERVINGS</span><div><button>−</button> 4 <button>+</button></div></div>
+      <div class="tabs"><button class="on">INGREDIENTS</button><button>METHOD</button></div>
+      <ul class="ing">
+        <li><span class="ck">[ ]</span> 400g chicken breast <span class="cost">3.20</span></li>
+        <li><span class="ck">[ ]</span> 300g penne <span class="cost">0.90</span></li>
+        <li><span class="ck">[ ]</span> 200ml cream <span class="cost">1.10</span></li>
+        <li><span class="ck">[ ]</span> 50g sun-dried tomato <span class="cost">1.40</span></li>
+      </ul>
+      <div class="note"><h4>// NOTES</h4><p>Reduce sauce 2 min. Salt pasta water heavily. Reserve 1 cup starch water.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section class="mock-wrap" id="m4">
+  <div class="mock-label"><span class="num">04</span><h2>Warm Kitchen</h2><span>Handwritten accents, round photo, cozy heritage cookbook.</span></div>
+  <div class="frame m4">
+    <div class="top"></div>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80" alt="dish" />
+    <div class="body">
+      <div class="hand">a family favourite ♥</div>
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="meta">
+        <div><div class="e">⏱️</div><div class="v">35 min</div></div>
+        <div><div class="e">👥</div><div class="v">4</div></div>
+        <div><div class="e">💰</div><div class="v">2.40/p</div></div>
+        <div><div class="e">🧾</div><div class="v">9.60</div></div>
+      </div>
+      <div class="serv"><div class="pill"><button>−</button> 4 servings <button>+</button></div></div>
+      <div class="sec-h">Ingredients</div>
+      <div class="ing">
+        <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+        <label><input type="checkbox" />300 g penne <span class="cost">0.90</span></label>
+        <label><input type="checkbox" />200 ml cream <span class="cost">1.10</span></label>
+      </div>
+      <div class="sec-h">Method</div>
+      <ol class="steps">
+        <li>Sear seasoned chicken until golden, set aside.</li>
+        <li>Build the cream &amp; sun-dried tomato sauce.</li>
+        <li>Toss pasta, return chicken, simmer to coat.</li>
+      </ol>
+      <div class="note"><h4>my notes</h4><p>Tastes even better the next day — leftovers are a gift.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section class="mock-wrap" id="m5">
+  <div class="mock-label"><span class="num">05</span><h2>Swiss Grid</h2><span>Strict grid, oversized type, red accent — design-forward.</span></div>
+  <div class="frame m5"><div class="frameinner">
+    <div class="topbar"><span>Cookingbook</span><b>Pasta</b></div>
+    <h1 class="title">Marry Me Chicken Pasta</h1>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="grid">
+      <div><div class="l">Time</div><div class="v">35′</div></div>
+      <div><div class="l">Serves</div><div class="v">4</div></div>
+      <div><div class="l">/ Serv</div><div class="v">2.40</div></div>
+      <div><div class="l">Total</div><div class="v">9.60</div></div>
+    </div>
+    <div class="serv"><span class="ttl">Servings</span><div><button>−</button> 4 <button>+</button></div></div>
+    <div class="cols">
+      <div class="colh">Ingredients</div>
+      <div class="ing">
+        <label><input type="checkbox" />400 g chicken breast <span class="cost">2.40</span></label>
+        <label><input type="checkbox" />300 g penne <span class="cost">0.90</span></label>
+        <label><input type="checkbox" />200 ml cream <span class="cost">1.10</span></label>
+      </div>
+      <div class="colh">Method</div>
+      <ol class="steps">
+        <li>Sear the seasoned chicken until golden brown.</li>
+        <li>Reduce cream with garlic and sun-dried tomato.</li>
+        <li>Combine pasta and chicken; finish with parmesan.</li>
+      </ol>
+    </div>
+    <div class="note"><h4>Notes</h4><p>Use bronze-die pasta for sauce that clings. Finish off heat.</p></div>
+  </div></div>
+</section>
+
+<!-- ============ 5A SWISS MONO ============ -->
+<section class="mock-wrap" id="m5a">
+  <div class="mock-label"><span class="num">05A</span><h2>Swiss Mono</h2><span>Pure black &amp; white — no accent colour, type and rules do all the work.</span></div>
+  <div class="frame sg sga"><div class="frameinner">
+    <div class="topbar"><span>Cookingbook</span><span>Pasta / 042</span></div>
+    <h1 class="title">Marry Me Chicken Pasta</h1>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="grid">
+      <div><div class="l">Time</div><div class="v">35′</div></div>
+      <div><div class="l">Serves</div><div class="v">4</div></div>
+      <div><div class="l">/ Serv</div><div class="v">2.40</div></div>
+      <div><div class="l">Total</div><div class="v">9.60</div></div>
+    </div>
+    <div class="serv"><span class="ttl">Servings</span><div class="st"><button>−</button> 4 <button>+</button></div></div>
+    <div class="colh">Ingredients</div>
+    <div class="ing">
+      <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+      <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+      <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+    </div>
+    <div class="colh">Method</div>
+    <ol class="steps">
+      <li>Sear the seasoned chicken until golden brown.</li>
+      <li>Reduce cream with garlic and sun-dried tomato.</li>
+      <li>Combine pasta and chicken; finish with parmesan.</li>
+    </ol>
+    <div class="note"><h4>Notes</h4><p>Reserve a cup of starchy pasta water to loosen the sauce.</p></div>
+  </div></div>
+</section>
+
+<!-- ============ 5B SWISS RAIL ============ -->
+<section class="mock-wrap" id="m5b">
+  <div class="mock-label"><span class="num">05B</span><h2>Swiss Rail</h2><span>Left label rail organises every row; one restrained ink-blue accent.</span></div>
+  <div class="frame sg sgb"><div class="frameinner">
+    <div class="topbar"><span>Cookingbook</span><b>Pasta</b></div>
+    <h1 class="title">Marry Me Chicken Pasta</h1>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="row"><div class="rl">Stats</div><div class="rc"><div class="grid4">
+      <div><div class="v">35′</div><div class="l">Time</div></div>
+      <div><div class="v">4</div><div class="l">Serves</div></div>
+      <div><div class="v">2.40</div><div class="l">/ Serv</div></div>
+      <div><div class="v">9.60</div><div class="l">Total</div></div>
+    </div></div></div>
+    <div class="serv"><span class="ttl">Servings</span><div class="st"><button>−</button> 4 <button>+</button></div></div>
+    <div class="row"><div class="rl">Ingredients</div><div class="rc ing">
+      <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+      <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+      <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+    </div></div>
+    <div class="row"><div class="rl">Method</div><div class="rc"><ol class="steps">
+      <li>Sear the seasoned chicken until golden brown.</li>
+      <li>Reduce cream with garlic and sun-dried tomato.</li>
+      <li>Combine pasta and chicken; finish with parmesan.</li>
+    </ol></div></div>
+    <div class="row"><div class="rl">Notes</div><div class="rc note"><p>Bronze-die pasta grips the sauce best.</p></div></div>
+  </div></div>
+</section>
+
+<!-- ============ 5C SWISS DARK ============ -->
+<section class="mock-wrap" id="m5c">
+  <div class="mock-label"><span class="num">05C</span><h2>Swiss Dark</h2><span>Inverted — white on near-black, hairline rules, no colour at all.</span></div>
+  <div class="frame sg sgc"><div class="frameinner">
+    <div class="topbar"><span>Cookingbook</span><b>Pasta / 042</b></div>
+    <h1 class="title">Marry Me Chicken Pasta</h1>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="grid">
+      <div><div class="l">Time</div><div class="v">35′</div></div>
+      <div><div class="l">Serves</div><div class="v">4</div></div>
+      <div><div class="l">/ Serv</div><div class="v">2.40</div></div>
+      <div><div class="l">Total</div><div class="v">9.60</div></div>
+    </div>
+    <div class="serv"><span class="ttl">Servings</span><div class="st"><button>−</button> 4 <button>+</button></div></div>
+    <div class="colh">Ingredients</div>
+    <div class="ing">
+      <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+      <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+      <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+    </div>
+    <div class="colh">Method</div>
+    <ol class="steps">
+      <li>Sear the seasoned chicken until golden brown.</li>
+      <li>Reduce cream with garlic and sun-dried tomato.</li>
+      <li>Combine pasta and chicken; finish with parmesan.</li>
+    </ol>
+    <div class="note"><h4>Notes</h4><p>Finish the sauce off the heat so it stays glossy.</p></div>
+  </div></div>
+</section>
+
+<!-- ============ 5D SWISS INDEX ============ -->
+<section class="mock-wrap" id="m5d">
+  <div class="mock-label"><span class="num">05D</span><h2>Swiss Index</h2><span>Giant index numeral anchors the header; tabular grid, one warm accent.</span></div>
+  <div class="frame sg sgd"><div class="frameinner">
+    <div class="head"><div class="no">42</div><div><div class="cat">Pasta</div><h1 class="title">Marry Me Chicken Pasta</h1></div></div>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="grid">
+      <div><div class="l">Time</div><div class="v">35′</div></div>
+      <div><div class="l">Serves</div><div class="v">4</div></div>
+      <div><div class="l">/ Serv</div><div class="v">2.40</div></div>
+      <div><div class="l">Total</div><div class="v">9.60</div></div>
+    </div>
+    <div class="serv"><span class="ttl">Servings</span><div class="st"><button>−</button> 4 <button>+</button></div></div>
+    <div class="colh">Ingredients</div>
+    <div class="ing">
+      <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+      <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+      <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+    </div>
+    <div class="colh">Method</div>
+    <ol class="steps">
+      <li>Sear the seasoned chicken until golden brown.</li>
+      <li>Reduce cream with garlic and sun-dried tomato.</li>
+      <li>Combine pasta and chicken; finish with parmesan.</li>
+    </ol>
+    <div class="note"><h4>Notes</h4><p>Salt the pasta water generously — it seasons from within.</p></div>
+  </div></div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section class="mock-wrap" id="m6">
+  <div class="mock-label"><span class="num">06</span><h2>Dark Luxe</h2><span>Near-black, Cormorant serif, gold accents — fine-dining mood.</span></div>
+  <div class="frame m6">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="body">
+      <div class="kicker">Pasta · Signature</div>
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="meta">
+        <div><div class="v">35′</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">Per</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><button>−</button><b>4 servings</b><button>+</button></div>
+      <div class="tabs"><b class="on">Ingredients</b><b class="off">Method</b></div>
+      <ul class="ing">
+        <li><span class="dot"></span>400 g chicken breast <span class="cost">3.20</span></li>
+        <li><span class="dot"></span>300 g penne pasta <span class="cost">0.90</span></li>
+        <li><span class="dot"></span>200 ml heavy cream <span class="cost">1.10</span></li>
+        <li><span class="dot"></span>50 g sun-dried tomatoes <span class="cost">1.40</span></li>
+      </ul>
+      <div class="note"><h4>Chef's note</h4><p>Deglaze with a splash of white wine before the cream for depth.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section class="mock-wrap" id="m7">
+  <div class="mock-label"><span class="num">07</span><h2>Sidebar Split</h2><span>Two-column desktop layout, image left, sticky content right.</span></div>
+  <div class="m7frame"><div class="m7">
+    <div class="left">
+      <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+      <div class="cap"><div class="kicker">Pasta · Dinner</div><h1>Marry Me Chicken Pasta</h1></div>
+    </div>
+    <div class="right">
+      <div class="chips"><span>⏱️ 35 min</span><span>👥 4 serves</span><span>💰 2.40 / serv</span><span>🧾 9.60 total</span></div>
+      <div class="serv"><span>Servings</span><div><button>−</button> 4 <button>+</button></div></div>
+      <h3 class="h">Ingredients</h3>
+      <div class="ing">
+        <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+        <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+        <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+        <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+      </div>
+      <h3 class="h">Instructions</h3>
+      <ol class="steps">
+        <li>Season and sear the chicken until golden; rest.</li>
+        <li>Soften garlic, add tomatoes, cream and parmesan.</li>
+        <li>Fold through pasta and sliced chicken to coat.</li>
+      </ol>
+      <div class="note"><h4>Personal notes</h4><p>Named for a reason — it's the one everyone asks me to make again.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ============ 8 ============ -->
+<section class="mock-wrap" id="m8">
+  <div class="mock-label"><span class="num">08</span><h2>Timeline Steps</h2><span>Steps as a vertical timeline, ingredients in a tidy 2-col grid.</span></div>
+  <div class="frame m8">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="body">
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="meta">
+        <div><span class="e">⏱️</span><div><div class="v">35 min</div><div class="l">time</div></div></div>
+        <div><span class="e">👥</span><div><div class="v">4</div><div class="l">serves</div></div></div>
+        <div><span class="e">💰</span><div><div class="v">2.40</div><div class="l">/ serv</div></div></div>
+        <div><span class="e">🧾</span><div><div class="v">9.60</div><div class="l">total</div></div></div>
+      </div>
+      <div class="serv"><button>−</button> 4 <button>+</button><span class="lab">servings</span></div>
+      <h3 class="h">Ingredients</h3>
+      <div class="ing">
+        <label><input type="checkbox" />400 g chicken <span class="cost">3.20</span></label>
+        <label><input type="checkbox" />300 g penne <span class="cost">0.90</span></label>
+        <label><input type="checkbox" />200 ml cream <span class="cost">1.10</span></label>
+        <label><input type="checkbox" />50 g tomatoes <span class="cost">1.40</span></label>
+      </div>
+      <h3 class="h">Method</h3>
+      <div class="timeline">
+        <div class="step"><div class="t">STEP 01</div><p>Sear seasoned chicken until golden, then set aside.</p></div>
+        <div class="step"><div class="t">STEP 02</div><p>Build cream sauce with garlic and sun-dried tomato.</p></div>
+        <div class="step"><div class="t">STEP 03</div><p>Toss with pasta, return chicken, simmer to coat.</p></div>
+      </div>
+      <div class="note"><h4>Personal notes</h4><p>Reserve pasta water — a splash loosens the sauce perfectly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 ============ -->
+<section class="mock-wrap" id="m9">
+  <div class="mock-label"><span class="num">09</span><h2>Zen / Japandi</h2><span>Centered, muted earth tones, generous space — calm & timeless.</span></div>
+  <div class="frame m9">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="body">
+      <div class="kicker">Pasta</div>
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="meta">
+        <div><div class="v">35′</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">Per</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><button>−</button><b>4</b><button>+</button></div>
+      <div class="rule"></div>
+      <h3 class="h">Ingredients</h3>
+      <div class="ing">
+        <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+        <label><input type="checkbox" />300 g penne <span class="cost">0.90</span></label>
+        <label><input type="checkbox" />200 ml cream <span class="cost">1.10</span></label>
+      </div>
+      <h3 class="h" style="margin-top:24px">Method</h3>
+      <ol class="steps">
+        <li>Sear the chicken slowly until golden and rested.</li>
+        <li>Let the sauce reduce gently, unhurried.</li>
+        <li>Bring everything together; taste, adjust, serve.</li>
+      </ol>
+      <div class="note"><h4>A note</h4><p>Cook with patience — good things take their own time.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section class="mock-wrap" id="m10">
+  <div class="mock-label"><span class="num">10</span><h2>Gradient Glass</h2><span>Vibrant gradient, frosted glass cards — bold & contemporary.</span></div>
+  <div class="frame m10">
+    <div class="glass">
+      <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+      <div class="body">
+        <div class="kicker">Pasta · Dinner</div>
+        <h1 class="title">Marry Me Chicken Pasta</h1>
+        <div class="cards">
+          <div><div class="e">⏱️</div><div class="t">35′</div></div>
+          <div><div class="e">👥</div><div class="t">4</div></div>
+          <div><div class="e">💰</div><div class="t">2.40</div></div>
+          <div><div class="e">🧾</div><div class="t">9.60</div></div>
+        </div>
+        <div class="serv"><div class="pill"><button>−</button> &nbsp;4 servings&nbsp; <button>+</button></div></div>
+        <div class="tabs"><button class="on">Ingredients</button><button>Instructions</button></div>
+        <div class="ing">
+          <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+          <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+          <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+          <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+        </div>
+        <div class="note"><h4>Personal notes</h4><p>Serve with crusty bread — that sauce deserves an audience.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  10 concepts · all share the same recipe data &amp; elements · tell me a number (or mix &amp; match) and I'll build it into the real <code>RecipePage</code>.
+</footer>
+
+</body>
+</html>

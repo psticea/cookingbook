@@ -7,19 +7,15 @@ interface RecipeHeaderProps {
 }
 
 /**
- * RecipeHeader component
- * Displays recipe title only
- * Metadata (prep time, servings, difficulty) is now shown in IngredientList component
- * Supports both Romanian and English text
+ * RecipeHeader — Card Stack design.
+ * Renders the recipe title only; metadata is shown elsewhere.
  */
 export const RecipeHeader: React.FC<RecipeHeaderProps> = ({ recipe }) => {
   const { language } = useLanguage();
 
   return (
-    <header className="mb-4">
-      <h1 className="text-3xl font-bold text-text-main-light dark:text-text-main-dark tracking-tight">
-        {recipe.title[language]}
-      </h1>
-    </header>
+    <h1 className="font-display text-2xl sm:text-3xl font-bold text-ink-light dark:text-ink-dark tracking-tight leading-tight">
+      {recipe.title[language]}
+    </h1>
   );
 };

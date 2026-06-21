@@ -16,26 +16,25 @@ export const LanguageSelector: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="inline-flex items-center bg-card-2-light dark:bg-card-2-dark rounded-full p-1 border border-line-light dark:border-line-dark">
       <button
         onClick={() => handleLanguageChange('ro')}
-        className={`min-w-[44px] min-h-[44px] px-3 py-2 text-base sm:text-lg rounded transition-colors ${
+        className={`min-w-[44px] min-h-[36px] px-3 py-1 text-sm font-semibold rounded-full transition-colors ${
           language === 'ro'
-            ? 'bg-accent-light dark:bg-accent-dark text-white font-semibold'
-            : 'hover:bg-secondary-light dark:hover:bg-secondary-dark'
+            ? 'bg-brand-accent text-white'
+            : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
         }`}
         aria-label={getTranslation('romanian', language)}
         aria-pressed={language === 'ro'}
       >
         RO
       </button>
-      <span className="text-base opacity-50">|</span>
       <button
         onClick={() => handleLanguageChange('en')}
-        className={`min-w-[44px] min-h-[44px] px-3 py-2 text-base sm:text-lg rounded transition-colors ${
+        className={`min-w-[44px] min-h-[36px] px-3 py-1 text-sm font-semibold rounded-full transition-colors ${
           language === 'en'
-            ? 'bg-accent-light dark:bg-accent-dark text-white font-semibold'
-            : 'hover:bg-secondary-light dark:hover:bg-secondary-dark'
+            ? 'bg-brand-accent text-white'
+            : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
         }`}
         aria-label={getTranslation('english', language)}
         aria-pressed={language === 'en'}

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recipe Page — 15 Redesign Concepts (v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Caveat:wght@500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&family=Libre+Caslon+Display&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#4ac994; --pink:#e198ac; --gold:#d1c366;
+    --ink:#071811; --paper:#f4fbf9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:#e7edef;color:#111;line-height:1.5;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  button{font:inherit}
+
+  /* page chrome */
+  .page-head{text-align:center;padding:56px 20px 26px;background:#0e1a15;color:#eafff6}
+  .page-head h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,5vw,44px);letter-spacing:-.02em}
+  .page-head p{opacity:.72;margin-top:10px;font-size:14.5px;max-width:680px;margin-inline:auto}
+  .page-head .req{margin-top:14px;font-size:12.5px;opacity:.6}
+  .page-head .req b{color:var(--green)}
+
+  nav.jump{position:sticky;top:0;z-index:60;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
+    padding:11px 12px;background:rgba(14,26,21,.93);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+  nav.jump a{color:#cfe6dc;text-decoration:none;font-size:12px;font-weight:600;padding:6px 10px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.14);transition:.18s;white-space:nowrap}
+  nav.jump a:hover{background:var(--green);color:#06140e;border-color:transparent}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:56px 20px}
+  .label{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 auto 24px;max-width:430px}
+  .label .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;color:#fff;background:#0e1a15;
+    width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:none}
+  .label h2{font-size:18px;font-weight:700;letter-spacing:-.01em}
+  .label span{font-size:12.5px;color:#5b6b64;flex-basis:100%;margin-left:40px}
+
+  /* shared mobile frame */
+  .frame{max-width:430px;margin:0 auto;border-radius:30px;overflow:hidden;background:#fff;
+    box-shadow:0 30px 70px -28px rgba(15,30,25,.5),0 0 0 1px rgba(0,0,0,.04)}
+  .hero{width:100%;aspect-ratio:3/2;object-fit:cover}
+
+  /* generic tab demo helper (visual only) */
+  .twocol{display:grid;grid-template-columns:1fr 1fr}
+  .cap-note{font-size:11px;color:#9aa6a0;text-align:center;margin-top:8px}
+
+  /* =========================================================
+     01 — BROADSHEET (editorial newspaper)
+     ========================================================= */
+  .d1{background:#f7f4ec;font-family:'Newsreader',serif}
+  .d1 .masthead{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:3px double #1a1a1a}
+  .d1 .masthead .name{font-family:'Libre Caslon Display',serif;font-size:14px;letter-spacing:.02em}
+  .d1 .masthead .date{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7a7468}
+  .d1 .kick{text-align:center;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#a23b2e;padding:14px 0 4px}
+  .d1 .kick::before,.d1 .kick::after{content:'\2766';margin:0 10px;color:#c9bba8;font-size:12px;vertical-align:middle}
+  .d1 h1{font-family:'Fraunces',serif;font-weight:600;font-size:38px;line-height:1.02;text-align:center;padding:0 18px;letter-spacing:-.02em}
+  .d1 .dek{text-align:center;font-style:italic;color:#5a544a;font-size:14px;padding:8px 24px 8px}
+  .d1 .stars{text-align:center;font-size:11px;letter-spacing:.18em;color:#a23b2e;padding-bottom:14px;border-bottom:1px solid #d8d2c4}
+  .d1 .stars span{color:#9a9486;font-style:italic;letter-spacing:0}
+  .d1 .hero{margin:14px 18px 4px;width:auto;border:1px solid #1a1a1a;outline:3px solid #f7f4ec;outline-offset:-7px}
+  .d1 .figcap{text-align:center;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#9a9486;margin:0 18px 6px;font-family:'Inter',sans-serif}
+  .d1 .meta{display:flex;border-bottom:1px solid #d8d2c4}
+  .d1 .meta div{flex:1;text-align:center;padding:12px 4px;border-right:1px solid #d8d2c4}
+  .d1 .meta div:last-child{border:0}
+  .d1 .meta .v{font-size:20px;font-weight:600}
+  .d1 .meta .l{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#9a9486}
+  .serv-news{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid #d8d2c4}
+  .serv-news b{font-size:15px}
+  .serv-news .st{display:flex;gap:14px;align-items:center}
+  .serv-news .st button{width:32px;height:32px;border:1px solid #1a1a1a;background:none;border-radius:50%;cursor:pointer;font-size:16px}
+  /* shared editorial tabs */
+  .d1 .tabs,.d11 .tabs{display:flex;gap:24px;justify-content:center;padding:14px 0 0}
+  .d1 .tabs b,.d11 .tabs b{font-family:'Fraunces',serif;font-size:20px;cursor:pointer;padding-bottom:8px;border-bottom:2px solid transparent}
+  .d1 .tabs b.on{border-color:#a23b2e}
+  .d1 .tabs b.off,.d11 .tabs b.off{color:#bdb6a7}
+  .d1 .pane{padding:14px 18px 22px}
+  .d1 ul{list-style:none}
+  .d1 ul li{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dotted #cfc9bb;font-size:15px}
+  .d1 ul li .ck{width:16px;height:16px;border:1.4px solid #b3ab9b;flex:none}
+  .d1 ul li .c{margin-left:auto;color:#a39a86;font-size:13px}
+  .d1 .note{margin:0 18px 22px;padding:16px;border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a}
+  .d1 .note h4{font-family:'Fraunces',serif;font-weight:600;font-size:16px;margin-bottom:6px}
+  .d1 .note p{font-size:14px;color:#5a544a}
+  .d1 .note p::first-letter{float:left;font-family:'Fraunces',serif;font-weight:600;font-size:42px;line-height:.78;padding:3px 8px 0 0;color:#a23b2e}
+
+  /* =========================================================
+     02 — GRID SYSTEM (swiss, accent rail)
+     ========================================================= */
+  .d2{font-family:'Archivo',sans-serif}
+  .d2 .inner{border:1.5px solid #111;position:relative;overflow:hidden}
+  .d2 .bar{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1.5px solid #111;font-size:10px;letter-spacing:.16em;text-transform:uppercase;background:repeating-linear-gradient(45deg,#fff 0 6px,#faf3f1 6px 12px)}
+  .d2 .bar b{color:#ff4d2e}
+  .d2 .wm{position:absolute;top:34px;right:-6px;font-size:130px;font-weight:900;line-height:.7;color:rgba(255,77,46,.07);pointer-events:none;letter-spacing:-.05em}
+  .d2 h1{position:relative;font-size:40px;font-weight:800;line-height:.94;letter-spacing:-.04em;padding:18px 14px 18px 24px}
+  .d2 h1::before{content:'';position:absolute;left:14px;top:20px;bottom:20px;width:5px;background:#ff4d2e}
+  .d2 .hero{border-block:1.5px solid #111}
+  .d2 .meta{display:grid;grid-template-columns:repeat(4,1fr)}
+  .d2 .meta div{padding:12px;border-right:1.5px solid #111}
+  .d2 .meta div:last-child{border:0}
+  .d2 .meta div:first-child{background:#ff4d2e;color:#fff}
+  .d2 .meta div:first-child .l{color:rgba(255,255,255,.75)}
+  .d2 .meta .l{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#888}
+  .d2 .meta .v{font-size:21px;font-weight:800;margin-top:3px}
+  .d2 .serv{display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #111;padding:10px 14px}
+  .d2 .serv span{font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+  .d2 .serv button{width:30px;height:30px;border:1.5px solid #111;background:#fff;cursor:pointer;font-size:15px}
+  .d2 .tabs{display:flex;border-top:1.5px solid #111}
+  .d2 .tabs button{flex:1;border:0;border-right:1.5px solid #111;background:#fff;padding:12px;font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+  .d2 .tabs button:last-child{border:0}
+  .d2 .tabs button.on{background:#ff4d2e;color:#fff}
+  .d2 .pane{border-top:1.5px solid #111}
+  .d2 ul{list-style:none}
+  .d2 ul li{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid #eee;font-size:14px}
+  .d2 ul li input{accent-color:#ff4d2e}
+  .d2 ul li .c{margin-left:auto;color:#999;font-size:12px}
+  .d2 .note{border-top:1.5px solid #111;padding:14px}
+  .d2 .note h4{font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+  .d2 .note p{font-size:14px}
+
+  /* =========================================================
+     03 — RISO BRUTALIST (offset shadows, duotone)
+     ========================================================= */
+  .d3{background:#ece9ff;font-family:'Space Grotesk',sans-serif;padding:18px}
+  .d3 .card{position:relative;background:#fff;border:2.5px solid #14121f;border-radius:2px;overflow:hidden;box-shadow:7px 7px 0 #6a5cff,14px 14px 0 #14121f}
+  .d3 .hero{filter:contrast(1.06) saturate(1.05)}
+  .d3 .stamp{position:absolute;top:12px;right:12px;z-index:3;background:#ffcf3a;border:2.5px solid #14121f;font-size:11px;font-weight:700;padding:6px 11px;border-radius:999px;transform:rotate(7deg);box-shadow:3px 3px 0 #14121f}
+  .d3 .pad{position:relative;padding:16px}
+  .d3 .pad::before{content:'';position:absolute;inset:0;background-image:radial-gradient(#14121f 1px,transparent 1.4px);background-size:13px 13px;opacity:.045;pointer-events:none}
+  .d3 .tag{display:inline-block;background:#6a5cff;color:#fff;font-weight:700;font-size:11px;letter-spacing:.06em;padding:3px 9px;border:2px solid #14121f;transform:rotate(-2deg)}
+  .d3 h1{font-size:30px;font-weight:700;line-height:1;margin:12px 0;letter-spacing:-.02em}
+  .d3 .meta{display:flex;gap:8px;flex-wrap:wrap}
+  .d3 .meta div{border:2px solid #14121f;border-radius:2px;padding:7px 11px;font-size:12px;font-weight:600;box-shadow:3px 3px 0 #ffcf3a}
+  .d3 .serv{display:flex;align-items:center;justify-content:space-between;margin-top:14px;border:2px solid #14121f;padding:7px 12px;box-shadow:3px 3px 0 #ff79c6}
+  .d3 .serv button{width:30px;height:30px;border:2px solid #14121f;background:#ffcf3a;cursor:pointer;font-weight:700}
+  .d3 .tabs{display:flex;gap:8px;margin-top:16px}
+  .d3 .tabs button{flex:1;border:2px solid #14121f;background:#fff;padding:10px;font-weight:700;font-size:12px;cursor:pointer}
+  .d3 .tabs button.on{background:#6a5cff;color:#fff;box-shadow:3px 3px 0 #14121f}
+  .d3 .pane{margin-top:14px}
+  .d3 ul{list-style:none}
+  .d3 ul li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1.5px dashed #c9c4e6;font-size:14px}
+  .d3 ul li input{accent-color:#6a5cff;width:16px;height:16px}
+  .d3 ul li .c{margin-left:auto;font-size:12px;opacity:.6}
+  .d3 .note{margin-top:14px;border:2px solid #14121f;padding:14px;box-shadow:4px 4px 0 #6a5cff}
+  .d3 .note h4{font-size:13px;font-weight:700;margin-bottom:6px}
+  .d3 .note p{font-size:13.5px}
+
+  /* =========================================================
+     04 — RECIPE CARD (warm kitchen index card)
+     ========================================================= */
+  .d4{background:#f3e9d8;font-family:'Inter',sans-serif;padding:26px 18px 18px}
+  .d4 .card{position:relative;background:#fffdf7;border-radius:10px;overflow:hidden;box-shadow:0 14px 30px -16px rgba(120,80,30,.5);
+    background-image:repeating-linear-gradient(#fffdf7,#fffdf7 31px,#e7d9bd 32px)}
+  .d4 .card::before{content:'';position:absolute;top:0;right:0;z-index:4;border-width:0 30px 30px 0;border-style:solid;border-color:#efe2c6 #f3e9d8 #f3e9d8 #efe2c6;box-shadow:-2px 2px 4px rgba(120,80,30,.18)}
+  .d4 .tape{position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-2.5deg);width:96px;height:26px;background:rgba(194,104,47,.18);border:1px solid rgba(194,104,47,.28);z-index:6}
+  .d4 .hero{border-bottom:2px solid #d8c8a4}
+  .d4 .pad{padding:18px 22px 24px}
+  .d4 .hand{font-family:'Caveat',cursive;color:#c2682f;font-size:24px}
+  .d4 h1{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:#6e3d18;margin:2px 0 14px;line-height:1.04}
+  .d4 .meta{display:flex;gap:8px;flex-wrap:wrap}
+  .d4 .meta div{background:#f6ead0;border:1px solid #e0cda3;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:600;color:#7a4a22}
+  .d4 .serv{display:flex;align-items:center;gap:14px;margin:16px 0}
+  .d4 .serv button{width:32px;height:32px;border:none;border-radius:50%;background:#c2682f;color:#fff;cursor:pointer;font-size:17px}
+  .d4 .serv b{color:#6e3d18}
+  .d4 .tabs{display:flex;gap:0;border-bottom:2px solid #d8c8a4}
+  .d4 .tabs button{flex:1;border:0;background:none;padding:10px;font-family:'Caveat',cursive;font-size:22px;color:#b89b6a;cursor:pointer}
+  .d4 .tabs button.on{color:#c2682f;border-bottom:3px solid #c2682f;margin-bottom:-2px}
+  .d4 .pane{padding-top:12px}
+  .d4 ul{list-style:none}
+  .d4 ul li{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:15px;color:#5b3a1d}
+  .d4 ul li input{accent-color:#c2682f}
+  .d4 ul li .c{margin-left:auto;color:#b08a5a;font-size:13px}
+  .d4 .note{margin-top:16px;background:#f6ead0;border-left:4px solid #c2682f;border-radius:0 8px 8px 0;padding:14px}
+  .d4 .note h4{font-family:'Caveat',cursive;font-size:22px;color:#c2682f}
+  .d4 .note p{font-size:14px;color:#6b4626}
+
+  /* =========================================================
+     05 — STACKED SHEETS (sticky tab sheet rises over hero)
+     ========================================================= */
+  .d5{background:#10231b;font-family:'Inter',sans-serif}
+  .d5 .heroWrap{position:relative}
+  .d5 .heroWrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,20,15,.55),transparent 48%);pointer-events:none}
+  .d5 .heroWrap .kick{position:absolute;left:18px;top:16px;z-index:2;color:#fff;font-size:11px;letter-spacing:.2em;text-transform:uppercase;background:rgba(0,0,0,.3);padding:4px 10px;border-radius:999px;backdrop-filter:blur(4px)}
+  .d5 .badge{position:absolute;right:16px;bottom:36px;z-index:2;background:var(--green);color:#06140e;font-weight:700;font-size:12px;padding:7px 13px;border-radius:999px;box-shadow:0 8px 18px -6px rgba(0,0,0,.6)}
+  .d5 .sheet{background:#fff;border-radius:26px 26px 0 0;margin-top:-26px;position:relative;padding:22px 20px 26px}
+  .d5 .grab{width:42px;height:5px;border-radius:3px;background:#dfe6e2;margin:0 auto 16px}
+  .d5 h1{font-size:27px;font-weight:800;letter-spacing:-.02em;color:#0e2018}
+  .d5 .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}
+  .d5 .meta div{background:#eef6f2;border-radius:14px;padding:13px 4px 11px;text-align:center}
+  .d5 .meta .e{display:grid;place-items:center;width:36px;height:36px;margin:0 auto 6px;border-radius:50%;background:#fff;font-size:17px;box-shadow:0 3px 8px -3px rgba(0,0,0,.18)}
+  .d5 .meta .t{font-size:11px;font-weight:700;margin-top:0;color:#1d5a42}
+  .d5 .serv{display:flex;justify-content:center;margin-bottom:16px}
+  .d5 .serv .pill{display:inline-flex;align-items:center;gap:16px;background:#0e2018;color:#fff;border-radius:999px;padding:6px 8px}
+  .d5 .serv button{width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;font-size:17px}
+  .d5 .tabs{display:flex;background:#eef6f2;border-radius:999px;padding:4px;margin-bottom:14px}
+  .d5 .tabs button{flex:1;border:0;background:none;padding:10px;border-radius:999px;font-weight:700;font-size:13px;color:#6a857a;cursor:pointer}
+  .d5 .tabs button.on{background:var(--green);color:#06140e}
+  .d5 ul{list-style:none}
+  .d5 ul li{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #eef1ef;font-size:15px}
+  .d5 ul li input{accent-color:var(--green)}
+  .d5 ul li .c{margin-left:auto;color:#9aa6a0;font-size:13px}
+  .d5 .note{margin-top:16px;background:#fbeef2;border-radius:16px;padding:16px}
+  .d5 .note h4{font-size:14px;margin-bottom:6px;color:#7a1f3a}
+  .d5 .note p{font-size:14px;color:#7a1f3a;opacity:.85}
+
+  /* =========================================================
+     06 — BLUEPRINT (technical spec sheet)
+     ========================================================= */
+  .d6{background:#0c2233;font-family:'IBM Plex Mono',monospace;color:#cfe6f5}
+  .d6 .inner{position:relative;border:1px solid #2a4a63;margin:0;
+    background-image:linear-gradient(rgba(127,212,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(127,212,255,.06) 1px,transparent 1px);background-size:19px 19px}
+  .d6 .top{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #2a4a63;font-size:10px;letter-spacing:.1em}
+  .d6 .top b{color:#7fd4ff}
+  .d6 .hero{filter:saturate(.8) brightness(.92)}
+  .d6 .pad{position:relative;padding:16px 14px}
+  .d6 .stamp{position:absolute;right:12px;top:14px;z-index:3;border:2px solid #7fd4ff;color:#7fd4ff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;letter-spacing:.12em;padding:4px 10px;border-radius:4px;transform:rotate(-9deg);opacity:.9}
+  .d6 h1{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#eaf6ff;letter-spacing:-.01em;margin-bottom:12px}
+  .d6 .meta{display:grid;grid-template-columns:1fr 1fr}
+  .d6 .meta div{border:1px solid #2a4a63;margin:-.5px;padding:9px 11px}
+  .d6 .meta .l{font-size:9px;color:#6c93ad;letter-spacing:.1em}
+  .d6 .meta .v{font-size:17px;color:#eaf6ff}
+  .d6 .serv{display:flex;justify-content:space-between;align-items:center;border:1px solid #2a4a63;margin-top:12px;padding:7px 12px}
+  .d6 .serv button{width:28px;height:28px;border:1px solid #7fd4ff;background:none;color:#7fd4ff;cursor:pointer}
+  .d6 .tabs{display:flex;margin-top:14px}
+  .d6 .tabs button{flex:1;border:1px solid #2a4a63;background:#0c2233;color:#cfe6f5;padding:9px;font-family:inherit;font-size:11px;letter-spacing:.06em;cursor:pointer}
+  .d6 .tabs button.on{background:#7fd4ff;color:#06202e}
+  .d6 .pane{border:1px solid #2a4a63;border-top:0}
+  .d6 ul{list-style:none}
+  .d6 ul li{display:flex;gap:10px;padding:8px 12px;border-bottom:1px dashed #234055;font-size:12.5px}
+  .d6 ul li .c{margin-left:auto;color:#6c93ad}
+  .d6 .note{border:1px solid #2a4a63;margin-top:12px;padding:12px}
+  .d6 .note h4{font-size:10px;color:#7fd4ff;letter-spacing:.1em;margin-bottom:6px}
+  .d6 .note p{font-size:12.5px;color:#acc8db}
+
+  /* =========================================================
+     07 — GALLERY SERIF (art-gallery wall label)
+     ========================================================= */
+  .d7{background:#f3f1ea;font-family:'Cormorant Garamond',serif}
+  .d7 .hero{margin:22px 22px 10px;width:auto;border:9px solid #fff;outline:1px solid #d8d2c4;box-shadow:0 18px 34px -20px rgba(0,0,0,.4)}
+  .d7 .placard{text-align:center;font-family:'Inter',sans-serif;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39e91;margin-bottom:14px}
+  .d7 .pad{padding:6px 26px 30px}
+  .d7 .kick{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#9a9588;font-family:'Inter',sans-serif}
+  .d7 h1{font-size:42px;font-weight:500;line-height:1.02;margin:10px 0 6px}
+  .d7 .dek{font-style:italic;color:#7a766b;font-size:16px;margin-bottom:18px}
+  .d7 .meta{display:flex;gap:26px;padding:16px 0;border-top:1px solid #e6e3d9;border-bottom:1px solid #e6e3d9}
+  .d7 .meta div .v{font-size:24px}.d7 .meta div .l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#a39e91;font-family:'Inter',sans-serif}
+  .d7 .serv{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid #e6e3d9}
+  .d7 .serv button{width:34px;height:34px;border:1px solid #2a2a2a;background:none;border-radius:50%;cursor:pointer;font-size:16px}
+  .d7 .tabs{display:flex;gap:26px;padding:18px 0 12px}
+  .d7 .tabs b{font-size:22px;cursor:pointer;padding-bottom:6px;border-bottom:1px solid transparent}
+  .d7 .tabs b.on{border-color:#2a2a2a}.d7 .tabs b.off{color:#bdb8aa}
+  .d7 ul{list-style:none}
+  .d7 ul li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #efece3;font-size:18px}
+  .d7 ul li input{accent-color:#2a2a2a}
+  .d7 ul li .c{margin-left:auto;font-size:14px;color:#a39e91;font-family:'Inter',sans-serif}
+  .d7 .note{position:relative;margin-top:18px;padding-left:30px}
+  .d7 .note::before{content:'\201C';position:absolute;left:-4px;top:-16px;font-family:'Cormorant Garamond',serif;font-size:64px;line-height:1;color:#ddd9cc}
+  .d7 .note h4{font-size:20px;margin-bottom:4px}
+  .d7 .note p{font-size:16px;font-style:italic;color:#6f6b60}
+
+  /* =========================================================
+     08 — NEON POSTER (bold display, color block hero)
+     ========================================================= */
+  .d8{background:#141414;font-family:'Syne',sans-serif;color:#f5f3ee}
+  .d8 .top{background:#d8f250;color:#141414;padding:16px 18px}
+  .d8 .top .kick{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+  .d8 .top h1{font-size:34px;font-weight:800;line-height:.96;margin-top:6px;letter-spacing:-.02em}
+  .d8 .hero{margin:0}
+  .d8 .meta{display:grid;grid-template-columns:repeat(4,1fr);background:#d8f250;color:#141414}
+  .d8 .meta div{padding:11px 6px;text-align:center;border-right:1.5px solid #141414}
+  .d8 .meta div:last-child{border:0}
+  .d8 .meta .v{font-size:18px;font-weight:800}.d8 .meta .l{font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+  .d8 .pad{padding:18px}
+  .d8 .serv{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .d8 .serv button{width:34px;height:34px;border:2px solid #d8f250;background:none;color:#d8f250;border-radius:50%;cursor:pointer;font-size:16px}
+  .d8 .tabs{display:flex;gap:8px;margin-bottom:14px}
+  .d8 .tabs button{flex:1;border:2px solid #d8f250;background:none;color:#d8f250;padding:10px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;border-radius:999px}
+  .d8 .tabs button.on{background:#d8f250;color:#141414}
+  .d8 ul{list-style:none}
+  .d8 ul li{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #2c2c2c;font-size:15px}
+  .d8 ul li input{accent-color:#d8f250}
+  .d8 ul li .c{margin-left:auto;color:#8f8f86;font-size:13px}
+  .d8 .note{margin-top:16px;border:2px solid #d8f250;border-radius:14px;padding:14px}
+  .d8 .note h4{color:#d8f250;font-size:14px;margin-bottom:6px}
+  .d8 .note p{font-size:14px;color:#cfccc3}
+
+  /* =========================================================
+     09 — MINIMAL MONO LINE (thin lines, lots of air, brand)
+     ========================================================= */
+  .d9{background:#fff;font-family:'Inter',sans-serif}
+  .d9 .hero{margin:0}
+  .d9 .pad{padding:24px 22px 28px}
+  .d9 .kick{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--green);font-weight:700}
+  .d9 h1{font-size:26px;font-weight:300;letter-spacing:-.01em;margin:8px 0 18px;color:#0e2018}
+  .d9 h1 b{font-weight:700}
+  .d9 .meta{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid #ececec;border-bottom:1px solid #ececec}
+  .d9 .meta div{text-align:center}.d9 .meta .v{font-size:18px;font-weight:600}.d9 .meta .l{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#aaa;margin-top:2px}
+  .d9 .serv{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  .d9 .serv span{font-size:13px;color:#888}
+  .d9 .serv button{width:30px;height:30px;border:1px solid #ddd;background:#fff;border-radius:50%;cursor:pointer}
+  .d9 .tabs{display:flex;gap:22px;border-bottom:1px solid #ececec;margin-bottom:14px}
+  .d9 .tabs b{font-size:13px;font-weight:600;letter-spacing:.04em;padding-bottom:12px;cursor:pointer;border-bottom:2px solid transparent;text-transform:uppercase}
+  .d9 .tabs b.on{border-color:var(--green)}.d9 .tabs b.off{color:#bbb}
+  .d9 ul{list-style:none}
+  .d9 ul li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f4f4f4;font-size:15px;color:#222}
+  .d9 ul li input{accent-color:var(--green)}
+  .d9 ul li .c{margin-left:auto;color:#bbb;font-size:13px}
+  .d9 .note{margin-top:18px;padding:16px 0;border-top:1px solid #ececec}
+  .d9 .note h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .d9 .note p{font-size:14px;color:#444}
+
+  /* =========================================================
+     10 — TICKET / RECEIPT (perforated, mono numerics)
+     ========================================================= */
+  .d10{background:#e9e6dd;font-family:'DM Mono',monospace;padding:18px}
+  .d10 .rcpt{background:#fffef9;border-radius:4px;overflow:hidden;box-shadow:0 12px 28px -16px rgba(0,0,0,.4);position:relative}
+  .d10 .rcpt::before,.d10 .rcpt::after{content:'';position:absolute;left:0;right:0;height:12px;background:radial-gradient(circle at 6px -2px,transparent 6px,#fffef9 6px) repeat-x;background-size:12px 12px}
+  .d10 .rcpt::before{top:-6px;transform:rotate(180deg)}
+  .d10 .rcpt::after{bottom:-6px}
+  .d10 .hero{margin:0;filter:grayscale(.1)}
+  .d10 .pad{padding:16px 18px 22px;text-align:center}
+  .d10 .store{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a8475}
+  .d10 h1{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;margin:6px 0;letter-spacing:-.01em}
+  .d10 .dashed{border-top:1.5px dashed #c9c3b3;margin:12px 0}
+  .d10 .meta{display:flex;justify-content:space-between;font-size:12px}
+  .d10 .meta div span{display:block;color:#a39d8d;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+  .d10 .serv{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin:6px 0}
+  .d10 .serv .st button{width:24px;height:24px;border:1px solid #111;background:none;cursor:pointer}
+  .d10 .tabs{display:flex;gap:8px;margin:10px 0}
+  .d10 .tabs button{flex:1;border:1px dashed #111;background:none;padding:8px;font-family:inherit;font-size:11px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+  .d10 .tabs button.on{background:#111;color:#fffef9}
+  .d10 ul{list-style:none;text-align:left}
+  .d10 ul li{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dotted #d8d2c2;font-size:12.5px}
+  .d10 ul li .nm{display:flex;gap:8px;align-items:center}
+  .d10 .note{text-align:left;margin-top:12px;font-size:12px;color:#5a544a}
+  .d10 .note h4{font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;text-align:center}
+  .d10 .barcode{height:38px;margin-top:14px;background:repeating-linear-gradient(90deg,#111 0 2px,transparent 2px 4px,#111 4px 5px,transparent 5px 9px)}
+
+  /* =========================================================
+     11 — FOLIO (book chapter, drop cap, footnotes)
+     ========================================================= */
+  .d11{background:#f6f2ea;font-family:'Newsreader',serif}
+  .d11 .hero{margin:0}
+  .d11 .pad{padding:24px 24px 28px}
+  .d11 .ch{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#a08a5e;font-family:'Inter',sans-serif}
+  .d11 h1{font-family:'Fraunces',serif;font-weight:500;font-size:36px;line-height:1.04;margin:8px 0 14px}
+  .d11 .dek{font-size:16px;color:#5e574a;font-style:italic;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #ddd4c3}
+  .d11 .meta{display:flex;gap:22px;margin-bottom:16px}
+  .d11 .meta div .v{font-size:22px}.d11 .meta div .l{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a39b88;font-family:'Inter',sans-serif}
+  .d11 .serv{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .d11 .serv button{width:30px;height:30px;border:1px solid #4a4334;background:none;border-radius:50%;cursor:pointer}
+  .d11 .tabs b.on{border-color:#a08a5e}
+  .d11 .pane{padding-top:14px}
+  .d11 ul{list-style:none}
+  .d11 ul li{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #e6ddcc;font-size:16px}
+  .d11 ul li input{accent-color:#a08a5e}
+  .d11 ul li .c{margin-left:auto;font-size:13px;color:#a39b88;font-family:'Inter',sans-serif}
+  .d11 .note{margin-top:18px;font-size:14px;color:#5e574a;border-top:1px solid #ddd4c3;padding-top:14px}
+  .d11 .note h4{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#a08a5e;margin-bottom:8px}
+
+  /* =========================================================
+     12 — SOFT POP (rounded, brand blocks, playful)
+     ========================================================= */
+  .d12{background:var(--paper);font-family:'Bricolage Grotesque',sans-serif;padding:0}
+  .d12 .hero{border-radius:0 0 30px 30px}
+  .d12 .pad{padding:20px}
+  .d12 h1{font-size:30px;font-weight:800;letter-spacing:-.02em;color:#0c1f17;margin-bottom:14px}
+  .d12 .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .d12 .meta div{border-radius:18px;padding:14px;display:flex;align-items:center;gap:10px;color:#06160f}
+  .d12 .meta div:nth-child(1){background:var(--green)}
+  .d12 .meta div:nth-child(2){background:var(--gold)}
+  .d12 .meta div:nth-child(3){background:var(--pink)}
+  .d12 .meta div:nth-child(4){background:#bfe8d7}
+  .d12 .meta .e{font-size:22px}.d12 .meta .v{font-weight:800;font-size:16px}.d12 .meta .l{font-size:11px;opacity:.7}
+  .d12 .serv{display:flex;justify-content:center;margin:18px 0}
+  .d12 .serv .pill{display:inline-flex;align-items:center;gap:16px;background:#0c1f17;color:#fff;border-radius:999px;padding:7px 9px}
+  .d12 .serv button{width:36px;height:36px;border:0;border-radius:50%;background:var(--gold);color:#fff;cursor:pointer;font-size:18px}
+  .d12 .tabs{display:flex;background:#e3efe9;border-radius:999px;padding:5px;margin-bottom:14px}
+  .d12 .tabs button{flex:1;border:0;background:none;padding:11px;border-radius:999px;font-family:inherit;font-weight:700;font-size:14px;color:#6a857a;cursor:pointer}
+  .d12 .tabs button.on{background:#fff;color:#0c1f17;box-shadow:0 4px 10px -4px rgba(0,0,0,.2)}
+  .d12 ul{list-style:none}
+  .d12 ul li{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid #e3efe9;font-size:16px}
+  .d12 ul li input{accent-color:var(--green);width:18px;height:18px}
+  .d12 ul li .c{margin-left:auto;color:#9aa6a0;font-size:13px}
+  .d12 .note{margin-top:16px;background:var(--pink);border-radius:22px;padding:18px}
+  .d12 .note h4{font-size:16px;margin-bottom:6px;color:#3c0f1d}
+  .d12 .note p{font-size:14px;color:#3c0f1d;opacity:.85}
+
+  /* =========================================================
+     13 — DUOTONE SPLIT (half-color header band)
+     ========================================================= */
+  .d13{font-family:'Archivo',sans-serif;background:#fff}
+  .d13 .band{background:#1d3a2e;color:#eafff6;padding:20px 18px 14px}
+  .d13 .band .kick{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+  .d13 .band h1{font-size:30px;font-weight:800;line-height:1;margin-top:6px;letter-spacing:-.02em}
+  .d13 .hero{margin:0}
+  .d13 .meta{display:grid;grid-template-columns:repeat(4,1fr);background:#1d3a2e;color:#eafff6}
+  .d13 .meta div{padding:11px 4px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+  .d13 .meta div:last-child{border:0}
+  .d13 .meta .v{font-size:18px;font-weight:700}.d13 .meta .l{font-size:9px;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+  .d13 .pad{padding:18px}
+  .d13 .serv{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .d13 .serv button{width:32px;height:32px;border:1px solid #1d3a2e;background:#fff;border-radius:8px;cursor:pointer;font-size:15px}
+  .d13 .tabs{display:flex;border:1px solid #1d3a2e;border-radius:10px;overflow:hidden;margin-bottom:14px}
+  .d13 .tabs button{flex:1;border:0;background:#fff;padding:11px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer}
+  .d13 .tabs button.on{background:#1d3a2e;color:#eafff6}
+  .d13 ul{list-style:none}
+  .d13 ul li{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #eee;font-size:15px}
+  .d13 ul li input{accent-color:#1d3a2e}
+  .d13 ul li .c{margin-left:auto;color:#9aa6a0;font-size:13px}
+  .d13 .note{margin-top:16px;background:#eef6f2;border-radius:14px;padding:16px}
+  .d13 .note h4{font-size:14px;margin-bottom:6px;color:#1d3a2e}
+  .d13 .note p{font-size:14px;color:#3a5247}
+
+  /* =========================================================
+     14 — TYPE-FORWARD (giant numerals, editorial brut hybrid)
+     ========================================================= */
+  .d14{background:#faf8f3;font-family:'Inter',sans-serif}
+  .d14 .pad{padding:20px}
+  .d14 .row1{display:flex;align-items:flex-end;justify-content:space-between}
+  .d14 .row1 .no{font-family:'Fraunces',serif;font-weight:900;font-size:64px;line-height:.8;color:#e4522e}
+  .d14 .row1 .cat{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#999;writing-mode:vertical-rl}
+  .d14 h1{font-family:'Fraunces',serif;font-size:34px;font-weight:600;line-height:1;margin:10px 0 16px;letter-spacing:-.02em}
+  .d14 .hero{border-radius:14px;margin-bottom:16px}
+  .d14 .meta{display:flex;justify-content:space-between;border-top:2px solid #14110d;border-bottom:2px solid #14110d;padding:12px 0}
+  .d14 .meta div .v{font-size:20px;font-weight:800}.d14 .meta div .l{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#999}
+  .d14 .serv{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .d14 .serv button{width:32px;height:32px;border:2px solid #14110d;background:none;border-radius:50%;cursor:pointer}
+  .d14 .tabs{display:flex;gap:18px;border-bottom:2px solid #14110d;margin-bottom:14px}
+  .d14 .tabs b{font-family:'Fraunces',serif;font-size:22px;cursor:pointer;padding-bottom:8px;border-bottom:3px solid transparent;margin-bottom:-2px}
+  .d14 .tabs b.on{border-color:#e4522e}.d14 .tabs b.off{color:#c4bdb0}
+  .d14 ul{list-style:none}
+  .d14 ul li{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #ece8de;font-size:15px}
+  .d14 ul li input{accent-color:#e4522e}
+  .d14 ul li .c{margin-left:auto;color:#a59b89;font-size:13px}
+  .d14 .note{margin-top:16px;border:2px solid #14110d;border-radius:14px;padding:16px}
+  .d14 .note h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+  .d14 .note p{font-size:14px;color:#5a544a}
+
+  /* =========================================================
+     15 — ZINE COLLAGE (tape, mixed type, cut-paper)
+     ========================================================= */
+  .d15{background:#efe9df;font-family:'Space Grotesk',sans-serif;padding:18px}
+  .d15 .sheet{background:#fffdf8;padding:18px;box-shadow:0 14px 32px -18px rgba(0,0,0,.4);position:relative}
+  .d15 .heroWrap{position:relative;transform:rotate(-1.4deg)}
+  .d15 .hero{border:5px solid #fff;box-shadow:0 8px 18px -8px rgba(0,0,0,.4)}
+  .d15 .tape{position:absolute;width:74px;height:22px;background:rgba(216,242,80,.7);top:-10px;left:50%;transform:translateX(-50%) rotate(-3deg);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+  .d15 .kick{display:inline-block;background:#14121f;color:#fff;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:3px 8px;margin-top:18px;transform:rotate(-1deg)}
+  .d15 h1{font-family:'Fraunces',serif;font-weight:900;font-size:32px;line-height:.98;margin:8px 0 14px;letter-spacing:-.02em}
+  .d15 .meta{display:flex;gap:8px;flex-wrap:wrap}
+  .d15 .meta div{background:#14121f;color:#fff;font-size:11px;font-weight:600;padding:6px 10px;transform:rotate(-1deg)}
+  .d15 .meta div:nth-child(even){background:#e4522e;transform:rotate(1.5deg)}
+  .d15 .serv{display:flex;align-items:center;gap:14px;margin:16px 0}
+  .d15 .serv button{width:30px;height:30px;border:2px solid #14121f;background:#d8f250;cursor:pointer;font-weight:700}
+  .d15 .tabs{display:flex;gap:10px;margin-bottom:12px}
+  .d15 .tabs button{flex:1;border:2px solid #14121f;background:#fffdf8;padding:9px;font-family:inherit;font-weight:700;font-size:12px;cursor:pointer;transform:rotate(-.6deg)}
+  .d15 .tabs button.on{background:#14121f;color:#fff}
+  .d15 ul{list-style:none}
+  .d15 ul li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1.5px dashed #cfc8bb;font-size:14px}
+  .d15 ul li input{accent-color:#e4522e}
+  .d15 ul li .c{margin-left:auto;font-size:12px;color:#8a8475}
+  .d15 .note{margin-top:14px;background:#fff7c9;padding:14px;transform:rotate(.6deg);border:1px solid #e8dca0}
+  .d15 .note h4{font-family:'Caveat',cursive;font-size:22px;color:#c2682f}
+  .d15 .note p{font-size:13.5px;color:#5a544a}
+
+  footer.foot{text-align:center;padding:44px 20px 80px;color:#5b6b64;font-size:13px}
+  footer.foot code{background:#dde6e2;padding:2px 7px;border-radius:5px}
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <h1>Recipe Page — 15 Fresh Concepts</h1>
+  <p>Original directions inspired by editorial, swiss-grid, brutalist and warm-kitchen styles — all reimagined as full recipe pages.</p>
+  <div class="req">Every concept keeps: <b>mobile-first</b> · <b>3:2 hero</b> · <b>tabbed Ingredients / Instructions</b> · metadata · serving stepper · costs · notes.</div>
+</header>
+
+<nav class="jump">
+  <a href="#d1">01 Broadsheet</a>
+  <a href="#d2">02 Grid System</a>
+  <a href="#d3">03 Riso Brutalist</a>
+  <a href="#d4">04 Recipe Card</a>
+  <a href="#d5">05 Stacked Sheet</a>
+  <a href="#d6">06 Blueprint</a>
+  <a href="#d7">07 Gallery Serif</a>
+  <a href="#d8">08 Neon Poster</a>
+  <a href="#d9">09 Mono Line</a>
+  <a href="#d10">10 Receipt</a>
+  <a href="#d11">11 Folio</a>
+  <a href="#d12">12 Soft Pop</a>
+  <a href="#d13">13 Duotone Split</a>
+  <a href="#d14">14 Type-Forward</a>
+  <a href="#d15">15 Zine Collage</a>
+</nav>
+
+<!-- 01 BROADSHEET -->
+<section class="wrap" id="d1">
+  <div class="label"><span class="num">01</span><h2>Broadsheet</h2><span>Newspaper editorial — masthead, deck, hairline rules, serif tabs.</span></div>
+  <div class="frame d1">
+    <div class="masthead"><span class="name">The Cookingbook</span><span class="date">No. 042 · Dinner</span></div>
+    <div class="kick">Pasta</div>
+    <h1>Marry Me Chicken Pasta</h1>
+    <p class="dek">Creamy, sun-dried tomato sauce worth a proposal.</p>
+    <div class="stars">★★★★★ <span>· a reader favourite</span></div>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <p class="figcap">Fig. 1 — finished with extra parmesan</p>
+    <div class="meta"><div><div class="v">35′</div><div class="l">Time</div></div><div><div class="v">4</div><div class="l">Serves</div></div><div><div class="v">2.40</div><div class="l">/Serv</div></div><div><div class="v">9.60</div><div class="l">Total</div></div></div>
+    <div class="serv-news"><b>4 servings</b><div class="st"><button>−</button>4<button>+</button></div></div>
+    <div class="tabs"><b class="on">Ingredients</b><b class="off">Method</b></div>
+    <div class="pane"><ul>
+      <li><span class="ck"></span>400 g chicken breast<span class="c">3.20</span></li>
+      <li><span class="ck"></span>300 g penne pasta<span class="c">0.90</span></li>
+      <li><span class="ck"></span>200 ml heavy cream<span class="c">1.10</span></li>
+      <li><span class="ck"></span>50 g sun-dried tomatoes<span class="c">1.40</span></li>
+    </ul></div>
+    <div class="note"><h4>From my kitchen</h4><p>Pull the sauce off heat a touch early — it thickens as it rests.</p></div>
+  </div>
+  <p class="cap-note">Tap a tab to swap Ingredients ⇄ Method (interaction mocked)</p>
+</section>
+
+<!-- 02 GRID SYSTEM -->
+<section class="wrap" id="d2">
+  <div class="label"><span class="num">02</span><h2>Grid System</h2><span>Strict swiss grid, oversized title, single red accent, boxed tabs.</span></div>
+  <div class="frame d2"><div class="inner">
+    <div class="wm">42</div>
+    <div class="bar"><span>Cookingbook</span><b>Pasta /042</b></div>
+    <h1>Marry Me Chicken Pasta</h1>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="meta"><div><div class="l">Time</div><div class="v">35′</div></div><div><div class="l">Serves</div><div class="v">4</div></div><div><div class="l">/Serv</div><div class="v">2.40</div></div><div><div class="l">Total</div><div class="v">9.60</div></div></div>
+    <div class="serv"><span>Servings</span><div><button>−</button> 4 <button>+</button></div></div>
+    <div class="tabs"><button class="on">Ingredients</button><button>Instructions</button></div>
+    <div class="pane"><ul>
+      <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+      <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+      <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+    </ul></div>
+    <div class="note"><h4>Notes</h4><p>Reserve a cup of starchy pasta water to loosen the sauce.</p></div>
+  </div></div>
+</section>
+
+<!-- 03 RISO BRUTALIST -->
+<section class="wrap" id="d3">
+  <div class="label"><span class="num">03</span><h2>Riso Brutalist</h2><span>Offset color shadows, hard outlines, playful but raw.</span></div>
+  <div class="frame d3"><div class="card">
+    <div class="stamp">tried &amp; true ★</div>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="pad">
+      <span class="tag">PASTA</span>
+      <h1>Marry Me Chicken Pasta</h1>
+      <div class="meta"><div>⏱️ 35 min</div><div>👥 4</div><div>💰 2.40/p</div><div>🧾 9.60</div></div>
+      <div class="serv"><span>Servings</span><div><button>−</button> 4 <button>+</button></div></div>
+      <div class="tabs"><button class="on">Ingredients</button><button>Method</button></div>
+      <div class="pane"><ul>
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml cream<span class="c">1.10</span></li>
+      </ul></div>
+      <div class="note"><h4>Notes</h4><p>Salt the water like the sea. Finish the sauce off the heat.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 04 RECIPE CARD -->
+<section class="wrap" id="d4">
+  <div class="label"><span class="num">04</span><h2>Recipe Card</h2><span>Warm kitchen index card — ruled paper, handwriting, cozy.</span></div>
+  <div class="frame d4"><div class="card">
+    <span class="tape"></span>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="pad">
+      <div class="hand">a family favourite ♥</div>
+      <h1>Marry Me Chicken Pasta</h1>
+      <div class="meta"><div>⏱️ 35 min</div><div>👥 4</div><div>💰 2.40/p</div><div>🧾 9.60</div></div>
+      <div class="serv"><button>−</button><b>4 servings</b><button>+</button></div>
+      <div class="tabs"><button class="on">Ingredients</button><button>Method</button></div>
+      <div class="pane"><ul>
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml cream<span class="c">1.10</span></li>
+      </ul></div>
+      <div class="note"><h4>my notes</h4><p>Even better the next day — leftovers are a gift.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 05 STACKED SHEET -->
+<section class="wrap" id="d5">
+  <div class="label"><span class="num">05</span><h2>Stacked Sheet</h2><span>Content sheet rises over the hero with a grab handle — app-like.</span></div>
+  <div class="frame d5">
+    <div class="heroWrap"><img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" /><span class="kick">Pasta · Dinner</span><span class="badge">⏱️ 35 min</span></div>
+    <div class="sheet">
+      <div class="grab"></div>
+      <h1>Marry Me Chicken Pasta</h1>
+      <div class="meta"><div><div class="e">⏱️</div><div class="t">35′</div></div><div><div class="e">👥</div><div class="t">4</div></div><div><div class="e">💰</div><div class="t">2.40</div></div><div><div class="e">🧾</div><div class="t">9.60</div></div></div>
+      <div class="serv"><div class="pill"><button>−</button> 4 servings <button>+</button></div></div>
+      <div class="tabs"><button class="on">Ingredients</button><button>Instructions</button></div>
+      <ul>
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+      </ul>
+      <div class="note"><h4>Personal notes</h4><p>Double the sauce — you'll want extra for bread.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 BLUEPRINT -->
+<section class="wrap" id="d6">
+  <div class="label"><span class="num">06</span><h2>Blueprint</h2><span>Technical spec sheet — mono labels, cyan on navy, drafting feel.</span></div>
+  <div class="frame d6"><div class="inner">
+    <div class="top"><span>SPEC // PASTA-042</span><b>REV 1.0</b></div>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="pad">
+      <div class="stamp">TESTED ✓</div>
+      <h1>Marry Me Chicken Pasta</h1>
+      <div class="meta"><div><div class="l">TIME</div><div class="v">35 MIN</div></div><div><div class="l">YIELD</div><div class="v">4 SRV</div></div><div><div class="l">UNIT COST</div><div class="v">2.40</div></div><div><div class="l">TOTAL</div><div class="v">9.60</div></div></div>
+      <div class="serv"><span>SERVINGS</span><div><button>−</button> 4 <button>+</button></div></div>
+      <div class="tabs"><button class="on">INGREDIENTS</button><button>PROCEDURE</button></div>
+      <div class="pane"><ul>
+        <li>400g chicken breast<span class="c">3.20</span></li>
+        <li>300g penne pasta<span class="c">0.90</span></li>
+        <li>200ml heavy cream<span class="c">1.10</span></li>
+      </ul></div>
+      <div class="note"><h4>// NOTES</h4><p>Deglaze with white wine before cream. Reduce 2 min.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 07 GALLERY SERIF -->
+<section class="wrap" id="d7">
+  <div class="label"><span class="num">07</span><h2>Gallery Serif</h2><span>Museum wall label — light, elegant Cormorant, lots of air.</span></div>
+  <div class="frame d7">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="placard">No. 042 · Cream &amp; Sun-dried Tomato</div>
+    <div class="pad">
+      <div class="kick">Pasta · 2024</div>
+      <h1>Marry Me Chicken Pasta</h1>
+      <p class="dek">Cream, garlic, sun-dried tomato.</p>
+      <div class="meta"><div><div class="v">35′</div><div class="l">Time</div></div><div><div class="v">4</div><div class="l">Serves</div></div><div><div class="v">2.40</div><div class="l">/Serv</div></div><div><div class="v">9.60</div><div class="l">Total</div></div></div>
+      <div class="serv"><span>4 servings</span><div><button>−</button> <button>+</button></div></div>
+      <div class="tabs"><b class="on">Ingredients</b><b class="off">Method</b></div>
+      <ul>
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+      </ul>
+      <div class="note"><h4>Personal notes</h4><p>The one everyone asks me to make again.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 NEON POSTER -->
+<section class="wrap" id="d8">
+  <div class="label"><span class="num">08</span><h2>Neon Poster</h2><span>Bold display type, acid-lime color block header, dark body.</span></div>
+  <div class="frame d8">
+    <div class="top"><div class="kick">Pasta · Dinner</div><h1>Marry Me Chicken Pasta</h1></div>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="meta"><div><div class="v">35′</div><div class="l">Time</div></div><div><div class="v">4</div><div class="l">Serves</div></div><div><div class="v">2.40</div><div class="l">/Serv</div></div><div><div class="v">9.60</div><div class="l">Total</div></div></div>
+    <div class="pad">
+      <div class="serv"><span>4 servings</span><div><button>−</button> <button>+</button></div></div>
+      <div class="tabs"><button class="on">Ingredients</button><button>Method</button></div>
+      <ul>
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+      </ul>
+      <div class="note"><h4>Notes</h4><p>Serve with crusty bread — that sauce deserves an audience.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 MONO LINE -->
+<section class="wrap" id="d9">
+  <div class="label"><span class="num">09</span><h2>Mono Line</h2><span>Ultra-minimal, thin hairlines, brand-green accent, calm.</span></div>
+  <div class="frame d9">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="pad">
+      <div class="kick">Pasta</div>
+      <h1>Marry Me <b>Chicken Pasta</b></h1>
+      <div class="meta"><div><div class="v">35′</div><div class="l">Time</div></div><div><div class="v">4</div><div class="l">Serves</div></div><div><div class="v">2.40</div><div class="l">/Serv</div></div><div><div class="v">9.60</div><div class="l">Total</div></div></div>
+      <div class="serv"><span>Servings</span><div><button>−</button> 4 <button>+</button></div></div>
+      <div class="tabs"><b class="on">Ingredients</b><b class="off">Instructions</b></div>
+      <ul>
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+      </ul>
+      <div class="note"><h4>Personal notes</h4><p>Quiet ingredients, loud results.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 RECEIPT -->
+<section class="wrap" id="d10">
+  <div class="label"><span class="num">10</span><h2>Receipt</h2><span>Perforated ticket, mono numerics, costs feel native here.</span></div>
+  <div class="frame d10"><div class="rcpt">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="pad">
+      <div class="store">Cookingbook · Pasta</div>
+      <h1>Marry Me Chicken Pasta</h1>
+      <div class="dashed"></div>
+      <div class="meta"><div><span>Time</span>35′</div><div><span>Serves</span>4</div><div><span>/Serv</span>2.40</div><div><span>Total</span>9.60</div></div>
+      <div class="dashed"></div>
+      <div class="serv"><span>SERVINGS</span><div class="st"><button>−</button> 4 <button>+</button></div></div>
+      <div class="tabs"><button class="on">Items</button><button>Steps</button></div>
+      <ul>
+        <li><span class="nm"><input type="checkbox">Chicken breast 400g</span><span>3.20</span></li>
+        <li><span class="nm"><input type="checkbox">Penne 300g</span><span>0.90</span></li>
+        <li><span class="nm"><input type="checkbox">Cream 200ml</span><span>1.10</span></li>
+      </ul>
+      <div class="dashed"></div>
+      <div class="note"><h4>Notes</h4><p>Keep the receipt — you'll be making this again.</p></div>
+      <div class="barcode"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 11 FOLIO -->
+<section class="wrap" id="d11">
+  <div class="label"><span class="num">11</span><h2>Folio</h2><span>Book chapter feel — Fraunces display, deck, footnote notes.</span></div>
+  <div class="frame d11">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="pad">
+      <div class="ch">Chapter · Pasta</div>
+      <h1>Marry Me Chicken Pasta</h1>
+      <p class="dek">A weeknight dish with a flair for the dramatic.</p>
+      <div class="meta"><div><div class="v">35′</div><div class="l">Time</div></div><div><div class="v">4</div><div class="l">Serves</div></div><div><div class="v">2.40</div><div class="l">/Serv</div></div><div><div class="v">9.60</div><div class="l">Total</div></div></div>
+      <div class="serv"><button>−</button><b>4 servings</b><button>+</button></div>
+      <div class="tabs"><b class="on">Ingredients</b><b class="off">Method</b></div>
+      <div class="pane"><ul>
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+      </ul></div>
+      <div class="note"><h4>Footnote</h4><p>Bronze-die pasta grips the sauce best.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 SOFT POP -->
+<section class="wrap" id="d12">
+  <div class="label"><span class="num">12</span><h2>Soft Pop</h2><span>Your palette in cheerful color blocks, pill tabs, friendly.</span></div>
+  <div class="frame d12">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="pad">
+      <h1>Marry Me Chicken Pasta</h1>
+      <div class="meta"><div><span class="e">⏱️</span><div><div class="v">35 min</div><div class="l">time</div></div></div><div><span class="e">👥</span><div><div class="v">4</div><div class="l">serves</div></div></div><div><span class="e">💰</span><div><div class="v">2.40</div><div class="l">/serv</div></div></div><div><span class="e">🧾</span><div><div class="v">9.60</div><div class="l">total</div></div></div></div>
+      <div class="serv"><div class="pill"><button>−</button> 4 servings <button>+</button></div></div>
+      <div class="tabs"><button class="on">Ingredients</button><button>Instructions</button></div>
+      <ul>
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+      </ul>
+      <div class="note"><h4>Personal notes</h4><p>The crowd-pleaser of the whole book.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 DUOTONE SPLIT -->
+<section class="wrap" id="d13">
+  <div class="label"><span class="num">13</span><h2>Duotone Split</h2><span>Deep-green header band wraps title + metadata around the hero.</span></div>
+  <div class="frame d13">
+    <div class="band"><div class="kick">Pasta · Dinner</div><h1>Marry Me Chicken Pasta</h1></div>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="meta"><div><div class="v">35′</div><div class="l">Time</div></div><div><div class="v">4</div><div class="l">Serves</div></div><div><div class="v">2.40</div><div class="l">/Serv</div></div><div><div class="v">9.60</div><div class="l">Total</div></div></div>
+    <div class="pad">
+      <div class="serv"><span>4 servings</span><div><button>−</button> <button>+</button></div></div>
+      <div class="tabs"><button class="on">Ingredients</button><button>Instructions</button></div>
+      <ul>
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+      </ul>
+      <div class="note"><h4>Personal notes</h4><p>A splash of pasta water makes the sauce silky.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 TYPE-FORWARD -->
+<section class="wrap" id="d14">
+  <div class="label"><span class="num">14</span><h2>Type-Forward</h2><span>Editorial + brutalist hybrid — giant numeral, heavy rules.</span></div>
+  <div class="frame d14"><div class="pad">
+    <div class="row1"><div class="no">42</div><div class="cat">Pasta</div></div>
+    <h1>Marry Me Chicken Pasta</h1>
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="meta"><div><div class="v">35′</div><div class="l">Time</div></div><div><div class="v">4</div><div class="l">Serves</div></div><div><div class="v">2.40</div><div class="l">/Serv</div></div><div><div class="v">9.60</div><div class="l">Total</div></div></div>
+    <div class="serv"><span>Servings</span><div><button>−</button> 4 <button>+</button></div></div>
+    <div class="tabs"><b class="on">Ingredients</b><b class="off">Method</b></div>
+    <ul>
+      <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+      <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+      <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+    </ul>
+    <div class="note"><h4>Notes</h4><p>Big flavor, small effort — the math checks out.</p></div>
+  </div></div>
+</section>
+
+<!-- 15 ZINE COLLAGE -->
+<section class="wrap" id="d15">
+  <div class="label"><span class="num">15</span><h2>Zine Collage</h2><span>Cut-paper, washi tape, mixed type — handmade & expressive.</span></div>
+  <div class="frame d15"><div class="sheet">
+    <div class="heroWrap"><span class="tape"></span><img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" /></div>
+    <span class="kick">Pasta · Dinner</span>
+    <h1>Marry Me Chicken Pasta</h1>
+    <div class="meta"><div>⏱️ 35 min</div><div>👥 4</div><div>💰 2.40/p</div><div>🧾 9.60</div></div>
+    <div class="serv"><button>−</button><b>4 servings</b><button>+</button></div>
+    <div class="tabs"><button class="on">Ingredients</button><button>Method</button></div>
+    <ul>
+      <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+      <li><input type="checkbox">300 g penne<span class="c">0.90</span></li>
+      <li><input type="checkbox">200 ml cream<span class="c">1.10</span></li>
+    </ul>
+    <div class="note"><h4>my notes</h4><p>Make it yours — scribble, smudge, repeat.</p></div>
+  </div></div>
+</section>
+
+<footer class="foot">
+  15 original directions · all mobile-first, 3:2 hero, tabbed Ingredients/Instructions · tell me number(s) and I'll build it into the real <code>RecipePage.tsx</code>.
+</footer>
+
+</body>
+</html>

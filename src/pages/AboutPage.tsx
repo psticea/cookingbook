@@ -80,14 +80,10 @@ const AboutPage: React.FC = () => {
   }, [language, theme]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-surface-light dark:bg-surface-dark">
+    <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
       <Header onMenuToggle={handleMenuToggle} />
 
-      {/* Side Menu */}
-      <SideMenu
-        isOpen={isSideMenuOpen}
-        onClose={handleMenuClose}
-      >
+      <SideMenu isOpen={isSideMenuOpen} onClose={handleMenuClose}>
         <FiltersSection
           selectedKeywords={selectedKeywords}
           onKeywordsChange={handleKeywordsChange}
@@ -96,49 +92,64 @@ const AboutPage: React.FC = () => {
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
 
-      <main className="flex-1 w-full max-w-4xl mx-auto px-5 pt-6 pb-8 space-y-6">
-        {/* Page Title */}
-        <h1 className="text-3xl font-bold text-text-main-light dark:text-text-main-dark tracking-tight">
-          {getTranslation('aboutTitle', language)}
-        </h1>
+      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-5 pt-5 pb-8 space-y-4">
+        {/* Intro overlay card */}
+        <section className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6">
+          <span className="inline-block bg-brand-warm text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
+            {getTranslation('about', language)}
+          </span>
+          <h1 className="font-display text-2xl sm:text-3xl font-bold text-ink-light dark:text-ink-dark mt-3 mb-1.5 tracking-tight">
+            {getTranslation('aboutTitle', language)}
+          </h1>
+          <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark">
+            {language === 'ro'
+              ? 'Bun venit pe colecția mea de rețete — fără reclame, doar mâncare bună.'
+              : "Welcome to my recipe collection — no ads, just food."}
+          </p>
+        </section>
 
-        {/* Content Card */}
-        <div className="border border-gray-200 dark:border-zinc-700 rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 shadow-sm">
-          <div className="p-5 space-y-3 text-base leading-relaxed text-text-main-light dark:text-text-main-dark">
-            {language === 'ro' ? (
-              <>
-                <p>Salut!</p>
-                <p>Bine ai venit pe site-ul meu cu rețete.</p>
-                <p>Aici o să găsești rețetele mele preferate în română și engleză.</p>
-                <p>Nu sunt reclame, pop-up-uri sau trackere, doar rețete grozave.</p>
-                <p>Multe rețetele sunt preluate de pe alte website-uri, dar cu ingrediente și instrucțiuni ajustate în funcție de preferințele mele. Pentru fiecare rețetă preluată vei găsi și link-ul în notele rețetei.</p>
-                <p>Spor la gătit!</p>
-                <p className="font-semibold">Paul Sticea<br />psticea@gmail.com</p>
-              </>
-            ) : (
-              <>
-                <p>Hello!</p>
-                <p>Welcome to my recipe website.</p>
-                <p>Here you'll find my favorite recipes in both English and Romanian.</p>
-                <p>No ads, no pop-ups, no trackers, just great recipes.</p>
-                <p>Many recipes are adapted from other websites, but with ingredients and instructions adjusted according to my preferences. For each adapted recipe, you'll find the link in the recipe notes.</p>
-                <p>Happy cooking!</p>
-                <p className="font-semibold">Paul Sticea<br />psticea@gmail.com</p>
-              </>
-            )}
-          </div>
-        </div>
+        {/* Author content card */}
+        <article className="bg-card-light dark:bg-card-dark rounded-2xl px-5 py-5 sm:px-6 sm:py-6 shadow-card space-y-2.5 text-sm sm:text-base leading-relaxed text-ink-light dark:text-ink-dark">
+          {language === 'ro' ? (
+            <>
+              <p>Salut!</p>
+              <p>Bine ai venit pe site-ul meu cu rețete.</p>
+              <p>Aici o să găsești rețetele mele preferate în română și engleză.</p>
+              <p>Nu sunt reclame, pop-up-uri sau trackere, doar rețete grozave.</p>
+              <p>Multe rețetele sunt preluate de pe alte website-uri, dar cu ingrediente și instrucțiuni ajustate în funcție de preferințele mele. Pentru fiecare rețetă preluată vei găsi și link-ul în notele rețetei.</p>
+              <p>Spor la gătit!</p>
+              <p className="pt-2 font-display font-bold">
+                Paul Sticea
+                <br />
+                <span className="font-normal text-ink-muted-light dark:text-ink-muted-dark">psticea@gmail.com</span>
+              </p>
+            </>
+          ) : (
+            <>
+              <p>Hello!</p>
+              <p>Welcome to my recipe website.</p>
+              <p>Here you'll find my favorite recipes in both English and Romanian.</p>
+              <p>No ads, no pop-ups, no trackers, just great recipes.</p>
+              <p>Many recipes are adapted from other websites, but with ingredients and instructions adjusted according to my preferences. For each adapted recipe, you'll find the link in the recipe notes.</p>
+              <p>Happy cooking!</p>
+              <p className="pt-2 font-display font-bold">
+                Paul Sticea
+                <br />
+                <span className="font-normal text-ink-muted-light dark:text-ink-muted-dark">psticea@gmail.com</span>
+              </p>
+            </>
+          )}
+        </article>
 
-        {/* Comments Card */}
-        <div className="border border-gray-200 dark:border-zinc-700 rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 shadow-sm">
-          <div className="bg-accent-light dark:bg-accent-dark px-5 py-3.5">
-            <h2 className="text-center font-bold text-white">
-              {language === 'ro' ? 'Comentarii' : 'Comments'}
-            </h2>
-          </div>
+        {/* Comments card */}
+        <section className="bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-card">
+          <header className="bg-brand-accent text-white text-center py-3.5 font-display font-bold text-sm tracking-[0.04em]">
+            💬 {language === 'ro' ? 'Comentarii' : 'Comments'}
+          </header>
           <div className="p-5" ref={giscusRef} />
-        </div>
+        </section>
       </main>
+
       <Footer />
     </div>
   );

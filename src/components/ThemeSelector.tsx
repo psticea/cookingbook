@@ -18,31 +18,30 @@ export const ThemeSelector: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center gap-2">
-      <button
-        onClick={() => handleThemeChange('dark')}
-        className={`min-w-[44px] min-h-[44px] px-3 py-2 text-base rounded transition-colors ${
-          theme === 'dark'
-            ? 'bg-accent-light dark:bg-accent-dark text-white font-semibold'
-            : 'hover:bg-secondary-light dark:hover:bg-secondary-dark'
-        }`}
-        aria-label={getTranslation('dark', language)}
-        aria-pressed={theme === 'dark'}
-      >
-        {getTranslation('dark', language)}
-      </button>
-      <span className="text-base opacity-50">|</span>
+    <div className="inline-flex items-center bg-card-2-light dark:bg-card-2-dark rounded-full p-1 border border-line-light dark:border-line-dark">
       <button
         onClick={() => handleThemeChange('light')}
-        className={`min-w-[44px] min-h-[44px] px-3 py-2 text-base rounded transition-colors ${
+        className={`min-w-[44px] min-h-[36px] px-3 py-1 text-sm font-semibold rounded-full transition-colors ${
           theme === 'light'
-            ? 'bg-accent-light dark:bg-accent-dark text-white font-semibold'
-            : 'hover:bg-secondary-light dark:hover:bg-secondary-dark'
+            ? 'bg-brand-accent text-white'
+            : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
         }`}
         aria-label={getTranslation('light', language)}
         aria-pressed={theme === 'light'}
       >
-        {getTranslation('light', language)}
+        ☀️
+      </button>
+      <button
+        onClick={() => handleThemeChange('dark')}
+        className={`min-w-[44px] min-h-[36px] px-3 py-1 text-sm font-semibold rounded-full transition-colors ${
+          theme === 'dark'
+            ? 'bg-brand-accent text-white'
+            : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
+        }`}
+        aria-label={getTranslation('dark', language)}
+        aria-pressed={theme === 'dark'}
+      >
+        🌙
       </button>
     </div>
   );

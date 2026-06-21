@@ -43,18 +43,18 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         </svg>
       </div>
 
-      {/* Text input - touch-friendly height on mobile */}
+      {/* Text input — pill-style on light & dark cards */}
       <input
         type="text"
         value={searchQuery}
         onChange={(e) => onSearchChange(e.target.value)}
         placeholder={placeholder}
-        className="block w-full pl-8 sm:pl-9 pr-10 sm:pr-11 py-2.5 sm:py-2 text-base 
-                   border border-gray-300 dark:border-gray-600 rounded-lg 
-                   bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
-                   placeholder-gray-400 dark:placeholder-gray-500
-                   focus:outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark focus:border-transparent
-                   transition-colors min-h-[44px] sm:min-h-0"
+        className="block w-full pl-9 sm:pl-10 pr-10 sm:pr-11 py-2.5 text-sm sm:text-base
+                   border border-line-light dark:border-line-dark rounded-full
+                   bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark
+                   placeholder-ink-soft-light dark:placeholder-ink-soft-dark
+                   focus:outline-none focus:ring-2 focus:ring-brand-accent dark:focus:ring-brand-accent-bright focus:border-transparent
+                   transition-colors min-h-[44px]"
         aria-label={placeholder}
       />
 

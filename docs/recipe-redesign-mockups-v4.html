@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recipe Page — 10 Modern Redesign Mockups (v4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --brand-yellow: #f5cb5c;
+    --brand-accent: #4f772d;
+    --brand-warm: #e07a5f;
+    --brand-pink: #e198ac;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #f0f2f5;
+    color: #111;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+
+  /* Page chrome */
+  .page-head {
+    text-align: center;
+    padding: 56px 20px 28px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+  }
+  .page-head h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(26px, 5vw, 42px); font-weight: 700; letter-spacing: -0.02em; }
+  .page-head p { opacity: .7; margin-top: 10px; font-size: 15px; max-width: 600px; margin-inline: auto; }
+
+  /* sticky jump nav */
+  nav.jump {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+    padding: 12px 14px;
+    background: rgba(26,26,46,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  nav.jump a {
+    color: #d7e6df; text-decoration: none; font-size: 12px; font-weight: 600;
+    padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.14);
+    transition: .2s;
+  }
+  nav.jump a:hover { background: var(--brand-yellow); color: #111; border-color: transparent; }
+
+  .mock-wrap { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+  .mock-label {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    margin: 0 auto 24px; max-width: 420px; text-align: left;
+  }
+  .mock-label .num {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px;
+    color: #fff; background: #1a1a2e; width: 30px; height: 30px; border-radius: 50%;
+    display: grid; place-items: center; flex: none;
+  }
+  .mock-label h2 { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+  .mock-label span { font-size: 13px; color: #666; }
+
+  /* phone frame */
+  .frame {
+    max-width: 420px; margin: 0 auto;
+    border-radius: 36px; overflow: hidden;
+    box-shadow: 0 30px 80px -25px rgba(0,0,0,.35), 0 0 0 1px rgba(0,0,0,.05);
+    background: #fff;
+  }
+  .hero { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+
+  /* ============================================================
+     1. STICKY BOTTOM BAR
+     Modern app-like with sticky action bar at bottom
+     ============================================================ */
+  .m1 { background: #fafafa; font-family: 'Plus Jakarta Sans', sans-serif; position: relative; }
+  .m1 .hero { aspect-ratio: 4/3; }
+  .m1 .body { padding: 20px 20px 90px; }
+  .m1 .cat { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brand-accent); }
+  .m1 h1.title { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 6px 0 16px; letter-spacing: -.02em; }
+  .m1 .stats { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+  .m1 .stats div { flex: none; background: #fff; border: 1.5px solid #e8e8e8; border-radius: 14px; padding: 12px 16px; min-width: 80px; text-align: center; }
+  .m1 .stats .v { font-size: 20px; font-weight: 800; color: #111; }
+  .m1 .stats .l { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: #888; margin-top: 2px; }
+  .m1 .sec-h { font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #444; margin: 24px 0 12px; display: flex; align-items: center; gap: 10px; }
+  .m1 .sec-h::after { content: ''; flex: 1; height: 1px; background: #e0e0e0; }
+  .m1 .ing label { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-size: 15px; }
+  .m1 .ing input { width: 20px; height: 20px; accent-color: var(--brand-accent); }
+  .m1 .ing .cost { margin-left: auto; color: #aaa; font-size: 13px; font-weight: 500; }
+  .m1 ol.steps { counter-reset: s; list-style: none; }
+  .m1 ol.steps li { counter-increment: s; display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; line-height: 1.5; }
+  .m1 ol.steps li::before { content: counter(s); flex: none; width: 28px; height: 28px; border-radius: 8px; background: var(--brand-yellow); color: #111; font-weight: 700; font-size: 13px; display: grid; place-items: center; }
+  .m1 .note { margin-top: 20px; background: linear-gradient(135deg, #fef9e7 0%, #fdf6e3 100%); border-radius: 16px; padding: 18px; border-left: 4px solid var(--brand-yellow); }
+  .m1 .note h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .m1 .note p { font-size: 14px; color: #555; }
+  .m1 .bottom-bar { position: absolute; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #eee; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+  .m1 .bottom-bar .stepper { display: flex; align-items: center; gap: 12px; background: #f5f5f5; border-radius: 999px; padding: 4px; }
+  .m1 .bottom-bar button { width: 36px; height: 36px; border: none; border-radius: 50%; background: var(--brand-accent); color: #fff; font-size: 18px; cursor: pointer; }
+  .m1 .bottom-bar .count { font-weight: 700; padding: 0 8px; }
+  .m1 .bottom-bar .total { text-align: right; }
+  .m1 .bottom-bar .total .price { font-size: 22px; font-weight: 800; color: var(--brand-accent); }
+  .m1 .bottom-bar .total .lbl { font-size: 11px; color: #888; }
+
+  /* ============================================================
+     2. CARD STACK
+     Overlapping cards with depth and shadow
+     ============================================================ */
+  .m2 { background: #f8f6f3; font-family: 'Outfit', sans-serif; overflow: visible; }
+  .m2 .hero-wrap { position: relative; }
+  .m2 .hero { aspect-ratio: 16/9; }
+  .m2 .overlay-card { position: relative; margin: -40px 16px 0; background: #fff; border-radius: 24px; padding: 24px 20px; box-shadow: 0 20px 50px -20px rgba(0,0,0,.2); z-index: 2; }
+  .m2 .cat { display: inline-block; background: var(--brand-warm); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
+  .m2 h1.title { font-size: 26px; font-weight: 700; margin: 12px 0 18px; line-height: 1.15; }
+  .m2 .meta-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .m2 .meta-chips div { display: flex; align-items: center; gap: 6px; background: #fafafa; border-radius: 10px; padding: 8px 12px; font-size: 13px; font-weight: 600; }
+  .m2 .meta-chips .icon { font-size: 16px; }
+  .m2 .body { padding: 20px 20px 28px; }
+  .m2 .serv-row { display: flex; align-items: center; justify-content: space-between; background: linear-gradient(90deg, var(--brand-yellow) 0%, #fde68a 100%); border-radius: 16px; padding: 14px 18px; margin-bottom: 20px; }
+  .m2 .serv-row span { font-weight: 600; }
+  .m2 .serv-row .stepper { display: flex; align-items: center; gap: 14px; }
+  .m2 .serv-row button { width: 32px; height: 32px; border: none; border-radius: 8px; background: #fff; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+  .m2 .tabs { display: flex; gap: 4px; background: #f0f0f0; border-radius: 12px; padding: 4px; margin-bottom: 16px; }
+  .m2 .tabs button { flex: 1; border: none; padding: 12px; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer; background: transparent; color: #666; }
+  .m2 .tabs button.on { background: #fff; color: #111; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .m2 .ing label { display: flex; align-items: center; gap: 12px; padding: 12px; margin-bottom: 8px; background: #fafafa; border-radius: 12px; font-size: 14px; }
+  .m2 .ing input { width: 18px; height: 18px; accent-color: var(--brand-warm); }
+  .m2 .ing .cost { margin-left: auto; color: #999; font-size: 13px; }
+  .m2 .note { background: #fff5f5; border-radius: 16px; padding: 18px; border: 1px dashed var(--brand-warm); }
+  .m2 .note h4 { color: var(--brand-warm); font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .m2 .note p { font-size: 14px; color: #666; }
+
+  /* ============================================================
+     3. FULL BLEED IMMERSIVE
+     Hero extends behind content with gradient fade
+     ============================================================ */
+  .m3 { background: #111; font-family: 'Sora', sans-serif; color: #fff; position: relative; }
+  .m3 .hero-full { position: relative; }
+  .m3 .hero-full img { aspect-ratio: 3/4; object-fit: cover; width: 100%; }
+  .m3 .hero-full::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, #111 100%); }
+  .m3 .content { position: relative; margin-top: -120px; z-index: 2; padding: 0 20px 30px; }
+  .m3 .cat { font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--brand-yellow); }
+  .m3 h1.title { font-size: 30px; font-weight: 700; margin: 8px 0 20px; line-height: 1.1; }
+  .m3 .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
+  .m3 .stats-bar div { background: rgba(255,255,255,.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 14px 8px; text-align: center; }
+  .m3 .stats-bar .v { font-size: 18px; font-weight: 700; }
+  .m3 .stats-bar .l { font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-top: 4px; }
+  .m3 .serv { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 24px; }
+  .m3 .serv button { width: 44px; height: 44px; border: 2px solid var(--brand-yellow); border-radius: 50%; background: transparent; color: var(--brand-yellow); font-size: 20px; cursor: pointer; }
+  .m3 .serv .count { font-size: 18px; font-weight: 600; }
+  .m3 .section { background: rgba(255,255,255,.05); border-radius: 20px; padding: 20px; margin-bottom: 16px; }
+  .m3 .section h3 { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brand-yellow); margin-bottom: 14px; }
+  .m3 .ing label { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 14px; }
+  .m3 .ing label:last-child { border-bottom: none; }
+  .m3 .ing input { width: 18px; height: 18px; accent-color: var(--brand-yellow); }
+  .m3 .ing .cost { margin-left: auto; color: rgba(255,255,255,.4); font-size: 13px; }
+  .m3 ol.steps { counter-reset: s; list-style: none; }
+  .m3 ol.steps li { counter-increment: s; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 14px; }
+  .m3 ol.steps li:last-child { border-bottom: none; }
+  .m3 ol.steps li::before { content: counter(s, decimal-leading-zero) '. '; color: var(--brand-yellow); font-weight: 700; }
+  .m3 .note { background: rgba(245,203,92,.1); border: 1px solid rgba(245,203,92,.3); border-radius: 16px; padding: 18px; }
+  .m3 .note h4 { color: var(--brand-yellow); font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .m3 .note p { font-size: 14px; color: rgba(255,255,255,.7); }
+
+  /* ============================================================
+     4. PILL NAVIGATION
+     Horizontal pill tabs, compact info density
+     ============================================================ */
+  .m4 { background: #fff; font-family: 'Manrope', sans-serif; }
+  .m4 .hero { aspect-ratio: 16/9; border-radius: 0 0 32px 32px; }
+  .m4 .body { padding: 20px; }
+  .m4 h1.title { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
+  .m4 .cat { font-size: 13px; color: #888; margin-bottom: 16px; }
+  .m4 .pills { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 18px; }
+  .m4 .pills div { flex: none; display: flex; align-items: center; gap: 6px; background: #f5f5f5; border-radius: 999px; padding: 10px 16px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+  .m4 .pills div.active { background: var(--brand-accent); color: #fff; }
+  .m4 .pills .icon { font-size: 14px; }
+  .m4 .serv-compact { display: flex; align-items: center; justify-content: space-between; background: #fafafa; border-radius: 16px; padding: 12px 16px; margin-bottom: 20px; }
+  .m4 .serv-compact .label { font-size: 13px; color: #666; }
+  .m4 .serv-compact .stepper { display: flex; align-items: center; gap: 10px; }
+  .m4 .serv-compact button { width: 32px; height: 32px; border: none; border-radius: 10px; background: var(--brand-accent); color: #fff; font-size: 16px; cursor: pointer; }
+  .m4 .serv-compact .val { font-weight: 800; font-size: 16px; min-width: 50px; text-align: center; }
+  .m4 .nav-tabs { display: flex; border-bottom: 2px solid #f0f0f0; margin-bottom: 16px; }
+  .m4 .nav-tabs button { flex: 1; border: none; background: none; padding: 12px; font-weight: 700; font-size: 14px; color: #bbb; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+  .m4 .nav-tabs button.on { color: var(--brand-accent); border-color: var(--brand-accent); }
+  .m4 .ing label { display: flex; align-items: center; gap: 10px; padding: 11px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+  .m4 .ing input { width: 18px; height: 18px; accent-color: var(--brand-accent); }
+  .m4 .ing .cost { margin-left: auto; color: #bbb; font-size: 12px; }
+  .m4 .note { margin-top: 18px; background: #f0fff4; border-radius: 14px; padding: 16px; }
+  .m4 .note h4 { font-size: 12px; font-weight: 700; color: var(--brand-accent); margin-bottom: 6px; }
+  .m4 .note p { font-size: 13px; color: #555; }
+
+  /* ============================================================
+     5. FLOATING STATS
+     Stats float over image, clean card-based layout
+     ============================================================ */
+  .m5 { background: #fff; font-family: 'DM Sans', sans-serif; }
+  .m5 .hero-section { position: relative; }
+  .m5 .hero { aspect-ratio: 4/3; }
+  .m5 .float-stats { position: absolute; bottom: -28px; left: 16px; right: 16px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; z-index: 2; }
+  .m5 .float-stats div { background: #fff; border-radius: 14px; padding: 12px 6px; text-align: center; box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+  .m5 .float-stats .v { font-size: 18px; font-weight: 700; }
+  .m5 .float-stats .l { font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: #999; margin-top: 2px; }
+  .m5 .body { padding: 44px 20px 28px; }
+  .m5 h1.title { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+  .m5 .cat { font-size: 12px; color: #888; margin-bottom: 20px; }
+  .m5 .serv { display: flex; align-items: center; gap: 16px; background: linear-gradient(90deg, #fef3c7 0%, #fde68a 100%); border-radius: 14px; padding: 14px 18px; margin-bottom: 22px; }
+  .m5 .serv .lbl { font-size: 13px; font-weight: 500; }
+  .m5 .serv .stepper { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+  .m5 .serv button { width: 34px; height: 34px; border: none; border-radius: 10px; background: #fff; font-size: 18px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,.1); }
+  .m5 .serv .count { font-weight: 700; font-size: 16px; }
+  .m5 .card { background: #fafafa; border-radius: 18px; padding: 18px; margin-bottom: 14px; }
+  .m5 .card h3 { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #666; margin-bottom: 14px; }
+  .m5 .ing label { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .m5 .ing label:last-child { border-bottom: none; }
+  .m5 .ing input { width: 18px; height: 18px; accent-color: var(--brand-accent); }
+  .m5 .ing .cost { margin-left: auto; color: #aaa; font-size: 12px; }
+  .m5 ol.steps { counter-reset: s; list-style: none; }
+  .m5 ol.steps li { counter-increment: s; display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .m5 ol.steps li:last-child { border-bottom: none; }
+  .m5 ol.steps li::before { content: counter(s); flex: none; width: 24px; height: 24px; border-radius: 6px; background: var(--brand-accent); color: #fff; font-weight: 700; font-size: 12px; display: grid; place-items: center; }
+  .m5 .note { background: #fff7ed; border-radius: 14px; padding: 16px; border-left: 4px solid var(--brand-warm); }
+  .m5 .note h4 { font-size: 12px; font-weight: 700; color: var(--brand-warm); margin-bottom: 6px; }
+  .m5 .note p { font-size: 13px; color: #666; }
+
+  /* ============================================================
+     6. PROGRESSIVE DISCLOSURE
+     Accordion sections, reveals content on tap
+     ============================================================ */
+  .m6 { background: #fafafa; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .m6 .hero { aspect-ratio: 3/2; }
+  .m6 .body { padding: 20px 20px 28px; }
+  .m6 .header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 18px; }
+  .m6 h1.title { font-size: 24px; font-weight: 800; line-height: 1.15; flex: 1; }
+  .m6 .price-badge { background: var(--brand-accent); color: #fff; border-radius: 12px; padding: 10px 14px; text-align: center; margin-left: 12px; }
+  .m6 .price-badge .v { font-size: 20px; font-weight: 800; }
+  .m6 .price-badge .l { font-size: 9px; letter-spacing: .06em; text-transform: uppercase; opacity: .8; }
+  .m6 .quick-stats { display: flex; gap: 16px; margin-bottom: 20px; }
+  .m6 .quick-stats div { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #666; }
+  .m6 .quick-stats .icon { font-size: 16px; }
+  .m6 .serv { display: flex; align-items: center; gap: 14px; background: #fff; border: 1.5px solid #e8e8e8; border-radius: 14px; padding: 12px 16px; margin-bottom: 18px; }
+  .m6 .serv .lbl { font-size: 13px; color: #666; flex: 1; }
+  .m6 .serv button { width: 34px; height: 34px; border: none; border-radius: 10px; background: #f0f0f0; font-size: 16px; cursor: pointer; }
+  .m6 .serv button:last-child { background: var(--brand-accent); color: #fff; }
+  .m6 .serv .count { font-weight: 700; min-width: 30px; text-align: center; }
+  .m6 .accordion { border: 1.5px solid #e8e8e8; border-radius: 16px; overflow: hidden; background: #fff; margin-bottom: 12px; }
+  .m6 .accordion-head { display: flex; align-items: center; justify-content: space-between; padding: 16px; cursor: pointer; }
+  .m6 .accordion-head h3 { font-size: 14px; font-weight: 700; }
+  .m6 .accordion-head .arrow { font-size: 18px; color: #999; transform: rotate(90deg); }
+  .m6 .accordion-head.open .arrow { transform: rotate(-90deg); }
+  .m6 .accordion-body { padding: 0 16px 16px; border-top: 1px solid #f0f0f0; }
+  .m6 .ing label { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+  .m6 .ing label:last-child { border-bottom: none; }
+  .m6 .ing input { width: 18px; height: 18px; accent-color: var(--brand-accent); }
+  .m6 .ing .cost { margin-left: auto; color: #aaa; font-size: 12px; }
+  .m6 ol.steps { counter-reset: s; list-style: none; }
+  .m6 ol.steps li { counter-increment: s; padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+  .m6 ol.steps li:last-child { border-bottom: none; }
+  .m6 ol.steps li::before { content: 'Step ' counter(s) ': '; font-weight: 700; color: var(--brand-accent); }
+  .m6 .note-box { background: #fffbeb; border-radius: 14px; padding: 16px; }
+  .m6 .note-box h4 { font-size: 12px; font-weight: 700; color: #92400e; margin-bottom: 6px; }
+  .m6 .note-box p { font-size: 13px; color: #78350f; }
+
+  /* ============================================================
+     7. SPLIT HERO
+     Half image, half content side by side on scroll
+     ============================================================ */
+  .m7 { background: #fff; font-family: 'Outfit', sans-serif; }
+  .m7 .split { display: grid; grid-template-columns: 1fr 1fr; }
+  .m7 .split .img-half img { width: 100%; height: 100%; object-fit: cover; min-height: 200px; }
+  .m7 .split .content-half { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+  .m7 .cat { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brand-warm); }
+  .m7 h1.title { font-size: 20px; font-weight: 700; margin: 6px 0 12px; line-height: 1.2; }
+  .m7 .meta-line { display: flex; gap: 12px; flex-wrap: wrap; }
+  .m7 .meta-line div { font-size: 12px; color: #666; }
+  .m7 .meta-line .val { font-weight: 700; color: #111; }
+  .m7 .body { padding: 20px; }
+  .m7 .serv { display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 14px; padding: 14px 18px; margin-bottom: 20px; }
+  .m7 .serv span { font-weight: 600; font-size: 14px; }
+  .m7 .serv .stepper { display: flex; align-items: center; gap: 12px; }
+  .m7 .serv button { width: 32px; height: 32px; border: none; border-radius: 8px; background: #fff; font-size: 16px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,.1); }
+  .m7 h3.sec { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #888; margin: 20px 0 12px; }
+  .m7 .ing label { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  .m7 .ing input { width: 18px; height: 18px; accent-color: var(--brand-warm); }
+  .m7 .ing .cost { margin-left: auto; color: #bbb; font-size: 12px; }
+  .m7 ol.steps { counter-reset: s; list-style: none; }
+  .m7 ol.steps li { counter-increment: s; display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  .m7 ol.steps li::before { content: counter(s); flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--brand-warm); color: #fff; font-weight: 600; font-size: 12px; display: grid; place-items: center; }
+  .m7 .note { margin-top: 16px; background: #fef2f2; border-radius: 12px; padding: 14px; }
+  .m7 .note h4 { font-size: 12px; font-weight: 700; color: var(--brand-warm); margin-bottom: 4px; }
+  .m7 .note p { font-size: 13px; color: #666; }
+
+  /* ============================================================
+     8. BOTTOM SHEET STYLE
+     Content in a draggable bottom sheet aesthetic
+     ============================================================ */
+  .m8 { background: #e8e8e8; font-family: 'Sora', sans-serif; position: relative; }
+  .m8 .hero { aspect-ratio: 1/1; }
+  .m8 .sheet { background: #fff; border-radius: 28px 28px 0 0; margin-top: -40px; position: relative; z-index: 2; padding: 20px 20px 28px; }
+  .m8 .handle { width: 40px; height: 5px; background: #ddd; border-radius: 999px; margin: 0 auto 18px; }
+  .m8 .cat { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #888; }
+  .m8 h1.title { font-size: 26px; font-weight: 700; margin: 6px 0 16px; line-height: 1.15; }
+  .m8 .stats-row { display: flex; gap: 10px; overflow-x: auto; margin-bottom: 18px; }
+  .m8 .stats-row div { flex: none; background: #f5f5f5; border-radius: 12px; padding: 12px 16px; text-align: center; min-width: 75px; }
+  .m8 .stats-row .v { font-size: 18px; font-weight: 700; }
+  .m8 .stats-row .l { font-size: 9px; letter-spacing: .06em; text-transform: uppercase; color: #888; margin-top: 2px; }
+  .m8 .serv { display: flex; align-items: center; justify-content: center; gap: 18px; background: var(--brand-yellow); border-radius: 14px; padding: 14px; margin-bottom: 20px; }
+  .m8 .serv button { width: 36px; height: 36px; border: none; border-radius: 10px; background: #fff; font-size: 18px; cursor: pointer; }
+  .m8 .serv .count { font-weight: 700; font-size: 16px; }
+  .m8 h3.sec { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #666; margin: 20px 0 12px; }
+  .m8 .ing label { display: flex; align-items: center; gap: 10px; padding: 11px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  .m8 .ing input { width: 18px; height: 18px; accent-color: var(--brand-accent); }
+  .m8 .ing .cost { margin-left: auto; color: #aaa; font-size: 12px; }
+  .m8 ol.steps { counter-reset: s; list-style: none; }
+  .m8 ol.steps li { counter-increment: s; display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  .m8 ol.steps li::before { content: counter(s); flex: none; width: 26px; height: 26px; border-radius: 8px; background: #111; color: #fff; font-weight: 600; font-size: 12px; display: grid; place-items: center; }
+  .m8 .note { background: #f0fdf4; border-radius: 14px; padding: 16px; margin-top: 16px; }
+  .m8 .note h4 { font-size: 12px; font-weight: 700; color: var(--brand-accent); margin-bottom: 6px; }
+  .m8 .note p { font-size: 13px; color: #555; }
+
+  /* ============================================================
+     9. NEUMORPHIC SOFT
+     Soft shadows, pressed/raised elements
+     ============================================================ */
+  .m9 { background: #e8ecef; font-family: 'Manrope', sans-serif; }
+  .m9 .hero { aspect-ratio: 16/10; border-radius: 0 0 30px 30px; box-shadow: inset 0 -10px 30px rgba(0,0,0,.08); }
+  .m9 .body { padding: 20px; }
+  .m9 h1.title { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+  .m9 .cat { font-size: 12px; color: #888; margin-bottom: 18px; }
+  .m9 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+  .m9 .stats div { background: #e8ecef; border-radius: 16px; padding: 14px 8px; text-align: center; box-shadow: 6px 6px 14px #c5c9cc, -6px -6px 14px #ffffff; }
+  .m9 .stats .v { font-size: 18px; font-weight: 800; }
+  .m9 .stats .l { font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: #888; margin-top: 3px; }
+  .m9 .serv { display: flex; align-items: center; justify-content: center; gap: 16px; background: #e8ecef; border-radius: 16px; padding: 14px; margin-bottom: 22px; box-shadow: inset 4px 4px 10px #c5c9cc, inset -4px -4px 10px #ffffff; }
+  .m9 .serv button { width: 40px; height: 40px; border: none; border-radius: 12px; background: #e8ecef; font-size: 18px; cursor: pointer; box-shadow: 4px 4px 10px #c5c9cc, -4px -4px 10px #ffffff; }
+  .m9 .serv .count { font-weight: 700; font-size: 16px; }
+  .m9 h3.sec { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #888; margin: 22px 0 14px; }
+  .m9 .card { background: #e8ecef; border-radius: 18px; padding: 18px; box-shadow: 8px 8px 18px #c5c9cc, -8px -8px 18px #ffffff; margin-bottom: 18px; }
+  .m9 .ing label { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #dde1e4; font-size: 14px; }
+  .m9 .ing label:last-child { border-bottom: none; }
+  .m9 .ing input { width: 18px; height: 18px; accent-color: var(--brand-accent); }
+  .m9 .ing .cost { margin-left: auto; color: #999; font-size: 12px; }
+  .m9 ol.steps { counter-reset: s; list-style: none; }
+  .m9 ol.steps li { counter-increment: s; display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #dde1e4; font-size: 14px; }
+  .m9 ol.steps li:last-child { border-bottom: none; }
+  .m9 ol.steps li::before { content: counter(s); flex: none; width: 26px; height: 26px; border-radius: 8px; background: var(--brand-accent); color: #fff; font-weight: 700; font-size: 12px; display: grid; place-items: center; }
+  .m9 .note { background: #e8ecef; border-radius: 16px; padding: 16px; box-shadow: inset 4px 4px 10px #c5c9cc, inset -4px -4px 10px #ffffff; }
+  .m9 .note h4 { font-size: 12px; font-weight: 700; color: var(--brand-accent); margin-bottom: 6px; }
+  .m9 .note p { font-size: 13px; color: #666; }
+
+  /* ============================================================
+     10. BENTO GRID
+     Grid-based layout with varied card sizes
+     ============================================================ */
+  .m10 { background: #111; font-family: 'Space Grotesk', sans-serif; color: #fff; }
+  .m10 .bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 12px; }
+  .m10 .bento .hero-cell { grid-column: 1 / -1; border-radius: 20px; overflow: hidden; }
+  .m10 .bento .hero-cell img { aspect-ratio: 16/9; object-fit: cover; width: 100%; }
+  .m10 .bento .title-cell { grid-column: 1 / -1; background: #1a1a1a; border-radius: 18px; padding: 18px; }
+  .m10 .cat { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--brand-yellow); }
+  .m10 h1.title { font-size: 24px; font-weight: 700; margin-top: 6px; line-height: 1.15; }
+  .m10 .stat-cell { background: #1a1a1a; border-radius: 16px; padding: 16px; text-align: center; }
+  .m10 .stat-cell .icon { font-size: 20px; margin-bottom: 6px; }
+  .m10 .stat-cell .v { font-size: 20px; font-weight: 700; }
+  .m10 .stat-cell .l { font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: #666; margin-top: 2px; }
+  .m10 .serv-cell { grid-column: 1 / -1; background: var(--brand-yellow); border-radius: 16px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; color: #111; }
+  .m10 .serv-cell span { font-weight: 600; }
+  .m10 .serv-cell .stepper { display: flex; align-items: center; gap: 12px; }
+  .m10 .serv-cell button { width: 34px; height: 34px; border: none; border-radius: 10px; background: #111; color: #fff; font-size: 16px; cursor: pointer; }
+  .m10 .serv-cell .count { font-weight: 700; }
+  .m10 .content-cell { grid-column: 1 / -1; background: #1a1a1a; border-radius: 18px; padding: 18px; }
+  .m10 .content-cell h3 { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brand-yellow); margin-bottom: 14px; }
+  .m10 .ing label { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #2a2a2a; font-size: 14px; }
+  .m10 .ing label:last-child { border-bottom: none; }
+  .m10 .ing input { width: 18px; height: 18px; accent-color: var(--brand-yellow); }
+  .m10 .ing .cost { margin-left: auto; color: #666; font-size: 12px; }
+  .m10 ol.steps { counter-reset: s; list-style: none; }
+  .m10 ol.steps li { counter-increment: s; padding: 10px 0; border-bottom: 1px solid #2a2a2a; font-size: 14px; }
+  .m10 ol.steps li:last-child { border-bottom: none; }
+  .m10 ol.steps li::before { content: counter(s, decimal-leading-zero) ' '; color: var(--brand-yellow); font-weight: 700; }
+  .m10 .note-cell { grid-column: 1 / -1; background: linear-gradient(135deg, #1a1a1a 0%, #222 100%); border: 1px solid #333; border-radius: 16px; padding: 16px; }
+  .m10 .note-cell h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brand-yellow); margin-bottom: 6px; }
+  .m10 .note-cell p { font-size: 13px; color: #999; }
+
+  footer.foot { text-align: center; padding: 40px 20px 70px; color: #666; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <h1>Recipe Page — 10 Modern Redesigns</h1>
+  <p>Mobile-first modern UI mockups with all functionality intact: hero image, title, metadata (time/servings/price), serving stepper, ingredients with checkboxes + costs, numbered instructions, personal notes.</p>
+</header>
+
+<nav class="jump">
+  <a href="#m1">01 Sticky Bar</a>
+  <a href="#m2">02 Card Stack</a>
+  <a href="#m3">03 Immersive</a>
+  <a href="#m4">04 Pill Nav</a>
+  <a href="#m5">05 Float Stats</a>
+  <a href="#m6">06 Accordion</a>
+  <a href="#m7">07 Split Hero</a>
+  <a href="#m8">08 Bottom Sheet</a>
+  <a href="#m9">09 Neumorphic</a>
+  <a href="#m10">10 Bento Grid</a>
+</nav>
+
+<!-- ============ 1 STICKY BOTTOM BAR ============ -->
+<section class="mock-wrap" id="m1">
+  <div class="mock-label"><span class="num">01</span><h2>Sticky Bottom Bar</h2><span>App-like with persistent action bar</span></div>
+  <div class="frame m1">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="body">
+      <div class="cat">Pasta</div>
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="stats">
+        <div><div class="v">35'</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/ Serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="sec-h">Ingredients</div>
+      <div class="ing">
+        <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+        <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+        <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+        <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+      </div>
+      <div class="sec-h">Instructions</div>
+      <ol class="steps">
+        <li>Season and sear chicken until golden brown.</li>
+        <li>Build cream sauce with garlic and tomatoes.</li>
+        <li>Combine with pasta, finish with parmesan.</li>
+      </ol>
+      <div class="note"><h4>Personal Notes</h4><p>Double the sauce — you'll want extra for dipping bread.</p></div>
+    </div>
+    <div class="bottom-bar">
+      <div class="stepper"><button>-</button><span class="count">4</span><button>+</button></div>
+      <div class="total"><div class="price">9.60</div><div class="lbl">Total</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 CARD STACK ============ -->
+<section class="mock-wrap" id="m2">
+  <div class="mock-label"><span class="num">02</span><h2>Card Stack</h2><span>Overlapping cards with depth</span></div>
+  <div class="frame m2">
+    <div class="hero-wrap">
+      <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    </div>
+    <div class="overlay-card">
+      <span class="cat">Pasta</span>
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="meta-chips">
+        <div><span class="icon">⏱️</span> 35 min</div>
+        <div><span class="icon">👥</span> 4</div>
+        <div><span class="icon">💰</span> 2.40/p</div>
+        <div><span class="icon">🧾</span> 9.60</div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="serv-row"><span>4 servings</span><div class="stepper"><button>-</button><b>4</b><button>+</button></div></div>
+      <div class="tabs"><button class="on">Ingredients</button><button>Instructions</button></div>
+      <div class="ing">
+        <label><input type="checkbox" />400 g chicken breast <span class="cost">(3.20)</span></label>
+        <label><input type="checkbox" />300 g penne pasta <span class="cost">(0.90)</span></label>
+        <label><input type="checkbox" />200 ml heavy cream <span class="cost">(1.10)</span></label>
+        <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">(1.40)</span></label>
+      </div>
+      <div class="note"><h4>Personal Notes</h4><p>A weeknight hero — the sauce is the star.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 FULL BLEED IMMERSIVE ============ -->
+<section class="mock-wrap" id="m3">
+  <div class="mock-label"><span class="num">03</span><h2>Full Bleed Immersive</h2><span>Hero fades into dark content</span></div>
+  <div class="frame m3">
+    <div class="hero-full">
+      <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    </div>
+    <div class="content">
+      <div class="cat">Pasta · Dinner</div>
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="stats-bar">
+        <div><div class="v">35'</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/ Serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><button>-</button><span class="count">4 servings</span><button>+</button></div>
+      <div class="section">
+        <h3>Ingredients</h3>
+        <div class="ing">
+          <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+          <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+          <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+          <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Instructions</h3>
+        <ol class="steps">
+          <li>Season and sear chicken until golden.</li>
+          <li>Build the cream sauce with garlic.</li>
+          <li>Combine pasta and chicken to coat.</li>
+        </ol>
+      </div>
+      <div class="note"><h4>Personal Notes</h4><p>Deglaze with white wine for extra depth.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 PILL NAVIGATION ============ -->
+<section class="mock-wrap" id="m4">
+  <div class="mock-label"><span class="num">04</span><h2>Pill Navigation</h2><span>Horizontal scrolling pills</span></div>
+  <div class="frame m4">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="body">
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="cat">Pasta · Italian · Quick</div>
+      <div class="pills">
+        <div><span class="icon">⏱️</span> 35 min</div>
+        <div><span class="icon">👥</span> 4 servings</div>
+        <div class="active"><span class="icon">💰</span> 2.40/serv</div>
+        <div><span class="icon">🧾</span> 9.60 total</div>
+      </div>
+      <div class="serv-compact">
+        <span class="label">Adjust servings</span>
+        <div class="stepper"><button>-</button><span class="val">4</span><button>+</button></div>
+      </div>
+      <div class="nav-tabs"><button class="on">Ingredients</button><button>Instructions</button></div>
+      <div class="ing">
+        <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+        <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+        <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+        <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+      </div>
+      <div class="note"><h4>Personal Notes</h4><p>Reserve pasta water to loosen the sauce.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 FLOATING STATS ============ -->
+<section class="mock-wrap" id="m5">
+  <div class="mock-label"><span class="num">05</span><h2>Floating Stats</h2><span>Stats overlay the hero image</span></div>
+  <div class="frame m5">
+    <div class="hero-section">
+      <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+      <div class="float-stats">
+        <div><div class="v">35'</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/ Serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+    </div>
+    <div class="body">
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="cat">Pasta · Comfort Food</div>
+      <div class="serv">
+        <span class="lbl">Servings</span>
+        <div class="stepper"><button>-</button><span class="count">4</span><button>+</button></div>
+      </div>
+      <div class="card">
+        <h3>Ingredients</h3>
+        <div class="ing">
+          <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+          <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+          <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+          <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Instructions</h3>
+        <ol class="steps">
+          <li>Sear seasoned chicken until golden.</li>
+          <li>Build cream sauce with garlic and tomato.</li>
+          <li>Toss with pasta and fresh parmesan.</li>
+        </ol>
+      </div>
+      <div class="note"><h4>Personal Notes</h4><p>Best served immediately while the sauce is glossy.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 PROGRESSIVE DISCLOSURE ============ -->
+<section class="mock-wrap" id="m6">
+  <div class="mock-label"><span class="num">06</span><h2>Progressive Disclosure</h2><span>Accordion-style sections</span></div>
+  <div class="frame m6">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="body">
+      <div class="header">
+        <h1 class="title">Marry Me Chicken Pasta</h1>
+        <div class="price-badge"><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="quick-stats">
+        <div><span class="icon">⏱️</span> 35 min</div>
+        <div><span class="icon">👥</span> 4 servings</div>
+        <div><span class="icon">💰</span> 2.40/serv</div>
+      </div>
+      <div class="serv">
+        <span class="lbl">Servings</span>
+        <button>-</button>
+        <span class="count">4</span>
+        <button>+</button>
+      </div>
+      <div class="accordion">
+        <div class="accordion-head open"><h3>Ingredients</h3><span class="arrow">›</span></div>
+        <div class="accordion-body">
+          <div class="ing">
+            <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+            <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+            <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+            <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-head"><h3>Instructions</h3><span class="arrow">›</span></div>
+        <div class="accordion-body">
+          <ol class="steps">
+            <li>Season and sear chicken until golden.</li>
+            <li>Build the cream sauce with garlic.</li>
+            <li>Combine with pasta to coat evenly.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-head"><h3>Notes</h3><span class="arrow">›</span></div>
+        <div class="accordion-body">
+          <div class="note-box"><h4>Personal Notes</h4><p>Salt the pasta water generously.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 SPLIT HERO ============ -->
+<section class="mock-wrap" id="m7">
+  <div class="mock-label"><span class="num">07</span><h2>Split Hero</h2><span>Side-by-side image and info</span></div>
+  <div class="frame m7">
+    <div class="split">
+      <div class="img-half"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80" alt="dish" /></div>
+      <div class="content-half">
+        <div class="cat">Pasta</div>
+        <h1 class="title">Marry Me Chicken Pasta</h1>
+        <div class="meta-line">
+          <div><span class="val">35</span> min</div>
+          <div><span class="val">4</span> serv</div>
+          <div><span class="val">2.40</span>/p</div>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="serv"><span>4 servings</span><div class="stepper"><button>-</button><b>4</b><button>+</button></div></div>
+      <h3 class="sec">Ingredients</h3>
+      <div class="ing">
+        <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+        <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+        <label><input type="checkbox" />200 ml cream <span class="cost">1.10</span></label>
+        <label><input type="checkbox" />50 g tomatoes <span class="cost">1.40</span></label>
+      </div>
+      <h3 class="sec">Instructions</h3>
+      <ol class="steps">
+        <li>Sear chicken until golden brown.</li>
+        <li>Build the cream sauce slowly.</li>
+        <li>Toss with pasta and serve.</li>
+      </ol>
+      <div class="note"><h4>Notes</h4><p>Named for a reason — everyone asks for seconds.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 BOTTOM SHEET STYLE ============ -->
+<section class="mock-wrap" id="m8">
+  <div class="mock-label"><span class="num">08</span><h2>Bottom Sheet</h2><span>Draggable sheet aesthetic</span></div>
+  <div class="frame m8">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="sheet">
+      <div class="handle"></div>
+      <div class="cat">Pasta · Dinner</div>
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="stats-row">
+        <div><div class="v">35'</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/ Serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><button>-</button><span class="count">4 servings</span><button>+</button></div>
+      <h3 class="sec">Ingredients</h3>
+      <div class="ing">
+        <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+        <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+        <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+        <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+      </div>
+      <h3 class="sec">Instructions</h3>
+      <ol class="steps">
+        <li>Season and sear chicken until golden.</li>
+        <li>Build cream sauce with garlic and tomato.</li>
+        <li>Combine with pasta, finish with parmesan.</li>
+      </ol>
+      <div class="note"><h4>Personal Notes</h4><p>Tastes even better the next day — leftovers are a gift.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 NEUMORPHIC SOFT ============ -->
+<section class="mock-wrap" id="m9">
+  <div class="mock-label"><span class="num">09</span><h2>Neumorphic Soft</h2><span>Soft shadows, raised elements</span></div>
+  <div class="frame m9">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="body">
+      <h1 class="title">Marry Me Chicken Pasta</h1>
+      <div class="cat">Pasta · Comfort Food</div>
+      <div class="stats">
+        <div><div class="v">35'</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/ Serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><button>-</button><span class="count">4</span><button>+</button></div>
+      <h3 class="sec">Ingredients</h3>
+      <div class="card">
+        <div class="ing">
+          <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+          <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+          <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+          <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+        </div>
+      </div>
+      <h3 class="sec">Instructions</h3>
+      <div class="card">
+        <ol class="steps">
+          <li>Season and sear chicken until golden.</li>
+          <li>Build the cream sauce with garlic.</li>
+          <li>Combine with pasta and serve hot.</li>
+        </ol>
+      </div>
+      <div class="note"><h4>Personal Notes</h4><p>Use bronze-die pasta for best sauce grip.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 BENTO GRID ============ -->
+<section class="mock-wrap" id="m10">
+  <div class="mock-label"><span class="num">10</span><h2>Bento Grid</h2><span>Grid-based modular layout</span></div>
+  <div class="frame m10">
+    <div class="bento">
+      <div class="hero-cell"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" /></div>
+      <div class="title-cell">
+        <div class="cat">Pasta · Dinner</div>
+        <h1 class="title">Marry Me Chicken Pasta</h1>
+      </div>
+      <div class="stat-cell"><div class="icon">⏱️</div><div class="v">35'</div><div class="l">Time</div></div>
+      <div class="stat-cell"><div class="icon">👥</div><div class="v">4</div><div class="l">Serves</div></div>
+      <div class="stat-cell"><div class="icon">💰</div><div class="v">2.40</div><div class="l">/ Serv</div></div>
+      <div class="stat-cell"><div class="icon">🧾</div><div class="v">9.60</div><div class="l">Total</div></div>
+      <div class="serv-cell"><span>4 servings</span><div class="stepper"><button>-</button><span class="count">4</span><button>+</button></div></div>
+      <div class="content-cell">
+        <h3>Ingredients</h3>
+        <div class="ing">
+          <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+          <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+          <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+          <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+        </div>
+      </div>
+      <div class="content-cell">
+        <h3>Instructions</h3>
+        <ol class="steps">
+          <li>Season and sear chicken until golden.</li>
+          <li>Build the cream sauce with garlic.</li>
+          <li>Combine with pasta, finish with parmesan.</li>
+        </ol>
+      </div>
+      <div class="note-cell"><h4>Personal Notes</h4><p>The sauce should coat the back of a spoon perfectly.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  10 modern mobile-first mockups · All preserve existing functionality · Pick a number or mix elements and I'll build it into your RecipePage component.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cookingbook — Card Stack Redesign (All Pages, Light & Dark)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     CARD STACK DESIGN SYSTEM — applied to all pages
+     Inspired by mockup 02 (Card Stack) from recipe-redesign-mockups-v4
+     ============================================================ */
+
+  :root {
+    --brand-yellow: #f5cb5c;
+    --brand-accent: #4f772d;
+    --brand-warm: #e07a5f;
+    --brand-pink: #e198ac;
+  }
+
+  /* Light theme tokens */
+  .theme-light {
+    --bg:           #f8f6f3;
+    --surface:     #ffffff;
+    --surface-2:   #fafafa;
+    --surface-3:   #f0f0f0;
+    --text:        #111111;
+    --text-muted:  #666666;
+    --text-soft:   #999999;
+    --border:      #eaeaea;
+    --border-2:    #f0f0f0;
+    --shadow:      0 20px 50px -20px rgba(0,0,0,.2);
+    --shadow-sm:   0 2px 8px rgba(0,0,0,.08);
+    --note-bg:     #fff5f5;
+    --note-border: var(--brand-warm);
+    --pill-bg:     #fafafa;
+  }
+  /* Dark theme tokens */
+  .theme-dark {
+    --bg:           #1c1d24;
+    --surface:     #272832;
+    --surface-2:   #31323e;
+    --surface-3:   #3b3d4a;
+    --text:        #f2f3f7;
+    --text-muted:  #b8bac4;
+    --text-soft:   #868892;
+    --border:      #3a3c47;
+    --border-2:    #2f3039;
+    --shadow:      0 20px 50px -20px rgba(0,0,0,.6);
+    --shadow-sm:   0 2px 8px rgba(0,0,0,.35);
+    --note-bg:     #3a2925;
+    --note-border: var(--brand-warm);
+    --pill-bg:     #31323e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    background: #e9eaef;
+    color: #111;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  button { font-family: inherit; }
+
+  /* ===== Page chrome ===== */
+  .page-head {
+    text-align: center;
+    padding: 56px 20px 28px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+  }
+  .page-head h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(26px, 5vw, 42px);
+    font-weight: 700; letter-spacing: -0.02em;
+  }
+  .page-head p {
+    opacity: .75; margin-top: 10px; font-size: 15px;
+    max-width: 640px; margin-inline: auto;
+  }
+
+  nav.jump {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+    padding: 12px 14px;
+    background: rgba(26,26,46,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  nav.jump a {
+    color: #d7e6df; text-decoration: none; font-size: 12px; font-weight: 600;
+    padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.14);
+    transition: .2s;
+  }
+  nav.jump a:hover { background: var(--brand-yellow); color: #111; border-color: transparent; }
+
+  /* ===== Section + frame layout ===== */
+  .page-section { padding: 60px 20px; }
+  .page-section.light-bg { background: #e9eaef; }
+  .page-section.dark-bg  { background: #14151a; }
+
+  .section-label {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    margin: 0 auto 26px; max-width: 1100px; text-align: left;
+  }
+  .section-label .num {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 13px;
+    color: #fff; background: #1a1a2e; width: 30px; height: 30px; border-radius: 50%;
+    display: grid; place-items: center; flex: none;
+  }
+  .section-label h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px; font-weight: 700; letter-spacing: -.01em;
+  }
+  .dark-bg .section-label h2 { color: #fff; }
+  .section-label .desc { font-size: 13px; color: #666; }
+  .dark-bg .section-label .desc { color: #999; }
+
+  /* side-by-side: light + dark phones */
+  .pair {
+    display: grid; grid-template-columns: 1fr;
+    gap: 40px; justify-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  @media (min-width: 900px) {
+    .pair { grid-template-columns: 1fr 1fr; gap: 50px; }
+  }
+
+  .phone-wrap { width: 100%; max-width: 420px; }
+  .phone-tag {
+    text-align: center; font-size: 11px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    margin-bottom: 10px; color: #666;
+  }
+  .dark-bg .phone-tag { color: #999; }
+
+  /* ===== Phone frame (Card Stack base) ===== */
+  .frame {
+    width: 100%;
+    border-radius: 36px; overflow: hidden;
+    box-shadow: 0 30px 80px -25px rgba(0,0,0,.35), 0 0 0 1px rgba(0,0,0,.05);
+    background: var(--bg);
+    font-family: 'Outfit', sans-serif;
+    color: var(--text);
+  }
+
+  /* App-wide header bar (cookingbook nav) */
+  .app-header {
+    position: sticky; top: 0; z-index: 5;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .app-header .home {
+    font-weight: 700; font-size: 15px;
+    color: var(--brand-accent);
+    text-decoration: none;
+  }
+  .app-header .search {
+    flex: 1;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .app-header .menu-btn {
+    width: 38px; height: 38px;
+    border: none; cursor: pointer;
+    border-radius: 12px;
+    background: var(--surface-2);
+    color: var(--text);
+    display: grid; place-items: center;
+    font-size: 18px;
+  }
+
+  /* Hero with overlay card (Card Stack signature) */
+  .hero-wrap { position: relative; }
+  .hero { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+
+  .overlay-card {
+    position: relative;
+    margin: -40px 16px 0;
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 22px 20px;
+    box-shadow: var(--shadow);
+    z-index: 2;
+  }
+  .cat-pill {
+    display: inline-block;
+    background: var(--brand-warm); color: #fff;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 999px;
+  }
+  .cat-pill.accent { background: var(--brand-accent); }
+  .cat-pill.yellow { background: var(--brand-yellow); color: #111; }
+
+  h1.title {
+    font-size: 26px; font-weight: 700; letter-spacing: -.01em;
+    margin: 12px 0 16px; line-height: 1.15;
+  }
+  h2.title { font-size: 22px; font-weight: 700; margin: 0; line-height: 1.2; }
+
+  .meta-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .meta-chips div {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--pill-bg);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 13px; font-weight: 600;
+    color: var(--text);
+  }
+  .meta-chips .icon { font-size: 16px; }
+
+  .body { padding: 20px 20px 28px; }
+
+  /* Servings row, shared */
+  .serv-row {
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(90deg, var(--brand-yellow) 0%, #fde68a 100%);
+    border-radius: 16px; padding: 14px 18px;
+    margin-bottom: 20px;
+    color: #111;
+  }
+  .theme-dark .serv-row {
+    background: linear-gradient(90deg, rgba(245,203,92,.85) 0%, rgba(253,230,138,.75) 100%);
+  }
+  .serv-row span { font-weight: 600; }
+  .serv-row .stepper { display: flex; align-items: center; gap: 12px; }
+  .serv-row button {
+    width: 32px; height: 32px;
+    border: none; border-radius: 8px;
+    background: #fff; color: #111;
+    font-size: 16px; font-weight: 700; cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  }
+
+  /* Tabs (used on recipe + about) */
+  .tabs {
+    display: flex; gap: 4px;
+    background: var(--surface-3);
+    border-radius: 12px; padding: 4px;
+    margin-bottom: 16px;
+  }
+  .tabs button {
+    flex: 1; border: none; cursor: pointer;
+    padding: 11px; border-radius: 10px;
+    font-weight: 600; font-size: 14px;
+    background: transparent; color: var(--text-muted);
+  }
+  .tabs button.on {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Ingredient list — compact, single card with rows */
+  .ing {
+    background: var(--surface-2);
+    border-radius: 14px;
+    padding: 4px 14px;
+    margin-bottom: 8px;
+  }
+  .ing label {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-2);
+    font-size: 14px; color: var(--text);
+  }
+  .ing label:last-child { border-bottom: none; }
+  .ing input {
+    width: 18px; height: 18px;
+    accent-color: var(--brand-warm);
+    flex: none;
+  }
+  .ing .cost {
+    margin-left: auto;
+    color: var(--text-soft); font-size: 13px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Instructions — compact, single card with rows */
+  ol.steps {
+    counter-reset: s;
+    list-style: none;
+    background: var(--surface-2);
+    border-radius: 14px;
+    padding: 4px 14px;
+    margin-bottom: 8px;
+  }
+  ol.steps li {
+    counter-increment: s;
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-2);
+    font-size: 14px; line-height: 1.5;
+    color: var(--text);
+  }
+  ol.steps li:last-child { border-bottom: none; }
+  ol.steps li::before {
+    content: counter(s);
+    flex: none; width: 26px; height: 26px;
+    border-radius: 8px;
+    background: var(--brand-warm); color: #fff;
+    font-weight: 700; font-size: 13px;
+    display: grid; place-items: center;
+  }
+
+  /* Section heading inside card */
+  h3.sec {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 8px 0 12px;
+  }
+
+  /* Personal note card */
+  .note {
+    background: var(--note-bg);
+    border-radius: 16px;
+    padding: 18px;
+    border: 1px dashed var(--note-border);
+  }
+  .note h4 {
+    color: var(--brand-warm);
+    font-size: 13px; font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .note p { font-size: 14px; color: var(--text-muted); }
+
+  /* ============================================================
+     HOMEPAGE — search + category sections + recipe cards
+     ============================================================ */
+  .home-hero {
+    position: relative; padding: 20px 16px 0;
+  }
+  .home-hero .greeting {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 22px 20px;
+    box-shadow: var(--shadow);
+  }
+  .home-hero .greeting .cat-pill { background: var(--brand-accent); }
+  .home-hero .greeting h1 {
+    font-size: 24px; font-weight: 700;
+    margin: 10px 0 6px; letter-spacing: -.01em;
+  }
+  .home-hero .greeting p {
+    font-size: 13px; color: var(--text-muted);
+  }
+
+  .filter-chips {
+    display: flex; gap: 8px;
+    overflow-x: auto;
+    padding: 14px 20px 6px;
+    scrollbar-width: none;
+  }
+  .filter-chips::-webkit-scrollbar { display: none; }
+  .filter-chips .chip {
+    flex: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 12px; font-weight: 600;
+    color: var(--text);
+    display: flex; align-items: center; gap: 5px;
+    white-space: nowrap;
+  }
+  .filter-chips .chip.on {
+    background: var(--brand-accent); color: #fff;
+    border-color: transparent;
+  }
+
+  .cat-section { padding: 18px 20px 0; }
+  .cat-section h3 {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 17px; font-weight: 700;
+    margin-bottom: 12px; letter-spacing: -.01em;
+  }
+  .cat-section h3 .more {
+    font-size: 11px; font-weight: 600; color: var(--brand-accent);
+    text-transform: uppercase; letter-spacing: .1em;
+  }
+  .recipe-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .recipe-card {
+    background: var(--surface);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .recipe-card .thumb {
+    width: 100%; aspect-ratio: 1/1; object-fit: cover;
+  }
+  .recipe-card .meta {
+    padding: 10px 12px 12px;
+  }
+  .recipe-card .meta h4 {
+    font-size: 13px; font-weight: 700;
+    line-height: 1.25; margin-bottom: 6px;
+    color: var(--text);
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .recipe-card .meta .pills { display: flex; gap: 5px; flex-wrap: wrap; }
+  .recipe-card .meta .pills span {
+    font-size: 11px; font-weight: 600;
+    padding: 3px 8px; border-radius: 999px;
+    background: var(--surface-2); color: var(--text-muted);
+    display: inline-flex; align-items: center; gap: 3px;
+  }
+
+  /* ============================================================
+     COOKING BASICS PAGE — list of rule cards
+     ============================================================ */
+  .rule-card {
+    background: var(--surface);
+    border-radius: 18px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 14px;
+    border-left: 5px solid var(--brand-accent);
+  }
+  .rule-card .rule-head {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 8px;
+  }
+  .rule-card .rule-head .emoji {
+    font-size: 24px; flex: none;
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    background: var(--surface-2);
+    display: grid; place-items: center;
+  }
+  .rule-card .rule-head h4 {
+    font-size: 15px; font-weight: 700;
+    line-height: 1.2; color: var(--text);
+  }
+  .rule-card p { font-size: 14px; color: var(--text-muted); }
+
+  /* ============================================================
+     PRICES PAGE — search + grouped tables
+     ============================================================ */
+  .price-search {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 8px;
+  }
+  .price-search input {
+    flex: 1; background: transparent; border: none; outline: none;
+    color: var(--text); font-size: 14px;
+  }
+  .price-search input::placeholder { color: var(--text-soft); }
+  .price-count {
+    font-size: 12px; color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .price-group {
+    background: var(--surface);
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .price-group .group-head {
+    background: var(--surface-2);
+    padding: 12px 16px;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .price-group .group-head .icon { font-size: 16px; }
+  .price-group .row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-2);
+    font-size: 14px;
+  }
+  .price-group .row:last-child { border-bottom: none; }
+  .price-group .row .name { color: var(--text); font-weight: 500; }
+  .price-group .row .unit { color: var(--text-soft); font-size: 12px; }
+  .price-group .row .price {
+    font-weight: 700; color: var(--brand-accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============================================================
+     ABOUT PAGE — content card + comments card
+     ============================================================ */
+  .about-card {
+    background: var(--surface);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 22px 20px;
+    margin-bottom: 18px;
+  }
+  .about-card p { font-size: 14px; line-height: 1.65; margin-bottom: 10px; color: var(--text); }
+  .about-card p.signoff {
+    margin-top: 14px; font-weight: 700;
+  }
+  .comments-card {
+    background: var(--surface);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .comments-card .head {
+    background: var(--brand-accent);
+    color: #fff;
+    text-align: center;
+    padding: 14px;
+    font-weight: 700; font-size: 14px;
+    letter-spacing: .04em;
+  }
+  .comments-card .body {
+    padding: 20px;
+  }
+  .comment {
+    display: flex; gap: 10px;
+    padding: 12px;
+    background: var(--surface-2);
+    border-radius: 14px;
+    margin-bottom: 10px;
+  }
+  .comment .avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--brand-warm);
+    color: #fff;
+    display: grid; place-items: center;
+    font-weight: 700; font-size: 13px;
+    flex: none;
+  }
+  .comment .body-c { flex: 1; }
+  .comment .body-c .name {
+    font-weight: 700; font-size: 13px;
+    color: var(--text);
+  }
+  .comment .body-c .time {
+    font-size: 11px; color: var(--text-soft);
+    margin-left: 6px;
+  }
+  .comment .body-c p {
+    font-size: 13px; color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* ============================================================
+     SIDE MENU — drawer overlay at 80% width over dimmed page
+     ============================================================ */
+  .menu-shell {
+    position: relative;
+    width: 100%;
+    border-radius: 36px; overflow: hidden;
+    box-shadow: 0 30px 80px -25px rgba(0,0,0,.35), 0 0 0 1px rgba(0,0,0,.05);
+    background: #000;
+  }
+  .menu-shell .behind {
+    filter: brightness(.55) saturate(.85);
+    pointer-events: none;
+  }
+  .menu-shell .behind .frame {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .menu-shell .backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 1;
+  }
+  .menu-drawer {
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    width: 80%;
+    z-index: 2;
+    background: var(--bg);
+    box-shadow: -20px 0 50px -10px rgba(0,0,0,.5);
+    overflow-y: auto;
+    display: flex; flex-direction: column;
+  }
+  .menu-head {
+    background: var(--surface);
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .menu-head h3 {
+    font-size: 16px; font-weight: 700;
+    color: var(--text);
+  }
+  .menu-head .close {
+    width: 36px; height: 36px;
+    border: none; border-radius: 10px;
+    background: var(--surface-2);
+    color: var(--text);
+    font-size: 18px; cursor: pointer;
+  }
+  .menu-body { padding: 20px; }
+  .menu-section {
+    background: var(--surface);
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+  .menu-section h4 {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .menu-section .keyword-list,
+  .menu-section .cat-list,
+  .menu-section .link-list {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .menu-section .keyword {
+    font-size: 12px; font-weight: 600;
+    padding: 7px 12px; border-radius: 999px;
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .menu-section .keyword.on {
+    background: var(--brand-accent); color: #fff;
+    border-color: transparent;
+  }
+  .menu-section .cat-row,
+  .menu-section .link-row {
+    width: 100%;
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: var(--surface-2);
+    font-size: 14px; font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .menu-section .cat-row .emoji {
+    font-size: 18px;
+  }
+  .menu-section .cat-row .count {
+    margin-left: auto;
+    font-size: 12px; color: var(--text-soft);
+    background: var(--surface);
+    padding: 2px 8px; border-radius: 999px;
+  }
+
+  /* Footer preferences row (sticky bottom) */
+  .app-footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 12px 16px;
+    display: flex; align-items: center; justify-content: space-around; gap: 8px;
+  }
+  .app-footer .pref {
+    flex: 1;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px;
+    font-size: 11px; font-weight: 600;
+    color: var(--text);
+    text-align: center;
+  }
+  .app-footer .pref .lbl {
+    color: var(--text-soft);
+    font-size: 9px; letter-spacing: .1em; text-transform: uppercase;
+    display: block; margin-bottom: 3px;
+  }
+
+  /* Mini doc footer */
+  footer.foot {
+    text-align: center;
+    padding: 40px 20px 70px;
+    color: #aaa; font-size: 13px;
+    background: #1c1c22;
+  }
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <h1>Cookingbook — Card Stack Redesign</h1>
+  <p>All website pages reimagined in the Card Stack style (mockup 02 from v4). Each page is shown twice — light and dark — to preview the full visual system.</p>
+</header>
+
+<nav class="jump">
+  <a href="#p1">01 Home</a>
+  <a href="#p2">02 Recipe</a>
+  <a href="#p3">03 Cooking Basics</a>
+  <a href="#p4">04 Prices</a>
+  <a href="#p5">05 About</a>
+  <a href="#p6">06 Side Menu</a>
+</nav>
+
+<!-- ============================================================
+     01 — HOMEPAGE
+     ============================================================ -->
+<section class="page-section light-bg" id="p1">
+  <div class="section-label">
+    <span class="num">01</span>
+    <h2>Home Page</h2>
+    <span class="desc">Greeting card · filter chips · category-grouped recipe grid</span>
+  </div>
+  <div class="pair">
+    <!-- LIGHT -->
+    <div class="phone-wrap">
+      <div class="phone-tag">☀️ Light</div>
+      <div class="frame theme-light">
+        <div class="app-header">
+          <a href="#" class="home">Paul's Cookbook</a>
+          <div class="search">🔍 Search recipes…</div>
+          <button class="menu-btn">☰</button>
+        </div>
+
+        <div class="home-hero">
+          <div class="greeting">
+            <span class="cat-pill">Welcome</span>
+            <h1>What's cooking today?</h1>
+            <p>52 recipes · no ads, no trackers, just great food.</p>
+          </div>
+        </div>
+
+        <div class="filter-chips">
+          <div class="chip on">All</div>
+          <div class="chip">🌱 Vegetarian</div>
+          <div class="chip">⏱ Under 30'</div>
+          <div class="chip">💰 Budget</div>
+          <div class="chip">🌶 Spicy</div>
+        </div>
+
+        <div class="cat-section">
+          <h3>🍝 Pasta <span class="more">See all ›</span></h3>
+          <div class="recipe-grid">
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Marry Me Chicken Pasta</h4>
+                <div class="pills"><span>⏱ 35m</span><span>💰 2.40</span></div>
+              </div>
+            </div>
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Creamy Mushroom Tagliatelle</h4>
+                <div class="pills"><span>⏱ 25m</span><span>💰 1.80</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-section">
+          <h3>🥗 Salads & Bites <span class="more">See all ›</span></h3>
+          <div class="recipe-grid">
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Mediterranean Bowl</h4>
+                <div class="pills"><span>⏱ 15m</span><span>💰 2.10</span></div>
+              </div>
+            </div>
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Crunchy Asian Slaw</h4>
+                <div class="pills"><span>⏱ 20m</span><span>💰 1.50</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-section" style="padding-bottom: 24px;">
+          <h3>🍲 Soups & Stews <span class="more">See all ›</span></h3>
+          <div class="recipe-grid">
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Tuscan White Bean Soup</h4>
+                <div class="pills"><span>⏱ 45m</span><span>💰 1.20</span></div>
+              </div>
+            </div>
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1604152135912-04a022e23696?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Hearty Beef Stew</h4>
+                <div class="pills"><span>⏱ 90m</span><span>💰 3.10</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="app-footer">
+          <div class="pref"><span class="lbl">Lang</span>EN</div>
+          <div class="pref"><span class="lbl">Theme</span>☀️ Light</div>
+          <div class="pref"><span class="lbl">Text</span>Aa</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DARK -->
+    <div class="phone-wrap">
+      <div class="phone-tag">🌙 Dark</div>
+      <div class="frame theme-dark">
+        <div class="app-header">
+          <a href="#" class="home">Paul's Cookbook</a>
+          <div class="search">🔍 Search recipes…</div>
+          <button class="menu-btn">☰</button>
+        </div>
+
+        <div class="home-hero">
+          <div class="greeting">
+            <span class="cat-pill">Welcome</span>
+            <h1>What's cooking today?</h1>
+            <p>52 recipes · no ads, no trackers, just great food.</p>
+          </div>
+        </div>
+
+        <div class="filter-chips">
+          <div class="chip on">All</div>
+          <div class="chip">🌱 Vegetarian</div>
+          <div class="chip">⏱ Under 30'</div>
+          <div class="chip">💰 Budget</div>
+          <div class="chip">🌶 Spicy</div>
+        </div>
+
+        <div class="cat-section">
+          <h3>🍝 Pasta <span class="more">See all ›</span></h3>
+          <div class="recipe-grid">
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Marry Me Chicken Pasta</h4>
+                <div class="pills"><span>⏱ 35m</span><span>💰 2.40</span></div>
+              </div>
+            </div>
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Creamy Mushroom Tagliatelle</h4>
+                <div class="pills"><span>⏱ 25m</span><span>💰 1.80</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-section">
+          <h3>🥗 Salads & Bites <span class="more">See all ›</span></h3>
+          <div class="recipe-grid">
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Mediterranean Bowl</h4>
+                <div class="pills"><span>⏱ 15m</span><span>💰 2.10</span></div>
+              </div>
+            </div>
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Crunchy Asian Slaw</h4>
+                <div class="pills"><span>⏱ 20m</span><span>💰 1.50</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-section" style="padding-bottom: 24px;">
+          <h3>🍲 Soups & Stews <span class="more">See all ›</span></h3>
+          <div class="recipe-grid">
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Tuscan White Bean Soup</h4>
+                <div class="pills"><span>⏱ 45m</span><span>💰 1.20</span></div>
+              </div>
+            </div>
+            <div class="recipe-card">
+              <img class="thumb" src="https://images.unsplash.com/photo-1604152135912-04a022e23696?w=600&q=80" alt="">
+              <div class="meta">
+                <h4>Hearty Beef Stew</h4>
+                <div class="pills"><span>⏱ 90m</span><span>💰 3.10</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="app-footer">
+          <div class="pref"><span class="lbl">Lang</span>EN</div>
+          <div class="pref"><span class="lbl">Theme</span>🌙 Dark</div>
+          <div class="pref"><span class="lbl">Text</span>Aa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 — RECIPE PAGE (the original Card Stack reference)
+     ============================================================ -->
+<section class="page-section dark-bg" id="p2">
+  <div class="section-label">
+    <span class="num">02</span>
+    <h2>Recipe Page</h2>
+    <span class="desc">Hero · overlay metadata card · servings · tabs · ingredients · notes</span>
+  </div>
+  <div class="pair">
+    <!-- LIGHT -->
+    <div class="phone-wrap">
+      <div class="phone-tag" style="color:#bbb;">☀️ Light</div>
+      <div class="frame theme-light">
+        <div class="app-header">
+          <a href="#" class="home">← Home</a>
+          <div class="search" style="visibility:hidden;">.</div>
+          <button class="menu-btn">☰</button>
+        </div>
+
+        <div class="hero-wrap">
+          <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+        </div>
+        <div class="overlay-card">
+          <span class="cat-pill">Pasta</span>
+          <h1 class="title">Marry Me Chicken Pasta</h1>
+          <div class="meta-chips">
+            <div><span class="icon">⏱️</span> 35 min</div>
+            <div><span class="icon">👥</span> 4</div>
+            <div><span class="icon">💰</span> 2.40/p</div>
+            <div><span class="icon">🧾</span> 9.60</div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="serv-row">
+            <span>4 servings</span>
+            <div class="stepper"><button>−</button><b>4</b><button>+</button></div>
+          </div>
+          <div class="tabs">
+            <button class="on">Ingredients</button>
+            <button>Instructions</button>
+          </div>
+          <div class="ing">
+            <label><input type="checkbox" />400 g chicken breast <span class="cost">3.20</span></label>
+            <label><input type="checkbox" />300 g penne pasta <span class="cost">0.90</span></label>
+            <label><input type="checkbox" />200 ml heavy cream <span class="cost">1.10</span></label>
+            <label><input type="checkbox" />50 g sun-dried tomatoes <span class="cost">1.40</span></label>
+            <label><input type="checkbox" />2 cloves garlic <span class="cost">0.10</span></label>
+          </div>
+          <div class="note" style="margin-top: 16px;">
+            <h4>Personal Notes</h4>
+            <p>A weeknight hero — the sauce is the star. Reserve pasta water to loosen it.</p>
+          </div>
+        </div>
+        <div class="app-footer">
+          <div class="pref"><span class="lbl">Lang</span>EN</div>
+          <div class="pref"><span class="lbl">Theme</span>☀️ Light</div>
+          <div class="pref"><span class="lbl">Text</span>Aa</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DARK -->
+    <div class="phone-wrap">
+      <div class="phone-tag" style="color:#bbb;">🌙 Dark</div>
+      <div class="frame theme-dark">
+        <div class="app-header">
+          <a href="#" class="home">← Home</a>
+          <div class="search" style="visibility:hidden;">.</div>
+          <button class="menu-btn">☰</button>
+        </div>
+
+        <div class="hero-wrap">
+          <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+        </div>
+        <div class="overlay-card">
+          <span class="cat-pill">Pasta</span>
+          <h1 class="title">Marry Me Chicken Pasta</h1>
+          <div class="meta-chips">
+            <div><span class="icon">⏱️</span> 35 min</div>
+            <div><span class="icon">👥</span> 4</div>
+            <div><span class="icon">💰</span> 2.40/p</div>
+            <div><span class="icon">🧾</span> 9.60</div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="serv-row">
+            <span>4 servings</span>
+            <div class="stepper"><button>−</button><b>4</b><button>+</button></div>
+          </div>
+          <div class="tabs">
+            <button>Ingredients</button>
+            <button class="on">Instructions</button>
+          </div>
+          <ol class="steps">
+            <li>Season and sear chicken until golden brown on both sides.</li>
+            <li>Build the cream sauce with garlic, sun-dried tomatoes, and parmesan.</li>
+            <li>Cook pasta al dente, reserving 1 cup of pasta water.</li>
+            <li>Combine everything, loosen with pasta water, garnish with basil.</li>
+          </ol>
+          <div class="note" style="margin-top: 16px;">
+            <h4>Personal Notes</h4>
+            <p>A weeknight hero — the sauce is the star. Reserve pasta water to loosen it.</p>
+          </div>
+        </div>
+        <div class="app-footer">
+          <div class="pref"><span class="lbl">Lang</span>EN</div>
+          <div class="pref"><span class="lbl">Theme</span>🌙 Dark</div>
+          <div class="pref"><span class="lbl">Text</span>Aa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     03 — COOKING BASICS
+     ============================================================ -->
+<section class="page-section light-bg" id="p3">
+  <div class="section-label">
+    <span class="num">03</span>
+    <h2>Cooking Basics</h2>
+    <span class="desc">Intro card · rule cards with emoji + tip</span>
+  </div>
+  <div class="pair">
+    <!-- LIGHT -->
+    <div class="phone-wrap">
+      <div class="phone-tag">☀️ Light</div>
+      <div class="frame theme-light">
+        <div class="app-header">
+          <a href="#" class="home">← Home</a>
+          <div class="search" style="visibility:hidden;">.</div>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="hero-wrap">
+          <img class="hero" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80" alt="basics" />
+        </div>
+        <div class="overlay-card">
+          <span class="cat-pill accent">Guide</span>
+          <h1 class="title">Cooking Basics</h1>
+          <p style="font-size:14px; color: var(--text-muted);">A handful of rules that will make every recipe easier and tastier.</p>
+        </div>
+        <div class="body">
+          <div class="rule-card">
+            <div class="rule-head">
+              <div class="emoji">📖</div>
+              <h4>Read the recipe completely</h4>
+            </div>
+            <p>Before you start cooking, read it through. No mid-cook surprises.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-head">
+              <div class="emoji">🥕</div>
+              <h4>Prep all ingredients in advance</h4>
+            </div>
+            <p>Mise en place. Having everything at hand makes cooking relaxed and fun.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-head">
+              <div class="emoji">🧂</div>
+              <h4>Don't skip the seasoning</h4>
+            </div>
+            <p>It's a tiny cost that makes a big difference in the final result.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-head">
+              <div class="emoji">🔪</div>
+              <h4>Use a well-sharpened knife</h4>
+            </div>
+            <p>Any knife should be sharpened every few weeks. Safer, faster, better.</p>
+          </div>
+          <div class="note" style="margin-top: 6px;">
+            <h4>More coming soon</h4>
+            <p>To be continued… Happy cooking! 👨‍🍳</p>
+          </div>
+        </div>
+        <div class="app-footer">
+          <div class="pref"><span class="lbl">Lang</span>EN</div>
+          <div class="pref"><span class="lbl">Theme</span>☀️ Light</div>
+          <div class="pref"><span class="lbl">Text</span>Aa</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DARK -->
+    <div class="phone-wrap">
+      <div class="phone-tag">🌙 Dark</div>
+      <div class="frame theme-dark">
+        <div class="app-header">
+          <a href="#" class="home">← Home</a>
+          <div class="search" style="visibility:hidden;">.</div>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="hero-wrap">
+          <img class="hero" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80" alt="basics" />
+        </div>
+        <div class="overlay-card">
+          <span class="cat-pill accent">Guide</span>
+          <h1 class="title">Cooking Basics</h1>
+          <p style="font-size:14px; color: var(--text-muted);">A handful of rules that will make every recipe easier and tastier.</p>
+        </div>
+        <div class="body">
+          <div class="rule-card">
+            <div class="rule-head">
+              <div class="emoji">📖</div>
+              <h4>Read the recipe completely</h4>
+            </div>
+            <p>Before you start cooking, read it through. No mid-cook surprises.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-head">
+              <div class="emoji">🥕</div>
+              <h4>Prep all ingredients in advance</h4>
+            </div>
+            <p>Mise en place. Having everything at hand makes cooking relaxed and fun.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-head">
+              <div class="emoji">🧂</div>
+              <h4>Don't skip the seasoning</h4>
+            </div>
+            <p>It's a tiny cost that makes a big difference in the final result.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-head">
+              <div class="emoji">🔪</div>
+              <h4>Use a well-sharpened knife</h4>
+            </div>
+            <p>Any knife should be sharpened every few weeks. Safer, faster, better.</p>
+          </div>
+          <div class="note" style="margin-top: 6px;">
+            <h4>More coming soon</h4>
+            <p>To be continued… Happy cooking! 👨‍🍳</p>
+          </div>
+        </div>
+        <div class="app-footer">
+          <div class="pref"><span class="lbl">Lang</span>EN</div>
+          <div class="pref"><span class="lbl">Theme</span>🌙 Dark</div>
+          <div class="pref"><span class="lbl">Text</span>Aa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — PRICES
+     ============================================================ -->
+<section class="page-section dark-bg" id="p4">
+  <div class="section-label">
+    <span class="num">04</span>
+    <h2>Prices Page</h2>
+    <span class="desc">Search · grouped ingredient list with unit + price</span>
+  </div>
+  <div class="pair">
+    <!-- LIGHT -->
+    <div class="phone-wrap">
+      <div class="phone-tag" style="color:#bbb;">☀️ Light</div>
+      <div class="frame theme-light">
+        <div class="app-header">
+          <a href="#" class="home">← Home</a>
+          <div class="search" style="visibility:hidden;">.</div>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="hero-wrap">
+          <img class="hero" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&q=80" alt="prices" />
+        </div>
+        <div class="overlay-card">
+          <span class="cat-pill yellow">Reference</span>
+          <h1 class="title">Ingredient Prices</h1>
+          <p style="font-size:14px; color: var(--text-muted);">All ingredient prices used to estimate recipe cost.</p>
+        </div>
+        <div class="body">
+          <div class="price-search">
+            <span>🔍</span>
+            <input placeholder="Search ingredients…" />
+          </div>
+          <div class="price-count">38 ingredients</div>
+
+          <div class="price-group">
+            <div class="group-head"><span class="icon">🥩</span> Proteins</div>
+            <div class="row"><div><div class="name">Chicken breast</div><div class="unit">per kg</div></div><div class="price">28.00 RON</div></div>
+            <div class="row"><div><div class="name">Ground beef</div><div class="unit">per kg</div></div><div class="price">42.00 RON</div></div>
+            <div class="row"><div><div class="name">Salmon fillet</div><div class="unit">per kg</div></div><div class="price">95.00 RON</div></div>
+            <div class="row"><div><div class="name">Eggs</div><div class="unit">per piece</div></div><div class="price">1.20 RON</div></div>
+          </div>
+
+          <div class="price-group">
+            <div class="group-head"><span class="icon">🧀</span> Dairy</div>
+            <div class="row"><div><div class="name">Heavy cream</div><div class="unit">per liter</div></div><div class="price">22.00 RON</div></div>
+            <div class="row"><div><div class="name">Parmesan</div><div class="unit">per kg</div></div><div class="price">140.00 RON</div></div>
+            <div class="row"><div><div class="name">Butter</div><div class="unit">per kg</div></div><div class="price">55.00 RON</div></div>
+          </div>
+
+          <div class="price-group">
+            <div class="group-head"><span class="icon">🥦</span> Fruits & Vegetables</div>
+            <div class="row"><div><div class="name">Garlic</div><div class="unit">per kg</div></div><div class="price">18.00 RON</div></div>
+            <div class="row"><div><div class="name">Onion</div><div class="unit">per kg</div></div><div class="price">4.50 RON</div></div>
+            <div class="row"><div><div class="name">Basil</div><div class="unit">per piece</div></div><div class="price">4.00 RON</div></div>
+          </div>
+        </div>
+        <div class="app-footer">
+          <div class="pref"><span class="lbl">Lang</span>EN</div>
+          <div class="pref"><span class="lbl">Theme</span>☀️ Light</div>
+          <div class="pref"><span class="lbl">Text</span>Aa</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DARK -->
+    <div class="phone-wrap">
+      <div class="phone-tag" style="color:#bbb;">🌙 Dark</div>
+      <div class="frame theme-dark">
+        <div class="app-header">
+          <a href="#" class="home">← Home</a>
+          <div class="search" style="visibility:hidden;">.</div>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="hero-wrap">
+          <img class="hero" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&q=80" alt="prices" />
+        </div>
+        <div class="overlay-card">
+          <span class="cat-pill yellow">Reference</span>
+          <h1 class="title">Ingredient Prices</h1>
+          <p style="font-size:14px; color: var(--text-muted);">All ingredient prices used to estimate recipe cost.</p>
+        </div>
+        <div class="body">
+          <div class="price-search">
+            <span>🔍</span>
+            <input placeholder="Search ingredients…" />
+          </div>
+          <div class="price-count">38 ingredients</div>
+
+          <div class="price-group">
+            <div class="group-head"><span class="icon">🥩</span> Proteins</div>
+            <div class="row"><div><div class="name">Chicken breast</div><div class="unit">per kg</div></div><div class="price">28.00 RON</div></div>
+            <div class="row"><div><div class="name">Ground beef</div><div class="unit">per kg</div></div><div class="price">42.00 RON</div></div>
+            <div class="row"><div><div class="name">Salmon fillet</div><div class="unit">per kg</div></div><div class="price">95.00 RON</div></div>
+            <div class="row"><div><div class="name">Eggs</div><div class="unit">per piece</div></div><div class="price">1.20 RON</div></div>
+          </div>
+
+          <div class="price-group">
+            <div class="group-head"><span class="icon">🧀</span> Dairy</div>
+            <div class="row"><div><div class="name">Heavy cream</div><div class="unit">per liter</div></div><div class="price">22.00 RON</div></div>
+            <div class="row"><div><div class="name">Parmesan</div><div class="unit">per kg</div></div><div class="price">140.00 RON</div></div>
+            <div class="row"><div><div class="name">Butter</div><div class="unit">per kg</div></div><div class="price">55.00 RON</div></div>
+          </div>
+
+          <div class="price-group">
+            <div class="group-head"><span class="icon">🥦</span> Fruits & Vegetables</div>
+            <div class="row"><div><div class="name">Garlic</div><div class="unit">per kg</div></div><div class="price">18.00 RON</div></div>
+            <div class="row"><div><div class="name">Onion</div><div class="unit">per kg</div></div><div class="price">4.50 RON</div></div>
+            <div class="row"><div><div class="name">Basil</div><div class="unit">per piece</div></div><div class="price">4.00 RON</div></div>
+          </div>
+        </div>
+        <div class="app-footer">
+          <div class="pref"><span class="lbl">Lang</span>EN</div>
+          <div class="pref"><span class="lbl">Theme</span>🌙 Dark</div>
+          <div class="pref"><span class="lbl">Text</span>Aa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 — ABOUT
+     ============================================================ -->
+<section class="page-section light-bg" id="p5">
+  <div class="section-label">
+    <span class="num">05</span>
+    <h2>About Page</h2>
+    <span class="desc">Author intro · comments thread (Giscus)</span>
+  </div>
+  <div class="pair">
+    <!-- LIGHT -->
+    <div class="phone-wrap">
+      <div class="phone-tag">☀️ Light</div>
+      <div class="frame theme-light">
+        <div class="app-header">
+          <a href="#" class="home">← Home</a>
+          <div class="search" style="visibility:hidden;">.</div>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="hero-wrap">
+          <img class="hero" src="https://images.unsplash.com/photo-1556909114-4f5e7e7a8b67?w=900&q=80" alt="about" onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80'" />
+        </div>
+        <div class="overlay-card">
+          <span class="cat-pill">About</span>
+          <h1 class="title">Hello, I'm Paul</h1>
+          <p style="font-size:14px; color: var(--text-muted);">Welcome to my recipe collection — no ads, just food.</p>
+        </div>
+        <div class="body">
+          <div class="about-card">
+            <p>Bine ai venit pe site-ul meu cu rețete.</p>
+            <p>Aici o să găsești rețetele mele preferate în română și engleză.</p>
+            <p>Nu sunt reclame, pop-up-uri sau trackere, doar rețete grozave.</p>
+            <p>Multe rețete sunt preluate de pe alte website-uri, dar cu ingrediente și instrucțiuni ajustate în funcție de preferințele mele.</p>
+            <p class="signoff">Paul Sticea<br /><span style="color: var(--text-muted); font-weight:500;">psticea@gmail.com</span></p>
+          </div>
+
+          <div class="comments-card">
+            <div class="head">💬 Comments</div>
+            <div class="body">
+              <div class="comment">
+                <div class="avatar">MA</div>
+                <div class="body-c">
+                  <span class="name">Maria</span><span class="time">2d ago</span>
+                  <p>Adore site-ul! E atât de curat și simplu de folosit.</p>
+                </div>
+              </div>
+              <div class="comment">
+                <div class="avatar" style="background: var(--brand-accent);">JD</div>
+                <div class="body-c">
+                  <span class="name">John D.</span><span class="time">1w ago</span>
+                  <p>Tried the Marry Me Pasta — incredible. Made it twice this week.</p>
+                </div>
+              </div>
+              <div class="comment">
+                <div class="avatar" style="background: var(--brand-yellow); color: #111;">AL</div>
+                <div class="body-c">
+                  <span class="name">Alex</span><span class="time">2w ago</span>
+                  <p>Love the price-per-serving info! Helps me plan groceries.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-footer">
+          <div class="pref"><span class="lbl">Lang</span>EN</div>
+          <div class="pref"><span class="lbl">Theme</span>☀️ Light</div>
+          <div class="pref"><span class="lbl">Text</span>Aa</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DARK -->
+    <div class="phone-wrap">
+      <div class="phone-tag">🌙 Dark</div>
+      <div class="frame theme-dark">
+        <div class="app-header">
+          <a href="#" class="home">← Home</a>
+          <div class="search" style="visibility:hidden;">.</div>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="hero-wrap">
+          <img class="hero" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80" alt="about" />
+        </div>
+        <div class="overlay-card">
+          <span class="cat-pill">About</span>
+          <h1 class="title">Hello, I'm Paul</h1>
+          <p style="font-size:14px; color: var(--text-muted);">Welcome to my recipe collection — no ads, just food.</p>
+        </div>
+        <div class="body">
+          <div class="about-card">
+            <p>Bine ai venit pe site-ul meu cu rețete.</p>
+            <p>Aici o să găsești rețetele mele preferate în română și engleză.</p>
+            <p>Nu sunt reclame, pop-up-uri sau trackere, doar rețete grozave.</p>
+            <p>Multe rețete sunt preluate de pe alte website-uri, dar cu ingrediente și instrucțiuni ajustate în funcție de preferințele mele.</p>
+            <p class="signoff">Paul Sticea<br /><span style="color: var(--text-muted); font-weight:500;">psticea@gmail.com</span></p>
+          </div>
+
+          <div class="comments-card">
+            <div class="head">💬 Comments</div>
+            <div class="body">
+              <div class="comment">
+                <div class="avatar">MA</div>
+                <div class="body-c">
+                  <span class="name">Maria</span><span class="time">2d ago</span>
+                  <p>Adore site-ul! E atât de curat și simplu de folosit.</p>
+                </div>
+              </div>
+              <div class="comment">
+                <div class="avatar" style="background: var(--brand-accent);">JD</div>
+                <div class="body-c">
+                  <span class="name">John D.</span><span class="time">1w ago</span>
+                  <p>Tried the Marry Me Pasta — incredible. Made it twice this week.</p>
+                </div>
+              </div>
+              <div class="comment">
+                <div class="avatar" style="background: var(--brand-yellow); color: #111;">AL</div>
+                <div class="body-c">
+                  <span class="name">Alex</span><span class="time">2w ago</span>
+                  <p>Love the price-per-serving info! Helps me plan groceries.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app-footer">
+          <div class="pref"><span class="lbl">Lang</span>EN</div>
+          <div class="pref"><span class="lbl">Theme</span>🌙 Dark</div>
+          <div class="pref"><span class="lbl">Text</span>Aa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     06 — SIDE MENU OVERLAY
+     ============================================================ -->
+<section class="page-section dark-bg" id="p6">
+  <div class="section-label">
+    <span class="num">06</span>
+    <h2>Side Menu</h2>
+    <span class="desc">Filters · category navigation · links</span>
+  </div>
+  <div class="pair">
+    <!-- LIGHT -->
+    <div class="phone-wrap">
+      <div class="phone-tag" style="color:#bbb;">☀️ Light</div>
+      <div class="menu-shell theme-light">
+        <div class="behind">
+          <div class="frame theme-light">
+            <div class="app-header">
+              <a href="#" class="home">Paul's Cookbook</a>
+              <div class="search">🔍 Search recipes…</div>
+              <button class="menu-btn">☰</button>
+            </div>
+            <div class="home-hero">
+              <div class="greeting">
+                <span class="cat-pill">Welcome</span>
+                <h1>What's cooking today?</h1>
+                <p>52 recipes · no ads, no trackers, just great food.</p>
+              </div>
+            </div>
+            <div class="cat-section" style="padding-bottom: 24px;">
+              <h3>🍝 Pasta <span class="more">See all ›</span></h3>
+              <div class="recipe-grid">
+                <div class="recipe-card">
+                  <img class="thumb" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80" alt="">
+                  <div class="meta"><h4>Marry Me Chicken Pasta</h4></div>
+                </div>
+                <div class="recipe-card">
+                  <img class="thumb" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600&q=80" alt="">
+                  <div class="meta"><h4>Creamy Mushroom Tagliatelle</h4></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="backdrop"></div>
+        <aside class="menu-drawer">
+          <div class="menu-head">
+            <h3>Menu</h3>
+            <button class="close">✕</button>
+          </div>
+          <div class="menu-body">
+            <div class="menu-section">
+              <h4>Filters</h4>
+              <div class="keyword-list">
+                <span class="keyword on">Vegetarian</span>
+                <span class="keyword">Vegan</span>
+                <span class="keyword on">Quick</span>
+                <span class="keyword">Spicy</span>
+                <span class="keyword">Budget</span>
+                <span class="keyword">Comfort</span>
+                <span class="keyword">Healthy</span>
+              </div>
+            </div>
+
+            <div class="menu-section">
+              <h4>Categories</h4>
+              <div class="cat-row"><span class="emoji">🥐</span> Breakfast <span class="count">6</span></div>
+              <div class="cat-row"><span class="emoji">🍝</span> Pasta <span class="count">9</span></div>
+              <div class="cat-row"><span class="emoji">🥘</span> Stir-Fries <span class="count">5</span></div>
+              <div class="cat-row"><span class="emoji">🍲</span> Soups &amp; Stews <span class="count">7</span></div>
+              <div class="cat-row"><span class="emoji">🍖</span> Main Courses <span class="count">11</span></div>
+              <div class="cat-row"><span class="emoji">🍔</span> Burgers &amp; Wraps <span class="count">4</span></div>
+              <div class="cat-row"><span class="emoji">🥗</span> Salads &amp; Bites <span class="count">8</span></div>
+              <div class="cat-row"><span class="emoji">🍳</span> Basics <span class="count">2</span></div>
+            </div>
+
+            <div class="menu-section">
+              <h4>More</h4>
+              <div class="cat-row"><span class="emoji">📖</span> Cooking Basics</div>
+              <div class="cat-row"><span class="emoji">💰</span> Prices</div>
+              <div class="cat-row"><span class="emoji">ℹ️</span> About</div>
+            </div>
+
+            <div class="menu-section">
+              <h4>Preferences</h4>
+              <div class="cat-row"><span class="emoji">🌐</span> Language <span class="count">EN</span></div>
+              <div class="cat-row"><span class="emoji">☀️</span> Theme <span class="count">Light</span></div>
+              <div class="cat-row"><span class="emoji">🔤</span> Text Size <span class="count">M</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- DARK -->
+    <div class="phone-wrap">
+      <div class="phone-tag" style="color:#bbb;">🌙 Dark</div>
+      <div class="menu-shell theme-dark">
+        <div class="behind">
+          <div class="frame theme-dark">
+            <div class="app-header">
+              <a href="#" class="home">Paul's Cookbook</a>
+              <div class="search">🔍 Search recipes…</div>
+              <button class="menu-btn">☰</button>
+            </div>
+            <div class="home-hero">
+              <div class="greeting">
+                <span class="cat-pill">Welcome</span>
+                <h1>What's cooking today?</h1>
+                <p>52 recipes · no ads, no trackers, just great food.</p>
+              </div>
+            </div>
+            <div class="cat-section" style="padding-bottom: 24px;">
+              <h3>🍝 Pasta <span class="more">See all ›</span></h3>
+              <div class="recipe-grid">
+                <div class="recipe-card">
+                  <img class="thumb" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80" alt="">
+                  <div class="meta"><h4>Marry Me Chicken Pasta</h4></div>
+                </div>
+                <div class="recipe-card">
+                  <img class="thumb" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600&q=80" alt="">
+                  <div class="meta"><h4>Creamy Mushroom Tagliatelle</h4></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="backdrop"></div>
+        <aside class="menu-drawer">
+          <div class="menu-head">
+            <h3>Menu</h3>
+            <button class="close">✕</button>
+          </div>
+          <div class="menu-body">
+            <div class="menu-section">
+              <h4>Filters</h4>
+              <div class="keyword-list">
+                <span class="keyword on">Vegetarian</span>
+                <span class="keyword">Vegan</span>
+                <span class="keyword on">Quick</span>
+                <span class="keyword">Spicy</span>
+                <span class="keyword">Budget</span>
+                <span class="keyword">Comfort</span>
+                <span class="keyword">Healthy</span>
+              </div>
+            </div>
+
+            <div class="menu-section">
+              <h4>Categories</h4>
+              <div class="cat-row"><span class="emoji">🥐</span> Breakfast <span class="count">6</span></div>
+              <div class="cat-row"><span class="emoji">🍝</span> Pasta <span class="count">9</span></div>
+              <div class="cat-row"><span class="emoji">🥘</span> Stir-Fries <span class="count">5</span></div>
+              <div class="cat-row"><span class="emoji">🍲</span> Soups &amp; Stews <span class="count">7</span></div>
+              <div class="cat-row"><span class="emoji">🍖</span> Main Courses <span class="count">11</span></div>
+              <div class="cat-row"><span class="emoji">🍔</span> Burgers &amp; Wraps <span class="count">4</span></div>
+              <div class="cat-row"><span class="emoji">🥗</span> Salads &amp; Bites <span class="count">8</span></div>
+              <div class="cat-row"><span class="emoji">🍳</span> Basics <span class="count">2</span></div>
+            </div>
+
+            <div class="menu-section">
+              <h4>More</h4>
+              <div class="cat-row"><span class="emoji">📖</span> Cooking Basics</div>
+              <div class="cat-row"><span class="emoji">💰</span> Prices</div>
+              <div class="cat-row"><span class="emoji">ℹ️</span> About</div>
+            </div>
+
+            <div class="menu-section">
+              <h4>Preferences</h4>
+              <div class="cat-row"><span class="emoji">🌐</span> Language <span class="count">EN</span></div>
+              <div class="cat-row"><span class="emoji">🌙</span> Theme <span class="count">Dark</span></div>
+              <div class="cat-row"><span class="emoji">🔤</span> Text Size <span class="count">M</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  Card Stack design system applied across the whole site · Pick a page or two and I'll build it into the React components.
+</footer>
+
+</body>
+</html>

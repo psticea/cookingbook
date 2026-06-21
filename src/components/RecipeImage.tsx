@@ -33,7 +33,7 @@ export const RecipeImage: React.FC<RecipeImageProps> = ({ recipeId, category, al
         alt={alt}
         loading="lazy"
         onError={handleImageError}
-        className="w-full aspect-video object-cover"
+        className="w-full aspect-video object-cover bg-card-2-light dark:bg-card-2-dark"
       />
     </div>
   );

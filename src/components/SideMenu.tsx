@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
 import { LanguageSelector } from './LanguageSelector';
+import { TextSizeSelector } from './TextSizeSelector';
+import { ThemeSelector } from './ThemeSelector';
 
 interface SideMenuProps {
   isOpen: boolean;
@@ -10,31 +12,21 @@ interface SideMenuProps {
 }
 
 /**
- * SideMenu component
- * A side panel that slides in from the right, occupying 1/3 of screen width
- * Contains sections for Filters, Categories, Cooking Basics, and About
- * Can be closed by clicking outside, pressing Escape, or clicking close button
+ * SideMenu — Card Stack design.
+ * Slide-in drawer occupying ~80% of viewport width on mobile and ~33% on desktop.
+ * Dimmed backdrop, Escape to close, body scroll lock.
  */
-export const SideMenu: React.FC<SideMenuProps> = ({
-  isOpen,
-  onClose,
-  children
-}) => {
+export const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose, children }) => {
   const { language } = useLanguage();
 
-  // Handle Escape key press
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
-        onClose();
-      }
+      if (e.key === 'Escape' && isOpen) onClose();
     };
-
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose]);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -46,72 +38,80 @@ export const SideMenu: React.FC<SideMenuProps> = ({
     };
   }, [isOpen]);
 
-  // Handle click outside to close
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
+    if (e.target === e.currentTarget) onClose();
   };
 
   return (
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={handleBackdropClick}
         aria-hidden="true"
       />
 
-      {/* Side Menu Panel - responsive width */}
-      <div
-        className={`fixed top-0 right-0 h-full w-4/5 md:w-1/2 lg:w-1/3 bg-surface-light dark:bg-surface-dark shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+      {/* Drawer panel — 80% on mobile, narrower on larger screens */}
+      <aside
+        className={`fixed top-0 right-0 h-full w-4/5 sm:w-[60%] md:w-[45%] lg:w-[33%] max-w-md
+                    bg-bg-light dark:bg-bg-dark
+                    shadow-2xl z-50 transform transition-transform duration-300 ease-in-out
+                    overflow-y-auto flex flex-col
+                    ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
         role="dialog"
         aria-modal="true"
         aria-label={getTranslation('menu', language)}
       >
-        {/* Header with close button - touch-friendly */}
-        <div className="sticky top-0 bg-surface-light dark:bg-surface-dark border-b border-gray-200 dark:border-zinc-700 px-4 sm:px-6 py-2 flex items-center justify-between z-10">
-          <h2 className="text-xl font-bold text-text-main-light dark:text-text-main-dark">
+        {/* Sticky header */}
+        <div className="sticky top-0 z-10 bg-card-light dark:bg-card-dark border-b border-line-light dark:border-line-dark px-5 py-3 flex items-center justify-between">
+          <h2 className="font-display text-lg font-bold text-ink-light dark:text-ink-dark">
             {getTranslation('menu', language)}
           </h2>
           <button
             onClick={onClose}
-            className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-text-main-light/60 dark:text-text-main-dark/60 hover:text-text-main-light dark:hover:text-text-main-dark transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-zinc-800"
+            className="min-w-[40px] min-h-[40px] flex items-center justify-center text-ink-light dark:text-ink-dark hover:bg-card-2-light dark:hover:bg-card-2-dark transition-colors rounded-xl"
             aria-label={getTranslation('close', language)}
           >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
-        {/* Menu content - responsive padding */}
-        <div className="px-4 sm:px-6 py-2 pb-20">
-          {children}
-        </div>
+        {/* Drawer body — children render their own card sections */}
+        <div className="px-4 py-4 space-y-3">{children}</div>
 
-        {/* Footer with Language Selector - sticky at bottom */}
-        <div className="sticky bottom-0 bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-zinc-700 px-4 sm:px-6 py-4">
-          <div className="flex items-center justify-center">
-            <LanguageSelector />
+        {/* Preferences card — always shown */}
+        <div className="px-4 pb-6 mt-auto">
+          <div className="bg-card-light dark:bg-card-dark rounded-2xl p-4 shadow-card">
+            <h4 className="text-[11px] font-bold tracking-[0.12em] uppercase text-ink-muted-light dark:text-ink-muted-dark mb-3">
+              {getTranslation('preferences', language)}
+            </h4>
+            <div className="flex flex-col gap-2.5">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-xs font-semibold text-ink-muted-light dark:text-ink-muted-dark">
+                  {getTranslation('language', language)}
+                </span>
+                <LanguageSelector />
+              </div>
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-xs font-semibold text-ink-muted-light dark:text-ink-muted-dark">
+                  {getTranslation('theme', language)}
+                </span>
+                <ThemeSelector />
+              </div>
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-xs font-semibold text-ink-muted-light dark:text-ink-muted-dark">
+                  {getTranslation('textSize', language)}
+                </span>
+                <TextSizeSelector />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </aside>
     </>
   );
 };

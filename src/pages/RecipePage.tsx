@@ -15,6 +15,7 @@ import { SideMenu } from '../components/SideMenu';
 import { FiltersSection } from '../components/FiltersSection';
 import { CategoriesSection } from '../components/CategoriesSection';
 import { MenuLinks } from '../components/MenuLinks';
+import { categories } from '../data';
 
 const RecipePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -94,10 +95,10 @@ const RecipePage: React.FC = () => {
   // Show loading state
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col bg-surface-light dark:bg-surface-dark">
+      <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
         <Header onMenuToggle={handleMenuToggle} />
         <main className="flex-1 flex items-center justify-center">
-          <p className="text-xl text-text-main-light/60 dark:text-text-main-dark/60">
+          <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
             {getTranslation('loading', language)}
           </p>
         </main>
@@ -109,18 +110,18 @@ const RecipePage: React.FC = () => {
   // Show error state
   if (showError || !recipe) {
     return (
-      <div className="min-h-screen flex flex-col bg-surface-light dark:bg-surface-dark">
+      <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
         <Header onMenuToggle={handleMenuToggle} />
         <main className="flex-1 flex items-center justify-center px-4">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold mb-4 text-text-main-light dark:text-text-main-dark">
+          <div className="text-center max-w-sm bg-card-light dark:bg-card-dark rounded-2xl p-6 shadow-card">
+            <h1 className="font-display text-2xl font-bold mb-3 text-ink-light dark:text-ink-dark">
               {getTranslation('recipeNotFound', language)}
             </h1>
-            <p className="text-lg text-text-main-light/60 dark:text-text-main-dark/60 mb-4">
+            <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark mb-3">
               {getTranslation('recipeNotFoundMessage', language)}
             </p>
-            <p className="text-base text-text-main-light/50 dark:text-text-main-dark/50">
-              {getTranslation('backToHome', language)}...
+            <p className="text-xs text-ink-soft-light dark:text-ink-soft-dark">
+              {getTranslation('backToHome', language)}…
             </p>
           </div>
         </main>
@@ -131,7 +132,7 @@ const RecipePage: React.FC = () => {
 
   // Render recipe page
   return (
-    <div className="min-h-screen flex flex-col bg-surface-light dark:bg-surface-dark">
+    <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
       <Header onMenuToggle={handleMenuToggle} />
 
       {/* Side Menu */}
@@ -148,117 +149,121 @@ const RecipePage: React.FC = () => {
       </SideMenu>
 
       <main className="flex-1 w-full">
-        {/* Full-width Hero Image */}
-        <RecipeImage
-          recipeId={recipe.id}
-          category={recipe.category}
-          alt={recipe.title[language]}
-        />
+        {/* Hero image, edge-to-edge */}
+        <div className="relative">
+          <RecipeImage
+            recipeId={recipe.id}
+            category={recipe.category}
+            alt={recipe.title[language]}
+          />
+        </div>
 
-        {/* Content Container */}
-        <div className="w-full px-5 pt-6 pb-8 space-y-6">
-          {/* Recipe Title */}
-          <RecipeHeader recipe={recipe} />
+        {/* Overlay metadata card (Card Stack signature) */}
+        <div className="relative -mt-10 px-4 sm:px-5 z-10">
+          <div className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6">
+            <span className="inline-block bg-brand-warm text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
+              {(() => {
+                const cat = categories.find((c) => c.id === recipe.category);
+                return cat ? cat.name[language] : recipe.category;
+              })()}
+            </span>
+            <div className="mt-3">
+              <RecipeHeader recipe={recipe} />
+            </div>
 
-          {/* Metadata Grid - 4 yellow cards */}
-          <div className="grid grid-cols-4 gap-2">
-            <div className="bg-primary-light dark:bg-primary-dark rounded-2xl p-3 flex flex-col items-center justify-center text-center">
-              <span className="text-2xl mb-1">⏱️</span>
-              <span className="text-xs font-bold uppercase tracking-wider text-text-main-light dark:text-text-main-dark">
+            {/* Metadata chips */}
+            <div className="flex flex-wrap gap-2 mt-4">
+              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-ink-light dark:text-ink-dark">
+                <span className="text-base">⏱️</span>
                 {recipe.prepTime} {getTranslation('minutes', language).substring(0, 3)}
-              </span>
-            </div>
-            <div className="bg-primary-light dark:bg-primary-dark rounded-2xl p-3 flex flex-col items-center justify-center text-center">
-              <span className="text-2xl mb-1">👥</span>
-              <span className="text-xs font-bold uppercase tracking-wider text-text-main-light dark:text-text-main-dark">
-                {servings} {getTranslation('servings', language).substring(0, 4)}
-              </span>
-            </div>
-            <div className="bg-primary-light dark:bg-primary-dark rounded-2xl p-3 flex flex-col items-center justify-center text-center">
-              <span className="text-2xl mb-1">💰</span>
-              <span className="text-xs font-bold uppercase tracking-wider text-text-main-light dark:text-text-main-dark">
+              </div>
+              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-ink-light dark:text-ink-dark">
+                <span className="text-base">👥</span>
+                {servings}
+              </div>
+              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-ink-light dark:text-ink-dark">
+                <span className="text-base">💰</span>
                 {pricePerServing.toFixed(2)}/p
-              </span>
-            </div>
-            <div className="bg-primary-light dark:bg-primary-dark rounded-2xl p-3 flex flex-col items-center justify-center text-center">
-              <span className="text-2xl mb-1">🧾</span>
-              <span className="text-xs font-bold uppercase tracking-wider text-text-main-light dark:text-text-main-dark">
-                {totalCost.toFixed(2)} tot
-              </span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-ink-light dark:text-ink-dark">
+                <span className="text-base">🧾</span>
+                {totalCost.toFixed(2)}
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Servings +/- Control */}
-          <div className="flex items-center justify-center">
-            <div className="inline-flex items-center bg-gray-100 dark:bg-zinc-800 rounded-full p-1.5 shadow-sm">
+        {/* Body sections */}
+        <div className="px-4 sm:px-5 pt-5 pb-8 space-y-4">
+          {/* Servings row */}
+          <div
+            className="flex items-center justify-between rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 text-ink-light"
+            style={{ background: 'linear-gradient(90deg, #f5cb5c 0%, #fde68a 100%)' }}
+          >
+            <span className="text-sm sm:text-base font-semibold">
+              {servings} {getTranslation('servings', language)}
+            </span>
+            <div className="flex items-center gap-3">
               <button
                 onClick={handleDecrement}
                 disabled={servings <= 1}
-                className="bg-accent-light dark:bg-accent-dark text-white rounded-full w-10 h-10 flex items-center justify-center active:scale-95 transition-transform disabled:opacity-50"
+                className="w-9 h-9 flex items-center justify-center rounded-lg bg-white text-ink-light font-bold text-lg shadow-card active:scale-95 transition-transform disabled:opacity-50"
                 aria-label="Decrease servings"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" /></svg>
+                −
               </button>
-              <span className="px-6 font-medium text-lg text-text-main-light dark:text-text-main-dark">
-                {servings} {getTranslation('servings', language)}
-              </span>
+              <span className="font-bold min-w-[1.5rem] text-center text-base">{servings}</span>
               <button
                 onClick={handleIncrement}
                 disabled={servings >= 12}
-                className="bg-accent-light dark:bg-accent-dark text-white rounded-full w-10 h-10 flex items-center justify-center active:scale-95 transition-transform disabled:opacity-50"
+                className="w-9 h-9 flex items-center justify-center rounded-lg bg-white text-ink-light font-bold text-lg shadow-card active:scale-95 transition-transform disabled:opacity-50"
                 aria-label="Increase servings"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
+                +
               </button>
             </div>
           </div>
 
-          {/* Tabbed Card - Ingredients / Instructions */}
-          <div className="-mx-5 sm:mx-0 rounded-none sm:rounded-2xl border border-gray-200 dark:border-zinc-700 overflow-hidden bg-white dark:bg-zinc-900 shadow-sm">
-            {/* Tab Buttons */}
-            <div className="flex">
-              <button
-                onClick={() => setActiveTab('ingredients')}
-                className={`flex-1 py-3.5 text-center font-bold transition-colors ${
-                  activeTab === 'ingredients'
-                    ? 'bg-accent-light dark:bg-accent-dark text-white'
-                    : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-zinc-800'
-                }`}
-              >
-                {getTranslation('ingredients', language)}
-              </button>
-              <button
-                onClick={() => setActiveTab('instructions')}
-                className={`flex-1 py-3.5 text-center font-bold transition-colors ${
-                  activeTab === 'instructions'
-                    ? 'bg-accent-light dark:bg-accent-dark text-white'
-                    : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-zinc-800'
-                }`}
-              >
-                {getTranslation('instructions', language)}
-              </button>
-            </div>
-
-            {/* Tab Content */}
-            {activeTab === 'ingredients' ? (
-              <IngredientList
-                ingredients={recipe.ingredients}
-                servings={recipe.servings}
-                currentServings={servings}
-              />
-            ) : (
-              <div className="p-4">
-                <InstructionList instructions={recipe.instructions} />
-              </div>
-            )}
+          {/* Tabs */}
+          <div className="flex gap-1 bg-card-3-light dark:bg-card-3-dark rounded-2xl p-1">
+            <button
+              onClick={() => setActiveTab('ingredients')}
+              className={`flex-1 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+                activeTab === 'ingredients'
+                  ? 'bg-card-light dark:bg-card-dark text-ink-light dark:text-ink-dark shadow-card'
+                  : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
+              }`}
+            >
+              {getTranslation('ingredients', language)}
+            </button>
+            <button
+              onClick={() => setActiveTab('instructions')}
+              className={`flex-1 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+                activeTab === 'instructions'
+                  ? 'bg-card-light dark:bg-card-dark text-ink-light dark:text-ink-dark shadow-card'
+                  : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
+              }`}
+            >
+              {getTranslation('instructions', language)}
+            </button>
           </div>
 
-          {/* Personal Notes */}
+          {/* Tab content */}
+          {activeTab === 'ingredients' ? (
+            <IngredientList
+              ingredients={recipe.ingredients}
+              servings={recipe.servings}
+              currentServings={servings}
+            />
+          ) : (
+            <InstructionList instructions={recipe.instructions} />
+          )}
+
+          {/* Personal notes */}
           <PersonalNotes notes={recipe.personalNotes} />
         </div>
       </main>
 
-      {/* Footer with preference selectors */}
       <Footer />
     </div>
   );

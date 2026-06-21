@@ -183,8 +183,8 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-surface-light dark:bg-surface-dark">
-      <Header 
+    <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
+      <Header
         showSearch={true}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
@@ -203,11 +203,24 @@ const HomePage: React.FC = () => {
         <CategoriesSection onCategoryClick={handleCategoryClick} />
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
-      
+
       <main className="flex-1 max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 w-full">
+        {/* Greeting card */}
+        <section className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6 mb-5">
+          <span className="inline-block bg-brand-accent text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
+            {getTranslation('welcome', language)}
+          </span>
+          <h1 className="font-display text-2xl sm:text-3xl font-bold text-ink-light dark:text-ink-dark mt-2.5 mb-1 tracking-tight">
+            {getTranslation('greetingTitle', language)}
+          </h1>
+          <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark">
+            {recipes.length} {getTranslation('recipes', language).toLowerCase()} · {getTranslation('greetingSubtitle', language)}
+          </p>
+        </section>
+
         {loading && (
           <div className="text-center py-8">
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
               {getTranslation('loading', language)}
             </p>
           </div>
@@ -215,7 +228,7 @@ const HomePage: React.FC = () => {
 
         {error && (
           <div className="text-center py-8">
-            <p className="text-xl text-red-600 dark:text-red-400">
+            <p className="text-base text-brand-warm">
               {getTranslation('errorOccurred', language)}
             </p>
           </div>
@@ -228,31 +241,31 @@ const HomePage: React.FC = () => {
                 {/* Control bar: count + categories toggle + sort pills */}
                 <div className="mb-5 flex flex-wrap items-center gap-2 w-full min-w-0">
                   {/* Recipe count badge */}
-                  <span className="inline-flex items-center justify-center min-w-[1.5rem] h-7 px-2 rounded-full bg-accent-light dark:bg-accent-dark text-white text-xs font-semibold shrink-0">
+                  <span className="inline-flex items-center justify-center min-w-[1.75rem] h-7 px-2.5 rounded-full bg-brand-accent text-white text-xs font-bold shrink-0">
                     {totalFilteredCount}
                   </span>
                   <span className="flex-1" />
 
-                  {/* Categories Toggle - pill with label */}
+                  {/* Categories Toggle */}
                   <button
                     onClick={() => setShowCategories(!showCategories)}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium border transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark ${
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent ${
                       showCategories
-                        ? 'border-accent-light dark:border-accent-dark text-white bg-accent-light dark:bg-accent-dark'
-                        : 'border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500'
+                        ? 'border-transparent text-white bg-brand-accent'
+                        : 'border-line-light dark:border-line-dark text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark bg-card-light dark:bg-card-dark'
                     }`}
                     role="switch"
                     aria-checked={showCategories}
                     aria-label={getTranslation('groupByCategories', language)}
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h8M4 18h8" />
                     </svg>
                     {getTranslation('categories', language)}
                   </button>
 
                   {/* Sort field pills */}
-                  <div className="inline-flex items-center rounded-full border border-gray-300 dark:border-gray-600 overflow-hidden">
+                  <div className="inline-flex items-center rounded-full border border-line-light dark:border-line-dark bg-card-light dark:bg-card-dark overflow-hidden">
                     {[
                       { value: 'name' as SortField, labelKey: 'sortByName' },
                       { value: 'prepTime' as SortField, labelKey: 'sortByPrepTime' },
@@ -261,21 +274,21 @@ const HomePage: React.FC = () => {
                       <button
                         key={field.value}
                         onClick={() => setSortField(field.value)}
-                        className={`px-2.5 py-1.5 text-xs font-medium transition-colors ${
+                        className={`px-3 py-1.5 text-xs font-semibold transition-colors ${
                           sortField === field.value
-                            ? 'bg-accent-light dark:bg-accent-dark text-white'
-                            : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-800'
-                        } ${idx < arr.length - 1 ? 'border-r border-gray-300 dark:border-gray-600' : ''}`}
+                            ? 'bg-brand-accent text-white'
+                            : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
+                        } ${idx < arr.length - 1 ? 'border-r border-line-light dark:border-line-dark' : ''}`}
                       >
                         {getTranslation(field.labelKey, language)}
                       </button>
                     ))}
                   </div>
 
-                  {/* Sort order pill with label */}
+                  {/* Sort order */}
                   <button
                     onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-light dark:focus:ring-accent-dark"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold border border-line-light dark:border-line-dark bg-card-light dark:bg-card-dark text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent"
                     aria-label={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
                   >
                     <svg
@@ -286,7 +299,6 @@ const HomePage: React.FC = () => {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                     </svg>
-                    {sortOrder === 'asc' ? '↑' : '↓'}
                   </button>
                 </div>
 
@@ -333,16 +345,18 @@ const HomePage: React.FC = () => {
                       const sortedCategoryRecipes = sortRecipesInCategory(categoryRecipes);
                       
                       return (
-                        <section 
-                          key={category.id} 
+                        <section
+                          key={category.id}
                           id={`category-${category.id}`}
                           className="category-section scroll-mt-16 sm:scroll-mt-20"
                         >
-                          <div className="flex items-center gap-3 mb-4">
-                            <h2 className="text-xl font-bold text-text-main-light dark:text-text-main-dark border-l-4 border-accent-light dark:border-accent-dark pl-2">
+                          <div className="flex items-baseline justify-between mb-3">
+                            <h2 className="font-display text-lg sm:text-xl font-bold text-ink-light dark:text-ink-dark tracking-tight">
                               {category.name[language]}
                             </h2>
-                            <div className="flex-1 h-px bg-gradient-to-r from-gray-300 dark:from-gray-600 to-transparent"></div>
+                            <span className="text-[11px] font-semibold tracking-[0.1em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
+                              {sortedCategoryRecipes.length} {getTranslation('recipes', language).toLowerCase()}
+                            </span>
                           </div>
                           <RecipeGrid recipes={sortedCategoryRecipes} />
                         </section>
@@ -359,7 +373,7 @@ const HomePage: React.FC = () => {
                 {/* No results message */}
                 {sortedRecipes.length === 0 && (
                   <div className="text-center py-8">
-                    <p className="text-xl text-gray-600 dark:text-gray-400">
+                    <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
                       {getTranslation('noRecipesFound', language)}
                     </p>
                   </div>
@@ -369,7 +383,7 @@ const HomePage: React.FC = () => {
 
             {recipes.length === 0 && (
               <div className="text-center py-8">
-                <p className="text-xl text-gray-600 dark:text-gray-400">
+                <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
                   {getTranslation('noRecipesFound', language)}
                 </p>
               </div>

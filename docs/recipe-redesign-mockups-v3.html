@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recipe Page — Minimal Modern (v3)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+<style>
+  /* ---- design tokens ---------------------------------------------------
+     Rules followed:
+     · one accent colour per design, neutral everything else
+     · 8pt spacing scale, generous whitespace
+     · clear type hierarchy (one display size, one body, one caption)
+     · 44px min touch targets
+     · hairline borders / one elevation, no competing shadows
+     · 3:2 hero, mobile-first, tabbed Ingredients/Instructions kept
+  --------------------------------------------------------------------- */
+  :root{
+    --green:#4ac994; --pink:#e198ac; --gold:#d1c366;
+    --ink:#16201b; --muted:#6b7670;
+    --line:#eaeeec;
+    --r:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:#e8edf0;color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  button{font:inherit;cursor:pointer}
+
+  .page-head{text-align:center;padding:54px 20px 24px;background:#11201b;color:#eafff6}
+  .page-head h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(26px,5vw,40px);letter-spacing:-.02em}
+  .page-head p{opacity:.7;margin-top:10px;font-size:14px;max-width:600px;margin-inline:auto}
+
+  nav.jump{position:sticky;top:0;z-index:60;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
+    padding:11px 12px;background:rgba(17,32,27,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+  nav.jump a{color:#cfe6dc;text-decoration:none;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.14);transition:.18s}
+  nav.jump a:hover{background:var(--green);color:#06140e;border-color:transparent}
+
+  .wrap{max-width:1040px;margin:0 auto;padding:52px 20px}
+  .label{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 auto 22px;max-width:420px}
+  .label .num{font-weight:700;font-size:12px;color:#fff;background:#11201b;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;flex:none}
+  .label h2{font-size:17px;font-weight:700;letter-spacing:-.01em}
+  .label span{font-size:12.5px;color:#5b6b64;flex-basis:100%;margin-left:38px}
+
+  .frame{max-width:420px;margin:0 auto;background:#fff;border-radius:26px;overflow:hidden;
+    box-shadow:0 24px 60px -30px rgba(15,30,25,.45),0 0 0 1px rgba(0,0,0,.035)}
+  .hero{width:100%;aspect-ratio:3/2;object-fit:cover}
+
+  /* generic, reusable minimal bits shared by several mocks */
+  .pad{padding:24px 22px 28px}
+  .cat{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .ttl{font-size:28px;font-weight:700;letter-spacing:-.02em;line-height:1.12;margin-top:6px}
+  .tabline{display:flex;gap:28px;border-bottom:1px solid var(--line);margin:22px 0 4px}
+  .tabline b{font-size:14px;font-weight:600;padding-bottom:12px;margin-bottom:-1px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent}
+  .ing{list-style:none}
+  .ing li{display:flex;align-items:center;gap:13px;min-height:44px;border-bottom:1px solid var(--line);font-size:15.5px}
+  .ing li:last-child{border-bottom:0}
+  .ing li input{width:19px;height:19px}
+  .ing li .c{margin-left:auto;color:#aeb6b1;font-size:13.5px;font-variant-numeric:tabular-nums}
+
+  /* ======================================================================
+     01 — QUIET  (the "default done right": calm, neutral, green accent)
+     ====================================================================== */
+  .a1 .pad{padding-top:22px}
+  .a1 .cat{color:var(--green)}
+  .a1 .meta{display:flex;gap:0;margin:20px 0 4px;border:1px solid var(--line);border-radius:var(--r)}
+  .a1 .meta div{flex:1;text-align:center;padding:14px 6px;border-right:1px solid var(--line)}
+  .a1 .meta div:last-child{border-right:0}
+  .a1 .meta .v{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+  .a1 .meta .l{font-size:11px;color:var(--muted);margin-top:2px}
+  .a1 .serv{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
+  .a1 .serv span{font-size:14px;color:var(--muted)}
+  .a1 .stepper{display:flex;align-items:center;gap:6px;background:#f3f6f4;border-radius:999px;padding:5px}
+  .a1 .stepper button{width:36px;height:36px;border:0;border-radius:50%;background:#fff;font-size:18px;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+  .a1 .stepper b{min-width:26px;text-align:center;font-size:15px}
+  .a1 .tabline b.on{color:var(--ink);border-color:var(--green)}
+  .a1 .pane{padding-top:8px}
+  .a1 .ing li input{accent-color:var(--green)}
+  .a1 .note{margin-top:22px;background:#f5f8f6;border-radius:var(--r);padding:18px}
+  .a1 .note h4{font-size:13px;font-weight:700;margin-bottom:6px}
+  .a1 .note p{font-size:14px;color:#4f5b54}
+
+  /* ======================================================================
+     02 — EDITORIAL LITE  (serif display, hairlines, restrained)
+     ====================================================================== */
+  .a2{font-family:'Inter',sans-serif}
+  .a2 .pad{padding-top:24px}
+  .a2 .cat{color:var(--muted)}
+  .a2 .ttl{font-family:'Fraunces',serif;font-weight:500;font-size:34px;letter-spacing:-.01em;line-height:1.04}
+  .a2 .dek{font-family:'Newsreader',serif;font-style:italic;color:var(--muted);font-size:16px;margin-top:8px}
+  .a2 .meta{display:flex;margin:20px 0 2px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .a2 .meta div{flex:1}
+  .a2 .meta .v{font-family:'Fraunces',serif;font-size:22px;font-weight:500}
+  .a2 .meta .l{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+  .a2 .serv{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)}
+  .a2 .serv span{font-size:14px;color:var(--muted)}
+  .a2 .stepper{display:flex;align-items:center;gap:18px}
+  .a2 .stepper button{width:36px;height:36px;border:1px solid var(--ink);border-radius:50%;background:none;font-size:17px}
+  .a2 .tabline b{font-family:'Fraunces',serif;font-size:19px;font-weight:500}
+  .a2 .tabline b.on{color:var(--ink);border-color:var(--ink)}
+  .a2 .pane{padding-top:8px}
+  .a2 .ing li input{accent-color:var(--ink)}
+  .a2 .note{margin-top:22px}
+  .a2 .note h4{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .a2 .note p{font-family:'Newsreader',serif;font-size:16px;color:#4f5b54}
+
+  /* ======================================================================
+     03 — CARD STACK  (soft elevation, rounded, app-like, brand pills)
+     ====================================================================== */
+  .a3{background:#f4faf7}
+  .a3 .frame-inner{padding:0 14px 18px}
+  .a3 .hero{border-radius:0 0 22px 22px}
+  .a3 .pad{padding:18px 8px 6px}
+  .a3 .cat{color:var(--green)}
+  .a3 .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+  .a3 .meta div{background:#fff;border-radius:14px;padding:13px 4px;text-align:center;box-shadow:0 6px 16px -12px rgba(0,0,0,.4)}
+  .a3 .meta .v{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+  .a3 .meta .l{font-size:10.5px;color:var(--muted);margin-top:2px}
+  .a3 .serv{display:flex;justify-content:center;margin:18px 0 4px}
+  .a3 .stepper{display:inline-flex;align-items:center;gap:16px;background:#fff;border-radius:999px;padding:6px;box-shadow:0 6px 16px -12px rgba(0,0,0,.4)}
+  .a3 .stepper button{width:38px;height:38px;border:0;border-radius:50%;background:var(--green);color:#06140e;font-size:18px}
+  .a3 .stepper b{font-size:15px}
+  .a3 .tabwrap{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 22px -16px rgba(0,0,0,.45);margin-top:8px}
+  .a3 .tabs{display:flex;background:#eef5f1;margin:5px;border-radius:13px;padding:4px}
+  .a3 .tabs button{flex:1;border:0;background:none;padding:10px;border-radius:10px;font-weight:600;font-size:14px;color:var(--muted)}
+  .a3 .tabs button.on{background:#fff;color:var(--ink);box-shadow:0 3px 8px -4px rgba(0,0,0,.25)}
+  .a3 .ing{padding:4px 16px 14px}
+  .a3 .ing li input{accent-color:var(--green)}
+  .a3 .note{margin-top:14px;background:#fff;border-radius:16px;padding:18px;box-shadow:0 8px 22px -18px rgba(0,0,0,.45)}
+  .a3 .note h4{font-size:13px;font-weight:700;margin-bottom:6px}
+  .a3 .note p{font-size:14px;color:#4f5b54}
+
+  /* ======================================================================
+     04 — MONO ACCENT  (near-mono, single warm accent, lots of air)
+     ====================================================================== */
+  .a4 .pad{padding-top:26px}
+  .a4 .cat{color:#c8743f}
+  .a4 .ttl{font-weight:600}
+  .a4 .meta{display:flex;gap:26px;margin:22px 0 6px}
+  .a4 .meta .v{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
+  .a4 .meta .l{font-size:11px;color:var(--muted);margin-top:2px}
+  .a4 .serv{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-top:1px solid var(--line);margin-top:14px}
+  .a4 .serv span{font-size:14px;color:var(--muted)}
+  .a4 .stepper{display:flex;align-items:center;gap:16px}
+  .a4 .stepper button{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:none;font-size:17px;color:#c8743f}
+  .a4 .tabline b.on{color:var(--ink);border-color:#c8743f}
+  .a4 .pane{padding-top:8px}
+  .a4 .ing li input{accent-color:#c8743f}
+  .a4 .note{margin-top:22px;border-left:2px solid #c8743f;padding:4px 0 4px 16px}
+  .a4 .note h4{font-size:13px;font-weight:700;margin-bottom:4px}
+  .a4 .note p{font-size:14px;color:#4f5b54}
+
+  /* ======================================================================
+     05 — FRAMED  (one inset keyline border, structured, gold accent)
+     ====================================================================== */
+  .a5 .frame-inner{margin:14px;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .a5 .hero{aspect-ratio:3/2}
+  .a5 .pad{padding:20px}
+  .a5 .cat{color:#b89b32;letter-spacing:.12em}
+  .a5 .ttl{font-family:'Fraunces',serif;font-weight:500;font-size:30px}
+  .a5 .meta{display:flex;margin:18px 0 2px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .a5 .meta div{flex:1;padding:14px 4px;text-align:center;border-right:1px solid var(--line)}
+  .a5 .meta div:last-child{border-right:0}
+  .a5 .meta .v{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums}
+  .a5 .meta .l{font-size:10.5px;color:var(--muted);margin-top:2px}
+  .a5 .serv{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)}
+  .a5 .serv span{font-size:14px;color:var(--muted)}
+  .a5 .stepper{display:flex;align-items:center;gap:14px}
+  .a5 .stepper button{width:34px;height:34px;border:1px solid var(--line);border-radius:8px;background:none;font-size:16px}
+  .a5 .tabline b.on{color:var(--ink);border-color:#b89b32}
+  .a5 .pane{padding-top:8px}
+  .a5 .ing li input{accent-color:#b89b32}
+  .a5 .note{margin-top:20px;background:#faf7ee;border-radius:12px;padding:16px}
+  .a5 .note h4{font-size:13px;font-weight:700;margin-bottom:6px}
+  .a5 .note p{font-size:14px;color:#4f5b54}
+
+  /* ======================================================================
+     05a–d — FRAMED VARIATIONS  (multi-colour, muted pastels)
+     Same structured keyline layout as Framed, but with a soft pastel
+     palette: tinted frame, four pastel metadata cells, matching note.
+     ====================================================================== */
+  .fv .frame-inner{margin:14px;border:1.5px solid var(--fc-border);border-radius:18px;overflow:hidden}
+  .fv .hero{aspect-ratio:3/2}
+  .fv .pad{padding:20px}
+  .fv .cat{color:var(--fc-accent);letter-spacing:.12em}
+  .fv .ttl{font-family:'Fraunces',serif;font-weight:500;font-size:30px}
+  .fv .meta{display:flex;margin:18px 0 2px;border-radius:12px;overflow:hidden}
+  .fv .meta div{flex:1;padding:14px 4px;text-align:center}
+  .fv .meta div:nth-child(1){background:var(--fc-m1)}
+  .fv .meta div:nth-child(2){background:var(--fc-m2)}
+  .fv .meta div:nth-child(3){background:var(--fc-m3)}
+  .fv .meta div:nth-child(4){background:var(--fc-m4)}
+  .fv .meta .v{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums}
+  .fv .meta .l{font-size:10.5px;color:var(--muted);margin-top:2px}
+  .fv .serv{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--fc-border)}
+  .fv .serv span{font-size:14px;color:var(--muted)}
+  .fv .stepper{display:flex;align-items:center;gap:14px}
+  .fv .stepper button{width:34px;height:34px;border:1px solid var(--fc-border);border-radius:8px;background:none;font-size:16px;color:var(--fc-accent)}
+  .fv .stepper b{min-width:22px;text-align:center;font-size:15px}
+  .fv .tabline{margin-top:18px}
+  .fv .tabline b.on{color:var(--ink);border-color:var(--fc-accent)}
+  .fv .pane{padding-top:8px}
+  .fv .ing li input{accent-color:var(--fc-accent)}
+  .fv .ing li{border-color:var(--fc-line,#eef0ef)}
+  .fv .note{margin-top:20px;background:var(--fc-note);border-radius:12px;padding:16px}
+  .fv .note h4{font-size:13px;font-weight:700;margin-bottom:6px}
+  .fv .note p{font-size:14px;color:#4f5b54}
+
+  /* A · Sage · Clay · Blush · Wheat */
+  .fvA{--fc-border:#d3ddd0;--fc-accent:#7f9173;--fc-m1:#e6ede1;--fc-m2:#f1e6dc;--fc-m3:#f5e4e9;--fc-m4:#f0ead7;--fc-note:#eef2e8;--fc-line:#eef1ec}
+  /* B · Lilac · Periwinkle · Mint · Butter */
+  .fvB{--fc-border:#d9d4e4;--fc-accent:#897aa6;--fc-m1:#eae5f1;--fc-m2:#e4e8f4;--fc-m3:#e2efe8;--fc-m4:#f4eedd;--fc-note:#ece7f3;--fc-line:#eeecf2}
+  /* C · Blush · Peach · Sky · Sage */
+  .fvC{--fc-border:#e8d6d8;--fc-accent:#b58087;--fc-m1:#f5e3e5;--fc-m2:#f7e8db;--fc-m3:#e3ecf2;--fc-m4:#e8efe4;--fc-note:#f7e8db;--fc-line:#f2e9ea}
+  /* D · Dusty Teal · Mauve · Sand · Mist */
+  .fvD{--fc-border:#cfdbd8;--fc-accent:#6f928a;--fc-m1:#dfeae8;--fc-m2:#eee0e8;--fc-m3:#f1ebdd;--fc-m4:#e6ebed;--fc-note:#eee0e8;--fc-line:#e9efed}
+
+  /* ======================================================================
+     06 — OVERLAY  (title sits on image, clean sheet below)
+     ====================================================================== */
+  .a6 .heroWrap{position:relative}
+  .a6 .heroWrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,20,15,.6),transparent 55%)}
+  .a6 .cap{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;color:#fff}
+  .a6 .cap .cat{color:rgba(255,255,255,.8)}
+  .a6 .cap .ttl{color:#fff;margin-top:4px}
+  .a6 .pad{padding:22px}
+  .a6 .meta{display:flex;gap:0;border:1px solid var(--line);border-radius:var(--r)}
+  .a6 .meta div{flex:1;text-align:center;padding:13px 4px;border-right:1px solid var(--line)}
+  .a6 .meta div:last-child{border-right:0}
+  .a6 .meta .v{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums}
+  .a6 .meta .l{font-size:10.5px;color:var(--muted);margin-top:2px}
+  .a6 .serv{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
+  .a6 .serv span{font-size:14px;color:var(--muted)}
+  .a6 .stepper{display:flex;align-items:center;gap:6px;background:#f3f6f4;border-radius:999px;padding:5px}
+  .a6 .stepper button{width:36px;height:36px;border:0;border-radius:50%;background:#fff;font-size:18px;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+  .a6 .stepper b{min-width:26px;text-align:center;font-size:15px}
+  .a6 .tabline b.on{color:var(--ink);border-color:var(--green)}
+  .a6 .pane{padding-top:8px}
+  .a6 .ing li input{accent-color:var(--green)}
+  .a6 .note{margin-top:22px;background:#f5f8f6;border-radius:var(--r);padding:18px}
+  .a6 .note h4{font-size:13px;font-weight:700;margin-bottom:6px}
+  .a6 .note p{font-size:14px;color:#4f5b54}
+
+  footer.foot{text-align:center;padding:44px 20px 80px;color:#5b6b64;font-size:13px}
+  footer.foot code{background:#dde6e2;padding:2px 7px;border-radius:5px}
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <h1>Recipe Page — Minimal &amp; Modern</h1>
+  <p>Restrained on purpose: clear hierarchy, one accent colour, generous whitespace, 44px touch targets, hairline borders. Still mobile-first, 3:2 hero, tabbed Ingredients / Instructions.</p>
+</header>
+
+<nav class="jump">
+  <a href="#a1">01 Quiet</a>
+  <a href="#a2">02 Editorial Lite</a>
+  <a href="#a3">03 Card Stack</a>
+  <a href="#a4">04 Mono Accent</a>
+  <a href="#a5">05 Framed</a>
+  <a href="#a5a">05a Sage·Clay</a>
+  <a href="#a5b">05b Lilac·Mint</a>
+  <a href="#a5c">05c Blush·Sky</a>
+  <a href="#a5d">05d Teal·Mauve</a>
+  <a href="#a6">06 Overlay</a>
+</nav>
+
+<!-- 01 QUIET -->
+<section class="wrap" id="a1">
+  <div class="label"><span class="num">01</span><h2>Quiet</h2><span>The safe, refined baseline. Neutral surfaces, green accent only where it guides the eye.</span></div>
+  <div class="frame a1">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="pad">
+      <div class="cat">Pasta</div>
+      <h1 class="ttl">Marry Me Chicken Pasta</h1>
+      <div class="meta">
+        <div><div class="v">35′</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/ serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><span>Servings</span><div class="stepper"><button>−</button><b>4</b><button>+</button></div></div>
+      <div class="tabline"><b class="on">Ingredients</b><b>Instructions</b></div>
+      <div class="pane"><ul class="ing">
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+        <li><input type="checkbox">50 g sun-dried tomatoes<span class="c">1.40</span></li>
+      </ul></div>
+      <div class="note"><h4>Personal notes</h4><p>Pull the sauce off the heat a touch early — it thickens as it rests.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 EDITORIAL LITE -->
+<section class="wrap" id="a2">
+  <div class="label"><span class="num">02</span><h2>Editorial Lite</h2><span>One serif display face, italic deck, hairline dividers. Cookbook feel without the clutter.</span></div>
+  <div class="frame a2">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="pad">
+      <div class="cat">Pasta</div>
+      <h1 class="ttl">Marry Me Chicken Pasta</h1>
+      <p class="dek">Creamy sun-dried tomato sauce worth a proposal.</p>
+      <div class="meta">
+        <div><div class="v">35′</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/ serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><span>Servings</span><div class="stepper"><button>−</button><b>4</b><button>+</button></div></div>
+      <div class="tabline"><b class="on">Ingredients</b><b>Method</b></div>
+      <div class="pane"><ul class="ing">
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+      </ul></div>
+      <div class="note"><h4>Personal notes</h4><p>The one everyone asks me to make again.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 CARD STACK -->
+<section class="wrap" id="a3">
+  <div class="label"><span class="num">03</span><h2>Card Stack</h2><span>Soft rounded cards, one gentle elevation, brand pills. Friendly and app-like.</span></div>
+  <div class="frame a3">
+    <div class="frame-inner">
+      <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+      <div class="pad">
+        <div class="cat">Pasta</div>
+        <h1 class="ttl">Marry Me Chicken Pasta</h1>
+      </div>
+      <div class="meta">
+        <div><div class="v">35′</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><div class="stepper"><button>−</button><b>4 servings</b><button>+</button></div></div>
+      <div class="tabwrap">
+        <div class="tabs"><button class="on">Ingredients</button><button>Instructions</button></div>
+        <ul class="ing">
+          <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+          <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+          <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+        </ul>
+      </div>
+      <div class="note"><h4>Personal notes</h4><p>Double the sauce — you'll want extra for bread.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 MONO ACCENT -->
+<section class="wrap" id="a4">
+  <div class="label"><span class="num">04</span><h2>Mono Accent</h2><span>Almost monochrome with a single warm terracotta accent. Maximum air.</span></div>
+  <div class="frame a4">
+    <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+    <div class="pad">
+      <div class="cat">Pasta</div>
+      <h1 class="ttl">Marry Me Chicken Pasta</h1>
+      <div class="meta">
+        <div><div class="v">35′</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/ serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><span>Servings</span><div class="stepper"><button>−</button><b>4</b><button>+</button></div></div>
+      <div class="tabline"><b class="on">Ingredients</b><b>Method</b></div>
+      <div class="pane"><ul class="ing">
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+      </ul></div>
+      <div class="note"><h4>Personal notes</h4><p>Quiet ingredients, loud results.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 FRAMED -->
+<section class="wrap" id="a5">
+  <div class="label"><span class="num">05</span><h2>Framed</h2><span>A single inset keyline holds everything together. Structured, gold accent, calm.</span></div>
+  <div class="frame a5">
+    <div class="frame-inner">
+      <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+      <div class="pad">
+        <div class="cat">PASTA</div>
+        <h1 class="ttl">Marry Me Chicken Pasta</h1>
+        <div class="meta">
+          <div><div class="v">35′</div><div class="l">Time</div></div>
+          <div><div class="v">4</div><div class="l">Serves</div></div>
+          <div><div class="v">2.40</div><div class="l">/serv</div></div>
+          <div><div class="v">9.60</div><div class="l">Total</div></div>
+        </div>
+        <div class="serv"><span>Servings</span><div class="stepper"><button>−</button><b>4</b><button>+</button></div></div>
+        <div class="tabline"><b class="on">Ingredients</b><b>Instructions</b></div>
+        <div class="pane"><ul class="ing">
+          <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+          <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+          <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+        </ul></div>
+        <div class="note"><h4>Personal notes</h4><p>Bronze-die pasta grips the sauce best.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05a FRAMED · SAGE / CLAY / BLUSH / WHEAT -->
+<section class="wrap" id="a5a">
+  <div class="label"><span class="num">05a</span><h2>Framed · Sage &amp; Clay</h2><span>Muted sage, clay, blush and wheat pastel metadata cells with a soft sage keyline.</span></div>
+  <div class="frame fv fvA">
+    <div class="frame-inner">
+      <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+      <div class="pad">
+        <div class="cat">PASTA</div>
+        <h1 class="ttl">Marry Me Chicken Pasta</h1>
+        <div class="meta">
+          <div><div class="v">35′</div><div class="l">Time</div></div>
+          <div><div class="v">4</div><div class="l">Serves</div></div>
+          <div><div class="v">2.40</div><div class="l">/serv</div></div>
+          <div><div class="v">9.60</div><div class="l">Total</div></div>
+        </div>
+        <div class="serv"><span>Servings</span><div class="stepper"><button>−</button><b>4</b><button>+</button></div></div>
+        <div class="tabline"><b class="on">Ingredients</b><b>Instructions</b></div>
+        <div class="pane"><ul class="ing">
+          <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+          <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+          <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+        </ul></div>
+        <div class="note"><h4>Personal notes</h4><p>Bronze-die pasta grips the sauce best.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05b FRAMED · LILAC / PERIWINKLE / MINT / BUTTER -->
+<section class="wrap" id="a5b">
+  <div class="label"><span class="num">05b</span><h2>Framed · Lilac &amp; Mint</h2><span>Lilac, periwinkle, mint and butter pastels with a dusty-lilac accent.</span></div>
+  <div class="frame fv fvB">
+    <div class="frame-inner">
+      <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+      <div class="pad">
+        <div class="cat">PASTA</div>
+        <h1 class="ttl">Marry Me Chicken Pasta</h1>
+        <div class="meta">
+          <div><div class="v">35′</div><div class="l">Time</div></div>
+          <div><div class="v">4</div><div class="l">Serves</div></div>
+          <div><div class="v">2.40</div><div class="l">/serv</div></div>
+          <div><div class="v">9.60</div><div class="l">Total</div></div>
+        </div>
+        <div class="serv"><span>Servings</span><div class="stepper"><button>−</button><b>4</b><button>+</button></div></div>
+        <div class="tabline"><b class="on">Ingredients</b><b>Instructions</b></div>
+        <div class="pane"><ul class="ing">
+          <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+          <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+          <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+        </ul></div>
+        <div class="note"><h4>Personal notes</h4><p>Bronze-die pasta grips the sauce best.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05c FRAMED · BLUSH / PEACH / SKY / SAGE -->
+<section class="wrap" id="a5c">
+  <div class="label"><span class="num">05c</span><h2>Framed · Blush &amp; Sky</h2><span>Blush, peach, sky and sage pastels with a dusty-rose accent.</span></div>
+  <div class="frame fv fvC">
+    <div class="frame-inner">
+      <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+      <div class="pad">
+        <div class="cat">PASTA</div>
+        <h1 class="ttl">Marry Me Chicken Pasta</h1>
+        <div class="meta">
+          <div><div class="v">35′</div><div class="l">Time</div></div>
+          <div><div class="v">4</div><div class="l">Serves</div></div>
+          <div><div class="v">2.40</div><div class="l">/serv</div></div>
+          <div><div class="v">9.60</div><div class="l">Total</div></div>
+        </div>
+        <div class="serv"><span>Servings</span><div class="stepper"><button>−</button><b>4</b><button>+</button></div></div>
+        <div class="tabline"><b class="on">Ingredients</b><b>Instructions</b></div>
+        <div class="pane"><ul class="ing">
+          <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+          <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+          <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+        </ul></div>
+        <div class="note"><h4>Personal notes</h4><p>Bronze-die pasta grips the sauce best.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05d FRAMED · DUSTY TEAL / MAUVE / SAND / MIST -->
+<section class="wrap" id="a5d">
+  <div class="label"><span class="num">05d</span><h2>Framed · Teal &amp; Mauve</h2><span>Dusty teal, mauve, sand and mist pastels with a muted-teal accent.</span></div>
+  <div class="frame fv fvD">
+    <div class="frame-inner">
+      <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+      <div class="pad">
+        <div class="cat">PASTA</div>
+        <h1 class="ttl">Marry Me Chicken Pasta</h1>
+        <div class="meta">
+          <div><div class="v">35′</div><div class="l">Time</div></div>
+          <div><div class="v">4</div><div class="l">Serves</div></div>
+          <div><div class="v">2.40</div><div class="l">/serv</div></div>
+          <div><div class="v">9.60</div><div class="l">Total</div></div>
+        </div>
+        <div class="serv"><span>Servings</span><div class="stepper"><button>−</button><b>4</b><button>+</button></div></div>
+        <div class="tabline"><b class="on">Ingredients</b><b>Instructions</b></div>
+        <div class="pane"><ul class="ing">
+          <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+          <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+          <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+        </ul></div>
+        <div class="note"><h4>Personal notes</h4><p>Bronze-die pasta grips the sauce best.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 OVERLAY -->
+<section class="wrap" id="a6">
+  <div class="label"><span class="num">06</span><h2>Overlay</h2><span>Title sits over the photo with a soft gradient; clean content sheet below.</span></div>
+  <div class="frame a6">
+    <div class="heroWrap">
+      <img class="hero" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=900&q=80" alt="dish" />
+      <div class="cap"><div class="cat">Pasta · Dinner</div><h1 class="ttl">Marry Me Chicken Pasta</h1></div>
+    </div>
+    <div class="pad">
+      <div class="meta">
+        <div><div class="v">35′</div><div class="l">Time</div></div>
+        <div><div class="v">4</div><div class="l">Serves</div></div>
+        <div><div class="v">2.40</div><div class="l">/ serv</div></div>
+        <div><div class="v">9.60</div><div class="l">Total</div></div>
+      </div>
+      <div class="serv"><span>Servings</span><div class="stepper"><button>−</button><b>4</b><button>+</button></div></div>
+      <div class="tabline"><b class="on">Ingredients</b><b>Instructions</b></div>
+      <div class="pane"><ul class="ing">
+        <li><input type="checkbox">400 g chicken breast<span class="c">3.20</span></li>
+        <li><input type="checkbox">300 g penne pasta<span class="c">0.90</span></li>
+        <li><input type="checkbox">200 ml heavy cream<span class="c">1.10</span></li>
+      </ul></div>
+      <div class="note"><h4>Personal notes</h4><p>A splash of pasta water makes the sauce silky.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  6 minimal directions · same data &amp; elements · pick one and I'll build it into the real <code>RecipePage.tsx</code>.
+</footer>
+
+</body>
+</html>
