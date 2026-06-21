@@ -204,20 +204,7 @@ const HomePage: React.FC = () => {
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
 
-      <main className="flex-1 max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 w-full">
-        {/* Greeting card */}
-        <section className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6 mb-5">
-          <span className="inline-block bg-brand-accent text-white text-xs font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
-            {getTranslation('welcome', language)}
-          </span>
-          <h1 className="font-display text-2xl sm:text-3xl font-bold text-ink-light dark:text-ink-dark mt-2.5 mb-1 tracking-tight">
-            {getTranslation('greetingTitle', language)}
-          </h1>
-          <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
-            {recipes.length} {getTranslation('recipes', language).toLowerCase()} · {getTranslation('greetingSubtitle', language)}
-          </p>
-        </section>
-
+      <main className="flex-1 max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-5 w-full">
         {loading && (
           <div className="text-center py-8">
             <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
@@ -238,13 +225,12 @@ const HomePage: React.FC = () => {
           <>
             {recipes.length > 0 && (
               <>
-                {/* Control bar: count + categories toggle + sort pills */}
-                <div className="mb-5 flex flex-wrap items-center gap-2 w-full min-w-0">
+                {/* Control bar: count + categories toggle | sort pills with direction */}
+                <div className="mb-5 flex items-center gap-2 w-full min-w-0 flex-wrap">
                   {/* Recipe count badge */}
                   <span className="inline-flex items-center justify-center min-w-[1.75rem] h-7 px-2.5 rounded-full bg-brand-accent text-white text-xs font-bold shrink-0">
                     {totalFilteredCount}
                   </span>
-                  <span className="flex-1" />
 
                   {/* Categories Toggle */}
                   <button
@@ -264,42 +250,49 @@ const HomePage: React.FC = () => {
                     {getTranslation('categories', language)}
                   </button>
 
-                  {/* Sort field pills */}
+                  <span className="flex-1" />
+
+                  {/* Sort field pills with built-in direction toggle */}
                   <div className="inline-flex items-center rounded-full border border-line-light dark:border-line-dark bg-card-light dark:bg-card-dark overflow-hidden">
                     {[
                       { value: 'name' as SortField, labelKey: 'sortByName' },
                       { value: 'prepTime' as SortField, labelKey: 'sortByPrepTime' },
                       { value: 'pricePerServing' as SortField, labelKey: 'sortByPrice' }
-                    ].map((field, idx, arr) => (
-                      <button
-                        key={field.value}
-                        onClick={() => setSortField(field.value)}
-                        className={`px-3 py-1.5 text-xs font-semibold transition-colors ${
-                          sortField === field.value
-                            ? 'bg-brand-accent text-white'
-                            : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
-                        } ${idx < arr.length - 1 ? 'border-r border-line-light dark:border-line-dark' : ''}`}
-                      >
-                        {getTranslation(field.labelKey, language)}
-                      </button>
-                    ))}
+                    ].map((field) => {
+                      const isActive = sortField === field.value;
+                      return (
+                        <button
+                          key={field.value}
+                          onClick={() => {
+                            if (isActive) {
+                              setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+                            } else {
+                              setSortField(field.value);
+                            }
+                          }}
+                          className={`inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold transition-colors border-r border-line-light dark:border-line-dark last:border-r-0 ${
+                            isActive
+                              ? 'bg-brand-accent text-white'
+                              : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
+                          }`}
+                          aria-pressed={isActive}
+                          title={isActive ? getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language) : undefined}
+                        >
+                          {getTranslation(field.labelKey, language)}
+                          {isActive && (
+                            <svg
+                              className={`w-3 h-3 transition-transform ${sortOrder === 'desc' ? 'rotate-180' : ''}`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 15l7-7 7 7" />
+                            </svg>
+                          )}
+                        </button>
+                      );
+                    })}
                   </div>
-
-                  {/* Sort order */}
-                  <button
-                    onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold border border-line-light dark:border-line-dark bg-card-light dark:bg-card-dark text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent"
-                    aria-label={getTranslation(sortOrder === 'asc' ? 'ascending' : 'descending', language)}
-                  >
-                    <svg
-                      className={`w-3.5 h-3.5 transition-transform ${sortOrder === 'desc' ? 'rotate-180' : ''}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                    </svg>
-                  </button>
                 </div>
 
                 {/* Recipe sections by category or flat list */}

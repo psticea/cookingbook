@@ -42,9 +42,7 @@ const RecipePage: React.FC = () => {
   const recipeCost = recipe ? calculateRecipeCost(recipe, language) : null;
 
   const servings = currentServings ?? recipe?.servings ?? 1;
-  const servingsRatio = recipe ? servings / recipe.servings : 1;
   const pricePerServing = recipeCost?.pricePerServing ?? 0;
-  const totalCost = (recipeCost?.totalCostRecipe ?? 0) * servingsRatio;
 
   const handleDecrement = () => {
     if (servings > 1) setCurrentServings(servings - 1);
@@ -184,10 +182,6 @@ const RecipePage: React.FC = () => {
               <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-sm font-semibold text-ink-light dark:text-ink-dark">
                 <span className="text-base">💰</span>
                 {pricePerServing.toFixed(2)}/p
-              </div>
-              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-sm font-semibold text-ink-light dark:text-ink-dark">
-                <span className="text-base">🧾</span>
-                {totalCost.toFixed(2)}
               </div>
             </div>
           </div>

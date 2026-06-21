@@ -30,7 +30,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       to={`/recipe/${recipe.id}`}
       className="group block bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-card hover:shadow-overlay hover:-translate-y-0.5 transition-all duration-300"
     >
-      <div className="aspect-square w-full overflow-hidden bg-card-2-light dark:bg-card-2-dark">
+      {/* Image with pill overlay at bottom — saves vertical space */}
+      <div className="relative aspect-square w-full overflow-hidden bg-card-2-light dark:bg-card-2-dark">
         <img
           src={imageError ? defaultImageUrl : imagePath}
           alt={recipe.title[language]}
@@ -38,27 +39,29 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
           loading="lazy"
           onError={() => setImageError(true)}
         />
-      </div>
-
-      <div className="px-3 py-2.5 space-y-1.5">
-        <h3 className="font-display text-base font-bold text-ink-light dark:text-ink-dark leading-tight line-clamp-2 min-h-[2.5em]">
-          {recipe.title[language]}
-        </h3>
-
-        <div className="flex items-center gap-1.5 flex-wrap">
+        {/* Dark gradient at the bottom so pills are always legible */}
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/55 to-transparent pointer-events-none" />
+        <div className="absolute bottom-2 left-2 right-2 flex items-center gap-1.5 flex-wrap">
           <span
-            className="inline-flex items-center gap-1 text-xs font-semibold text-ink-muted-light dark:text-ink-muted-dark bg-card-2-light dark:bg-card-2-dark rounded-full px-2 py-0.5"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-white bg-black/45 backdrop-blur-sm rounded-full px-2 py-0.5"
             title={`${getTranslation('prepTime', language)}: ${recipe.prepTime} ${getTranslation('minutes', language)}`}
           >
             ⏱ {recipe.prepTime}m
           </span>
           <span
-            className="inline-flex items-center gap-1 text-xs font-semibold text-ink-muted-light dark:text-ink-muted-dark bg-card-2-light dark:bg-card-2-dark rounded-full px-2 py-0.5"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-white bg-black/45 backdrop-blur-sm rounded-full px-2 py-0.5"
             title={formatPricePerServing(recipeCost.pricePerServing)}
           >
             💰 {recipeCost.pricePerServing.toFixed(2)}
           </span>
         </div>
+      </div>
+
+      {/* Title only — pills moved into image overlay */}
+      <div className="px-3 py-2.5">
+        <h3 className="font-display text-base font-bold text-ink-light dark:text-ink-dark leading-tight line-clamp-2 min-h-[2.5em]">
+          {recipe.title[language]}
+        </h3>
       </div>
     </Link>
   );
