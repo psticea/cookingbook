@@ -151,29 +151,12 @@ const RecipePage: React.FC = () => {
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
 
-      <main className="flex-1 w-full">
-        {/* Hero with translucent overlay header + category + title */}
-        <section className="relative">
-          {/* Overlay header (no shared Header on recipe page — translucent pills) */}
-          <div className="absolute top-0 left-0 right-0 z-10 px-4 py-3 sm:py-4 flex items-center justify-between">
-            <button
-              onClick={() => navigate('/')}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-semibold text-white bg-black/40 backdrop-blur-md hover:bg-black/55 transition-colors"
-            >
-              ← {getTranslation('home', language)}
-            </button>
-            <button
-              onClick={handleMenuToggle}
-              className="w-10 h-10 grid place-items-center rounded-full text-white bg-black/40 backdrop-blur-md hover:bg-black/55 transition-colors"
-              aria-label={getTranslation('menu', language)}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
+      <Header onMenuToggle={handleMenuToggle} />
 
-          {/* Hero image — keeps the recipe photo's native 3:2 ratio */}
+      <main className="flex-1 w-full">
+        {/* Hero with category + title overlay */}
+        <section className="relative">
+          {/* Hero image — 5:4 ratio */}
           <RecipeImage
             recipeId={recipe.id}
             category={recipe.category}
