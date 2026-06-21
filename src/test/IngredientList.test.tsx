@@ -39,10 +39,10 @@ describe('IngredientList - Price Per Portion Bug Fix', () => {
     expect(screen.getByText(/flour/)).toBeDefined();
     expect(screen.getByText(/eggs/)).toBeDefined();
 
-    // Quantities should be displayed at original amounts
-    expect(screen.getByText(/200/)).toBeDefined();
-    // "2 pcs eggs" — check full text to avoid matching "200"
-    expect(screen.getByText(/\b2\s+pcs\s+eggs/)).toBeDefined();
+    // Quantities should be displayed at original amounts (quantity badge "200 g")
+    expect(screen.getByText(/200\s*g/)).toBeDefined();
+    // Quantity badge "2 pcs" for the eggs row
+    expect(screen.getByText(/^\s*2\s+pcs\s*$/)).toBeDefined();
   });
 
   it('displays total cost that scales with servings', () => {
@@ -57,9 +57,9 @@ describe('IngredientList - Price Per Portion Bug Fix', () => {
       />
     );
 
-    // At 2x servings, quantities should be doubled
-    expect(screen.getByText(/400/)).toBeDefined();
-    // "4 pcs eggs" — check full text to avoid matching "400"
-    expect(screen.getByText(/\b4\s+pcs\s+eggs/)).toBeDefined();
+    // At 2x servings, quantities should be doubled (badge shows "400 g")
+    expect(screen.getByText(/400\s*g/)).toBeDefined();
+    // Badge "4 pcs" for the eggs row
+    expect(screen.getByText(/^\s*4\s+pcs\s*$/)).toBeDefined();
   });
 });

@@ -68,12 +68,12 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   }, [ingredients, currentServings, servings, language]);
 
   return (
-    <div className="bg-card-2-light dark:bg-card-2-dark rounded-2xl px-4 divide-y divide-line-2-light dark:divide-line-2-dark">
+    <div className="bg-card-2-light dark:bg-card-2-dark rounded-2xl px-3 sm:px-4 divide-y divide-line-2-light dark:divide-line-2-dark">
       {ingredients.map((item, index) => {
         if (isSection(item)) {
           return (
             <div key={index} className="pt-4 pb-2 first:pt-3">
-              <h3 className="font-display text-lg font-bold text-ink-light dark:text-ink-dark">
+              <h3 className="font-display text-base font-bold text-ink-light dark:text-ink-dark tracking-tight">
                 {item.section[language]}
               </h3>
             </div>
@@ -94,6 +94,18 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                 onChange={() => toggleIngredient(index)}
                 className="ingredient-checkbox"
               />
+
+              {/* Quantity badge — colored, fixed width, tabular */}
+              <span
+                className={`flex-none inline-flex items-center justify-center min-w-[3.25rem] px-2 py-1 rounded-lg text-sm font-bold tabular-nums ${
+                  isChecked
+                    ? 'bg-card-3-light dark:bg-card-3-dark text-ink-soft-light dark:text-ink-soft-dark line-through'
+                    : 'bg-brand-warm/12 text-brand-warm dark:bg-brand-warm/20'
+                }`}
+              >
+                {getScaledQuantity(item.quantity)} {item.unit[language]}
+              </span>
+
               <span
                 className={`flex-1 text-base ${
                   isChecked
@@ -101,9 +113,10 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                     : 'text-ink-light dark:text-ink-dark'
                 }`}
               >
-                {getScaledQuantity(item.quantity)} {item.unit[language]} {item.name[language]}
+                {item.name[language]}
               </span>
-              <span className="text-sm text-ink-soft-light dark:text-ink-soft-dark tabular-nums">
+
+              <span className="text-sm font-semibold text-ink-soft-light dark:text-ink-soft-dark tabular-nums whitespace-nowrap">
                 {formatPrice(ingredientCost.costPerRecipe)}
               </span>
             </label>

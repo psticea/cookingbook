@@ -156,9 +156,9 @@ const RecipePage: React.FC = () => {
           />
         </div>
 
-        {/* Overlay metadata card (Card Stack signature) */}
-        <div className="relative -mt-10 px-3 sm:px-5 z-10">
-          <div className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6">
+        {/* Overlay card — title + category */}
+        <div className="relative -mt-12 px-3 sm:px-5 z-10">
+          <div className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 pt-5 pb-4 sm:px-6 sm:pt-6 sm:pb-5">
             <span className="inline-block bg-brand-warm text-white text-xs font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
               {(() => {
                 const cat = categories.find((c) => c.id === recipe.category);
@@ -169,19 +169,59 @@ const RecipePage: React.FC = () => {
               <RecipeHeader recipe={recipe} />
             </div>
 
-            {/* Metadata chips */}
-            <div className="flex flex-wrap gap-2 mt-4">
-              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-sm font-semibold text-ink-light dark:text-ink-dark">
-                <span className="text-base">⏱️</span>
-                {recipe.prepTime} {getTranslation('minutes', language).substring(0, 3)}
+            {/* Integrated stat strip — time | servings (with stepper) | price/serving */}
+            <div className="mt-5 grid grid-cols-3 rounded-2xl overflow-hidden border border-line-light dark:border-line-dark">
+              {/* Time */}
+              <div className="flex flex-col items-center justify-center py-3 px-2 bg-card-2-light dark:bg-card-2-dark">
+                <span className="text-xl leading-none mb-1">⏱️</span>
+                <span className="font-display text-xl font-bold text-ink-light dark:text-ink-dark leading-none">
+                  {recipe.prepTime}
+                </span>
+                <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-muted-light dark:text-ink-muted-dark mt-1">
+                  {getTranslation('minutes', language).substring(0, 3)}
+                </span>
               </div>
-              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-sm font-semibold text-ink-light dark:text-ink-dark">
-                <span className="text-base">👥</span>
-                {servings}
+
+              {/* Servings with inline stepper */}
+              <div
+                className="flex flex-col items-center justify-center py-3 px-2 border-x border-line-light dark:border-line-dark"
+                style={{ background: 'linear-gradient(180deg, #f5cb5c 0%, #fde68a 100%)' }}
+              >
+                <div className="flex items-center gap-2.5 text-ink-light">
+                  <button
+                    onClick={handleDecrement}
+                    disabled={servings <= 1}
+                    className="w-7 h-7 flex items-center justify-center rounded-md bg-white/90 text-ink-light font-bold text-base shadow-card active:scale-95 transition-transform disabled:opacity-40"
+                    aria-label="Decrease servings"
+                  >
+                    −
+                  </button>
+                  <span className="font-display text-xl font-bold leading-none tabular-nums min-w-[1.25rem] text-center">
+                    {servings}
+                  </span>
+                  <button
+                    onClick={handleIncrement}
+                    disabled={servings >= 12}
+                    className="w-7 h-7 flex items-center justify-center rounded-md bg-white/90 text-ink-light font-bold text-base shadow-card active:scale-95 transition-transform disabled:opacity-40"
+                    aria-label="Increase servings"
+                  >
+                    +
+                  </button>
+                </div>
+                <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-light/75 mt-1.5">
+                  {getTranslation('servings', language)}
+                </span>
               </div>
-              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-sm font-semibold text-ink-light dark:text-ink-dark">
-                <span className="text-base">💰</span>
-                {pricePerServing.toFixed(2)}/p
+
+              {/* Price per serving */}
+              <div className="flex flex-col items-center justify-center py-3 px-2 bg-card-2-light dark:bg-card-2-dark">
+                <span className="text-xl leading-none mb-1">💰</span>
+                <span className="font-display text-xl font-bold text-ink-light dark:text-ink-dark leading-none tabular-nums">
+                  {pricePerServing.toFixed(2)}
+                </span>
+                <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-muted-light dark:text-ink-muted-dark mt-1">
+                  RON / p
+                </span>
               </div>
             </div>
           </div>
@@ -189,35 +229,6 @@ const RecipePage: React.FC = () => {
 
         {/* Body sections — tight mobile padding so lists span near-full-width */}
         <div className="px-3 sm:px-5 pt-5 pb-8 space-y-4">
-          {/* Servings row */}
-          <div
-            className="flex items-center justify-between rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 text-ink-light"
-            style={{ background: 'linear-gradient(90deg, #f5cb5c 0%, #fde68a 100%)' }}
-          >
-            <span className="text-base font-semibold">
-              {servings} {getTranslation('servings', language)}
-            </span>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={handleDecrement}
-                disabled={servings <= 1}
-                className="w-10 h-10 flex items-center justify-center rounded-lg bg-white text-ink-light font-bold text-lg shadow-card active:scale-95 transition-transform disabled:opacity-50"
-                aria-label="Decrease servings"
-              >
-                −
-              </button>
-              <span className="font-bold min-w-[1.5rem] text-center text-base">{servings}</span>
-              <button
-                onClick={handleIncrement}
-                disabled={servings >= 12}
-                className="w-10 h-10 flex items-center justify-center rounded-lg bg-white text-ink-light font-bold text-lg shadow-card active:scale-95 transition-transform disabled:opacity-50"
-                aria-label="Increase servings"
-              >
-                +
-              </button>
-            </div>
-          </div>
-
           {/* Tabs */}
           <div className="flex gap-1 bg-card-3-light dark:bg-card-3-dark rounded-2xl p-1">
             <button
