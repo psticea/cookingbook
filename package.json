@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run generate-thumbnails && tsc && vite build",
     "preview": "vite preview",
     "test": "vitest --run",
-    "validate-recipes": "node scripts/validate-recipes.cjs"
+    "validate-recipes": "node scripts/validate-recipes.cjs",
+    "generate-thumbnails": "node scripts/generate-thumbnails.cjs",
+    "generate-thumbnails:force": "node scripts/generate-thumbnails.cjs --force"
   },
   "dependencies": {
     "@microsoft/applicationinsights-web": "^3.3.0",
@@ -27,6 +29,7 @@
     "autoprefixer": "^10.4.20",
     "jsdom": "^27.2.0",
     "postcss": "^8.4.41",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.3",
     "vite": "^5.4.1",
