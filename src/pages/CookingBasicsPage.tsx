@@ -64,16 +64,16 @@ const CookingBasicsPage: React.FC = () => {
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
 
-      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-5 pt-5 pb-8 space-y-4">
+      <main className="flex-1 w-full max-w-4xl mx-auto px-3 sm:px-5 pt-5 pb-8 space-y-4">
         {/* Intro card */}
         <section className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6">
-          <span className="inline-block bg-brand-accent text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
+          <span className="inline-block bg-brand-accent text-white text-xs font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
             {language === 'ro' ? 'Ghid' : 'Guide'}
           </span>
           <h1 className="font-display text-2xl sm:text-3xl font-bold text-ink-light dark:text-ink-dark mt-3 mb-1.5 tracking-tight">
             {getTranslation('cookingBasicsTitle', language)}
           </h1>
-          <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark">{intro}</p>
+          <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">{intro}</p>
         </section>
 
         {/* Rule cards */}
@@ -83,14 +83,14 @@ const CookingBasicsPage: React.FC = () => {
             className="bg-card-light dark:bg-card-dark rounded-2xl px-5 py-4 sm:px-6 sm:py-5 shadow-card border-l-4 border-brand-accent"
           >
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl bg-card-2-light dark:bg-card-2-dark text-2xl flex-none">
+              <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-card-2-light dark:bg-card-2-dark text-2xl flex-none">
                 {rule.emoji}
               </div>
-              <h2 className="font-display text-base sm:text-lg font-bold text-ink-light dark:text-ink-dark leading-tight">
+              <h2 className="font-display text-lg font-bold text-ink-light dark:text-ink-dark leading-tight">
                 {rule.title}
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-ink-muted-light dark:text-ink-muted-dark leading-relaxed">
+            <p className="text-base text-ink-muted-light dark:text-ink-muted-dark leading-relaxed">
               {rule.body}
             </p>
           </article>
@@ -98,7 +98,7 @@ const CookingBasicsPage: React.FC = () => {
 
         {/* Outro card */}
         <section className="rounded-2xl p-5 border border-dashed border-brand-warm bg-[#fff5f5] dark:bg-[#3a2925]">
-          <p className="italic text-sm text-ink-muted-light dark:text-ink-muted-dark mb-1">{outro}</p>
+          <p className="italic text-base text-ink-muted-light dark:text-ink-muted-dark mb-1">{outro}</p>
           <p className="font-display font-bold text-base text-brand-warm">{closing} 👨‍🍳</p>
         </section>
       </main>

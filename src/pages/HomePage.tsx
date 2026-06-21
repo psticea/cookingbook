@@ -207,13 +207,13 @@ const HomePage: React.FC = () => {
       <main className="flex-1 max-w-5xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 w-full">
         {/* Greeting card */}
         <section className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6 mb-5">
-          <span className="inline-block bg-brand-accent text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
+          <span className="inline-block bg-brand-accent text-white text-xs font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
             {getTranslation('welcome', language)}
           </span>
           <h1 className="font-display text-2xl sm:text-3xl font-bold text-ink-light dark:text-ink-dark mt-2.5 mb-1 tracking-tight">
             {getTranslation('greetingTitle', language)}
           </h1>
-          <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark">
+          <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
             {recipes.length} {getTranslation('recipes', language).toLowerCase()} · {getTranslation('greetingSubtitle', language)}
           </p>
         </section>

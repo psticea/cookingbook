@@ -159,9 +159,9 @@ const RecipePage: React.FC = () => {
         </div>
 
         {/* Overlay metadata card (Card Stack signature) */}
-        <div className="relative -mt-10 px-4 sm:px-5 z-10">
+        <div className="relative -mt-10 px-3 sm:px-5 z-10">
           <div className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6">
-            <span className="inline-block bg-brand-warm text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
+            <span className="inline-block bg-brand-warm text-white text-xs font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
               {(() => {
                 const cat = categories.find((c) => c.id === recipe.category);
                 return cat ? cat.name[language] : recipe.category;
@@ -173,19 +173,19 @@ const RecipePage: React.FC = () => {
 
             {/* Metadata chips */}
             <div className="flex flex-wrap gap-2 mt-4">
-              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-ink-light dark:text-ink-dark">
+              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-sm font-semibold text-ink-light dark:text-ink-dark">
                 <span className="text-base">⏱️</span>
                 {recipe.prepTime} {getTranslation('minutes', language).substring(0, 3)}
               </div>
-              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-ink-light dark:text-ink-dark">
+              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-sm font-semibold text-ink-light dark:text-ink-dark">
                 <span className="text-base">👥</span>
                 {servings}
               </div>
-              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-ink-light dark:text-ink-dark">
+              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-sm font-semibold text-ink-light dark:text-ink-dark">
                 <span className="text-base">💰</span>
                 {pricePerServing.toFixed(2)}/p
               </div>
-              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-ink-light dark:text-ink-dark">
+              <div className="inline-flex items-center gap-1.5 bg-card-2-light dark:bg-card-2-dark rounded-xl px-3 py-2 text-sm font-semibold text-ink-light dark:text-ink-dark">
                 <span className="text-base">🧾</span>
                 {totalCost.toFixed(2)}
               </div>
@@ -193,21 +193,21 @@ const RecipePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Body sections */}
-        <div className="px-4 sm:px-5 pt-5 pb-8 space-y-4">
+        {/* Body sections — tight mobile padding so lists span near-full-width */}
+        <div className="px-3 sm:px-5 pt-5 pb-8 space-y-4">
           {/* Servings row */}
           <div
             className="flex items-center justify-between rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 text-ink-light"
             style={{ background: 'linear-gradient(90deg, #f5cb5c 0%, #fde68a 100%)' }}
           >
-            <span className="text-sm sm:text-base font-semibold">
+            <span className="text-base font-semibold">
               {servings} {getTranslation('servings', language)}
             </span>
             <div className="flex items-center gap-3">
               <button
                 onClick={handleDecrement}
                 disabled={servings <= 1}
-                className="w-9 h-9 flex items-center justify-center rounded-lg bg-white text-ink-light font-bold text-lg shadow-card active:scale-95 transition-transform disabled:opacity-50"
+                className="w-10 h-10 flex items-center justify-center rounded-lg bg-white text-ink-light font-bold text-lg shadow-card active:scale-95 transition-transform disabled:opacity-50"
                 aria-label="Decrease servings"
               >
                 −
@@ -216,7 +216,7 @@ const RecipePage: React.FC = () => {
               <button
                 onClick={handleIncrement}
                 disabled={servings >= 12}
-                className="w-9 h-9 flex items-center justify-center rounded-lg bg-white text-ink-light font-bold text-lg shadow-card active:scale-95 transition-transform disabled:opacity-50"
+                className="w-10 h-10 flex items-center justify-center rounded-lg bg-white text-ink-light font-bold text-lg shadow-card active:scale-95 transition-transform disabled:opacity-50"
                 aria-label="Increase servings"
               >
                 +
@@ -228,7 +228,7 @@ const RecipePage: React.FC = () => {
           <div className="flex gap-1 bg-card-3-light dark:bg-card-3-dark rounded-2xl p-1">
             <button
               onClick={() => setActiveTab('ingredients')}
-              className={`flex-1 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+              className={`flex-1 py-2.5 text-base font-semibold rounded-xl transition-colors ${
                 activeTab === 'ingredients'
                   ? 'bg-card-light dark:bg-card-dark text-ink-light dark:text-ink-dark shadow-card'
                   : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'
@@ -238,7 +238,7 @@ const RecipePage: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('instructions')}
-              className={`flex-1 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+              className={`flex-1 py-2.5 text-base font-semibold rounded-xl transition-colors ${
                 activeTab === 'instructions'
                   ? 'bg-card-light dark:bg-card-dark text-ink-light dark:text-ink-dark shadow-card'
                   : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'

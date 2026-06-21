@@ -92,16 +92,16 @@ const AboutPage: React.FC = () => {
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
 
-      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-5 pt-5 pb-8 space-y-4">
+      <main className="flex-1 w-full max-w-4xl mx-auto px-3 sm:px-5 pt-5 pb-8 space-y-4">
         {/* Intro overlay card */}
         <section className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6">
-          <span className="inline-block bg-brand-warm text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
+          <span className="inline-block bg-brand-warm text-white text-xs font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
             {getTranslation('about', language)}
           </span>
           <h1 className="font-display text-2xl sm:text-3xl font-bold text-ink-light dark:text-ink-dark mt-3 mb-1.5 tracking-tight">
             {getTranslation('aboutTitle', language)}
           </h1>
-          <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark">
+          <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
             {language === 'ro'
               ? 'Bun venit pe colecția mea de rețete — fără reclame, doar mâncare bună.'
               : "Welcome to my recipe collection — no ads, just food."}
@@ -109,7 +109,7 @@ const AboutPage: React.FC = () => {
         </section>
 
         {/* Author content card */}
-        <article className="bg-card-light dark:bg-card-dark rounded-2xl px-5 py-5 sm:px-6 sm:py-6 shadow-card space-y-2.5 text-sm sm:text-base leading-relaxed text-ink-light dark:text-ink-dark">
+        <article className="bg-card-light dark:bg-card-dark rounded-2xl px-5 py-5 sm:px-6 sm:py-6 shadow-card space-y-2.5 text-base leading-relaxed text-ink-light dark:text-ink-dark">
           {language === 'ro' ? (
             <>
               <p>Salut!</p>

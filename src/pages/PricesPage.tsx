@@ -82,16 +82,16 @@ const PricesPage: React.FC = () => {
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
 
-      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-5 pt-5 pb-8 space-y-4">
+      <main className="flex-1 w-full max-w-4xl mx-auto px-3 sm:px-5 pt-5 pb-8 space-y-4">
         {/* Intro card */}
         <section className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6">
-          <span className="inline-block bg-brand-yellow text-ink-light text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
+          <span className="inline-block bg-brand-yellow text-ink-light text-xs font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
             {language === 'ro' ? 'Referință' : 'Reference'}
           </span>
           <h1 className="font-display text-2xl sm:text-3xl font-bold text-ink-light dark:text-ink-dark mt-3 mb-1.5 tracking-tight">
             {getTranslation('ingredientPrices', language)}
           </h1>
-          <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark">
+          <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
             {language === 'ro'
               ? 'Prețurile folosite pentru estimarea costului rețetelor.'
               : 'Prices used to estimate the cost of recipes.'}
@@ -106,11 +106,11 @@ const PricesPage: React.FC = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder={getTranslation('searchIngredients', language)}
-            className="flex-1 bg-transparent border-none outline-none text-sm sm:text-base text-ink-light dark:text-ink-dark placeholder:text-ink-soft-light dark:placeholder:text-ink-soft-dark"
+            className="flex-1 bg-transparent border-none outline-none text-base text-ink-light dark:text-ink-dark placeholder:text-ink-soft-light dark:placeholder:text-ink-soft-dark"
           />
         </div>
 
-        <p className="text-xs text-ink-muted-light dark:text-ink-muted-dark pl-1">
+        <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark pl-1">
           {filteredIngredients.length} {getTranslation('ingredients', language).toLowerCase()}
         </p>
 
@@ -139,10 +139,10 @@ const PricesPage: React.FC = () => {
                       className="px-4 py-3 flex items-center justify-between gap-3 hover:bg-card-2-light dark:hover:bg-card-2-dark transition-colors"
                     >
                       <div className="min-w-0">
-                        <div className="text-sm font-semibold text-ink-light dark:text-ink-dark truncate">
+                        <div className="text-base font-semibold text-ink-light dark:text-ink-dark truncate">
                           {ingredient.name}
                         </div>
-                        <div className="text-[11px] text-ink-soft-light dark:text-ink-soft-dark capitalize">
+                        <div className="text-xs text-ink-soft-light dark:text-ink-soft-dark capitalize">
                           {ingredient.unit_type}
                         </div>
                       </div>

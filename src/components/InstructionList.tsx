@@ -18,9 +18,9 @@ export const InstructionList: React.FC<InstructionListProps> = ({ instructions }
       {instructions[language].map((instruction, index) => (
         <li
           key={index}
-          className="flex gap-3 py-3 text-sm sm:text-base text-ink-light dark:text-ink-dark"
+          className="flex gap-3 py-4 text-base text-ink-light dark:text-ink-dark"
         >
-          <span className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-lg bg-brand-warm text-white font-bold text-xs sm:text-sm">
+          <span className="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-lg bg-brand-warm text-white font-bold text-sm">
             {index + 1}
           </span>
           <p className="flex-1 pt-0.5 leading-relaxed">{instruction}</p>

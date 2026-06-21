@@ -73,7 +73,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
         if (isSection(item)) {
           return (
             <div key={index} className="pt-4 pb-2 first:pt-3">
-              <h3 className="font-display text-base font-bold text-ink-light dark:text-ink-dark">
+              <h3 className="font-display text-lg font-bold text-ink-light dark:text-ink-dark">
                 {item.section[language]}
               </h3>
             </div>
@@ -95,7 +95,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                 className="ingredient-checkbox"
               />
               <span
-                className={`flex-1 text-sm sm:text-base ${
+                className={`flex-1 text-base ${
                   isChecked
                     ? 'line-through text-ink-soft-light dark:text-ink-soft-dark'
                     : 'text-ink-light dark:text-ink-dark'
@@ -103,7 +103,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
               >
                 {getScaledQuantity(item.quantity)} {item.unit[language]} {item.name[language]}
               </span>
-              <span className="text-xs sm:text-sm text-ink-soft-light dark:text-ink-soft-dark tabular-nums">
+              <span className="text-sm text-ink-soft-light dark:text-ink-soft-dark tabular-nums">
                 {formatPrice(ingredientCost.costPerRecipe)}
               </span>
             </label>
