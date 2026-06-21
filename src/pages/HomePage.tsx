@@ -365,20 +365,37 @@ const HomePage: React.FC = () => {
 
                 {/* No results message */}
                 {sortedRecipes.length === 0 && (
-                  <div className="text-center py-8">
-                    <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
-                      {getTranslation('noRecipesFound', language)}
+                  <div className="text-center py-16 px-4 bg-card-light dark:bg-card-dark rounded-3xl shadow-sm border border-dashed border-line-light dark:border-line-dark mt-8 mx-auto max-w-lg">
+                    <div className="text-6xl mb-4">🫙</div>
+                    <h3 className="font-display text-xl font-bold text-ink-light dark:text-ink-dark mb-2">
+                       {getTranslation('pantryEmpty', language)}
+                    </h3>
+                    <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark mb-6">
+                       {getTranslation('pantryEmptyMessage', language)}
                     </p>
+                    <button
+                      onClick={() => {
+                        setSearchQuery('');
+                        setSelectedKeywords(new Set());
+                      }}
+                      className="inline-flex items-center gap-2 bg-brand-warm text-white px-5 py-2.5 rounded-xl font-semibold shadow-card hover:-translate-y-0.5 active:scale-95 transition-all"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      {getTranslation('clearFilters', language)}
+                    </button>
                   </div>
                 )}
               </>
             )}
 
             {recipes.length === 0 && (
-              <div className="text-center py-8">
-                <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
+              <div className="text-center py-16 px-4 bg-card-light dark:bg-card-dark rounded-3xl shadow-sm border border-dashed border-line-light dark:border-line-dark mt-8 mx-auto max-w-lg">
+                <div className="text-6xl mb-4">👨‍🍳</div>
+                <h3 className="font-display text-xl font-bold text-ink-light dark:text-ink-dark mb-2">
                   {getTranslation('noRecipesFound', language)}
-                </p>
+                </h3>
               </div>
             )}
           </>
