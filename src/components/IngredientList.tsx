@@ -72,7 +72,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
       {ingredients.map((item, index) => {
         if (isSection(item)) {
           return (
-            <div key={index} className="pt-4 pb-2 first:pt-2">
+            <div key={index} className="pt-3 pb-1 first:pt-1">
               <h3 className="font-serif text-lg font-semibold text-ink-light dark:text-ink-dark tracking-tight">
                 {item.section[language]}
               </h3>
@@ -86,7 +86,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
           return (
             <label
               key={index}
-              className="grid grid-cols-[20px_auto_1fr_auto] items-center gap-x-3 sm:gap-x-4 py-3 border-b border-line-2-light dark:border-line-2-dark last:border-b-0 cursor-pointer hover:bg-card-2-light dark:hover:bg-card-2-dark transition-colors rounded-md px-1"
+              className="grid grid-cols-[20px_auto_1fr_auto] items-center gap-x-3 sm:gap-x-4 py-1.5 border-b border-line-2-light dark:border-line-2-dark last:border-b-0 cursor-pointer hover:bg-card-2-light dark:hover:bg-card-2-dark transition-colors rounded-md px-1"
             >
               <input
                 type="checkbox"
