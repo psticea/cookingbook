@@ -1,0 +1,124 @@
+{
+  "id": "iceberg-chicken-salad",
+  "category": "salads-and-bites",
+  "image": "images/salads-and-bites/iceberg-chicken-salad.jpg",
+  "title": {
+    "ro": "Salată cu Iceberg și Pui Rumenit",
+    "en": "Iceberg and Roasted Chicken Salad"
+  },
+  "prepTime": 20,
+  "servings": 2,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "salată iceberg, ruptă în bucăți",
+        "en": "iceberg lettuce, torn into pieces"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 186
+    },
+    {
+      "name": {
+        "ro": "jumătate de pui întreg rumenit, dezosat și mărunțit",
+        "en": "half roasted whole chicken, deboned and shredded"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      }
+    },
+    {
+      "name": {
+        "ro": "porumb",
+        "en": "corn"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "cană",
+        "en": "cup"
+      },
+      "ingredientId": 175
+    },
+    {
+      "name": {
+        "ro": "brânză telemea, cuburi",
+        "en": "telemea cheese, cubed"
+      },
+      "quantity": 100,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 126
+    },
+    {
+      "name": {
+        "ro": "ulei de măsline",
+        "en": "olive oil"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "tablespoons"
+      },
+      "ingredientId": 101
+    },
+    {
+      "name": {
+        "ro": "oțet",
+        "en": "vinegar"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "tablespoon"
+      },
+      "ingredientId": 159
+    },
+    {
+      "name": {
+        "ro": "piper",
+        "en": "pepper"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "după gust",
+        "en": "to taste"
+      },
+      "ingredientId": 102
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Rupe salata iceberg în bucăți mici și pune-o într-un bol mare.",
+      "Dezosează și mărunțește jumătatea de pui rumenit, apoi adaug-o peste salată.",
+      "Adaugă porumbul scurs și cuburile de brânză telemea.",
+      "Stropește cu ulei de măsline și oțet, apoi condimentează cu piper după gust.",
+      "Amestecă ușor pentru a combina toate ingredientele și servește imediat."
+    ],
+    "en": [
+      "Tear the iceberg lettuce into small pieces and place it in a large bowl.",
+      "Debone and shred the half roasted chicken, then add it over the lettuce.",
+      "Add the drained corn and the cubed telemea cheese.",
+      "Drizzle with olive oil and vinegar, then season with pepper to taste.",
+      "Toss gently to combine all the ingredients and serve immediately."
+    ]
+  },
+  "personalNotes": {
+    "ro": "O salată rapidă și săţioasă, perfectă pentru a folosi resturile de pui rumenit. Combinația de iceberg crocant, pui fraged și brânză telemea sărată este simplă, dar plină de gust.",
+    "en": "A quick and hearty salad, perfect for using up leftover roasted chicken. The combination of crisp iceberg, tender chicken, and salty telemea cheese is simple yet full of flavor."
+  },
+  "keywords": [
+    "easy",
+    "chicken",
+    "no-cook",
+    "olive-oil"
+  ],
+  "dateAdded": "2026-07-05"
+}
