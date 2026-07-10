@@ -221,6 +221,20 @@
       "Mix with boiled pasta and garnish with chopped fresh basil leaves to serve."
     ]
   },
+  "nutrition": {
+    "servingSize": {
+      "ro": "1 porție (1/5 din rețetă)",
+      "en": "1 serving (1/5 of recipe)"
+    },
+    "calories": 770,
+    "protein": 38,
+    "carbohydrates": 83,
+    "fat": 32,
+    "saturatedFat": 15,
+    "fiber": 5,
+    "sugars": 7,
+    "sodium": 910
+  },
   "personalNotes": {
     "ro": "Unele roșii uscate la soare sunt mai bune decât altele. Eu folosesc doar Roșii Uscate la Soare Franz Josef Exclusive (găsite la Kaufland sau online).\n\nRețetă inspirată de: https://littlesunnykitchen.com/marry-me-chicken",
     "en": "Some sundried tomatoes are better than others. I only use Sundried Tomatoes Franz Josef Exclusive (found at Kaufland or online).\n\nRecipe inspired by: https://littlesunnykitchen.com/marry-me-chicken"

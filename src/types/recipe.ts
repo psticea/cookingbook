@@ -19,6 +19,18 @@ export interface IngredientSection {
 
 export type IngredientItem = Ingredient | IngredientSection;
 
+export interface NutritionData {
+  servingSize: MultilingualText;
+  calories: number;
+  protein: number;
+  carbohydrates: number;
+  fat: number;
+  saturatedFat: number;
+  fiber: number;
+  sugars: number;
+  sodium: number;
+}
+
 export interface Recipe {
   id: string;
   category: string;
@@ -29,6 +41,7 @@ export interface Recipe {
   image: string; // URL to 1200x1200 image
   ingredients: IngredientItem[]; // Array can contain both ingredients and section headings
   instructions: MultilingualText<string[]>;
+  nutrition?: NutritionData;
   personalNotes: MultilingualText; // Personal opinions, preferences, backstory
   keywords: string[]; // Filter keywords
   dateAdded: string; // ISO 8601 date string (YYYY-MM-DD)
