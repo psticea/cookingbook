@@ -99,9 +99,11 @@ describe('App Routing', () => {
       </TestWrapper>
     );
 
-    const nutritionTab = await screen.findByRole('button', { name: 'Nutriție' });
+    const nutritionTab = await screen.findByRole('tab', { name: 'Nutriție' });
     fireEvent.click(nutritionTab);
 
+    expect(nutritionTab.getAttribute('aria-selected')).toBe('true');
+    expect(screen.getByRole('tabpanel', { name: 'Nutriție' })).toBeDefined();
     expect(screen.getByText('770')).toBeDefined();
     expect(screen.getByText('Bogat în proteine')).toBeDefined();
     expect(screen.getByRole('img', { name: /Proteine 20%/ })).toBeDefined();

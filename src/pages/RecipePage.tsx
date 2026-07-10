@@ -232,8 +232,16 @@ const RecipePage: React.FC = () => {
         {/* Body — tight outer padding so list rows reach near the edges */}
         <div className="px-4 sm:px-5 pt-4 pb-8 space-y-4">
           {/* Underline tabs with counts */}
-          <div className="flex gap-2 sm:gap-6 border-b border-line-light dark:border-line-dark">
+          <div
+            className="flex gap-2 sm:gap-6 border-b border-line-light dark:border-line-dark"
+            role="tablist"
+            aria-label={getTranslation('recipe', language)}
+          >
             <button
+              id="ingredients-tab"
+              role="tab"
+              aria-selected={activeTab === 'ingredients'}
+              aria-controls="ingredients-panel"
               onClick={() => setActiveTab('ingredients')}
               className={`relative flex-1 py-3 text-sm font-bold tracking-wide transition-colors ${
                 activeTab === 'ingredients'
@@ -250,6 +258,10 @@ const RecipePage: React.FC = () => {
               )}
             </button>
             <button
+              id="instructions-tab"
+              role="tab"
+              aria-selected={activeTab === 'instructions'}
+              aria-controls="instructions-panel"
               onClick={() => setActiveTab('instructions')}
               className={`relative flex-1 py-3 text-sm font-bold tracking-wide transition-colors ${
                 activeTab === 'instructions'
@@ -267,6 +279,10 @@ const RecipePage: React.FC = () => {
             </button>
             {recipe.nutrition && (
               <button
+                id="nutrition-tab"
+                role="tab"
+                aria-selected={activeTab === 'nutrition'}
+                aria-controls="nutrition-panel"
                 onClick={() => setActiveTab('nutrition')}
                 className={`relative flex-1 py-3 text-sm font-bold tracking-wide transition-colors ${
                   activeTab === 'nutrition'
@@ -284,15 +300,23 @@ const RecipePage: React.FC = () => {
 
           {/* Tab content */}
           {activeTab === 'ingredients' && (
-            <IngredientList
-              ingredients={recipe.ingredients}
-              servings={recipe.servings}
-              currentServings={servings}
-            />
+            <div id="ingredients-panel" role="tabpanel" aria-labelledby="ingredients-tab">
+              <IngredientList
+                ingredients={recipe.ingredients}
+                servings={recipe.servings}
+                currentServings={servings}
+              />
+            </div>
           )}
-          {activeTab === 'instructions' && <InstructionList instructions={recipe.instructions} />}
+          {activeTab === 'instructions' && (
+            <div id="instructions-panel" role="tabpanel" aria-labelledby="instructions-tab">
+              <InstructionList instructions={recipe.instructions} />
+            </div>
+          )}
           {activeTab === 'nutrition' && recipe.nutrition && (
-            <NutritionPanel nutrition={recipe.nutrition} />
+            <div id="nutrition-panel" role="tabpanel" aria-labelledby="nutrition-tab">
+              <NutritionPanel nutrition={recipe.nutrition} />
+            </div>
           )}
 
           {/* Personal notes */}

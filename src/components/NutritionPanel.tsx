@@ -21,7 +21,8 @@ const copy = {
     sodium: 'Sodiu',
     dailyValue: 'din aportul zilnic de referință',
     highlight: 'Bogat în proteine',
-    highlightText: 'O porție oferă 76% din aportul zilnic de referință pentru proteine.',
+    highlightText: (percent: number) =>
+      `O porție oferă ${percent}% din aportul zilnic de referință pentru proteine.`,
     note: 'Valori estimate din cantitățile ingredientelor. Produsele și modul de preparare pot modifica rezultatele.',
     reference: 'Procente bazate pe aportul de referință al unui adult mediu (2.000 kcal).',
   },
@@ -39,7 +40,8 @@ const copy = {
     sodium: 'Sodium',
     dailyValue: 'of daily reference intake',
     highlight: 'High in protein',
-    highlightText: 'One serving provides 76% of the daily reference intake for protein.',
+    highlightText: (percent: number) =>
+      `One serving provides ${percent}% of the daily reference intake for protein.`,
     note: 'Values are estimated from the listed ingredient quantities. Products and preparation can change the result.',
     reference: 'Percentages use reference intakes for an average adult (2,000 kcal).',
   },
@@ -48,6 +50,17 @@ const copy = {
 export const NutritionPanel: React.FC<NutritionPanelProps> = ({ nutrition }) => {
   const { language } = useLanguage();
   const text = copy[language];
+  const referenceIntakes = {
+    calories: 2000,
+    protein: 50,
+    saturatedFat: 20,
+    fiber: 30,
+    sugars: 90,
+    sodium: 2400,
+  };
+  const percentOf = (value: number, reference: number) => Math.round((value / reference) * 100);
+  const caloriePercent = percentOf(nutrition.calories, referenceIntakes.calories);
+  const proteinPercent = percentOf(nutrition.protein, referenceIntakes.protein);
   const proteinCalories = nutrition.protein * 4;
   const carbohydrateCalories = nutrition.carbohydrates * 4;
   const fatCalories = nutrition.fat * 9;
@@ -73,10 +86,26 @@ export const NutritionPanel: React.FC<NutritionPanelProps> = ({ nutrition }) => 
     },
   ];
   const detailRows = [
-    { label: text.saturatedFat, value: `${nutrition.saturatedFat} g`, percent: 75 },
-    { label: text.fiber, value: `${nutrition.fiber} g`, percent: 17 },
-    { label: text.sugars, value: `${nutrition.sugars} g`, percent: 8 },
-    { label: text.sodium, value: `${nutrition.sodium} mg`, percent: 38 },
+    {
+      label: text.saturatedFat,
+      value: `${nutrition.saturatedFat} g`,
+      percent: percentOf(nutrition.saturatedFat, referenceIntakes.saturatedFat),
+    },
+    {
+      label: text.fiber,
+      value: `${nutrition.fiber} g`,
+      percent: percentOf(nutrition.fiber, referenceIntakes.fiber),
+    },
+    {
+      label: text.sugars,
+      value: `${nutrition.sugars} g`,
+      percent: percentOf(nutrition.sugars, referenceIntakes.sugars),
+    },
+    {
+      label: text.sodium,
+      value: `${nutrition.sodium} mg`,
+      percent: percentOf(nutrition.sodium, referenceIntakes.sodium),
+    },
   ];
 
   return (
@@ -97,10 +126,13 @@ export const NutritionPanel: React.FC<NutritionPanelProps> = ({ nutrition }) => 
               {nutrition.servingSize[language]}
             </p>
             <div className="mt-3 h-1.5 rounded-full overflow-hidden bg-line-2-light dark:bg-line-2-dark">
-              <div className="h-full bg-brand-warm rounded-full" style={{ width: '39%' }} />
+              <div
+                className="h-full bg-brand-warm rounded-full"
+                style={{ width: `${Math.min(caloriePercent, 100)}%` }}
+              />
             </div>
             <p className="mt-2 text-[11px] leading-snug text-ink-muted-light dark:text-ink-muted-dark">
-              39% {text.dailyValue}
+              {caloriePercent}% {text.dailyValue}
             </p>
           </div>
         </div>
@@ -161,7 +193,7 @@ export const NutritionPanel: React.FC<NutritionPanelProps> = ({ nutrition }) => 
       <aside className="rounded-2xl bg-brand-warm/10 dark:bg-brand-warm/15 border border-brand-warm/20 p-4">
         <p className="text-sm font-bold text-ink-light dark:text-ink-dark">{text.highlight}</p>
         <p className="mt-1 text-sm leading-relaxed text-ink-muted-light dark:text-ink-muted-dark">
-          {text.highlightText}
+          {text.highlightText(proteinPercent)}
         </p>
       </aside>
 
