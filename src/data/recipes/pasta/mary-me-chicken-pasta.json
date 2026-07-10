@@ -223,8 +223,8 @@
   },
   "nutrition": {
     "servingSize": {
-      "ro": "1 porție (1/5 din rețetă)",
-      "en": "1 serving (1/5 of recipe)"
+      "ro": "1 farfurie",
+      "en": "1 plated serving"
     },
     "calories": 770,
     "protein": 38,
@@ -233,7 +233,10 @@
     "saturatedFat": 15,
     "fiber": 5,
     "sugars": 7,
-    "sodium": 910
+    "sodium": 910,
+    "potassium": 1040,
+    "calcium": 260,
+    "iron": 4
   },
   "personalNotes": {
     "ro": "Unele roșii uscate la soare sunt mai bune decât altele. Eu folosesc doar Roșii Uscate la Soare Franz Josef Exclusive (găsite la Kaufland sau online).\n\nRețetă inspirată de: https://littlesunnykitchen.com/marry-me-chicken",

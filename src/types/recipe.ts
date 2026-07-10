@@ -29,6 +29,9 @@ export interface NutritionData {
   fiber: number;
   sugars: number;
   sodium: number;
+  potassium: number;
+  calcium: number;
+  iron: number;
 }
 
 export interface Recipe {

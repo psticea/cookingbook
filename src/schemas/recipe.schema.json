@@ -205,7 +205,10 @@
         "saturatedFat",
         "fiber",
         "sugars",
-        "sodium"
+        "sodium",
+        "potassium",
+        "calcium",
+        "iron"
       ],
       "properties": {
         "servingSize": {
@@ -252,6 +255,18 @@
           "minimum": 0
         },
         "sodium": {
+          "type": "number",
+          "minimum": 0
+        },
+        "potassium": {
+          "type": "number",
+          "minimum": 0
+        },
+        "calcium": {
+          "type": "number",
+          "minimum": 0
+        },
+        "iron": {
           "type": "number",
           "minimum": 0
         }
