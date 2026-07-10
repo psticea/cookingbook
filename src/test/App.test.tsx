@@ -105,7 +105,13 @@ describe('App Routing', () => {
     expect(nutritionTab.getAttribute('aria-selected')).toBe('true');
     expect(screen.getByRole('tabpanel', { name: 'Nutriție' })).toBeDefined();
     expect(screen.getByText('770')).toBeDefined();
-    expect(screen.getByText('Bogat în proteine')).toBeDefined();
+    expect(screen.getByText('Scor nutrițional')).toBeDefined();
+    expect(screen.getByText('Potasiu')).toBeDefined();
+    expect(screen.getByText('76% VZ')).toBeDefined();
     expect(screen.getByRole('img', { name: /Proteine 20%/ })).toBeDefined();
+
+    fireEvent.click(screen.getByRole('button', { name: 'De limitat' }));
+    expect(screen.queryByText('Potasiu')).toBeNull();
+    expect(screen.getByText('Grăsimi saturate')).toBeDefined();
   });
 });
