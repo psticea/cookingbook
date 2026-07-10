@@ -8,6 +8,7 @@ import { Header } from '../components/Header';
 import { RecipeImage } from '../components/RecipeImage';
 import { IngredientList } from '../components/IngredientList';
 import { InstructionList } from '../components/InstructionList';
+import { NutritionPanel } from '../components/NutritionPanel';
 import { PersonalNotes } from '../components/PersonalNotes';
 import { Footer } from '../components/Footer';
 import { SideMenu } from '../components/SideMenu';
@@ -24,7 +25,7 @@ const RecipePage: React.FC = () => {
   const [showError, setShowError] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
-  const [activeTab, setActiveTab] = useState<'ingredients' | 'instructions'>('ingredients');
+  const [activeTab, setActiveTab] = useState<'ingredients' | 'instructions' | 'nutrition'>('ingredients');
   const [currentServings, setCurrentServings] = useState<number | null>(null);
 
   // Find the recipe by ID
@@ -231,7 +232,7 @@ const RecipePage: React.FC = () => {
         {/* Body — tight outer padding so list rows reach near the edges */}
         <div className="px-4 sm:px-5 pt-4 pb-8 space-y-4">
           {/* Underline tabs with counts */}
-          <div className="flex gap-6 border-b border-line-light dark:border-line-dark">
+          <div className="flex gap-2 sm:gap-6 border-b border-line-light dark:border-line-dark">
             <button
               onClick={() => setActiveTab('ingredients')}
               className={`relative flex-1 py-3 text-sm font-bold tracking-wide transition-colors ${
@@ -264,17 +265,34 @@ const RecipePage: React.FC = () => {
                 <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-brand-warm rounded-full" />
               )}
             </button>
+            {recipe.nutrition && (
+              <button
+                onClick={() => setActiveTab('nutrition')}
+                className={`relative flex-1 py-3 text-sm font-bold tracking-wide transition-colors ${
+                  activeTab === 'nutrition'
+                    ? 'text-ink-light dark:text-ink-dark'
+                    : 'text-ink-soft-light dark:text-ink-soft-dark hover:text-ink-muted-light dark:hover:text-ink-muted-dark'
+                }`}
+              >
+                {getTranslation('nutrition', language)}
+                {activeTab === 'nutrition' && (
+                  <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-brand-warm rounded-full" />
+                )}
+              </button>
+            )}
           </div>
 
           {/* Tab content */}
-          {activeTab === 'ingredients' ? (
+          {activeTab === 'ingredients' && (
             <IngredientList
               ingredients={recipe.ingredients}
               servings={recipe.servings}
               currentServings={servings}
             />
-          ) : (
-            <InstructionList instructions={recipe.instructions} />
+          )}
+          {activeTab === 'instructions' && <InstructionList instructions={recipe.instructions} />}
+          {activeTab === 'nutrition' && recipe.nutrition && (
+            <NutritionPanel nutrition={recipe.nutrition} />
           )}
 
           {/* Personal notes */}
