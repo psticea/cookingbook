@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from '../hooks/useLanguage';
 import { TextSizeProvider } from '../hooks/useTextSize';
@@ -85,5 +85,27 @@ describe('App Routing', () => {
     // Test with one of our actual recipe IDs - should show ingredients section
     const ingredientsHeading = await screen.findByText('Ingrediente');
     expect(ingredientsHeading).toBeDefined();
+    expect(screen.queryByText('Nutriție')).toBeNull();
+  });
+
+  it('shows nutrition data only on the Marry Me Chicken Pasta recipe', async () => {
+    render(
+      <TestWrapper>
+        <MemoryRouter initialEntries={['/recipe/mary-me-chicken-pasta']}>
+          <Routes>
+            <Route path="/recipe/:id" element={<RecipePage />} />
+          </Routes>
+        </MemoryRouter>
+      </TestWrapper>
+    );
+
+    const nutritionTab = await screen.findByRole('tab', { name: 'Nutriție' });
+    fireEvent.click(nutritionTab);
+
+    expect(nutritionTab.getAttribute('aria-selected')).toBe('true');
+    expect(screen.getByRole('tabpanel', { name: 'Nutriție' })).toBeDefined();
+    expect(screen.getByText('770')).toBeDefined();
+    expect(screen.getByText('Bogat în proteine')).toBeDefined();
+    expect(screen.getByRole('img', { name: /Proteine 20%/ })).toBeDefined();
   });
 });

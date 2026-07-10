@@ -193,6 +193,71 @@
       },
       "additionalProperties": false
     },
+    "nutrition": {
+      "type": "object",
+      "description": "Estimated nutritional values per serving",
+      "required": [
+        "servingSize",
+        "calories",
+        "protein",
+        "carbohydrates",
+        "fat",
+        "saturatedFat",
+        "fiber",
+        "sugars",
+        "sodium"
+      ],
+      "properties": {
+        "servingSize": {
+          "type": "object",
+          "required": ["ro", "en"],
+          "properties": {
+            "ro": {
+              "type": "string",
+              "minLength": 1
+            },
+            "en": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "calories": {
+          "type": "number",
+          "minimum": 0
+        },
+        "protein": {
+          "type": "number",
+          "minimum": 0
+        },
+        "carbohydrates": {
+          "type": "number",
+          "minimum": 0
+        },
+        "fat": {
+          "type": "number",
+          "minimum": 0
+        },
+        "saturatedFat": {
+          "type": "number",
+          "minimum": 0
+        },
+        "fiber": {
+          "type": "number",
+          "minimum": 0
+        },
+        "sugars": {
+          "type": "number",
+          "minimum": 0
+        },
+        "sodium": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
     "personalNotes": {
       "type": "object",
       "description": "Personal notes, opinions, preferences, or backstory",
