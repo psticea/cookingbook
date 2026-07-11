@@ -1,0 +1,122 @@
+{
+  "id": "placinta-creata-cu-telemea",
+  "category": "basics",
+  "image": "images/basics/placinta-creata-cu-telemea.jpg",
+  "title": {
+    "ro": "Plăcintă creață cu telemea",
+    "en": "Crinkled Telemea Cheese Pie"
+  },
+  "prepTime": 60,
+  "servings": 15,
+  "effortLevel": "medium",
+  "ingredients": [
+    {
+      "section": {
+        "ro": "Umplutură și foi",
+        "en": "Filling and pastry"
+      }
+    },
+    {
+      "name": { "ro": "foi de plăcintă", "en": "phyllo pastry sheets" },
+      "quantity": 700,
+      "unit": { "ro": "g", "en": "g" }
+    },
+    {
+      "name": { "ro": "telemea de vacă sau de oaie, nu foarte sărată", "en": "mild cow's or sheep's milk telemea cheese" },
+      "quantity": 700,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 126
+    },
+    {
+      "name": { "ro": "brânză dulce proaspătă", "en": "fresh farmer's cheese" },
+      "quantity": 300,
+      "unit": { "ro": "g", "en": "g" }
+    },
+    {
+      "name": { "ro": "ouă", "en": "eggs" },
+      "quantity": 4,
+      "unit": { "ro": "buc", "en": "pcs" },
+      "ingredientId": 122
+    },
+    {
+      "name": { "ro": "lapte", "en": "milk" },
+      "quantity": 150,
+      "unit": { "ro": "ml", "en": "ml" },
+      "ingredientId": 123
+    },
+    {
+      "name": { "ro": "ulei", "en": "oil" },
+      "quantity": 50,
+      "unit": { "ro": "ml", "en": "ml" }
+    },
+    {
+      "name": { "ro": "apă minerală, plus extra la nevoie", "en": "sparkling water, plus more if needed" },
+      "quantity": 150,
+      "unit": { "ro": "ml", "en": "ml" }
+    },
+    {
+      "name": { "ro": "praf de copt", "en": "baking powder" },
+      "quantity": 10,
+      "unit": { "ro": "g", "en": "g" }
+    },
+    {
+      "name": { "ro": "sare, doar dacă telemeaua nu este suficient de sărată", "en": "salt, only if the telemea is not salty enough" },
+      "quantity": 1,
+      "unit": { "ro": "după gust", "en": "to taste" }
+    },
+    {
+      "section": {
+        "ro": "Topping și decor",
+        "en": "Topping and garnish"
+      }
+    },
+    {
+      "name": { "ro": "iaurt", "en": "yogurt" },
+      "quantity": 150,
+      "unit": { "ro": "g", "en": "g" }
+    },
+    {
+      "name": { "ro": "unt topit", "en": "melted butter" },
+      "quantity": 50,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 110
+    },
+    {
+      "name": { "ro": "semințe de susan", "en": "sesame seeds" },
+      "quantity": 3,
+      "unit": { "ro": "linguri", "en": "tbsp" }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Preîncălzește cuptorul la 180°C.",
+      "Rade telemeaua și amestec-o într-un bol încăpător cu brânza dulce. Adaugă ouăle, laptele, uleiul, praful de copt și sare numai dacă este nevoie.",
+      "Toarnă apa minerală și amestecă bine. Compoziția trebuie să fie lichidă; dacă brânza este uscată și absoarbe prea mult lichid, mai adaugă puțină apă minerală.",
+      "Unge tava de copt cu puțin ulei. Desfă foile și păstrează două foi intacte pentru bază și două pentru capac. Acoperă restul cu un prosop curat ca să nu se usuce.",
+      "Așază două foi pe fundul tăvii. Ia pe rând fiecare foaie rămasă, mototolește-o ușor, scufund-o complet în amestecul de brânză până este bine îmbibată și așaz-o creață în tavă.",
+      "Continuă până termini foile intermediare și compoziția. Dacă rămâne amestec lichid în bol, toarnă-l uniform peste foile din tavă.",
+      "Acoperă cu cele două foi păstrate și aranjează-le pe margini, ajutându-te de un cuțit, pentru a sigila plăcinta.",
+      "Amestecă iaurtul cu untul topit, întinde toppingul uniform peste plăcintă și presară semințele de susan.",
+      "Coace aproximativ 40 de minute la 180°C, până când suprafața este frumos rumenită.",
+      "Lasă plăcinta să se răcească complet înainte de a o felia, pentru a obține bucăți ferme și generoase."
+    ],
+    "en": [
+      "Preheat the oven to 180°C (350°F).",
+      "Grate the telemea and combine it with the fresh cheese in a large bowl. Add the eggs, milk, oil, baking powder, and salt only if needed.",
+      "Pour in the sparkling water and mix well. The mixture should be runny; if the cheese is dry and absorbs too much liquid, add a little more sparkling water.",
+      "Lightly oil the baking pan. Unfold the pastry and reserve two intact sheets for the base and two for the top. Keep the remaining sheets covered with a clean towel so they do not dry out.",
+      "Place two sheets on the bottom of the pan. Take each remaining sheet in turn, crumple it gently, submerge it completely in the cheese mixture until thoroughly soaked, and place it loosely crinkled in the pan.",
+      "Continue until all the middle sheets and filling are used. If any liquid cheese mixture remains in the bowl, pour it evenly over the sheets in the pan.",
+      "Cover with the two reserved sheets and tuck them around the edges, using a knife if needed, to seal the pie.",
+      "Mix the yogurt with the melted butter, spread the topping evenly over the pie, and sprinkle with sesame seeds.",
+      "Bake at 180°C (350°F) for about 40 minutes, until the top is golden brown.",
+      "Let the pie cool completely before slicing so the generous pieces hold their shape."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Pentru a varia gustul, poți adăuga în compoziția de brânză ceapă verde, mărar sau spanac.",
+    "en": "For a different flavor, add green onions, dill, or spinach to the cheese filling."
+  },
+  "keywords": ["medium", "vegetarian", "oven-baked"],
+  "dateAdded": "2026-07-11"
+}
