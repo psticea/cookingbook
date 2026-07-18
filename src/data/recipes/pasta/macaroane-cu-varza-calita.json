@@ -1,0 +1,124 @@
+{
+  "id": "macaroane-cu-varza-calita",
+  "category": "pasta",
+  "image": "images/pasta/macaroane-cu-varza-calita.jpg",
+  "title": {
+    "ro": "Macaroane cu varză călită",
+    "en": "Pasta with Braised Cabbage"
+  },
+  "prepTime": 70,
+  "servings": 4,
+  "effortLevel": "medium",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "paste (fusilli sau macaroane)",
+        "en": "pasta (fusilli or macaroni)"
+      },
+      "quantity": 350,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 154
+    },
+    {
+      "name": {
+        "ro": "varză albă, o căpățână mare",
+        "en": "white cabbage, one large head"
+      },
+      "quantity": 1300,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 188
+    },
+    {
+      "name": {
+        "ro": "ceapă mare",
+        "en": "large onion"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 108
+    },
+    {
+      "name": {
+        "ro": "ulei",
+        "en": "oil"
+      },
+      "quantity": 4.5,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      },
+      "ingredientId": 117
+    },
+    {
+      "name": {
+        "ro": "sare (una pentru frământat varza, una pentru apa pastelor)",
+        "en": "salt (one for the cabbage, one for the pasta water)"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "lingurițe",
+        "en": "tsp"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "piper negru proaspăt măcinat",
+        "en": "freshly ground black pepper"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "lingurițe",
+        "en": "tsp"
+      },
+      "ingredientId": 102
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Curăță varza de frunzele ofilite, îndepărtează cotorul și taie restul fideluță, cât mai subțire.",
+      "Presară 1 linguriță de sare peste varza tăiată, frământ-o ușor cu mâinile și las-o să stea 15-20 de minute pentru a se înmuia și a lăsa zeamă.",
+      "Stoarce varza foarte bine de zeamă strângând-o în pumni; în acest moment ar trebui să ai aproximativ 1 kg de varză pregătită pentru a fi pusă în tigaie.",
+      "Toacă ceapa mărunt și pune-o la călit în uleiul încins, la foc mediu, timp de 2-3 minute, până devine sticloasă.",
+      "Adaugă varza stoarsă peste ceapă, amestecă bine, dă focul la minimum și acoperă tigaia cu un capac etanș.",
+      "Lasă varza să se înăbușe în propriul abur timp de 25-30 de minute, ridicând capacul doar ca să amesteci o dată la 10 minute pentru a nu se prinde.",
+      "Între timp, pune o oală cu apă și 1 linguriță de sare la fiert, apoi pregătește pastele conform timpului indicat pe ambalaj.",
+      "Scurge pastele fierte de apă și pune-le într-o oală mare, încăpătoare, așteptând să fie gata varza.",
+      "După ce varza s-a înmuiat sub capac, înlătură-l definitiv, dă focul spre mediu-mare și amestecă continuu timp de 5-10 minute pentru a evapora rapid lichidul și a o lăsa să se rumenească (caramelizeze).",
+      "Răstoarnă varza fierbinte, cu tot cu uleiul aromat din tigaie, peste pastele din oală, pune totul pe foc mic încă 1-2 minute, adaugă cele 1.5 - 2 lingurițe de piper negru măcinat, amestecă cu delicatețe și oprește focul."
+    ],
+    "en": [
+      "Clean the cabbage of any wilted leaves, remove the core and shred the rest as thinly as possible.",
+      "Sprinkle 1 teaspoon of salt over the shredded cabbage, gently knead it with your hands and let it rest for 15-20 minutes to soften and release its juices.",
+      "Squeeze the cabbage very well to remove the liquid by pressing it in your fists; at this point you should have about 1 kg of cabbage ready to go into the pan.",
+      "Finely chop the onion and sauté it in the hot oil over medium heat for 2-3 minutes, until it turns translucent.",
+      "Add the squeezed cabbage over the onion, stir well, lower the heat to minimum and cover the pan with a tight-fitting lid.",
+      "Let the cabbage steam in its own vapor for 25-30 minutes, lifting the lid only to stir once every 10 minutes so it doesn't stick.",
+      "Meanwhile, bring a pot of water with 1 teaspoon of salt to a boil, then cook the pasta according to the time indicated on the package.",
+      "Drain the cooked pasta and put it in a large, roomy pot, waiting for the cabbage to be ready.",
+      "Once the cabbage has softened under the lid, remove it for good, raise the heat to medium-high and stir continuously for 5-10 minutes to quickly evaporate the liquid and let it brown (caramelize).",
+      "Tip the hot cabbage, together with the aromatic oil from the pan, over the pasta in the pot, keep everything over low heat for another 1-2 minutes, add the 1.5 - 2 teaspoons of ground black pepper, toss gently and turn off the heat."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Dacă adaugi prea mult piper și mâncarea iese prea picantă, poți pune un cubuleț de unt în oala caldă și să amesteci până se topește, sau poți servi porția direct în farfurie cu o lingură de smântână pentru a tăia iuțeala.",
+    "en": "If you add too much pepper and the dish turns out too spicy, you can drop a cube of butter into the warm pot and stir until it melts, or you can serve each portion directly on the plate with a spoonful of sour cream to cut the heat."
+  },
+  "keywords": [
+    "cabbage",
+    "pasta",
+    "vegetarian",
+    "traditional",
+    "boiling"
+  ],
+  "dateAdded": "2026-07-18"
+}
