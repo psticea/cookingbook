@@ -11,7 +11,7 @@ describe('useRecipeData', () => {
       expect(result.current.loading).toBe(false);
     });
     
-    expect(result.current.recipes).toHaveLength(32);
+    expect(result.current.recipes).toHaveLength(33);
     expect(result.current.error).toBeNull();
   });
 
