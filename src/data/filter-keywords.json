@@ -88,35 +88,35 @@
     }
   },
   {
-    "id": "potatoes",
+    "id": "garlic",
     "type": "ingredient",
     "label": {
-      "ro": "Cartofi",
-      "en": "Potatoes"
+      "ro": "Usturoi",
+      "en": "Garlic"
     }
   },
   {
-    "id": "pasta",
+    "id": "onion",
     "type": "ingredient",
     "label": {
-      "ro": "Paste",
-      "en": "Pasta"
+      "ro": "Ceapă",
+      "en": "Onion"
     }
   },
   {
-    "id": "rice",
+    "id": "tomatoes",
     "type": "ingredient",
     "label": {
-      "ro": "Orez",
-      "en": "Rice"
+      "ro": "Roșii",
+      "en": "Tomatoes"
     }
   },
   {
-    "id": "peppers",
+    "id": "eggs",
     "type": "ingredient",
     "label": {
-      "ro": "Ardei",
-      "en": "Peppers"
+      "ro": "Ouă",
+      "en": "Eggs"
     }
   },
   {
@@ -128,43 +128,59 @@
     }
   },
   {
-    "id": "ginger",
+    "id": "green-onion",
     "type": "ingredient",
     "label": {
-      "ro": "Ghimbir",
-      "en": "Ginger"
+      "ro": "Ceapă Verde",
+      "en": "Green Onion"
     }
   },
   {
-    "id": "chicken-stock",
+    "id": "butter",
     "type": "ingredient",
     "label": {
-      "ro": "Bulion de Pui",
-      "en": "Chicken Stock"
+      "ro": "Unt",
+      "en": "Butter"
     }
   },
   {
-    "id": "cooking-cream",
+    "id": "pasta",
     "type": "ingredient",
     "label": {
-      "ro": "Smântână de Gătit",
-      "en": "Cooking Cream"
+      "ro": "Paste",
+      "en": "Pasta"
     }
   },
   {
-    "id": "olive-oil",
+    "id": "peppers",
     "type": "ingredient",
     "label": {
-      "ro": "Ulei de Măsline",
-      "en": "Olive Oil"
+      "ro": "Ardei",
+      "en": "Peppers"
     }
   },
   {
-    "id": "soy-sauce",
+    "id": "parmesan",
     "type": "ingredient",
     "label": {
-      "ro": "Sos de Soia",
-      "en": "Soy Sauce"
+      "ro": "Parmezan",
+      "en": "Parmesan"
+    }
+  },
+  {
+    "id": "potatoes",
+    "type": "ingredient",
+    "label": {
+      "ro": "Cartofi",
+      "en": "Potatoes"
+    }
+  },
+  {
+    "id": "rice",
+    "type": "ingredient",
+    "label": {
+      "ro": "Orez",
+      "en": "Rice"
     }
   }
 ]

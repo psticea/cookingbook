@@ -61,7 +61,7 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
         {subsections.map(({ type, labelKey }) => {
           const keywords = keywordsByType[type] || [];
           if (keywords.length === 0) return null;
-          const displayKeywords = type === 'ingredient' ? keywords.slice(0, 6) : keywords;
+          const displayKeywords = type === 'ingredient' ? keywords.slice(0, 12) : keywords;
 
           return (
             <div key={type}>

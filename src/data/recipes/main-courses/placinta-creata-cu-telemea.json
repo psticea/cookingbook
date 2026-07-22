@@ -117,6 +117,12 @@
     "ro": "Pentru a varia gustul, poți adăuga în compoziția de brânză ceapă verde, mărar sau spanac.",
     "en": "For a different flavor, add green onions, dill, or spinach to the cheese filling."
   },
-  "keywords": ["medium", "vegetarian", "oven-baked"],
+  "keywords": [
+    "medium",
+    "vegetarian",
+    "oven-baked",
+    "eggs",
+    "butter"
+  ],
   "dateAdded": "2026-07-11"
 }
