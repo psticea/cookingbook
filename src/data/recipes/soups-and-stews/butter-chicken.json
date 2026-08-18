@@ -5,7 +5,7 @@
     "ro": "Pui cu Unt",
     "en": "Butter Chicken"
   },
-  "prepTime": 35,
+  "prepTime": 215,
   "servings": 3,
   "effortLevel": "medium",
   "image": "images/soups-and-stews/butter-chicken.jpg",
@@ -37,7 +37,7 @@
     {
       "name": {
         "ro": "pudră de turmeric",
-        "en": "tumeric powder"
+        "en": "turmeric powder"
       },
       "quantity": 1,
       "unit": {
@@ -53,7 +53,7 @@
       },
       "quantity": 2,
       "unit": {
-        "ro": "linguriți",
+        "ro": "lingurițe",
         "en": "tsp"
       },
       "ingredientId": 163
@@ -180,8 +180,8 @@
     },
     {
       "name": {
-        "ro": "orez alb pentru servit",
-        "en": "white rice to serve"
+        "ro": "orez basmati pentru servit",
+        "en": "basmati rice to serve"
       },
       "quantity": 1,
       "unit": {
@@ -192,21 +192,20 @@
     },
     {
       "name": {
-        "ro": "coriandru/cilantro (opțional)",
-        "en": "coriander/cilantro (optional)"
+        "ro": "coriandru/cilantro proaspăt (opțional)",
+        "en": "fresh coriander/cilantro (optional)"
       },
       "quantity": 1,
       "unit": {
         "ro": "după necesitate",
         "en": "as needed"
       },
-      "ingredientId": 166
+      "ingredientId": 191
     }
   ],
   "instructions": {
     "ro": [
-      "Marinadă: Combină ingredientele pentru marinadă (iaurt, suc de lămâie, turmeric, garam masala, pudră de chili, chimion, ghimbir, usturoi) cu puiul într-un bol. Acoperă și pune la frigider peste noapte, sau până la 24 de ore (minim 3 ore).",
-      "Gătește puiul: Încălzește untul (sau uleiul) pe foc mare într-o tigaie mare. Scoate puiul din marinadă dar nu șterge sau scuturi marinada de pe pui (dar nu turna marinada rămasă în bol în tigaie). Pune puiul în tigaie și gătește aproximativ 3 minute, sau până când puiul este alb peste tot (nu se rumenește cu adevărat din cauza marinadei).",
+      "Marinadă: Combină ingredientele pentru marinadă (iaurt, suc de lămâie, turmeric, garam masala, pudră de chili, chimion, ghimbir, usturoi) cu puiul într-un bol. Acoperă și pune la frigider peste noapte, sau până la 24 de ore (minim 3 ore).",      "Gătește puiul: Încălzește untul (sau uleiul) pe foc mare într-o tigaie mare. Scoate puiul din marinadă dar nu șterge sau scuturi marinada de pe pui (dar nu turna marinada rămasă în bol în tigaie). Pune puiul în tigaie și gătește aproximativ 3 minute, sau până când puiul este alb peste tot (nu se rumenește cu adevărat din cauza marinadei).",
       "Sos: Adaugă passata de roșii, smântâna, zahărul și sarea. De asemenea adaugă orice marinadă rămasă în bol. Reduce la foc mic și fierbe timp de 20 de minute. Fă un test de gust pentru a vedea dacă are nevoie de mai multă sare.",
       "Garnisește cu frunze de coriandru/cilantro dacă folosești. Servește cu orez basmati."
     ],

@@ -32,7 +32,7 @@
         "ro": "g",
         "en": "g"
       },
-      "ingredientId": 168
+      "ingredientId": 167
     },
     {
       "name": {
@@ -140,8 +140,7 @@
         "ro": "litri",
         "en": "liters"
       },
-      "ingredientId": 106
-    }
+      "ingredientId": 106    }
   ],
   "instructions": {
     "ro": [
@@ -149,14 +148,16 @@
       "Adaugă uleiul vegetal rămas și când este fierbinte adaugă ceapa și morcovii. Gătește aproximativ 3 minute până încep să se înmoaie.",
       "Adaugă 2 litri de apă și încălzește amestecul până fierbe, apoi adaugă sarea.",
       "Adaugă cartofii tăiați cuburi și fierbe aproximativ 15 minute, până când cartofii sunt bine gătiți.",
-      "Oprește focul și odată ce fierberea se oprește adaugă amestecul de gălbenușuri și smântână. Adaugă mărarul și pătrunjelul tocat. Gustă și adaugă mai multă sare dacă este necesar."
+      "Într-un bol, amestecă bine gălbenușurile cu smântâna. Toarnă peste ele, în fir subțire, 2-3 polonice de zeamă fierbinte din supă, amestecând continuu, ca să se tempereze și să nu se brânzească.",
+      "Oprește focul și, odată ce fierberea se oprește, toarnă amestecul temperat înapoi în oală, amestecând ușor. Adaugă mărarul și pătrunjelul tocat. Gustă și adaugă mai multă sare dacă este necesar. Nu mai lăsa supa să fiarbă după acest pas."
     ],
     "en": [
       "In a saucepan, bring to medium heat 1 Tbsp of oil, add the bacon and cook for 2 minutes.",
       "Add the remaining vegetable oil and when hot add the onions and carrots. Cook for about 3 minutes until they start softening.",
       "Add 2 liters of water and heat the mix to a boil, then add the salt.",
       "Add the cubed potatoes and boil for about 15 minutes, until the potatoes are well cooked.",
-      "Cut the heat and once the boiling stops add the mix of yolks and sour cream. Add the chopped dill and parsley. Taste and add more salt if needed."
+      "In a bowl, whisk the egg yolks and sour cream together until smooth. Temper them by pouring in 2-3 ladles of the hot soup broth in a thin stream while stirring constantly, so the yolks do not curdle.",
+      "Cut the heat and once the boiling stops, pour the tempered mixture back into the pot, stirring gently. Add the chopped dill and parsley. Taste and add more salt if needed. Do not let the soup boil again after this point."
     ]
   },
   "personalNotes": {

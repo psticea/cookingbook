@@ -91,7 +91,7 @@ describe('App Routing', () => {
   it('shows nutrition data only on the Marry Me Chicken Pasta recipe', async () => {
     render(
       <TestWrapper>
-        <MemoryRouter initialEntries={['/recipe/mary-me-chicken-pasta']}>
+        <MemoryRouter initialEntries={['/recipe/marry-me-chicken-pasta']}>
           <Routes>
             <Route path="/recipe/:id" element={<RecipePage />} />
           </Routes>

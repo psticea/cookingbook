@@ -39,7 +39,7 @@
         "ro": "chiflele pentru burger",
         "en": "burger buns"
       },
-      "quantity": 4,
+      "quantity": 2,
       "unit": {
         "ro": "buc",
         "en": "pcs"
@@ -51,12 +51,24 @@
         "ro": "broccoli",
         "en": "broccoli"
       },
-      "quantity": 1,
+      "quantity": 300,
       "unit": {
-        "ro": "buc",
-        "en": "pcs"
+        "ro": "g",
+        "en": "g"
       },
       "ingredientId": 135
+    },
+    {
+      "name": {
+        "ro": "ulei de gătit (pentru broccoli)",
+        "en": "cooking oil (for the broccoli)"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      },
+      "ingredientId": 117
     },
     {
       "name": {
@@ -103,18 +115,20 @@
       "unit": {
         "ro": "praf",
         "en": "pinch"
-      }
+      },
+      "ingredientId": 138
     },
     {
       "name": {
-        "ro": "piper",
-        "en": "pepper"
+        "ro": "piper negru proaspăt măcinat",
+        "en": "freshly ground black pepper"
       },
-      "quantity": 10,
+      "quantity": 0.5,
       "unit": {
-        "ro": "rotiri",
-        "en": "cranks"
-      }
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 102
     },
     {
       "name": {
@@ -149,27 +163,28 @@
       "unit": {
         "ro": "praf",
         "en": "pinch"
-      }
+      },
+      "ingredientId": 100
     }
   ],
   "instructions": {
     "ro": [
       "Preîncălzește tigaia punând-o pe foc mediu.",
-      "Ia 100g de carne de vită și modelează în două bile. Taie ceapa felii.",
-      "Pune burgerii în tigaie și strivește-i cu o spatulă sau altă tigaie. Presară ceapă deasupra și condimentează cu sare.",
+      "Împarte cele 200 g de carne de vită în două bile de câte 100 g. Taie ceapa felii.",
+      "Pune bilele în tigaie și strivește-le cu o spatulă sau cu fundul unei alte tigăi unse. Presară ceapă deasupra și condimentează cu sare.",
       "Gătește 1 min apoi întoarce pentru a găti cealaltă parte. Între timp, taie grosier broccoli.",
-      "Apoi pune o felie de brânză chiar deasupra și lasă să se topească. Scoate odată ce burgerul este gătit, urmat de chifle pentru a se înmuia la abur. Scoate odată ce chiflele sunt înmuiate la abur.",
-      "Apoi picură puțin ulei, adaugă broccoli tocat împreună cu puțină apă și un praf de sare. Acoperă pentru a găti la abur.",
+      "Apoi pune o felie de brânză chiar deasupra fiecărui burger și lasă să se topească. Scoate burgerii odată ce sunt gătiți, apoi pune chiflele cu partea tăiată în jos în tigaie ca să se încălzească la abur. Scoate-le odată încălzite.",
+      "Apoi picură lingura de ulei în tigaie, adaugă broccoli tocat împreună cu puțină apă și un praf de sare. Acoperă pentru a găti la abur.",
       "Pentru sosul de burger, combină maioneza, muștar, murăturile, boia și piperul. Amestecă pentru a combina.",
       "Întinde sosul de burger pe chifla și pune o roșie jos. Închide burgerul și servește cu broccoli!"
     ],
     "en": [
       "Preheat the saute pan by setting it on medium heat.",
-      "Grab 100g of beef meat and shape into two balls. Cut up the onion into slices.",
-      "Place the burgers in the pan and smash down with a spatula or greased pan. Top with onion and season with salt.",
+      "Divide the 200 g of beef into two 100 g balls. Cut up the onion into slices.",
+      "Place the balls in the pan and smash them down with a spatula or the greased base of another pan. Top with onion and season with salt.",
       "Cook for 1 min then flip to cook the other side. In the meantime, roughly chop the broccoli.",
-      "Then place a slice of cheese right on top and let it melt. Remove once the burger is cooked, followed by the buns to steam. Remove once the buns are steamed.",
-      "Then drizzle in some oil, add in the chopped broccoli along with some water and a pinch of salt. Cover to steam.",
+      "Then place a slice of cheese right on top of each patty and let it melt. Remove the patties once cooked, then put the buns cut-side down in the pan to steam. Remove once warmed through.",
+      "Then drizzle the tablespoon of oil into the pan, add in the chopped broccoli along with some water and a pinch of salt. Cover to steam.",
       "For the burger sauce, combine the mayo, mustard, pickles, paprika, and pepper. Mix to combine.",
       "Spread the burger sauce on the bun and place a tomato down. Close up the burger and serve with broccoli!"
     ]

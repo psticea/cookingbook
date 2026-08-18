@@ -48,8 +48,8 @@
     },
     {
       "name": {
-        "ro": "morcovi și mazăre congelate cubulețe",
-        "en": "frozen diced carrots and peas"
+        "ro": "morcovi și mazăre congelate cubulețe (decongelate)",
+        "en": "frozen diced carrots and peas (thawed)"
       },
       "quantity": 200,
       "unit": {
@@ -84,14 +84,27 @@
     },
     {
       "name": {
-        "ro": "sare și piper negru",
-        "en": "salt and black pepper"
+        "ro": "sare",
+        "en": "salt"
       },
-      "quantity": 1,
+      "quantity": 0.5,
       "unit": {
-        "ro": "după gust",
-        "en": "to taste"
-      }
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "piper alb",
+        "en": "white pepper"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 189
     },
     {
       "name": {
@@ -146,18 +159,18 @@
     "ro": [
       "Notă pentru orez proaspăt gătit: este important ca acesta să fie relativ uscat. Atâta timp cât întinzi orezul pe o farfurie sau tavă în timp ce este încă fierbinte și îi dai câteva minute pentru a permite evaporarea umezelii de suprafață, poți face orez prăjit excelent cu orez proaspăt.",
       "Încălzește 1 lingură de ulei într-un wok pe foc mare până fumegă. Adaugă orezul și gătește, amestecând și aruncând, până când orezul devine brun deschis și prăjit și are o textură ușor gumată, aproximativ 3 minute.",
-      "Împinge orezul pe laterale, lăsând un spațiu la mijloc. Adaugă 1/2 lingură de ulei în spațiu. Adaugă ceapa, morcovul și usturoiul și gătește, amestecând ușor, până se înmoaie ușor și devine parfumat, aproximativ 2 minute. Amestecă cu orezul pentru a combina.",
-      "Adaugă sosul de soia și uleiul de susan și amestecă pentru a acoperi. Condimentează după gust cu sare și piper alb.",
+      "Împinge orezul pe laterale, lăsând un spațiu la mijloc. Adaugă 1/2 lingură de ulei în spațiu. Adaugă ceapa și usturoiul și gătește, amestecând ușor, până se înmoaie ușor și devine parfumat, aproximativ 2 minute. Amestecă cu orezul pentru a combina.",
+      "Adaugă sosul de soia, uleiul de susan și sosul de stridii (dacă îl folosești) și amestecă pentru a acoperi. Condimentează cu sarea și piperul alb.",
       "Împinge orezul pe o parte a wok-ului și adaugă restul de 1/2 lingură de ulei. Sparge oul în ulei și condimentează cu puțină sare. Folosește o spatulă pentru a amesteca oul, sfărâmându-l în bucăți mici. Amestecă oul și orezul împreună.",
-      "Adaugă mazărea congelată și continuă să amesteci și să agiti până când mazărea este decongelată și fiecare bob de orez este separat. Adaugă ceapa verde. Servește imediat."
+      "Adaugă amestecul decongelat de morcovi și mazăre și continuă să amesteci până se încălzește complet și fiecare bob de orez este separat. Adaugă ceapa verde. Servește imediat."
     ],
     "en": [
       "Note for fresh-cooked rice: it's important that it is relatively dry. So long as you spread the rice out on a plate or tray while it's still hot and give it a few minutes to allow some surface moisture to evaporate, you can make excellent fried rice with fresh rice.",
       "Heat 1 Tbsp of oil in a wok over high heat until smoking. Add rice and cook, stirring and tossing, until the rice is pale brown and toasted and has a lightly chewy texture, about 3 minutes.",
-      "Press the rice up the sides, leaving a space in the middle. Add 1/2 Tbsp of oil to the space. Add onion, carrot, and garlic and cook, stirring gently, until lightly softened and fragrant, about 2 minutes. Toss with rice to combine.",
-      "Add soy sauce and sesame oil and toss to coat. Season to taste with salt and white pepper.",
+      "Press the rice up the sides, leaving a space in the middle. Add 1/2 Tbsp of oil to the space. Add onion and garlic and cook, stirring gently, until lightly softened and fragrant, about 2 minutes. Toss with rice to combine.",
+      "Add the soy sauce, sesame oil and oyster sauce (if using) and toss to coat. Season with the salt and white pepper.",
       "Push rice to the side of the wok and add remaining 1/2 Tbsp of oil. Break the egg into the oil and season with a little salt. Use a spatula to scramble the egg, breaking it up into small bits. Toss the egg and the rice together.",
-      "Add frozen peas and continue to toss and stir until peas are thawed and every grain of rice is separate. Add green onions. Serve immediately."
+      "Add the thawed carrot and pea mix and continue to toss and stir until heated through and every grain of rice is separate. Add green onions. Serve immediately."
     ]
   },
   "personalNotes": {

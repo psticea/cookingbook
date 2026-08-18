@@ -6,10 +6,16 @@
     "ro": "Salată Grecească Energizantă",
     "en": "Power Greek Salad"
   },
-  "prepTime": 20,
+  "prepTime": 30,
   "servings": 2,
   "effortLevel": "easy",
   "ingredients": [
+    {
+      "section": {
+        "ro": "Pentru pui",
+        "en": "For the chicken"
+      }
+    },
     {
       "name": {
         "ro": "piept de pui",
@@ -45,6 +51,12 @@
         "en": "Tbsp"
       },
       "ingredientId": 102
+    },
+    {
+      "section": {
+        "ro": "Pentru salată",
+        "en": "For the salad"
+      }
     },
     {
       "name": {
@@ -84,8 +96,8 @@
     },
     {
       "name": {
-        "ro": "năut",
-        "en": "chickpeas"
+        "ro": "năut, scurs și clătit",
+        "en": "chickpeas, drained and rinsed"
       },
       "quantity": 150,
       "unit": {
@@ -96,13 +108,44 @@
     },
     {
       "name": {
-        "ro": "sare și piper pentru condimentat",
-        "en": "salt and pepper to season"
+        "ro": "brânză feta/telemea cuburi",
+        "en": "cubed feta/telemea"
       },
-      "quantity": 1,
+      "quantity": 100,
       "unit": {
-        "ro": "după gust",
-        "en": "to taste"
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 126
+    },
+    {
+      "name": {
+        "ro": "sare (pentru salată)",
+        "en": "salt (for the salad)"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "piper negru (pentru salată)",
+        "en": "black pepper (for the salad)"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 102
+    },
+    {
+      "section": {
+        "ro": "Pentru dressing",
+        "en": "For the dressing"
       }
     },
     {
@@ -119,15 +162,15 @@
     },
     {
       "name": {
-        "ro": "suc de lămâie",
-        "en": "lemon juice"
+        "ro": "lămâie (stoarsă)",
+        "en": "lemon (juiced)"
       },
       "quantity": 0.5,
       "unit": {
-        "ro": "lămâie",
-        "en": "lemon"
+        "ro": "buc",
+        "en": "pcs"
       },
-      "ingredientId": 158
+      "ingredientId": 105
     },
     {
       "name": {
@@ -138,18 +181,20 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 103
     },
     {
       "name": {
-        "ro": "mentă",
-        "en": "mint"
+        "ro": "mentă uscată",
+        "en": "dried mint"
       },
       "quantity": 0.25,
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 224
     },
     {
       "name": {
@@ -160,7 +205,8 @@
       "unit": {
         "ro": "praf",
         "en": "pinch"
-      }
+      },
+      "ingredientId": 111
     },
     {
       "name": {
@@ -176,43 +222,32 @@
     },
     {
       "name": {
-        "ro": "sare",
-        "en": "salt"
+        "ro": "sare (pentru dressing)",
+        "en": "salt (for the dressing)"
       },
       "quantity": 1,
       "unit": {
         "ro": "praf",
         "en": "pinch"
-      }
-    },
-    {
-      "name": {
-        "ro": "brânză feta/telemea cuburi",
-        "en": "cubed feta/telemea"
       },
-      "quantity": 100,
-      "unit": {
-        "ro": "g",
-        "en": "g"
-      },
-      "ingredientId": 126
+      "ingredientId": 100
     }
   ],
   "instructions": {
     "ro": [
-      "Începe prin a marina pieptul de pui cu maioneză și piper măcinat. Pune o tigaie pe foc mediu și așază puiul să se gătească.",
-      "Într-un bol mare, combină mixul de salată, ceapa, roșiile și năutul. Condimentează cu sare și piper.",
-      "În acest moment, întoarce puiul. Acum, să trecem la dressing.",
-      "Într-un recipient de plastic, adaugă împreună uleiul, sucul de lămâie, oregano, menta, fulgii de chili, oțetul și sarea. Închide cu capacul și scutură vigoroas pentru a emulsiona.",
-      "Scoate puiul din tigaie și taie-l felii. Adaugă feta și dressingul la salată și amestecă pentru a combina.",
+      "Începe prin a marina pieptul de pui cu maioneză și piper măcinat. Pune o tigaie pe foc mediu și așază puiul să se gătească timp de 6-7 minute pe prima parte, fără să îl miști.",
+      "Într-un bol mare, combină salata romaine, ceapa, roșiile și năutul. Condimentează cu sarea și piperul pentru salată.",
+      "Întoarce puiul și mai gătește-l 6-7 minute, până când în interior ajunge la 74°C și zeama iese limpede. Între timp, treci la dressing.",
+      "Într-un recipient de plastic, adaugă uleiul, sucul de lămâie, oregano, menta, fulgii de chili, oțetul și sarea. Închide cu capacul și scutură viguros pentru a emulsiona.",
+      "Scoate puiul din tigaie, lasă-l să se odihnească 5 minute, apoi taie-l felii. Adaugă feta și dressingul la salată și amestecă pentru a combina.",
       "Servește cu puiul feliat și bucură-te!"
     ],
     "en": [
-      "Start by marinating the chicken breast with mayo and cracked black pepper. Set a skillet on medium heat and lay down the chicken to cook.",
-      "In a large bowl, combine the salad mix, onion, tomatoes, and chickpeas. Season with salt and pepper.",
-      "At this moment, flip the chicken. Now, let's move onto the dressing.",
+      "Start by marinating the chicken breast with mayo and cracked black pepper. Set a skillet on medium heat and lay down the chicken to cook for 6-7 minutes on the first side, without moving it.",
+      "In a large bowl, combine the romaine lettuce, onion, tomatoes, and chickpeas. Season with the salad salt and pepper.",
+      "Flip the chicken and cook for another 6-7 minutes, until it reaches 74°C in the centre and the juices run clear. Meanwhile, move on to the dressing.",
       "In a plastic container, add together the oil, lemon juice, oregano, mint, chili flakes, vinegar, and salt. Close with the lid and vigorously shake to emulsify.",
-      "Take the chicken out of the pan and slice up. Add feta and the dressing to the salad and toss to combine.",
+      "Take the chicken out of the pan, rest it for 5 minutes, then slice it up. Add feta and the dressing to the salad and toss to combine.",
       "Serve with the sliced up chicken and enjoy!"
     ]
   },

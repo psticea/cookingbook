@@ -33,6 +33,21 @@ export const IngredientList: React.FC<IngredientListProps> = ({
     return scaled.toFixed(2).replace(/\.?0+$/, '');
   };
 
+  // Units like "to taste" carry no numeric meaning, so the placeholder quantity
+  // is hidden rather than rendered as "1 to taste salt".
+  const QUALITATIVE_UNITS = ['to taste', 'as needed', 'după gust', 'dupa gust', 'după necesitate', 'dupa necesitate'];
+
+  const isQualitativeUnit = (unit: string): boolean =>
+    QUALITATIVE_UNITS.includes(unit.toLowerCase().trim());
+
+  const formatAmount = (item: Ingredient): string => {
+    const unit = item.unit[language];
+    if (isQualitativeUnit(unit)) {
+      return unit;
+    }
+    return `${getScaledQuantity(item.quantity)} ${unit}`;
+  };
+
   const isSection = (item: IngredientItem): item is { section: { ro: string; en: string } } => {
     return 'section' in item;
   };
@@ -103,7 +118,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                     : 'text-ink-light dark:text-ink-dark'
                 }`}
               >
-                {getScaledQuantity(item.quantity)} {item.unit[language]}
+                {formatAmount(item)}
               </span>
 
               {/* Ingredient name takes remaining horizontal space */}

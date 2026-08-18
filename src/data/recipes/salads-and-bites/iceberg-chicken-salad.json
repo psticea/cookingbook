@@ -24,19 +24,20 @@
     },
     {
       "name": {
-        "ro": "jumătate de pui întreg rumenit, dezosat și mărunțit",
-        "en": "half roasted whole chicken, deboned and shredded"
+        "ro": "pui întreg rumenit, dezosat și mărunțit",
+        "en": "roasted whole chicken, deboned and shredded"
       },
       "quantity": 0.5,
       "unit": {
         "ro": "buc",
         "en": "pcs"
-      }
+      },
+      "ingredientId": 225
     },
     {
       "name": {
-        "ro": "porumb",
-        "en": "corn"
+        "ro": "porumb dulce la conservă, scurs",
+        "en": "canned sweetcorn, drained"
       },
       "quantity": 1,
       "unit": {
@@ -65,7 +66,7 @@
       "quantity": 2,
       "unit": {
         "ro": "linguri",
-        "en": "tablespoons"
+        "en": "Tbsp"
       },
       "ingredientId": 101
     },
@@ -77,7 +78,7 @@
       "quantity": 1,
       "unit": {
         "ro": "lingură",
-        "en": "tablespoon"
+        "en": "Tbsp"
       },
       "ingredientId": 159
     },

@@ -61,7 +61,7 @@
     {
       "name": {
         "ro": "usturoi tocat",
-        "en": "garlic cloves"
+        "en": "garlic"
       },
       "quantity": 3,
       "unit": {
@@ -73,7 +73,7 @@
     {
       "name": {
         "ro": "ou mare",
-        "en": "large egg"
+        "en": "large eggs"
       },
       "quantity": 4,
       "unit": {
@@ -113,7 +113,7 @@
       },
       "quantity": 2,
       "unit": {
-        "ro": "linguriță",
+        "ro": "lingurițe",
         "en": "tsp"
       },
       "ingredientId": 118
@@ -132,7 +132,7 @@
       "quantity": 1,
       "unit": {
         "ro": "lingură",
-        "en": "tbsp"
+        "en": "Tbsp"
       },
       "ingredientId": 107
     },
@@ -144,7 +144,7 @@
       "quantity": 1,
       "unit": {
         "ro": "lingură",
-        "en": "tbsp"
+        "en": "Tbsp"
       },
       "ingredientId": 183
     },
@@ -156,7 +156,7 @@
       "quantity": 1,
       "unit": {
         "ro": "lingură",
-        "en": "tbsp"
+        "en": "Tbsp"
       },
       "ingredientId": 187
     },
@@ -168,7 +168,7 @@
       "quantity": 0.5,
       "unit": {
         "ro": "lingură",
-        "en": "tbsp"
+        "en": "Tbsp"
       },
       "ingredientId": 184
     },

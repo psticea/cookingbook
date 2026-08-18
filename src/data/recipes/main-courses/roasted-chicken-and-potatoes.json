@@ -115,7 +115,8 @@
       "unit": {
         "ro": "după gust",
         "en": "to taste"
-      }
+      },
+      "ingredientId": 100
     },
     {
       "name": {
@@ -126,7 +127,8 @@
       "unit": {
         "ro": "după gust",
         "en": "to taste"
-      }
+      },
+      "ingredientId": 102
     }
   ],
   "instructions": {

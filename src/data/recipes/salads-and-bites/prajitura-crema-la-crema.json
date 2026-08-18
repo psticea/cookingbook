@@ -6,7 +6,7 @@
     "ro": "Prăjitură Krem a la Krem",
     "en": "Krem a la Krem Cake"
   },
-  "prepTime": 60,
+  "prepTime": 180,
   "servings": 8,
   "effortLevel": "medium",
   "ingredients": [
@@ -17,21 +17,39 @@
       }
     },
     {
-      "name": { "ro": "ouă", "en": "eggs" },
+      "name": {
+        "ro": "ouă",
+        "en": "eggs"
+      },
       "quantity": 6,
-      "unit": { "ro": "buc", "en": "pcs" },
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
       "ingredientId": 122
     },
     {
-      "name": { "ro": "zahăr", "en": "sugar" },
+      "name": {
+        "ro": "zahăr",
+        "en": "sugar"
+      },
       "quantity": 6,
-      "unit": { "ro": "linguri", "en": "tbsp" },
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      },
       "ingredientId": 115
     },
     {
-      "name": { "ro": "Creme Ole de ciocolată Dr.Oetker", "en": "Creme Ole chocolate powder Dr.Oetker" },
+      "name": {
+        "ro": "Creme Ole de ciocolată Dr.Oetker",
+        "en": "Creme Ole chocolate powder Dr.Oetker"
+      },
       "quantity": 1,
-      "unit": { "ro": "plic", "en": "packet" },
+      "unit": {
+        "ro": "plic",
+        "en": "packet"
+      },
       "ingredientId": 211
     },
     {
@@ -41,21 +59,39 @@
       }
     },
     {
-      "name": { "ro": "frișcă lichidă", "en": "whipping cream" },
+      "name": {
+        "ro": "frișcă lichidă",
+        "en": "whipping cream"
+      },
       "quantity": 250,
-      "unit": { "ro": "ml", "en": "ml" },
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
       "ingredientId": 209
     },
     {
-      "name": { "ro": "lapte rece", "en": "cold milk" },
+      "name": {
+        "ro": "lapte rece",
+        "en": "cold milk"
+      },
       "quantity": 150,
-      "unit": { "ro": "ml", "en": "ml" },
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
       "ingredientId": 123
     },
     {
-      "name": { "ro": "Creme Ole de vanilie Dr.Oetker", "en": "Creme Ole vanilla powder Dr.Oetker" },
+      "name": {
+        "ro": "Creme Ole de vanilie Dr.Oetker",
+        "en": "Creme Ole vanilla powder Dr.Oetker"
+      },
       "quantity": 1,
-      "unit": { "ro": "plic", "en": "packet" },
+      "unit": {
+        "ro": "plic",
+        "en": "packet"
+      },
       "ingredientId": 212
     },
     {
@@ -65,27 +101,51 @@
       }
     },
     {
-      "name": { "ro": "ciocolată", "en": "dark chocolate" },
+      "name": {
+        "ro": "ciocolată",
+        "en": "dark chocolate"
+      },
       "quantity": 100,
-      "unit": { "ro": "g", "en": "g" },
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
       "ingredientId": 210
     },
     {
-      "name": { "ro": "frișcă lichidă", "en": "whipping cream" },
+      "name": {
+        "ro": "frișcă lichidă",
+        "en": "whipping cream"
+      },
       "quantity": 50,
-      "unit": { "ro": "ml", "en": "ml" },
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
       "ingredientId": 209
     },
     {
-      "name": { "ro": "unt", "en": "butter" },
+      "name": {
+        "ro": "unt",
+        "en": "butter"
+      },
       "quantity": 50,
-      "unit": { "ro": "g", "en": "g" },
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
       "ingredientId": 110
     },
     {
-      "name": { "ro": "coniac", "en": "cognac" },
+      "name": {
+        "ro": "coniac",
+        "en": "cognac"
+      },
       "quantity": 1,
-      "unit": { "ro": "lingură", "en": "tbsp" },
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      },
       "ingredientId": 213
     }
   ],

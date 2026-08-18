@@ -76,7 +76,7 @@ function normalizeQuantity(
       return quantity;
     } else if (unitLower === 'kg' || unitLower === 'kilograms' || unitLower === 'kilogram') {
       return quantity * 1000;
-    } else if (unitLower === 'linguriță' || unitLower === 'lingurita' || unitLower === 'tsp' || unitLower === 'teaspoon') {
+    } else if (unitLower === 'linguriță' || unitLower === 'lingurita' || unitLower === 'lingurițe' || unitLower === 'lingurite' || unitLower === 'tsp' || unitLower === 'teaspoon') {
       // 1 tsp ≈ 5g for most dry ingredients
       return quantity * 5;
     } else if (unitLower === 'lingură' || unitLower === 'lingura' || unitLower === 'linguri' || unitLower === 'tbsp' || unitLower === 'tablespoon') {
@@ -91,9 +91,9 @@ function normalizeQuantity(
     // Convert to milliliters
     if (unitLower === 'ml' || unitLower === 'milliliters' || unitLower === 'milliliter') {
       return quantity;
-    } else if (unitLower === 'l' || unitLower === 'liters' || unitLower === 'liter') {
+    } else if (unitLower === 'l' || unitLower === 'liters' || unitLower === 'liter' || unitLower === 'litri' || unitLower === 'litru') {
       return quantity * 1000;
-    } else if (unitLower === 'linguriță' || unitLower === 'lingurita' || unitLower === 'tsp' || unitLower === 'teaspoon') {
+    } else if (unitLower === 'linguriță' || unitLower === 'lingurita' || unitLower === 'lingurițe' || unitLower === 'lingurite' || unitLower === 'tsp' || unitLower === 'teaspoon') {
       // 1 tsp ≈ 5ml
       return quantity * 5;
     } else if (unitLower === 'lingură' || unitLower === 'lingura' || unitLower === 'linguri' || unitLower === 'tbsp' || unitLower === 'tablespoon') {
@@ -114,6 +114,11 @@ function normalizeQuantity(
     // For cloves, assume each clove counts as a piece
     if (unitLower === 'cloves' || unitLower === 'clove' || unitLower === 'căței' || unitLower === 'cățel' ||
         unitLower === 'catei' || unitLower === 'catel') {
+      return quantity;
+    }
+    // Slices and packets are counted as whole pieces of the priced item
+    if (unitLower === 'slices' || unitLower === 'slice' || unitLower === 'felii' || unitLower === 'felie' ||
+        unitLower === 'packet' || unitLower === 'packets' || unitLower === 'plic' || unitLower === 'plicuri') {
       return quantity;
     }
     throw new Error(`Unsupported piece unit: ${unit}`);

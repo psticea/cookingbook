@@ -6,10 +6,16 @@
     "ro": "Pește la Cuptor pe Gratin de Cartofi",
     "en": "Baked Fish on Potato Gratin"
   },
-  "prepTime": 45,
+  "prepTime": 70,
   "servings": 4,
   "effortLevel": "medium",
   "ingredients": [
+    {
+      "section": {
+        "ro": "Pentru pește",
+        "en": "For the fish"
+      }
+    },
     {
       "name": {
         "ro": "file de pește alb fără piele grosime 2cm",
@@ -43,6 +49,13 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
+      },
+      "ingredientId": 102
+    },
+    {
+      "section": {
+        "ro": "Pentru gratinul de cartofi",
+        "en": "For the potato gratin"
       }
     },
     {
@@ -140,6 +153,12 @@
         "en": "cup"
       },
       "ingredientId": 144
+    },
+    {
+      "section": {
+        "ro": "Pentru toppingul crocant",
+        "en": "For the crunchy topping"
+      }
     },
     {
       "name": {

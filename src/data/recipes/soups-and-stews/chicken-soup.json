@@ -8,7 +8,7 @@
   "prepTime": 60,
   "servings": 4,
   "effortLevel": "easy",
-  "image": "/images/recipes/soups-and-stews/supa-de-pui.jpg",
+  "image": "images/soups-and-stews/chicken-soup.jpg",
   "ingredients": [
     {
       "name": {
@@ -20,7 +20,19 @@
         "ro": "g",
         "en": "g"
       },
-      "ingredientId": 167
+      "ingredientId": 166
+    },
+    {
+      "name": {
+        "ro": "apă",
+        "en": "water"
+      },
+      "quantity": 2500,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 106
     },
     {
       "name": {
@@ -32,7 +44,7 @@
         "ro": "buc",
         "en": "pcs"
       },
-      "ingredientId": 168
+      "ingredientId": 167
     },
     {
       "name": {
@@ -68,7 +80,7 @@
         "ro": "buc",
         "en": "pcs"
       },
-      "ingredientId": 169
+      "ingredientId": 168
     },
     {
       "name": {
@@ -80,7 +92,7 @@
         "ro": "buc",
         "en": "pcs"
       },
-      "ingredientId": 170
+      "ingredientId": 169
     },
     {
       "name": {
@@ -92,7 +104,7 @@
         "ro": "linguriță",
         "en": "tsp"
       },
-      "ingredientId": 171
+      "ingredientId": 170
     },
     {
       "name": {
@@ -104,17 +116,17 @@
         "ro": "buc",
         "en": "pcs"
       },
-      "ingredientId": 172
+      "ingredientId": 171
     },
     {
       "name": {
-        "ro": "pătrunjel verde (cotoare)",
-        "en": "fresh parsley (stems)"
+        "ro": "pătrunjel verde (cotoarele la fiert, frunzele la servit)",
+        "en": "fresh parsley (stems for the broth, leaves to serve)"
       },
-      "quantity": 1,
+      "quantity": 40,
       "unit": {
-        "ro": "legătură",
-        "en": "bunch"
+        "ro": "g",
+        "en": "g"
       },
       "ingredientId": 116
     },
@@ -128,58 +140,47 @@
         "ro": "g",
         "en": "g"
       },
-      "ingredientId": 173
+      "ingredientId": 172
     },
     {
       "name": {
-        "ro": "pătrunjel verde (pentru servit)",
-        "en": "fresh parsley (for serving)"
+        "ro": "sare (plus după gust la final)",
+        "en": "salt (plus more to taste at the end)"
       },
-      "quantity": 1,
+      "quantity": 2,
       "unit": {
-        "ro": "mână",
-        "en": "handful"
+        "ro": "lingurițe",
+        "en": "tsp"
       },
-      "ingredientId": 116
-    },
-    {
-      "name": {
-        "ro": "sare",
-        "en": "salt"
-      },
-      "quantity": 1,
-      "unit": {
-        "ro": "după gust",
-        "en": "to taste"
-      }
+      "ingredientId": 100
     }
   ],
   "instructions": {
     "ro": [
-      "Puneți carnea la fiert în apă cu sare și spumați înainte să dea în clocot. Nu amestecați.",
-      "Când fierbe, dați la foc mic și adăugați legumele: trei morcovi, două cepe crestate, 6 căței de usturoi, doi pătrunjei rădăcină, jumătate țelină, o linguriță boabe de piper întregi, două foi de dafin și cotoare de pătrunjel.",
-      "Completați cu apă și fierbeți pentru 30 de minute.",
-      "Scoateți totul și strecurați supa.",
-      "Fierbeți 120 g tăiței în supa strecurată și opriți focul.",
-      "Curățați pulpele și mărunțiți-le.",
-      "Tăiați morcovul rondele și puțin pătrunjel rădăcină rondele.",
-      "Adăugați înapoi în supă pătrunjel, morcov și pulpe.",
-      "Adăugați la sfârșit și pătrunjel verde crud."
+      "Pune pulpele într-o oală mare, toarnă peste ele 2 litri din apă rece și adaugă 1 linguriță de sare. Pune pe foc mediu și spumează înainte să dea în clocot. Nu amesteca.",
+      "Când fierbe, dă focul la mic și adaugă legumele: trei morcovi, două cepe tăiate în sferturi, 6 căței de usturoi, doi pătrunjei rădăcină, jumătate de țelină, o linguriță de boabe de piper întregi, două foi de dafin și cotoarele de pătrunjel.",
+      "Completează cu restul de apă (aproximativ 500 ml), cât să acopere totul, și fierbe la foc mic 30 de minute.",
+      "Scoate totul din oală și strecoară supa.",
+      "Fierbe cei 120 g de tăiței direct în supa strecurată, conform timpului de pe ambalaj, apoi oprește focul.",
+      "Curăță pulpele de piele și os și mărunțește carnea.",
+      "Taie morcovul rondele și puțin pătrunjel rădăcină rondele.",
+      "Adaugă înapoi în supă morcovul, pătrunjelul rădăcină și carnea.",
+      "Potrivește de sare cu lingurița rămasă, după gust, și presară frunzele de pătrunjel verde la final."
     ],
     "en": [
-      "Put the chicken in salted water to boil and skim before it reaches a rolling boil. Do not stir.",
-      "When boiling, reduce to low heat and add the vegetables: three carrots, two quartered onions, 6 garlic cloves, two parsley roots, half celery root, one teaspoon whole peppercorns, two bay leaves, and parsley stems.",
-      "Add more water and boil for 30 minutes.",
-      "Remove everything and strain the soup.",
-      "Boil 120 g noodles in the strained soup and turn off the heat.",
-      "Clean the drumsticks and chop the meat.",
+      "Put the drumsticks in a large pot, pour over 2 litres of the cold water and add 1 tsp of the salt. Set over medium heat and skim before it reaches a rolling boil. Do not stir.",
+      "When boiling, reduce to low heat and add the vegetables: three carrots, two quartered onions, 6 garlic cloves, two parsley roots, half a celery root, one teaspoon whole peppercorns, two bay leaves, and the parsley stems.",
+      "Top up with the remaining water (about 500 ml), enough to cover everything, and simmer gently for 30 minutes.",
+      "Remove everything from the pot and strain the soup.",
+      "Boil the 120 g of noodles directly in the strained soup, following the packet timing, then turn off the heat.",
+      "Strip the drumsticks of skin and bone and chop the meat.",
       "Cut the carrot into rounds and some parsley root into rounds.",
-      "Add back to the soup the parsley, carrot, and chicken.",
-      "Add fresh parsley at the end."
+      "Add the carrot, parsley root and chicken back into the soup.",
+      "Adjust with the remaining teaspoon of salt to taste, and scatter the fresh parsley leaves over at the end."
     ]
   },
   "personalNotes": {
-    "ro": "Această supă de pui este rețeta clasică pe care o fac când vreau ceva reconfortant și sănătos. Secretul unei supe bune este să spumezi carnea la început și să fierbi legumele împreună cu carnea pentru a extrage toate aromele. Nu amestecați supa în timp ce fierbe pentru a rămâne limpede. Tăițeii se fierb direct în supă pentru mai mult gust.",
+    "ro": "Această supă de pui este rețeta clasică pe care o fac când vreau ceva reconfortant și sănătos. Secretul unei supe bune este să spumezi carnea la început și să fierbi legumele împreună cu carnea pentru a extrage toate aromele. Nu amesteca supa în timp ce fierbe, ca să rămână limpede. Tăițeii se fierb direct în supă pentru mai mult gust.",
     "en": "This chicken soup is the classic recipe I make when I want something comforting and healthy. The secret to a good soup is to skim the chicken at the beginning and boil the vegetables together with the meat to extract all the flavors. Don't stir the soup while it's boiling to keep it clear. The noodles are boiled directly in the soup for more flavor."
   },
   "keywords": [

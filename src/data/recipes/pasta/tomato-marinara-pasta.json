@@ -67,7 +67,8 @@
       "unit": {
         "ro": "praf",
         "en": "pinch"
-      }
+      },
+      "ingredientId": 100
     },
     {
       "name": {
@@ -107,8 +108,20 @@
     },
     {
       "name": {
-        "ro": "piept de pui prăjit (opțional)",
-        "en": "fried chicken breast (optional)"
+        "ro": "piper negru proaspăt măcinat",
+        "en": "freshly ground black pepper"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 102
+    },
+    {
+      "name": {
+        "ro": "piept de pui (opțional, pentru o versiune cu carne)",
+        "en": "chicken breast (optional, for a non-vegetarian version)"
       },
       "quantity": 1,
       "unit": {
@@ -121,19 +134,21 @@
   "instructions": {
     "ro": [
       "Adu o oală cu apă sărată la fierbere (5g sare per litru de apă) și de asemenea adu o tigaie largă la foc mediu.",
+      "Dacă folosești puiul opțional: condimentează pieptul cu sare și piper și prăjește-l într-o tigaie separată, la foc mediu, 5-6 minute pe fiecare parte, până este bine gătit. Lasă-l deoparte și taie-l felii înainte de servire.",
       "Adaugă ulei în tigaia largă. Odată ce începe să sclipească, adaugă ceapa tocată și usturoiul.",
       "Când usturoiul și ceapa se înmoaie puțin, aproximativ 2-3 minute, adaugă roșiile cherry și acoperă cu capacul. Când apa fierbe adaugă pastele.",
       "Odată ce roșiile încep să se spargă, ia o spatulă și zdrobește roșiile pentru a elibera sucurile. Reduce focul la mic, presară puțină sare și lasă să se reducă.",
-      "Scurge pastele și adaugă-le la sosul de roșii. Toarnă 1/4 cană de apă de paste și amestecă. (Adaugă puiul opțional)",
-      "Lasă sosul să se reducă și adaugă parmezanul. Amestecă pătrunjel împreună cu puțină apă și o rotire de piper."
+      "Scurge pastele și adaugă-le la sosul de roșii. Toarnă 1/4 cană de apă de paste și amestecă. Adaugă puiul feliat, dacă îl folosești.",
+      "Lasă sosul să se reducă și adaugă parmezanul. Amestecă pătrunjelul împreună cu puțină apă și piperul negru proaspăt măcinat."
     ],
     "en": [
       "Bring a salted pot of water to a boil (5g salt per liter of water) as well as bring a wide saute pan to a medium heat.",
+      "If using the optional chicken: season the breast with salt and pepper and fry it in a separate pan over medium heat for 5-6 minutes per side, until cooked through. Set aside and slice before serving.",
       "Add oil to the wide saute pan. Once it starts to shimmer, add in the chopped onion and garlic.",
       "When the garlic and onion soften a bit, approx 2-3 minutes, add in the cherry tomatoes and top it with the lid. When the water is boiling add in the pasta.",
       "Once the tomatoes are starting to burst, grab a spatula and mash the tomatoes to release the juices. Turn the heat to low, sprinkle in some more salt, and let reduce.",
-      "Drain the pasta and add it to the tomato sauce. Pour in 1/4 cup of pasta water and toss. (Add the optional chicken)",
-      "Let the sauce reduce and add in the parmesan cheese. Toss in the parsley along with a little more water and crack of pepper."
+      "Drain the pasta and add it to the tomato sauce. Pour in 1/4 cup of pasta water and toss. Add the sliced chicken, if using.",
+      "Let the sauce reduce and add in the parmesan cheese. Toss in the parsley along with a little more water and the freshly ground black pepper."
     ]
   },
   "personalNotes": {

@@ -466,8 +466,8 @@
       "id": 166,
       "name": "Chicken drumstick",
       "category": "Proteins",
-      "unit_type": "piece",
-      "price_per_piece": 2.5
+      "unit_type": "mass",
+      "price_per_1000": 20
     },
     "carrot": {
       "id": 167,
@@ -818,6 +818,83 @@
       "category": "Fruits and Vegetables",
       "unit_type": "piece",
       "price_per_piece": 1.5
+    },
+    "smoked_paprika": {
+      "id": 217,
+      "name": "Smoked paprika",
+      "category": "Spices & Seasonings",
+      "unit_type": "mass",
+      "price_per_1000": 40
+    },
+    "phyllo_pastry": {
+      "id": 218,
+      "name": "Phyllo / pie pastry sheets",
+      "category": "Pantry",
+      "unit_type": "mass",
+      "price_per_1000": 12
+    },
+    "farmers_cheese": {
+      "id": 219,
+      "name": "Fresh farmer's cheese",
+      "category": "Dairy",
+      "unit_type": "mass",
+      "price_per_1000": 20
+    },
+    "sparkling_water": {
+      "id": 220,
+      "name": "Sparkling water",
+      "category": "Pantry",
+      "unit_type": "volume",
+      "price_per_1000": 2
+    },
+    "baking_powder": {
+      "id": 221,
+      "name": "Baking powder",
+      "category": "Baking",
+      "unit_type": "mass",
+      "price_per_1000": 25
+    },
+    "sesame_seeds": {
+      "id": 222,
+      "name": "Sesame seeds",
+      "category": "Pantry",
+      "unit_type": "mass",
+      "price_per_1000": 30
+    },
+    "baking_soda": {
+      "id": 223,
+      "name": "Baking soda",
+      "category": "Baking",
+      "unit_type": "mass",
+      "price_per_1000": 8
+    },
+    "dried_mint": {
+      "id": 224,
+      "name": "Dried mint",
+      "category": "Spices & Seasonings",
+      "unit_type": "mass",
+      "price_per_1000": 30
+    },
+    "roasted_chicken": {
+      "id": 225,
+      "name": "Roasted whole chicken",
+      "category": "Proteins",
+      "unit_type": "piece",
+      "price_per_piece": 35
+    },
+    "stir_fry_protein": {
+      "id": 226,
+      "name": "Stir-fry protein (chicken, beef or tofu)",
+      "category": "Proteins",
+      "unit_type": "mass",
+      "price_per_1000": 28
+    },
+    "mixed_vegetables": {
+      "id": 227,
+      "name": "Mixed stir-fry vegetables",
+      "category": "Fruits and Vegetables",
+      "unit_type": "mass",
+      "price_per_1000": 9
     }
   }
 }

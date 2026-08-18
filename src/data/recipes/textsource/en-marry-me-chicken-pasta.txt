@@ -1,5 +1,5 @@
 id
-en-mary-me-chicken-pasta
+en-marry-me-chicken-pasta
 
 category
 pasta
@@ -17,7 +17,7 @@ effortLevel
 medium
 
 image
-images/pasta/mary-me-chicken-pasta.jpg
+images/pasta/marry-me-chicken-pasta.jpg
 
 ingredients
 chicken breasts sliced - 800 g

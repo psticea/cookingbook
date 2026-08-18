@@ -2,7 +2,7 @@
   "id": "ground-beef-and-potato-stir-fry",
   "category": "stir-fries",
   "title": {
-    "ro": "Tocană de Carne Tocată și Cartofi",
+    "ro": "Carne Tocată de Vită cu Cartofi la Wok",
     "en": "Ground Beef and Potato Stir-Fry"
   },
   "prepTime": 35,
@@ -37,7 +37,7 @@
     {
       "name": {
         "ro": "usturoi",
-        "en": "garlic cloves"
+        "en": "garlic"
       },
       "quantity": 3,
       "unit": {
@@ -201,7 +201,7 @@
     "ro": [
       "Pregătiți ingredientele: Tăiați cartofii și ardeii grași în cuburi mici de 1 cm. Tocați fin usturoiul. Tăiați ceapa verde în felii subțiri, separând partea albă de partea verde.",
       "Pregătiți sosul: Într-un recipient mic, adăugați toate ingredientele sosului și amestecați bine. Lăsați deoparte.",
-      "Fierbeți cartofii pentru 4 minute pentru a se găti mai repede în tigaie. Într-un wok mare (sau tigaie), adăugați 2 linguri de ulei și încălziți la foc mediu-mare. Odată ce se încinge bine, adăugați cartofii, condimentați cu un praf de sare și prăjiți timp de 8 minute sau până devin aurii și sunt gata. Scoateți din wok și puneți deoparte.",
+      "Fierbe cartofii 4 minute în apă clocotită cu sare, doar cât să se înmoaie parțial, apoi scurge-i bine; așa se vor găti mai repede în tigaie. Într-un wok mare (sau tigaie), adaugă 2 linguri de ulei și încălzește la foc mediu-mare. Odată ce se încinge bine, adaugă cartofii, condimentează cu un praf de sare și prăjește-i timp de 8 minute sau până devin aurii și sunt gata. Scoate-i din wok și pune-i deoparte.",
       "În același wok, adăugați 1 lingură de ulei și încălziți la foc mare. Odată încins, adăugați carnea tocată și întindeți-o uniform. Prăjiți timp de 1-2 minute sau până când partea de jos se rumenește frumos.",
       "Întoarceți, sfărâmați carnea și prăjiți timp de 3 minute. (Pentru a evapora majoritatea lichidului și a topi grăsimea, asigurați-vă că o amestecați continuu.)",
       "Adăugați usturoiul, ghimbirul și părțile albe ale cepei verzi. Sotați timp de 1-2 minute la foc mediu-mare.",
@@ -211,7 +211,7 @@
     "en": [
       "Prep the vegetables: Cut the potatoes and bell peppers into small, 1 cm cubes. Finely chop the garlic cloves. Thinly slice the green onions, separating the whites and greens.",
       "Make the sauce: In a small container, add all the sauce ingredients and mix well. Set aside.",
-      "Paraboil the potatoes for 4 minutes so they cook faster in the pan. In a large wok (or pan), add 2 tablespoons of oil and heat over medium-high heat. Once it gets nice and hot, add the potatoes, season with a pinch of salt, and sear for 8 minutes, or until golden brown and cooked through. Remove from the wok and set aside.",
+      "Parboil the potatoes for 4 minutes in boiling salted water, just until partly tender, then drain well; this way they cook faster in the pan. In a large wok (or pan), add 2 tablespoons of oil and heat over medium-high heat. Once it gets nice and hot, add the potatoes, season with a pinch of salt, and sear for 8 minutes, or until golden brown and cooked through. Remove from the wok and set aside.",
       "In the same wok, add 1 tablespoon of oil and heat over high heat. Once heated, add the ground beef and spread it out evenly. Sear for 1 to 2 minutes or until the bottom is nicely browned.",
       "Flip, break up the beef, and stir-fry for 3 minutes. (To evaporate most of the liquid and render out the fat, make sure to keep stirring it.)",
       "Add the garlic, ginger, and white parts of the green onions. Sauté for 1 to 2 minutes over medium-high heat.",
@@ -220,8 +220,8 @@
     ]
   },
   "personalNotes": {
-    "ro": "Sursă: Ground Beef and Potato Stir-Fry",
-    "en": "Source: Ground Beef and Potato Stir-Fry"
+    "ro": "Rețetă de Aaron și Claire.",
+    "en": "Recipe by Aaron and Claire."
   },
   "keywords": [
     "medium",

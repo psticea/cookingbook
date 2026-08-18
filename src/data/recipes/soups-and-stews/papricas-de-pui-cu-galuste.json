@@ -36,7 +36,7 @@
       "quantity": 1,
       "unit": {
         "ro": "buc",
-        "en": "pc"
+        "en": "pcs"
       },
       "ingredientId": 167
     },
@@ -72,7 +72,7 @@
       "quantity": 2,
       "unit": {
         "ro": "linguri",
-        "en": "tbsp"
+        "en": "Tbsp"
       },
       "ingredientId": 117
     },
@@ -84,7 +84,7 @@
       "quantity": 1,
       "unit": {
         "ro": "lingură",
-        "en": "tbsp"
+        "en": "Tbsp"
       },
       "ingredientId": 138
     },

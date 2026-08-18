@@ -36,8 +36,8 @@
     },
     {
       "name": {
-        "ro": "lămâie feliată",
-        "en": "lemon slices"
+        "ro": "lămâie",
+        "en": "lemon"
       },
       "quantity": 3,
       "unit": {
@@ -60,35 +60,35 @@
     },
     {
       "name": {
-        "ro": "pătrunjel proaspăt cu frunze plate",
-        "en": "fresh flat leaf parsley"
+        "ro": "pătrunjel proaspăt cu frunze plate, pentru decor",
+        "en": "fresh flat leaf parsley, to garnish"
       },
-      "quantity": 1,
+      "quantity": 10,
       "unit": {
-        "ro": "câteva crenguțe",
-        "en": "a few sprigs"
+        "ro": "g",
+        "en": "g"
       },
       "ingredientId": 116
     },
     {
       "name": {
-        "ro": "kiwi (opțional)",
-        "en": "kiwi (optional)"
+        "ro": "kiwi, feliat (opțional)",
+        "en": "kiwi, sliced (optional)"
       },
       "quantity": 1,
       "unit": {
-        "ro": "câteva felii",
-        "en": "a few slices"
+        "ro": "buc",
+        "en": "pcs"
       },
       "ingredientId": 216
     }
   ],
   "instructions": {
     "ro": [
-      "Pune feliile de pâine în toaster (opțional). Între timp, feliați lămâia. Îndepărtați coaja albă, care este de obicei amară. Tăiați fiecare felie în triunghiuri mici urmând membranele albe. Veți avea nevoie de aproximativ 2-3 felii de lămâie.",
-      "Întindeți brânza pe feliile de pâine. Tăiați în bucăți de mărime potrivită pentru o îmbucătură (în orice formă doriți).",
-      "Tăiați somonul în fâșii și aranjați-le pe fiecare bucată de pâine. Adăugați un triunghi mic de lămâie deasupra și garnisiți cu pătrunjel proaspăt. Sau cu o felie de kiwi!",
-      "Aranjați pe o farfurie, tocător sau pe o tavă și serviți!"
+      "Pune feliile de pâine în toaster (opțional). Între timp, feliază lămâia. Îndepărtează coaja albă, care este de obicei amară. Taie fiecare felie în triunghiuri mici, urmând membranele albe. Vei avea nevoie de aproximativ 2-3 felii de lămâie.",
+      "Întinde brânza pe feliile de pâine. Taie-le în bucăți de mărime potrivită pentru o îmbucătură (în orice formă dorești).",
+      "Taie somonul în fâșii și aranjează-le pe fiecare bucată de pâine. Adaugă un triunghi mic de lămâie deasupra și garnisește cu pătrunjel proaspăt. Sau cu o felie de kiwi!",
+      "Aranjează pe o farfurie, pe un tocător sau pe o tavă și servește!"
     ],
     "en": [
       "Toast the bread slices (optional). Meanwhile, slice the lemon. Cut off the white pith, which is usually bitter. Cut each slice into tiny triangles following the white membranes. You will need about 2-3 lemon slices.",

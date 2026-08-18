@@ -1,5 +1,5 @@
 id
-ro-mary-me-chicken-pasta
+ro-marry-me-chicken-pasta
 
 category
 pasta
@@ -17,7 +17,7 @@ effortLevel
 medium
 
 image
-images/pasta/mary-me-chicken-pasta.jpg
+images/pasta/marry-me-chicken-pasta.jpg
 
 ingredients
 piepturi de pui feliate - 800 g

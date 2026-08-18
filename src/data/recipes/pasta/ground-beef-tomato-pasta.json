@@ -6,7 +6,7 @@
     "ro": "Paste cu Carne de Vită și Sos de Roșii",
     "en": "Ground Beef Tomato Pasta"
   },
-  "prepTime": 20,
+  "prepTime": 45,
   "servings": 3,
   "effortLevel": "easy",
   "ingredients": [
@@ -129,6 +129,54 @@
         "en": "cup"
       },
       "ingredientId": 116
+    },
+    {
+      "name": {
+        "ro": "piper negru măcinat",
+        "en": "ground black pepper"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 102
+    },
+    {
+      "name": {
+        "ro": "oregano uscat",
+        "en": "dried oregano"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 103
+    },
+    {
+      "name": {
+        "ro": "boia dulce",
+        "en": "sweet paprika"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 138
+    },
+    {
+      "name": {
+        "ro": "fulgi de ardei iute (opțional)",
+        "en": "crushed red pepper flakes (optional)"
+      },
+      "quantity": 0.25,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 111
     }
   ],
   "instructions": {
@@ -136,17 +184,19 @@
       "Adu o oală cu apă sărată la fierbere și o tigaie largă la foc mediu.",
       "Încălzește puțin ulei de măsline extravirgin în tigaie. Adaugă carnea de vită tocată și gătește la foc mediu, amestecând regulat, până este complet rumenită. Scurge carnea și transferă-o pe o farfurie.",
       "Adaugă ulei în tigaia largă. Odată ce începe să sclipească, adaugă ceapa tocată, usturoiul și morcovul ras fin. Gătește aproximativ 5 minute, amestecând regulat, până se înmoaie. Adaugă carnea rumenită înapoi în tigaie.",
-      "Adaugă sosul de paste sau roșiile cubulețe și aproximativ 1/2 cană de apă. Condimentează cu un praf generos de sare și piper. Adaugă oregano, boia și fulgi de ardei iute dacă dorești. Amestecă pătrunjelul tocat.",
-      "Aduce sosul la fierbere, apoi reduce focul la mic. Acoperă și lasă să fiarbă 15-20 de minute. Dacă sosul este prea gros, mai adaugă puțină apă sau apă de paste.",
-      "Adaugă pastele gătite la sos. Amestecă pentru a combina și lasă pastele să gătească în sos la foc mic aproximativ 5 minute. Presară parmezan și servește."
+      "Adaugă sosul de paste sau roșiile cubulețe și aproximativ 1/2 cană de apă. Condimentează cu sarea și piperul. Adaugă oregano, boiaua și fulgii de ardei iute, dacă folosești. Amestecă pătrunjelul tocat.",
+      "Adu sosul la fierbere, apoi reduce focul la mic. Acoperă și lasă să fiarbă 15-20 de minute. Dacă sosul este prea gros, mai adaugă puțină apă sau apă de paste.",
+      "Între timp, fierbe pastele în apa sărată care clocotește, conform timpului de pe ambalaj, dar cu un minut mai puțin. Păstrează o cană din apa de fierbere, apoi scurge-le.",
+      "Adaugă pastele scurse în sos. Amestecă pentru a combina și lasă pastele să se termine de gătit în sos la foc mic aproximativ 5 minute, subțiind cu apă de paste dacă e nevoie. Presară parmezan și servește."
     ],
     "en": [
       "Bring a salted pot of water to a boil as well as bring a wide sauté pan to a medium heat.",
       "Heat a little bit of extra virgin olive oil in the pan. Add in the ground beef and cook over medium heat, tossing regularly, until fully browned. Drain the meat and transfer to a plate.",
       "Add oil to the wide sauté pan. Once it starts to shimmer, add in the chopped onion, garlic, and finely grated carrots. Cook for about 5 minutes, stirring regularly until softened. Add the cooked ground beef back to the pan.",
-      "Add the pasta sauce or canned cubed tomatoes and about 1/2 cup of water. Season with a generous pinch of salt and pepper. Stir in oregano, paprika, and crushed pepper flakes, if using. Stir in the fresh parsley.",
+      "Add the pasta sauce or canned cubed tomatoes and about 1/2 cup of water. Season with the salt and pepper. Stir in the oregano, paprika, and crushed pepper flakes, if using. Stir in the fresh parsley.",
       "Bring the sauce to a boil, then turn the heat to low. Cover and let simmer for 15 to 20 minutes. If the sauce is too thick, add a bit more water or pasta cooking water.",
-      "Add cooked pasta of your choice to the sauce. Mix to combine and let the pasta finish cooking in the sauce over low heat for about 5 minutes. Top with parmesan and serve."
+      "Meanwhile, cook the pasta in the boiling salted water, following the packet timing but a minute short. Reserve a cup of the cooking water, then drain.",
+      "Add the drained pasta to the sauce. Mix to combine and let the pasta finish cooking in the sauce over low heat for about 5 minutes, loosening with pasta water if needed. Top with parmesan and serve."
     ]
   },
   "personalNotes": {

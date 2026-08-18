@@ -66,7 +66,7 @@
       "quantity": 2,
       "unit": {
         "ro": "linguri",
-        "en": "tbsp"
+        "en": "Tbsp"
       },
       "ingredientId": 117
     },
@@ -92,7 +92,7 @@
         "ro": "ml",
         "en": "ml"
       },
-      "ingredientId": 184
+      "ingredientId": 151
     },
     {
       "name": {
@@ -185,7 +185,7 @@
       },
       "quantity": 2,
       "unit": {
-        "ro": "linguriță",
+        "ro": "lingurițe",
         "en": "tsp"
       },
       "ingredientId": 100
@@ -205,21 +205,21 @@
   ],
   "instructions": {
     "ro": [
-      "Tăiați varza fidelușă și frecați-o cu o linguriță de sare. Lăsați-o 30 de minute la înmuiat.",
-      "Tăiați ceapa cubulețe, ardeiul roșu fâșii și cabanosul rondele.",
-      "Încălziți uleiul într-o oală mare și călește ceapa cu jumătate de linguriță de sare pentru 5 minute până devine translucidă.",
-      "Adăugați ardeiul roșu și călește încă 2-3 minute.",
-      "Adăugați cabanosul și călește 2-3 minute până se rumenește ușor.",
-      "Adăugați boiaua dulce și amestecați rapid pentru a preveni arderea.",
-      "Turnați apa (2.5 litri) și aduceți la fierbere.",
-      "Scurgeți varza bine de apa eliberată și adăugați-o în oală. Fierbeți 30-40 minute la foc mediu până varza devine fragedă.",
-      "Adăugați jumătate din bulion (350 ml) și lăsați să dea 2 clocote.",
-      "Adăugați cimbrul, foile de dafin, piperul măcinat, vegeta și chilli flakes. Amestecați bine.",
-      "Într-un bol separat, amestecați gălbenușurile cu smântâna și restul de bulion (350 ml).",
-      "Temperați amestecul de gălbenușuri adăugând treptat câteva linguri de zeamă fierbinte din supă, amestecând continuu.",
-      "Turnați amestecul temperat în oală și amestecați ușor.",
-      "Lăsați ciorba pe foc mic încă 2-3 minute, fără să mai fiarbă.",
-      "Gustați și ajustați sarea cu jumătate de linguriță dacă este necesar. Serviți cald."
+      "Taie varza fidelușă și freac-o cu o linguriță de sare. Las-o 30 de minute la înmuiat.",
+      "Taie ceapa cubulețe, ardeiul roșu fâșii și cabanosul rondele.",
+      "Încălzește uleiul într-o oală mare și călește ceapa cu jumătate de linguriță de sare timp de 5 minute, până devine translucidă.",
+      "Adaugă ardeiul roșu și mai călește 2-3 minute.",
+      "Adaugă cabanosul și călește 2-3 minute, până se rumenește ușor.",
+      "Adaugă boiaua dulce și amestecă rapid pentru a preveni arderea.",
+      "Toarnă apa (2.5 litri) și adu la fierbere.",
+      "Scurge varza bine de apa eliberată și adaug-o în oală. Fierbe 30-40 de minute la foc mediu, până varza devine fragedă.",
+      "Adaugă jumătate din bulion (350 ml) și lasă să dea două clocote scurte.",
+      "Adaugă cimbrul, foile de dafin, piperul măcinat, vegeta și fulgii de chili. Amestecă bine.",
+      "Într-un bol separat, amestecă gălbenușurile cu smântâna și restul de bulion (350 ml).",
+      "Temperează amestecul de gălbenușuri adăugând treptat câteva linguri de zeamă fierbinte din supă, amestecând continuu.",
+      "Toarnă amestecul temperat în oală și amestecă ușor.",
+      "Lasă ciorba pe foc mic încă 2-3 minute, fără să mai fiarbă.",
+      "Gustă și potrivește sarea cu jumătatea de linguriță rămasă, dacă este necesar. Servește caldă."
     ],
     "en": [
       "Cut the cabbage into thin strips and rub it with one teaspoon of salt. Let it sit for 30 minutes to soften.",
@@ -230,7 +230,7 @@
       "Add the sweet paprika and stir quickly to prevent burning.",
       "Pour in the water (2.5 liters) and bring to a boil.",
       "Drain the cabbage well from the released water and add it to the pot. Boil for 30-40 minutes over medium heat until the cabbage is tender.",
-      "Add half of the bouillon (350 ml) and let it boil for 2 cycles.",
+      "Add half of the bouillon (350 ml) and let it return to a boil briefly, twice.",
       "Add the thyme, bay leaves, ground pepper, vegeta, and chili flakes. Stir well.",
       "In a separate bowl, mix the egg yolks with the sour cream and the remaining bouillon (350 ml).",
       "Temper the egg yolk mixture by gradually adding a few spoonfuls of hot soup broth, stirring continuously.",
@@ -240,7 +240,7 @@
     ]
   },
   "personalNotes": {
-    "ro": "Această ciorbă de varză este o rețetă tradițională românească, perfectă pentru zilele reci. Secretul constă în frecarea varzei cu sare pentru a o face mai fragedă și în temperarea gălbenușurilor pentru a obține o textură cremoasă fără a se tăia. Cabanos-ul adaugă o aromă afumată distinctă, dar poate fi înlocuit cu alt tip de cârnat afumat. Asigurați-vă că adăugați amestecul de smântână treptat și nu mai fierbeți supa după aceea pentru a preveni tăierea.",
+    "ro": "Această ciorbă de varză este o rețetă tradițională românească, perfectă pentru zilele reci. Secretul constă în frecarea verzei cu sare pentru a o face mai fragedă și în temperarea gălbenușurilor pentru a obține o textură cremoasă fără a se tăia. Cabanosul adaugă o aromă afumată distinctă, dar poate fi înlocuit cu alt tip de cârnat afumat. Ai grijă să adaugi amestecul de smântână treptat și să nu mai fierbi ciorba după aceea, ca să nu se taie.",
     "en": "This cabbage soup is a traditional Romanian recipe, perfect for cold days. The secret lies in rubbing the cabbage with salt to make it more tender and tempering the egg yolks to achieve a creamy texture without curdling. The cabanos adds a distinctive smoky flavor, but can be replaced with other types of smoked sausage. Make sure to add the sour cream mixture gradually and don't boil the soup afterwards to prevent curdling."
   },
   "keywords": [

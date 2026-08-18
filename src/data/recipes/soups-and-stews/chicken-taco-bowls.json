@@ -32,7 +32,7 @@
         "ro": "ml",
         "en": "ml"
       },
-      "ingredientId": 174
+      "ingredientId": 173
     },
     {
       "name": {
@@ -56,7 +56,7 @@
         "ro": "ml",
         "en": "ml"
       },
-      "ingredientId": 175
+      "ingredientId": 174
     },
     {
       "name": {
@@ -115,18 +115,32 @@
       "unit": {
         "ro": "linguriță",
         "en": "tsp"
-      }
+      },
+      "ingredientId": 206
     },
     {
       "name": {
         "ro": "piper negru proaspăt măcinat",
         "en": "freshly cracked black pepper"
       },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 102
+    },
+    {
+      "name": {
+        "ro": "sare (după gust, la final)",
+        "en": "salt (to taste, at the end)"
+      },
       "quantity": 1,
       "unit": {
-        "ro": "după gust",
-        "en": "to taste"
-      }
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 100
     },
     {
       "name": {
@@ -142,13 +156,13 @@
     },
     {
       "name": {
-        "ro": "orez gătit",
-        "en": "cooked rice"
+        "ro": "orez uscat (dă aproximativ 6 căni gătit)",
+        "en": "dry rice (yields about 6 cups cooked)"
       },
-      "quantity": 6,
+      "quantity": 370,
       "unit": {
-        "ro": "căni (600 g orez uscat)",
-        "en": "cups (600 g dry rice)"
+        "ro": "g",
+        "en": "g"
       },
       "ingredientId": 121
     },
@@ -186,7 +200,7 @@
         "ro": "după necesitate",
         "en": "as needed"
       },
-      "ingredientId": 166
+      "ingredientId": 191
     }
   ],
   "instructions": {
@@ -195,14 +209,16 @@
       "Adaugă 1/4 cană apă, plus usturoiul tocat, pudra de chili, chimionul, oregano, cayenne, puțin piper proaspăt măcinat (aproximativ 10-15 rotiri ale unei mori de piper).",
       "Amestecă scurt ingredientele pentru a distribui condimentele. Fixează capacul pe slow cooker și gătește la foc mic timp de 8 ore sau la foc mare timp de 4 ore.",
       "După 8 ore la foc mic sau 4 ore la foc mare, scoate cu grijă capacul slow cookerului. Amestecă cu o furculiță pentru a sfâșia puiul (ar trebui să fie foarte fraged și se va sfâșia ușor). Gustă amestecul de pui și adaugă sare dacă este necesar.",
-      "Pentru a construi bolurile, pune o cană de orez pe fundul unui bol și presară deasupra cu 1 cană din amestecul de pui sfâșiat. Presară deasupra cu puțină brânză cheddar și o presărare de ceapă verde feliată."
+      "Cât puiul se gătește, fierbe cei 370 g de orez conform instrucțiunilor de pe ambalaj, ca să obții aproximativ 6 căni de orez gătit.",
+      "Pentru a construi bolurile, pune o cană de orez pe fundul unui bol și adaugă deasupra 1 cană din amestecul de pui sfâșiat. Presară puțină brânză cheddar, ceapă verde feliată și coriandru proaspăt tocat."
     ],
     "en": [
       "Place the chicken breasts in the bottom of a 5 quart or larger slow cooker. Drain the black beans and add them to the slow cooker along with the salsa and corn.",
       "Add 1/4 cup water, plus the minced garlic, chili powder, cumin, oregano, cayenne, some freshly cracked pepper (about 10-15 cranks of a pepper mill).",
       "Give the ingredients a brief stir to distribute the spices. Secure the lid on your slow cooker and cook on low for 8 hours or high for 4 hours.",
       "After 8 hours on low or 4 hours on high, carefully remove the lid of the slow cooker. Stir with a fork to shred the chicken (it should be very tender and will shred easily). Taste the chicken mixture and add salt if needed.",
-      "To build the bowls, place one cup of rice in the bottom of a bowl and top with 1 cup of the shredded chicken mixture. Top with a little cheddar cheese and a sprinkle of sliced green onions."
+      "While the chicken cooks, cook the 370 g of rice according to the packet instructions, to give you about 6 cups of cooked rice.",
+      "To build the bowls, place one cup of rice in the bottom of a bowl and top with 1 cup of the shredded chicken mixture. Finish with a little cheddar cheese, a sprinkle of sliced green onions and the minced fresh cilantro."
     ]
   },
   "personalNotes": {

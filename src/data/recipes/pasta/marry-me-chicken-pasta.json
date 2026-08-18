@@ -1,7 +1,7 @@
 {
-  "id": "mary-me-chicken-pasta",
+  "id": "marry-me-chicken-pasta",
   "category": "pasta",
-  "image": "images/pasta/mary-me-chicken-pasta.jpg",
+  "image": "images/pasta/marry-me-chicken-pasta.jpg",
   "title": {
     "ro": "Paste cu Pui Marry Me",
     "en": "Marry Me Chicken Pasta"
@@ -186,7 +186,7 @@
       "quantity": 1,
       "unit": {
         "ro": "lingură",
-        "en": "tbsp"
+        "en": "Tbsp"
       },
       "ingredientId": 153
     },
@@ -206,18 +206,22 @@
   "instructions": {
     "ro": [
       "Condimentează puiul cu sare și piper. Într-o tigaie mare, încălzește uleiul și rumenește puiul timp de 5-7 minute până devine auriu și bine gătit. Transferă pe o farfurie.",
+      "Pune o oală mare cu apă sărată la fiert pentru paste.",
       "Adaugă untul în tigaie și gătește ceapa timp de 5 min. Adaugă usturoiul tocat și sotează timp de un minut sau până devine parfumat.",
       "Adaugă supa de pui și deglazează tigaia, răzuind orice bucăți lipite de fundul tigăii cu o lingură de lemn.",
       "Ajustează focul la mediu-mic și adaugă smântâna de gătit și parmezanul. Lasă sosul să fiarbă câteva minute, apoi condimentează cu fulgi de chili, cimbru și oregano.",
-      "Condimentează cu sare și piper după gust, adaugă roșiile uscate la soare apoi pune puiul înapoi în sos și lasă sosul să fiarbă și să se îngroașe câteva minute.",
-      "Amestecă cu pastele fierte și garnisește cu frunze de busuioc proaspăt măruntite pentru a servi."
+      "Adaugă roșiile uscate la soare, apoi pune puiul înapoi în sos și lasă sosul să fiarbă și să se îngroașe câteva minute. Condimentează cu sare și piper după gust.",
+      "Între timp, fierbe pastele în apa sărată conform timpului de pe ambalaj, apoi scurge-le.",
+      "Amestecă cu pastele fierte și garnisește cu frunze de busuioc proaspăt mărunțite pentru a servi."
     ],
     "en": [
       "Season chicken with salt and pepper. In a large skillet, heat the oil and brown the chicken for 5-7 minutes until golden brown and cooked through. Transfer onto a plate.",
+      "Bring a large pot of salted water to the boil for the pasta.",
       "Add the butter to the skillet and cook the onions for 5 min. Add the minced garlic and saute for a minute or until it's fragrant.",
       "Add the chicken stock, and deglaze the pan, scraping any bits stuck to the bottom of the pan with a wooden spoon.",
       "Adjust the heat to medium-low, and add the heavy cream and the parmesan cheese. Allow the sauce to simmer for a couple of minutes, then season with chili flakes, thyme, and oregano.",
-      "Season with salt and pepper to your taste, add the sundried tomatoes then put the chicken back in the sauce and let the sauce simmer and thicken for a few more minutes.",
+      "Add the sundried tomatoes then put the chicken back in the sauce and let the sauce simmer and thicken for a few more minutes. Season with salt and pepper to your taste.",
+      "Meanwhile, cook the pasta in the boiling salted water following the packet timing, then drain.",
       "Mix with boiled pasta and garnish with chopped fresh basil leaves to serve."
     ]
   },
