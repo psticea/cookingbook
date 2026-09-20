@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A detailed, evidence-based UI, usability and content review of Paul's Cookbook, inspected locally on 20 September 2026.">
+  <title>Paul's Cookbook - UI &amp; content review</title>
+  <style>
+    :root { color-scheme: light; --paper: #f7f4ec; --surface: #fffdf8; --ink: #242c23; --muted: #53604f; --line: #d5dbcd; --olive: #395532; --rust: #8b391d; --soft: #eaf0e2; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color: var(--olive); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }
+    .skip { position: absolute; top: -80px; left: 16px; padding: 12px; background: white; z-index: 10; }
+    .skip:focus { top: 12px; }
+    .layout { display: grid; grid-template-columns: 235px minmax(0, 1fr); max-width: 1390px; margin: auto; }
+    aside { padding: 44px 26px; border-right: 1px solid var(--line); }
+    nav { position: sticky; top: 28px; }
+    .nav-title { font-family: Georgia, serif; font-weight: bold; font-size: 24px; line-height: 1.2; margin: 0 0 12px; }
+    .nav-meta { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 24px; }
+    nav a { display: block; padding: 7px 0; font-size: 14px; text-decoration: none; }
+    main { min-width: 0; padding: 52px clamp(24px, 5vw, 76px) 80px; }
+    header { padding-bottom: 36px; border-bottom: 2px solid var(--olive); }
+    h1, h2, h3, h4 { font-family: Georgia, "Times New Roman", serif; line-height: 1.17; text-wrap: balance; }
+    h1 { font-size: clamp(38px, 4.6vw, 64px); letter-spacing: -.035em; margin: 0 0 24px; max-width: 16ch; }
+    h2 { font-size: 34px; letter-spacing: -.025em; margin: 0 0 22px; }
+    h3 { font-size: 25px; margin: 0 0 16px; }
+    h4 { font-size: 20px; margin: 28px 0 10px; }
+    p { margin: 0 0 17px; max-width: 76ch; }
+    .lead { font-size: 21px; line-height: 1.6; max-width: 64ch; }
+    .subtle, figcaption, .source { color: var(--muted); }
+    .subtle { font-size: 14px; }
+    .scope { padding: 18px 22px; background: var(--soft); margin-top: 26px; font-size: 15px; }
+    .scope p:last-child, .note p:last-child { margin-bottom: 0; }
+    section { padding-top: 52px; }
+    .verdict { font: 27px/1.45 Georgia, serif; color: var(--olive); }
+    .note { padding: 20px 24px; background: var(--surface); border: 1px solid var(--line); margin: 24px 0; }
+    .note strong { color: var(--olive); }
+    .table-wrap { overflow-x: auto; margin: 22px 0; border: 1px solid var(--line); background: var(--surface); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; }
+    th, td { text-align: left; vertical-align: top; padding: 13px 14px; border-bottom: 1px solid var(--line); }
+    th { background: var(--soft); font-weight: 650; }
+    tr:last-child td { border-bottom: 0; }
+    .priority-table { min-width: 670px; }
+    .priority { display: inline-block; max-width: 100%; font-size: 12px; font-weight: 750; letter-spacing: .025em; border: 1px solid currentColor; border-radius: 4px; padding: 2px 7px; }
+    .p1 { color: var(--rust); }
+    .p2 { color: var(--olive); }
+    .p3 { color: var(--muted); }
+    .finding { padding: 30px 0; border-top: 1px solid var(--line); }
+    .finding:first-of-type { border-top: 0; padding-top: 4px; }
+    .finding h3 { margin-top: 12px; }
+    .finding dl { margin: 18px 0; }
+    .finding dt { font-weight: 700; font-size: 14px; color: var(--olive); margin: 16px 0 4px; }
+    .finding dd { margin: 0; max-width: 76ch; }
+    .source { font-size: 13px; overflow-wrap: anywhere; }
+    code { font: .87em/1.5 ui-monospace, Consolas, monospace; background: #ebece4; padding: 1px 4px; overflow-wrap: anywhere; }
+    ul, ol { padding-left: 24px; }
+    li { padding: 3px 0; }
+    figure { margin: 26px 0; }
+    figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: white; }
+    figcaption { font-size: 13px; line-height: 1.6; margin-top: 10px; }
+    .image-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .image-pair img { max-height: 530px; object-fit: contain; object-position: top; }
+    .mobile-shot { max-width: 390px; }
+    details { border-top: 1px solid var(--line); padding: 18px 0; }
+    summary { cursor: pointer; font-weight: 650; color: var(--olive); padding: 4px 0; }
+    details > p:first-of-type { margin-top: 18px; }
+    .copy-example { font: 22px/1.55 Georgia, serif; padding: 18px 0; border-block: 1px solid var(--line); margin: 20px 0; }
+    .phase { display: grid; grid-template-columns: 130px 1fr; gap: 22px; padding: 24px 0; border-top: 1px solid var(--line); }
+    .phase h3 { font-size: 21px; }
+    footer { margin-top: 50px; padding-top: 24px; border-top: 2px solid var(--olive); color: var(--muted); font-size: 13px; }
+    @media (max-width: 1000px) { .layout { grid-template-columns: 195px minmax(0,1fr); } aside { padding-inline: 20px; } main { padding-inline: 30px; } }
+    @media (max-width: 760px) {
+      body { font-size: 16px; }
+      .layout { display: block; }
+      aside { padding: 22px 20px; border-right: 0; border-bottom: 1px solid var(--line); }
+      nav { position: static; }
+      .nav-meta { margin-bottom: 12px; }
+      .nav-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+      nav a { padding-block: 6px; }
+      main { padding: 32px 20px 50px; }
+      h2 { font-size: 29px; }
+      h3 { font-size: 23px; }
+      .lead { font-size: 19px; }
+      .image-pair { gap: 14px; }
+      .phase { grid-template-columns: 1fr; gap: 0; }
+      .note { padding: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      @page { margin: 16mm; }
+      body { background: white; font-size: 10pt; color: black; }
+      .layout { display: block; max-width: none; }
+      aside, .skip { display: none; }
+      main { padding: 0; }
+      h1 { font-size: 34pt; max-width: none; }
+      h2 { font-size: 22pt; }
+      h3 { font-size: 16pt; }
+      section { padding-top: 26px; }
+      .lead { font-size: 13pt; }
+      .table-wrap { overflow: visible; }
+      table { min-width: 0 !important; font-size: 8pt; }
+      th, td { padding: 7px; }
+      figure, .phase { break-inside: avoid; }
+      figure img { max-height: 155mm; object-fit: contain; }
+      h2, h3, h4 { break-after: avoid; }
+      a { color: inherit; }
+      details:not([open]) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#review">Skip to review</a>
+  <div class="layout">
+    <aside>
+      <nav aria-label="Review contents">
+        <p class="nav-title">Paul's<br>Cookbook</p>
+        <p class="nav-meta">UI, usability &amp; content review<br>20 September 2026<br>Evaluation only</p>
+        <div class="nav-links">
+          <a href="#verdict">Overall verdict</a>
+          <a href="#priorities">What to fix first</a>
+          <a href="#ui">Detailed UI findings</a>
+          <a href="#content">Content &amp; trust</a>
+          <a href="#direction">Recommended design direction</a>
+          <a href="#scorecard">Usability scorecard</a>
+          <a href="#roadmap">Practical roadmap</a>
+          <a href="#evidence">Evidence &amp; scenarios</a>
+          <a href="#method">Method &amp; limitations</a>
+        </div>
+      </nav>
+    </aside>
+    <main id="review">
+      <header>
+        <h1>Paul's Cookbook<br>UI &amp; content review</h1>
+        <p class="lead">The food photography, warm colors and compact, ad-free presentation already give this site a welcoming identity. The biggest opportunities are not a new visual style: they are a better desktop layout, a reliable cooking workflow, clearer recipe discovery, and more trustworthy supporting information.</p>
+        <p class="subtle">Prepared for Paul's Cookbook after running the existing React/Vite application locally and exercising its actual interfaces.</p>
+        <div class="scope">
+          <p><strong>No application code changed.</strong> This folder contains only the review and screenshots. Findings distinguish directly observed behavior, source-backed evidence, and proposed enhancements.</p>
+          <p><strong>Coverage:</strong> home, search, filtering, sorting controls, recipe ingredients/instructions/nutrition, serving adjustments, preferences, Cooking Basics, Ingredient Prices, About, and invalid URLs. Romanian and English; light and dark themes; normal and large text; desktop, tablet and small-phone widths.</p>
+        </div>
+      </header>
+
+      <section id="verdict">
+        <h2>Overall verdict</h2>
+        <p class="verdict">A strong visual foundation with fixable workflow and content-trust problems.</p>
+        <p>This feels like a real person's practical collection, not a content-farm recipe site. That is a competitive advantage. Recipes are reached without an oversized marketing introduction, photos do useful work, and language, theme and text-size preferences make the collection feel considered.</p>
+        <p>The experience is currently stronger as a <strong>mobile browsing catalogue</strong> than as a <strong>desktop cookbook or an active cooking companion</strong>. On a wide screen the catalogue is squeezed into a phone-like strip. During cooking, the interface asks people to move between ingredients and instructions, then forgets their ingredient checks. Prices look precise despite calculation gaps. Several small details make the interface feel less finished than the imagery deserves.</p>
+        <h3>What is worth preserving</h3>
+        <ul>
+          <li><strong>The visual identity:</strong> warm off-white surfaces, food-led photography, olive accents and expressive serif headings. Improve hierarchy within this world; do not replace it with a generic dashboard.</li>
+          <li><strong>The low-friction premise:</strong> no account wall or lengthy life story before the ingredients. A small personal collection does not need a marketing landing page.</li>
+          <li><strong>The useful foundations:</strong> bilingual content, adjustable servings, ingredient checkboxes, a recoverable empty-search state, and preferences that survived a reload in the browser.</li>
+          <li><strong>The author's voice:</strong> specific shopping and preparation notes are more valuable than generic descriptions. Make these a consistent editorial feature.</li>
+        </ul>
+        <figure>
+          <a href="screenshots/06-home-desktop-en.png"><img src="screenshots/06-home-desktop-en.png" alt="Existing English homepage at 1440 pixels wide: a narrow centered three-column recipe grid surrounded by wide empty margins." width="1440" height="1000"></a>
+          <figcaption>Existing site, not a proposed redesign. At a 1440px viewport, the main area measured 576px and recipe cards about 165px. The food looks inviting; the allocation of space is the problem.</figcaption>
+        </figure>
+      </section>
+
+      <section id="priorities">
+        <h2>What to fix first</h2>
+        <p>Priority reflects user impact, not how visually dramatic a change would be. <span class="priority p1">P1</span> means a core journey or trust issue; <span class="priority p2">P2</span> means a meaningful improvement; <span class="priority p3">P3</span> means refinement. No launch-wide P0 outage was observed.</p>
+        <div class="table-wrap">
+          <table class="priority-table">
+            <thead><tr><th>Order</th><th>Improvement</th><th>Why it comes first</th><th>Scope</th></tr></thead>
+            <tbody>
+              <tr><td>1 · P1</td><td><a href="#layout">Remove the desktop width squeeze</a></td><td>A 1px breakpoint change can shrink the page from 1008px to 410px.</td><td>Small code change; deliberate responsive review</td></tr>
+              <tr><td>2 · P1</td><td><a href="#cooking">Preserve progress and synchronize scaled instructions</a></td><td>Tabs reset ingredient checks; scaled ingredients can contradict the method.</td><td>Medium state and recipe-model work</td></tr>
+              <tr><td>3 · P1</td><td><a href="#pricing">Make price estimates honest</a></td><td>Unsupported ingredient units receive undisclosed fixed placeholder costs.</td><td>Medium data and calculation work</td></tr>
+              <tr><td>4 · P1</td><td><a href="#accessibility">Repair hidden-menu keyboard access</a></td><td>Tab enters the closed, offscreen drawer before the visible recipes.</td><td>Medium interaction/accessibility work</td></tr>
+              <tr><td>5 · P1</td><td><a href="#search">Make search forgiving and persistent</a></td><td><code>rosii</code> finds nothing; <code>roșii</code> finds recipes. Returning home loses the query.</td><td>Medium search/state work</td></tr>
+              <tr><td>6 · P1</td><td><a href="#readability">Protect small-screen and large-text readability</a></td><td>A 320px phone with large text produced a 387px-wide document.</td><td>Medium layout/theme work</td></tr>
+              <tr><td>7 · P2</td><td><a href="#discovery">Separate finding food from site settings</a></td><td>Filters, categories, secondary pages and preferences compete inside one menu.</td><td>Medium information-architecture work</td></tr>
+              <tr><td>8 · P1/P2</td><td><a href="#timing">Fix ready-to-eat times</a>; <a href="#editorial">standardize recipe content</a></td><td>A "20m" recipe requires overnight chilling; metadata also needs an editorial pass.</td><td>Medium, recipe-by-recipe work</td></tr>
+              <tr><td>9 · P2</td><td><a href="#supporting">Complete supporting pages and failure states</a></td><td>Comments are blank, unknown routes are blank, and the basics guide is very short.</td><td>Small-to-medium, separable fixes</td></tr>
+              <tr><td>10 · P2</td><td><a href="#seo">Give each recipe its own share/search identity</a></td><td>English and recipe pages retain the same generic Romanian document title.</td><td>Medium metadata/rendering work</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="ui">
+        <h2>Detailed UI findings</h2>
+        <article class="finding" id="layout">
+          <span class="priority p1">P1 · Observed + source-backed</span>
+          <h3>Remove the abrupt desktop width constraint</h3>
+          <p>The shared application wrapper uses <code>lg:max-w-[40vw]</code>. This is not just generous whitespace: it makes the content substantially smaller precisely when the viewport becomes larger. The card grid switches to three columns inside that reduced space.</p>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Viewport</th><th>Main width</th><th>First card width</th></tr></thead>
+            <tbody><tr><td>768px</td><td>753px</td><td>352.5px</td></tr><tr><td>1023px</td><td>1008px</td><td>480px</td></tr><tr><td>1024px</td><td>409.6px</td><td>109.9px</td></tr><tr><td>1280px</td><td>512px</td><td>144px</td></tr><tr><td>1440px</td><td>576px</td><td>165.3px</td></tr></tbody>
+          </table></div>
+          <dl>
+            <dt>Recommended change</dt><dd>Use a fluid container with fixed comfortable gutters and a sensible maximum width. Give the catalogue approximately 1100-1200px on large screens, subject to visual validation. Make columns respond to available card width, not viewport alone. Give recipe pages their own reading layout: a compact ingredient column beside a wider method column on desktop, with roughly 60-75 characters per line for prose.</dd>
+            <dt>Why this matters</dt><dd>People can compare meals without decoding small thumbnails and tightly wrapped names. Desktop becomes genuinely better for planning, rather than a magnified margin around the mobile site.</dd>
+            <dt>Acceptance criteria</dt><dd>No abrupt width collapse around 1024px; card titles remain readable; layout is intentional at 768, 1024, 1280 and 1440px. Do not simply stretch prose across the full catalogue width.</dd>
+          </dl>
+          <p class="source">Source: <code>src/App.tsx</code>, shared app wrapper. Measurements: live Chromium bounding rectangles, including the space occupied by the vertical scrollbar.</p>
+        </article>
+
+        <article class="finding" id="cooking">
+          <span class="priority p1">P1 · Reproduced</span>
+          <h3>Do not erase progress when the cook reads the next step</h3>
+          <p>On Marry Me Chicken Pasta, checking the first ingredient, opening Instructions, and returning to Ingredients unchecks that ingredient. Reloading also clears it. Switching tabs is a routine cooking action, not a request to reset the recipe.</p>
+          <dl>
+            <dt>Recommended change</dt><dd>Keep recipe interaction state above the changing panels. Preserve checks while switching tabs and adjusting servings. Provide an explicit, named reset action. Session persistence across reloads is useful, but decide whether returning on another day should restore the old cooking session rather than silently making that decision.</dd>
+            <dt>Improve the wider workflow</dt><dd>On desktop, show ingredients and method together. On mobile, keep a compact, sticky recipe navigation strip and remember each panel's scroll position. Repeat relevant quantities in steps where helpful. Make nutrition secondary during active cooking, not an equal competing task.</dd>
+            <dt>Acceptance criteria</dt><dd>Check three ingredients, read instructions, return, change servings, and rotate the device: the same three checks remain. A separate reset clears them predictably. No checklist state leaks between recipes.</dd>
+          </dl>
+          <p><strong>A related missing baseline:</strong> print-media inspection with Ingredients selected did not include the method. A printable recipe should contain the title, yield, all ingredients, all steps and author/source notes, irrespective of the currently selected tab.</p>
+          <h4>Serving adjustments must also agree with the method</h4>
+          <p>A second cooking correctness issue was reproduced on Smashed Beef Burger: increasing two servings to three changes the ingredient list from 200g to 300g beef, but the instructions still say "Divide the 200 g of beef into two 100 g balls." This is more important than rounding fractional onions. Model quantity references explicitly or rewrite steps so they remain valid at a different yield. Do not blindly multiply oven temperatures, pan sizes or cooking durations.</p>
+          <p class="source">Additional data examples: <code>burgers-and-wraps/smashed-beef-burger.json:173,183</code>; fixed soup water/noodle amounts in <code>soups-and-stews/chicken-soup.json:171-175</code>; fixed rice quantity in <code>soups-and-stews/chicken-taco-bowls.json:220</code>. Paths are relative to <code>src/data/recipes</code>.</p>
+          <p class="source">Reproduction: <code>/recipe/marry-me-chicken-pasta</code>. Root cause: local checked state in <code>src/components/IngredientList.tsx:24-25</code> is discarded by conditional mounting in <code>src/pages/RecipePage.tsx:301-319</code>. The printable outcome was inspected in emulated print media, not on physical paper.</p>
+        </article>
+
+        <article class="finding" id="accessibility">
+          <span class="priority p1">P1 · Reproduced</span>
+          <h3>The closed drawer should not be a second invisible interface</h3>
+          <p>The menu is visually translated offscreen but remains a dialog in the accessibility tree. With the drawer closed, pressing Tab after the visible Menu button focuses the offscreen Close button, then the chicken, beef and fish filters. At desktop width, their bounding boxes begin beyond the viewport.</p>
+          <p>This is a practical keyboard problem, not merely a missing annotation. A visitor can lose track of focus without having opened the menu. With the drawer open, Shift+Tab from Close did not remain contained within the dialog; Escape did not reliably restore focus to its trigger in the observed sequence.</p>
+          <dl>
+            <dt>Recommended change</dt><dd>Remove closed menu content from interaction and the accessibility tree. When open, manage initial focus, contain focus, make the background inert, close on Escape and return focus to the trigger. Keep the trigger's expanded state accurate. Use a proven accessible dialog pattern rather than a visual transform alone.</dd>
+            <dt>Other keyboard work</dt><dd>The recipe tablist did not respond to ArrowRight. Implement the full tab keyboard pattern, including appropriate focus order and panel relationships, or use simpler section links. Localize the serving controls: Romanian pages currently announce English "Increase servings" and "Decrease servings."</dd>
+            <dt>Acceptance criteria</dt><dd>Complete search, open a recipe, adjust servings and read each section with the keyboard alone. Closed-menu controls must never receive focus. Screen-reader testing should follow; this review did not substitute a full assistive-technology audit.</dd>
+          </dl>
+          <p class="source">Sources: <code>src/components/SideMenu.tsx:22-39,45-80</code>; <code>src/components/Header.tsx:64-68</code>; <code>src/pages/RecipePage.tsx:235-319</code>.</p>
+        </article>
+
+        <article class="finding" id="search">
+          <span class="priority p1">P1 · Reproduced</span>
+          <h3>Search should understand the way people actually type</h3>
+          <p>In Romanian, <code>rosii</code> returned no recipes, while <code>roșii</code> returned two. The search term <code>pui</code> returned eight title matches, whereas the chicken filter produced nine results. Users are not told that text search and ingredient filtering have different coverage.</p>
+          <p>After searching, opening a recipe, and following Home, the query was empty and all 33 recipes returned. That makes comparing two possible dinners needlessly repetitive.</p>
+          <dl>
+            <dt>Recommended change</dt><dd>Normalize case and diacritics. Index titles plus useful ingredient names and validated aliases, with title matches ranked first. Make language behavior explicit; matching common English/Romanian ingredient equivalents would be helpful, but only add translations you can maintain. Keep query, category, sort and filters in URL state so Back and copied links preserve intent.</dd>
+            <dt>Helpful copy</dt><dd>Use a descriptive result count, such as "8 recipes", rather than an isolated "8". When a search has no results, distinguish "Clear search" from "Reset filters". Keep the current friendly empty-state tone; its recovery button successfully cleared the tested query.</dd>
+            <dt>Acceptance criteria</dt><dd><code>rosii</code> and <code>roșii</code> return the same relevant recipes. A recipe containing chicken can be found by chicken even if its title omits it. Back restores query, result set and browsing position.</dd>
+          </dl>
+          <p class="source">Sources: <code>src/pages/HomePage.tsx:28-89,98-115</code>. Search currently checks only the selected language's title, starts at two characters, and does not trim surrounding whitespace.</p>
+        </article>
+
+        <article class="finding" id="readability">
+          <span class="priority p1">P1 · Measured</span>
+          <h3>Make large text and dark mode useful all the way down</h3>
+          <p>At 390px, the English Frittata page with large text remained within the viewport. At 320px, the same page expanded to a 387px document. Ingredient quantities, ingredient names and right-aligned prices compete for horizontal space. The three-part time/serving/price row also becomes cramped.</p>
+          <p>Several supporting labels stay tiny despite the large-text setting. Recipe metadata was measured at 10px. In settled dark mode, these labels used <code>rgb(108,109,118)</code> over <code>rgb(29,29,34)</code>, a contrast ratio of approximately <strong>3.27:1</strong>. That is below the 4.5:1 target for normal-sized text. The 11px Personal Notes heading measured approximately 4.01:1 on the same surface.</p>
+          <p>The serving buttons are 28 &times; 28px at normal root size. Aim for at least 44 &times; 44px for forgiving interaction while cooking. This is an ergonomic recommendation, not a claim that every smaller target automatically fails WCAG.</p>
+          <dl>
+            <dt>Recommended change</dt><dd>Let ingredient names take the available width; move unit price below the ingredient or hide detailed costs behind an optional cost breakdown. Stack metadata when required. Increase important secondary text, reduce all-caps letter spacing on dense labels, and derive muted text colors from tested contrast tokens in both themes.</dd>
+            <dt>Acceptance criteria</dt><dd>No horizontal page scrolling at a 320px CSS viewport with large text. No loss of information at 200% text enlargement. Labels remain readable without relying on color alone; normal text reaches 4.5:1 and large text reaches 3:1 against its actual background.</dd>
+          </dl>
+          <p class="source">Sources: <code>src/pages/RecipePage.tsx:190,195-226</code>; <code>src/components/IngredientList.tsx:102-137</code>; <code>src/components/PersonalNotes.tsx:22-23</code>. Metadata and notes backgrounds are solid, so no image blending is involved in the stated contrast ratios.</p>
+          <div class="image-pair">
+            <figure><a href="screenshots/04-recipe-mobile-dark-large.png"><img loading="lazy" src="screenshots/04-recipe-mobile-dark-large.png" alt="Frittata recipe in English, dark theme and large text at 390px wide." width="390"></a><figcaption>390px, large text, dark theme. The recipe is usable, but small metadata and price columns compete with cooking content.</figcaption></figure>
+            <figure><a href="screenshots/05-recipe-320-large.png"><img loading="lazy" src="screenshots/05-recipe-320-large.png" alt="Frittata recipe at 320px wide with large text, showing the constrained recipe metadata and ingredient layout." width="320"></a><figcaption>320px, large text. Measured document width: 387px. Open the image for the original capture.</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="finding" id="discovery">
+          <span class="priority p2">P2 · Observed</span>
+          <h3>Give discovery its own place; let settings be settings</h3>
+          <p>The menu combines 20 keyword filters, eight recipe categories, three secondary links and language/theme/text preferences. It is the place to change how the website looks and the place to decide what to eat. These are different tasks.</p>
+          <p>The catalogue also starts with a bare count, a Categories switch and Name/Time/Price sorting controls. The switch means "group the results", while the menu's Categories section means "jump to a category section", not filter the results. That distinction is not obvious from the repeated label. Source review also shows that grouping off removes those jump targets, while the category controls remain available.</p>
+          <p>All selected keywords use AND matching, even within a group. Choosing chicken and beef therefore means a recipe must have both, rather than either. Explain that behavior or use OR within groups where it matches the intended browsing model. The ingredient list is also limited to its first 12 filter entries without a way to reveal the rest.</p>
+          <dl>
+            <dt>Recommended change</dt><dd>Place a clearly labeled Filters control beside search, display active filter chips above results and keep preferences in the menu. On desktop, use a compact filter rail or popover without sacrificing card width. On mobile, show an explicit result-count action such as "Show 9 recipes" within the filter sheet. Label the switch "Group by category".</dd>
+            <dt>Better entry points</dt><dd>With 33 recipes, start with a few useful, curated shortcuts: quick meals, chicken, vegetarian and cooking basics. Do not show every tag at once. A time shortcut must use reliable total-time metadata, and dietary collections must be manually validated.</dd>
+            <dt>Acceptance criteria</dt><dd>A first-time visitor can find a quick chicken recipe without opening site preferences. Selected filters and their effect are visible outside the drawer. Clear the last filter in one action.</dd>
+          </dl>
+          <p class="source">Sources: <code>src/pages/HomePage.tsx:98-104,153-160,228-306</code>; <code>src/components/FiltersSection.tsx:29-33,64-69</code>.</p>
+          <figure class="mobile-shot"><a href="screenshots/03-menu-mobile.png"><img loading="lazy" src="screenshots/03-menu-mobile.png" alt="Existing Romanian mobile menu combining filters, categories, navigation and preferences." width="390" height="844"></a><figcaption>The current drawer. The problem is not simply the number of options: it is the mixture of unrelated decisions and the lack of a dedicated discovery surface.</figcaption></figure>
+        </article>
+
+        <article class="finding" id="cards">
+          <span class="priority p2">P2 · Observed / recommendation</span>
+          <h3>Let each recipe card answer: what, how long, and why this one?</h3>
+          <p>Photos and titles already make the cards appealing. But the image overlays show values like "260m" and a money-bag icon followed by "6.22". A visitor must infer the currency, whether that price is per serving, and whether time includes waiting.</p>
+          <p>Use readable total time, such as "4 hr 20 min", and a qualified cost such as "~6.20 RON / serving" only when the estimate is complete enough to justify it. Put secondary metadata on a quiet, consistent line rather than asking badges to carry unexplained numbers. Keep title wrapping natural instead of shrinking type.</p>
+          <p>A short, concrete distinction is more valuable than another decorative badge: "One pan", "Good for leftovers", or "My weeknight version" when the recipe genuinely supports it. At this catalogue size, manual curation is more valuable than a complex recommendation engine.</p>
+          <p><strong>P3 polish:</strong> use singular forms for "1 recipe" / "1 rețetă"; standardize punctuation and title capitalization; make count and metadata labels read as language rather than database fields.</p>
+        </article>
+
+        <article class="finding" id="supporting">
+          <span class="priority p2">P2 · Reproduced</span>
+          <h3>Finish the quiet corners that affect trust</h3>
+          <p><strong>About:</strong> the page's Comments heading is followed by no working comments interface. The browser reports that <code>https://giscus.app/client.js</code> is blocked by the document's script policy; no comments iframe is created. Source review also found placeholder repository/category identifiers. Fixing CSP alone will not configure the integration. Either configure it completely with narrowly scoped resource permissions or remove the empty promise; do not broadly weaken the policy. Show a useful loading/error/fallback state if comments remain.</p>
+          <p><strong>Invalid URLs:</strong> an invalid recipe ID initially gets a helpful "Recipe not found" message, but automatically redirects home after three seconds. That removes the user's opportunity to read and act at their own pace. An unknown top-level route such as <code>/cookingbook/not-a-page</code> renders a blank body. Use persistent, helpful recovery pages with explicit navigation instead.</p>
+          <p><strong>Ingredient Prices:</strong> the searchable 128-item reference is a good transparency feature. However, its shared menu displays recipe filters and category controls with empty callbacks. In the browser, activating Chicken left its pressed state false; selecting Pasta left the user on Prices with no effect. Wire these to a meaningful action or remove them. Also add price date, currency, geographical/store assumptions and estimation limitations. "Mass", "Volume" and "Piece" are implementation categories; people primarily need "RON/kg", "RON/litre" or "RON/item".</p>
+          <p><strong>Cooking Basics:</strong> four tips ending "To be continued..." read as an unfinished page. Either label it honestly as a short getting-started checklist or expand it into linked, practical lessons. Connect the rice and polenta recipes to this learning route instead of making users discover a second, similarly named Basics category.</p>
+          <p class="source">Sources: <code>index.html:8-10</code>; <code>src/pages/AboutPage.tsx:53-58,144-150</code>; <code>src/pages/PricesPage.tsx:25,37-40,76-82</code>; <code>src/pages/RecipePage.tsx:81-128</code>; <code>src/App.tsx</code> routes.</p>
+        </article>
+      </section>
+
+      <section id="content">
+        <h2>Content &amp; trust</h2>
+        <p>The right next step is not simply adding more recipes. Make the existing collection easier to choose from, consistently executable, and clear about which information is estimated.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Catalogue inventory</th><th>Verified state</th><th>Interpretation</th></tr></thead>
+          <tbody>
+            <tr><td>Recipe coverage</td><td>33 recipes across eight categories</td><td>A manageable collection for a complete editorial pass.</td></tr>
+            <tr><td>Bilingual content</td><td>233 instructions in each language; matching step counts</td><td>Substantial bilingual coverage, not merely translated navigation.</td></tr>
+            <tr><td>Ingredients</td><td>384 rows plus 23 section headings</td><td>All ingredient IDs resolve to existing price records; unit compatibility is a separate issue.</td></tr>
+            <tr><td>Photography</td><td>33 JPEGs and 33 matching WebP thumbnails</td><td>Strong visual coverage. Thumbnails total about 0.88 MB on disk; this is not a page-transfer measurement.</td></tr>
+            <tr><td>Difficulty</td><td>18 easy, 15 medium, no hard recipes</td><td>Keep filters grounded in actual inventory.</td></tr>
+            <tr><td>Nutrition</td><td>One of 33 recipes</td><td>A pilot feature, not consistent collection-wide coverage.</td></tr>
+            <tr><td>Attribution</td><td>16 full URLs; seven additional named sources; ten without an explicit named source in notes</td><td>Improve provenance, but absence of a note does not establish copied content.</td></tr>
+          </tbody>
+        </table></div>
+        <article class="finding" id="pricing">
+          <span class="priority p1">P1 · Observed + data-backed</span>
+          <h3>Two decimal places should not disguise placeholder costs</h3>
+          <p>The initial Romanian catalogue produced repeated pricing warnings for unsupported units: spinach measured in <code>căni</code>, rice in <code>cană</code>, some chicken quantities in grams against piece-based prices, and other ingredient/unit combinations. React development rendering repeats some messages, so the console count is not a count of unique broken ingredients.</p>
+          <p>The calculation substitutes <strong>0.20 RON per serving for each ingredient it cannot price</strong>, independently of quantity or market value. That is an undisclosed placeholder, not an estimated price derived from the ingredient. Jasmine rice appeared at 0.20 RON per serving while the console reported an unsupported rice unit. The result is consistent with this fallback mechanism, not evidence that rice is genuinely that cheap.</p>
+          <dl>
+            <dt>Recommended change</dt><dd>Separate machine-readable canonical quantities and units from translated display strings. Track coverage and return an explicit partial/unavailable estimate rather than substituting an arbitrary constant. Never use a generic cup-to-gram conversion for every ingredient; density and ingredient form matter. Reconcile the ingredient breakdown with the header total in both languages.</dd>
+            <dt>How to present it</dt><dd>Use "Estimated cost" consistently. Include "excludes 2 ingredients" when incomplete, or withhold the number. Add an optional details view with missing items, price date and assumptions. Only rank recipes by price on a defined, comparable basis.</dd>
+            <dt>Acceptance criteria</dt><dd>Language changes do not change the cost of the same quantities. The sum of displayed ingredient costs reconciles with total and per-serving cost within rounding. Unsupported units produce visible qualification, not a misleading cheap recipe.</dd>
+          </dl>
+          <p>The calculator reads translated unit text, so localization currently participates in calculation. A missing required price rate can also become zero while still being marked as matched. Successful conversion is not always reliable conversion: generic spoon-to-mass and slice/packet-to-piece assumptions deserve ingredient-specific review. Calculate at full precision and round only for display rather than independently rounding and summing whole-recipe and per-serving values.</p>
+          <p class="source">Source: <code>src/utils/pricing.ts:38,73-124,133-185,209-216</code>. No corpus-wide percentage of accurately priced ingredients is claimed; warnings contain repeated calculations, and matching a price ID does not prove unit/rate validity. An unchanged Frittata price between languages is not evidence of a stale cached total: both translations can reach the same fallback.</p>
+          <h4>Concrete data cleanup targets</h4>
+          <p>Parfaits use 900g of canned pineapple against a generic per-piece pineapple price. Chicken thigh is priced per piece but appears in recipes measured in grams. Roast chicken's lemon juice points to the whole-lemon record even though a dedicated lemon-juice record exists. Corn salad's lime juice similarly points to whole lime. These mappings need a compatible purchasing basis or a documented yield conversion.</p>
+          <p class="source">Sources: <code>breakfast/tropical-yogurt-parfaits.json:51-59</code>; <code>main-courses/roasted-chicken-and-potatoes.json:40-47</code>; <code>salads-and-bites/mexican-street-corn-salad.json:121-131</code>, under <code>src/data/recipes</code>; <code>src/data/prices.json:213-218,332-337,409-414,654-659</code>. The price catalogue has no collection date, market, retailer or estimation-policy fields.</p>
+        </article>
+
+        <article class="finding" id="timing">
+          <span class="priority p1">P1 · Data-backed planning issue</span>
+          <h3>Time-to-serve must include the waiting that changes the plan</h3>
+          <p>Tropical Yogurt Parfaits display 20 minutes, but their method requires overnight refrigeration. Butter Chicken's 215 minutes includes at least three hours of marination. Taco Bowls list 260 minutes while the method offers four-hour and eight-hour slow-cooker schedules. The same field therefore mixes different meanings across recipes.</p>
+          <p>Introduce active preparation, cooking, passive waiting and total elapsed time with a clear policy. Parfaits should communicate "20 min active + overnight chilling"; slow-cooker recipes should show the relevant alternatives. This is a content correction needed before a "quick meals" shortcut or time sorting can be trusted.</p>
+          <p class="source">Sources under <code>src/data/recipes</code>: <code>breakfast/tropical-yogurt-parfaits.json:9,91,97</code>; <code>soups-and-stews/butter-chicken.json:8,213</code>; <code>soups-and-stews/chicken-taco-bowls.json:8,218-219</code>. The schema describes the single field as preparation time at <code>src/schemas/recipe.schema.json:65-68</code>.</p>
+        </article>
+
+        <article class="finding" id="editorial">
+          <span class="priority p2">P2 · Editorial improvement</span>
+          <h3>Give every recipe the same practical contract</h3>
+          <p>A reader should know what they are making, how much it yields, how long it actually takes, and what success looks like. On the current recipe header, "Prep time" labels the combined time value; this can be mistaken for chopping/preparation time rather than total cooking time. Replace that ambiguity with prep, cook and total time, plus passive waiting where it materially changes planning.</p>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Recipe element</th><th>Editorial standard to adopt</th></tr></thead>
+            <tbody>
+              <tr><td>Opening sentence</td><td>What the dish is, its texture/flavor and why this particular version is worth cooking. One useful sentence, not SEO filler.</td></tr>
+              <tr><td>Yield</td><td>Portions plus a usable description where necessary: number of pieces, pan size or serving weight.</td></tr>
+              <tr><td>Ingredients</td><td>Canonical units; consistent Romanian/English amounts; ingredient state such as cooked/raw/drained; optional and substitution information clearly separated.</td></tr>
+              <tr><td>Method</td><td>Ordered actions, heat/temperature, time range and a sensory endpoint. Avoid relying on a beginner understanding every specialist verb.</td></tr>
+              <tr><td>Author notes</td><td>What Paul changed, what worked in practice, what can go wrong, and one useful substitution if tested.</td></tr>
+              <tr><td>After cooking</td><td>Storage, reheating and freezing guidance where verified. Do not invent shelf-life claims to fill a template.</td></tr>
+              <tr><td>Provenance</td><td>Clearly labeled, clickable source attribution and an indication of what was adapted.</td></tr>
+              <tr><td>Review history</td><td>A maintained "last cooked/updated" date only if there is a real process behind it.</td></tr>
+            </tbody>
+          </table></div>
+          <p><strong>Taxonomy:</strong> Krem a la Krem Cake appears in Salads &amp; Bites. That may satisfy the current schema but contradicts how people look for dessert. Add a coherent dessert classification before growing the sweet recipe collection. Likewise, a dish's method and its meal type should be separate facets; one category should not have to express both.</p>
+          <p><strong>Scaling:</strong> five to six servings of Marry Me Chicken produced "1.2" onions and "4.8" garlic cloves. These are mathematically consistent but awkward in a kitchen. Keep the exact scaled quantity available and introduce sensible ingredient-aware presentation, not silent rounding of every amount.</p>
+          <h4>Specific recipes to edit first</h4>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Recipe</th><th>Concrete improvement</th><th>Evidence in recipe JSON</th></tr></thead>
+            <tbody>
+              <tr><td>Fresh Tomato Marinara Pasta</td><td>Tell the cook to reserve pasta water before draining; the method uses it afterward.</td><td><code>pasta/tomato-marinara-pasta.json:150</code></td></tr>
+              <tr><td>Smashed Beef Burger</td><td>Explicitly include the cooked patty in final assembly, and synchronize quantity references with the chosen serving count.</td><td><code>burgers-and-wraps/smashed-beef-burger.json:173,179,183,189</code></td></tr>
+              <tr><td>Chinese Stir-Fried Noodles</td><td>Break up the long cooking step; specify useful intervals and doneness cues for the chosen protein and vegetables.</td><td><code>stir-fries/chinese-stir-fried-noodles.json:226-228</code></td></tr>
+              <tr><td>Tropical Yogurt Parfaits</td><td>Replace "400g mason jars" with actual vessel capacity; account for overnight chilling.</td><td><code>breakfast/tropical-yogurt-parfaits.json:88-97</code></td></tr>
+              <tr><td>Krem a la Krem Cake</td><td>Specify packet weights for brand-specific powders, and tested cooling/setting ranges; classify as dessert.</td><td><code>salads-and-bites/prajitura-crema-la-crema.json:45-54,87-96,167-171</code></td></tr>
+              <tr><td>Egg Fried Rice</td><td>Make the vegetarian base explicit and distinguish the optional oyster-sauce variant or a suitable vegetarian replacement.</td><td><code>stir-fries/egg-fried-rice.json:148,182</code></td></tr>
+            </tbody>
+          </table></div>
+          <p class="source">All paths in this table are relative to <code>src/data/recipes</code>. These are instructional-clarity findings, not a food-safety certification.</p>
+          <h4>Localization and dietary labeling</h4>
+          <p>A native Romanian editing pass would make the writing more natural. Examples include "Aduce o oală..." instead of the imperative "Adu...", "la un fierbere ușor", and Frittata's literal "ouăle sunt fixate". Add practical metric equivalents for a 10-inch pan and a 5-quart slow cooker. Standardize tone, sentence casing and diacritics; correct "marunțită" to "mărunțită" and the English "tumeric" typo.</p>
+          <p>Optional ingredients should be structured data, not just prose. The marinara recipe already distinguishes optional chicken from its vegetarian base; apply that clarity consistently in filters and cost estimates. Do not treat vegetarian labels as allergen guarantees.</p>
+          <p>Reconcile taxonomy as the collection grows: seven used keywords have no filter definition, including cabbage, bacon, noodles and broccoli. Difficulty should come from one authoritative field rather than a second, inconsistently maintained keyword list.</p>
+          <p class="source">Language examples: <code>pasta/shrimp-alfredo.json:124,128-129</code>; <code>breakfast/frittata.json:125,129</code>; <code>pasta/marry-me-chicken-pasta.json:27</code>; <code>soups-and-stews/chicken-taco-bowls.json:208</code>; <code>soups-and-stews/butter-chicken.json:213</code>. Duplicate <code>clearFilters</code> and <code>ingredients</code> keys also exist in both language objects in <code>src/data/translations.json</code>.</p>
+        </article>
+
+        <article class="finding" id="notes">
+          <span class="priority p2">P2 · Observed</span>
+          <h3>Distinguish Paul's notes from the visitor's notes</h3>
+          <p>The recipe's "Personal Notes" section displays the author's existing commentary. In the reviewed page, it is not an editable field for the visitor. The README advertises adding and saving custom recipe notes, which creates a mismatch between documented and actual experience.</p>
+          <p>Rename the existing section <strong>"Paul's notes"</strong> or <strong>"Cook's notes"</strong>. Make source URLs proper, descriptive links. If visitor notes are introduced later, label them separately as "Your notes" and state their storage boundary, for example "Saved only in this browser" if that is how persistence works. An account or sync system is not necessary just to clarify ownership.</p>
+        </article>
+
+        <article class="finding" id="nutrition">
+          <span class="priority p2">P2 now · P1 before expanding nutrition coverage</span>
+          <h3>Make nutrition informative rather than over-authoritative</h3>
+          <p>The nutrition panel has thoughtful structure: calories, macronutrients, daily-value rows, strengths, cautions and an estimate disclaimer. On Marry Me Chicken, it explicitly warns that saturated fat is high. Preserve those explanations.</p>
+          <p>However, a large <strong>7.9/10 nutrition score</strong> suggests a broadly validated judgment unless its methodology is easy to understand. The same panel can say "Good" while highlighting a nutrient at 75% of a daily value. That is not necessarily a contradiction, but the weighting must be clear.</p>
+          <p><strong>Important implementation finding:</strong> the reusable panel hardcodes the "Good" classification, the praise for protein/potassium/calcium, and the saturated-fat "75%" sentence independently of its input. Those statements fit the current single populated recipe, but would not adapt to a different recipe's nutrition. Derive commentary from the actual values or remove it before adding nutrition to more recipes. A low score must not automatically receive a "Good" label.</p>
+          <p>Prioritize estimated energy and macros; make the composite score optional or explain it directly beside the score. State reference population, calculation method, provenance and missing-data treatment. Do not imply a health endorsement from a homemade formula. Make absent nutrition distinguishable from zero, and maintain consistent coverage before promoting nutrition as a collection-wide feature.</p>
+          <p>The data audit found nutrition on only Marry Me Chicken Pasta. Its macro-energy arithmetic is internally close to the stated calories (approximately 772 vs. 770 kcal), but that does not verify ingredients, portion yield or nutrient accuracy. Record source assumptions and calculation date before expanding this feature.</p>
+          <p class="source">Source: <code>src/components/NutritionPanel.tsx:44-57,82-108,138-156,175-182,269-282</code>. This is a content-trust and presentation assessment, not an independent nutritional analysis or medical review.</p>
+        </article>
+
+        <article class="finding" id="seo">
+          <span class="priority p2">P2 · Observed + source review</span>
+          <h3>Give recipes a useful identity outside the app</h3>
+          <p>Home, Frittata, Marry Me Chicken, About and Cooking Basics retained <strong>"Cooking Book - Rețete Delicioase"</strong> as the browser title, including English views. A bookmark, shared link or browser tab should say which recipe it contains.</p>
+          <p>Add localized route-specific titles and descriptions, canonical URLs, meaningful social preview metadata and Recipe structured data populated from the existing recipe records. Do not add ratings, reviews or nutritional facts that the site does not actually have. If crawler/social-preview reliability matters, validate rendered HTML and consider prerendering recipe routes rather than assuming every consumer will execute the client app.</p>
+          <p>The homepage also had no h1. A short, useful heading can establish identity without adding a giant hero. Keep the first recipe row close to the top.</p>
+          <p>Runtime inspection of the burger page confirmed no description, canonical link, Open Graph tags or JSON-LD. The HTML also references the starter <code>vite.svg</code> favicon, which does not exist in this checkout. Replace it with a branded icon. A sitemap would help describe intended indexable recipes; a missing robots file alone is not an indexing failure.</p>
+          <p class="source">Static source: <code>index.html:5,17</code>; runtime metadata inspection on <code>/recipe/smashed-beef-burger</code>. The public fallback page still uses "Recipe Website".</p>
+        </article>
+        <article class="finding" id="maintenance">
+          <span class="priority p2">P2 · Editorial maintenance</span>
+          <h3>Make validation protect the content promises</h3>
+          <p>The existing validator successfully accepted all 33 recipes after dependencies were restored. This is useful structural validation; it does not establish cooking correctness, complete costing or consistent time semantics.</p>
+          <p>Extend checks to enforce the invariants the documentation already suggests: unique recipe IDs, filename/category correspondence, known filter vocabulary, compatible price units, image existence and duplicate JSON-key detection. Keep human recipe walk-throughs separate from schema validation.</p>
+          <p>The recipe documentation also points at an incorrect schema location, and recommends adding a <code>$schema</code> property that the current schema rejects through <code>additionalProperties: false</code>. Repair those instructions before using them as a recipe-contribution workflow. These maintenance changes are less visible than layout work, but prevent the same content defects from returning.</p>
+          <p class="source">Sources: <code>scripts/validate-recipes.cjs:55-59</code>; <code>src/data/recipes/VALIDATION.md:73,93,97,336,391</code>; <code>src/data/recipes/README.md:74-77,129</code>.</p>
+        </article>
+      </section>
+
+      <section id="direction">
+        <h2>Recommended design direction</h2>
+        <p class="verdict">Build on the personal cookbook identity with practical annotations and more usable layouts.</p>
+        <p>The site already has enough visual personality. Spend design effort making its purpose clearer rather than adding animation, a new palette, or a large promotional hero. Food, practical annotations and quiet controls should carry the identity.</p>
+        <h3>Home: help people choose dinner</h3>
+        <p>Keep the brand and search at the top. Add a compact one-line introduction, then useful shortcuts, an explicit filter control, a labeled result count and generous food cards. Preserve category grouping as a view option, not as the dominant mystery switch. Move language access higher if bilingual sharing is important; currently it is in the drawer or at the end of a long catalogue.</p>
+        <p class="copy-example">Recipes I cook at home.<br><span class="subtle">A personal collection in Romanian and English, with practical notes and no ads.</span></p>
+        <p class="subtle">Suggested copy, not a replacement made to the site. It deliberately avoids unverified claims such as "all tested", "healthy" or "ready in 30 minutes".</p>
+        <h3>Recipe: separate choosing from cooking</h3>
+        <p>Use the photo, title and a brief description to establish the dish. Immediately below, show total time, yield and a qualified cost. Then make ingredients and method the main event. On desktop, let them coexist. On mobile, make switching predictable and preserve progress. Keep author notes close to the relevant cooking information; place nutrition and full price breakdowns behind secondary disclosure.</p>
+        <h3>Small improvements with a large perceived-quality return</h3>
+        <ul>
+          <li>Use "30 min", "2 hr 20 min" and "RON / serving" instead of compressed or truncated labels.</li>
+          <li>Use consistent, restrained icons. Food photography should provide the color; badges should explain, not decorate.</li>
+          <li>Raise secondary text contrast and remove unnecessary uppercase from long labels.</li>
+          <li>Make selected filters, active sections and keyboard focus visually distinct in both themes.</li>
+          <li>Use fewer borders and price labels in the cooking view; reserve the densest detail for people asking for it.</li>
+        </ul>
+        <div class="note"><p><strong>Do not prioritize yet:</strong> accounts, a meal planner, AI recommendations, elaborate transitions, a full brand redesign or more dashboard-style nutrition graphics. None addresses the strongest observed friction.</p></div>
+      </section>
+
+      <section id="scorecard">
+        <h2>Usability scorecard</h2>
+        <p>A qualitative reviewer score, not a user-study result or a compliance certificate. Scale: 0 = absent/broken, 1 = major gaps, 2 = usable with notable issues, 3 = good with specific gaps, 4 = consistently excellent. All ten heuristics apply to this task-oriented cookbook.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Heuristic</th><th>Score</th><th>Reason</th></tr></thead>
+          <tbody>
+            <tr><td>Visibility of system status</td><td>2/4</td><td>Counts and selected controls exist, but price completeness and cooking progress are not dependable.</td></tr>
+            <tr><td>Match with the real world</td><td>2/4</td><td>Recipes and categories are familiar; awkward fractional items and ambiguous time/price labels break the kitchen vocabulary.</td></tr>
+            <tr><td>User control and freedom</td><td>2/4</td><td>Preferences and reset-search work; returning to results loses context and tabs lose ingredient checks.</td></tr>
+            <tr><td>Consistency and standards</td><td>2/4</td><td>Coherent visual language; inconsistent localization, pluralization and incomplete keyboard patterns.</td></tr>
+            <tr><td>Error prevention</td><td>1/4</td><td>Offscreen focus, silently incomplete prices and disappearing checks invite avoidable mistakes.</td></tr>
+            <tr><td>Recognition rather than recall</td><td>2/4</td><td>Strong photo/title recognition; ingredients and method require context switching, and discovery is hidden in the menu.</td></tr>
+            <tr><td>Flexibility and efficiency</td><td>2/4</td><td>Search, filters, serving scale and preferences are useful; desktop space, tolerant search and printing need work.</td></tr>
+            <tr><td>Aesthetic and minimalist design</td><td>3/4</td><td>Warm, food-led, uncluttered identity; desktop proportions and dense recipe metadata hold it back.</td></tr>
+            <tr><td>Error recognition and recovery</td><td>2/4</td><td>Helpful empty results and invalid-recipe recovery; blank unknown routes and comments lack usable feedback.</td></tr>
+            <tr><td>Help and documentation</td><td>2/4</td><td>Useful author notes and a basics start; short guide, unclear estimate methodology and note ownership.</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>20/40</strong></td><td><strong>A worthwhile foundation with core workflow gaps. Not a recommendation to redesign from scratch.</strong></td></tr>
+          </tbody>
+        </table></div>
+        <h3>Where different visitors will struggle</h3>
+        <p><strong>A first-time Romanian visitor:</strong> types without diacritics, gets no results, and has to discover ingredient filtering inside Menu. The empty-state recovery helps, but the initial failure is avoidable.</p>
+        <p><strong>A cook with a phone beside the stove:</strong> checks ingredients, reads instructions, returns to a reset list, and must remember what is already prepared. This is the clearest mismatch between the interface and the real activity.</p>
+        <p><strong>A keyboard or large-text user:</strong> encounters offscreen drawer controls or horizontal overflow. Accessibility preferences are a good start, but the surrounding layout and interaction must honor them.</p>
+        <p><strong>A budget-conscious planner:</strong> compares precise prices without knowing that some ingredient costs were replaced with fixed placeholders. Accurate uncertainty matters more here than a prettier price badge.</p>
+      </section>
+
+      <section id="roadmap">
+        <h2>A practical improvement sequence</h2>
+        <p>These are ordered work packages, not calendar estimates. Confirm desired behavior before implementation where the choice is product-specific, especially persistent cooking sessions and visitor notes.</p>
+        <div class="phase">
+          <h3>First<br>Remove friction</h3>
+          <div><p>Fix the shared width constraint and breakpoint behavior; preserve ingredient checks; remove the hidden drawer from keyboard navigation; fix the 320px large-text overflow; normalize search diacritics; qualify incomplete price totals.</p><p><strong>Exit condition:</strong> browse, choose, cook and return to results without losing context, information or focus.</p></div>
+        </div>
+        <div class="phase">
+          <h3>Next<br>Clarify the experience</h3>
+          <div><p>Separate Filters from Menu; expose selected filters; refine card metadata; add an intentional desktop recipe layout and complete printing; rename author notes; correct time labels and singular/plural copy; add catch-all routing and comments failure handling.</p><p><strong>Exit condition:</strong> a new visitor can explain every prominent control and every displayed number without guessing.</p></div>
+        </div>
+        <div class="phase">
+          <h3>Then<br>Improve the collection</h3>
+          <div><p>Run an editorial pass over the existing recipes: units, time accounting, yield, ingredient-method agreement, source attribution, taxonomy and practical author tips. Define a price and nutrition methodology. Turn Cooking Basics into either a complete short checklist or a useful linked guide.</p><p><strong>Exit condition:</strong> every recipe follows a consistent, trustworthy cooking contract in both languages.</p></div>
+        </div>
+        <div class="phase">
+          <h3>Finally<br>Improve reach</h3>
+          <div><p>Add route-specific metadata, valid Recipe structured data and reliable share previews. Measure the production build before optimizing performance. Consider saving favorites or an optional cooking mode only after the underlying reading and state behavior are reliable.</p><p><strong>Exit condition:</strong> shared recipes look intentional, are discoverable, and load well on the actual hosting setup.</p></div>
+        </div>
+      </section>
+
+      <section id="evidence">
+        <h2>Evidence &amp; reproducible scenarios</h2>
+        <p>These are manual/automated-browser review scenarios, not newly added application tests. They can become regression tests during a later implementation task.</p>
+        <div class="table-wrap"><table class="priority-table">
+          <thead><tr><th>Scenario / interaction</th><th>Observed result</th><th>Desired behavior</th></tr></thead>
+          <tbody>
+            <tr><td>Home at 1023px, then 1024px</td><td>Main width falls from 1008px to 409.6px.</td><td>Continuous, intentional responsive sizing.</td></tr>
+            <tr><td>Romanian search textbox: <code>rosii</code>, then <code>roșii</code></td><td>0 results vs. 2 results.</td><td>Equivalent results after diacritic normalization.</td></tr>
+            <tr><td>Search <code>pui</code>; open Marry Me Chicken; follow Home</td><td>Search is blank; 33 recipes return.</td><td>Restore search, filters and position.</td></tr>
+            <tr><td>Enter an unmatched search; activate "Clear all filters"</td><td>Friendly empty state; query successfully clears.</td><td>Preserve this working recovery and clarify its label.</td></tr>
+            <tr><td>Menu &gt; chicken filter</td><td>Nine results; query "pui" had returned eight.</td><td>Search coverage and filter meaning are understandable.</td></tr>
+            <tr><td>Closed Menu button; press Tab</td><td>Focus moves to offscreen Close and filter buttons.</td><td>Move to the next visible page control.</td></tr>
+            <tr><td>Ingredients tab; first checkbox; Instructions; Ingredients</td><td>Checkbox resets.</td><td>Progress remains until explicitly reset.</td></tr>
+            <tr><td>Recipe selected tab; press ArrowRight</td><td>Focus and selected tab do not change.</td><td>Expected accessible tab keyboard interaction.</td></tr>
+            <tr><td>Increase Marry Me servings from 5 to 6</td><td>400g chicken becomes 480g; onion becomes 1.2 and garlic 4.8 cloves.</td><td>Preserve correct scale, improve practical quantity presentation.</td></tr>
+            <tr><td>Increase Smashed Beef Burger servings from 2 to 3; read Instructions</td><td>Ingredients use 300g beef; method still says 200g divided into two balls.</td><td>Method and ingredient quantities agree without blindly scaling cooking time.</td></tr>
+            <tr><td>Select English, dark theme and large text; reload</td><td>Preferences persist; document language becomes <code>en</code>.</td><td>Preserve this successful behavior.</td></tr>
+            <tr><td>English Frittata, large text, 320px viewport</td><td>Document width 387px.</td><td>No horizontal page overflow.</td></tr>
+            <tr><td>Emulate print with Ingredients selected</td><td>Only the active recipe panel is available; method absent.</td><td>Complete printable recipe, independent of tab selection.</td></tr>
+            <tr><td>Open About; inspect comments integration</td><td>Script policy blocks Giscus; no comments iframe.</td><td>Working integration or explicit fallback; no blank promise.</td></tr>
+            <tr><td>Visit invalid recipe ID, wait, then visit unknown page path</td><td>Recipe message redirects after three seconds; unknown page is blank.</td><td>Persistent helpful recovery with explicit user navigation.</td></tr>
+            <tr><td>Prices page &gt; Menu &gt; Chicken; then Pasta</td><td>Chicken remains unselected and Pasta does not navigate.</td><td>No active-looking controls with empty handlers.</td></tr>
+            <tr><td>Inspect titles on English home and recipe pages</td><td>Same generic Romanian browser title.</td><td>Localized title specific to the route.</td></tr>
+          </tbody>
+        </table></div>
+        <details>
+          <summary>Open the screenshot index</summary>
+          <p>All captures show the existing application. Images are local files, not externally hosted assets.</p>
+          <ul>
+            <li><a href="screenshots/01-home-desktop.png">Romanian homepage, desktop</a></li>
+            <li><a href="screenshots/02-home-mobile.png">Romanian homepage, mobile</a></li>
+            <li><a href="screenshots/03-menu-mobile.png">Romanian menu, mobile</a></li>
+            <li><a href="screenshots/04-recipe-mobile-dark-large.png">English Frittata, 390px, dark, large text</a></li>
+            <li><a href="screenshots/05-recipe-320-large.png">English Frittata, 320px, dark, large text</a></li>
+            <li><a href="screenshots/06-home-desktop-en.png">English homepage, desktop, images loaded</a></li>
+            <li><a href="screenshots/07-about-desktop.png">About page and empty comments section</a></li>
+            <li><a href="screenshots/08-home-mobile-en.png">English homepage, mobile</a></li>
+            <li><a href="screenshots/09-nutrition-mobile.png">Marry Me Chicken nutrition, mobile</a></li>
+            <li><a href="screenshots/10-selected-tab-dark-normal.png">Recipe dark-theme follow-up capture</a></li>
+          </ul>
+        </details>
+      </section>
+
+      <section id="method">
+        <h2>Method &amp; limitations</h2>
+        <p><strong>Local environment:</strong> existing React 18 / TypeScript / Vite application, served at <code>http://127.0.0.1:5173/cookingbook/</code>. The first start failed because Vite dependencies were absent; dependencies were restored from the existing lockfile, then the server responded with HTTP 200. No package manifest or lockfile changes were needed.</p>
+        <p><strong>Browser review:</strong> actual page navigation and interactions in Chromium; layout inspection at 320, 390, 768, 1023, 1024, 1280 and 1440 CSS pixels. Most detailed phone interaction used 390 &times; 844; desktop used 1440 &times; 1000. This was viewport emulation, not physical-device testing.</p>
+        <p><strong>Evidence discipline:</strong> reproduced defects are labeled as such. Design recommendations are judgments, not measured conversion improvements. Small fixed-size text contrast was calculated from settled opaque foreground/background colors. A transient contradictory selected-tab color reading was not treated as a persistent defect after a follow-up showed the correct dark-theme text.</p>
+        <p><strong>Source assessment:</strong> two separate assessors covered interface source and recipe/data evidence, followed by targeted cross-checks against the browser walkthrough. Interface coverage included five pages, 21 top-level components, four preference/storage hooks, styling/tokens and a bounded pricing follow-up. Content coverage included all 33 recipe files and both languages, categories, filter vocabulary, translations, prices, schema, validation documentation and static metadata. Baseline commit: <code>9ee825f</code>. Source line references refer to this reviewed checkout.</p>
+        <details>
+          <summary>Automated scan results and how they were interpreted</summary>
+          <p>The source design scanner returned five stylistic warnings, not five demonstrated usability bugs:</p>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Rule</th><th>Location</th><th>Assessment</th></tr></thead>
+            <tbody>
+              <tr><td><code>side-tab</code></td><td><code>src/components/PersonalNotes.tsx:22</code></td><td>A decorative author-note accent, not an interactive tab or a demonstrated usability defect.</td></tr>
+              <tr><td><code>side-tab</code></td><td><code>src/pages/CookingBasicsPage.tsx:83</code></td><td>A contextual advice accent; lower priority than the guide's limited substance.</td></tr>
+              <tr><td><code>overused-font</code></td><td><code>src/index.css:8</code></td><td>Inter is familiar, but familiarity alone is not a reason to change an otherwise coherent type system.</td></tr>
+              <tr><td><code>overused-font</code></td><td><code>src/index.css:1,37</code></td><td>Two warnings for the same Fraunces choice. The serif/food pairing supports this site's character; do not count this as two user-facing defects.</td></tr>
+            </tbody>
+          </table></div>
+          <p>Browser observations, not style-detector preferences, determine the recommendations. No live detector overlay was injected. The standalone report's copy check also flags negative constructions in factual scope statements, such as "No application code changed"; these are necessary evaluation boundaries rather than product marketing. Decorative contrast-based headlines were simplified, and the remaining scope statements were retained deliberately.</p>
+        </details>
+        <p><strong>Not claimed:</strong> a complete WCAG audit, screen-reader certification, production Core Web Vitals, real-user performance, all-browser coverage, nutritional verification, security review or live-hosting validation. Development console noise and development startup delays are not evidence of production slowness. No production performance score is invented.</p>
+        <p><strong>Privacy and performance follow-up:</strong> the English About page makes an absolute "no trackers" promise. Neither the analytics dependency nor an allowed CSP host proves tracking is enabled. Verify actual deployed requests/storage before endorsing or disputing that statement, and describe external fonts/comments accurately. The static shell also loads Raleway while the reviewed UI uses other font families; investigate that apparently redundant font request during a production performance pass.</p>
+        <p><strong>Scope boundary:</strong> the review does not implement any recommendations. The HTML is self-contained except for screenshots stored beside it. It can be opened directly from disk; the website server is not needed to read it.</p>
+      </section>
+      <footer>
+        <p>Paul's Cookbook review · 20 September 2026 · Evaluation and recommendations only.</p>
+        <p>Start with the desktop width, lost ingredient checks, inaccessible hidden menu, and honest price estimates. Those changes will improve the existing site more than a visual rebrand.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

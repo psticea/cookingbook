@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { IngredientItem, Ingredient } from '../types/recipe';
 import { useLanguage } from '../hooks/useLanguage';
-import { calculateIngredientCost, formatPrice } from '../utils/pricing';
+import { getTranslation } from '../utils/translations';
+import { IngredientCostBreakdown } from './IngredientCostBreakdown';
 
 interface IngredientListProps {
   ingredients: IngredientItem[];
@@ -9,138 +10,102 @@ interface IngredientListProps {
   currentServings: number;
 }
 
-/**
- * IngredientList component
- * Displays list of ingredients with quantities and units
- * Supports optional section headings mixed in with ingredients
- * Shows individual ingredient costs in lighter text
- * Supports both Romanian and English ingredient names, units, and section headings
- */
-export const IngredientList: React.FC<IngredientListProps> = ({ 
-  ingredients, 
+const QUALITATIVE_UNITS = ['to taste', 'as needed', 'după gust', 'dupa gust', 'după necesitate', 'dupa necesitate'];
+const PIECE_UNITS = ['pcs', 'piece', 'pieces', 'buc', 'bucată', 'bucăți', 'bucata', 'bucati'];
+
+export const IngredientList: React.FC<IngredientListProps> = ({
+  ingredients,
   servings,
   currentServings,
 }) => {
   const { language } = useLanguage();
   const [checkedIngredients, setCheckedIngredients] = useState<Set<number>>(new Set());
-
-  const getScaledQuantity = (quantity: number): string => {
-    const ratio = currentServings / servings;
-    const scaled = quantity * ratio;
-    if (scaled % 1 === 0) {
-      return scaled.toString();
-    }
-    return scaled.toFixed(2).replace(/\.?0+$/, '');
-  };
-
-  // Units like "to taste" carry no numeric meaning, so the placeholder quantity
-  // is hidden rather than rendered as "1 to taste salt".
-  const QUALITATIVE_UNITS = ['to taste', 'as needed', 'după gust', 'dupa gust', 'după necesitate', 'dupa necesitate'];
-
-  const isQualitativeUnit = (unit: string): boolean =>
-    QUALITATIVE_UNITS.includes(unit.toLowerCase().trim());
+  const ingredientCount = ingredients.filter(item => 'name' in item).length;
+  const numberFormat = new Intl.NumberFormat(language === 'ro' ? 'ro-RO' : 'en-GB', {
+    maximumFractionDigits: 2,
+  });
 
   const formatAmount = (item: Ingredient): string => {
-    const unit = item.unit[language];
-    if (isQualitativeUnit(unit)) {
-      return unit;
-    }
-    return `${getScaledQuantity(item.quantity)} ${unit}`;
-  };
-
-  const isSection = (item: IngredientItem): item is { section: { ro: string; en: string } } => {
-    return 'section' in item;
-  };
-
-  const isIngredientItem = (item: IngredientItem): item is Ingredient => {
-    return 'name' in item && 'quantity' in item && 'unit' in item && !('section' in item);
+    const unit = item.unit[language].trim();
+    const quantity = numberFormat.format(item.quantity * currentServings / servings);
+    return PIECE_UNITS.includes(unit.toLowerCase()) ? quantity : `${quantity} ${unit}`;
   };
 
   const toggleIngredient = (index: number) => {
-    setCheckedIngredients(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(index)) {
-        newSet.delete(index);
-      } else {
-        newSet.add(index);
-      }
-      return newSet;
+    setCheckedIngredients(previous => {
+      const next = new Set(previous);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      return next;
     });
   };
 
-  const ingredientCosts = useMemo(() => {
-    return ingredients.map((item) => {
-      if (isIngredientItem(item)) {
-        const cost = calculateIngredientCost(item, servings, language);
-        const ratio = currentServings / servings;
-        return {
-          ...cost,
-          costPerRecipe: Math.round(cost.costPerRecipe * ratio * 100) / 100,
-        };
-      }
-      return null;
-    });
-  }, [ingredients, currentServings, servings, language]);
-
   return (
-    <div className="grid gap-0.5">
-      {ingredients.map((item, index) => {
-        if (isSection(item)) {
-          return (
-            <div key={index} className="pt-3 pb-1 first:pt-1">
-              <h3 className="font-serif text-lg font-semibold text-ink-light dark:text-ink-dark tracking-tight">
-                {item.section[language]}
-              </h3>
-            </div>
-          );
-        } else if (isIngredientItem(item)) {
-          const isChecked = checkedIngredients.has(index);
-          const ingredientCost = ingredientCosts[index];
-          if (!ingredientCost) return null;
+    <div className="min-w-0 space-y-6">
+      <div>
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+          <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark" role="status">
+            {getTranslation('checkedIngredients', language)
+              .replace('{checked}', String(checkedIngredients.size))
+              .replace('{total}', String(ingredientCount))}
+          </p>
+          <button
+            type="button"
+            onClick={() => setCheckedIngredients(new Set())}
+            disabled={checkedIngredients.size === 0}
+            className="min-h-[44px] px-2 text-sm underline underline-offset-4 text-ink-light dark:text-ink-dark disabled:no-underline disabled:text-ink-muted-light dark:disabled:text-ink-muted-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
+            {getTranslation('resetChecklist', language)}
+          </button>
+        </div>
 
-          return (
-            <label
-              key={index}
-              className="grid grid-cols-[20px_auto_1fr_auto] items-center gap-x-3 sm:gap-x-4 py-1.5 border-b border-line-2-light dark:border-line-2-dark last:border-b-0 cursor-pointer hover:bg-card-2-light dark:hover:bg-card-2-dark transition-colors rounded-md px-1"
-            >
-              <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={() => toggleIngredient(index)}
-                className="ingredient-checkbox"
-              />
+        <ul>
+          {ingredients.map((item, index) => {
+            if ('section' in item) {
+              return (
+                <li key={index} className="pt-6 pb-2 first:pt-2">
+                  <h3 className="font-serif text-lg font-semibold text-ink-light dark:text-ink-dark">
+                    {item.section[language]}
+                  </h3>
+                </li>
+              );
+            }
 
-              {/* Quantity in mono numerals, right-aligned for clean vertical column */}
-              <span
-                className={`font-mono text-sm font-semibold tabular-nums text-right min-w-[3.75rem] ${
-                  isChecked
-                    ? 'text-ink-soft-light dark:text-ink-soft-dark line-through'
-                    : 'text-ink-light dark:text-ink-dark'
-                }`}
-              >
-                {formatAmount(item)}
-              </span>
+            const isChecked = checkedIngredients.has(index);
+            const qualitative = QUALITATIVE_UNITS.includes(item.unit[language].toLowerCase().trim());
 
-              {/* Ingredient name takes remaining horizontal space */}
-              <span
-                className={`text-base ${
-                  isChecked
-                    ? 'line-through text-ink-soft-light dark:text-ink-soft-dark'
-                    : 'text-ink-light dark:text-ink-dark'
-                }`}
-              >
-                {item.name[language]}
-              </span>
+            return (
+              <li key={index} className="border-b border-line-light dark:border-line-dark last:border-b-0">
+                <label className="grid grid-cols-[20px_minmax(0,1fr)] items-start gap-x-3 min-h-[44px] py-3 px-1 cursor-pointer rounded-md hover:bg-card-2-light dark:hover:bg-card-2-dark">
+                  <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={() => toggleIngredient(index)}
+                    className="ingredient-checkbox mt-1"
+                  />
+                  <span className={`min-w-0 break-words text-base leading-relaxed ${
+                    isChecked
+                      ? 'line-through text-ink-muted-light dark:text-ink-muted-dark'
+                      : 'text-ink-light dark:text-ink-dark'
+                  }`}>
+                    {qualitative ? (
+                      <>{item.name[language]} <span className="text-ink-muted-light dark:text-ink-muted-dark">— {item.unit[language]}</span></>
+                    ) : (
+                      <><strong className="font-semibold tabular-nums">{formatAmount(item)}</strong>{' '}{item.name[language]}</>
+                    )}
+                  </span>
+                </label>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
 
-              {/* Cost — smallest element, muted, never competes for the eye */}
-              <span className="text-xs font-medium text-ink-soft-light dark:text-ink-soft-dark tabular-nums whitespace-nowrap">
-                {formatPrice(ingredientCost.costPerRecipe)}
-              </span>
-            </label>
-          );
-        }
-        return null;
-      })}
+      <IngredientCostBreakdown
+        ingredients={ingredients}
+        servings={servings}
+        currentServings={currentServings}
+      />
     </div>
   );
 };

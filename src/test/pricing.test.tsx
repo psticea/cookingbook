@@ -3,457 +3,277 @@ import {
   matchIngredientById,
   calculateIngredientCost,
   calculateRecipeCost,
+  compareRecipeCosts,
   formatPrice,
   formatPricePerServing,
   formatTotalCost,
   type PricesData,
+  type PriceConfig,
 } from '../utils/pricing';
-import { Recipe, Ingredient } from '../types/recipe';
+import type { Recipe, Ingredient, IngredientItem } from '../types/recipe';
 
-// Mock prices data for testing
 const mockPrices: PricesData = {
   ingredients: {
-    olive_oil: {
-      id: 101,
-      name: 'Olive oil',
-      category: 'Pantry',
-      unit_type: 'volume',
-      price_per_1000: 15.0,
-    },
-    flour: {
-      id: 102,
-      name: 'White flour',
-      category: 'Pantry',
-      unit_type: 'mass',
-      price_per_1000: 3.0,
-    },
-    eggs: {
-      id: 103,
-      name: 'Eggs',
-      category: 'Proteins',
-      unit_type: 'piece',
-      price_per_piece: 0.8,
-    },
-    salt: {
-      id: 104,
-      name: 'Salt',
-      category: 'Spices & Seasonings',
-      unit_type: 'mass',
-      price_per_1000: 1.5,
-    },
-    chicken: {
-      id: 105,
-      name: 'Chicken breast',
-      category: 'Proteins',
-      unit_type: 'mass',
-      price_per_1000: 25.0,
-    },
+    oil: { id: 101, name: 'Olive oil', category: 'Pantry', unit_type: 'volume', price_per_1000: 15 },
+    flour: { id: 102, name: 'White flour', category: 'Pantry', unit_type: 'mass', price_per_1000: 3 },
+    eggs: { id: 103, name: 'Eggs', category: 'Proteins', unit_type: 'piece', price_per_piece: 0.8 },
+    salt: { id: 104, name: 'Salt', category: 'Spices & Seasonings', unit_type: 'mass', price_per_1000: 1.5 },
   },
 };
 
+function ingredient(overrides: Partial<Ingredient> = {}): Ingredient {
+  return { name: { en: 'flour', ro: 'făină' }, quantity: 250, unit: { en: 'g', ro: 'g' }, ingredientId: 102, ...overrides };
+}
+
+function recipe(ingredients: IngredientItem[], servings = 4): Pick<Recipe, 'ingredients' | 'servings'> {
+  return { ingredients, servings };
+}
+
+function pricesWithRate(unitType: PriceConfig['unit_type'], rate: unknown): PricesData {
+  return { ingredients: { item: {
+    id: 102, name: 'Test', category: 'Pantry', unit_type: unitType,
+    // Deliberately exercise malformed JSON values at the runtime boundary.
+    ...(unitType === 'piece' ? { price_per_piece: rate as number } : { price_per_1000: rate as number }),
+  } } };
+}
+
+const unavailable = (reason: string) => ({ matched: false, costPerRecipe: null, costPerServing: null, reason });
+
 describe('matchIngredientById', () => {
-  it('matches ingredient by exact ID', () => {
-    const result = matchIngredientById(101, mockPrices);
-    expect(result).toBeDefined();
-    expect(result?.name).toBe('Olive oil');
-  });
-
-  it('returns undefined for non-existent ID', () => {
-    const result = matchIngredientById(999, mockPrices);
-    expect(result).toBeUndefined();
-  });
-
-  it('matches different ingredient types', () => {
-    const oil = matchIngredientById(101, mockPrices);
-    const flour = matchIngredientById(102, mockPrices);
-    const eggs = matchIngredientById(103, mockPrices);
-    
-    expect(oil?.name).toBe('Olive oil');
-    expect(flour?.name).toBe('White flour');
-    expect(eggs?.name).toBe('Eggs');
+  it('matches only by exact ID', () => {
+    expect(matchIngredientById(101, mockPrices)?.name).toBe('Olive oil');
+    expect(matchIngredientById(999, mockPrices)).toBeUndefined();
+    expect(calculateIngredientCost(ingredient({ name: { en: 'Unknown', ro: 'Necunoscut' } }), 4, 'en', mockPrices))
+      .toMatchObject({ matched: true, costPerRecipe: 0.75, costPerServing: 0.19 });
   });
 });
 
-describe('calculateIngredientCost - mass ingredients', () => {
-  it('calculates cost for grams with ID', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'white flour', ro: 'făină albă' },
-      quantity: 250,
-      unit: { en: 'g', ro: 'g' },
-      ingredientId: 102,
-    };
-    
-    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
-    
-    expect(result.matched).toBe(true);
-    expect(result.costPerRecipe).toBe(0.75); // (250/1000) * 3.0 = 0.75
-    expect(result.costPerServing).toBe(0.19); // 0.75 / 4 = 0.1875, rounded to 0.19
+describe('calculateIngredientCost - preserved conversions', () => {
+  it.each([
+    [102, 'g', 250, 0.75], [102, 'grams', 250, 0.75], [102, ' KG ', 1, 3],
+    [102, 'teaspoon', 2, 0.03], [102, 'tablespoon', 2, 0.09], [102, 'pinch', 10, 0.02],
+    [104, 'g', 5, 0.01], [104, 'g', 3, 0], [102, 'g', 333, 1],
+    [101, 'ml', 50, 0.75], [101, 'l', 0.5, 7.5], [101, 'tsp', 2, 0.15],
+    [101, 'tbsp', 2, 0.45], [101, 'cups', 1, 3.6],
+    [103, 'pcs', 3, 2.4], [103, 'pieces', 2.5, 2], [103, 'clove', 2, 1.6],
+    [103, 'slices', 2, 1.6], [103, 'packets', 2, 1.6],
+    [102, 'lingurițe', 2, 0.03], [102, 'linguri', 2, 0.09], [102, 'praf', 10, 0.02],
+    [101, 'litru', 0.5, 7.5], [101, 'căni', 1, 3.6], [103, 'bucăți', 3, 2.4],
+    [103, 'căței', 2, 1.6], [103, 'felii', 2, 1.6], [103, 'plicuri', 2, 1.6],
+    [102, 'teaspoons', 2, 0.03], [102, 'tablespoons', 2, 0.09], [102, 'pinches', 10, 0.02],
+    [101, 'millilitres', 50, 0.75], [101, 'litres', 0.5, 7.5],
+  ])('prices ID %s, %s x %s at %s RON', (ingredientId, unit, quantity, expected) => {
+    const result = calculateIngredientCost(ingredient({ ingredientId, quantity, unit: { en: unit, ro: 'display only' } }), 4, 'en', mockPrices);
+    expect(result).toMatchObject({ matched: true, costPerRecipe: expected });
+    expect(result).not.toHaveProperty('reason');
   });
 
-  it('uses ID matching for ingredients', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'unknown name', ro: 'nume necunoscut' },
-      quantity: 250,
-      unit: { en: 'g', ro: 'g' },
-      ingredientId: 102, // flour ID
-    };
-    
-    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
-    
-    expect(result.matched).toBe(true);
-    expect(result.costPerRecipe).toBe(0.75); // Matched by ID
-    expect(result.costPerServing).toBe(0.19);
-  });
-
-  it('uses fallback if ID not found', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'white flour', ro: 'făină albă' },
-      quantity: 250,
-      unit: { en: 'g', ro: 'g' },
-      ingredientId: 999, // Non-existent ID
-    };
-    
-    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
-    
-    expect(result.matched).toBe(false); // Falls back to default pricing
-    expect(result.costPerServing).toBe(0.2); // Fallback price
-    expect(result.costPerRecipe).toBe(0.8); // 0.2 * 4 servings
-  });
-
-  it('calculates cost for kilograms', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'flour', ro: 'făină' },
-      quantity: 1,
-      unit: { en: 'kg', ro: 'kg' },
-      ingredientId: 102,
-    };
-    
-    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
-    
-    expect(result.matched).toBe(true);
-    expect(result.costPerRecipe).toBe(3.0); // (1000/1000) * 3.0 = 3.0
-    expect(result.costPerServing).toBe(0.75); // 3.0 / 4 = 0.75
-  });
-
-  it('handles small quantities', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'salt', ro: 'sare' },
-      quantity: 5,
-      unit: { en: 'g', ro: 'g' },
-      ingredientId: 104,
-    };
-    
-    const result = calculateIngredientCost(ingredient, 2, 'en', mockPrices);
-    
-    expect(result.matched).toBe(true);
-    expect(result.costPerRecipe).toBe(0.01); // (5/1000) * 1.5 = 0.0075, rounded to 0.01
+  it('preserves localized names but uses the English source unit in either locale', () => {
+    const item = ingredient({ quantity: 2, unit: { en: 'tbsp', ro: 'display label without conversion' } });
+    const en = calculateIngredientCost(item, 4, 'en', mockPrices);
+    const ro = calculateIngredientCost(item, 4, 'ro', mockPrices);
+    expect(en).toMatchObject({ ingredientName: 'flour', matched: true, costPerRecipe: 0.09 });
+    expect(ro).toEqual({ ...en, ingredientName: 'făină' });
   });
 });
 
-describe('calculateIngredientCost - volume ingredients', () => {
-  it('calculates cost for milliliters', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'olive oil', ro: 'ulei de măsline' },
-      quantity: 50,
-      unit: { en: 'ml', ro: 'ml' },
-      ingredientId: 101,
-    };
-    
-    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
-    
-    expect(result.matched).toBe(true);
-    expect(result.costPerRecipe).toBe(0.75); // (50/1000) * 15.0 = 0.75
-    expect(result.costPerServing).toBe(0.19); // 0.75 / 4 = 0.1875, rounded to 0.19
+describe('calculateIngredientCost - explicit unavailable reasons', () => {
+  it.each([undefined, 999])('does not invent a price for missing ID %s', ingredientId => {
+    expect(calculateIngredientCost(ingredient({ ingredientId }), 4, 'en', mockPrices))
+      .toMatchObject({ ...unavailable('missing-price'), ingredientName: 'flour' });
   });
 
-  it('calculates cost for liters', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'olive oil', ro: 'ulei de măsline' },
-      quantity: 0.5,
-      unit: { en: 'l', ro: 'l' },
-      ingredientId: 101,
-    };
-    
-    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
-    
-    expect(result.matched).toBe(true);
-    expect(result.costPerRecipe).toBe(7.5); // (500/1000) * 15.0 = 7.5
-    expect(result.costPerServing).toBe(1.88); // 7.5 / 4 = 1.875, rounded to 1.88
-  });
-});
-
-describe('calculateIngredientCost - piece ingredients', () => {
-  it('calculates cost for pieces (pcs)', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'eggs', ro: 'ouă' },
-      quantity: 3,
-      unit: { en: 'pcs', ro: 'buc' },
-      ingredientId: 103,
-    };
-    
-    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
-    
-    expect(result.matched).toBe(true);
-    expect(result.costPerRecipe).toBe(2.4); // 3 * 0.8 = 2.4
-    expect(result.costPerServing).toBe(0.6); // 2.4 / 4 = 0.6
+  it.each([
+    [102, 'ml'], [102, 'cups'], [102, 'to taste'], [102, ''],
+    [101, 'g'], [103, 'kg'], [103, 'handful'], [102, 'mystery'],
+  ])('rejects unsupported source unit %s / %s without a density guess', (ingredientId, unit) => {
+    expect(calculateIngredientCost(ingredient({ ingredientId, unit: { en: unit, ro: 'g' } }), 4, 'ro', mockPrices))
+      .toMatchObject({ ...unavailable('unsupported-unit'), ingredientName: 'făină' });
   });
 
-  it('handles fractional pieces', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'eggs', ro: 'ouă' },
-      quantity: 2.5,
-      unit: { en: 'pcs', ro: 'buc' },
-      ingredientId: 103,
-    };
-    
-    const result = calculateIngredientCost(ingredient, 2, 'en', mockPrices);
-    
-    expect(result.matched).toBe(true);
-    expect(result.costPerRecipe).toBe(2.0); // 2.5 * 0.8 = 2.0
-    expect(result.costPerServing).toBe(1.0); // 2.0 / 2 = 1.0
-  });
-});
+  describe.each(['mass', 'volume', 'piece'] as const)('%s rates', unitType => {
+    const unit = unitType === 'mass' ? 'g' : unitType === 'volume' ? 'ml' : 'pcs';
+    it.each([undefined, null, NaN, Infinity, -Infinity, -1, '3'])('rejects invalid/missing rate %s instead of pricing it as zero', rate => {
+      expect(calculateIngredientCost(ingredient({ unit: { en: unit, ro: unit } }), 4, 'en', pricesWithRate(unitType, rate)))
+        .toMatchObject(unavailable('invalid-price'));
+    });
 
-describe('calculateIngredientCost - fallback for missing prices', () => {
-  it('uses fallback cost for unmatched ingredient', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'exotic spice xyz', ro: 'condiment exotic xyz' },
-      quantity: 10,
-      unit: { en: 'g', ro: 'g' },
-    };
-    
-    const result = calculateIngredientCost(ingredient, 4, 'en', mockPrices);
-    
-    expect(result.matched).toBe(false);
-    expect(result.costPerServing).toBe(0.2); // Fallback: 0.2 RON per serving
-    expect(result.costPerRecipe).toBe(0.8); // 0.2 * 4 servings
+    it('accepts an explicit zero rate', () => {
+      expect(calculateIngredientCost(ingredient({ unit: { en: unit, ro: unit } }), 4, 'en', pricesWithRate(unitType, 0)))
+        .toMatchObject({ matched: true, costPerRecipe: 0, costPerServing: 0 });
+    });
   });
 
-  it('fallback cost scales with servings', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'unknown ingredient', ro: 'ingredient necunoscut' },
-      quantity: 100,
-      unit: { en: 'g', ro: 'g' },
-    };
-    
-    const result = calculateIngredientCost(ingredient, 8, 'en', mockPrices);
-    
-    expect(result.matched).toBe(false);
-    expect(result.costPerServing).toBe(0.2);
-    expect(result.costPerRecipe).toBe(1.6); // 0.2 * 8 servings
+  it('does not substitute a rate for a different unit type', () => {
+    const prices: PricesData = { ingredients: { item: { ...mockPrices.ingredients.flour, price_per_1000: undefined, price_per_piece: 2 } } };
+    expect(calculateIngredientCost(ingredient(), 4, 'en', prices)).toMatchObject(unavailable('invalid-price'));
+  });
+
+  it.each([NaN, Infinity, -Infinity, -1, undefined, null, '2'])('rejects invalid quantity %s', quantity => {
+    expect(calculateIngredientCost(ingredient({ quantity: quantity as number }), 4, 'en', mockPrices))
+      .toMatchObject(unavailable('invalid-quantity'));
+  });
+
+  it.each([0, -1, NaN, Infinity, -Infinity, undefined, null, '4'])('rejects invalid servings %s', servings => {
+    expect(calculateIngredientCost(ingredient(), servings as number, 'en', mockPrices))
+      .toMatchObject(unavailable('invalid-quantity'));
+  });
+
+  it('accepts an explicit zero quantity only when a usable rate exists', () => {
+    expect(calculateIngredientCost(ingredient({ quantity: 0 }), 4, 'en', mockPrices))
+      .toMatchObject({ matched: true, costPerRecipe: 0, costPerServing: 0 });
+    expect(calculateIngredientCost(ingredient({ quantity: 0 }), 4, 'en', pricesWithRate('mass', undefined)))
+      .toMatchObject(unavailable('invalid-price'));
+  });
+
+  it('rejects overflow during unit conversion and price calculation', () => {
+    expect(calculateIngredientCost(ingredient({ quantity: Number.MAX_VALUE, unit: { en: 'kg', ro: 'kg' } }), 4, 'en', mockPrices))
+      .toMatchObject(unavailable('invalid-quantity'));
+    expect(calculateIngredientCost(ingredient({ quantity: 2000 }), 4, 'en', pricesWithRate('mass', Number.MAX_VALUE)))
+      .toMatchObject(unavailable('invalid-price'));
   });
 });
 
 describe('calculateRecipeCost', () => {
-  it('calculates total cost for a recipe', () => {
-    const recipe: Recipe = {
-      id: 'test-recipe',
-      category: 'test',
-      title: { en: 'Test Recipe', ro: 'Rețetă Test' },
-      prepTime: 30,
-      servings: 4,
-      effortLevel: 'easy',
-      image: '/test.jpg',
-      ingredients: [
-        {
-          name: { en: 'flour', ro: 'făină' },
-          quantity: 200,
-          unit: { en: 'g', ro: 'g' },
-          ingredientId: 102,
-        },
-        {
-          name: { en: 'olive oil', ro: 'ulei de măsline' },
-          quantity: 30,
-          unit: { en: 'ml', ro: 'ml' },
-          ingredientId: 101,
-        },
-        {
-          name: { en: 'eggs', ro: 'ouă' },
-          quantity: 2,
-          unit: { en: 'pcs', ro: 'buc' },
-          ingredientId: 103,
-        },
-      ],
-      instructions: { en: ['Test'], ro: ['Test'] },
-      personalNotes: { en: '', ro: '' },
-      keywords: [],
-      dateAdded: '2025-01-01',
-    };
-    
-    const result = calculateRecipeCost(recipe, 'en', mockPrices);
-    
+  it('calculates a complete estimate from just ingredients and servings', () => {
+    const result = calculateRecipeCost(recipe([
+      ingredient({ quantity: 200 }),
+      ingredient({ ingredientId: 101, quantity: 30, unit: { en: 'ml', ro: 'ml' } }),
+      ingredient({ ingredientId: 103, quantity: 2, unit: { en: 'pcs', ro: 'buc' } }),
+    ]), 'en', mockPrices);
+    expect(result).toMatchObject({ status: 'complete', totalCostRecipe: 2.65, pricePerServing: 0.66, pricedIngredientCount: 3, unpricedIngredientCount: 0 });
     expect(result.ingredientCosts).toHaveLength(3);
-    // Flour: (200/1000) * 3.0 = 0.6
-    // Oil: (30/1000) * 15.0 = 0.45
-    // Eggs: 2 * 0.8 = 1.6
-    // Total: 2.65
-    expect(result.totalCostRecipe).toBe(2.65);
-    expect(result.pricePerServing).toBe(0.66); // 2.65 / 4 = 0.6625, rounded to 0.66
   });
 
-  it('skips section headings', () => {
-    const recipe: Recipe = {
-      id: 'test-recipe',
-      category: 'test',
-      title: { en: 'Test Recipe', ro: 'Rețetă Test' },
-      prepTime: 30,
-      servings: 2,
-      effortLevel: 'easy',
-      image: '/test.jpg',
-      ingredients: [
-        { section: { en: 'Dry ingredients', ro: 'Ingrediente uscate' } },
-        {
-          name: { en: 'flour', ro: 'făină' },
-          quantity: 100,
-          unit: { en: 'g', ro: 'g' },
-          ingredientId: 102,
-        },
-      ] as any,
-      instructions: { en: ['Test'], ro: ['Test'] },
-      personalNotes: { en: '', ro: '' },
-      keywords: [],
-      dateAdded: '2025-01-01',
-    };
-    
-    const result = calculateRecipeCost(recipe, 'en', mockPrices);
-    
+  it('returns only the known subtotal for partial estimates', () => {
+    const result = calculateRecipeCost(recipe([ingredient(), ingredient({ ingredientId: undefined })]), 'en', mockPrices);
+    expect(result).toMatchObject({ status: 'partial', totalCostRecipe: 0.75, pricePerServing: 0.19, pricedIngredientCount: 1, unpricedIngredientCount: 1 });
+    expect(result.ingredientCosts[1]).toMatchObject(unavailable('missing-price'));
+  });
+
+  it('returns null amounts when no ingredients can be priced', () => {
+    const result = calculateRecipeCost(recipe([ingredient({ ingredientId: 999 }), ingredient({ unit: { en: 'unknown', ro: 'g' } })]), 'en', mockPrices);
+    expect(result).toMatchObject({ status: 'unavailable', totalCostRecipe: null, pricePerServing: null, pricedIngredientCount: 0, unpricedIngredientCount: 2 });
+  });
+
+  it('does not confuse a known zero subtotal with an unavailable estimate', () => {
+    expect(calculateRecipeCost(recipe([ingredient({ quantity: 0 }), ingredient({ ingredientId: 999 })]), 'en', mockPrices))
+      .toMatchObject({ status: 'partial', totalCostRecipe: 0, pricePerServing: 0, pricedIngredientCount: 1, unpricedIngredientCount: 1 });
+  });
+
+  it('excludes section headings from receipt lines, counts and status', () => {
+    const result = calculateRecipeCost(recipe([
+      { section: { en: 'Dry ingredients', ro: 'Ingrediente uscate' } }, ingredient(),
+      { section: { en: 'Other', ro: 'Altele' } },
+    ]), 'en', mockPrices);
+    expect(result).toMatchObject({ status: 'complete', totalCostRecipe: 0.75, pricedIngredientCount: 1, unpricedIngredientCount: 0 });
     expect(result.ingredientCosts).toHaveLength(1);
-    expect(result.totalCostRecipe).toBe(0.3); // (100/1000) * 3.0
   });
 
-  it('includes fallback costs in total', () => {
-    const recipe: Recipe = {
-      id: 'test-recipe',
-      category: 'test',
-      title: { en: 'Test Recipe', ro: 'Rețetă Test' },
-      prepTime: 30,
-      servings: 4,
-      effortLevel: 'easy',
-      image: '/test.jpg',
-      ingredients: [
-        {
-          name: { en: 'flour', ro: 'făină' },
-          quantity: 100,
-          unit: { en: 'g', ro: 'g' },
-          ingredientId: 102,
-        },
-        {
-          name: { en: 'mystery ingredient', ro: 'ingredient misterios' },
-          quantity: 50,
-          unit: { en: 'g', ro: 'g' },
-          // No ingredientId - should use fallback
-        },
-      ],
-      instructions: { en: ['Test'], ro: ['Test'] },
-      personalNotes: { en: '', ro: '' },
-      keywords: [],
-      dateAdded: '2025-01-01',
-    };
-    
-    const result = calculateRecipeCost(recipe, 'en', mockPrices);
-    
-    expect(result.ingredientCosts).toHaveLength(2);
-    expect(result.ingredientCosts[1].matched).toBe(false);
-    // Flour: (100/1000) * 3.0 = 0.3
-    // Mystery: 0.2 * 4 = 0.8
-    // Total: 1.1
-    expect(result.totalCostRecipe).toBe(1.1);
+  it.each([{ ingredients: [] }, { ingredients: [{ section: { en: 'Empty section', ro: 'Secțiune goală' } }] }])('treats an empty ingredient list as unavailable', ({ ingredients }) => {
+    expect(calculateRecipeCost(recipe(ingredients), 'en', mockPrices))
+      .toEqual({ ingredientCosts: [], status: 'unavailable', totalCostRecipe: null, pricePerServing: null, pricedIngredientCount: 0, unpricedIngredientCount: 0 });
+  });
+
+  it.each([0, -1, NaN, Infinity, -Infinity, null, '4'])('rejects invalid base or selected servings %s', servings => {
+    for (const result of [
+      calculateRecipeCost(recipe([ingredient()], servings as number), 'en', mockPrices, 4),
+      calculateRecipeCost(recipe([ingredient()]), 'en', mockPrices, servings as number),
+    ]) {
+      expect(result).toMatchObject({ status: 'unavailable', totalCostRecipe: null, pricePerServing: null, pricedIngredientCount: 0, unpricedIngredientCount: 1 });
+      expect(result.ingredientCosts[0]).toMatchObject(unavailable('invalid-quantity'));
+    }
+  });
+
+  it.each([NaN, Infinity, -Infinity, -1, undefined, null, '2'])('does not coerce invalid source quantity %s when scaling', quantity => {
+    const result = calculateRecipeCost(recipe([ingredient({ quantity: quantity as number })]), 'en', mockPrices, 8);
+    expect(result).toMatchObject({ status: 'unavailable', totalCostRecipe: null, pricePerServing: null });
+    expect(result.ingredientCosts[0]).toMatchObject(unavailable('invalid-quantity'));
+  });
+
+  it('scales the original quantity, not the rounded baseline price', () => {
+    const input = recipe([ingredient({ ingredientId: 104, quantity: 5 })]);
+    const original = calculateRecipeCost(input, 'en', mockPrices);
+    const doubled = calculateRecipeCost(input, 'en', mockPrices, 8);
+    const halved = calculateRecipeCost(input, 'en', mockPrices, 2);
+    expect(original.totalCostRecipe).toBe(0.01); // Raw cost: 0.0075.
+    expect(doubled.totalCostRecipe).toBe(0.02); // Raw cost: 0.015.
+    expect(halved.totalCostRecipe).toBe(0); // Raw cost: 0.00375, not 0.01 / 2 rounded up.
+    const tripled = calculateRecipeCost(input, 'en', mockPrices, 12);
+    expect(tripled.totalCostRecipe).toBe(0.02); // Raw cost: 0.0225, not 0.01 * 3.
+    expect(input.ingredients[0]).toMatchObject({ quantity: 5 });
+  });
+
+  it('accepts positive fractional servings', () => {
+    expect(calculateRecipeCost(recipe([ingredient()], 2), 'en', mockPrices, 1.5))
+      .toMatchObject({ status: 'complete', totalCostRecipe: 0.56, pricePerServing: 0.37 });
+  });
+
+  it('reconciles displayed lines to cents and derives per-serving from that total', () => {
+    const input = recipe([ingredient({ quantity: 5 }), ingredient({ quantity: 5 }), ingredient({ quantity: 5 })], 2);
+    const result = calculateRecipeCost(input, 'en', mockPrices);
+    // Each raw 0.015 line displays 0.02. Receipt is 0.06, not rounded raw sum 0.05.
+    expect(result.ingredientCosts.map(cost => cost.costPerRecipe)).toEqual([0.02, 0.02, 0.02]);
+    expect(result.totalCostRecipe).toBe(0.06);
+    expect(result.pricePerServing).toBe(0.03);
+    const servingLines = calculateRecipeCost(recipe([ingredient(), ingredient(), ingredient()]), 'en', mockPrices);
+    expect(servingLines.totalCostRecipe).toBe(2.25);
+    expect(servingLines.pricePerServing).toBe(0.56); // Not 3 * rounded ingredient serving price 0.19.
+  });
+
+  it.each([2, 4, 7, 12])('reconciles partial subtotals and preserves locale parity at %s servings', servings => {
+    const input = recipe([ingredient({ quantity: 5 }), ingredient({ quantity: 333 }), ingredient({ ingredientId: 999 })]);
+    const en = calculateRecipeCost(input, 'en', mockPrices, servings);
+    const ro = calculateRecipeCost(input, 'ro', mockPrices, servings);
+    const lineSum = en.ingredientCosts.reduce((sum, cost) => sum + (cost.matched ? Math.round(cost.costPerRecipe * 100) : 0), 0);
+    expect(en.totalCostRecipe).toBe(lineSum / 100);
+    expect(en.pricePerServing).toBe(Math.round((lineSum / 100 / servings + Number.EPSILON) * 100) / 100);
+    expect(ro).toEqual({ ...en, ingredientCosts: en.ingredientCosts.map(cost => ({ ...cost, ingredientName: 'făină' })) });
+  });
+
+  it('keeps the default language, dataset and servings available', () => {
+    // ID 101 is olive oil in both the production dataset and our fixture.
+    const result = calculateRecipeCost(recipe([ingredient({ ingredientId: 101, quantity: 100, unit: { en: 'ml', ro: 'ml' } })]));
+    expect(result).toMatchObject({ status: 'complete', totalCostRecipe: 1.5, pricePerServing: 0.38 });
   });
 });
 
-describe('formatPrice', () => {
-  it('formats price with RON unit', () => {
+describe('compareRecipeCosts', () => {
+  const cost = (quantity: number, unknown = false) => calculateRecipeCost(recipe([
+    ingredient({ quantity }), ...(unknown ? [ingredient({ ingredientId: 999 })] : []),
+  ]), 'en', mockPrices);
+  const entries = [
+    { id: 'partial-high', cost: cost(10000, true) },
+    { id: 'unavailable', cost: calculateRecipeCost(recipe([ingredient({ ingredientId: 999 })]), 'en', mockPrices) },
+    { id: 'expensive', cost: cost(1000) },
+    { id: 'partial-low', cost: cost(1, true) },
+    { id: 'cheap', cost: cost(100) },
+    { id: 'free', cost: cost(0) },
+  ];
+
+  it.each(['asc', 'desc'] as const)('sorts only complete estimates numerically in %s order', order => {
+    const sorted = [...entries].sort((a, b) => compareRecipeCosts(a.cost, b.cost, order));
+    expect(sorted.map(entry => entry.id)).toEqual([
+      ...(order === 'asc' ? ['free', 'cheap', 'expensive'] : ['expensive', 'cheap', 'free']),
+      'partial-high', 'unavailable', 'partial-low',
+    ]);
+    expect(compareRecipeCosts(entries[0].cost, entries[3].cost, order)).toBe(0);
+    expect(compareRecipeCosts(entries[0].cost, entries[1].cost, order)).toBe(0);
+  });
+
+  it('defaults to ascending and leaves equal complete costs stable', () => {
+    expect(compareRecipeCosts(cost(100), cost(1000))).toBeLessThan(0);
+    expect(compareRecipeCosts(cost(100), cost(100))).toBe(0);
+  });
+});
+
+describe('formatting compatibility', () => {
+  it('retains existing numeric formatting helpers', () => {
     expect(formatPrice(2.5)).toBe('2.50 RON');
-  });
-
-  it('formats price without unit when specified', () => {
     expect(formatPrice(2.5, false)).toBe('2.50');
-  });
-
-  it('formats to 2 decimal places', () => {
     expect(formatPrice(2.123456)).toBe('2.12 RON');
     expect(formatPrice(2.999)).toBe('3.00 RON');
-  });
-});
-
-describe('formatPricePerServing', () => {
-  it('formats price per serving', () => {
-    expect(formatPricePerServing(1.25)).toBe('1.25 RON / serving');
-  });
-
-  it('formats to 2 decimal places', () => {
     expect(formatPricePerServing(1.234)).toBe('1.23 RON / serving');
-  });
-});
-
-describe('formatTotalCost', () => {
-  it('formats total cost', () => {
-    expect(formatTotalCost(9.4)).toBe('9.40 RON total');
-  });
-
-  it('formats to 2 decimal places', () => {
     expect(formatTotalCost(9.456)).toBe('9.46 RON total');
-  });
-});
-
-describe('rounding behavior', () => {
-  it('rounds ingredient costs correctly', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'salt', ro: 'sare' },
-      quantity: 3,
-      unit: { en: 'g', ro: 'g' },
-      ingredientId: 104,
-    };
-    
-    const result = calculateIngredientCost(ingredient, 7, 'en', mockPrices);
-    
-    // (3/1000) * 1.5 = 0.0045, rounds to 0.00
-    expect(result.costPerRecipe).toBe(0.00);
-    // 0.0045 / 7 = 0.00064..., rounds to 0.00
-    expect(result.costPerServing).toBe(0.00);
-  });
-
-  it('rounds up when necessary', () => {
-    const ingredient: Ingredient = {
-      name: { en: 'flour', ro: 'făină' },
-      quantity: 333,
-      unit: { en: 'g', ro: 'g' },
-      ingredientId: 102,
-    };
-    
-    const result = calculateIngredientCost(ingredient, 3, 'en', mockPrices);
-    
-    // (333/1000) * 3.0 = 0.999, rounds to 1.00
-    expect(result.costPerRecipe).toBe(1.0);
-    // 0.999 / 3 = 0.333, rounds to 0.33
-    expect(result.costPerServing).toBe(0.33);
-  });
-});
-
-describe('ingredient categorization', () => {
-  it('assigns correct categories to ingredients', () => {
-    expect(mockPrices.ingredients.olive_oil.category).toBe('Pantry');
-    expect(mockPrices.ingredients.flour.category).toBe('Pantry');
-    expect(mockPrices.ingredients.eggs.category).toBe('Proteins');
-    expect(mockPrices.ingredients.salt.category).toBe('Spices & Seasonings');
-    expect(mockPrices.ingredients.chicken.category).toBe('Proteins');
-  });
-
-  it('all categories are valid enum values', () => {
-    const validCategories = ['Proteins', 'Dairy', 'Fruits and Vegetables', 'Spices & Seasonings', 'Pantry'];
-    
-    Object.values(mockPrices.ingredients).forEach((ingredient) => {
-      expect(validCategories).toContain(ingredient.category);
-    });
-  });
-
-  it('all actual price data has valid categories', async () => {
-    const pricesData = await import('../data/prices.json');
-    const validCategories = ['Proteins', 'Dairy', 'Fruits and Vegetables', 'Spices & Seasonings', 'Pantry', 'Meat & Poultry', 'Seafood', 'Grains & Pasta', 'Baking'];
-    
-    Object.values(pricesData.ingredients).forEach((ingredient: any) => {
-      expect(ingredient).toHaveProperty('category');
-      expect(validCategories).toContain(ingredient.category);
-    });
   });
 });

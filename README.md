@@ -13,6 +13,8 @@ This is a React-based recipe website built with TypeScript and Vite, offering a 
 - **Smart Filtering**: Keyword-based filtering system to find recipes by ingredients, cooking methods, or dietary preferences
 - **User Preferences**: Adjustable text size (3 levels), dark/light theme, all settings persist in localStorage
 - **Recipe Scaling**: Dynamically adjust ingredient quantities based on desired servings
+- **Cooking Checklist**: Read quantities and ingredient names together in a roomy, full-row checklist. Checks and the expanded cost breakdown stay intact while changing tabs, servings, language, or text size; use the reset action to clear checks. Progress is local to the open recipe and resets on navigation to another recipe or a reload.
+- **Ingredient Cost Breakdown**: Expand the receipt below the checklist for costs at the selected serving count, a total, and a per-serving estimate. Unsupported units, missing prices, and invalid rates are marked unavailable rather than assigned a placeholder price. Incomplete estimates show a known subtotal and excluded ingredient count; cards distinguish them and price sorting puts complete estimates first. Amounts represent ingredients used, not full shopping packages. Calculations use the English source unit in both display languages and retain the site's approximate spoon conversions; ingredient-specific density conversions are not inferred.
 - **Personal Notes**: Add and save custom notes to any recipe for your own modifications
 - **Responsive Design**: Mobile-first approach optimized for all devices
 - **Cooking Basics**: Dedicated page with fundamental cooking techniques and tips
@@ -52,4 +54,3 @@ npm run validate-recipes
 # Build for production
 npm run build
 ```
-

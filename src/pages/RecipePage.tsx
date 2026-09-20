@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useRecipeData, getRecipeById } from '../hooks/useRecipeData';
 import { useLanguage } from '../hooks/useLanguage';
@@ -38,17 +38,18 @@ const RecipePage: React.FC = () => {
     }
   }, [recipe?.id]);
 
-  // Calculate recipe cost
-  const recipeCost = recipe ? calculateRecipeCost(recipe, language) : null;
-
   const servings = currentServings ?? recipe?.servings ?? 1;
-  const pricePerServing = recipeCost?.pricePerServing ?? 0;
+  const maxServings = Math.max(12, recipe?.servings ?? 1);
+  const recipeCost = useMemo(
+    () => recipe ? calculateRecipeCost(recipe, language, undefined, servings) : null,
+    [recipe, language, servings]
+  );
 
   const handleDecrement = () => {
     if (servings > 1) setCurrentServings(servings - 1);
   };
   const handleIncrement = () => {
-    if (servings < 12) setCurrentServings(servings + 1);
+    if (servings < maxServings) setCurrentServings(servings + 1);
   };
 
   // Toggle side menu
@@ -178,54 +179,61 @@ const RecipePage: React.FC = () => {
           </div>
         </section>
 
-        {/* Stat strip — hairline-divided, three equal cells, sits below the image */}
-        <section className="grid grid-cols-[1fr_1.4fr_1fr] bg-card-light dark:bg-card-dark border-b border-line-light dark:border-line-dark">
-          <div className="text-center py-4 px-2">
+        <section className="grid grid-cols-2 bg-card-light dark:bg-card-dark border-b border-line-light dark:border-line-dark">
+          <div className="min-w-0 text-center py-4 px-2">
             <div className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums">
               {recipe.prepTime}
               <span className="text-base font-medium text-ink-muted-light dark:text-ink-muted-dark ml-1">
-                {getTranslation('minutes', language).substring(0, 3)}
+                min
               </span>
             </div>
-            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
+            <div className="mt-2 text-sm text-ink-muted-light dark:text-ink-muted-dark">
               {getTranslation('prepTime', language)}
             </div>
           </div>
 
-          <div className="text-center py-4 px-2 border-x border-line-light dark:border-line-dark">
-            <div className="flex items-center justify-center gap-2.5">
+          <div className="min-w-0 text-center py-4 px-2 border-l border-line-light dark:border-line-dark">
+            <div className="flex items-center justify-center gap-1 sm:gap-2">
               <button
+                type="button"
                 onClick={handleDecrement}
                 disabled={servings <= 1}
-                className="w-7 h-7 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-sm font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors"
-                aria-label="Decrease servings"
+                className="w-[44px] h-[44px] shrink-0 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-base font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                aria-label={getTranslation('decreaseServings', language)}
               >
                 −
               </button>
-              <span className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums min-w-[1.5rem]">
+              <span aria-live="polite" aria-atomic="true" className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums min-w-[1.5rem]">
                 {servings}
               </span>
               <button
+                type="button"
                 onClick={handleIncrement}
-                disabled={servings >= 12}
-                className="w-7 h-7 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-sm font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors"
-                aria-label="Increase servings"
+                disabled={servings >= maxServings}
+                className="w-[44px] h-[44px] shrink-0 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-base font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                aria-label={getTranslation('increaseServings', language)}
               >
                 +
               </button>
             </div>
-            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
+            <div className="mt-2 text-sm text-ink-muted-light dark:text-ink-muted-dark">
               {getTranslation('servings', language)}
             </div>
           </div>
 
-          <div className="text-center py-4 px-2">
-            <div className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums">
-              {pricePerServing.toFixed(2)}
-            </div>
-            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
-              RON / {getTranslation('servings', language).toLowerCase().slice(0, 6)}
-            </div>
+          <div className="col-span-2 flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-line-light dark:border-line-dark px-4 py-3 text-sm text-ink-muted-light dark:text-ink-muted-dark">
+            <span>
+              {getTranslation(
+                recipeCost?.status === 'complete' ? 'estimatedCost'
+                  : recipeCost?.status === 'partial' ? 'knownSubtotal' : 'costUnavailable',
+                language
+              )}
+            </span>
+            {recipeCost?.pricePerServing != null && (
+              <span className="tabular-nums text-ink-light dark:text-ink-dark">
+                {recipeCost.pricePerServing.toFixed(2)} {getTranslation('perServing', language)}
+              </span>
+            )}
           </div>
         </section>
 
@@ -233,7 +241,7 @@ const RecipePage: React.FC = () => {
         <div className="px-4 sm:px-5 pt-4 pb-8 space-y-4">
           {/* Underline tabs with counts */}
           <div
-            className="flex gap-2 sm:gap-6 border-b border-line-light dark:border-line-dark"
+            className="flex gap-2 sm:gap-6 overflow-x-auto border-b border-line-light dark:border-line-dark"
             role="tablist"
             aria-label={getTranslation('recipe', language)}
           >
@@ -299,15 +307,14 @@ const RecipePage: React.FC = () => {
           </div>
 
           {/* Tab content */}
-          {activeTab === 'ingredients' && (
-            <div id="ingredients-panel" role="tabpanel" aria-labelledby="ingredients-tab">
-              <IngredientList
-                ingredients={recipe.ingredients}
-                servings={recipe.servings}
-                currentServings={servings}
-              />
-            </div>
-          )}
+          <div id="ingredients-panel" role="tabpanel" aria-labelledby="ingredients-tab" hidden={activeTab !== 'ingredients'}>
+            <IngredientList
+              key={recipe.id}
+              ingredients={recipe.ingredients}
+              servings={recipe.servings}
+              currentServings={servings}
+            />
+          </div>
           {activeTab === 'instructions' && (
             <div id="instructions-panel" role="tabpanel" aria-labelledby="instructions-tab">
               <InstructionList instructions={recipe.instructions} />
