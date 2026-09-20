@@ -11,7 +11,7 @@ import { MenuLinks } from '../components/MenuLinks';
 import { useRecipeData, getRecipesByCategory } from '../hooks/useRecipeData';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
-import { calculateRecipeCost } from '../utils/pricing';
+import { calculateRecipeCost, compareRecipeCosts } from '../utils/pricing';
 import { categories } from '../data';
 import { Recipe } from '../types';
 
@@ -124,13 +124,10 @@ const HomePage: React.FC = () => {
         // For price sorting, pre-calculate prices to avoid redundant calculations
         const recipesWithPrices = recipesToSort.map(recipe => ({
           recipe,
-          price: calculateRecipeCost(recipe, language).pricePerServing
+          cost: calculateRecipeCost(recipe, language)
         }));
         
-        recipesWithPrices.sort((a, b) => {
-          const comparison = a.price - b.price;
-          return sortOrder === 'asc' ? comparison : -comparison;
-        });
+        recipesWithPrices.sort((a, b) => compareRecipeCosts(a.cost, b.cost, sortOrder));
         
         return recipesWithPrices.map(item => item.recipe);
       } else {
@@ -310,13 +307,10 @@ const HomePage: React.FC = () => {
                         if (sortField === 'pricePerServing') {
                           const recipesWithPrices = recipesToSort.map(recipe => ({
                             recipe,
-                            price: calculateRecipeCost(recipe, language).pricePerServing
+                            cost: calculateRecipeCost(recipe, language)
                           }));
                           
-                          recipesWithPrices.sort((a, b) => {
-                            const comparison = a.price - b.price;
-                            return sortOrder === 'asc' ? comparison : -comparison;
-                          });
+                          recipesWithPrices.sort((a, b) => compareRecipeCosts(a.cost, b.cost, sortOrder));
                           
                           return recipesWithPrices.map(item => item.recipe);
                         } else {

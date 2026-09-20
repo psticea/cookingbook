@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { IngredientList } from '../components/IngredientList';
 import { LanguageProvider } from '../hooks/useLanguage';
 import type { IngredientItem } from '../types/recipe';
@@ -22,9 +23,11 @@ const items: IngredientItem[] = [
 describe('qualitative unit rendering', () => {
   it('hides the placeholder quantity for "to taste" but keeps real amounts', () => {
     const { container } = render(
-      <LanguageProvider>
-        <IngredientList ingredients={items} servings={2} currentServings={2} />
-      </LanguageProvider>
+      <MemoryRouter>
+        <LanguageProvider>
+          <IngredientList ingredients={items} servings={2} currentServings={2} />
+        </LanguageProvider>
+      </MemoryRouter>
     );
     const text = container.textContent ?? '';
     // The qualitative unit is shown on its own, with no leading "1".

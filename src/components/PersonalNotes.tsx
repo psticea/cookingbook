@@ -23,7 +23,7 @@ export const PersonalNotes: React.FC<PersonalNotesProps> = ({ notes }) => {
       <h3 className="font-sans text-[11px] font-bold tracking-[0.14em] uppercase text-brand-warm mb-2">
         {getTranslation('personalNotes', language)}
       </h3>
-      <p className="font-serif italic text-base leading-relaxed text-ink-muted-light dark:text-ink-muted-dark whitespace-pre-line">
+      <p className="font-serif italic text-base leading-relaxed text-ink-muted-light dark:text-ink-muted-dark whitespace-pre-line break-words">
         {notes[language]}
       </p>
     </section>

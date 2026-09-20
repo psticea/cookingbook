@@ -4,7 +4,7 @@
  */
 
 import pricesData from '../data/prices.json';
-import { Ingredient, Recipe } from '../types/recipe';
+import type { Ingredient, IngredientItem, Recipe } from '../types/recipe';
 
 // Price configuration types
 export interface PriceConfig {
@@ -20,26 +20,45 @@ export interface PricesData {
   ingredients: Record<string, PriceConfig>;
 }
 
-// Ingredient cost calculation results
-export interface IngredientCost {
+export type IngredientCost = {
   ingredientName: string;
-  costPerRecipe: number;  // Total cost for this ingredient in the recipe
-  costPerServing: number; // Cost per serving for this ingredient
-  matched: boolean;       // Whether a price was found or fallback used
-}
+} & (
+  | { matched: true; costPerRecipe: number; costPerServing: number }
+  | {
+      matched: false;
+      costPerRecipe: null;
+      costPerServing: null;
+      reason: 'missing-price' | 'unsupported-unit' | 'invalid-price' | 'invalid-quantity';
+    }
+);
 
 export interface RecipeCost {
   ingredientCosts: IngredientCost[];
-  totalCostRecipe: number;    // Total cost for entire recipe
-  pricePerServing: number;    // Price per serving
+  // For partial estimates these amounts are the known subtotal, not a full cost.
+  totalCostRecipe: number | null;
+  pricePerServing: number | null;
+  status: 'complete' | 'partial' | 'unavailable';
+  pricedIngredientCount: number;
+  unpricedIngredientCount: number;
 }
 
-// Constants
-const FALLBACK_COST_PER_SERVING = 0.2; // RON per serving for unmatched ingredients
+function isIngredient(item: IngredientItem): item is Ingredient {
+  return !('section' in item);
+}
 
-// Type guard for Ingredient (vs IngredientSection)
-function isIngredient(item: any): item is Ingredient {
-  return 'name' in item && 'quantity' in item && 'unit' in item && !('section' in item);
+function unavailableCost(
+  ingredientName: string,
+  reason: Extract<IngredientCost, { matched: false }>['reason']
+): IngredientCost {
+  return { ingredientName, matched: false, costPerRecipe: null, costPerServing: null, reason };
+}
+
+function validServings(servings: number): boolean {
+  return Number.isFinite(servings) && servings > 0;
+}
+
+function roundPrice(value: number): number {
+  return Math.round((value + Number.EPSILON) * 100) / 100;
 }
 
 /**
@@ -60,76 +79,43 @@ export function matchIngredientById(
 }
 
 /**
- * Normalize quantity to base unit based on unit type
- * Returns quantity in grams (for mass), milliliters (for volume), or pieces
+ * Normalize to grams, milliliters or pieces; null means no supported conversion.
+ * Preserve the existing spoon/pinch assumptions, without adding density guesses.
  */
 function normalizeQuantity(
   quantity: number,
   unit: string,
-  unitType: 'mass' | 'volume' | 'piece'
-): number {
-  const unitLower = unit.toLowerCase().trim();
-  
+  unitType: PriceConfig['unit_type']
+): number | null {
+  if (typeof unit !== 'string') return null;
+  const normalizedUnit = unit.toLowerCase().trim();
+  const teaspoon = ['linguriță', 'lingurita', 'lingurițe', 'lingurite', 'tsp', 'teaspoon', 'teaspoons'];
+  const tablespoon = ['lingură', 'lingura', 'linguri', 'tbsp', 'tablespoon', 'tablespoons'];
+
   if (unitType === 'mass') {
-    // Convert to grams
-    if (unitLower === 'g' || unitLower === 'grams' || unitLower === 'gram') {
-      return quantity;
-    } else if (unitLower === 'kg' || unitLower === 'kilograms' || unitLower === 'kilogram') {
-      return quantity * 1000;
-    } else if (unitLower === 'linguriță' || unitLower === 'lingurita' || unitLower === 'lingurițe' || unitLower === 'lingurite' || unitLower === 'tsp' || unitLower === 'teaspoon') {
-      // 1 tsp ≈ 5g for most dry ingredients
-      return quantity * 5;
-    } else if (unitLower === 'lingură' || unitLower === 'lingura' || unitLower === 'linguri' || unitLower === 'tbsp' || unitLower === 'tablespoon') {
-      // 1 tbsp ≈ 15g for most dry ingredients
-      return quantity * 15;
-    } else if (unitLower === 'praf' || unitLower === 'pinch') {
-      // 1 pinch ≈ 0.5g
-      return quantity * 0.5;
-    }
-    throw new Error(`Unsupported mass unit: ${unit}`);
+    if (['g', 'grams', 'gram'].includes(normalizedUnit)) return quantity;
+    if (['kg', 'kilograms', 'kilogram'].includes(normalizedUnit)) return quantity * 1000;
+    if (teaspoon.includes(normalizedUnit)) return quantity * 5;
+    if (tablespoon.includes(normalizedUnit)) return quantity * 15;
+    if (['praf', 'pinch', 'pinches'].includes(normalizedUnit)) return quantity * 0.5;
   } else if (unitType === 'volume') {
-    // Convert to milliliters
-    if (unitLower === 'ml' || unitLower === 'milliliters' || unitLower === 'milliliter') {
-      return quantity;
-    } else if (unitLower === 'l' || unitLower === 'liters' || unitLower === 'liter' || unitLower === 'litri' || unitLower === 'litru') {
-      return quantity * 1000;
-    } else if (unitLower === 'linguriță' || unitLower === 'lingurita' || unitLower === 'lingurițe' || unitLower === 'lingurite' || unitLower === 'tsp' || unitLower === 'teaspoon') {
-      // 1 tsp ≈ 5ml
-      return quantity * 5;
-    } else if (unitLower === 'lingură' || unitLower === 'lingura' || unitLower === 'linguri' || unitLower === 'tbsp' || unitLower === 'tablespoon') {
-      // 1 tbsp ≈ 15ml
-      return quantity * 15;
-    } else if (unitLower === 'cană' || unitLower === 'cana' || unitLower === 'căni' || unitLower === 'cani' || unitLower === 'cup' || unitLower === 'cups') {
-      // 1 cup ≈ 240ml
-      return quantity * 240;
-    }
-    throw new Error(`Unsupported volume unit: ${unit}`);
+    if (['ml', 'milliliters', 'milliliter', 'millilitres', 'millilitre'].includes(normalizedUnit)) return quantity;
+    if (['l', 'liters', 'liter', 'litres', 'litre', 'litri', 'litru'].includes(normalizedUnit)) return quantity * 1000;
+    if (teaspoon.includes(normalizedUnit)) return quantity * 5;
+    if (tablespoon.includes(normalizedUnit)) return quantity * 15;
+    if (['cană', 'cana', 'căni', 'cani', 'cup', 'cups'].includes(normalizedUnit)) return quantity * 240;
   } else if (unitType === 'piece') {
-    // Pieces are already normalized
-    if (unitLower === 'pcs' || unitLower === 'piece' || unitLower === 'pieces' || 
-        unitLower === 'buc' || unitLower === 'bucată' || unitLower === 'bucăți' ||
-        unitLower === 'bucata' || unitLower === 'bucati') {
-      return quantity;
-    }
-    // For cloves, assume each clove counts as a piece
-    if (unitLower === 'cloves' || unitLower === 'clove' || unitLower === 'căței' || unitLower === 'cățel' ||
-        unitLower === 'catei' || unitLower === 'catel') {
-      return quantity;
-    }
-    // Slices and packets are counted as whole pieces of the priced item
-    if (unitLower === 'slices' || unitLower === 'slice' || unitLower === 'felii' || unitLower === 'felie' ||
-        unitLower === 'packet' || unitLower === 'packets' || unitLower === 'plic' || unitLower === 'plicuri') {
-      return quantity;
-    }
-    throw new Error(`Unsupported piece unit: ${unit}`);
+    // Keep existing clove, slice and packet mappings to the priced piece.
+    if ([
+      'pcs', 'piece', 'pieces', 'buc', 'bucată', 'bucăți', 'bucata', 'bucati',
+      'cloves', 'clove', 'căței', 'cățel', 'catei', 'catel',
+      'slices', 'slice', 'felii', 'felie', 'packet', 'packets', 'plic', 'plicuri',
+    ].includes(normalizedUnit)) return quantity;
   }
-  
-  throw new Error(`Unknown unit type: ${unitType}`);
+  return null;
 }
 
-/**
- * Calculate cost for a single ingredient
- */
+/** Calculate one ingredient at the supplied quantity (no placeholder prices). */
 export function calculateIngredientCost(
   ingredient: Ingredient,
   servings: number,
@@ -137,84 +123,77 @@ export function calculateIngredientCost(
   prices: PricesData = pricesData as PricesData
 ): IngredientCost {
   const ingredientName = ingredient.name[language];
-  const unit = ingredient.unit[language];
-  
-  // Match by ID only
-  let priceConfig: PriceConfig | undefined;
-  if (ingredient.ingredientId !== undefined) {
-    priceConfig = matchIngredientById(ingredient.ingredientId, prices);
+  // Zero is a valid quantity/rate; missing, negative and non-finite values are not.
+  if (!validServings(servings) || !Number.isFinite(ingredient.quantity) || ingredient.quantity < 0) {
+    return unavailableCost(ingredientName, 'invalid-quantity');
   }
-  
-  if (!priceConfig) {
-    // Use fallback: 0.2 RON per serving
-    return {
-      ingredientName,
-      costPerServing: FALLBACK_COST_PER_SERVING,
-      costPerRecipe: FALLBACK_COST_PER_SERVING * servings,
-      matched: false,
-    };
+
+  const priceConfig = ingredient.ingredientId === undefined
+    ? undefined
+    : matchIngredientById(ingredient.ingredientId, prices);
+  if (!priceConfig) return unavailableCost(ingredientName, 'missing-price');
+
+  // Conversion is based on the recipe's source unit, never its translated label.
+  const normalizedQuantity = normalizeQuantity(ingredient.quantity, ingredient.unit.en, priceConfig.unit_type);
+  if (normalizedQuantity === null) return unavailableCost(ingredientName, 'unsupported-unit');
+  if (!Number.isFinite(normalizedQuantity)) return unavailableCost(ingredientName, 'invalid-quantity');
+
+  const rate = priceConfig.unit_type === 'piece' ? priceConfig.price_per_piece : priceConfig.price_per_1000;
+  if (typeof rate !== 'number' || !Number.isFinite(rate) || rate < 0) {
+    return unavailableCost(ingredientName, 'invalid-price');
   }
-  
-  // Calculate cost based on unit type
-  try {
-    const normalizedQty = normalizeQuantity(ingredient.quantity, unit, priceConfig.unit_type);
-    let costPerRecipe: number;
-    
-    if (priceConfig.unit_type === 'mass' || priceConfig.unit_type === 'volume') {
-      // Cost = (quantity / 1000) * price_per_1000
-      costPerRecipe = (normalizedQty / 1000) * (priceConfig.price_per_1000 || 0);
-    } else {
-      // Cost = quantity * price_per_piece
-      costPerRecipe = normalizedQty * (priceConfig.price_per_piece || 0);
-    }
-    
-    return {
-      ingredientName,
-      costPerRecipe: Math.round(costPerRecipe * 100) / 100,
-      costPerServing: Math.round((costPerRecipe / servings) * 100) / 100,
-      matched: true,
-    };
-  } catch (error) {
-    // If unit conversion fails, use fallback
-    console.warn(`Failed to calculate cost for ${ingredientName}: ${error}`);
-    return {
-      ingredientName,
-      costPerServing: FALLBACK_COST_PER_SERVING,
-      costPerRecipe: FALLBACK_COST_PER_SERVING * servings,
-      matched: false,
-    };
+
+  const rawCost = priceConfig.unit_type === 'piece'
+    ? normalizedQuantity * rate
+    : (normalizedQuantity / 1000) * rate;
+  const costPerRecipe = roundPrice(rawCost);
+  const costPerServing = roundPrice(costPerRecipe / servings);
+  if (!Number.isFinite(costPerRecipe) || !Number.isFinite(costPerServing)) {
+    return unavailableCost(ingredientName, 'invalid-price');
   }
+  return { ingredientName, matched: true, costPerRecipe, costPerServing };
 }
 
-/**
- * Calculate total cost for a recipe
- */
+/** Calculate selected quantities before rounding, rather than scaling rounded costs. */
 export function calculateRecipeCost(
-  recipe: Recipe,
+  recipe: Pick<Recipe, 'ingredients' | 'servings'>,
   language: 'en' | 'ro' = 'en',
-  prices: PricesData = pricesData as PricesData
+  prices: PricesData = pricesData as PricesData,
+  currentServings: number = recipe.servings
 ): RecipeCost {
-  const ingredientCosts: IngredientCost[] = [];
-  
-  for (const item of recipe.ingredients) {
-    // Skip section headings
-    if (!isIngredient(item)) {
-      continue;
-    }
-    
-    const cost = calculateIngredientCost(item, recipe.servings, language, prices);
-    ingredientCosts.push(cost);
-  }
-  
-  // Calculate totals
-  const totalCostRecipe = ingredientCosts.reduce((sum, cost) => sum + cost.costPerRecipe, 0);
-  const pricePerServing = ingredientCosts.reduce((sum, cost) => sum + cost.costPerServing, 0);
-  
-  return {
-    ingredientCosts,
-    totalCostRecipe: Math.round(totalCostRecipe * 100) / 100,
-    pricePerServing: Math.round(pricePerServing * 100) / 100,
-  };
+  const servingsAreValid = validServings(recipe.servings) && validServings(currentServings);
+  const ingredientCosts = recipe.ingredients.filter(isIngredient).map(item =>
+    servingsAreValid && Number.isFinite(item.quantity) && item.quantity >= 0
+      ? calculateIngredientCost(
+          { ...item, quantity: item.quantity * (currentServings / recipe.servings) },
+          currentServings,
+          language,
+          prices
+        )
+      : unavailableCost(item.name[language], 'invalid-quantity')
+  );
+  const pricedIngredientCount = ingredientCosts.filter(cost => cost.matched).length;
+  const unpricedIngredientCount = ingredientCosts.length - pricedIngredientCount;
+  const status = pricedIngredientCount === 0 ? 'unavailable' : unpricedIngredientCount > 0 ? 'partial' : 'complete';
+
+  // Sum rounded receipt lines in integer cents so the displayed lines reconcile.
+  // Derive the per-serving estimate from that same total, not rounded serving lines.
+  const totalCents = ingredientCosts.reduce((sum, cost) =>
+    cost.matched ? sum + Math.round(cost.costPerRecipe * 100) : sum, 0);
+  const totalCostRecipe = pricedIngredientCount > 0 ? totalCents / 100 : null;
+  const pricePerServing = totalCostRecipe === null ? null : roundPrice(totalCostRecipe / currentServings);
+
+  return { ingredientCosts, totalCostRecipe, pricePerServing, status, pricedIngredientCount, unpricedIngredientCount };
+}
+
+/** Complete estimates first in BOTH directions; incomplete estimates retain input order. */
+export function compareRecipeCosts(a: RecipeCost, b: RecipeCost, order: 'asc' | 'desc' = 'asc'): number {
+  const aComplete = a.status === 'complete' && a.pricePerServing !== null && Number.isFinite(a.pricePerServing);
+  const bComplete = b.status === 'complete' && b.pricePerServing !== null && Number.isFinite(b.pricePerServing);
+  if (aComplete !== bComplete) return aComplete ? -1 : 1;
+  if (!aComplete || !bComplete || a.pricePerServing === null || b.pricePerServing === null) return 0;
+  const comparison = a.pricePerServing - b.pricePerServing;
+  return order === 'asc' ? comparison : -comparison;
 }
 
 /**
