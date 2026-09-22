@@ -1,0 +1,97 @@
+<!doctype html>
+<!--
+DESIGN CONTRACT — COUNTERSPACE
+An open browsing table for deciding what to cook. No side rail and no stack of
+conventional recipe cards: horizontal category navigation leads into paired
+recipe spreads. Photographs sit at the outer edges of each desktop pair; full
+serif titles and quiet, aligned practical details face inward. Porcelain white,
+charcoal, and mulberry give the interface warmth without cream, green, or cobalt.
+A compact workbench puts search beside the daily cooking question. Filters unfold
+across the table, never into a modal. On mobile, each spread becomes a single
+photo-and-text row; large text gets a generous stacked composition. Food remains
+unlabelled, and prices remain compact beneath the titles. Every recipe is drawn
+from the shared catalogue. This is an independent, functional design exploration,
+not the production homepage.
+-->
+<html lang="en" data-theme="light" data-text="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Counterspace — an independent homepage design proposal for Paul's Cookbook.">
+  <title>Paul’s Cookbook — Counterspace</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="../shared/catalogue.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#recipes" data-i18n="skip">Skip to recipes</a>
+  <div class="site-shell">
+    <div class="proposal-strip"><span>Design proposal 01 <span aria-hidden="true">/</span> Counterspace</span><a href="../index.html"><span data-i18n="compare">Compare proposals</span> <span aria-hidden="true">↗</span></a></div>
+    <header class="masthead">
+      <a class="brand" href="./index.html" aria-label="Paul's Cookbook home"><span>Paul’s Cookbook<span class="brand-caption" data-i18n="brandCaption">A personal recipe collection</span></span></a>
+      <nav class="header-reference" data-reference aria-label="Kitchen reference">
+        <a data-app-link="cooking-basics" data-i18n="cookingBasics">Cooking Basics</a>
+        <a data-app-link="prices" data-i18n="ingredientPrices">Ingredient Prices</a>
+        <a data-app-link="about" data-i18n="about">About</a>
+      </nav>
+      <div class="header-tools">
+        <div class="language-control" role="group" aria-label="Language" id="language-control">
+          <button type="button" data-language="en" lang="en" aria-pressed="true" aria-label="English">EN</button>
+          <button type="button" data-language="ro" lang="ro" aria-pressed="false" aria-label="Română">RO</button>
+        </div>
+        <details class="display-menu" id="display-menu">
+          <summary class="display-trigger"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h6m4 0h6M4 17h10m4 0h2"/><circle cx="12" cy="7" r="2"/><circle cx="16" cy="17" r="2"/></svg><span data-i18n="display">Settings</span><span class="chevron" aria-hidden="true"></span></summary>
+          <div class="display-panel">
+            <fieldset><legend data-i18n="appearance">Appearance</legend><div class="segmented"><label><input type="radio" name="theme" value="light" checked><span data-i18n="light">Light</span></label><label><input type="radio" name="theme" value="dark"><span data-i18n="dark">Dark</span></label></div></fieldset>
+            <fieldset><legend data-i18n="textSize">Text size</legend><div class="segmented"><label><input type="radio" name="textSize" value="normal" checked><span data-i18n="normal">Normal</span></label><label><input type="radio" name="textSize" value="large"><span data-i18n="large">Large</span></label></div></fieldset>
+            <p data-i18n="saved">Saved for this proposal.</p>
+            <nav class="compact-reference" id="mobile-reference" data-reference aria-label="Kitchen reference">
+              <h2 class="eyebrow" data-i18n="reference">Kitchen reference</h2>
+              <a data-app-link="cooking-basics"><span data-i18n="cookingBasics">Cooking Basics</span><span aria-hidden="true">↗</span></a>
+              <a data-app-link="prices"><span data-i18n="ingredientPrices">Ingredient Prices</span><span aria-hidden="true">↗</span></a>
+              <a data-app-link="about"><span data-i18n="about">About</span><span aria-hidden="true">↗</span></a>
+            </nav>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="discovery" aria-label="Find recipes" id="discovery">
+        <div class="workbench-head">
+          <div class="page-heading"><p class="eyebrow" data-i18n="homeCooking">Pull up a recipe</p><h1 data-i18n="heading">What are we cooking?</h1><span class="sr-only" id="collection-total"></span></div>
+          <div class="search-row">
+            <div class="search-field">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+              <label class="sr-only" for="search" data-i18n="searchLabel">Search recipes or ingredients</label>
+              <input id="search" type="search" autocomplete="off" placeholder="Search recipes or ingredients…">
+              <button id="clear-search" class="clear-search" type="button" aria-label="Clear search" hidden>×</button>
+              <span class="search-shortcut" aria-hidden="true">/</span>
+            </div>
+            <button class="refine-button" id="refine-button" type="button" aria-expanded="false" aria-controls="filter-panel"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 17h16M8 4v6m8 4v6"/></svg><span data-i18n="filters">Filters</span><span id="filter-count" class="filter-count" hidden></span><span class="chevron" aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <nav class="category-navigation" aria-labelledby="category-label"><h2 class="sr-only" id="category-label" data-i18n="collection">Browse by category</h2><div class="category-list" id="category-list"></div></nav>
+        <div class="filter-panel" id="filter-panel" hidden>
+          <div class="filter-intro"><p data-i18n="filterHelp">Choose any in each group. Match across groups.</p><button type="button" class="text-button" id="clear-filters" data-i18n="clearFilters">Clear filters</button></div>
+          <div class="filter-groups" id="filter-groups"></div>
+          <div class="filter-bottom"><span id="filter-results"></span><button type="button" class="apply-button" id="show-results" data-i18n="showResults">Show recipes</button></div>
+        </div>
+        <div class="active-filters" id="active-filters" hidden></div>
+        <div class="results-toolbar">
+          <p class="result-count" id="result-count" role="status" aria-live="polite" aria-atomic="true"></p>
+          <div class="view-controls">
+            <label class="group-control" for="group-toggle"><input id="group-toggle" type="checkbox"><span class="toggle-track" aria-hidden="true"></span><span data-i18n="group">Group by category</span></label>
+            <div class="sort-control"><label for="sort" data-i18n="sort">Sort</label><select id="sort"></select></div>
+          </div>
+        </div>
+      </section>
+      <section id="recipes" class="recipe-results" aria-label="Recipes" tabindex="-1"></section>
+      <div class="endnote" id="endnote"><span id="endnote-count"></span><a href="#main-content"><span data-i18n="backTop">Back to top</span> <span aria-hidden="true">↑</span></a></div>
+      <footer class="page-footer"><span class="footer-brand">Paul’s Cookbook</span><nav data-reference aria-label="Kitchen reference"><a data-app-link="cooking-basics" data-i18n="cookingBasics">Cooking Basics</a><a data-app-link="prices" data-i18n="ingredientPrices">Ingredient Prices</a><a data-app-link="about" data-i18n="about">About</a></nav></footer>
+    </main>
+  </div>
+  <noscript><p class="noscript">Please enable JavaScript to browse the recipe catalogue. / Activează JavaScript pentru a vedea rețetele.</p></noscript>
+</body>
+</html>
