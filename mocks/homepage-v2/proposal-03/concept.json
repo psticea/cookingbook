@@ -1,0 +1,43 @@
+{
+  "id": "proposal-03",
+  "name": "Precision Grid",
+  "tagline": "A Swiss-modern recipe index where measurement becomes the luxury cue.",
+  "thesis": "Paul's Cookbook is redesigned as a disciplined cooking reference: visible modular structure, hairline strata, clean photography, and tabular prep/price numerals that make the collection feel precise without becoming cold.",
+  "palette": {
+    "light": {
+      "paper": "#f5f5f1",
+      "paper2": "#ebebe5",
+      "ink": "#111318",
+      "muted": "#555d68",
+      "line": "rgba(17, 19, 24, 0.18)",
+      "accent": "#164cff"
+    },
+    "dark": {
+      "paper": "#0e1117",
+      "paper2": "#171b22",
+      "ink": "#f4f6f8",
+      "muted": "#a7b0bd",
+      "line": "rgba(244, 246, 248, 0.20)",
+      "accent": "#78a0ff"
+    }
+  },
+  "typography": {
+    "display": "DIN Condensed / Arial Narrow / Aptos Display for a Swiss annual headline cadence without external font dependencies",
+    "ui": "Aptos / Helvetica Neue / Arial / system UI for precise bilingual controls",
+    "data": "JetBrains Mono/SFMono/Consolas for tabular minutes, counts, and RON values",
+    "scale": "16px body minimum, 20px+ section heads, 13px+ metadata, large mode at 112.5%"
+  },
+  "moves": [
+    "Exactly two recipe columns through 640px, then denser 3/4-column reference grids above.",
+    "Category sections are indexed strata: rule, 01-08 numeral, label, and right-aligned live count.",
+    "Recipe cards remove overlays and shadows; photography is a plain rectangle and the data line carries status.",
+    "Prep minutes and price per serving are aligned mono numerals with quiet units and explicit partial/unavailable states.",
+    "The control strip behaves like an instrument panel with count, active filters, grouping, and field+direction sort state.",
+    "The drawer preserves filters, categories, more links, and preferences as a numbered systematic index."
+  ],
+  "tradeoffs": [
+    "The design is intentionally austere; warmth comes from real food photography rather than decorative illustration.",
+    "Four columns on desktop prioritize reference scanning over large editorial imagery.",
+    "No webfont dependency is used, so the concept degrades through local serif/sans/mono stacks."
+  ]
+}

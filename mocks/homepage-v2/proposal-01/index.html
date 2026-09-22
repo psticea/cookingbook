@@ -1,0 +1,171 @@
+<!doctype html>
+<!--
+DESIGN CONTRACT — EDITORIAL GALLERY
+THESIS: Paul's Cookbook opens like a quiet art-book spread, not an app dashboard.
+OWN-WORLD: warm paper, deep ink, ink-blue annotations, hairlines, serif masthead.
+STORY: search, sort, filter, and choose from the full recipe catalogue without losing the bookish calm.
+FIRST VIEWPORT: a large typographic brand, an underlined search line, and a slim Contents button.
+FORM: chapter openers divide the catalogue; each recipe card is a plated photograph with typographic data below.
+MOTION: slow ink fades only; no bouncy panels or ornamental effects.
+ACCESS: two-column rhythm at mobile, full drawer index, RO/EN, light/dark, scalable type.
+-->
+<html lang="ro" data-theme="light" data-text-size="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Editorial Gallery — a homepage redesign proposal for Paul's Cookbook.">
+  <title>Paul’s Cookbook — Editorial Gallery</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f6efe3'/%3E%3Cpath d='M8 7h16v18H8z' fill='none' stroke='%2315130f'/%3E%3Cpath d='M12 11h8M12 16h8M12 21h5' stroke='%23283f8f'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="../shared/catalogue.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#recipes" data-i18n="skipToRecipes">Skip to recipes</a>
+
+  <header class="site-header" id="top">
+    <div class="edition-line" aria-hidden="true">
+      <span>Editorial Gallery</span>
+      <span>Proposal 01</span>
+    </div>
+
+    <div class="masthead">
+      <a class="brand-mark" href="#top" aria-label="Paul's Cookbook home">
+        <span>Paul’s</span>
+        <span>Cookbook</span>
+      </a>
+
+      <p class="masthead-caption" data-i18n="mastheadCaption">
+        A personal index of weekday plates, pantry staples, and slow Sunday chapters.
+      </p>
+
+      <button class="contents-button" id="open-drawer" type="button" aria-haspopup="dialog" aria-controls="side-drawer" aria-expanded="false">
+        <span data-i18n="contents">Contents</span>
+        <span class="contents-button__mark" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="search-strip" role="search">
+      <label class="search-label" for="search-input" data-i18n="searchLabel">Search by recipe title</label>
+      <div class="search-line">
+        <input id="search-input" type="search" autocomplete="off" spellcheck="false">
+        <button id="clear-search" class="text-action clear-search" type="button" hidden data-i18n="clear">Clear</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="control-ledger" aria-labelledby="results-heading">
+      <div>
+        <p class="micro-label" data-i18n="currentSelection">Current selection</p>
+        <h1 id="results-heading" class="results-title">
+          <span id="result-count" aria-live="polite" aria-atomic="true">33 rețete</span>
+        </h1>
+      </div>
+
+      <div class="view-tools" aria-label="Recipe view controls">
+        <button class="switch-button" id="group-toggle" type="button" role="switch" aria-checked="true">
+          <span class="switch-button__track" aria-hidden="true"></span>
+          <span data-i18n="groupByCategories">Group by Categories</span>
+        </button>
+
+        <div class="sort-board" id="sort-board" aria-label="Sort recipes">
+          <button class="sort-button" type="button" data-sort-field="name" aria-pressed="true"></button>
+          <button class="sort-button" type="button" data-sort-field="time" aria-pressed="false"></button>
+          <button class="sort-button" type="button" data-sort-field="price" aria-pressed="false"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="active-ledger" id="active-ledger" hidden aria-label="Active filters"></section>
+
+    <section id="recipes" class="recipe-results" aria-label="Recipes" tabindex="-1"></section>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="#top">Paul’s Cookbook</a>
+      <nav class="footer-links" aria-label="More">
+        <a data-app-link="cooking-basics" data-i18n="cookingBasics">Cooking Basics</a>
+        <a data-app-link="prices" data-i18n="ingredientPrices">Ingredient Prices</a>
+        <a data-app-link="about" data-i18n="about">About</a>
+      </nav>
+    </footer>
+  </main>
+
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <aside class="side-drawer" id="side-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+    <div class="drawer-scroll">
+      <div class="drawer-head">
+        <p class="micro-label" data-i18n="proposalIndex">Printed index</p>
+        <h2 id="drawer-title" data-i18n="drawerTitle">Contents / Index</h2>
+        <button class="icon-button" id="close-drawer" type="button" data-i18n-aria="close" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <section class="drawer-section" aria-labelledby="drawer-filters-heading">
+        <div class="drawer-section__title">
+          <span aria-hidden="true">01</span>
+          <h3 id="drawer-filters-heading" data-i18n="filters">Filters</h3>
+        </div>
+        <div class="filter-groups" id="filter-groups"></div>
+        <button class="index-link clear-all-filters" id="clear-filters" type="button" data-i18n="clearFilters">Clear all filters</button>
+      </section>
+
+      <section class="drawer-section" aria-labelledby="drawer-categories-heading">
+        <div class="drawer-section__title">
+          <span aria-hidden="true">02</span>
+          <h3 id="drawer-categories-heading" data-i18n="categories">Categories</h3>
+        </div>
+        <nav class="drawer-categories" id="drawer-categories" aria-label="Categories"></nav>
+      </section>
+
+      <section class="drawer-section" aria-labelledby="drawer-more-heading">
+        <div class="drawer-section__title">
+          <span aria-hidden="true">03</span>
+          <h3 id="drawer-more-heading" data-i18n="more">More</h3>
+        </div>
+        <nav class="more-links" aria-label="More">
+          <a class="index-link" data-app-link="cooking-basics" data-i18n="cookingBasics">Cooking Basics</a>
+          <a class="index-link" data-app-link="prices" data-i18n="ingredientPrices">Ingredient Prices</a>
+          <a class="index-link" data-app-link="about" data-i18n="about">About</a>
+        </nav>
+      </section>
+
+      <section class="drawer-section" aria-labelledby="drawer-preferences-heading">
+        <div class="drawer-section__title">
+          <span aria-hidden="true">04</span>
+          <h3 id="drawer-preferences-heading" data-i18n="preferences">Preferences</h3>
+        </div>
+        <div class="preference-stack">
+          <fieldset>
+            <legend data-i18n="language">Language</legend>
+            <div class="segmented-control" id="language-control">
+              <button type="button" data-language="ro" aria-pressed="true">RO</button>
+              <button type="button" data-language="en" aria-pressed="false">EN</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend data-i18n="theme">Theme</legend>
+            <div class="segmented-control" id="theme-control">
+              <button type="button" data-theme-choice="light" aria-pressed="true" data-i18n="light">Light</button>
+              <button type="button" data-theme-choice="dark" aria-pressed="false" data-i18n="dark">Dark</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend data-i18n="textSize">Text size</legend>
+            <div class="segmented-control" id="text-control">
+              <button type="button" data-text-choice="normal" aria-pressed="true" data-i18n="normal">Normal</button>
+              <button type="button" data-text-choice="large" aria-pressed="false" data-i18n="large">Large</button>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+    </div>
+  </aside>
+
+  <noscript>
+    <p class="noscript">Please enable JavaScript to browse the recipe catalogue. / Activează JavaScript pentru a vedea rețetele.</p>
+  </noscript>
+</body>
+</html>

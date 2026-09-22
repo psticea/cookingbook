@@ -1,0 +1,46 @@
+﻿{
+  "id": "proposal-02",
+  "name": "Tactile Depth",
+  "tagline": "A dark-first premium app shell where real recipe photography glows against layered near-black surfaces.",
+  "thesis": "Paul's Cookbook should feel like a funded, high-craft mobile product: compact controls, cinematic food imagery, precise metadata, and a floating side drawer that turns utility into something tactile. The design refuses the generic recipe-site card wall by treating every recipe as a polished object and every control as part of a browsing cockpit.",
+  "palette": {
+    "dark": {
+      "background": "#080706",
+      "surface": "#17120e",
+      "surfaceRaised": "#211914",
+      "ink": "#fff8ee",
+      "muted": "#c8b7a3",
+      "accent": "#e79d49",
+      "accentGlow": "#ffbd6e"
+    },
+    "light": {
+      "background": "#f4eee5",
+      "surface": "#fffdf8",
+      "surfaceRaised": "#f2e5d4",
+      "ink": "#211711",
+      "muted": "#6d5748",
+      "accent": "#b96520",
+      "accentGlow": "#d98432"
+    }
+  },
+  "typography": {
+    "display": "Fraunces if present, Georgia fallback",
+    "ui": "Inter if present, system UI fallback",
+    "numeric": "JetBrains Mono if present, SFMono/Consolas fallback",
+    "scale": "16px base with a 12.5% large-text preference; card titles never below 16px, metadata never below 13px, micro labels never below 11px"
+  },
+  "moves": [
+    "Dark-first layered surfaces with one committed copper/amber accent and restrained optical glow.",
+    "A sticky morphing control dock combines search, live count, sort direction, and category grouping without stealing browse space.",
+    "Recipe cards behave like tactile objects: rounded, lifted, image-led, with no floating black metadata chips from the incumbent design.",
+    "Prep time and price use inline tabular numerals with quieter units and explicit partial/unavailable price states.",
+    "The side menu is a floating panel with elevated depth, focus trapping, body scroll lock, tactile filter chips, category jumps, more links, and preferences.",
+    "Light mode is warm porcelain and copper with its own depth system rather than a naive dark inversion.",
+    "Empty state, focus rings, reduced motion, long Romanian titles, and 320px no-overflow behavior are designed as first-class seams."
+  ],
+  "tradeoffs": [
+    "The hero is intentionally atmospheric but compact; it uses real catalogue photos without adding editorial claims or recommendations.",
+    "The control dock stacks on narrow screens to preserve 44px touch targets and readable text instead of compressing controls into tiny icons.",
+    "Cards can vary in height because full recipe titles are never clipped; this preserves content integrity over masonry-perfect rows."
+  ]
+}

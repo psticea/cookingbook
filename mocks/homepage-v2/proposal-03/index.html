@@ -1,0 +1,179 @@
+<!doctype html>
+<!--
+DESIGN CONTRACT — PRECISION GRID
+Thesis: rigor is the luxury; the cookbook becomes a measured index, not a cozy feed.
+World: near-white / technical-black surfaces, hairline rules, tabular mono numerals, one electric cobalt accent.
+Structure: a fixed instrument header, explicit control strip, indexed category strata, and two-up recipe modules.
+Signature: prep minutes and RON values align like a beautiful data table beneath clean rectangular photos.
+Drawer: the preserved right-hand menu becomes a systematic index with numbered rows and crisp filter rectangles.
+States: RO/EN, light/dark, large text, empty results, keyboard focus, and reduced motion are designed as first-class states.
+Refusal: no shadows, no rounded pill aesthetic, no overlay chips, no decorative icons standing in for hierarchy.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Precision Grid — homepage redesign proposal for Paul's Cookbook.">
+  <title>Precision Grid — Paul's Cookbook</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="../shared/catalogue.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#results" data-copy="skipToRecipes">Skip to recipes</a>
+
+  <header class="site-header" data-site-header>
+    <a class="brand" href="#top" data-action="top" aria-label="Paul's Cookbook home">
+      <span class="brand-rule" aria-hidden="true"></span>
+      <span class="brand-text">Paul's Cookbook</span>
+    </a>
+
+    <div class="search-cell" role="search">
+      <label class="micro-label" for="search" data-copy="searchLabel">Search</label>
+      <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+    </div>
+
+    <button class="menu-button" type="button" data-action="open-menu" aria-haspopup="dialog" aria-controls="side-drawer" aria-expanded="false">
+      <span data-i18n="menu">Menu</span>
+      <span class="menu-glyph" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <main class="page-grid" id="main">
+    <section class="intro-panel" aria-labelledby="page-title">
+      <div class="intro-index" aria-hidden="true">PG/03</div>
+      <div>
+        <p class="system-note" data-copy="proposalLabel">Homepage proposal · Precision Grid</p>
+        <h1 id="page-title" data-copy="title">Recipe index engineered for repeat cooking.</h1>
+      </div>
+      <p class="intro-copy" data-copy="thesis">Thirty-three recipes, eight categories, no ornament beyond the grid. Filter, sort, and read the collection as a precise cooking system.</p>
+    </section>
+
+    <section class="controls-panel" aria-label="Recipe controls">
+      <div class="count-block">
+        <span class="micro-label" data-copy="matching">Matching</span>
+        <p id="result-count" class="result-count" aria-live="polite" aria-atomic="true">0</p>
+      </div>
+
+      <div class="active-block">
+        <span class="micro-label" data-copy="activeFilters">Active filters</span>
+        <div id="active-filters" class="active-filters"></div>
+      </div>
+
+      <button class="clear-button" type="button" data-action="clear-all" hidden>
+        <span data-i18n="clearFilters">Clear all filters</span>
+      </button>
+
+      <button class="group-toggle" type="button" role="switch" aria-checked="true" data-action="toggle-group">
+        <span class="switch-mark" aria-hidden="true"></span>
+        <span data-i18n="groupByCategories">Group by Categories</span>
+      </button>
+
+      <fieldset class="sort-fieldset">
+        <legend class="micro-label" data-i18n="sortBy">Sort By</legend>
+        <div class="sort-options" role="group" aria-label="Sort recipes">
+          <button type="button" class="sort-button" data-sort="name" aria-pressed="true">
+            <span data-i18n="sortByName">Name</span>
+            <span class="sort-direction" aria-hidden="true">↑</span>
+          </button>
+          <button type="button" class="sort-button" data-sort="time" aria-pressed="false">
+            <span data-i18n="sortByPrepTime">Time</span>
+            <span class="sort-direction" aria-hidden="true">↑</span>
+          </button>
+          <button type="button" class="sort-button" data-sort="price" aria-pressed="false">
+            <span data-i18n="sortByPrice">Price</span>
+            <span class="sort-direction" aria-hidden="true">↑</span>
+          </button>
+        </div>
+      </fieldset>
+      <p class="price-legend" data-copy="priceLegend">~ marks known subtotal pricing.</p>
+    </section>
+
+    <div id="results" class="results" tabindex="-1" aria-label="Recipe results"></div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Paul's Cookbook</span>
+    <span data-copy="footerNote">Static proposal using the real catalogue.</span>
+    <a href="#top" data-action="top" data-copy="backToTop">Back to top</a>
+  </footer>
+
+  <div class="drawer-backdrop" data-action="close-menu" hidden></div>
+  <aside id="side-drawer" class="side-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true">
+    <div class="drawer-head">
+      <div>
+        <p class="system-note">INDEX / CONTROL</p>
+        <h2 id="drawer-title" data-i18n="menu">Menu</h2>
+      </div>
+      <button class="icon-button" type="button" data-action="close-menu">
+        <span class="sr-only" data-i18n="close">Close</span>
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <section class="drawer-section" aria-labelledby="drawer-filters-title">
+        <div class="drawer-section-head">
+          <span class="section-number">01</span>
+          <h3 id="drawer-filters-title" data-i18n="filters">Filters</h3>
+          <button class="section-action" type="button" data-action="clear-filters" hidden data-i18n="clearAllFilters">Clear All Filters</button>
+        </div>
+        <div id="filter-groups" class="filter-groups"></div>
+      </section>
+
+      <section class="drawer-section" aria-labelledby="drawer-categories-title">
+        <div class="drawer-section-head">
+          <span class="section-number">02</span>
+          <h3 id="drawer-categories-title" data-i18n="categories">Categories</h3>
+          <span class="section-count">08</span>
+        </div>
+        <nav id="drawer-categories" class="drawer-categories" aria-label="Categories"></nav>
+      </section>
+
+      <section class="drawer-section" aria-labelledby="drawer-more-title">
+        <div class="drawer-section-head">
+          <span class="section-number">03</span>
+          <h3 id="drawer-more-title" data-i18n="more">More</h3>
+        </div>
+        <nav class="more-links" aria-label="More pages">
+          <a data-route="cooking-basics" data-i18n="cookingBasics">Cooking Basics</a>
+          <a data-route="prices" data-i18n="ingredientPrices">Ingredient Prices</a>
+          <a data-route="about" data-i18n="about">About</a>
+        </nav>
+      </section>
+
+      <section class="drawer-section" aria-labelledby="drawer-preferences-title">
+        <div class="drawer-section-head">
+          <span class="section-number">04</span>
+          <h3 id="drawer-preferences-title" data-i18n="preferences">Preferences</h3>
+        </div>
+
+        <div class="preference-row">
+          <span data-i18n="language">Language</span>
+          <div class="segmented" role="group" aria-label="Language">
+            <button type="button" data-pref="lang" data-value="ro">RO</button>
+            <button type="button" data-pref="lang" data-value="en">EN</button>
+          </div>
+        </div>
+        <div class="preference-row">
+          <span data-i18n="theme">Theme</span>
+          <div class="segmented" role="group" aria-label="Theme">
+            <button type="button" data-pref="theme" data-value="light" data-i18n="light">Light</button>
+            <button type="button" data-pref="theme" data-value="dark" data-i18n="dark">Dark</button>
+          </div>
+        </div>
+        <div class="preference-row">
+          <span data-i18n="textSize">Text size</span>
+          <div class="segmented" role="group" aria-label="Text size">
+            <button type="button" data-pref="size" data-value="normal" data-i18n="normal">Normal</button>
+            <button type="button" data-pref="size" data-value="large" data-i18n="large">Large</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </aside>
+
+  <noscript><p class="noscript">This static proposal needs JavaScript to render the cookbook catalogue.</p></noscript>
+</body>
+</html>

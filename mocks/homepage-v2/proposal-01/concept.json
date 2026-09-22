@@ -1,0 +1,40 @@
+{
+  "id": "proposal-01",
+  "name": "Editorial Gallery",
+  "tagline": "A printed cookbook opening spread translated into a calm, photo-led interface.",
+  "thesis": "Paul's Cookbook should feel like a carefully art-directed personal volume before it feels like software: the masthead carries the identity, chapter dividers pace the collection, and every recipe reads as a plated photograph with quiet typographic facts underneath.",
+  "palette": {
+    "light": {
+      "paper": "#f6efe3",
+      "plate": "#fffaf0",
+      "ink": "#15130f",
+      "mutedInk": "#625b50",
+      "accent": "#283f8f"
+    },
+    "dark": {
+      "paper": "#0d0d10",
+      "plate": "#17171d",
+      "ink": "#f4eddf",
+      "mutedInk": "#c2b7a5",
+      "accent": "#9fb6ff"
+    }
+  },
+  "typography": {
+    "display": "Fraunces with Georgia fallback for the oversized masthead and chapter openers",
+    "ui": "Inter/system-ui for controls and readable bilingual body copy",
+    "data": "JetBrains Mono/ui-monospace for numerals, counts, prices, and index labels"
+  },
+  "moves": [
+    "Treat the first viewport as a masthead spread: huge serif wordmark, quiet caption, and a single underlined search line.",
+    "Render category sections as cookbook chapters with oversized numerals, hairline rules, large names, and tracked recipe counts.",
+    "Make each card a plate: framed photo first, then full untruncated title and hairline-separated prep/price data below the image.",
+    "Move filters, category navigation, more links, and preferences into a right-side Contents / Index drawer with printed-book rules.",
+    "Use one restrained ink-blue accent against paper and ink, with a black-stock dark theme rather than a simple inversion.",
+    "Keep motion minimal: slow ink fades and a measured drawer slide, disabled for reduced-motion users."
+  ],
+  "tradeoffs": [
+    "The two-column grid is intentionally preserved on desktop, which shows fewer recipes per row but keeps the signature gallery rhythm.",
+    "Metadata is typographic rather than iconographic, so the cards are calmer but require reading labels instead of scanning symbols.",
+    "The drawer centralizes secondary controls; this protects the masthead but adds one tap for filter discovery."
+  ]
+}

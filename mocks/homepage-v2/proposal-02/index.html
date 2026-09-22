@@ -1,0 +1,168 @@
+﻿<!doctype html>
+<html lang="en" data-theme="dark" data-text-size="normal">
+<head>
+  <!--
+    DESIGN CONTRACT — proposal-02 / Tactile Depth.
+    Thesis: a dark-first premium recipe app where near-black layers make food photography glow.
+    The default recipe-grid rhythm is exactly two-up on mobile; cards keep the same anatomy everywhere.
+    Controls condense into a compact sticky cockpit while browsing, never disappearing.
+    The drawer is a floating, elevated panel with tactile filter chips, categories, more links, and preferences.
+    Price and time metadata are precise inline typographic instruments with tabular numerals.
+    Light mode is warm porcelain and copper, not a simple inversion.
+    Motion is springy and restrained, with full reduced-motion respect.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A static homepage redesign mock for Paul's Cookbook.">
+  <title>Paul's Cookbook — Tactile Depth</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="../shared/catalogue.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#recipes-root">Skip to recipes</a>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <button class="brand-button" type="button" id="brand-home" aria-label="Paul's Cookbook home">
+      <span class="brand-orb" aria-hidden="true">PC</span>
+      <span class="brand-copy"><strong>Paul's Cookbook</strong><span data-copy="tagline">No ads. Just dinner.</span></span>
+    </button>
+    <button class="menu-button" type="button" id="open-drawer" aria-controls="side-drawer" aria-expanded="false">
+      <span data-i18n="menu">Menu</span>
+      <span class="menu-glyph" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="micro" data-copy="surfaceLabel">Proposal 02 · Tactile Depth</p>
+        <h1 id="hero-title" data-copy="heroTitle">A cinematic shelf for 33 real recipes.</h1>
+        <p class="hero-text" data-copy="heroText">Dark surfaces, warm copper controls, glowing photography, and a browsing cockpit that stays close without stealing the meal.</p>
+      </div>
+      <div class="hero-slab" aria-hidden="true">
+        <div class="hero-photo-stack" id="hero-photo-stack"></div>
+        <div class="hero-stat"><span id="hero-count">33</span><small data-i18n="recipes">Recipes</small></div>
+      </div>
+    </section>
+
+    <section class="control-dock" id="control-dock" aria-label="Recipe controls">
+      <div class="search-shell">
+        <label class="sr-only" for="recipe-search" data-copy="searchLabel">Search recipes by title</label>
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-4.6-4.6m2.1-5.15a7.25 7.25 0 1 1-14.5 0 7.25 7.25 0 0 1 14.5 0Z"/></svg>
+        <input id="recipe-search" type="search" autocomplete="off" spellcheck="false" placeholder="Search recipes">
+        <button class="icon-button" type="button" id="clear-search" data-copy-aria="clearSearch" aria-label="Clear search" hidden>×</button>
+      </div>
+
+      <div class="result-capsule" id="result-count" role="status" aria-live="polite" aria-atomic="true"></div>
+
+      <div class="sort-cluster" role="group" aria-label="Sort recipes" id="sort-cluster">
+        <button type="button" class="sort-chip" data-sort-field="name" aria-pressed="true"><span data-i18n="sortByName">Name</span><b aria-hidden="true">↑</b></button>
+        <button type="button" class="sort-chip" data-sort-field="minutes" aria-pressed="false"><span data-i18n="sortByPrepTime">Time</span><b aria-hidden="true">↑</b></button>
+        <button type="button" class="sort-chip" data-sort-field="price" aria-pressed="false"><span data-i18n="sortByPrice">Price</span><b aria-hidden="true">↑</b></button>
+      </div>
+
+      <button class="group-toggle" type="button" id="group-toggle" role="switch" aria-checked="true">
+        <span class="toggle-rail" aria-hidden="true"><i></i></span>
+        <span data-i18n="groupByCategories">Group by Categories</span>
+      </button>
+    </section>
+    <p class="price-legend" id="price-legend" data-copy="priceLegend">~ marks a known subtotal; — means cost unavailable.</p>
+
+    <section class="active-strip" id="active-strip" aria-label="Active filters" hidden></section>
+
+    <div class="recipes-root" id="recipes-root" tabindex="-1">
+      <div id="recipe-results"></div>
+      <section class="empty-state" id="empty-state" hidden>
+        <div class="empty-glow" aria-hidden="true"></div>
+        <p class="micro" data-i18n="noRecipesFound">No recipes found</p>
+        <h2 data-i18n="pantryEmpty">Looks like the pantry is empty!</h2>
+        <p data-i18n="pantryEmptyMessage">We couldn't find any recipes matching your current filters or search.</p>
+        <button class="primary-button" type="button" id="empty-clear" data-i18n="clearFilters">Clear all filters</button>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Paul's Cookbook</span>
+    <span data-copy="footerText">Built as a static design mock from the real catalogue.</span>
+    <a href="#top" data-copy="backToTop">Back to top</a>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <aside class="side-drawer" id="side-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true" tabindex="-1">
+    <div class="drawer-header">
+      <div>
+        <p class="micro" data-copy="drawerKicker">Control surface</p>
+        <h2 id="drawer-title" data-i18n="menu">Menu</h2>
+      </div>
+      <button class="icon-button close-button" type="button" id="close-drawer" data-i18n-aria="close" aria-label="Close">×</button>
+    </div>
+
+    <div class="drawer-scroll">
+      <section class="drawer-card filter-card" aria-labelledby="filters-title">
+        <div class="drawer-card-head">
+          <div>
+            <p class="micro" data-copy="selectedCount" id="selected-filter-count">0 selected</p>
+            <h3 id="filters-title" data-i18n="filters">Filters</h3>
+          </div>
+          <button class="text-button" type="button" id="drawer-clear-filters" data-i18n="clearAllFilters">Clear All Filters</button>
+        </div>
+        <div class="filter-groups" id="filter-groups"></div>
+      </section>
+
+      <section class="drawer-card" aria-labelledby="categories-title">
+        <div class="drawer-card-head">
+          <div>
+            <p class="micro" data-copy="jumpLabel">Jump to section</p>
+            <h3 id="categories-title" data-i18n="categories">Categories</h3>
+          </div>
+        </div>
+        <nav class="drawer-list" id="category-list" aria-label="Categories"></nav>
+      </section>
+
+      <section class="drawer-card" aria-labelledby="more-title">
+        <div class="drawer-card-head">
+          <div>
+            <p class="micro" data-copy="moreLabel">Reference</p>
+            <h3 id="more-title" data-i18n="more">More</h3>
+          </div>
+        </div>
+        <nav class="drawer-list more-list" id="more-list" aria-label="More links"></nav>
+      </section>
+
+      <section class="drawer-card preferences-card" aria-labelledby="prefs-title">
+        <div class="drawer-card-head">
+          <div>
+            <p class="micro" data-copy="prefsLabel">Make it yours</p>
+            <h3 id="prefs-title" data-i18n="preferences">Preferences</h3>
+          </div>
+        </div>
+        <div class="preference-row">
+          <span data-i18n="language">Language</span>
+          <div class="segmented" id="language-toggle" role="group" aria-label="Language">
+            <button type="button" data-lang="ro" aria-pressed="false">RO</button>
+            <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          </div>
+        </div>
+        <div class="preference-row">
+          <span data-i18n="theme">Theme</span>
+          <div class="segmented" id="theme-toggle" role="group" aria-label="Theme">
+            <button type="button" data-theme="dark" aria-pressed="true" data-i18n="dark">Dark</button>
+            <button type="button" data-theme="light" aria-pressed="false" data-i18n="light">Light</button>
+          </div>
+        </div>
+        <div class="preference-row">
+          <span data-i18n="textSize">Text size</span>
+          <div class="segmented" id="text-toggle" role="group" aria-label="Text size">
+            <button type="button" data-text="normal" aria-pressed="true" data-i18n="normal">Normal</button>
+            <button type="button" data-text="large" aria-pressed="false" data-i18n="large">Large</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </aside>
+</body>
+</html>

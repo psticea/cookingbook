@@ -1,0 +1,115 @@
+<!doctype html>
+<!--
+Compare page for the homepage-v2 proposal round.
+Lists the three independent design proposals with their thesis, palette and
+tradeoffs. Regenerate concepts.js with: node mocks/homepage-v2/shared/assemble.mjs
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Paul's Cookbook — homepage v2 proposals</title>
+  <script src="concepts.js" defer></script>
+  <style>
+    :root {
+      --paper: #f4f2ee;
+      --ink: #16161a;
+      --muted: #6c6c76;
+      --rule: #dedad2;
+      --card: #ffffff;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --paper: #111114; --ink: #f2f2f5; --muted: #9a9aa4; --rule: #2a2a31; --card: #1a1a1f; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 48px 24px 96px;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; }
+    header { border-bottom: 1px solid var(--rule); padding-bottom: 28px; margin-bottom: 40px; }
+    h1 { font: 600 30px/1.15 Georgia, "Times New Roman", serif; margin: 0 0 10px; letter-spacing: -0.01em; }
+    .lede { margin: 0; color: var(--muted); max-width: 62ch; }
+    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    article {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .idx { font: 600 11px/1 ui-monospace, monospace; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    h2 { font: 600 22px/1.2 Georgia, "Times New Roman", serif; margin: 0; }
+    .tagline { margin: 0; color: var(--muted); }
+    .thesis { margin: 0; }
+    .swatches { display: flex; gap: 6px; flex-wrap: wrap; }
+    .swatch { width: 26px; height: 26px; border-radius: 6px; border: 1px solid var(--rule); }
+    ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    li + li { margin-top: 4px; }
+    .open {
+      margin-top: auto;
+      display: inline-flex; align-items: center; gap: 8px;
+      align-self: flex-start;
+      min-height: 44px; padding: 0 18px;
+      border-radius: 999px;
+      background: var(--ink); color: var(--paper);
+      text-decoration: none; font-weight: 600;
+    }
+    .open:hover { opacity: .88; }
+    .note { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--rule); color: var(--muted); }
+    code { font-family: ui-monospace, monospace; font-size: 0.875em; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Homepage v2 — three proposals</h1>
+      <p class="lede">
+        Three independent redesigns of the Paul's Cookbook homepage. All three keep the
+        two-column recipe grid, the current type scale, the right-hand side menu, and every
+        piece of information the live homepage exposes. Open each one and resize to
+        390&nbsp;×&nbsp;844 to judge it the way it will be used.
+      </p>
+    </header>
+    <div class="grid" id="grid"></div>
+    <p class="note">
+      Data comes from the real catalogue via <code>shared/catalogue.js</code>.
+      Regenerate it with <code>node mocks/homepage-v2/shared/prepare.mjs</code>.
+      See <code>BRIEF.md</code> for the design contract.
+    </p>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const concepts = window.COOKBOOK_CONCEPTS || [];
+      const grid = document.getElementById('grid');
+      if (!concepts.length) {
+        grid.innerHTML = '<p>No concepts assembled yet. Run <code>node mocks/homepage-v2/shared/assemble.mjs</code>.</p>';
+        return;
+      }
+      grid.innerHTML = concepts.map((concept, index) => {
+        const palette = Object.values(concept.palette?.light || {}).slice(0, 6);
+        const swatches = palette.map(value => `<span class="swatch" style="background:${value}"></span>`).join('');
+        const moves = (concept.moves || []).slice(0, 4).map(move => `<li>${move}</li>`).join('');
+        return `
+          <article>
+            <span class="idx">Proposal ${String(index + 1).padStart(2, '0')}</span>
+            <h2>${concept.name || concept.id}</h2>
+            <p class="tagline">${concept.tagline || ''}</p>
+            <div class="swatches">${swatches}</div>
+            <p class="thesis">${concept.thesis || ''}</p>
+            <ul>${moves}</ul>
+            <a class="open" href="./${concept.folder}/index.html">Open proposal <span aria-hidden="true">↗</span></a>
+          </article>`;
+      }).join('');
+    });
+  </script>
+</body>
+</html>
