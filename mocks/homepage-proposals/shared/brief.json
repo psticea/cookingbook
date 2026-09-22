@@ -1,0 +1,24 @@
+{
+  "product": "Paul's Cookbook",
+  "platform": "responsive web",
+  "purpose": "A personal bilingual Romanian/English recipe collection.",
+  "audience": "The owner and returning visitors choosing what to cook.",
+  "confirmedByUser": {
+    "goal": "Three serious, distinct homepage design proposals to inspect before choosing an implementation.",
+    "qualities": ["modern", "minimalist", "elegant", "high-value UI"],
+    "preserve": "All existing homepage information and capabilities must remain accessible.",
+    "cardPrice": "A compact money symbol and number representing cost per portion; never long text over photographs.",
+    "scope": "Standalone mockups only; no changes to application source code."
+  },
+  "inventory": {
+    "recipes": 33,
+    "categories": 8,
+    "languages": ["ro", "en"],
+    "features": ["search", "category browsing", "meat-type filters", "cooking-method filters", "ingredient filters", "name/time/price sorting in both directions", "category grouping toggle", "result count", "Romanian/English", "light/dark appearance", "normal/large text", "Cooking Basics link", "Ingredient Prices link", "About link"]
+  },
+  "designFreedom": "Keep the product name, recipe facts, photography and functionality. Reconsider all composition, typography, spacing, proportions, materials, navigation, control presentation and color. This is a redesign exploration, not incumbent-style refinement.",
+  "avoid": ["massive promotional hero", "invented reviews or star ratings", "invented nutrition or timing claims", "fake favorites or accounts presented as existing functionality", "explanatory price paragraphs on photos", "three proposals that are merely palette variations", "production file edits"],
+  "contentContract": "Shared catalogue is derived from the current recipe JSON and pricing implementation. Price status must remain discoverable in a tooltip or accessible label; available numeric prices are always per serving. Timing is current source metadata, not a newly verified readiness claim. Label prototypes explicitly.",
+  "evaluation": ["first viewport usefulness", "scanability with long Romanian names", "photography and typographic craft", "information density without clutter", "responsive behavior at 390px and 1440px", "keyboard-visible focus", "functional controls", "all 33 recipes available"],
+  "unresolved": ["final visual direction", "whether any proposed interaction should later replace production behavior"]
+}

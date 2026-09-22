@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homepage design proposals · Paul's Cookbook</title>
+  <meta name="description" content="Three independent, interactive homepage design proposals for Paul's Cookbook.">
+  <style>
+    :root { color-scheme: light; font-family: "Segoe UI", Arial, sans-serif; color: #202724; background: #f5f6f3; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: inherit; text-underline-offset: .25em; }
+    button { font: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #315949; outline-offset: 5px; }
+    .skip { position: absolute; left: 20px; top: -80px; background: white; padding: 14px; z-index: 2; }
+    .skip:focus { top: 16px; }
+    .wrap { max-width: 1560px; margin: auto; padding: 0 44px; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-block: 28px; border-bottom: 1px solid #d7dcd5; }
+    .brand { font-weight: 700; letter-spacing: -.035em; font-size: 21px; }
+    .context { font-size: 13px; color: #536157; text-align: right; }
+    .intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 70px; align-items: end; padding: 64px 0 42px; }
+    h1 { font-size: clamp(38px, 4.7vw, 70px); letter-spacing: -.055em; line-height: 1.03; font-weight: 550; margin: 0; max-width: 17ch; }
+    .intro p { font-size: 17px; line-height: 1.8; margin: 0; color: #4f5b52; max-width: 56ch; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 25px 0; }
+    .toolbar p { color: #536157; font-size: 13px; margin: 0; }
+    .views { display: inline-flex; gap: 4px; padding: 4px; background: #e7ebe4; border-radius: 8px; }
+    .views button { min-height: 40px; padding: 8px 17px; border: 0; background: transparent; color: #435046; border-radius: 5px; cursor: pointer; }
+    .views button[aria-pressed="true"] { background: white; color: #202724; box-shadow: 0 1px 3px #20302615; }
+    .proposals { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 30px; }
+    article { min-width: 0; }
+    .preview { display: block; background: #e7ebe4; border: 1px solid #d7dcd5; border-radius: 8px; overflow: hidden; aspect-ratio: 1440/1050; }
+    .preview img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: filter .18s; }
+    .preview:hover img { filter: brightness(.96); }
+    .mobile .preview { aspect-ratio: 1440/1050; padding: 12px; }
+    .mobile .preview img { object-fit: contain; }
+    .number { margin: 23px 0 10px; color: #536157; font-size: 13px; font-variant-numeric: tabular-nums; }
+    h2 { font-size: clamp(24px,2.2vw,33px); font-weight: 550; letter-spacing: -.035em; margin: 0 0 13px; }
+    .thesis { min-height: 82px; font-size: 15px; line-height: 1.75; color: #4f5b52; margin: 0 0 18px; }
+    .choices { padding: 0; list-style: none; margin: 0 0 20px; }
+    .choices li { border-top: 1px solid #d7dcd5; padding: 10px 0; font-size: 13px; line-height: 1.55; color: #435046; }
+    .open { display: inline-flex; align-items: center; justify-content: space-between; gap: 25px; min-height: 48px; padding: 12px 18px; border: 1px solid #243c30; text-decoration: none; border-radius: 5px; font-size: 14px; font-weight: 650; background: #243c30; color: white; }
+    .open:hover { background: #355442; }
+    .tradeoff { color: #536157; font-size: 13px; line-height: 1.65; margin: 18px 0 0; }
+    .scope { margin-top: 64px; padding: 36px 0; border-top: 1px solid #bfc9bf; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+    h3 { font-size: 18px; font-weight: 600; margin: 0 0 14px; }
+    .scope p { font-size: 14px; line-height: 1.85; color: #536157; margin: 0 0 12px; }
+    .scope ul { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 22px; padding-left: 18px; font-size: 14px; color: #435046; line-height: 1.7; }
+    footer { border-top: 1px solid #d7dcd5; padding: 22px 0 38px; font-size: 12px; color: #536157; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media (max-width:1000px) { .wrap { padding-inline: 25px; } .proposals { gap: 20px; } .intro { gap: 30px; } .thesis { min-height: 110px; } }
+    @media (max-width:760px) {
+      .wrap { padding-inline:20px; } header { padding-block: 20px; } .brand { font-size: 18px; } .context { font-size: 11px; max-width: 110px; }
+      .intro { grid-template-columns: 1fr; padding-top: 38px; gap: 22px; } .intro p { font-size: 15px; } h1 { max-width: 20ch; }
+      .toolbar { flex-wrap: wrap; } .proposals { grid-template-columns:1fr; gap: 45px; } .thesis { min-height:0; } h2 { font-size: 30px; }
+      .scope { grid-template-columns:1fr; gap:25px; margin-top:45px; } .scope ul { grid-template-columns:1fr; }
+    }
+    @media (prefers-reduced-motion:reduce) { * { transition:none !important; } }
+  </style>
+</head>
+<body>
+  <a href="#proposals" class="skip">Skip to proposals</a>
+  <div class="wrap">
+    <header>
+      <div class="brand">Paul's Cookbook</div>
+      <div class="context">Homepage design exploration<br>22 September 2026</div>
+    </header>
+    <main>
+      <section class="intro" aria-label="About these proposals">
+        <h1>A more considered<br>way to choose dinner.</h1>
+        <p>Three independent homepage designs, built around your actual recipe collection. Each explores a different way to balance beautiful food photography, effortless browsing, and the controls you already use.</p>
+      </section>
+      <div class="toolbar">
+        <div class="views" role="group" aria-label="Screenshot format">
+          <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
+        </div>
+        <p>Open each interactive proposal to search, filter and change preferences.</p>
+      </div>
+      <section id="proposals" class="proposals" aria-label="Three homepage proposals">
+        <article data-proposal="proposal-01">
+          <a class="preview" href="proposal-01/index.html" aria-label="Open design proposal 1">
+            <img src="proposal-01/desktop.png" alt="First homepage proposal, desktop preview" width="1440" height="1050">
+          </a>
+          <p class="number">01</p>
+          <h2>Proposal one</h2>
+          <p class="thesis"></p>
+          <ul class="choices"></ul>
+          <a class="open" href="proposal-01/index.html">Explore proposal <span aria-hidden="true">↗</span></a>
+          <p class="tradeoff"></p>
+        </article>
+        <article data-proposal="proposal-02">
+          <a class="preview" href="proposal-02/index.html" aria-label="Open design proposal 2">
+            <img src="proposal-02/desktop.png" alt="Second homepage proposal, desktop preview" width="1440" height="1050">
+          </a>
+          <p class="number">02</p>
+          <h2>Proposal two</h2>
+          <p class="thesis"></p>
+          <ul class="choices"></ul>
+          <a class="open" href="proposal-02/index.html">Explore proposal <span aria-hidden="true">↗</span></a>
+          <p class="tradeoff"></p>
+        </article>
+        <article data-proposal="proposal-03">
+          <a class="preview" href="proposal-03/index.html" aria-label="Open design proposal 3">
+            <img src="proposal-03/desktop.png" alt="Third homepage proposal, desktop preview" width="1440" height="1050">
+          </a>
+          <p class="number">03</p>
+          <h2>Proposal three</h2>
+          <p class="thesis"></p>
+          <ul class="choices"></ul>
+          <a class="open" href="proposal-03/index.html">Explore proposal <span aria-hidden="true">↗</span></a>
+          <p class="tradeoff"></p>
+        </article>
+      </section>
+      <section class="scope" aria-label="Comparison guidance">
+        <div>
+          <h3>The same cookbook in every proposal</h3>
+          <ul>
+            <li>All 33 recipes and eight categories</li>
+            <li>Actual food photographs</li>
+            <li>Search and ingredient filters</li>
+            <li>Name, time and price sorting</li>
+            <li>Compact cost per portion</li>
+            <li>Romanian and English</li>
+            <li>Light/dark and larger text</li>
+            <li>Basics, prices and About links</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What to look for</h3>
+          <p>Which one makes choosing a recipe feel easiest? Compare the first screen, the density of information, the photography, and how much attention the controls demand. Try a search, a filter, Romanian text, and a narrower window.</p>
+          <p>These are standalone HTML mockups, not changes to the application. Recipe and reference links open the existing local website in another tab; browsing and preferences work within each prototype. Cost and time values come from the current catalogue, including its existing estimate limitations.</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>Independent design proposals · Ready for comparison, not production deployment.</span>
+      <span>All files are contained in <strong>mocks/homepage-proposals</strong>.</span>
+    </footer>
+  </div>
+  <script src="concepts.js"></script>
+  <script>
+    const concepts = window.HOMEPAGE_CONCEPTS || [];
+    for (const [index, concept] of concepts.entries()) {
+      const article = document.querySelectorAll('[data-proposal]')[index];
+      article.querySelector('h2').textContent = concept.name;
+      article.querySelector('.thesis').textContent = concept.thesis;
+      article.querySelector('.tradeoff').textContent = `Tradeoff: ${concept.tradeoff}`;
+      article.querySelector('.preview').setAttribute('aria-label', `Open ${concept.name}`);
+      article.querySelector('.open').firstChild.textContent = `Explore ${concept.name} `;
+      for (const choice of concept.distinctiveChoices) {
+        const li = document.createElement('li');
+        li.textContent = choice;
+        article.querySelector('.choices').append(li);
+      }
+    }
+    document.querySelectorAll('[data-view]').forEach(button => {
+      button.addEventListener('click', () => {
+        const view = button.dataset.view;
+        document.querySelectorAll('[data-view]').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
+        document.querySelector('.proposals').classList.toggle('mobile', view === 'mobile');
+        document.querySelectorAll('[data-proposal]').forEach(article => {
+          const image = article.querySelector('img');
+          image.src = `${article.dataset.proposal}/${view}.png`;
+          image.alt = `${article.querySelector('h2').textContent}, ${view} preview`;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "Counterspace",
+  "thesis": "Make choosing dinner feel like opening a cookbook across the kitchen counter: a wide, calm browsing table where generous food photographs and readable recipe details meet in paired spreads, not a wall of cards.",
+  "distinctiveChoices": [
+    "A full-width workbench and horizontal category navigation replace the sidebar entirely, keeping the whole browsing surface available to food.",
+    "Desktop recipes form mirrored two-up spreads: photographs on the outer edges, full serif titles and aligned practical details facing inward, with fine rules instead of card containers.",
+    "Porcelain white, charcoal, and mulberry support a restrained editorial identity; mobile becomes a deliberate photo-and-text list, with a stacked layout when larger text needs room."
+  ],
+  "tradeoff": "The generous two-up spreads show fewer recipes per desktop screen than a dense tile grid. Horizontal categories require scrolling on small screens, while the readable mobile rows prioritize comparison and complete titles over maximum photo size."
+}

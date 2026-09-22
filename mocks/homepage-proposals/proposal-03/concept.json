@@ -1,0 +1,10 @@
+{
+  "name": "Open Index",
+  "thesis": "Treat a returning visitor’s cookbook as a working collection: a photographic index to scan, a category spine to navigate, and one open page to inspect before cooking.",
+  "distinctiveChoices": [
+    "An indexed recipe list and generous live preview replace both the marketing hero and the repeated-card wall.",
+    "A numbered collection spine becomes a compact selector on mobile; photograph buttons preview while recipe titles always open the source.",
+    "Cool white, graphite, fine rules, systematic typography, and one vermilion accent create an editorial identity without decorative surfaces."
+  ],
+  "tradeoff": "The split view privileges recognition and focused comparison over seeing many large photographs at once. On narrow screens, an explicit preview dialog replaces the persistent open page."
+}

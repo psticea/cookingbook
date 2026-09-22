@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-text="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="An independent homepage design proposal for Paul's Cookbook.">
+  <title>Paul’s Cookbook — The Kitchen Index</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="../shared/catalogue.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+<!--
+The Kitchen Index treats the cookbook as a working photographic folio, not a food blog.
+Cool paper, ink, and a single cobalt accent frame the real food photography. A compact
+wordmark and a numbered category index establish the editorial rhythm; uncropped text,
+straight image edges, generous gutters, and fine rules keep the collection calm. The first
+viewport contains search, every category, sorting, grouping, and complete recipe choices,
+without a promotional hero. Filters open in place. On small screens the index becomes a
+horizontal browsing rail, while the photographs and titles retain useful scale. Photography
+carries the color; the interface stays quiet. No invented recommendations or social proof.
+-->
+<a class="skip-link" href="#collection" data-i18n="skip">Skip to recipes</a>
+<div class="proposal-strip">
+  <span data-i18n="proposal">Design proposal 02</span>
+  <a href="../index.html"><span data-i18n="compare">Compare designs</span> <span aria-hidden="true">↗</span></a>
+</div>
+<header class="site-header">
+  <a class="brand" href="./index.html" aria-label="Paul's Cookbook — home">
+    <span class="brand-mark" aria-hidden="true"><span>P</span><span>C</span></span>
+    <span>Paul’s<br>Cookbook<span class="brand-dot">.</span></span>
+  </a>
+  <nav class="utility-nav" aria-label="Cookbook resources" id="resource-nav">
+    <a data-route="cooking-basics" data-i18n="basics">Cooking Basics</a>
+    <a data-route="prices" data-i18n="prices">Ingredient Prices</a>
+    <a data-route="about" data-i18n="about">About</a>
+  </nav>
+  <div class="header-controls">
+    <div class="language-control" role="group" aria-label="Language" id="language-control">
+      <button type="button" data-language="en" aria-pressed="true" lang="en">EN</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-language="ro" aria-pressed="false" lang="ro">RO</button>
+    </div>
+    <details class="display-settings" id="display-settings">
+      <summary aria-label="Display settings" id="display-summary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v16"/><path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor" stroke="none"/></svg>
+        <span data-i18n="display">Display</span>
+      </summary>
+      <div class="settings-panel">
+        <p class="eyebrow" data-i18n="appearance">Appearance</p>
+        <div class="segmented" role="group" id="theme-control" aria-label="Color theme">
+          <button type="button" data-theme-choice="light" aria-pressed="true" data-i18n="light">Light</button>
+          <button type="button" data-theme-choice="dark" aria-pressed="false" data-i18n="dark">Dark</button>
+        </div>
+        <p class="eyebrow" data-i18n="textSize">Text size</p>
+        <div class="segmented" role="group" id="text-control" aria-label="Text size">
+          <button type="button" data-text-choice="normal" aria-pressed="true" data-i18n="normal">Normal</button>
+          <button type="button" data-text-choice="large" aria-pressed="false" data-i18n="large">Large</button>
+        </div>
+      </div>
+    </details>
+  </div>
+</header>
+<main class="workspace" id="main">
+  <aside class="index-panel" aria-labelledby="browse-title">
+    <div class="index-heading"><h2 class="eyebrow" id="browse-title" data-i18n="browse">The index</h2><span class="index-count" aria-hidden="true">01—08</span></div>
+    <nav class="category-nav" id="category-nav" aria-label="Recipe categories"></nav>
+    <div class="index-note">
+      <span class="index-note-mark" aria-hidden="true">↳</span>
+      <p data-i18n="indexNote">Good food starts with a little inspiration.</p>
+      <span class="tiny-label" data-i18n="personal">A personal recipe collection</span>
+    </div>
+  </aside>
+  <section class="collection" id="collection" aria-labelledby="collection-title" tabindex="-1">
+    <div class="collection-heading">
+      <div><p class="eyebrow" data-i18n="collectionEyebrow">Paul’s Cookbook / Recipes</p><h1 id="collection-title" data-i18n="collectionTitle">The collection<span class="heading-dot">.</span></h1></div>
+      <span class="collection-total" id="collection-total">33 recipes<br>8 categories</span>
+    </div>
+    <div class="search-row">
+      <div class="search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+        <label class="sr-only" for="search" data-i18n="searchLabel">Search recipes and ingredients</label>
+        <input id="search" type="search" autocomplete="off" spellcheck="false" placeholder="A dish, an ingredient…">
+        <button class="clear-search icon-button" id="clear-search" type="button" aria-label="Clear search" hidden>×</button>
+      </div>
+      <button class="filter-toggle" id="filter-toggle" type="button" aria-controls="filter-panel" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 17h16"/><path d="M8 4v6m8 4v6" stroke-width="3"/></svg>
+        <span data-i18n="filters">Filters</span><span class="filter-count" id="filter-count" hidden>0</span>
+        <span class="filter-chevron" aria-hidden="true">+</span>
+      </button>
+    </div>
+    <section class="filter-panel" id="filter-panel" aria-label="Filter recipes" hidden>
+      <div class="filter-panel-heading"><p class="eyebrow" data-i18n="refine">Refine your collection</p><button type="button" class="text-button" id="clear-filters" data-i18n="clearFilters">Clear filters</button></div>
+      <p class="filter-help" data-i18n="filterHelp">Match any choice within a group, and every selected group.</p>
+      <div class="filter-groups" id="filter-groups"></div>
+    </section>
+    <div class="active-filters" id="active-filters" aria-label="Active filters" hidden></div>
+    <div class="collection-tools">
+      <div class="result-summary"><p class="result-count" id="result-count" role="status" aria-live="polite" aria-atomic="true"></p><span class="price-unit" data-i18n="priceUnit">RON / serving</span></div>
+      <div class="view-controls">
+        <label class="group-control" for="grouped"><input id="grouped" type="checkbox"><span class="switch-track" aria-hidden="true"></span><span data-i18n="group">Group by category</span></label>
+        <div class="sort-control"><label for="sort" data-i18n="sort">Sort</label><select id="sort"></select></div>
+      </div>
+    </div>
+    <div class="recipe-results" id="recipe-results"></div>
+    <div class="empty-state" id="empty-state" hidden>
+      <span class="empty-mark" aria-hidden="true">∅</span>
+      <h2 data-i18n="emptyTitle">Nothing on the menu. Yet.</h2>
+      <p data-i18n="emptyText">Try another ingredient or give your filters a little room.</p>
+      <button type="button" class="primary-button" id="empty-reset" data-i18n="resetAll">Reset search & filters</button>
+    </div>
+    <div class="collection-key">
+      <span class="price-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="1"/><circle cx="12" cy="12" r="3"/><path d="M6 12h1m10 0h1"/></svg><span data-i18n="priceKey">RON per serving · estimates may be partial</span></span>
+      <span data-i18n="timeKey">Times as listed in each recipe</span>
+    </div>
+  </section>
+</main>
+<footer class="site-footer"><span>Paul’s Cookbook<span class="brand-dot">.</span></span><span data-i18n="footerNote">A little less deciding. A little more cooking.</span><a href="#main"><span data-i18n="backTop">Back to top</span> <span aria-hidden="true">↑</span></a></footer>
+<noscript><p class="noscript">Enable JavaScript to browse the recipe catalogue and use the filters.</p></noscript>
+</body>
+</html>

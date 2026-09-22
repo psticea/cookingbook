@@ -25,8 +25,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
 
   const costLabel = recipeCost.status === 'complete' && recipeCost.pricePerServing !== null
     ? `${getTranslation('estimatedCost', language)}: ${formatPrice(recipeCost.pricePerServing, false)} ${getTranslation('perServing', language)}`
-    : recipeCost.status === 'partial' && recipeCost.totalCostRecipe !== null
-      ? `${getTranslation('partialEstimate', language)} · ${getTranslation('knownSubtotal', language)}: ${formatPrice(recipeCost.totalCostRecipe)}`
+    : recipeCost.status === 'partial' && recipeCost.pricePerServing !== null
+      ? `${getTranslation('partialEstimate', language)} · ${getTranslation('knownSubtotal', language)}: ${formatPrice(recipeCost.pricePerServing, false)} ${getTranslation('perServing', language)}`
       : getTranslation('costUnavailable', language);
 
   // Load a tiny .thumb.webp variant when available, fall back to the full JPG
@@ -69,10 +69,15 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
             ⏱ {recipe.prepTime}m
           </span>
           <span
-            className="inline-flex items-center gap-1 text-xs font-semibold text-white bg-black/45 backdrop-blur-sm rounded-full px-2 py-0.5"
+            className="inline-flex items-center gap-1 whitespace-nowrap text-xs font-semibold text-white bg-black/45 backdrop-blur-sm rounded-full px-2 py-0.5"
+            role="img"
+            aria-label={costLabel}
             title={costLabel}
           >
-            <span aria-hidden="true">💰</span> {costLabel}
+            <span aria-hidden="true">💰</span>
+            <span aria-hidden="true">
+              {recipeCost.pricePerServing !== null ? formatPrice(recipeCost.pricePerServing, false) : '—'}
+            </span>
           </span>
         </div>
       </div>

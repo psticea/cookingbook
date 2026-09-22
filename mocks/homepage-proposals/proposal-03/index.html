@@ -1,0 +1,91 @@
+<!doctype html>
+<!--
+DESIGN CONTRACT — OPEN INDEX
+A cookbook is a collection to use, not a product to be sold. This proposal replaces
+repeated cards and the promotional hero with a category spine, a photographic index,
+and one open recipe preview. Typography, fine rules, white space, and a single
+vermilion accent establish hierarchy. Every recipe stays in the index; photographs
+preview and recipe titles open the source. On small screens the spine becomes a
+collection selector and the preview becomes a native dialog. Search, filters, sorting,
+grouping, language, appearance, and text size remain real controls. The standalone
+prototype uses only the shared catalogue and its real photographs. No fabricated
+ratings, readiness claims, or collection counts. Prices are compact per-portion
+amounts, with completeness explained accessibly. All persistent keys are namespaced.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Open Index — an independent homepage design proposal for Paul's Cookbook.">
+  <title>Open Index — Paul's Cookbook</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23ad3c28%22%20stroke-width%3D%222%22%20d%3D%22M4%202v27h23M11%202v20h16M18%202v13h9%22%2F%3E%3C%2Fsvg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="../shared/catalogue.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#results" data-i18n="skip">Skip to recipes</a>
+  <div class="page-shell">
+    <div class="proposal-strip">
+      <span data-i18n="proposal">Design proposal 03 · Open Index</span>
+      <a href="../index.html"><span data-i18n="compare">Compare proposals</span> <span aria-hidden="true">↗</span></a>
+    </div>
+    <header class="masthead">
+      <a class="brand" href="./index.html" aria-label="Paul’s Cookbook — home">
+        <svg class="brand-mark" viewBox="0 0 30 34" fill="none" aria-hidden="true"><path d="M3 1v29h22M9 1v23h16M15 1v17h10" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Paul’s Cookbook<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a data-route="cooking-basics" data-i18n="basics">Cooking Basics</a>
+        <a data-route="prices" data-i18n="prices">Ingredient Prices</a>
+        <a data-route="about" data-i18n="about">About</a>
+      </nav>
+      <details class="preferences" id="preferences">
+        <summary><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M3 15h14M3 10h14" stroke="currentColor"/><path d="M7 3v4M13 8v4M8 13v4" stroke="currentColor" stroke-width="3"/></svg><span data-i18n="preferences" class="preferences-name">Preferences</span><span class="mobile-menu-label" data-i18n="menu">Menu</span></summary>
+        <div class="preferences-panel">
+          <h2 data-i18n="preferences">Preferences</h2>
+          <fieldset><legend data-i18n="language">Language</legend><div class="segments"><button type="button" data-language="en" lang="en">English</button><button type="button" data-language="ro" lang="ro">Română</button></div></fieldset>
+          <fieldset><legend data-i18n="appearance">Appearance</legend><div class="segments"><button type="button" data-theme="light" data-i18n="light">Light</button><button type="button" data-theme="dark" data-i18n="dark">Dark</button></div></fieldset>
+          <fieldset><legend data-i18n="textSize">Text size</legend><div class="segments"><button type="button" data-size="normal" data-i18n="normal">Normal</button><button type="button" data-size="large" data-i18n="large">Large</button></div></fieldset>
+          <nav class="mobile-nav" aria-label="Main navigation"><a data-route="cooking-basics" data-i18n="basics">Cooking Basics</a><a data-route="prices" data-i18n="prices">Ingredient Prices</a><a data-route="about" data-i18n="about">About</a></nav>
+        </div>
+      </details>
+    </header>
+    <main>
+      <div class="index-heading">
+        <div class="heading-type"><span class="eyebrow" data-i18n="personalCollection">A personal collection</span><h1><span data-i18n="index">Recipe index</span><sup id="collection-total">33</sup></h1></div>
+        <div class="search-tools">
+          <div class="search-field" role="search">
+            <label class="sr-only" for="search" data-i18n="searchLabel">Search recipe titles and ingredients</label>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+            <input id="search" type="search" autocomplete="off" placeholder="A dish, an ingredient…">
+            <button class="clear-search" id="clear-search" type="button" hidden aria-label="Clear search">×</button>
+          </div>
+          <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M5 10h10M8 15h4" stroke="currentColor" stroke-width="1.5"/></svg><span data-i18n="filters">Filters</span><span id="filter-total" hidden></span></button>
+        </div>
+      </div>
+      <section class="filter-panel" id="filter-panel" aria-labelledby="filter-title" hidden>
+        <div class="filter-intro"><div><h2 id="filter-title" data-i18n="refine">Narrow the collection</h2><p data-i18n="filterLogic">Any match within a group. All selected groups must match.</p></div><button class="text-button" id="close-filters" type="button" data-i18n="done">Done</button></div>
+        <div class="filter-groups" id="filter-groups"></div>
+      </section>
+      <div class="active-bar" id="active-bar" hidden><div id="active-filters"></div><button class="text-button reset-button" id="reset" type="button" data-i18n="reset">Reset all</button></div>
+      <div class="mobile-collection"><label for="category-select" data-i18n="collection">Collection</label><select id="category-select"></select></div>
+      <div class="workspace">
+        <aside class="collection-spine" aria-labelledby="collections-title"><div class="section-kicker"><h2 id="collections-title" data-i18n="collections">Collections</h2><span>08</span></div><nav id="categories" aria-label="Recipe collections"></nav><p class="spine-note" data-i18n="spineNote">A place for the dishes<br>you come back to.</p><div class="spine-mark" aria-hidden="true">P / C</div></aside>
+        <section class="results" id="results" aria-label="Recipe results" tabindex="-1">
+          <h2 class="sr-only" data-i18n="recipesHeading">Recipes</h2>
+          <div class="results-toolbar"><p class="result-count" id="result-count" role="status" aria-live="polite" aria-atomic="true"></p><div class="sort-control"><label class="sr-only" for="sort" data-i18n="sort">Sort recipes</label><select id="sort"></select></div></div>
+          <div class="index-options"><span data-i18n="previewHint">Photos preview. Titles open. ↗</span><label class="group-control"><input id="group-toggle" type="checkbox"><span data-i18n="group">Group</span></label></div>
+          <div id="recipe-list"></div>
+        </section>
+        <aside class="preview-pane" aria-labelledby="preview-heading"><div class="section-kicker preview-kicker"><h2 id="preview-heading" data-i18n="onThePage">On the page</h2><span id="preview-position"></span></div><div id="preview-content"></div></aside>
+      </div>
+    </main>
+    <footer class="page-footer"><span>Paul’s Cookbook <span aria-hidden="true">/</span> <span data-i18n="personalCollection">A personal collection</span></span><a href="#top"><span data-i18n="backToTop">Back to top</span> ↑</a></footer>
+  </div>
+  <dialog id="preview-dialog" aria-labelledby="dialog-recipe-title"><div class="dialog-toolbar"><span class="eyebrow" data-i18n="recipePreview">Recipe preview</span><button id="close-preview" class="close-preview" type="button" aria-label="Close preview">×</button></div><div id="dialog-content"></div></dialog>
+  <p class="sr-only" id="preview-status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This interactive proposal needs JavaScript to display the shared recipe catalogue.</p></noscript>
+</body>
+</html>
