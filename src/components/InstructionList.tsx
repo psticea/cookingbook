@@ -18,9 +18,9 @@ export const InstructionList: React.FC<InstructionListProps> = ({ instructions }
       {instructions[language].map((instruction, index) => (
         <li
           key={index}
-          className="grid grid-cols-[2.25rem_1fr] gap-x-4 items-start"
+          className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-3 items-start"
         >
-          <span className="font-serif font-semibold text-2xl text-brand-warm leading-none tabular-nums pt-0.5">
+          <span className="font-serif font-semibold text-xl text-brand-warm leading-none tabular-nums pt-1">
             {String(index + 1).padStart(2, '0')}
           </span>
           <p className="text-base leading-relaxed text-ink-light dark:text-ink-dark">

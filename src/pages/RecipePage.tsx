@@ -179,26 +179,27 @@ const RecipePage: React.FC = () => {
           </div>
         </section>
 
-        <section className="grid grid-cols-2 bg-card-light dark:bg-card-dark border-b border-line-light dark:border-line-dark">
+        {/* Stat strip — hairline-divided, three equal cells, sits below the image */}
+        <section className="grid grid-cols-[1fr_1.4fr_1fr] bg-card-light dark:bg-card-dark border-b border-line-light dark:border-line-dark">
           <div className="min-w-0 text-center py-4 px-2">
             <div className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums">
               {recipe.prepTime}
               <span className="text-base font-medium text-ink-muted-light dark:text-ink-muted-dark ml-1">
-                min
+                {getTranslation('minutes', language).substring(0, 3)}
               </span>
             </div>
-            <div className="mt-2 text-sm text-ink-muted-light dark:text-ink-muted-dark">
-              {getTranslation('prepTime', language)}
+            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
+              {getTranslation('prepTimeShort', language)}
             </div>
           </div>
 
-          <div className="min-w-0 text-center py-4 px-2 border-l border-line-light dark:border-line-dark">
-            <div className="flex items-center justify-center gap-1 sm:gap-2">
+          <div className="min-w-0 text-center py-4 px-2 border-x border-line-light dark:border-line-dark">
+            <div className="flex items-center justify-center gap-2.5">
               <button
                 type="button"
                 onClick={handleDecrement}
                 disabled={servings <= 1}
-                className="w-[44px] h-[44px] shrink-0 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-base font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                className="w-7 h-7 shrink-0 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-sm font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 aria-label={getTranslation('decreaseServings', language)}
               >
                 −
@@ -210,30 +211,24 @@ const RecipePage: React.FC = () => {
                 type="button"
                 onClick={handleIncrement}
                 disabled={servings >= maxServings}
-                className="w-[44px] h-[44px] shrink-0 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-base font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                className="w-7 h-7 shrink-0 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-sm font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 aria-label={getTranslation('increaseServings', language)}
               >
                 +
               </button>
             </div>
-            <div className="mt-2 text-sm text-ink-muted-light dark:text-ink-muted-dark">
+            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
               {getTranslation('servings', language)}
             </div>
           </div>
 
-          <div className="col-span-2 flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-line-light dark:border-line-dark px-4 py-3 text-sm text-ink-muted-light dark:text-ink-muted-dark">
-            <span>
-              {getTranslation(
-                recipeCost?.status === 'complete' ? 'estimatedCost'
-                  : recipeCost?.status === 'partial' ? 'knownSubtotal' : 'costUnavailable',
-                language
-              )}
-            </span>
-            {recipeCost?.pricePerServing != null && (
-              <span className="tabular-nums text-ink-light dark:text-ink-dark">
-                {recipeCost.pricePerServing.toFixed(2)} {getTranslation('perServing', language)}
-              </span>
-            )}
+          <div className="min-w-0 text-center py-4 px-2">
+            <div className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums">
+              {recipeCost?.pricePerServing != null ? recipeCost.pricePerServing.toFixed(2) : '—'}
+            </div>
+            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
+              {getTranslation('perServing', language)}
+            </div>
           </div>
         </section>
 
