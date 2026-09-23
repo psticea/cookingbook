@@ -1,0 +1,29 @@
+{
+  "name": "Market Grid",
+  "tagline": "Swiss typographic grid meets the market shelf label: square photos lead, and minutes and lei are set like a well-made price tag.",
+  "thesis": "A strict modular grid, flat edges and one grotesque family set in three widths give the cookbook a calm, precise studio-brand look. What only this site knows, the cost per serving and the prep time, becomes the typographic hero of every card: condensed tabular numerals, raised decimals, and an ultramarine price tag. One ultramarine owns the house (top bar, masthead, footer) and the price, black marks the reader's own selections, and everything else stays paper and ink so the food photos stay dominant.",
+  "fonts": [
+    "Archivo Expanded (wdth 125) / Condensed (wdth 75) — wordmark, headings and the tabular price/time numerals",
+    "Archivo Normal (wdth 100) — body text, controls, card titles"
+  ],
+  "palette": [
+    { "name": "Ultramarine", "hex": "#2B3CD8", "role": "Brand territory: top bar, masthead, footer, drawer header and every price tag" },
+    { "name": "Ink", "hex": "#111216", "role": "Text, section rules and selected states (sort, filters, toggles)" },
+    { "name": "Paper", "hex": "#FAFAF9", "role": "Light page ground" },
+    { "name": "Graphite", "hex": "#53565F", "role": "Secondary text and units (min, lei)" },
+    { "name": "Night", "hex": "#0E0F12", "role": "Dark theme ground; ink flips to #EDEDEF" },
+    { "name": "Periwinkle", "hex": "#D3D8FF", "role": "Secondary text on ultramarine" }
+  ],
+  "highlights": [
+    "Every card gets a shelf label: a two-line title slot, then a ruled row with minutes on the left and a blue price tag on the right, with raised decimals and 'lei' underneath. Partial estimates get a small '+' ('at least') plus a tooltip and a screen-reader label.",
+    "Desktop gives the masthead to a large dish of the day that answers the 'Ce gătim azi?' question. From 1180px each category heading becomes a sticky column beside a 3-column photo grid; the flat list uses 4 columns.",
+    "Sorting and grouping reflow the cards with a FLIP animation (the page's one motion moment; turned off under reduced-motion), and the sort arrow rotates to show direction.",
+    "Filtered state is always visible: the count shows '12/33', removable black filter pills plus a clear-all action, a badge on the menu button, and filter chips in the drawer that show how many recipes each keyword would leave (chips that would leave none are disabled).",
+    "The drawer has sticky 'N rețete ↓' results at the bottom, focus trapping with inert page content, Escape/backdrop close, scroll lock, and radio-group preferences (RO/EN, light/dark, normal/large at 118.75% root scale)."
+  ],
+  "tradeoffs": [
+    "The square card crop cuts the sides of the 3:2 photos; production would want per-image focal points or 4:3 thumbs.",
+    "FLIP reordering needs keyed, persistent card nodes; in React that means stable keys plus a small layout-animation hook (or Framer Motion), not a plain re-render.",
+    "Blue tags on all 33 cards make a strong repeating pattern. If the owner finds it too loud, the fallback is ink numerals with blue kept only for the masthead."
+  ]
+}

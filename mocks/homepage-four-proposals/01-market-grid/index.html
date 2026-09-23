@@ -1,0 +1,143 @@
+<!doctype html>
+<!--
+THESIS: Swiss precision meets the market price tag. A strict modular grid lets the photographs lead; every number the
+cookbook knows (minutes, lei) is set as a typographic object, the way a well-made shelf label sets a price.
+OWN-WORLD: One ultramarine owns the territory of the "house" (masthead, top bar, footer) and of the price tag itself.
+Black means "your selection" (sort, filters, toggles). Everything else is paper, ink, and flush square photographs.
+FIRST VIEWPORT: Blue masthead asks "Ce gătim azi?"; on desktop a large dish of the day answers it. Search sits right
+there, then count + sort, then photos.
+TYPE: Archivo only, used as a family system (Univers-style widths): expanded for the wordmark, normal for text,
+condensed tabular figures for price tags and minutes.
+COLOR: Ultramarine #2B3CD8, ink #111216, paper #FAFAF9; dark theme keeps the blue and swaps paper for #0E0F12.
+-->
+<html lang="ro" data-theme="light" data-text="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Paul's Cookbook</title>
+  <meta name="theme-color" content="#2B3CD8">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      try {
+        var p = JSON.parse(localStorage.getItem('pcb-market-grid') || '{}');
+        var d = document.documentElement;
+        if (p.theme) d.dataset.theme = p.theme;
+        else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) d.dataset.theme = 'dark';
+        if (p.text) d.dataset.text = p.text;
+        if (p.lang) d.lang = p.lang;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#catalog" data-i18n="skip">Sari la rețete</a>
+
+  <header class="topbar" id="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" id="brand" href="#top">Paul's Cookbook</a>
+      <div class="topbar__search" id="searchSlotTop"></div>
+      <button class="icon-btn search-jump" id="searchJump" type="button" hidden data-i18n-label="search">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" type="button" data-menu-toggle aria-controls="drawer" aria-expanded="false" aria-haspopup="dialog">
+        <span class="menu-btn__label" data-i18n="menu">Meniu</span>
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h11" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        <span class="menu-btn__badge" id="menuBadge" hidden></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="masthead" aria-labelledby="greeting">
+      <div class="wrap masthead__grid">
+        <div class="masthead__text">
+          <h1 id="greeting" data-i18n="greetingTitle">Ce gătim azi?</h1>
+          <p class="masthead__sub" data-i18n="greetingSubtitle">fără reclame, doar rețete bune</p>
+          <div class="masthead__search" id="searchSlotMast">
+            <form class="search" id="searchForm" role="search" onsubmit="return false">
+              <svg class="search__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+              <label class="sr-only" for="q" data-i18n="search">Caută</label>
+              <input id="q" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search">
+              <kbd class="search__kbd" aria-hidden="true">/</kbd>
+              <button class="search__clear" id="searchClear" type="button" hidden data-i18n-label="clearSearch">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+        <a class="feature" id="feature" href="#"></a>
+      </div>
+    </section>
+
+    <section class="wrap controls" id="controls" data-i18n-label="controls">
+      <p class="count" id="count" aria-live="polite" aria-atomic="true"></p>
+      <button class="toggle" id="groupToggle" type="button" aria-pressed="true">
+        <span class="toggle__box" aria-hidden="true"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></span>
+        <span data-i18n="categories">Categorii</span>
+      </button>
+      <div class="sort" id="sort" role="group"></div>
+      <div class="active-filters" id="activeFilters" hidden></div>
+    </section>
+
+    <div class="wrap catalog" id="catalog" tabindex="-1"></div>
+
+    <section class="wrap empty" id="empty" hidden aria-labelledby="emptyTitle">
+      <p class="empty__num" aria-hidden="true">0</p>
+      <div class="empty__body">
+        <h2 id="emptyTitle" data-i18n="pantryEmpty"></h2>
+        <p data-i18n="pantryEmptyMessage"></p>
+        <button class="btn" id="emptyClear" type="button" data-i18n="clearFilters"></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="wrap footer__inner">
+      <a class="footer__brand" href="#top" id="footBrand">Paul's Cookbook</a>
+      <ul class="footer__links" id="footLinks"></ul>
+    </div>
+  </footer>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" hidden>
+    <div class="drawer__head">
+      <h2 id="drawerTitle" data-i18n="menu">Meniu</h2>
+      <button class="icon-btn" id="drawerClose" type="button" data-i18n-label="close">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+      </button>
+    </div>
+    <div class="drawer__body" id="drawerBody">
+      <section class="dsec" aria-labelledby="dFilters">
+        <div class="dsec__head">
+          <h3 id="dFilters" data-i18n="filters">Filtre</h3>
+          <button class="textbtn" id="clearAll" type="button" data-i18n="clearAllFilters" hidden></button>
+        </div>
+        <div id="filterGroups"></div>
+      </section>
+      <section class="dsec" aria-labelledby="dCats">
+        <h3 id="dCats" data-i18n="categories">Categorii</h3>
+        <ul class="rows" id="catList"></ul>
+      </section>
+      <section class="dsec" aria-labelledby="dMore">
+        <h3 id="dMore" data-i18n="more">Mai mult</h3>
+        <ul class="rows" id="moreLinks"></ul>
+      </section>
+      <section class="dsec" aria-labelledby="dPrefs">
+        <h3 id="dPrefs" data-i18n="preferences">Preferințe</h3>
+        <div class="prefs" id="prefs"></div>
+      </section>
+    </div>
+    <div class="drawer__foot">
+      <button class="btn btn--block" id="showResults" type="button"></button>
+    </div>
+  </aside>
+
+  <script src="../shared/data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

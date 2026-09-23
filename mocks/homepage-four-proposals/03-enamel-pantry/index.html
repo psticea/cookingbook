@@ -1,0 +1,150 @@
+<!doctype html>
+<!--
+THESIS: A cookbook organised like a well-kept Romanian pantry — every category owns one enamel glaze, and that colour is the whole navigation system.
+OWN-WORLD: Glossy enamel pots (cobalt, tomato, yolk), glazed wall tiles with thin grout, labelled jar lids. Rounded rims with intent, flat and tactile, no shadows.
+FIRST VIEWPORT: Greeting + search, a shelf of photo "lids" rimmed in each category's glaze, then the first tinted tile of recipes. Photos dominate; colour frames them.
+TYPE: Gabarito (display) — round-bowled, flat-terminal lettering like enamel labels. Figtree (text) — open, highly legible at 15–17px, full Romanian diacritics.
+COLOR: Cool grout ground + navy enamel ink (the classic mug rim). Eight OKLCH-tuned glazes: yolk, tomato, jade, cobalt, plum, rose, leaf, duck-egg. They tint section tiles, the header rim, the active rail item and the mobile colour index. Dark mode = cast-iron navy with lifted glazes.
+-->
+<html lang="ro" data-theme="light" data-text="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Paul's Cookbook</title>
+  <meta name="theme-color" content="#ECEEEA">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500..800&family=Figtree:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      try {
+        var p = JSON.parse(localStorage.getItem('enamel-prefs') || '{}');
+        var d = document.documentElement;
+        d.dataset.theme = p.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        d.dataset.text = p.text || 'normal';
+        d.lang = p.lang || 'ro';
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#results" data-i18n="skip">Sari la rețete</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-row">
+      <a class="brand" href="#top" id="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Paul's Cookbook</span>
+      </a>
+
+      <form class="search" id="searchForm" role="search" autocomplete="off">
+        <label class="sr-only" for="q" data-i18n="search">Caută</label>
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg>
+        <input id="q" type="search" enterkeyhint="search" spellcheck="false">
+        <button type="button" class="search-clear" id="searchClear" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+        </button>
+      </form>
+
+      <button type="button" class="icon-btn search-reveal" id="searchReveal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg>
+      </button>
+
+      <button type="button" class="menu-btn" id="menuBtn" data-menu-toggle aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false">
+        <span class="menu-btn-label" data-i18n="menu">Meniu</span>
+        <span class="menu-glyph" aria-hidden="true"><i></i><i></i></span>
+        <span class="menu-dot" id="menuDot" hidden></span>
+      </button>
+    </div>
+    <div class="header-rim" aria-hidden="true"></div>
+  </header>
+
+  <div class="page" id="top">
+    <aside class="rail" id="rail">
+      <nav class="rail-nav" id="railNav"></nav>
+    </aside>
+
+    <main class="main" id="main">
+      <section class="intro" aria-labelledby="greeting">
+        <h1 id="greeting" class="greeting"></h1>
+        <p class="greeting-sub" id="greetingSub"></p>
+        <nav class="shelf" id="shelf"></nav>
+      </section>
+
+      <div class="toolbar" id="toolbar">
+        <div class="toolbar-top">
+          <p class="count" id="count" aria-live="polite" aria-atomic="true"></p>
+          <div class="toolbar-actions">
+            <button type="button" class="pill-btn filter-btn" id="filterBtn" aria-haspopup="dialog" aria-controls="drawer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+              <span data-i18n="filters">Filtre</span>
+              <span class="badge" id="filterBadge" hidden></span>
+            </button>
+          </div>
+        </div>
+        <div class="toolbar-row">
+        <button type="button" class="pill-btn group-btn" id="groupBtn" aria-pressed="true">
+          <span class="group-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span data-i18n="categories">Categorii</span>
+        </button>
+        <div class="sort" role="group" id="sortGroup">
+          <button type="button" class="sort-btn" data-sort="name"><span data-i18n="sortByName">Nume</span><svg class="dir" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18V6M7 11l5-5 5 5"/></svg></button>
+          <button type="button" class="sort-btn" data-sort="time"><span data-i18n="sortByPrepTime">Timp</span><svg class="dir" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18V6M7 11l5-5 5 5"/></svg></button>
+          <button type="button" class="sort-btn" data-sort="price"><span data-i18n="sortByPrice">Preț</span><svg class="dir" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18V6M7 11l5-5 5 5"/></svg></button>
+        </div>
+        </div>
+        <div class="active-filters" id="activeFilters" hidden></div>
+      </div>
+
+      <div class="results" id="results" tabindex="-1"></div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-tile">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Paul's Cookbook</span>
+      </div>
+      <p class="footer-sub" id="footerSub"></p>
+      <nav class="footer-links" id="footerLinks"></nav>
+    </div>
+  </footer>
+
+  <!-- Mobile / tablet colour index -->
+  <div class="index" id="index" data-state="hidden">
+    <div class="index-panel" id="indexPanel" hidden>
+      <p class="index-title" id="indexTitle"></p>
+      <ul class="index-grid" id="indexGrid"></ul>
+    </div>
+    <button type="button" class="index-pill" id="indexPill" aria-expanded="false" aria-controls="indexPanel">
+      <span class="index-lid" aria-hidden="true"></span>
+      <span class="index-name" id="indexName"></span>
+      <span class="index-dots" aria-hidden="true" id="indexDots"></span>
+    </button>
+  </div>
+
+  <!-- Side menu -->
+  <div class="drawer-root" id="drawerRoot" hidden>
+    <div class="backdrop" id="backdrop"></div>
+    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" tabindex="-1">
+      <div class="drawer-head">
+        <h2 id="drawerTitle" data-i18n="menu">Meniu</h2>
+        <button type="button" class="icon-btn close-btn" id="drawerClose">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>
+        </button>
+      </div>
+      <div class="drawer-body" id="drawerBody"></div>
+      <div class="drawer-foot">
+
+        <button type="button" class="solid-btn" id="drawerDone"></button>
+      </div>
+    </aside>
+  </div>
+
+  <script src="../shared/data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

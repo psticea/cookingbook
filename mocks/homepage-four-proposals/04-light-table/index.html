@@ -1,0 +1,156 @@
+<!doctype html>
+<!--
+THESIS: The Light Table. The homepage is a curated wall of prints: photographs carry all the colour, the interface recedes to quiet wall labels, and the only "ink" is a grease-pencil mark under what you chose.
+OWN-WORLD: Gallery wall by day (cool paper grey), darkroom by night (graphite). Sharp-cornered square prints, a 6x6 medium-format contact sheet, captions set like museum labels: title, minutes, lei. No results = an empty slot on the table.
+FIRST VIEWPORT: Greeting, today's plate (a daily-rotating featured print that "develops" on load), the sticky control strip and the first row of prints, all inside 390x844.
+TYPE: Archivo only, its width axis used as hierarchy like a museum signage system: expanded light for wall titles, normal medium for labels, tabular figures for minutes and lei.
+COLOR: Neutral paper / graphite / silver ramps in both themes; one china-marker red reserved for active marks.
+-->
+<html lang="ro" data-theme="light" data-text="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Paul's Cookbook</title>
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      try {
+        var p = JSON.parse(localStorage.getItem('lt-prefs') || '{}');
+        var d = document.documentElement;
+        d.dataset.theme = p.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        d.dataset.text = p.text || 'normal';
+        d.lang = p.lang || 'ro';
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#recipes" data-i18n="recipes">Rețete</a>
+
+  <header class="bar" id="bar">
+    <div class="bar__inner">
+      <a class="brand" href="#top" id="brand">
+        <span class="brand__a">Paul's</span> <span class="brand__b">Cookbook</span>
+      </a>
+
+      <form class="search" id="search" role="search" onsubmit="return false">
+        <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.25"/><path d="m15.2 15.2 5 5"/></svg>
+        <label class="sr" for="q" data-i18n="searchPlaceholder">Caută rețete</label>
+        <input id="q" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search">
+        <button type="button" class="icon-btn search__close" id="search-close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+        </button>
+      </form>
+
+      <div class="bar__actions">
+        <button type="button" class="icon-btn search-open" id="search-open" aria-controls="search" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.25"/><path d="m15.2 15.2 5 5"/></svg>
+        </button>
+        <button type="button" class="menu-btn" id="menu-btn" data-menu-toggle aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false">
+          <span class="menu-btn__label" data-i18n="menu">Meniu</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16M4 15h10"/></svg>
+          <span class="badge" id="menu-badge" hidden></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="opening" id="opening" aria-labelledby="greeting">
+      <div class="opening__title">
+        <h1 id="greeting" data-i18n="greetingTitle">Ce gătim azi?</h1>
+        <p class="opening__sub" data-i18n="greetingSubtitle">fără reclame, doar rețete bune</p>
+      </div>
+      <a class="feature-print" id="feature-print" href="#" tabindex="-1" aria-hidden="true"></a>
+      <div class="feature-label">
+        <a class="feature-label__link" id="feature-link" href="#">
+          <span class="feature-label__title" id="feature-title"></span>
+          <span class="meta" id="feature-meta"></span>
+        </a>
+        <button type="button" class="icon-btn feature-next" id="feature-next">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <div class="controls" id="controls">
+      <div class="controls__inner">
+        <p class="count" aria-live="polite" aria-atomic="true"><span class="count__n" id="count">33</span> <span class="count__label" id="count-label">rețete</span></p>
+
+        <button type="button" class="switch" id="group-toggle" role="switch" aria-checked="true">
+          <span class="switch__track" aria-hidden="true"><span class="switch__knob"></span></span>
+          <span data-i18n="categories">Categorii</span>
+        </button>
+
+        <button type="button" class="filters-btn" id="filters-btn" aria-haspopup="dialog" aria-controls="drawer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>
+          <span data-i18n="filters">Filtre</span>
+          <span class="badge badge--inline" id="filters-badge" hidden></span>
+        </button>
+
+        <div class="sort" role="group" id="sort">
+          <button type="button" class="sort__btn" data-sort="name"><span data-i18n="sortByName">Nume</span><svg class="sort__arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5"/></svg><span class="sr sort__dir"></span><svg class="mark" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5.2c14-2.6 34-3.4 52-2.6 15 .6 30 1.4 44 .4"/></svg></button>
+          <button type="button" class="sort__btn" data-sort="prepTime"><span data-i18n="sortByPrepTime">Timp</span><svg class="sort__arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5"/></svg><span class="sr sort__dir"></span><svg class="mark" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5.2c14-2.6 34-3.4 52-2.6 15 .6 30 1.4 44 .4"/></svg></button>
+          <button type="button" class="sort__btn" data-sort="price"><span data-i18n="sortByPrice">Preț</span><svg class="sort__arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5"/></svg><span class="sr sort__dir"></span><svg class="mark" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5.2c14-2.6 34-3.4 52-2.6 15 .6 30 1.4 44 .4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="active" id="active" hidden></div>
+
+    <div class="collection" id="recipes" tabindex="-1"></div>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__inner">
+      <p class="foot__brand"><span class="brand__a">Paul's</span> <span class="brand__b">Cookbook</span></p>
+      <p class="foot__sub" data-i18n="greetingSubtitle">fără reclame, doar rețete bune</p>
+      <nav class="foot__links" id="foot-links"></nav>
+    </div>
+  </footer>
+
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+    <div class="drawer__backdrop" data-close></div>
+    <div class="drawer__sheet">
+      <div class="drawer__head">
+        <h2 id="drawer-title" data-i18n="menu">Meniu</h2>
+        <button type="button" class="icon-btn" id="drawer-close" data-close>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+        </button>
+      </div>
+      <div class="drawer__body" id="drawer-body">
+        <section class="dsec" id="dsec-filters" aria-labelledby="h-filters">
+          <div class="dsec__head">
+            <h3 id="h-filters" data-i18n="filters">Filtre</h3>
+            <button type="button" class="text-btn" id="clear-all" data-i18n="clearAllFilters" hidden>Șterge toate filtrele</button>
+          </div>
+          <div id="filter-groups"></div>
+        </section>
+
+        <section class="dsec" aria-labelledby="h-cats">
+          <div class="dsec__head"><h3 id="h-cats" data-i18n="categories">Categorii</h3></div>
+          <ul class="cats" id="cat-list"></ul>
+        </section>
+
+        <section class="dsec" aria-labelledby="h-more">
+          <div class="dsec__head"><h3 id="h-more" data-i18n="more">Mai mult</h3></div>
+          <ul class="links" id="more-links"></ul>
+        </section>
+
+        <section class="dsec" aria-labelledby="h-prefs">
+          <div class="dsec__head"><h3 id="h-prefs" data-i18n="preferences">Preferințe</h3></div>
+          <div class="prefs" id="prefs"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "The Evening Kitchen",
+  "tagline": "The cookbook as a table lit by one pendant lamp after work: dishes glow out of a deep aubergine room, and Daylight turns the lamp into sun through a kitchen window.",
+  "thesis": "Most home cooking happens after work, in low warm light, so the page is set in that scene. Deep aubergine ground, brass accents and a soft falloff of lamp light let the real food photos glow like plates on a dark table, while Bodoni Moda headings read like a restaurant menu card. Chrome is sparse and typographic (minutes and lei, no emoji), so the page stays a fast 'what do I cook tonight' tool with images at its centre.",
+  "fonts": [
+    "Bodoni Moda (optical sizes 6–96) — greeting, wordmark, section headings and dish names; the menu-card voice, and its opsz axis keeps hairlines sturdy at card-title sizes",
+    "Hanken Grotesk — all UI, body and figures (tabular minutes and lei); warm grotesk that stays crisp at 15px on dark"
+  ],
+  "palette": [
+    { "name": "Aubergine dusk", "hex": "#22171d", "role": "Dark ground (the table after sundown)" },
+    { "name": "Walnut shadow", "hex": "#1a1116", "role": "Dark drawer and footer, one step deeper" },
+    { "name": "Linen", "hex": "#f3e9df", "role": "Dark-theme text and active controls" },
+    { "name": "Brass", "hex": "#d9ad6a", "role": "Dark accent: prices, switch, selected chips, the lamp glow" },
+    { "name": "Sage plaster", "hex": "#e9eae2", "role": "Daylight ground (kitchen wall at noon)" },
+    { "name": "Aubergine ink", "hex": "#2b1b24", "role": "Daylight text and active controls" },
+    { "name": "Bronze", "hex": "#7a5522", "role": "Daylight accent (AA on plaster)" }
+  ],
+  "highlights": [
+    "Signature: the category rail at the top of the page carries the lamp. The section you are scrolling through is the lit pill; it glides between categories using a clip-path, and in Daylight it becomes a solid ink tab",
+    "Light itself changes between themes: a warm pendant-lamp pool at dusk and blurred window panes by day. Photos get a soft vignette at night and none in Daylight, so the light theme is designed as its own counterpart rather than a colour inversion",
+    "Cards are frameless 4:5 plates with a Bodoni title and one typographic meta line ('30 min · ≈ 2,04 lei'). '≈' marks a partial estimate, '—' shows when there is no price, and screen readers get the full cost label. On sort/filter changes the plates fade up from dim, as if the lights were coming on",
+    "Active filters are visible on the page as removable chips, with a count badge on both the Filters and menu buttons. The drawer adds a live 'Show N recipes' button, category rows with round plate thumbnails, and focus trap, inert page, Escape, backdrop close and scroll lock",
+    "Today's pick shows one real recipe, chosen by date, as a large lit plate beside the greeting. It hides while you search or filter so results start at the top. Search ignores diacritics, so 'ciorba' finds 'ciorbă'"
+  ],
+  "tradeoffs": [
+    "Bodoni Moda is a high-contrast face. It holds up here because of optical sizing, but Tailwind needs font-variation settings and the variable font file is heavier than a single static cut",
+    "The 480px square webp thumbs look soft in the 4-column desktop grid on 2x screens. Production should generate 800px thumbs or add a srcset",
+    "The sticky rail and lamp light need scroll tracking and an extra layer of CSS; the React port needs an IntersectionObserver hook and must be tuned carefully so nothing jitters"
+  ]
+}

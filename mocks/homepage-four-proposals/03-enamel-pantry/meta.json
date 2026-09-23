@@ -1,0 +1,34 @@
+{
+  "name": "Enamel Pantry",
+  "tagline": "Each of the eight categories gets its own enamel glaze, and those colours are how you get around the page.",
+  "thesis": "The homepage is set up like a tidy Romanian pantry. Categories sit on glazed tiles tinted in their own colour, and a shelf of photo 'lids' with coloured rims gets you to any section in one tap. The geometry is soft and flat, with no shadows, and the colour frames the food photos instead of competing with them. A long page of 33 recipes becomes quick to scan: you learn the palette once and always know where you are.",
+  "fonts": [
+    "Gabarito — display: greeting, section names, counts, wordmark; round bowls and flat terminals like enamel labels",
+    "Figtree — text: titles, metadata, controls; open apertures, legible at 15–17px, full Romanian diacritics"
+  ],
+  "palette": [
+    { "name": "Grout", "hex": "#ECEEEA", "role": "Light page ground; cool, not cream" },
+    { "name": "Navy enamel", "hex": "#18202E", "role": "Ink, active controls, footer tile (the classic mug rim)" },
+    { "name": "Cast iron", "hex": "#0F131B", "role": "Dark page ground" },
+    { "name": "Yolk", "hex": "#F4B93C", "role": "Mic Dejun / Breakfast" },
+    { "name": "Tomato", "hex": "#CE3F26", "role": "Paste / Pasta" },
+    { "name": "Jade", "hex": "#0F7F5C", "role": "Stir-Fry" },
+    { "name": "Cobalt", "hex": "#305EB7", "role": "Supe și Tocane / Soups & Stews" },
+    { "name": "Plum", "hex": "#7F3A72", "role": "Feluri Principale / Main Courses" },
+    { "name": "Rose", "hex": "#E48396", "role": "Burgeri și Wrap-uri / Burgers & Wraps" },
+    { "name": "Leaf", "hex": "#91BB54", "role": "Salate și Gustări / Salads & Bites" },
+    { "name": "Duck egg", "hex": "#72BED1", "role": "Baze de Gătit / Basics" }
+  ],
+  "highlights": [
+    "Colour is the navigation system: section tiles, count badges, the header rim, the active item in the desktop rail and the mobile index all share each category's glaze",
+    "Mobile: a shelf of photo 'lids' at the top, then a floating pill that shows the current section in its colour and opens a 2×4 grid of glaze tiles for jumping between categories",
+    "Desktop: a sticky vertical rail of the same lids, with the active category filled in its glaze, next to a 3–4 column grid",
+    "Cost per serving is set with care: tabular numbers, a '≈' marker plus accessible label for partial estimates, '—' when there's no price, and the active sort field is emphasised on every card",
+    "Sort, filter and grouping changes animate cards in place with View Transitions (skipped under reduced motion); on mobile the search row folds into an icon once you scroll"
+  ],
+  "tradeoffs": [
+    "Eight hues need ongoing discipline. Every new category or theme has to be checked for contrast, and the text colour on each glaze (white or ink) is set per colour",
+    "Relies on modern CSS (oklch, color-mix, View Transitions). The Tailwind port needs these as theme tokens, with fallbacks for older Safari",
+    "On desktop, categories with only one or two recipes leave a partly empty tile"
+  ]
+}

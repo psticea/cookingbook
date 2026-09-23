@@ -1,0 +1,32 @@
+{
+  "name": "The Light Table",
+  "tagline": "The homepage as a contact sheet on a light table: the photographs carry all the colour, the interface recedes to quiet gallery labels.",
+  "thesis": "Image-first to the point of disappearance: sharp square prints (a 6x6 medium-format contact sheet that uses the 480px thumbs natively), captions set like museum wall labels (title, minutes, lei), and a neutral paper/graphite system whose only colour is a china-marker red that underlines what you chose. A daily-rotating 'today's plate' answers the greeting 'Ce gătim azi?' with a real recipe that develops like a print on load, so the page feels curated without inventing any content.",
+  "fonts": [
+    "Archivo (expanded width 112–125%, light 300) — wall titles: greeting, category rooms, brand wordmark",
+    "Archivo (normal width, 480–650, tabular figures) — labels, controls, minutes and lei"
+  ],
+  "palette": [
+    { "name": "Gallery wall", "hex": "#F1F1EF", "role": "Light background" },
+    { "name": "Paper", "hex": "#FAFAF9", "role": "Light drawer surface" },
+    { "name": "Graphite", "hex": "#17181B", "role": "Light ink, selected chips/segments" },
+    { "name": "Pencil", "hex": "#50545B", "role": "Secondary text (~6.9:1 on wall)" },
+    { "name": "Silver", "hex": "#B7B9BD", "role": "Hairlines, chip borders" },
+    { "name": "Darkroom", "hex": "#121315", "role": "Dark background" },
+    { "name": "Darkroom paper", "hex": "#1A1B1E", "role": "Dark drawer surface" },
+    { "name": "Fixer white", "hex": "#EDEDEA", "role": "Dark ink" },
+    { "name": "China marker", "hex": "#C4352B", "role": "Active sort underline and filter badge (dark: #F0675B)" }
+  ],
+  "highlights": [
+    "First mobile viewport (390x844): greeting, today's plate with title/min/lei, the full control strip and the first row of prints with titles.",
+    "Control strip is one sticky row down to 360px (count, category switch, Name/Time/Price with arrow + hand-drawn underline); results are filtered via the drawer and shown as removable tags on the page; the opening collapses while searching/filtering so results come first.",
+    "Price is typographic, not an emoji: '≈ 2,04 lei' marks partial estimates (title + screen-reader label), '— lei' for unavailable; locale-aware decimals.",
+    "Drawer with image-led category index (thumb + name + live count, empty ones disabled), AND chips, More links and RO/EN, light/dark, normal/large segmented radios; inert background, Escape/backdrop close, scroll lock, focus return.",
+    "Sort/group/filter changes reorder prints with the View Transitions API (FLIP for free); reduced-motion disables all of it and the print 'develop' moment."
+  ],
+  "tradeoffs": [
+    "Single typeface on purpose (width axis as hierarchy); needs a variable Archivo build with the wdth axis in production.",
+    "The featured plate changes daily (seeded by date), so screenshots and first impressions vary; square crops of 3:2 photos may clip some plated dishes.",
+    "View Transitions is Chromium/Safari-only; other browsers get instant (still correct) re-renders."
+  ]
+}

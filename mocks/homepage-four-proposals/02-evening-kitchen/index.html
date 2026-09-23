@@ -1,0 +1,203 @@
+<!--
+THESIS: Home cooking happens after work, under one warm lamp. The page is that table: deep aubergine ground, photos lit like plates, chrome that recedes into the dark.
+OWN-WORLD: "The evening kitchen". A pendant-lamp pool of light hangs over the greeting; in Daylight it becomes sun through a kitchen window. The category rail carries the same lamp: the section you are in is the one that is lit.
+FIRST VIEWPORT: greeting + one large lit plate (today's pick, real recipe), then count/sort and the first plates.
+TYPE: Bodoni Moda (optical sizes) for greeting, wordmark, headings and dish names: a restaurant menu card. Hanken Grotesk for UI and figures (tabular minutes and lei).
+COLOR: Dusk: aubergine #22171d, linen #f3e9df, brass #d9ad6a. Daylight: sage plaster #e9eae2, aubergine ink #2b1b24, bronze #7a5522.
+-->
+<!doctype html>
+<html lang="ro" data-theme="dark" data-text="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Paul's Cookbook</title>
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#22171d">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..600&family=Hanken+Grotesk:wght@400..700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search);
+        var d = document.documentElement;
+        var t = q.get('theme') || localStorage.getItem('ek-theme');
+        var s = q.get('text') || localStorage.getItem('ek-text');
+        var l = q.get('lang') || localStorage.getItem('ek-lang');
+        if (t === 'light' || t === 'dark') d.dataset.theme = t;
+        if (s === 'large' || s === 'normal') d.dataset.text = s;
+        if (l === 'ro' || l === 'en') d.lang = l;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#results" data-i18n="recipes">Rețete</a>
+
+  <div class="ambience" aria-hidden="true">
+    <div class="ambience__lamp"></div>
+    <div class="ambience__window"><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <header class="bar" id="top">
+    <div class="bar__inner">
+      <button class="brand" type="button" data-scroll-top>
+        <span class="brand__a">Paul's</span> <span class="brand__b">Cookbook</span>
+      </button>
+
+      <form class="search" role="search" onsubmit="return false">
+        <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
+        <label class="sr-only" for="q" data-i18n="searchPlaceholder">Caută rețete</label>
+        <input id="q" class="search__input" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search">
+        <button class="search__clear" type="button" data-clear-search hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+        </button>
+      </form>
+
+      <button class="menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="drawer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16M4 15h11"/></svg>
+        <span class="menu-btn__badge" data-filter-badge hidden></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page" id="main">
+    <section class="hero" data-hero aria-labelledby="greeting">
+      <div class="hero__words">
+        <h1 class="hero__title" id="greeting" data-i18n="greetingTitle">Ce gătim azi?</h1>
+        <p class="hero__sub" data-i18n="greetingSubtitle">fără reclame, doar rețete bune</p>
+      </div>
+      <a class="feature" data-feature href="#">
+        <span class="feature__plate" data-feature-plate></span>
+        <span class="feature__caption">
+          <span class="feature__title" data-feature-title></span>
+          <span class="meta" data-feature-meta></span>
+        </span>
+      </a>
+    </section>
+
+    <div class="controls">
+      <p class="count" aria-live="polite"><span class="count__n" data-count>33</span> <span data-count-label>rețete</span></p>
+
+      <button class="switch" type="button" role="switch" aria-checked="true" data-group-toggle>
+        <span data-i18n="categories">Categorii</span>
+        <span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>
+      </button>
+
+      <div class="sort" role="group" data-sort-group>
+        <button type="button" class="sort__btn" data-sort="name"><span data-i18n="sortByName">Nume</span><svg class="sort__dir" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+        <button type="button" class="sort__btn" data-sort="prepTime"><span data-i18n="sortByPrepTime">Timp</span><svg class="sort__dir" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+        <button type="button" class="sort__btn" data-sort="price"><span data-i18n="sortByPrice">Preț</span><svg class="sort__dir" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+      </div>
+
+      <button class="filter-btn" type="button" data-open-filters aria-controls="drawer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+        <span data-i18n="filters">Filtre</span>
+        <span class="filter-btn__n" data-filter-count hidden></span>
+      </button>
+    </div>
+
+    <div class="active" data-active hidden>
+      <ul class="active__list" data-active-list></ul>
+      <button type="button" class="link-btn" data-clear-all data-i18n="clearFilters">Șterge toate filtrele</button>
+    </div>
+
+    <nav class="rail" data-rail>
+      <div class="rail__scroller" data-rail-scroller>
+        <ul class="rail__list" data-rail-list></ul>
+      </div>
+    </nav>
+
+    <div id="results" class="results" data-results tabindex="-1"></div>
+
+    <div class="empty" data-empty hidden>
+      <svg class="empty__plate" viewBox="0 0 160 160" aria-hidden="true">
+        <ellipse class="empty__shadow" cx="80" cy="140" rx="52" ry="6"/>
+        <circle class="empty__rim" cx="80" cy="76" r="58"/>
+        <circle class="empty__well" cx="80" cy="76" r="38"/>
+        <path class="empty__shine" d="M36 50a58 58 0 0 1 34-31"/>
+      </svg>
+      <h2 class="empty__title" data-i18n="pantryEmpty">Cămara pare goală!</h2>
+      <p class="empty__text" data-i18n="pantryEmptyMessage"></p>
+      <button type="button" class="btn" data-clear-all>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+        <span data-i18n="clearFilters">Șterge toate filtrele</span>
+      </button>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__inner">
+      <div>
+        <p class="foot__brand">Paul's Cookbook</p>
+        <p class="foot__sub" data-i18n="greetingSubtitle"></p>
+      </div>
+      <ul class="foot__links" data-foot-links></ul>
+    </div>
+  </footer>
+
+  <div class="scrim" data-scrim hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" data-drawer hidden>
+    <div class="drawer__head">
+      <h2 class="drawer__title" id="drawer-title" data-i18n="menu">Meniu</h2>
+      <button type="button" class="icon-btn" data-close-drawer>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="drawer__body" data-drawer-body>
+      <section class="dsec" id="drawer-filters" aria-labelledby="h-filters">
+        <div class="dsec__head">
+          <h3 class="dsec__title" id="h-filters" data-i18n="filters">Filtre</h3>
+          <button type="button" class="link-btn" data-clear-keywords data-i18n="clearAllFilters" hidden>Șterge Toate Filtrele</button>
+        </div>
+        <div data-filter-groups></div>
+      </section>
+
+      <section class="dsec" aria-labelledby="h-cats">
+        <h3 class="dsec__title" id="h-cats" data-i18n="categories">Categorii</h3>
+        <ul class="cats" data-drawer-cats></ul>
+      </section>
+
+      <section class="dsec" aria-labelledby="h-more">
+        <h3 class="dsec__title" id="h-more" data-i18n="more">Mai mult</h3>
+        <ul class="more" data-drawer-links></ul>
+      </section>
+
+      <section class="dsec dsec--prefs" aria-labelledby="h-prefs">
+        <h3 class="dsec__title" id="h-prefs" data-i18n="preferences">Preferințe</h3>
+        <div class="pref">
+          <span class="pref__label" id="pl-lang" data-i18n="language">Limbă</span>
+          <div class="seg" role="radiogroup" aria-labelledby="pl-lang" data-pref="lang">
+            <button type="button" role="radio" data-value="ro" lang="ro">RO</button>
+            <button type="button" role="radio" data-value="en" lang="en">EN</button>
+          </div>
+        </div>
+        <div class="pref">
+          <span class="pref__label" id="pl-theme" data-i18n="theme">Temă</span>
+          <div class="seg" role="radiogroup" aria-labelledby="pl-theme" data-pref="theme">
+            <button type="button" role="radio" data-value="light" data-i18n="light">Luminos</button>
+            <button type="button" role="radio" data-value="dark" data-i18n="dark">Întunecat</button>
+          </div>
+        </div>
+        <div class="pref">
+          <span class="pref__label" id="pl-text" data-i18n="textSize">Mărime text</span>
+          <div class="seg" role="radiogroup" aria-labelledby="pl-text" data-pref="text">
+            <button type="button" role="radio" data-value="normal" data-i18n="normal">Normal</button>
+            <button type="button" role="radio" data-value="large" data-i18n="large">Mare</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="drawer__foot">
+      <button type="button" class="btn btn--block" data-close-drawer data-show-results></button>
+    </div>
+  </aside>
+
+  <script src="../shared/data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
