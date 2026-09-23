@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useRecipeData, getRecipeById } from '../hooks/useRecipeData';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
 import { calculateRecipeCost } from '../utils/pricing';
 import { Header } from '../components/Header';
 import { RecipeImage } from '../components/RecipeImage';
+import { RecipeStats } from '../components/RecipeStats';
 import { IngredientList } from '../components/IngredientList';
 import { InstructionList } from '../components/InstructionList';
 import { NutritionPanel } from '../components/NutritionPanel';
@@ -15,8 +16,18 @@ import { SideMenu } from '../components/SideMenu';
 import { FiltersSection } from '../components/FiltersSection';
 import { CategoriesSection } from '../components/CategoriesSection';
 import { MenuLinks } from '../components/MenuLinks';
-import { categories } from '../data';
+import { PencilMark } from '../components/icons';
 
+type TabId = 'ingredients' | 'instructions' | 'nutrition';
+
+/** The print column and the label column, shared by the hero and the loading mount. */
+const HERO_GRID = 'max-w-page mx-auto md:gutter md:pt-6 lg:pt-10 lg:grid lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-12 xl:gap-x-16';
+
+/**
+ * RecipePage — "The Light Table" (DESIGN.md → Layout → Recipe page): a sharp
+ * 3:2 print with a wall label below (beside it ≥1100px), the stat strip, then
+ * tabs for ingredients, instructions and nutrition in a reading column.
+ */
 const RecipePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -25,10 +36,9 @@ const RecipePage: React.FC = () => {
   const [showError, setShowError] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
-  const [activeTab, setActiveTab] = useState<'ingredients' | 'instructions' | 'nutrition'>('ingredients');
+  const [activeTab, setActiveTab] = useState<TabId>('ingredients');
   const [currentServings, setCurrentServings] = useState<number | null>(null);
 
-  // Find the recipe by ID
   const recipe = id ? getRecipeById(recipes, id) : undefined;
 
   // Initialize currentServings when recipe loads
@@ -52,22 +62,15 @@ const RecipePage: React.FC = () => {
     if (servings < maxServings) setCurrentServings(servings + 1);
   };
 
-  // Toggle side menu
-  const handleMenuToggle = () => {
-    setIsSideMenuOpen(!isSideMenuOpen);
-  };
+  const handleMenuToggle = () => setIsSideMenuOpen(!isSideMenuOpen);
+  const handleMenuClose = () => setIsSideMenuOpen(false);
 
-  // Close side menu
-  const handleMenuClose = () => {
-    setIsSideMenuOpen(false);
-  };
-
-  // Handle category click - navigate to home page and scroll to category
+  // Navigate to the home page and scroll to the category
   const handleCategoryClick = (categoryId: string) => {
     navigate('/', { state: { scrollToCategory: categoryId } });
   };
 
-  // Handle keyword change - navigate to home page with filters
+  // Navigate to the home page with the chosen filters applied
   const handleKeywordsChange = (keywords: Set<string>) => {
     setSelectedKeywords(keywords);
     navigate('/', { state: { selectedKeywords: Array.from(keywords) } });
@@ -91,243 +94,180 @@ const RecipePage: React.FC = () => {
     }
   }, [loading, recipe, id, navigate]);
 
-  // Show loading state
-  if (loading) {
-    return (
-      <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
-        <Header onMenuToggle={handleMenuToggle} />
-        <main className="flex-1 flex items-center justify-center">
-          <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
-            {getTranslation('loading', language)}
-          </p>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-
-  // Show error state
-  if (showError || !recipe) {
-    return (
-      <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
-        <Header onMenuToggle={handleMenuToggle} />
-        <main className="flex-1 flex items-center justify-center px-4">
-          <div className="text-center max-w-sm bg-card-light dark:bg-card-dark rounded-2xl p-6 shadow-card">
-            <h1 className="font-display text-2xl font-bold mb-3 text-ink-light dark:text-ink-dark">
-              {getTranslation('recipeNotFound', language)}
-            </h1>
-            <p className="text-sm text-ink-muted-light dark:text-ink-muted-dark mb-3">
-              {getTranslation('recipeNotFoundMessage', language)}
-            </p>
-            <p className="text-xs text-ink-soft-light dark:text-ink-soft-dark">
-              {getTranslation('backToHome', language)}…
-            </p>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-
-  // Count actual ingredient items (skip section headers) for the tab badge
-  const ingredientCount = recipe.ingredients.filter((i) => 'name' in i).length;
-  const instructionCount = recipe.instructions[language].length;
-  const categoryName = (() => {
-    const cat = categories.find((c) => c.id === recipe.category);
-    return cat ? cat.name[language] : recipe.category;
-  })();
-
-  // Render recipe page
-  return (
-    <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
-      {/* Side Menu */}
-      <SideMenu
-        isOpen={isSideMenuOpen}
-        onClose={handleMenuClose}
-      >
-        <FiltersSection
-          selectedKeywords={selectedKeywords}
-          onKeywordsChange={handleKeywordsChange}
-        />
+  const shell = (content: React.ReactNode) => (
+    <div className="min-h-screen flex flex-col bg-wall">
+      <SideMenu isOpen={isSideMenuOpen} onClose={handleMenuClose}>
+        <FiltersSection selectedKeywords={selectedKeywords} onKeywordsChange={handleKeywordsChange} />
         <CategoriesSection onCategoryClick={handleCategoryClick} />
         <MenuLinks onLinkClick={handleMenuClose} />
       </SideMenu>
+      <Header onMenuToggle={handleMenuToggle} isMenuOpen={isSideMenuOpen} />
+      {content}
+      <Footer />
+    </div>
+  );
 
-      <Header onMenuToggle={handleMenuToggle} />
+  // Loading: an empty print mount waiting for its photograph
+  if (loading) {
+    return shell(
+      <main className="flex-1 w-full" aria-busy="true">
+        <div className={HERO_GRID}>
+          <div className="aspect-[3/2] bg-frame md:rounded-print" />
+          <div className="gutter md:px-0 pt-4 md:pt-6 lg:pt-1">
+            <p role="status" className="m-0 text-ui text-ink-2">{getTranslation('loading', language)}</p>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
+  // Not found: an empty slot on the table, then back home
+  if (showError || !recipe) {
+    return shell(
       <main className="flex-1 w-full">
-        {/* Hero with category + title overlay */}
-        <section className="relative">
-          {/* Hero image — 5:4 ratio */}
+        <div role="status" className="max-w-page mx-auto gutter pt-14 md:pt-20 grid justify-items-center text-center">
+          <div aria-hidden="true" className="relative w-[120px] aspect-square mb-6 border-[1.5px] border-dashed border-line-strong rounded-print">
+            {(['-top-[9px] -left-[9px] border-t-[1.5px] border-l-[1.5px]', '-top-[9px] -right-[9px] border-t-[1.5px] border-r-[1.5px]', '-bottom-[9px] -left-[9px] border-b-[1.5px] border-l-[1.5px]', '-bottom-[9px] -right-[9px] border-b-[1.5px] border-r-[1.5px]']).map((pos) => (
+              <span key={pos} className={`absolute w-3 h-3 border-ink-3 ${pos}`} />
+            ))}
+          </div>
+          <h1 className="type-headline !text-xl text-ink">{getTranslation('recipeNotFound', language)}</h1>
+          <p className="m-0 mt-2 max-w-[34ch] text-ui text-ink-2">{getTranslation('recipeNotFoundMessage', language)}</p>
+          <Link
+            to="/"
+            className="mt-[22px] inline-flex items-center min-h-[46px] px-5 rounded-ctl bg-ink text-wall text-ui font-semibold no-underline transition-transform duration-200 ease-ease active:scale-[.97]"
+          >
+            {getTranslation('backToHome', language)}
+          </Link>
+        </div>
+      </main>
+    );
+  }
+
+  const ingredientCount = recipe.ingredients.filter((i) => 'name' in i).length;
+  const instructionCount = recipe.instructions[language].length;
+
+  const tabs: { id: TabId; label: string; count?: number }[] = [
+    { id: 'ingredients', label: getTranslation('ingredients', language), count: ingredientCount },
+    { id: 'instructions', label: getTranslation('instructions', language), count: instructionCount },
+    ...(recipe.nutrition ? [{ id: 'nutrition' as const, label: getTranslation('nutrition', language) }] : []),
+  ];
+
+  // Arrow keys, Home and End move between tabs (WAI-ARIA tabs pattern).
+  const handleTabKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    const last = tabs.length - 1;
+    const next = event.key === 'ArrowRight' ? (index === last ? 0 : index + 1)
+      : event.key === 'ArrowLeft' ? (index === 0 ? last : index - 1)
+        : event.key === 'Home' ? 0
+          : event.key === 'End' ? last
+            : -1;
+    if (next < 0) return;
+    event.preventDefault();
+    setActiveTab(tabs[next].id);
+    document.getElementById(`${tabs[next].id}-tab`)?.focus();
+  };
+
+  return shell(
+    <main className="flex-1 w-full">
+      <article aria-labelledby="recipe-title">
+        <header className={HERO_GRID}>
           <RecipeImage
+            key={recipe.id}
             recipeId={recipe.id}
             category={recipe.category}
             alt={recipe.title[language]}
+            className="md:rounded-print"
           />
 
-          {/* Dark gradient at bottom of image for title legibility */}
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/80" />
-
-          {/* Category + title sit on top of the hero */}
-          <div className="absolute left-5 right-5 bottom-4 sm:bottom-5 z-[2]">
-            <span className="inline-block text-[11px] font-bold tracking-[0.14em] uppercase text-brand-yellow bg-black/35 backdrop-blur-sm px-3 py-1 rounded-full">
-              {categoryName}
-            </span>
-            <h1 className="font-serif font-semibold text-white text-2xl sm:text-3xl leading-tight mt-2.5 [text-shadow:_0_2px_14px_rgba(0,0,0,.45)]">
+          {/* Wall label: title, then the fact line with the servings stepper */}
+          <div className="gutter md:px-0 pt-3 md:pt-5 lg:pt-0 lg:flex lg:flex-col">
+            <h1
+              id="recipe-title"
+              className="type-headline lg:type-display lg:text-[clamp(2.75rem,0.75rem+2.8vw,4rem)] lg:leading-[1.04] text-ink text-pretty break-words"
+            >
               {recipe.title[language]}
             </h1>
-          </div>
-        </section>
-
-        {/* Stat strip — hairline-divided, three equal cells, sits below the image */}
-        <section className="grid grid-cols-[1fr_1.4fr_1fr] bg-card-light dark:bg-card-dark border-b border-line-light dark:border-line-dark">
-          <div className="min-w-0 text-center py-4 px-2">
-            <div className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums">
-              {recipe.prepTime}
-              <span className="text-base font-medium text-ink-muted-light dark:text-ink-muted-dark ml-1">
-                {getTranslation('minutes', language).substring(0, 3)}
-              </span>
+            <div className="mt-3 md:mt-4 lg:mt-7">
+              <RecipeStats
+                prepTime={recipe.prepTime}
+                servings={servings}
+                canDecrease={servings > 1}
+                canIncrease={servings < maxServings}
+                onDecrease={handleDecrement}
+                onIncrease={handleIncrement}
+                cost={recipeCost}
+                language={language}
+              />
             </div>
-            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
-              {getTranslation('prepTimeShort', language)}
-            </div>
+            <PersonalNotes notes={recipe.personalNotes} headingId="personal-notes-aside" className="hidden lg:block mt-8" />
           </div>
+        </header>
 
-          <div className="min-w-0 text-center py-4 px-2 border-x border-line-light dark:border-line-dark">
-            <div className="flex items-center justify-center gap-2.5">
-              <button
-                type="button"
-                onClick={handleDecrement}
-                disabled={servings <= 1}
-                className="w-7 h-7 shrink-0 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-sm font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                aria-label={getTranslation('decreaseServings', language)}
+        <div className="max-w-page mx-auto gutter mt-2 md:mt-6 lg:mt-8 lg:grid lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-12 xl:gap-x-16 lg:items-start">
+          <div className="min-w-0 max-w-prose">
+            <div className="border-b border-line">
+              <div
+                role="tablist"
+                aria-label={getTranslation('recipe', language)}
+                className="-ml-[7px] flex flex-wrap"
               >
-                −
-              </button>
-              <span aria-live="polite" aria-atomic="true" className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums min-w-[1.5rem]">
-                {servings}
-              </span>
-              <button
-                type="button"
-                onClick={handleIncrement}
-                disabled={servings >= maxServings}
-                className="w-7 h-7 shrink-0 rounded-full border border-line-light dark:border-line-dark bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-sm font-bold grid place-items-center hover:bg-brand-accent hover:text-white hover:border-transparent disabled:opacity-40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                aria-label={getTranslation('increaseServings', language)}
-              >
-                +
-              </button>
+                {tabs.map((tab, index) => {
+                  const active = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      id={`${tab.id}-tab`}
+                      type="button"
+                      role="tab"
+                      aria-selected={active}
+                      aria-controls={`${tab.id}-panel`}
+                      tabIndex={active ? 0 : -1}
+                      onClick={() => setActiveTab(tab.id)}
+                      onKeyDown={(event) => handleTabKeyDown(event, index)}
+                      className={`relative inline-flex items-baseline gap-1.5 min-h-12 px-[7px] pt-3 pb-3.5 text-ui whitespace-nowrap transition-colors duration-200 ease-ease ${
+                        active ? 'text-ink font-[620]' : 'text-ink-2 font-[520] hover:text-ink'
+                      }`}
+                    >
+                      {tab.label}
+                      {tab.count !== undefined && (
+                        <span className="text-sm font-normal text-ink-3 tabular-nums">{tab.count}</span>
+                      )}
+                      <PencilMark />
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
-              {getTranslation('servings', language)}
-            </div>
-          </div>
 
-          <div className="min-w-0 text-center py-4 px-2">
-            <div className="font-serif font-semibold text-2xl sm:text-3xl text-ink-light dark:text-ink-dark leading-none tabular-nums">
-              {recipeCost?.pricePerServing != null ? recipeCost.pricePerServing.toFixed(2) : '—'}
+            <div id="ingredients-panel" role="tabpanel" aria-labelledby="ingredients-tab" hidden={activeTab !== 'ingredients'} className="pt-1">
+              <IngredientList
+                key={recipe.id}
+                ingredients={recipe.ingredients}
+                servings={recipe.servings}
+                currentServings={servings}
+              />
             </div>
-            <div className="mt-2 text-[10px] font-bold tracking-[0.14em] uppercase text-ink-soft-light dark:text-ink-soft-dark">
-              {getTranslation('perServing', language)}
+            <div
+              id="instructions-panel"
+              role="tabpanel"
+              aria-labelledby="instructions-tab"
+              hidden={activeTab !== 'instructions'}
+              tabIndex={0}
+              className="pt-5 rounded-ctl focus-visible:outline-offset-4"
+            >
+              <InstructionList instructions={recipe.instructions} />
             </div>
-          </div>
-        </section>
-
-        {/* Body — tight outer padding so list rows reach near the edges */}
-        <div className="px-4 sm:px-5 pt-4 pb-8 space-y-4">
-          {/* Underline tabs with counts */}
-          <div
-            className="flex gap-2 sm:gap-6 overflow-x-auto border-b border-line-light dark:border-line-dark"
-            role="tablist"
-            aria-label={getTranslation('recipe', language)}
-          >
-            <button
-              id="ingredients-tab"
-              role="tab"
-              aria-selected={activeTab === 'ingredients'}
-              aria-controls="ingredients-panel"
-              onClick={() => setActiveTab('ingredients')}
-              className={`relative flex-1 py-3 text-sm font-bold tracking-wide transition-colors ${
-                activeTab === 'ingredients'
-                  ? 'text-ink-light dark:text-ink-dark'
-                  : 'text-ink-soft-light dark:text-ink-soft-dark hover:text-ink-muted-light dark:hover:text-ink-muted-dark'
-              }`}
-            >
-              {getTranslation('ingredients', language)}
-              <span className="ml-1.5 text-xs font-medium text-ink-soft-light dark:text-ink-soft-dark">
-                {ingredientCount}
-              </span>
-              {activeTab === 'ingredients' && (
-                <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-brand-warm rounded-full" />
-              )}
-            </button>
-            <button
-              id="instructions-tab"
-              role="tab"
-              aria-selected={activeTab === 'instructions'}
-              aria-controls="instructions-panel"
-              onClick={() => setActiveTab('instructions')}
-              className={`relative flex-1 py-3 text-sm font-bold tracking-wide transition-colors ${
-                activeTab === 'instructions'
-                  ? 'text-ink-light dark:text-ink-dark'
-                  : 'text-ink-soft-light dark:text-ink-soft-dark hover:text-ink-muted-light dark:hover:text-ink-muted-dark'
-              }`}
-            >
-              {getTranslation('instructions', language)}
-              <span className="ml-1.5 text-xs font-medium text-ink-soft-light dark:text-ink-soft-dark">
-                {instructionCount}
-              </span>
-              {activeTab === 'instructions' && (
-                <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-brand-warm rounded-full" />
-              )}
-            </button>
             {recipe.nutrition && (
-              <button
-                id="nutrition-tab"
-                role="tab"
-                aria-selected={activeTab === 'nutrition'}
-                aria-controls="nutrition-panel"
-                onClick={() => setActiveTab('nutrition')}
-                className={`relative flex-1 py-3 text-sm font-bold tracking-wide transition-colors ${
-                  activeTab === 'nutrition'
-                    ? 'text-ink-light dark:text-ink-dark'
-                    : 'text-ink-soft-light dark:text-ink-soft-dark hover:text-ink-muted-light dark:hover:text-ink-muted-dark'
-                }`}
-              >
-                {getTranslation('nutrition', language)}
-                {activeTab === 'nutrition' && (
-                  <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-brand-warm rounded-full" />
-                )}
-              </button>
+              <div id="nutrition-panel" role="tabpanel" aria-labelledby="nutrition-tab" hidden={activeTab !== 'nutrition'} className="pt-5">
+                <NutritionPanel key={recipe.id} nutrition={recipe.nutrition} />
+              </div>
             )}
           </div>
 
-          {/* Tab content */}
-          <div id="ingredients-panel" role="tabpanel" aria-labelledby="ingredients-tab" hidden={activeTab !== 'ingredients'}>
-            <IngredientList
-              key={recipe.id}
-              ingredients={recipe.ingredients}
-              servings={recipe.servings}
-              currentServings={servings}
-            />
-          </div>
-          {activeTab === 'instructions' && (
-            <div id="instructions-panel" role="tabpanel" aria-labelledby="instructions-tab">
-              <InstructionList instructions={recipe.instructions} />
-            </div>
-          )}
-          {activeTab === 'nutrition' && recipe.nutrition && (
-            <div id="nutrition-panel" role="tabpanel" aria-labelledby="nutrition-tab">
-              <NutritionPanel nutrition={recipe.nutrition} />
-            </div>
-          )}
-
-          {/* Personal notes */}
-          <PersonalNotes notes={recipe.personalNotes} />
+          <PersonalNotes notes={recipe.personalNotes} headingId="personal-notes" className="mt-10 max-w-prose lg:hidden" />
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </article>
+    </main>
   );
 };
 

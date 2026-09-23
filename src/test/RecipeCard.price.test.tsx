@@ -26,12 +26,12 @@ function renderCard(ingredients: Ingredient[], language: Language) {
 }
 
 describe.each(['en', 'ro'] as const)('RecipeCard pricing in %s', language => {
-  it('shows only a money symbol and per-serving number with the explanation in the tooltip', () => {
+  it('shows the per-serving number and unit with the explanation in the tooltip', () => {
     renderCard([oil], language);
     const description = `${getTranslation('estimatedCost', language)}: 0.75 ${getTranslation('perServing', language)}`;
     const label = screen.getByRole('img', { name: description });
     expect(label).toBeVisible();
-    expect(label).toHaveTextContent(/^💰0\.75$/);
+    expect(label).toHaveTextContent(/^0\.75 lei$/);
     expect(label).toHaveAttribute('title', description);
     expect(label).toHaveClass('whitespace-nowrap');
     expect(screen.queryByText(getTranslation('estimatedCost', language), { exact: false })).not.toBeInTheDocument();
@@ -43,7 +43,7 @@ describe.each(['en', 'ro'] as const)('RecipeCard pricing in %s', language => {
     const description = `${getTranslation('partialEstimate', language)} · ${getTranslation('knownSubtotal', language)}: 0.75 ${getTranslation('perServing', language)}`;
     const label = screen.getByRole('img', { name: description });
     expect(label).toBeVisible();
-    expect(label).toHaveTextContent(/^💰0\.75$/);
+    expect(label).toHaveTextContent(/^≈0\.75 lei$/);
     expect(label).toHaveAttribute('title', description);
     expect(label).not.toHaveTextContent('1.50');
     expect(label).not.toHaveTextContent(getTranslation('partialEstimate', language));
@@ -54,7 +54,7 @@ describe.each(['en', 'ro'] as const)('RecipeCard pricing in %s', language => {
     renderCard([unknown], language);
     const label = screen.getByRole('img', { name: getTranslation('costUnavailable', language) });
     expect(label).toBeVisible();
-    expect(label).toHaveTextContent(/^💰—$/);
+    expect(label).toHaveTextContent(/^— lei$/);
     expect(label).toHaveAttribute('title', getTranslation('costUnavailable', language));
     expect(label).not.toHaveTextContent(/0\.00|0\.20|RON/);
     expect(screen.queryByText(getTranslation('estimatedCost', language), { exact: false })).not.toBeInTheDocument();
@@ -62,7 +62,7 @@ describe.each(['en', 'ro'] as const)('RecipeCard pricing in %s', language => {
 
   it('retains an accessible unavailable label and the recipe link for unsupported quantities', () => {
     renderCard([{ ...oil, unit: { en: 'to taste', ro: 'ml' } }], language);
-    expect(screen.getByRole('img', { name: getTranslation('costUnavailable', language) })).toHaveTextContent(/^💰—$/);
+    expect(screen.getByRole('img', { name: getTranslation('costUnavailable', language) })).toHaveTextContent(/^— lei$/);
     expect(screen.getByRole('link')).toHaveAttribute('href', '/recipe/price-card');
   });
 });

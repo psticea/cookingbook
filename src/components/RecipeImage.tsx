@@ -5,36 +5,36 @@ interface RecipeImageProps {
   recipeId: string;
   category: string;
   alt: string;
+  className?: string;
 }
 
 /**
- * RecipeImage component
- * Displays 1200x800 recipe image with lazy loading
- * Loads images from recipe folder as .jpg files
- * Falls back to default image if specific image doesn't exist
- * Responsive for mobile and desktop
+ * RecipeImage — the recipe's hero print (DESIGN.md → The Sharp Print Rule).
+ * A 3:2 photograph on a Frame mount that "develops" once it has loaded.
+ * Nothing is ever laid over it; the wall label sits below. Falls back to the
+ * default image if the recipe has none.
  */
-export const RecipeImage: React.FC<RecipeImageProps> = ({ recipeId, category, alt }) => {
-  const [imageError, setImageError] = useState(false);
-  
-  // Construct image path from public/images/recipes folder
-  // Use import.meta.env.BASE_URL to handle base path correctly
+export const RecipeImage: React.FC<RecipeImageProps> = ({ recipeId, category, alt, className = '' }) => {
+  const [failed, setFailed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const imagePath = `${import.meta.env.BASE_URL}images/recipes/${category}/${recipeId}.jpg`;
-  const defaultImage = defaultImageUrl;
-
-  const handleImageError = () => {
-    setImageError(true);
-  };
 
   return (
-    <div className="w-full">
+    <figure className={`m-0 aspect-[3/2] overflow-hidden bg-frame ${className}`}>
       <img
-        src={imageError ? defaultImage : imagePath}
+        src={failed ? defaultImageUrl : imagePath}
         alt={alt}
-        loading="lazy"
-        onError={handleImageError}
-        className="w-full aspect-[5/4] object-cover bg-card-2-light dark:bg-card-2-dark"
+        width={1200}
+        height={800}
+        decoding="async"
+        {...{ fetchpriority: 'high' }}
+        onLoad={() => setLoaded(true)}
+        onError={() => {
+          setFailed(true);
+          setLoaded(true);
+        }}
+        className={`photo block w-full h-full object-cover ${loaded ? 'develop' : 'opacity-0'}`}
       />
-    </div>
+    </figure>
   );
 };

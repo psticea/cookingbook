@@ -1,11 +1,9 @@
 import type { Config } from 'tailwindcss'
-import { colors, typography, radius, shadow } from './src/design/tokens'
+import { colors, typography, radius, shadow, motion, layout } from './src/design/tokens'
 
 /**
- * Tailwind config — pulls every design value from src/design/tokens.ts so
- * there's a single source of truth for the visual system.
- *
- * To re-skin the website, edit src/design/tokens.ts only.
+ * Tailwind config — every design value comes from src/design/tokens.ts
+ * (documented in DESIGN.md). Edit tokens there, not here.
  */
 export default {
   content: [
@@ -14,12 +12,18 @@ export default {
   ],
   darkMode: 'class',
   theme: {
+    // Full override (not extend) so breakpoints stay in ascending order.
+    screens: { xs: '375px', sm: '600px', md: '768px', lg: '1100px', xl: '1440px' },
     extend: {
       fontFamily: typography.fontFamily,
       fontSize: typography.fontSize,
       colors,
       borderRadius: radius,
       boxShadow: shadow,
+      transitionTimingFunction: motion,
+      maxWidth: { page: layout.maxWidth, prose: '720px' },
+      minHeight: { target: layout.target },
+      minWidth: { target: layout.target },
     },
   },
   plugins: [],

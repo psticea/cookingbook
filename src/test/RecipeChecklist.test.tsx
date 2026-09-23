@@ -88,7 +88,8 @@ describe('Recipe checklist lifecycle', () => {
     expect(summary).toHaveTextContent('4.50 RON');
     fireEvent.click(screen.getByRole('button', { name: 'Test dark large' }));
     expect(within(panel).getByRole('checkbox', { name: '2,5 cepe galbene' })).toBeChecked();
-    expect(document.documentElement).toHaveClass('dark', 'text-xl');
+    expect(document.documentElement).toHaveClass('dark');
+    expect(document.documentElement).toHaveAttribute('data-text', 'large');
     fireEvent.click(screen.getByRole('button', { name: 'Resetează lista' }));
     expect(within(panel).getByRole('checkbox', { name: '2,5 cepe galbene' })).not.toBeChecked();
     expect(panel.querySelector('details')).toHaveAttribute('open');

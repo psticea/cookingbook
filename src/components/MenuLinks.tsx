@@ -2,62 +2,39 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
+import { MenuSection } from './SideMenu';
+import { ArrowRightIcon } from './icons';
 
 interface MenuLinksProps {
   onLinkClick: () => void;
 }
 
-interface MenuLinkRowProps {
-  to: string;
-  emoji: string;
-  label: string;
-  onClick: () => void;
-}
+export const MENU_LINKS = [
+  { to: '/cooking-basics', labelKey: 'cookingBasics' },
+  { to: '/prices', labelKey: 'ingredientPrices' },
+  { to: '/about', labelKey: 'about' },
+] as const;
 
-const MenuLinkRow: React.FC<MenuLinkRowProps> = ({ to, emoji, label, onClick }) => (
-  <Link
-    to={to}
-    onClick={onClick}
-    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark text-sm font-semibold hover:bg-card-3-light dark:hover:bg-card-3-dark transition-colors"
-  >
-    <span className="text-lg leading-none">{emoji}</span>
-    <span>{label}</span>
-  </Link>
-);
-
-/**
- * MenuLinks — Card Stack design.
- * Card with row links to top-level pages (Cooking Basics, Prices, About).
- */
+/** MenuLinks — "More" rows to top-level pages, each with a nudging arrow. */
 export const MenuLinks: React.FC<MenuLinksProps> = ({ onLinkClick }) => {
   const { language } = useLanguage();
 
   return (
-    <div className="bg-card-light dark:bg-card-dark rounded-2xl p-4 shadow-card">
-      <h4 className="text-[11px] font-bold tracking-[0.12em] uppercase text-ink-muted-light dark:text-ink-muted-dark mb-3">
-        {getTranslation('more', language)}
-      </h4>
-
-      <div className="space-y-1.5">
-        <MenuLinkRow
-          to="/cooking-basics"
-          emoji="📖"
-          label={getTranslation('cookingBasics', language)}
-          onClick={onLinkClick}
-        />
-        <MenuLinkRow
-          to="/prices"
-          emoji="💰"
-          label={getTranslation('ingredientPrices', language)}
-          onClick={onLinkClick}
-        />
-        <MenuLinkRow
-          to="/about"
-          emoji="ℹ️"
-          label={getTranslation('about', language)}
-          onClick={onLinkClick}
-        />
-      </div>
-    </div>
+    <MenuSection title={getTranslation('more', language)}>
+      <ul className="mt-1">
+        {MENU_LINKS.map(({ to, labelKey }) => (
+          <li key={to}>
+            <Link
+              to={to}
+              onClick={onLinkClick}
+              className="group flex items-center justify-between min-h-12 text-base text-ink no-underline"
+            >
+              <span>{getTranslation(labelKey, language)}</span>
+              <ArrowRightIcon size={18} className="text-ink-3 transition-transform duration-300 ease-ease group-hover:translate-x-[3px] group-hover:text-ink" />
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </MenuSection>
   );
 };

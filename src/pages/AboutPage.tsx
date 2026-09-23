@@ -1,43 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
-import { SideMenu } from '../components/SideMenu';
-import { FiltersSection } from '../components/FiltersSection';
-import { CategoriesSection } from '../components/CategoriesSection';
-import { MenuLinks } from '../components/MenuLinks';
+import React, { useEffect, useRef } from 'react';
+import { ContentPage } from '../components/ContentPage';
 import { useLanguage } from '../hooks/useLanguage';
 import { useTheme } from '../hooks/useTheme';
 import { getTranslation } from '../utils/translations';
 
+const AUTHOR = { name: 'Paul Sticea', email: 'psticea@gmail.com' };
+
+/** AboutPage — a short letter in the reading column, then the Giscus comments. */
 const AboutPage: React.FC = () => {
   const { language } = useLanguage();
   const { theme } = useTheme();
-  const navigate = useNavigate();
   const giscusRef = useRef<HTMLDivElement>(null);
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-  const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());
-
-  // Toggle side menu
-  const handleMenuToggle = () => {
-    setIsSideMenuOpen(!isSideMenuOpen);
-  };
-
-  // Close side menu
-  const handleMenuClose = () => {
-    setIsSideMenuOpen(false);
-  };
-
-  // Handle category click - navigate to home page and scroll to category
-  const handleCategoryClick = (categoryId: string) => {
-    navigate('/', { state: { scrollToCategory: categoryId } });
-  };
-
-  // Handle keyword change - navigate to home page with filters
-  const handleKeywordsChange = (keywords: Set<string>) => {
-    setSelectedKeywords(keywords);
-    navigate('/', { state: { selectedKeywords: Array.from(keywords) } });
-  };
 
   // Load Giscus script dynamically
   useEffect(() => {
@@ -79,79 +52,64 @@ const AboutPage: React.FC = () => {
     };
   }, [language, theme]);
 
+  const ro = language === 'ro';
+
   return (
-    <div className="min-h-screen flex flex-col bg-bg-light dark:bg-bg-dark">
-      <Header onMenuToggle={handleMenuToggle} />
-
-      <SideMenu isOpen={isSideMenuOpen} onClose={handleMenuClose}>
-        <FiltersSection
-          selectedKeywords={selectedKeywords}
-          onKeywordsChange={handleKeywordsChange}
-        />
-        <CategoriesSection onCategoryClick={handleCategoryClick} />
-        <MenuLinks onLinkClick={handleMenuClose} />
-      </SideMenu>
-
-      <main className="flex-1 w-full max-w-4xl mx-auto px-3 sm:px-5 pt-5 pb-8 space-y-4">
-        {/* Intro overlay card */}
-        <section className="bg-card-light dark:bg-card-dark rounded-3xl shadow-overlay dark:shadow-overlay-dark px-5 py-5 sm:px-6 sm:py-6">
-          <span className="inline-block bg-brand-warm text-white text-xs font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full">
-            {getTranslation('about', language)}
-          </span>
-          <h1 className="font-display text-2xl sm:text-3xl font-bold text-ink-light dark:text-ink-dark mt-3 mb-1.5 tracking-tight">
-            {getTranslation('aboutTitle', language)}
-          </h1>
-          <p className="text-base text-ink-muted-light dark:text-ink-muted-dark">
-            {language === 'ro'
-              ? 'Bun venit pe colecția mea de rețete — fără reclame, doar mâncare bună.'
-              : "Welcome to my recipe collection — no ads, just food."}
-          </p>
-        </section>
-
-        {/* Author content card */}
-        <article className="bg-card-light dark:bg-card-dark rounded-2xl px-5 py-5 sm:px-6 sm:py-6 shadow-card space-y-2.5 text-base leading-relaxed text-ink-light dark:text-ink-dark">
-          {language === 'ro' ? (
+    <ContentPage
+      title={getTranslation('aboutTitle', language)}
+      intro={ro
+        ? 'Bun venit pe colecția mea de rețete — fără reclame, doar mâncare bună.'
+        : 'Welcome to my recipe collection — no ads, just food.'}
+    >
+      <article className="mt-12 md:mt-16 max-w-[65ch] text-base leading-[1.6] text-ink">
+        <p className="type-title text-ink">{ro ? 'Salut!' : 'Hello!'}</p>
+        <div className="mt-5 space-y-[1.1em]">
+          {ro ? (
             <>
-              <p>Salut!</p>
-              <p>Bine ai venit pe site-ul meu cu rețete.</p>
-              <p>Aici o să găsești rețetele mele preferate în română și engleză.</p>
-              <p>Nu sunt reclame, pop-up-uri sau trackere, doar rețete grozave.</p>
-              <p>Multe rețetele sunt preluate de pe alte website-uri, dar cu ingrediente și instrucțiuni ajustate în funcție de preferințele mele. Pentru fiecare rețetă preluată vei găsi și link-ul în notele rețetei.</p>
-              <p>Spor la gătit!</p>
-              <p className="pt-2 font-display font-bold">
-                Paul Sticea
-                <br />
-                <span className="font-normal text-ink-muted-light dark:text-ink-muted-dark">psticea@gmail.com</span>
+              <p>
+                Bine ai venit pe site-ul meu cu rețete. Aici o să găsești rețetele mele preferate în română și
+                engleză.
               </p>
+              <p>Nu sunt reclame, pop-up-uri sau trackere, doar rețete grozave.</p>
+              <p>
+                Multe rețetele sunt preluate de pe alte website-uri, dar cu ingrediente și instrucțiuni ajustate în
+                funcție de preferințele mele. Pentru fiecare rețetă preluată vei găsi și link-ul în notele rețetei.
+              </p>
+              <p>Spor la gătit!</p>
             </>
           ) : (
             <>
-              <p>Hello!</p>
-              <p>Welcome to my recipe website.</p>
-              <p>Here you'll find my favorite recipes in both English and Romanian.</p>
-              <p>No ads, no pop-ups, no trackers, just great recipes.</p>
-              <p>Many recipes are adapted from other websites, but with ingredients and instructions adjusted according to my preferences. For each adapted recipe, you'll find the link in the recipe notes.</p>
-              <p>Happy cooking!</p>
-              <p className="pt-2 font-display font-bold">
-                Paul Sticea
-                <br />
-                <span className="font-normal text-ink-muted-light dark:text-ink-muted-dark">psticea@gmail.com</span>
+              <p>
+                Welcome to my recipe website. Here you'll find my favorite recipes in both English and Romanian.
               </p>
+              <p>No ads, no pop-ups, no trackers, just great recipes.</p>
+              <p>
+                Many recipes are adapted from other websites, but with ingredients and instructions adjusted
+                according to my preferences. For each adapted recipe, you'll find the link in the recipe notes.
+              </p>
+              <p>Happy cooking!</p>
             </>
           )}
-        </article>
+        </div>
 
-        {/* Comments card */}
-        <section className="bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-card">
-          <header className="bg-brand-accent text-white text-center py-3.5 font-display font-bold text-sm tracking-[0.04em]">
-            💬 {language === 'ro' ? 'Comentarii' : 'Comments'}
-          </header>
-          <div className="p-5" ref={giscusRef} />
-        </section>
-      </main>
+        <footer className="mt-8">
+          <p className="text-md font-[560] [font-stretch:108%] tracking-[-0.005em] text-ink">{AUTHOR.name}</p>
+          <a
+            href={`mailto:${AUTHOR.email}`}
+            className="inline-flex items-center min-h-target -mt-1.5 text-ui text-ink-2 underline decoration-line-strong decoration-1 underline-offset-4 hover:text-ink hover:decoration-current transition-colors [overflow-wrap:anywhere]"
+          >
+            {AUTHOR.email}
+          </a>
+        </footer>
+      </article>
 
-      <Footer />
-    </div>
+      <section aria-labelledby="comments-title" className="mt-16 md:mt-[72px] pt-10 md:pt-12 border-t border-line">
+        <h2 id="comments-title" className="type-headline text-ink">
+          {ro ? 'Comentarii' : 'Comments'}
+        </h2>
+        <div ref={giscusRef} className="giscus-host mt-6 md:mt-8 [&_iframe]:w-full [&_iframe]:border-0" />
+      </section>
+    </ContentPage>
   );
 };
 

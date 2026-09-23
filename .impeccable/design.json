@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T11:55:00+03:00",
+  "title": "Design System: Paul's Cookbook",
+  "extensions": {
+    "colorMeta": {
+      "wall": { "role": "neutral", "displayName": "Gallery Wall", "canonical": "#F1F1EF", "tonalRamp": ["#1F1F1E", "#3B3B3A", "#5A5A58", "#7A7A78", "#9B9B99", "#BDBDBB", "#DCDCDA", "#F1F1EF"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#FAFAF9" },
+      "ink": { "role": "neutral", "displayName": "Graphite Ink", "canonical": "#17181B", "tonalRamp": ["#17181B", "#2E3035", "#50545B", "#62666D", "#8A8D93", "#B7B9BD", "#DCDDDD", "#F1F1EF"] },
+      "pencil": { "role": "neutral", "displayName": "Pencil", "canonical": "#50545B" },
+      "pencil-soft": { "role": "neutral", "displayName": "Soft Pencil", "canonical": "#62666D" },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "#DCDDDD" },
+      "silver": { "role": "neutral", "displayName": "Silver", "canonical": "#B7B9BD" },
+      "frame": { "role": "neutral", "displayName": "Frame", "canonical": "#E2E3E3" },
+      "china-marker": { "role": "primary", "displayName": "China Marker", "canonical": "#C4352B", "tonalRamp": ["#3A0F0C", "#5E1914", "#83231C", "#A82C23", "#C4352B", "#D9625A", "#E9958F", "#F6CBC8"] },
+      "darkroom": { "role": "neutral", "displayName": "Darkroom", "canonical": "#121315" },
+      "darkroom-marker": { "role": "primary", "displayName": "China Marker (dark)", "canonical": "#F0675B" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The single page title: the homepage greeting, content-page titles." },
+      "headline": { "displayName": "Headline", "purpose": "Category rooms, recipe title on mobile, major sections." },
+      "title": { "displayName": "Title", "purpose": "Side-menu heading, empty state, sub-sections." },
+      "label-title": { "displayName": "Label title", "purpose": "Recipe titles under prints (2-line clamp)." },
+      "meta": { "displayName": "Meta", "purpose": "Minutes and lei under prints; tabular figures." },
+      "wordmark": { "displayName": "Wordmark", "purpose": "\"Paul's\" 680 + \"Cookbook\" 330, wdth 125." }
+    },
+    "shadows": [
+      { "name": "sheet", "value": "-18px 0 48px -20px rgba(20, 21, 24, .28)", "purpose": "Side-menu sheet only (dark: rgba(0,0,0,.7))." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "Default easing for every state change." },
+      { "name": "ease-in-out", "value": "cubic-bezier(.65, 0, .35, 1)", "purpose": "Fade-outs before a swap." },
+      { "name": "develop", "value": "1.7s ease; from blur(12px) brightness(1.4) contrast(.72) saturate(.15) scale(1.025)", "purpose": "Featured and hero prints developing on load." },
+      { "name": "pencil-mark", "value": "clip-path inset(0 100% 0 0) → inset(0), .5s ease", "purpose": "Active sort field / tab mark drawing in." },
+      { "name": "sheet", "value": "transform .52s ease; backdrop opacity .36s", "purpose": "Side menu in/out." }
+    ],
+    "breakpoints": [
+      { "name": "xs", "value": "375px" },
+      { "name": "sm", "value": "600px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1100px" },
+      { "name": "xl", "value": "1440px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one decisive action on a surface, e.g. Clear filters in the empty state.",
+      "html": "<button class=\"ds-btn-primary\">Clear filters</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 20px; border: 0; border-radius: 3px; background: #17181B; color: #F1F1EF; font: 600 0.9375rem/1.4 Archivo, system-ui, sans-serif; cursor: pointer; transition: transform .2s cubic-bezier(.16,1,.3,1); } .ds-btn-primary:active { transform: scale(.97); } .ds-btn-primary:focus-visible { outline: 2px solid #17181B; outline-offset: 3px; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Keyword filter in the side menu; selected fills with ink.",
+      "html": "<div style=\"display:flex;gap:8px\"><button class=\"ds-chip\" aria-pressed=\"false\">Chicken</button><button class=\"ds-chip\" aria-pressed=\"true\">Baked</button></div>",
+      "css": ".ds-chip { min-height: 44px; padding: 0 14px; border: 1px solid #B7B9BD; border-radius: 3px; background: transparent; color: #17181B; font: 480 0.9375rem/1.4 Archivo, system-ui, sans-serif; cursor: pointer; transition: background-color .22s, color .22s, border-color .22s; } .ds-chip:hover { border-color: #17181B; } .ds-chip[aria-pressed=\"true\"] { background: #17181B; border-color: #17181B; color: #FAFAF9; font-weight: 560; } .ds-chip:focus-visible { outline: 2px solid #17181B; outline-offset: 3px; }"
+    },
+    {
+      "name": "Sort Buttons with Pencil Mark",
+      "kind": "nav",
+      "refersTo": "sort",
+      "description": "Active field in ink with a direction arrow and a hand-drawn China Marker underline.",
+      "html": "<div class=\"ds-sort\"><button class=\"ds-sort-btn\" aria-pressed=\"true\">Name ↑<svg viewBox=\"0 0 100 8\" preserveAspectRatio=\"none\"><path d=\"M2 5.2c14-2.6 34-3.4 52-2.6 15 .6 30 1.4 44 .4\"/></svg></button><button class=\"ds-sort-btn\" aria-pressed=\"false\">Time</button><button class=\"ds-sort-btn\" aria-pressed=\"false\">Price</button></div>",
+      "css": ".ds-sort { display: flex; } .ds-sort-btn { position: relative; min-height: 44px; padding: 0 9px; border: 0; background: none; color: #50545B; font: 520 0.9375rem/1.4 Archivo, system-ui, sans-serif; cursor: pointer; } .ds-sort-btn:hover { color: #17181B; } .ds-sort-btn[aria-pressed=\"true\"] { color: #17181B; font-weight: 620; } .ds-sort-btn svg { display: none; position: absolute; left: 7px; right: 7px; bottom: 7px; width: calc(100% - 14px); height: 7px; fill: none; stroke: #C4352B; stroke-width: 2.2; stroke-linecap: round; } .ds-sort-btn[aria-pressed=\"true\"] svg { display: block; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "An underlined field like a caption rule; no box.",
+      "html": "<label class=\"ds-search\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.25\"/><path d=\"m15.2 15.2 5 5\"/></svg><input placeholder=\"Search recipes…\"></label>",
+      "css": ".ds-search { display: flex; align-items: center; gap: 8px; height: 44px; width: 320px; border-bottom: 1px solid #B7B9BD; transition: border-color .25s; } .ds-search:focus-within { border-bottom-color: #17181B; } .ds-search svg { fill: none; stroke: #50545B; stroke-width: 1.6; stroke-linecap: round; flex: none; } .ds-search input { flex: 1; border: 0; outline: none; background: transparent; color: #17181B; font: 400 1rem/1.5 Archivo, system-ui, sans-serif; } .ds-search input::placeholder { color: #62666D; }"
+    },
+    {
+      "name": "Print (recipe card)",
+      "kind": "card",
+      "refersTo": "print",
+      "description": "Square photo, 2px corners, wall label below: title, minutes, lei.",
+      "html": "<a class=\"ds-print\" href=\"#\"><div class=\"ds-print-photo\"></div><h3>Frittata</h3><p>30<span> min</span>&nbsp;&nbsp;&nbsp;<span>≈</span>2.04<span> lei</span></p></a>",
+      "css": ".ds-print { display: block; width: 180px; color: #17181B; text-decoration: none; font-family: Archivo, system-ui, sans-serif; } .ds-print-photo { aspect-ratio: 1; border-radius: 2px; background: #E2E3E3 linear-gradient(135deg, #d9c9a5, #b5763f); } .ds-print h3 { margin: 10px 0 0; font-size: 1rem; font-weight: 520; line-height: 1.3; } .ds-print:hover h3 { text-decoration: underline; text-decoration-color: #B7B9BD; text-underline-offset: 4px; } .ds-print p { margin: 4px 0 0; font-size: 0.875rem; color: #50545B; font-variant-numeric: tabular-nums; } .ds-print p span { color: #62666D; }"
+    },
+    {
+      "name": "Segmented Preference",
+      "kind": "custom",
+      "refersTo": "segmented",
+      "description": "Two-cell radiogroup for language, theme and text size.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><button role=\"radio\" aria-checked=\"true\">RO</button><button role=\"radio\" aria-checked=\"false\">EN</button></div>",
+      "css": ".ds-seg { display: grid; grid-template-columns: 1fr 1fr; width: 210px; padding: 2px; border: 1px solid #B7B9BD; border-radius: 3px; } .ds-seg button { min-height: 42px; border: 0; border-radius: 2px; background: none; color: #50545B; font: 500 0.9375rem/1.4 Archivo, system-ui, sans-serif; cursor: pointer; } .ds-seg button[aria-checked=\"true\"] { background: #17181B; color: #FAFAF9; font-weight: 600; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Light Table",
+    "overview": "Every page is a table of photographic prints under even light. The food photography carries all of the colour; the interface recedes into what a gallery would add to a wall: quiet labels, hairline rules, a neutral wall colour, and a single grease-pencil mark that shows what the reader has chosen.",
+    "keyCharacteristics": [
+      "Square, sharp-cornered prints (2px) with captions set below the photo, like museum wall labels.",
+      "One variable family (Archivo, wdth 62–125, wght 100–900); width + weight = hierarchy.",
+      "Neutral paper / graphite / silver palette; one china-marker red reserved for \"chosen\" marks.",
+      "Flat surfaces separated by hairlines; the only shadow is the side-menu sheet.",
+      "44px minimum targets, 15px minimum UI text, 13px absolute minimum for metadata.",
+      "Motion that feels photographic: prints \"develop\" on load, lists re-sort with a glide."
+    ],
+    "rules": [
+      { "name": "The Photograph Owns the Colour Rule", "body": "The UI is grey. No tinted surfaces, no brand greens or yellows, no category colours. If a screen needs colour, it needs a photograph.", "section": "colors" },
+      { "name": "The One Mark Rule", "body": "China Marker is the only hand on the table and the only accent: it marks what the reader chose or did (active sort/tab, filter badge, ticked boxes, hover underlines), numbers things (steps, frame numbers), and washes the personal notes at 7%. Solid fills stay badge- or checkbox-sized; it is never body text, never a large field, never used for data.", "section": "colors" },
+      { "name": "The Width Is Hierarchy Rule", "body": "Don't add a second typeface. Reach for width and weight before size; titles get wider and lighter as they get bigger.", "section": "typography" },
+      { "name": "The Plain Case Rule", "body": "No all-caps tracked labels. Labels are sentence case at Small or Meta size in Pencil.", "section": "typography" },
+      { "name": "The 44 Rule", "body": "Every interactive target is at least 44 × 44px.", "section": "layout" },
+      { "name": "The No-Overflow Rule", "body": "Nothing scrolls horizontally at 360px, in either language, at either text size.", "section": "layout" },
+      { "name": "The Flat Wall Rule", "body": "No card shadows, no hover lifts, no glass, no gradients over photographs.", "section": "elevation" },
+      { "name": "The Sharp Print Rule", "body": "Never round a photograph more than 2px, and never put text, pills or gradients on it.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do let photographs be the largest and only colourful thing on every screen.",
+      "Do put captions (title, minutes, lei) below the photo, in the Meta style, with units in Soft Pencil.",
+      "Do use the semantic tokens (bg-wall, text-ink, text-ink-2, border-line, border-line-strong, text-mark) so both themes work without dark: overrides.",
+      "Do keep every target ≥44px and UI text ≥15px (0.9375rem); 13px (0.8125rem) is the floor for badges and short labels only.",
+      "Do use tabular figures for every number (minutes, lei, servings, quantities, counts).",
+      "Do respect prefers-reduced-motion: disable the develop animation, view transitions and scaling.",
+      "Do test at 360px, 390px, 768px and 1440px, in RO and EN, light and dark, normal and large text."
+    ],
+    "donts": [
+      "Don't use emoji as icons (no ⏱ 💰 🥐). Use typography or a 1.6-stroke line icon.",
+      "Don't put text, pills, badges or gradients on top of photographs.",
+      "Don't use card shadows, hover lifts, glassmorphism, gradient text, or rounded \"bubbly\" cards (>3px) for content.",
+      "Don't introduce brand colours (greens, yellows, terracotta) or cream backgrounds; the wall is a cool grey.",
+      "Don't use China Marker outside the uses listed under The One Mark Rule, and never as a large fill.",
+      "Don't add a second typeface or all-caps tracked labels.",
+      "Don't hide the side menu's features elsewhere; filters, categories, links and preferences all stay in the menu."
+    ]
+  }
+}

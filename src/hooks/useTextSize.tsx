@@ -20,19 +20,9 @@ interface TextSizeProviderProps {
 export const TextSizeProvider: React.FC<TextSizeProviderProps> = ({ children }) => {
   const [textSize, setTextSize] = useLocalStorage<TextSize>('userTextSize', 'normal');
 
-  // Apply text size to HTML element
+  // Apply text size to the HTML element; CSS scales the root to 112.5% for 'large'.
   useEffect(() => {
-    const root = document.documentElement;
-    
-    // Remove existing text size classes
-    root.classList.remove('text-base', 'text-xl');
-    
-    // Add appropriate class based on text size
-    if (textSize === 'large') {
-      root.classList.add('text-xl');
-    } else {
-      root.classList.add('text-base');
-    }
+    document.documentElement.dataset.text = textSize;
   }, [textSize]);
 
   return (

@@ -18,6 +18,11 @@ const reasonKeys = {
   'invalid-quantity': 'invalidQuantityReason',
 } as const;
 
+/**
+ * IngredientCostBreakdown — the receipt (DESIGN.md → Receipt): a Paper sheet
+ * that opens to hairline rows with right-aligned tabular prices and a total
+ * in Ink 600 above a 1px Ink rule.
+ */
 export const IngredientCostBreakdown: React.FC<IngredientCostBreakdownProps> = ({
   ingredients,
   servings,
@@ -38,65 +43,65 @@ export const IngredientCostBreakdown: React.FC<IngredientCostBreakdownProps> = (
       .replace('{count}', String(cost.unpricedIngredientCount));
 
   return (
-    <details className="ingredient-costs rounded-xl bg-card-2-light dark:bg-card-2-dark border border-line-light dark:border-line-dark">
-      <summary className="cursor-pointer list-none rounded-xl p-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
-        <span className="flex items-start gap-2 text-base text-ink-light dark:text-ink-dark">
-          <svg className="cost-disclosure-arrow mt-1 shrink-0 w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="m6 3 5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          <span className="flex min-w-0 flex-1 flex-wrap justify-between gap-x-3 gap-y-1">
-            <span>{title}</span>
+    <details className="ingredient-costs bg-paper rounded-ctl">
+      <summary className="grid grid-cols-[20px_minmax(0,1fr)] gap-x-2.5 cursor-pointer rounded-ctl px-4 py-4 sm:px-5 select-none">
+        <svg className="cost-disclosure-arrow mt-[3px] w-5 h-5 text-ink-2 transition-transform duration-300 ease-ease" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="m8 5 5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <span className="min-w-0">
+          <span className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+            <span className="type-section text-ink">{title}</span>
             {cost.totalCostRecipe !== null && (
-              <span className="font-semibold tabular-nums whitespace-nowrap">{formatPrice(cost.totalCostRecipe)}</span>
+              <span className="text-md font-semibold text-ink tabular-nums whitespace-nowrap">{formatPrice(cost.totalCostRecipe)}</span>
             )}
           </span>
-        </span>
-        <span className="mt-2 block text-sm text-ink-muted-light dark:text-ink-muted-dark">
-          {getTranslation(currentServings === 1 ? 'costForOneServing' : 'costForServings', language)
-            .replace('{count}', String(currentServings))}
-          {cost.pricePerServing !== null && (
-            <span className="block">
-              {getTranslation(cost.status === 'complete' ? 'estimatedPerServing' : 'knownPerServing', language)
-                .replace('{price}', formatPrice(cost.pricePerServing))}
-            </span>
+          <span className="mt-1 block text-sm text-ink-2 tabular-nums">
+            {getTranslation(currentServings === 1 ? 'costForOneServing' : 'costForServings', language)
+              .replace('{count}', String(currentServings))}
+            {cost.pricePerServing !== null && (
+              <span className="block">
+                {getTranslation(cost.status === 'complete' ? 'estimatedPerServing' : 'knownPerServing', language)
+                  .replace('{price}', formatPrice(cost.pricePerServing))}
+              </span>
+            )}
+          </span>
+          {cost.status !== 'complete' && (
+            <span className="mt-2 block text-sm text-ink">{excluded}</span>
           )}
         </span>
-        {cost.status !== 'complete' && (
-          <span className="mt-2 block text-sm text-ink-light dark:text-ink-dark">{excluded}</span>
-        )}
       </summary>
 
-      <div className="px-4 pb-4">
-        <dl className="border-t border-line-light dark:border-line-dark">
+      <div className="pb-5 pl-[46px] pr-4 sm:pl-[50px] sm:pr-5">
+        <dl className="m-0 border-t border-line">
           {cost.ingredientCosts.map((item, index) => (
-            <div key={index} className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-1 py-2.5 text-sm">
-              <dt className="min-w-0 break-words text-ink-light dark:text-ink-dark">{item.ingredientName}</dt>
-              <dd className="whitespace-nowrap text-right tabular-nums text-ink-light dark:text-ink-dark">
+            <div key={index} className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 py-2.5 border-line [&+&]:border-t text-ui">
+              <dt className="min-w-0 break-words text-ink">{item.ingredientName}</dt>
+              <dd className={`m-0 whitespace-nowrap text-right tabular-nums ${item.matched ? 'text-ink' : 'text-ink-3'}`}>
                 {item.matched ? formatPrice(item.costPerRecipe) : getTranslation('priceUnavailable', language)}
               </dd>
               {!item.matched && (
-                <dd className="col-span-2 text-xs text-ink-muted-light dark:text-ink-muted-dark">
+                <dd className="col-span-2 m-0 mt-0.5 text-sm text-ink-2">
                   {getTranslation(reasonKeys[item.reason], language)}
                 </dd>
               )}
             </div>
           ))}
           {cost.totalCostRecipe !== null && (
-            <div className="flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-line-light dark:border-line-dark py-3 text-base font-semibold text-ink-light dark:text-ink-dark">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5 border-t border-ink text-base font-semibold text-ink">
               <dt>{getTranslation(cost.status === 'complete' ? 'recipeTotal' : 'knownSubtotal', language)}</dt>
-              <dd className="tabular-nums whitespace-nowrap">{formatPrice(cost.totalCostRecipe)}</dd>
+              <dd className="m-0 tabular-nums whitespace-nowrap">{formatPrice(cost.totalCostRecipe)}</dd>
             </div>
           )}
         </dl>
-        <p className="mt-3 text-sm text-ink-muted-light dark:text-ink-muted-dark">
+        <p className="mt-5 text-sm text-ink-2 text-pretty">
           {getTranslation('costQuantityNote', language)}
         </p>
-        <p className="mt-2 text-xs text-ink-muted-light dark:text-ink-muted-dark">
+        <p className="mt-1.5 text-sm text-ink-2 text-pretty">
           {getTranslation('costConversionNote', language)}
         </p>
         <Link
           to="/prices"
-          className="mt-3 inline-flex min-h-[44px] items-center text-sm underline underline-offset-4 text-ink-light dark:text-ink-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="mt-2 inline-flex items-center min-h-target text-ui text-ink underline decoration-line-strong decoration-1 underline-offset-4 hover:decoration-current"
         >
           {getTranslation('costAssumptions', language)}
         </Link>

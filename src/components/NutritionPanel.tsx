@@ -88,6 +88,20 @@ const copy = {
   },
 };
 
+// Macro shares are told apart by tone and legend, never by hue (The Photograph Owns the Colour Rule).
+const MACRO_TONES = ['bg-ink', 'bg-ink-3', 'bg-line-strong'];
+
+/** A thin, square-ended share bar on a Hairline track. */
+const Meter: React.FC<{ percent: number; className?: string }> = ({ percent, className = '' }) => (
+  <div aria-hidden="true" className={`h-1 bg-line overflow-hidden ${className}`}>
+    <div className="h-full bg-ink-2" style={{ width: `${Math.min(Math.max(percent, 0), 100)}%` }} />
+  </div>
+);
+
+/**
+ * NutritionPanel — per-serving nutrition in the neutral Light Table system:
+ * tabular figures, hairline tables and grey meters. China Marker is never used for data.
+ */
 export const NutritionPanel: React.FC<NutritionPanelProps> = ({ nutrition }) => {
   const { language } = useLanguage();
   const text = copy[language];
@@ -114,10 +128,10 @@ export const NutritionPanel: React.FC<NutritionPanelProps> = ({ nutrition }) => 
   const fatCalories = nutrition.fat * 9;
   const macroCalories = proteinCalories + carbohydrateCalories + fatCalories;
   const macroSegments = [
-    { label: text.protein, value: nutrition.protein, percent: Math.round((proteinCalories / macroCalories) * 100), color: 'bg-brand-warm' },
-    { label: text.carbohydrates, value: nutrition.carbohydrates, percent: Math.round((carbohydrateCalories / macroCalories) * 100), color: 'bg-brand-yellow' },
-    { label: text.fat, value: nutrition.fat, percent: Math.round((fatCalories / macroCalories) * 100), color: 'bg-brand-accent' },
-  ];
+    { label: text.protein, value: nutrition.protein, percent: Math.round((proteinCalories / macroCalories) * 100) },
+    { label: text.carbohydrates, value: nutrition.carbohydrates, percent: Math.round((carbohydrateCalories / macroCalories) * 100) },
+    { label: text.fat, value: nutrition.fat, percent: Math.round((fatCalories / macroCalories) * 100) },
+  ].map((segment, index) => ({ ...segment, tone: MACRO_TONES[index] }));
   const nutrients: Array<{
     label: string;
     value: string;
@@ -142,84 +156,100 @@ export const NutritionPanel: React.FC<NutritionPanelProps> = ({ nutrition }) => 
   const nutritionScore = (benefitScore * 0.4 + limitScore * 0.6).toFixed(1);
   const visibleNutrients = filter === 'all' ? nutrients : nutrients.filter((nutrient) => nutrient.kind === filter);
 
+  // Notable amounts (a rich source, or too much of a nutrient to limit) are set in Ink 600.
   const getRating = (kind: NutrientKind, percent: number) => {
     if (kind === 'benefit') {
-      if (percent >= 30) return { label: text.excellent, color: 'text-brand-accent dark:text-brand-accent-bright', bar: 'bg-brand-accent' };
-      if (percent >= 15) return { label: text.good, color: 'text-brand-accent dark:text-brand-accent-bright', bar: 'bg-brand-accent' };
-      return { label: text.low, color: 'text-brand-warm', bar: 'bg-brand-warm' };
+      if (percent >= 30) return { label: text.excellent, notable: true };
+      if (percent >= 15) return { label: text.good, notable: false };
+      return { label: text.low, notable: false };
     }
     if (kind === 'limit') {
-      if (percent <= 20) return { label: text.low, color: 'text-brand-accent dark:text-brand-accent-bright', bar: 'bg-brand-accent' };
-      if (percent <= 40) return { label: text.moderate, color: 'text-ink-muted-light dark:text-ink-muted-dark', bar: 'bg-brand-yellow' };
-      return { label: text.high, color: 'text-brand-warm', bar: 'bg-brand-warm' };
+      if (percent <= 20) return { label: text.low, notable: false };
+      if (percent <= 40) return { label: text.moderate, notable: false };
+      return { label: text.high, notable: true };
     }
-    return { label: text.moderate, color: 'text-ink-muted-light dark:text-ink-muted-dark', bar: 'bg-brand-yellow' };
+    return { label: text.moderate, notable: false };
   };
 
   return (
-    <div className="space-y-4">
-      <section className="overflow-hidden rounded-3xl bg-ink-light text-white dark:bg-card-2-dark border border-ink-light dark:border-line-dark shadow-card">
-        <div className="grid sm:grid-cols-[1fr_auto]">
-          <div className="p-5 sm:p-6">
-            <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-white/60">{text.perServing}</p>
-            <p className="mt-2 text-sm font-semibold text-white/85">{nutrition.servingSize[language]}</p>
-            <div className="mt-5 flex items-end gap-2">
-              <span className="font-serif text-5xl font-semibold tabular-nums leading-none">{nutrition.calories}</span>
-              <span className="pb-1 text-sm font-bold text-brand-yellow">{text.calories}</span>
-            </div>
-            <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/15">
-              <div className="h-full rounded-full bg-brand-yellow" style={{ width: `${Math.min(caloriePercent, 100)}%` }} />
-            </div>
-            <p className="mt-2 text-xs text-white/60">{caloriePercent}% {text.dailyEnergy}</p>
-          </div>
-          <div className="flex items-center gap-4 border-t border-white/10 bg-white/5 p-5 sm:w-52 sm:flex-col sm:justify-center sm:border-l sm:border-t-0">
-            <div className="grid h-20 w-20 shrink-0 place-items-center rounded-full border-[7px] border-brand-accent-bright bg-white/5">
-              <span className="font-serif text-2xl font-semibold tabular-nums">{nutritionScore}</span>
-            </div>
-            <div className="sm:text-center">
-              <p className="text-xs font-bold uppercase tracking-wider text-white/60">{text.score}</p>
-              <p className="mt-1 font-serif text-xl font-semibold text-brand-yellow">{text.scoreLabel} · /10</p>
-              <p className="mt-1 text-[10px] leading-snug text-white/50">{text.scoreExplanation}</p>
-            </div>
-          </div>
+    <div className="grid gap-10 sm:gap-12">
+      {/* Energy and overall score */}
+      <section className="grid gap-y-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,15rem)]">
+        <div className="min-w-0 sm:pr-8">
+          <p className="m-0 text-sm text-ink-2">{text.perServing}</p>
+          <p className="m-0 mt-0.5 text-ui font-medium text-ink">{nutrition.servingSize[language]}</p>
+          <p className="m-0 mt-5 flex items-baseline gap-2">
+            <span className="type-figure font-light text-4xl leading-none text-ink">{nutrition.calories}</span>
+            <span className="text-md text-ink-3">{text.calories}</span>
+          </p>
+          <Meter percent={caloriePercent} className="mt-5 max-w-sm" />
+          <p className="m-0 mt-2 text-sm text-ink-2 tabular-nums">{caloriePercent}% {text.dailyEnergy}</p>
+        </div>
+        <div className="min-w-0 pt-6 border-t border-line sm:pt-0 sm:pl-8 sm:border-t-0 sm:border-l">
+          <p className="m-0 text-sm text-ink-2">{text.score}</p>
+          <p className="m-0 mt-2 flex items-baseline gap-1.5">
+            <span className="type-figure font-light text-4xl leading-none text-ink">{nutritionScore}</span>
+            <span className="text-md text-ink-3 tabular-nums">/10</span>
+          </p>
+          <p className="m-0 mt-2 text-ui font-semibold text-ink">{text.scoreLabel}</p>
+          <p className="m-0 mt-1 text-sm text-ink-2 text-pretty">{text.scoreExplanation}</p>
         </div>
       </section>
 
-      <div className="grid grid-cols-2 gap-3">
-        <div className="rounded-2xl border border-line-light bg-card-light p-4 dark:border-line-dark dark:bg-card-dark">
-          <p className="text-[10px] font-bold uppercase tracking-wider text-ink-soft-light dark:text-ink-soft-dark">{text.proteinScore}</p>
-          <p className="mt-2 font-serif text-2xl font-semibold text-brand-accent dark:text-brand-accent-bright">{Math.min(10, proteinPercent / 3).toFixed(1)}<span className="text-sm text-ink-soft-light dark:text-ink-soft-dark"> / 10</span></p>
-          <p className="mt-1 text-xs text-ink-muted-light dark:text-ink-muted-dark">{proteinPercent}% {text.dailyValue}</p>
+      {/* Sub-scores */}
+      <dl className="m-0 grid grid-cols-2 border-y border-line">
+        <div className="min-w-0 py-4 pr-3">
+          <dt className="text-sm text-ink-2 text-pretty">{text.proteinScore}</dt>
+          <dd className="m-0 mt-2">
+            <span className="type-figure text-2xl leading-none text-ink">{Math.min(10, proteinPercent / 3).toFixed(1)}</span>
+            <span className="text-sm text-ink-3 tabular-nums"> /10</span>
+            <p className="m-0 mt-1 text-sm text-ink-2 tabular-nums">{proteinPercent}% {text.dailyValue}</p>
+          </dd>
         </div>
-        <div className="rounded-2xl border border-line-light bg-card-light p-4 dark:border-line-dark dark:bg-card-dark">
-          <p className="text-[10px] font-bold uppercase tracking-wider text-ink-soft-light dark:text-ink-soft-dark">{text.limitScore}</p>
-          <p className="mt-2 font-serif text-2xl font-semibold text-brand-warm">{limitScore.toFixed(1)}<span className="text-sm text-ink-soft-light dark:text-ink-soft-dark"> / 10</span></p>
-          <p className="mt-1 text-xs text-ink-muted-light dark:text-ink-muted-dark">{text.watch}</p>
+        <div className="min-w-0 py-4 pl-4 sm:pl-6 border-l border-line">
+          <dt className="text-sm text-ink-2 text-pretty">{text.limitScore}</dt>
+          <dd className="m-0 mt-2">
+            <span className="type-figure text-2xl leading-none text-ink">{limitScore.toFixed(1)}</span>
+            <span className="text-sm text-ink-3 tabular-nums"> /10</span>
+            <p className="m-0 mt-1 text-sm text-ink-2">{text.watch}</p>
+          </dd>
         </div>
-      </div>
+      </dl>
 
-      <section className="rounded-2xl border border-line-light bg-card-light p-5 dark:border-line-dark dark:bg-card-dark sm:p-6">
-        <h2 className="font-serif text-lg font-semibold text-ink-light dark:text-ink-dark">{text.macroBalance}</h2>
-        <div className="mt-4 flex h-3 overflow-hidden rounded-full bg-line-2-light dark:bg-line-2-dark" role="img" aria-label={macroSegments.map((item) => `${item.label} ${item.percent}%`).join(', ')}>
-          {macroSegments.map((item) => <span key={item.label} className={item.color} style={{ width: `${item.percent}%` }} />)}
+      {/* Macronutrient energy split */}
+      <section aria-labelledby="macro-balance">
+        <h2 id="macro-balance" className="type-section text-ink">{text.macroBalance}</h2>
+        <div
+          className="mt-4 flex gap-[2px] h-2"
+          role="img"
+          aria-label={macroSegments.map((item) => `${item.label} ${item.percent}%`).join(', ')}
+        >
+          {macroSegments.map((item) => <span key={item.label} className={item.tone} style={{ width: `${item.percent}%` }} />)}
         </div>
-        <div className="mt-5 grid grid-cols-3 gap-2">
+        <ul className="m-0 mt-4 p-0 list-none grid sm:grid-cols-3 sm:gap-x-6">
           {macroSegments.map((item) => (
-            <div key={item.label}>
-              <div className="flex items-center gap-1.5">
-                <span className={`h-2 w-2 rounded-full ${item.color}`} />
-                <span className="text-[11px] font-semibold text-ink-muted-light dark:text-ink-muted-dark">{item.label}</span>
-              </div>
-              <p className="mt-1 font-serif text-xl font-semibold text-ink-light dark:text-ink-dark tabular-nums">{item.value}<span className="ml-0.5 font-sans text-xs font-medium text-ink-soft-light dark:text-ink-soft-dark">g</span></p>
-              <p className="text-[10px] text-ink-soft-light dark:text-ink-soft-dark">{item.percent}% kcal</p>
-            </div>
+            <li
+              key={item.label}
+              className="min-w-0 grid grid-cols-[minmax(0,1fr)_auto_3.75rem] items-baseline gap-x-3 py-2.5 border-t border-line sm:block sm:py-0 sm:pt-3"
+            >
+              <span className="flex items-center gap-2 min-w-0 text-sm text-ink-2">
+                <span aria-hidden="true" className={`shrink-0 w-2.5 h-2.5 rounded-[1px] ${item.tone}`} />
+                <span className="min-w-0 break-words">{item.label}</span>
+              </span>
+              <span className="block sm:mt-1.5 text-ink">
+                <span className="type-figure text-xl sm:text-2xl leading-none">{item.value}</span>
+                <span className="ml-0.5 text-sm text-ink-3">g</span>
+              </span>
+              <span className="block sm:mt-1 text-right sm:text-left text-sm text-ink-3 tabular-nums">{item.percent}% kcal</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
-      <section className="rounded-2xl border border-line-light bg-card-light p-5 dark:border-line-dark dark:bg-card-dark sm:p-6">
-        <h2 className="font-serif text-lg font-semibold text-ink-light dark:text-ink-dark">{text.nutrients}</h2>
-        <div className="mt-4 flex gap-2" aria-label={text.nutrients}>
+      {/* Nutrients and daily values */}
+      <section aria-labelledby="nutrient-values">
+        <h2 id="nutrient-values" className="type-section text-ink">{text.nutrients}</h2>
+        <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label={text.nutrients}>
           {([
             ['all', text.all],
             ['benefit', text.benefits],
@@ -230,56 +260,57 @@ export const NutritionPanel: React.FC<NutritionPanelProps> = ({ nutrition }) => 
               type="button"
               aria-pressed={filter === value}
               onClick={() => setFilter(value)}
-              className={`rounded-full px-3 py-1.5 text-xs font-bold transition-colors ${
+              className={`inline-flex items-center min-h-target px-3.5 rounded-ctl border text-ui transition-colors duration-200 ease-ease ${
                 filter === value
-                  ? 'bg-ink-light text-white dark:bg-ink-dark dark:text-ink-light'
-                  : 'bg-card-3-light text-ink-muted-light hover:text-ink-light dark:bg-card-3-dark dark:text-ink-muted-dark dark:hover:text-ink-dark'
+                  ? 'bg-ink border-ink text-paper font-[560]'
+                  : 'border-line-strong text-ink font-[480] hover:border-ink'
               }`}
             >
               {label}
             </button>
           ))}
         </div>
-        <div className="mt-4 divide-y divide-line-2-light dark:divide-line-2-dark">
-          {visibleNutrients.map((nutrient) => {
-            const rating = getRating(nutrient.kind, nutrient.percent);
-            return (
-              <div key={nutrient.label} className="py-3">
-                <div className="grid grid-cols-[1fr_auto_auto] items-baseline gap-3">
-                  <span className="text-sm font-semibold text-ink-light dark:text-ink-dark">{nutrient.label}</span>
-                  <span className="text-xs font-medium tabular-nums text-ink-muted-light dark:text-ink-muted-dark">{nutrient.value}</span>
-                  <span className="w-12 text-right text-sm font-bold tabular-nums text-ink-light dark:text-ink-dark">{nutrient.percent}%</span>
-                </div>
-                <div className="mt-2 grid grid-cols-[1fr_auto] items-center gap-3">
-                  <div className="h-1.5 overflow-hidden rounded-full bg-line-2-light dark:bg-line-2-dark">
-                    <div className={`h-full rounded-full ${rating.bar}`} style={{ width: `${Math.min(nutrient.percent, 100)}%` }} />
-                  </div>
-                  <span className={`w-16 text-right text-[10px] font-bold uppercase tracking-wide ${rating.color}`}>{rating.label}</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div className="mt-2 flex justify-end gap-5 text-[10px] font-bold uppercase tracking-wide text-ink-soft-light dark:text-ink-soft-dark">
+        <div aria-hidden="true" className="mt-5 flex justify-end gap-x-5 pb-1.5 text-xs text-ink-2">
           <span>{text.dailyValue}: %</span>
           <span>{text.guidance}</span>
         </div>
+        <ul className="m-0 p-0 list-none border-b border-line">
+          {visibleNutrients.map((nutrient) => {
+            const rating = getRating(nutrient.kind, nutrient.percent);
+            return (
+              <li key={nutrient.label} className="py-3 border-t border-line">
+                <div className="grid grid-cols-[minmax(0,1fr)_auto_3.25rem] items-baseline gap-x-3">
+                  <span className="min-w-0 break-words text-ui text-ink">{nutrient.label}</span>
+                  <span className="text-sm text-ink-2 tabular-nums whitespace-nowrap">{nutrient.value}</span>
+                  <span className="text-right text-ui font-semibold text-ink tabular-nums">{nutrient.percent}%</span>
+                </div>
+                <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4">
+                  <Meter percent={nutrient.percent} />
+                  <span className={`min-w-[4.5rem] text-right text-sm ${rating.notable ? 'text-ink font-semibold' : 'text-ink-2'}`}>
+                    {rating.label}
+                  </span>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
+      {/* Guidance */}
       <div className="grid gap-3 sm:grid-cols-2">
-        <aside className="rounded-2xl border border-brand-accent/20 bg-brand-accent/10 p-4">
-          <p className="text-sm font-bold text-brand-accent dark:text-brand-accent-bright">✓ {text.strengths}</p>
-          <p className="mt-1 text-sm leading-relaxed text-ink-muted-light dark:text-ink-muted-dark">{text.strengthsText}</p>
+        <aside className="bg-paper rounded-ctl p-4 sm:p-5">
+          <p className="m-0 type-section text-ink">{text.strengths}</p>
+          <p className="m-0 mt-1.5 text-ui leading-[1.5] text-ink-2 text-pretty">{text.strengthsText}</p>
         </aside>
-        <aside className="rounded-2xl border border-brand-warm/20 bg-brand-warm/10 p-4">
-          <p className="text-sm font-bold text-brand-warm">! {text.watch}</p>
-          <p className="mt-1 text-sm leading-relaxed text-ink-muted-light dark:text-ink-muted-dark">{text.watchText}</p>
+        <aside className="bg-paper rounded-ctl p-4 sm:p-5">
+          <p className="m-0 type-section text-ink">{text.watch}</p>
+          <p className="m-0 mt-1.5 text-ui leading-[1.5] text-ink-2 text-pretty">{text.watchText}</p>
         </aside>
       </div>
 
-      <div className="px-1 text-[11px] leading-relaxed text-ink-soft-light dark:text-ink-soft-dark">
-        <p>{text.note}</p>
-        <p className="mt-1">{text.reference}</p>
+      <div className="-mt-4 max-w-[65ch] text-sm text-ink-2 text-pretty">
+        <p className="m-0">{text.note}</p>
+        <p className="m-0 mt-1.5">{text.reference}</p>
       </div>
     </div>
   );

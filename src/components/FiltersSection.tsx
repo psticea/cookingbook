@@ -3,85 +3,76 @@ import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
 import { FilterKeyword, FilterKeywordType } from '../types';
 import filterKeywords from '../data/filter-keywords.json';
+import { MenuSection } from './SideMenu';
 
 interface FiltersSectionProps {
   selectedKeywords: Set<string>;
   onKeywordsChange: (keywords: Set<string>) => void;
 }
 
+const GROUPS: { type: FilterKeywordType; labelKey: string }[] = [
+  { type: 'meatType', labelKey: 'meatType' },
+  { type: 'cookType', labelKey: 'cookType' },
+  { type: 'ingredient', labelKey: 'ingredient' },
+];
+
 /**
- * FiltersSection — Card Stack design.
- * Always-visible card with chip-style keyword pills grouped by type.
+ * FiltersSection — keyword chips grouped by type (DESIGN.md → Chips).
+ * Multi-select with AND logic; the first 12 ingredient keywords are shown.
  */
-export const FiltersSection: React.FC<FiltersSectionProps> = ({
-  selectedKeywords,
-  onKeywordsChange,
-}) => {
+export const FiltersSection: React.FC<FiltersSectionProps> = ({ selectedKeywords, onKeywordsChange }) => {
   const { language } = useLanguage();
 
-  // Group keywords by type
-  const keywordsByType = (filterKeywords as FilterKeyword[]).reduce((acc, keyword) => {
-    if (!acc[keyword.type]) acc[keyword.type] = [];
-    acc[keyword.type].push(keyword);
+  const byType = (filterKeywords as FilterKeyword[]).reduce((acc, keyword) => {
+    (acc[keyword.type] ||= []).push(keyword);
     return acc;
   }, {} as Record<FilterKeywordType, FilterKeyword[]>);
 
-  const subsections: { type: FilterKeywordType; labelKey: string }[] = [
-    { type: 'meatType', labelKey: 'meatType' },
-    { type: 'cookType', labelKey: 'cookType' },
-    { type: 'ingredient', labelKey: 'ingredient' },
-  ];
-
-  const handleKeywordToggle = (keywordId: string) => {
+  const toggle = (id: string) => {
     const next = new Set(selectedKeywords);
-    if (next.has(keywordId)) next.delete(keywordId);
-    else next.add(keywordId);
+    if (next.has(id)) next.delete(id);
+    else next.add(id);
     onKeywordsChange(next);
   };
 
-  const handleClearAll = () => onKeywordsChange(new Set());
-
   return (
-    <div className="bg-card-light dark:bg-card-dark rounded-2xl p-4 shadow-card">
-      <div className="flex items-center justify-between mb-3">
-        <h4 className="text-[11px] font-bold tracking-[0.12em] uppercase text-ink-muted-light dark:text-ink-muted-dark">
-          {getTranslation('filters', language)}
-        </h4>
-        {selectedKeywords.size > 0 && (
-          <button
-            onClick={handleClearAll}
-            className="text-xs font-semibold text-brand-warm hover:opacity-80 transition-opacity"
-          >
-            {getTranslation('clearAllFilters', language)}
-          </button>
-        )}
-      </div>
-
-      <div className="space-y-3">
-        {subsections.map(({ type, labelKey }) => {
-          const keywords = keywordsByType[type] || [];
-          if (keywords.length === 0) return null;
-          const displayKeywords = type === 'ingredient' ? keywords.slice(0, 12) : keywords;
-
+    <MenuSection
+      title={getTranslation('filters', language)}
+      action={selectedKeywords.size > 0 && (
+        <button
+          type="button"
+          onClick={() => onKeywordsChange(new Set())}
+          className="min-h-target px-0.5 text-sm font-medium text-ink-2 underline decoration-line-strong decoration-1 underline-offset-4 hover:decoration-current"
+        >
+          {getTranslation('clearAllFilters', language)}
+        </button>
+      )}
+    >
+      <div className="space-y-3.5">
+        {GROUPS.map(({ type, labelKey }) => {
+          const keywords = byType[type] || [];
+          if (!keywords.length) return null;
+          const shown = type === 'ingredient' ? keywords.slice(0, 12) : keywords;
+          const groupId = `filter-group-${type}`;
           return (
-            <div key={type}>
-              <h5 className="text-[10px] font-semibold tracking-wider uppercase text-ink-soft-light dark:text-ink-soft-dark mb-2">
+            <div key={type} role="group" aria-labelledby={groupId}>
+              <h4 id={groupId} className="text-sm font-medium text-ink-2 mt-1.5 mb-2">
                 {getTranslation(labelKey, language)}
-              </h5>
+              </h4>
               <div className="flex flex-wrap gap-2">
-                {displayKeywords.map((keyword) => {
-                  const isSelected = selectedKeywords.has(keyword.id);
+                {shown.map((keyword) => {
+                  const on = selectedKeywords.has(keyword.id);
                   return (
                     <button
                       key={keyword.id}
-                      onClick={() => handleKeywordToggle(keyword.id)}
-                      className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent ${
-                        isSelected
-                          ? 'bg-brand-accent text-white border-transparent'
-                          : 'bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark border-line-light dark:border-line-dark hover:bg-card-3-light dark:hover:bg-card-3-dark'
-                      }`}
-                      aria-pressed={isSelected}
+                      type="button"
+                      data-filter-chip
+                      onClick={() => toggle(keyword.id)}
+                      aria-pressed={on}
                       aria-label={`${getTranslation('filter', language)}: ${keyword.label[language]}`}
+                      className={`min-h-target px-3.5 rounded-ctl border text-ui transition-colors duration-200 ease-ease ${
+                        on ? 'bg-ink border-ink text-paper font-[560]' : 'bg-transparent border-line-strong text-ink font-[480] hover:border-ink'
+                      }`}
                     >
                       {keyword.label[language]}
                     </button>
@@ -92,6 +83,6 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
           );
         })}
       </div>
-    </div>
+    </MenuSection>
   );
 };

@@ -1,87 +1,80 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Language } from '../types';
+import { getTranslation } from '../utils/translations';
+import { CloseIcon, SearchIcon } from './icons';
 
 interface SearchBarProps {
   searchQuery: string;
   onSearchChange: (query: string) => void;
   language: Language;
+  /** Called by the close button when the field is empty (mobile collapses the field). */
+  onClose?: () => void;
+  autoFocus?: boolean;
+  className?: string;
 }
 
 /**
- * SearchBar component
- * Displays a text input field with search icon and clear button
- * Filters recipes by title in real-time
+ * SearchBar — an underlined field, like a caption rule (DESIGN.md → Inputs / Search).
+ * Filters recipes by title in real time.
  */
 export const SearchBar: React.FC<SearchBarProps> = ({
   searchQuery,
   onSearchChange,
   language,
+  onClose,
+  autoFocus,
+  className = '',
 }) => {
-  const handleClear = () => {
-    onSearchChange('');
+  const inputRef = useRef<HTMLInputElement>(null);
+  const placeholder = getTranslation('searchRecipes', language);
+  const showClose = searchQuery.length > 0 || !!onClose;
+
+  // The field stays mounted (hidden on mobile), so focus it whenever it is opened.
+  useEffect(() => {
+    if (autoFocus) inputRef.current?.focus();
+  }, [autoFocus]);
+
+  const handleClose = () => {
+    if (searchQuery) {
+      onSearchChange('');
+      inputRef.current?.focus();
+    } else {
+      onClose?.();
+    }
   };
 
-  const placeholder = language === 'ro' ? 'Caută rețete...' : 'Search recipes...';
-
   return (
-    <div className="relative w-full">
-      {/* Search icon */}
-      <div className="absolute inset-y-0 left-0 pl-2 sm:pl-3 flex items-center pointer-events-none">
-        <svg
-          className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
-      </div>
-
-      {/* Text input — pill-style on light & dark cards */}
+    <form
+      role="search"
+      onSubmit={(e) => e.preventDefault()}
+      className={`relative flex items-center min-w-0 h-11 border-b border-line-strong focus-within:border-ink transition-colors duration-200 ease-ease ${className}`}
+    >
+      <SearchIcon size={20} className="ml-0.5 mr-2 text-ink-2" />
       <input
-        type="text"
+        ref={inputRef}
+        type="search"
         value={searchQuery}
         onChange={(e) => onSearchChange(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape' && !searchQuery && onClose) onClose();
+        }}
         placeholder={placeholder}
-        className="block w-full pl-9 sm:pl-10 pr-10 sm:pr-11 py-2.5 text-sm sm:text-base
-                   border border-line-light dark:border-line-dark rounded-full
-                   bg-card-2-light dark:bg-card-2-dark text-ink-light dark:text-ink-dark
-                   placeholder-ink-soft-light dark:placeholder-ink-soft-dark
-                   focus:outline-none focus:ring-2 focus:ring-brand-accent dark:focus:ring-brand-accent-bright focus:border-transparent
-                   transition-colors min-h-[44px]"
         aria-label={placeholder}
+        autoComplete="off"
+        spellCheck={false}
+        enterKeyHint="search"
+        className="flex-1 min-w-0 h-full bg-transparent border-0 outline-none text-base text-ink placeholder:text-ink-3 appearance-none [&::-webkit-search-cancel-button]:hidden focus-visible:outline-none"
       />
-
-      {/* Clear button (X symbol) - touch-friendly minimum 44x44px on mobile */}
-      {searchQuery && (
+      {showClose && (
         <button
-          onClick={handleClear}
-          className="absolute inset-y-0 right-0 pr-2 sm:pr-3 flex items-center text-gray-400 hover:text-gray-600 
-                     dark:hover:text-gray-300 transition-colors min-w-[44px] justify-center"
-          aria-label={language === 'ro' ? 'Șterge căutarea' : 'Clear search'}
+          type="button"
+          onClick={handleClose}
+          className="grid place-items-center w-10 h-10 -mr-1 rounded-full text-ink hover:bg-ink/[.06] transition-colors"
+          aria-label={getTranslation(searchQuery ? 'clearSearch' : 'closeSearch', language)}
         >
-          <svg
-            className="h-4 w-4 sm:h-5 sm:w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <CloseIcon size={18} />
         </button>
       )}
-    </div>
+    </form>
   );
 };

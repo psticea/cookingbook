@@ -126,7 +126,16 @@
     "searchIngredients": "Caută ingrediente...",
     "groupByCategories": "Grupare pe Categorii",
     "showCategories": "Arată Categoriile",
-    "hideCategories": "Ascunde Categoriile"
+    "hideCategories": "Ascunde Categoriile",
+    "searchRecipes": "Caută rețete…",
+    "clearSearch": "Șterge căutarea",
+    "openSearch": "Caută",
+    "closeSearch": "Închide căutarea",
+    "anotherRecipe": "Altă rețetă",
+    "removeFilter": "Elimină",
+    "sort": "Sortare",
+    "todaysRecipe": "Rețeta zilei",
+    "oneRecipe": "rețetă"
   },
   "en": {
     "loading": "Loading...",
@@ -255,6 +264,15 @@
     "searchIngredients": "Search ingredients...",
     "groupByCategories": "Group by Categories",
     "showCategories": "Show Categories",
-    "hideCategories": "Hide Categories"
+    "hideCategories": "Hide Categories",
+    "searchRecipes": "Search recipes…",
+    "clearSearch": "Clear search",
+    "openSearch": "Search",
+    "closeSearch": "Close search",
+    "anotherRecipe": "Another recipe",
+    "removeFilter": "Remove",
+    "sort": "Sort",
+    "todaysRecipe": "Today's recipe",
+    "oneRecipe": "recipe"
   }
 }

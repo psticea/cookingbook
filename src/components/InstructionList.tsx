@@ -7,25 +7,20 @@ interface InstructionListProps {
 }
 
 /**
- * InstructionList — editorial design.
- * Numbered steps with serif "01 / 02 / 03" markers and ample reading width.
+ * InstructionList — numbered steps (DESIGN.md → Instructions): Headline-width
+ * figures in China Marker beside Body text at 1.6, max 65ch.
  */
 export const InstructionList: React.FC<InstructionListProps> = ({ instructions }) => {
   const { language } = useLanguage();
 
   return (
-    <ol className="grid gap-5 px-1 py-1 list-none">
+    <ol className="grid gap-6 max-w-[65ch] list-none m-0 p-0">
       {instructions[language].map((instruction, index) => (
-        <li
-          key={index}
-          className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-3 items-start"
-        >
-          <span className="font-serif font-semibold text-xl text-brand-warm leading-none tabular-nums pt-1">
+        <li key={index} className="grid grid-cols-[2.25rem_minmax(0,1fr)] sm:grid-cols-[3rem_minmax(0,1fr)] items-baseline gap-x-2">
+          <span className="type-figure font-normal text-2xl leading-none text-mark">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <p className="text-base leading-relaxed text-ink-light dark:text-ink-dark">
-            {instruction}
-          </p>
+          <p className="m-0 text-base leading-[1.6] text-ink text-pretty break-words">{instruction}</p>
         </li>
       ))}
     </ol>

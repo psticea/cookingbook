@@ -1,8 +1,7 @@
-/**
- * Central export file for all components
+﻿/**
+ * Central export file for shared components
  */
 
-export { CategoryFilter } from './CategoryFilter';
 export { Footer } from './Footer';
 export { LanguageSelector } from './LanguageSelector';
 export { TextSizeSelector } from './TextSizeSelector';
