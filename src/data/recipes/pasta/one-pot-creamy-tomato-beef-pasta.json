@@ -1,0 +1,227 @@
+{
+  "id": "one-pot-creamy-tomato-beef-pasta",
+  "category": "pasta",
+  "image": "images/pasta/one-pot-creamy-tomato-beef-pasta.jpg",
+  "title": {
+    "ro": "Paste Cremoase cu Vită și Roșii într-o Singură Oală",
+    "en": "One Pot Creamy Tomato Beef Pasta"
+  },
+  "prepTime": 30,
+  "servings": 4,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "ulei de măsline",
+        "en": "olive oil"
+      },
+      "quantity": 1.5,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      },
+      "ingredientId": 101
+    },
+    {
+      "name": {
+        "ro": "usturoi tocat fin",
+        "en": "garlic, finely minced"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "căței",
+        "en": "cloves"
+      },
+      "ingredientId": 104
+    },
+    {
+      "name": {
+        "ro": "ceapă tocată fin",
+        "en": "onion, finely chopped"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "buc",
+        "en": "pcs"
+      },
+      "ingredientId": 108
+    },
+    {
+      "name": {
+        "ro": "carne de vită tocată",
+        "en": "ground beef"
+      },
+      "quantity": 500,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 133
+    },
+    {
+      "name": {
+        "ro": "ierburi italienești (sau oregano uscat)",
+        "en": "Italian herbs (or dried oregano)"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "lingurițe",
+        "en": "tsp"
+      },
+      "ingredientId": 103
+    },
+    {
+      "name": {
+        "ro": "pastă de roșii",
+        "en": "tomato paste"
+      },
+      "quantity": 2,
+      "unit": {
+        "ro": "linguri",
+        "en": "Tbsp"
+      },
+      "ingredientId": 207
+    },
+    {
+      "name": {
+        "ro": "roșii zdrobite la conservă (sau passata)",
+        "en": "canned crushed tomatoes (or passata)"
+      },
+      "quantity": 400,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 208
+    },
+    {
+      "name": {
+        "ro": "fulgi de chili (opțional)",
+        "en": "chili flakes (optional)"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 111
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1.5,
+      "unit": {
+        "ro": "lingurițe",
+        "en": "tsp"
+      },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "piper negru",
+        "en": "black pepper"
+      },
+      "quantity": 0.5,
+      "unit": {
+        "ro": "linguriță",
+        "en": "tsp"
+      },
+      "ingredientId": 102
+    },
+    {
+      "name": {
+        "ro": "supă de pui (cu puțină sare)",
+        "en": "chicken stock (low sodium)"
+      },
+      "quantity": 1000,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 151
+    },
+    {
+      "name": {
+        "ro": "paste scurte (fusilli, penne, cornulețe)",
+        "en": "short pasta (fusilli, penne, elbow macaroni)"
+      },
+      "quantity": 350,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 154
+    },
+    {
+      "name": {
+        "ro": "smântână de gătit",
+        "en": "cooking cream"
+      },
+      "quantity": 180,
+      "unit": {
+        "ro": "ml",
+        "en": "ml"
+      },
+      "ingredientId": 144
+    },
+    {
+      "name": {
+        "ro": "parmezan ras fin, pentru servire",
+        "en": "parmesan, finely grated, for serving"
+      },
+      "quantity": 40,
+      "unit": {
+        "ro": "g",
+        "en": "g"
+      },
+      "ingredientId": 146
+    },
+    {
+      "name": {
+        "ro": "pătrunjel tocat (opțional)",
+        "en": "parsley, chopped (optional)"
+      },
+      "quantity": 1,
+      "unit": {
+        "ro": "lingură",
+        "en": "Tbsp"
+      },
+      "ingredientId": 116
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Încălzește uleiul la foc mare într-o oală mare și călește usturoiul și ceapa 1-2 minute.",
+      "Adaugă carnea și gătește, fărâmițând-o, până nu mai e roșie. Adaugă ierburile (30 sec), apoi pasta de roșii (1 min).",
+      "Adaugă roșiile, supa, sarea, piperul și chili, amestecă, apoi adaugă pastele.",
+      "Adu la fierbere și gătește 15 minute, amestecând des, până pastele sunt aproape gata.",
+      "Adaugă smântâna și mai fierbe 1-2 minute. Sosul trebuie să rămână zemos.",
+      "Amestecă bine și servește cu parmezan și pătrunjel."
+    ],
+    "en": [
+      "Heat oil on high in a large pot and sauté garlic and onion for 1-2 minutes.",
+      "Add beef and cook, breaking it up, until no longer red. Add herbs (30 sec), then tomato paste (1 min).",
+      "Add tomatoes, stock, salt, pepper and chili flakes, stir, then add pasta.",
+      "Bring to a simmer and cook 15 minutes, stirring often, until pasta is almost done.",
+      "Stir in cream and simmer 1-2 minutes more. It should still be saucy.",
+      "Stir well and serve with parmesan and parsley."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Rețetă de la: https://www.recipetineats.com/one-pot-creamy-tomato-beef-pasta/",
+    "en": "Recipe from: https://www.recipetineats.com/one-pot-creamy-tomato-beef-pasta/"
+  },
+  "keywords": [
+    "easy",
+    "beef",
+    "boiling",
+    "garlic",
+    "onion",
+    "tomatoes",
+    "pasta",
+    "parmesan"
+  ],
+  "dateAdded": "2026-09-26"
+}
