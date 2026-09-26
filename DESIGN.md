@@ -187,7 +187,7 @@ components:
     rounded: "{rounded.print}"
   drawer-sheet:
     backgroundColor: "{colors.paper}"
-    width: "min(420px, calc(100vw - 36px))"
+    width: "min(420px, 80vw)"
   search-field:
     textColor: "{colors.ink}"
     typography: "{typography.body}"
@@ -352,7 +352,7 @@ Precise and nearly square. Prints use a 2px radius (a trimmed photographic print
 
 ### Navigation
 - **Header:** wordmark left (scrolls to top on the homepage, links home elsewhere), search, and a menu button ("Meniu" label ≥768px + two-line icon) with the filter-count badge.
-- **Side menu:** a Paper sheet sliding in from the right (`min(420px, 100vw − 36px)`, 520ms), Scrim backdrop, 56px head with Title "Meniu" and a close button. Sections separated by Hairlines: Filters (chips), Categories (44px thumbnail + name + count rows, 56px tall; empty categories disabled), More (48px link rows with a → that nudges 3px on hover), Preferences (segmented controls). Escape, backdrop click and the close button close it; the page behind is inert and scroll-locked; focus returns to the trigger.
+- **Side menu:** a Paper sheet sliding in from the right (80% of the screen width, capped at 420px: `min(420px, 80vw)`; 520ms), Scrim backdrop, 56px head with Title "Meniu" and a close button. Sections separated by Hairlines: Filters (chips), Categories (44px thumbnail + name + count rows, 56px tall; empty categories disabled), More (48px link rows with a → that nudges 3px on hover), Preferences (segmented controls). Escape, backdrop click and the close button close it; the page behind is inert and scroll-locked; focus returns to the trigger.
 - **Footer:** wordmark, then About / Cooking Basics / Ingredient Prices as underlined text links. No tagline.
 
 ### Badge

@@ -119,7 +119,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose, children, i
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className={`absolute inset-y-0 right-0 w-[min(420px,calc(100vw-36px))] flex flex-col bg-paper shadow-sheet transition-transform duration-[520ms] ease-ease ${
+        className={`absolute inset-y-0 right-0 w-[min(420px,80vw)] flex flex-col bg-paper shadow-sheet transition-transform duration-[520ms] ease-ease ${
           visible ? 'translate-x-0' : 'translate-x-[104%]'
         }`}
       >
