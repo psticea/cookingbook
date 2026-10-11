@@ -2,7 +2,7 @@
   "id": "chickpea-beef-shawarma-soup",
   "category": "soups-and-stews",
   "title": {
-    "ro": "Supă de Vită și Năut în Stil Shawarma",
+    "ro": "Supă cu Vită și Năut în Stil Shawarma",
     "en": "Chickpea Beef Shawarma Soup"
   },
   "prepTime": 35,
@@ -18,8 +18,8 @@
     },
     {
       "name": {
-        "ro": "pudră de chimion",
-        "en": "cumin powder"
+        "ro": "chimion măcinat",
+        "en": "ground cumin"
       },
       "quantity": 2,
       "unit": {
@@ -42,8 +42,8 @@
     },
     {
       "name": {
-        "ro": "boia de ardei",
-        "en": "paprika"
+        "ro": "boia dulce de ardei",
+        "en": "sweet paprika"
       },
       "quantity": 2,
       "unit": {
@@ -66,7 +66,7 @@
     },
     {
       "name": {
-        "ro": "piper cayenne (ajustați după gust)",
+        "ro": "ardei iute cayenne măcinat (după gust)",
         "en": "cayenne pepper (adjust to taste)"
       },
       "quantity": 0.5,
@@ -168,8 +168,8 @@
     },
     {
       "name": {
-        "ro": "morcovi, curățați și tăiați (aproximativ cât năuții)",
-        "en": "carrots, peeled and chopped (about the size of chickpeas)"
+        "ro": "morcovi, curățați și tăiați cubulețe mici (cam cât un bob de năut)",
+        "en": "carrots, peeled and diced small (about the size of a chickpea)"
       },
       "quantity": 2,
       "unit": {
@@ -204,8 +204,8 @@
     },
     {
       "name": {
-        "ro": "supă de pui",
-        "en": "chicken broth"
+        "ro": "supă clară de pui (sau fond de pui/vită)",
+        "en": "chicken broth (or chicken/beef stock)"
       },
       "quantity": 750,
       "unit": {
@@ -216,7 +216,7 @@
     },
     {
       "name": {
-        "ro": "spanac, tocat grosier (un mănunchi, aprox. 200 g)",
+        "ro": "spanac, tocat grosier (o legătură, aprox. 200 g)",
         "en": "spinach, roughly chopped (1 bunch, approx. 200 g)"
       },
       "quantity": 200,
@@ -234,7 +234,7 @@
     },
     {
       "name": {
-        "ro": "iaurt simplu (sau smântână)",
+        "ro": "iaurt natural sau grecesc (sau smântână)",
         "en": "plain yoghurt (or sour cream)"
       },
       "quantity": 1,
@@ -246,8 +246,8 @@
     },
     {
       "name": {
-        "ro": "coriandru/cilantro proaspăt, tocat",
-        "en": "chopped fresh coriander/cilantro"
+        "ro": "frunze de coriandru proaspăt, tocate (sau pătrunjel)",
+        "en": "chopped fresh coriander/cilantro (or parsley)"
       },
       "quantity": 1,
       "unit": {
@@ -259,22 +259,22 @@
   ],
   "instructions": {
     "ro": [
-      "Încălzește uleiul într-o oală mare la foc mare. Adaugă usturoiul și ceapa, gătește timp de 1 minut până când încep să devină translucide.",
-      "Adaugă carnea de vită tocată și gătește, sfărâmând-o pe măsură ce o amesteci. Când s-a schimbat în mare parte din roz în maro deschis, adaugă condimentele.",
-      "Gătește timp de 1 minut, apoi adaugă pasta de tomate și gătește încă 1 minut. (Miroase incredibil!)",
+      "Încălzește uleiul într-o oală mare, la foc mare. Adaugă usturoiul și ceapa și călește-le 1 minut, amestecând continuu, până când ceapa începe să devină sticloasă.",
+      "Adaugă carnea tocată și călește-o, desfăcând-o cu lingura în bucăți mici. Când aproape nu mai e roz, adaugă condimentele. Dacă a lăsat multă grăsime, poți scurge o parte.",
+      "Amestecă 1 minut, ca să se prăjească condimentele, apoi adaugă pasta de tomate și mai gătește încă 1 minut. (Va mirosi minunat!)",
       "Adaugă morcovii, năutul, roșiile tocate și supa de pui. Amestecă și adu la fierbere.",
-      "Acoperă cu un capac, reduce focul astfel încât să fiarbă energic, dar nu prea rapid. Gătește timp de 10 minute, până când morcovii sunt fragezi, dar nu prea moi – ideal este să mai aibă puțină mușcătură; dacă îi preferi mai moi, mai lasă-i câteva minute.",
-      "Adaugă spanacul și amestecă. Odată ce s-a ofilit, ajustează sarea, piperul și iuțeala (cayenne) după gust, și adaugă apă dacă vrei mai mult lichid.",
-      "Pune cu polonicul în boluri, adaugă o lingură de iaurt și o presăratură generoasă de coriandru. Poftă bună!"
+      "Pune capacul și redu focul cât să fiarbă constant, dar nu în clocote. Fierbe 10 minute, până când morcovii sunt fragezi, dar încă ușor fermi. Dacă îi preferi mai moi, mai lasă câteva minute.",
+      "Adaugă spanacul și amestecă până se înmoaie (1–2 minute). Potrivește de sare, piper și cayenne după gust. Dacă supa e prea densă, adaugă puțină apă fierbinte.",
+      "Servește supa în boluri, cu o lingură de iaurt deasupra și coriandru proaspăt presărat din belșug. Poftă bună!"
     ],
     "en": [
-      "Heat oil in a large pot over high heat. Add garlic and onion, cook for 1 minute until starting to turn translucent.",
-      "Add the ground beef and cook, breaking it up as you go. When it has mostly turned from pink to light brown, add the spices.",
-      "Cook for 1 minute, then add tomato paste and cook for another 1 minute. (It smells amazing!)",
+      "Heat oil in a large pot over high heat. Add garlic and onion and cook for 1 minute, stirring constantly, until the onion starts to turn translucent.",
+      "Add the ground beef and cook, breaking it up into small pieces as you go. When it has mostly turned from pink to brown, add the spices. If a lot of fat has rendered out, you can drain some of it.",
+      "Stir for 1 minute to toast the spices, then add tomato paste and cook for another 1 minute. (It will smell amazing!)",
       "Add carrots, chickpeas, crushed tomatoes, and chicken broth. Stir and bring to a simmer.",
-      "Cover with a lid, lower heat so it is bubbling energetically but not too rapidly. Cook for 10 minutes until carrots are tender but not overly soft – a little bite is ideal; keep cooking if you prefer them softer.",
-      "Stir through the spinach. Once wilted, adjust salt, pepper, and spiciness (cayenne) to taste, and add water if you want more liquid.",
-      "Ladle into bowls, add a dollop of yoghurt and a generous sprinkling of coriander. Enjoy!"
+      "Cover with a lid and lower the heat so it simmers steadily but not at a rolling boil. Cook for 10 minutes until carrots are tender but still slightly firm. Cook a few minutes longer if you prefer them softer.",
+      "Stir through the spinach until wilted (1–2 minutes). Adjust salt, pepper, and cayenne to taste. If the soup is too thick, add a little hot water.",
+      "Ladle into bowls, top with a dollop of yoghurt and a generous sprinkling of fresh coriander. Enjoy!"
     ]
   },
   "personalNotes": {
