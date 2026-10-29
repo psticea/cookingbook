@@ -51,7 +51,7 @@
         "ro": "carne de vită tocată",
         "en": "ground beef"
       },
-      "quantity": 500,
+      "quantity": 400,
       "unit": {
         "ro": "g",
         "en": "g"
@@ -135,7 +135,7 @@
         "ro": "supă de pui (cu puțină sare)",
         "en": "chicken stock (low sodium)"
       },
-      "quantity": 1000,
+      "quantity": 800,
       "unit": {
         "ro": "ml",
         "en": "ml"
@@ -147,7 +147,7 @@
         "ro": "paste scurte (fusilli, penne, cornulețe)",
         "en": "short pasta (fusilli, penne, elbow macaroni)"
       },
-      "quantity": 350,
+      "quantity": 450,
       "unit": {
         "ro": "g",
         "en": "g"
@@ -159,7 +159,7 @@
         "ro": "smântână de gătit",
         "en": "cooking cream"
       },
-      "quantity": 180,
+      "quantity": 150,
       "unit": {
         "ro": "ml",
         "en": "ml"
