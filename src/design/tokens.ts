@@ -30,12 +30,12 @@ export const typography = {
   fontFamily: {
     sans: ['Archivo', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
   },
-  // Mobile-first scale: [size, line-height]. The large-text preference scales the root to 112.5%.
+  // Mobile-first scale: [size, line-height]. The large-text preference scales the root to 120%.
   fontSize: {
     xs: ['0.8125rem', { lineHeight: '1.3' }],   // 13px — badges, short labels (floor)
     sm: ['0.875rem', { lineHeight: '1.4' }],    // 14px — meta: minutes, lei, counts
     ui: ['0.9375rem', { lineHeight: '1.4' }],   // 15px — buttons, chips, controls
-    base: ['1rem', { lineHeight: '1.5' }],      // 16px — body, print titles
+    base: ['1.0625rem', { lineHeight: '1.5' }], // 17px — body, print titles
     md: ['1.0625rem', { lineHeight: '1.3' }],   // 17px — section labels, wordmark
     lg: ['1.25rem', { lineHeight: '1.2' }],     // 20px — titles
     xl: ['1.375rem', { lineHeight: '1.2' }],    // 22px — featured title (desktop), empty state

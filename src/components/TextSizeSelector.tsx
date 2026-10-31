@@ -4,7 +4,7 @@ import { useLanguage } from '../hooks/useLanguage';
 import { getTranslation } from '../utils/translations';
 import { SegmentedControl } from './SegmentedControl';
 
-/** Text size preference: Normal / Large (large scales the root to 112.5%). */
+/** Text size preference: Normal / Large (large scales the root to 120%). */
 export const TextSizeSelector: React.FC<{ labelledBy?: string }> = ({ labelledBy }) => {
   const { textSize, setTextSize } = useTextSize();
   const { language } = useLanguage();
