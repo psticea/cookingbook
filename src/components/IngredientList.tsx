@@ -84,7 +84,7 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                   onChange={() => toggleIngredient(index)}
                   className="ingredient-checkbox"
                 />
-                <span className={`min-w-0 flex-1 break-words text-base leading-[1.45] transition-colors duration-300 ease-ease ${
+                <span className={`min-w-0 flex-1 break-words text-base leading-[1.3] transition-colors duration-300 ease-ease ${
                   isChecked ? 'text-ink-3 line-through decoration-1' : 'text-ink'
                 }`}>
                   {qualitative ? (

@@ -81,13 +81,13 @@ typography:
     fontVariation: "'wdth' 116"
   label-title:
     fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1rem"
+    fontSize: "1.0625rem"
     fontWeight: 520
     lineHeight: 1.3
     letterSpacing: "-0.003em"
   body:
     fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1rem"
+    fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.5
   ui:
@@ -265,14 +265,14 @@ Loaded from Google Fonts: `family=Archivo:wdth,wght@62..125,100..900&display=swa
 - **Headline** (400, wdth 112, 1.5rem → 1.875rem ≥768px → 2.125rem ≥1100px, lh 1.1, ls −0.018em): category "room" titles, recipe title on mobile, major section titles on content pages.
 - **Title** (400, wdth 116, 1.25rem, lh 1.2): side-menu heading, empty-state heading (1.375rem, wdth 112), sub-sections on content pages.
 - **Section label** (600, wdth 110, 1.0625rem): side-menu section heads (Filters, Categories, More, Preferences), panel headings.
-- **Label title** (520, 1rem → 1.0625rem ≥768px, lh 1.3, max 2 lines): recipe titles under prints; featured-recipe title (560, 1.0625rem; ≥1100px 500, wdth 106, 1.375rem).
-- **Body** (400, 1rem, lh 1.5; prose lh 1.6, max 65ch): instructions, notes, About and Cooking Basics text.
+- **Label title** (520, 1.0625rem, lh 1.3, max 2 lines): recipe titles under prints; featured-recipe title (560, 1.0625rem; ≥1100px 500, wdth 106, 1.375rem).
+- **Body** (400, 1.0625rem, lh 1.5; prose lh 1.6, max 65ch): ingredients, instructions, notes, About and Cooking Basics text.
 - **UI** (500–520, 0.9375rem): buttons, chips, switches, sort buttons (active: 620), links. Never below 15px.
 - **Meta** (400, 0.875rem, tabular): minutes and lei under a print, counts. Units and "≈" drop to Soft Pencil.
 - **Small** (500–650, 0.8125rem): badges, the mobile "rețete" count label. The absolute floor; never used for sentences.
 - **Wordmark** (wdth 125, 1.0625rem → 1.1875rem ≥768px): "Paul's" at 680, "Cookbook" at 330.
 
-Large-text preference scales the root to 112.5% (`html[data-text="large"]`), so every rem-based size scales together.
+Large-text preference scales the root to 120% (`html[data-text="large"]`), so every rem-based size scales together.
 
 ### Named Rules
 **The Width Is Hierarchy Rule.** Don't add a second typeface. Reach for width (wdth 100 → 125) and weight before size; titles get wider and lighter as they get bigger.
