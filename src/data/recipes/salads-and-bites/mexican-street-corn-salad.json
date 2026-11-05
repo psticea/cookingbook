@@ -27,10 +27,10 @@
         "ro": "boabe de porumb congelat",
         "en": "frozen corn kernel"
       },
-      "quantity": 3,
+      "quantity": 450,
       "unit": {
-        "ro": "căni",
-        "en": "cups"
+        "ro": "g",
+        "en": "g"
       },
       "ingredientId": 190
     },
@@ -60,15 +60,15 @@
     },
     {
       "name": {
-        "ro": "frunze proaspete de coriandru, tocate fin",
-        "en": "fresh cilantro leaves, finely chopped"
+        "ro": "frunze proaspete de pătrunjel, tocate fin",
+        "en": "fresh parsley leaves, finely chopped"
       },
       "quantity": 0.5,
       "unit": {
         "ro": "cană",
         "en": "cup"
       },
-      "ingredientId": 191
+      "ingredientId": 116
     },
     {
       "name": {
@@ -132,8 +132,8 @@
     },
     {
       "name": {
-        "ro": "boia afumată picantă",
-        "en": "hot smoked paprika"
+        "ro": "boia afumată picantă (opțional)",
+        "en": "hot smoked paprika (optional)"
       },
       "quantity": 0.25,
       "unit": {
@@ -141,32 +141,20 @@
         "en": "tsp"
       },
       "ingredientId": 217
-    },
-    {
-      "name": {
-        "ro": "smântână",
-        "en": "sour cream"
-      },
-      "quantity": 1,
-      "unit": {
-        "ro": "lingură",
-        "en": "Tbsp"
-      },
-      "ingredientId": 112
     }
   ],
   "instructions": {
     "ro": [
       "Încălzește uleiul într-o tigaie antiadezivă mare sau wok la foc mare până devine strălucitor. Adaugă boabele de porumb, condimentează cu sare după gust, amestecă o dată sau de două ori, și lasă să se prăjească fără a mișca până se rumenește pe o parte, aproximativ 2 minute.",
       "Amestecă porumbul, și lasă din nou să se rumenească pe a doua parte, încă aproximativ 2 minute. Continuă să amesteci și să rumenești până când porumbul este bine rumenit din toate părțile, aproximativ 10 minute în total. Transferă într-un bol mare.",
-      "Adaugă brânza, ceapa verde, coriandrul, ardeiul gras, usturoiul, maioneza, smântâna și sucul de lime și amestecă bine pentru a combina.",
-      "Gustă și ajustează condimentarea cu sare după preferință. Presară boiaua afumată picantă deasupra și servește imediat."
+      "Adaugă brânza, ceapa verde, pătrunjelul, ardeiul gras, usturoiul, maioneza și sucul de lime și amestecă bine pentru a combina.",
+      "Gustă și ajustează condimentarea cu sare după preferință. Presară opțional boiaua afumată picantă deasupra și servește imediat."
     ],
     "en": [
       "Heat oil in a large nonstick skillet or wok over high heat until shimmering. Add corn kernels, season to taste with salt, toss once or twice, and cook without moving until charred on one side, about 2 minutes.",
       "Toss corn, stir, and repeat until charred on second side, about 2 minutes longer. Continue tossing and charring until corn is well charred all over, about 10 minutes total. Transfer to a large bowl.",
-      "Add cheese, scallions, cilantro, bell pepper, garlic, mayonnaise, sour cream and lime juice and toss to combine.",
-      "Taste and adjust seasoning with salt to taste. Dust the hot smoked paprika over the top and serve immediately."
+      "Add cheese, scallions, parsley, bell pepper, garlic, mayonnaise and lime juice and toss to combine.",
+      "Taste and adjust seasoning with salt to taste. Dust the hot smoked paprika (optional) over the top and serve immediately."
     ]
   },
   "personalNotes": {
