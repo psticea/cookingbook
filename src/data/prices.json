@@ -916,6 +916,48 @@
       "category": "Fruits and Vegetables",
       "unit_type": "piece",
       "price_per_piece": 1
+    },
+    "flour_tortilla": {
+      "id": 231,
+      "name": "Wheat tortilla wrap (25 cm)",
+      "category": "Pantry",
+      "unit_type": "piece",
+      "price_per_piece": 1.7
+    },
+    "grated_cheddar": {
+      "id": 232,
+      "name": "Grated cheddar or grated cheese mix",
+      "category": "Dairy",
+      "unit_type": "mass",
+      "price_per_1000": 40
+    },
+    "canned_corn_drained": {
+      "id": 233,
+      "name": "Canned sweet corn (drained weight)",
+      "category": "Pantry",
+      "unit_type": "mass",
+      "price_per_1000": 18
+    },
+    "boneless_chicken_thigh": {
+      "id": 234,
+      "name": "Boneless skinless chicken thigh",
+      "category": "Proteins",
+      "unit_type": "mass",
+      "price_per_1000": 32
+    },
+    "greek_yogurt": {
+      "id": 235,
+      "name": "Full-fat Greek yogurt (10%)",
+      "category": "Dairy",
+      "unit_type": "mass",
+      "price_per_1000": 20
+    },
+    "onion_powder": {
+      "id": 236,
+      "name": "Onion powder",
+      "category": "Spices & Seasonings",
+      "unit_type": "mass",
+      "price_per_1000": 25
     }
   }
 }
