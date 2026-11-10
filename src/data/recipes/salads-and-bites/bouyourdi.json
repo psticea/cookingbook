@@ -1,0 +1,130 @@
+{
+  "id": "bouyourdi",
+  "category": "salads-and-bites",
+  "image": "images/salads-and-bites/bouyourdi.jpg",
+  "title": {
+    "ro": "Bouyourdi – dip de feta la cuptor",
+    "en": "Bouyourdi – Greek Baked Feta Dip"
+  },
+  "prepTime": 40,
+  "servings": 6,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "feta DOP de oaie (moale), sfărâmată",
+        "en": "PDO sheep's milk feta (soft), crumbled"
+      },
+      "quantity": 400,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 228
+    },
+    {
+      "name": {
+        "ro": "brânză care se topește, rasă mărunt — la alegere: Edam SAU cașcaval de oaie (cel mai apropiat de kasseri)",
+        "en": "melting cheese, finely grated — your choice: Edam OR sheep's milk kashkaval (the closest to kasseri)"
+      },
+      "quantity": 200,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 229
+    },
+    {
+      "name": {
+        "ro": "roșii foarte coapte, tăiate foarte mărunt (cu tot cu zeamă)",
+        "en": "very ripe tomatoes, very finely chopped (with all their juices)"
+      },
+      "quantity": 400,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 125
+    },
+    {
+      "name": {
+        "ro": "ardei lung verde-deschis, tăiat rondele subțiri (sau 2, dacă sunt mici)",
+        "en": "long light-green pepper, thinly sliced into rings (or 2 if small)"
+      },
+      "quantity": 1,
+      "unit": { "ro": "buc", "en": "pcs" },
+      "ingredientId": 230
+    },
+    {
+      "name": {
+        "ro": "fulgi de chili (1/8 linguriță)",
+        "en": "chili flakes (1/8 tsp)"
+      },
+      "quantity": 1,
+      "unit": { "ro": "praf", "en": "pinch" },
+      "ingredientId": 111
+    },
+    {
+      "name": {
+        "ro": "oregano uscat, frecat între degete",
+        "en": "dried oregano, rubbed between your fingers"
+      },
+      "quantity": 2,
+      "unit": { "ro": "lingurițe", "en": "tsp" },
+      "ingredientId": 103
+    },
+    {
+      "name": {
+        "ro": "ulei de măsline extravirgin (2 la început + 2 la final)",
+        "en": "extra virgin olive oil (2 at the start + 2 at the end)"
+      },
+      "quantity": 4,
+      "unit": { "ro": "linguri", "en": "Tbsp" },
+      "ingredientId": 101
+    },
+    {
+      "name": {
+        "ro": "piper negru proaspăt măcinat",
+        "en": "freshly ground black pepper"
+      },
+      "quantity": 1,
+      "unit": { "ro": "după gust", "en": "to taste" },
+      "ingredientId": 102
+    },
+    {
+      "name": {
+        "ro": "pâine prăjită, pentru servire",
+        "en": "toasted bread, for serving"
+      },
+      "quantity": 1,
+      "unit": { "ro": "după necesitate", "en": "as needed" }
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Încinge cuptorul bine la 200°C.",
+      "Sfărâmă feta în vas și pune brânza rasă deasupra.",
+      "Pune roșiile cu toată zeama, apoi rondelele de ardei.",
+      "Stropește cu 2 linguri de ulei. Presară chili, oregano și piper.",
+      "Coace 15 minute.",
+      "Scoate vasul și amestecă bine, strivind puțin feta.",
+      "Mai coace 10–15 minute, până face bule pe margini. Scoate-l înainte să se rumenească.",
+      "Toarnă 2 linguri de ulei crud deasupra. Nu mai amesteca.",
+      "Servește imediat, cu pâine prăjită."
+    ],
+    "en": [
+      "Preheat the oven thoroughly to 200°C (400°F).",
+      "Crumble the feta into the dish and scatter the grated cheese on top.",
+      "Add the tomatoes with all their juices, then the pepper rings.",
+      "Drizzle with 2 tablespoons of oil. Sprinkle with the chili, oregano and pepper.",
+      "Bake for 15 minutes.",
+      "Take the dish out and stir well, lightly mashing the feta.",
+      "Bake for another 10–15 minutes, until it bubbles around the edges. Take it out before it starts to brown.",
+      "Pour 2 tablespoons of uncooked oil over the top. Do not stir again.",
+      "Serve immediately, with toasted bread."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Meze grecesc din Salonic: feta coaptă cu roșii și ardei verde, servită ca dip cu pâine prăjită. Timp: ~10 minute de pregătire + 25–30 de minute la cuptor.\n\nVas: de ceramică, ~20–22 cm, adânc de cel puțin 4 cm.\nFără sare (brânzeturile sunt destul de sărate). Fără boia. Fără zahăr.\n\nSfaturi:\n• Feta DOP = Denumire de Origine Protejată: pe etichetă scrie „Feta” + sigla DOP; lapte de oaie (sau oaie + max. 30% capră). Evită „brânza în stil grecesc / balcanică” din lapte de vacă.\n• Pentru o porție de 3: înjumătățește cantitățile și folosește un vas de ~14–15 cm; timpul rămâne ~25 min.\n• Dacă iese prea lichid, mai coace 3–5 minute; se îngroașă pe măsură ce se răcește.\n• Uleiul pus crud la final, neamestecat, rămâne lucios pe margini și păstrează aroma.\n• Se poate asambla cu câteva ore înainte și ține la frigider; coace-l direct din frigider cu ~5 min în plus.\n\nAdaptat după Real Greek Recipes: https://realgreekrecipes.com/baked-feta-dip/",
+    "en": "A Greek meze from Thessaloniki: feta baked with tomatoes and green pepper, served as a dip with toasted bread. Time: ~10 minutes prep + 25–30 minutes in the oven.\n\nDish: ceramic, ~20–22 cm, at least 4 cm deep.\nNo salt (the cheeses are salty enough). No paprika. No sugar.\n\nTips:\n• PDO feta = Protected Designation of Origin: the label says “Feta” + the PDO logo; made from sheep's milk (or sheep's milk + max. 30% goat's milk). Avoid “Greek-style / Balkan-style cheese” made from cow's milk.\n• For 3 servings: halve the quantities and use a ~14–15 cm dish; the baking time stays ~25 min.\n• If it turns out too runny, bake it for another 3–5 minutes; it thickens as it cools.\n• The oil added uncooked at the end, without stirring, stays glossy around the edges and keeps its aroma.\n• You can assemble it a few hours ahead and keep it in the fridge; bake it straight from the fridge for ~5 extra minutes.\n\nAdapted from Real Greek Recipes: https://realgreekrecipes.com/baked-feta-dip/"
+  },
+  "keywords": [
+    "easy",
+    "vegetarian",
+    "oven-baked",
+    "tomatoes",
+    "peppers"
+  ],
+  "dateAdded": "2026-11-10"
+}

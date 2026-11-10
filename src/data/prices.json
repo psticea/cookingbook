@@ -895,6 +895,27 @@
       "category": "Fruits and Vegetables",
       "unit_type": "mass",
       "price_per_1000": 9
+    },
+    "feta_pdo": {
+      "id": 228,
+      "name": "PDO sheep's milk feta",
+      "category": "Dairy",
+      "unit_type": "mass",
+      "price_per_1000": 60
+    },
+    "edam_kashkaval": {
+      "id": 229,
+      "name": "Edam or sheep's milk kashkaval",
+      "category": "Dairy",
+      "unit_type": "mass",
+      "price_per_1000": 45
+    },
+    "long_green_pepper": {
+      "id": 230,
+      "name": "Long light-green pepper",
+      "category": "Fruits and Vegetables",
+      "unit_type": "piece",
+      "price_per_piece": 1
     }
   }
 }
