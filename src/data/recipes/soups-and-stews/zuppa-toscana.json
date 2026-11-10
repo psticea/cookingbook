@@ -1,0 +1,143 @@
+{
+  "id": "zuppa-toscana",
+  "category": "soups-and-stews",
+  "image": "images/soups-and-stews/zuppa-toscana.jpg",
+  "title": {
+    "ro": "Zuppa Toscana",
+    "en": "Zuppa Toscana"
+  },
+  "prepTime": 45,
+  "servings": 6,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "name": {
+        "ro": "bacon afumat, cubulețe (6 felii)",
+        "en": "smoked bacon, diced (6 slices)"
+      },
+      "quantity": 150,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 180
+    },
+    {
+      "name": {
+        "ro": "cârnați italieni iuți, cruzi, scoși din membrană",
+        "en": "hot Italian sausage, raw, casings removed"
+      },
+      "quantity": 450,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 237
+    },
+    {
+      "name": {
+        "ro": "ceapă mare, cubulețe",
+        "en": "large onion, diced"
+      },
+      "quantity": 1,
+      "unit": { "ro": "buc", "en": "pcs" },
+      "ingredientId": 108
+    },
+    {
+      "name": {
+        "ro": "cartofi, curățați, cuburi de ~1,2 cm",
+        "en": "potatoes, peeled, cut into ~1.2 cm (1/2\") cubes"
+      },
+      "quantity": 600,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 142
+    },
+    {
+      "name": {
+        "ro": "kale tocat, fără cotoare (sau baby spanac)",
+        "en": "kale, chopped, stems removed (or baby spinach)"
+      },
+      "quantity": 60,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 238
+    },
+    {
+      "name": {
+        "ro": "supă de pui (sau apă + cub de pui)",
+        "en": "chicken broth (or water + a chicken bouillon cube)"
+      },
+      "quantity": 1200,
+      "unit": { "ro": "ml", "en": "ml" },
+      "ingredientId": 151
+    },
+    {
+      "name": {
+        "ro": "usturoi, tocat",
+        "en": "garlic, minced"
+      },
+      "quantity": 3,
+      "unit": { "ro": "căței", "en": "cloves" },
+      "ingredientId": 104
+    },
+    {
+      "name": {
+        "ro": "fulgi de chili (opțional)",
+        "en": "chili flakes (optional)"
+      },
+      "quantity": 0.25,
+      "unit": { "ro": "linguriță", "en": "tsp" },
+      "ingredientId": 111
+    },
+    {
+      "name": {
+        "ro": "smântână lichidă 30–32% (pentru gătit / frișcă, neîndulcită)",
+        "en": "liquid cream 30–32% fat (cooking / whipping cream, unsweetened)"
+      },
+      "quantity": 240,
+      "unit": { "ro": "ml", "en": "ml" },
+      "ingredientId": 144
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": { "ro": "după gust", "en": "to taste" },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "piper",
+        "en": "black pepper"
+      },
+      "quantity": 1,
+      "unit": { "ro": "după gust", "en": "to taste" },
+      "ingredientId": 102
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Foc mediu: prăjește baconul într-o oală mare până devine crocant. Scoate-l pe un prosop de hârtie.",
+      "În grăsimea rămasă pune cârnații și ceapa. Gătește-i, fărâmițând carnea, până nu mai e roz. Scurge grăsimea.",
+      "Adaugă cartofii, kale-ul, supa, usturoiul și chili.",
+      "Dă în clocot, apoi redu focul și fierbe fără capac 12–14 min, până se înmoaie cartofii.",
+      "Adaugă smântâna și lasă 1 min. Nu o mai lăsa să fiarbă tare. Pune sare și piper.",
+      "Servește cu baconul presărat deasupra."
+    ],
+    "en": [
+      "Medium heat: fry the bacon in a large pot until crispy. Transfer it to a paper towel.",
+      "Add the sausage and onion to the remaining fat. Cook them, breaking up the meat, until no longer pink. Drain the fat.",
+      "Add the potatoes, kale, broth, garlic and chili flakes.",
+      "Bring to a boil, then reduce the heat and simmer uncovered for 12–14 min, until the potatoes are tender.",
+      "Stir in the cream and let it heat for 1 min. Don't let it boil hard anymore. Season with salt and pepper.",
+      "Serve with the bacon sprinkled on top."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Supă cremoasă cu cârnați italieni, cartofi și kale. Timp: ~45 de minute (20 pregătire, 25 gătire). 6 porții (ajunge pentru 4 persoane cu poftă mare).\n\nSfaturi:\n• Cârnații: ideal Salsiccia Italiamo de la Lidl (săptămâna italiană), cu fenicul. Altfel cârnați proaspeți de porc, cruzi, neafumați, scoși din membrană, + 1/2 linguriță semințe de fenicul zdrobite (adaptare). Nu folosi mici sau cârnați afumați.\n• Cu spanac în loc de kale: adaugă-l doar în ultimele 2 min.\n• Pune sare abia la final, pentru că baconul, cârnații și cubul sunt deja sărați.\n• Supă mai groasă: zdrobește câțiva cartofi în oală.\n• Frigider: până la 4 zile. Reîncălzește la foc mic; dacă s-a îngroșat, adaugă puțină supă.\n\nSursă: Spend With Pennies (Holly Nilsson)\nhttps://www.spendwithpennies.com/zuppa-toscana/",
+    "en": "Creamy soup with Italian sausage, potatoes and kale. Time: ~45 minutes (20 prep, 25 cooking). 6 servings (enough for 4 hearty eaters).\n\nTips:\n• Sausage: ideally Italiamo Salsiccia from Lidl (Italian week), with fennel. Otherwise fresh pork sausages, raw, unsmoked, casings removed, + 1/2 teaspoon crushed fennel seeds (adaptation). Don't use mici or smoked sausages.\n• With spinach instead of kale: add it only in the last 2 min.\n• Add salt only at the end, because the bacon, sausage and bouillon cube are already salty.\n• Thicker soup: mash a few potatoes in the pot.\n• Fridge: up to 4 days. Reheat over low heat; if it has thickened, add a little broth.\n\nSource: Spend With Pennies (Holly Nilsson)\nhttps://www.spendwithpennies.com/zuppa-toscana/"
+  },
+  "keywords": [
+    "easy",
+    "boiling",
+    "onion",
+    "garlic",
+    "potatoes"
+  ],
+  "dateAdded": "2026-11-10"
+}
