@@ -958,6 +958,20 @@
       "category": "Spices & Seasonings",
       "unit_type": "mass",
       "price_per_1000": 25
+    },
+    "italian_sausage": {
+      "id": 237,
+      "name": "Raw Italian sausage (salsiccia, hot)",
+      "category": "Proteins",
+      "unit_type": "mass",
+      "price_per_1000": 40
+    },
+    "kale": {
+      "id": 238,
+      "name": "Kale",
+      "category": "Fruits and Vegetables",
+      "unit_type": "mass",
+      "price_per_1000": 40
     }
   }
 }
