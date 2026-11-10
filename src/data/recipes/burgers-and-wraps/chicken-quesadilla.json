@@ -1,0 +1,227 @@
+{
+  "id": "chicken-quesadilla",
+  "category": "burgers-and-wraps",
+  "image": "images/burgers-and-wraps/chicken-quesadilla.jpg",
+  "title": {
+    "ro": "Quesadilla cu pui",
+    "en": "Chicken Quesadillas"
+  },
+  "prepTime": 30,
+  "servings": 4,
+  "effortLevel": "easy",
+  "ingredients": [
+    {
+      "section": {
+        "ro": "Quesadilla",
+        "en": "Quesadillas"
+      }
+    },
+    {
+      "name": {
+        "ro": "lipii (tortilla) de grâu, 25 cm",
+        "en": "wheat tortillas, 25 cm (10\")"
+      },
+      "quantity": 4,
+      "unit": { "ro": "buc", "en": "pcs" },
+      "ingredientId": 231
+    },
+    {
+      "name": {
+        "ro": "cașcaval ras (cheddar sau mix ras)",
+        "en": "grated cheese (cheddar or a grated cheese mix)"
+      },
+      "quantity": 200,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 232
+    },
+    {
+      "name": {
+        "ro": "porumb din conservă, bine scurs",
+        "en": "canned corn, well drained"
+      },
+      "quantity": 200,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 233
+    },
+    {
+      "name": {
+        "ro": "pulpe de pui dezosate, fără piele (sau piept)",
+        "en": "boneless, skinless chicken thighs (or breast)"
+      },
+      "quantity": 500,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 234
+    },
+    {
+      "name": {
+        "ro": "ardei gras roșu mic, tăiat cubulețe mici, crud",
+        "en": "small red bell pepper, finely diced, raw"
+      },
+      "quantity": 1,
+      "unit": { "ro": "buc", "en": "pcs" },
+      "ingredientId": 178
+    },
+    {
+      "name": {
+        "ro": "ulei",
+        "en": "oil"
+      },
+      "quantity": 1,
+      "unit": { "ro": "lingură", "en": "Tbsp" },
+      "ingredientId": 117
+    },
+    {
+      "section": {
+        "ro": "Condimente",
+        "en": "Spices"
+      }
+    },
+    {
+      "name": {
+        "ro": "chimion măcinat (cumin, NU chimen)",
+        "en": "ground cumin (not caraway)"
+      },
+      "quantity": 2,
+      "unit": { "ro": "lingurițe", "en": "tsp" },
+      "ingredientId": 114
+    },
+    {
+      "name": {
+        "ro": "boia dulce",
+        "en": "sweet paprika"
+      },
+      "quantity": 2,
+      "unit": { "ro": "lingurițe", "en": "tsp" },
+      "ingredientId": 138
+    },
+    {
+      "name": {
+        "ro": "praf de ceapă",
+        "en": "onion powder"
+      },
+      "quantity": 2,
+      "unit": { "ro": "lingurițe", "en": "tsp" },
+      "ingredientId": 236
+    },
+    {
+      "name": {
+        "ro": "oregano uscat",
+        "en": "dried oregano"
+      },
+      "quantity": 1,
+      "unit": { "ro": "linguriță", "en": "tsp" },
+      "ingredientId": 103
+    },
+    {
+      "name": {
+        "ro": "sare",
+        "en": "salt"
+      },
+      "quantity": 1,
+      "unit": { "ro": "linguriță", "en": "tsp" },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "piper",
+        "en": "black pepper"
+      },
+      "quantity": 0.25,
+      "unit": { "ro": "linguriță", "en": "tsp" },
+      "ingredientId": 102
+    },
+    {
+      "section": {
+        "ro": "Dip (sos de iaurt cu lămâie)",
+        "en": "Dip (lemon yogurt sauce)"
+      }
+    },
+    {
+      "name": {
+        "ro": "iaurt grecesc gras",
+        "en": "full-fat Greek yogurt"
+      },
+      "quantity": 250,
+      "unit": { "ro": "g", "en": "g" },
+      "ingredientId": 235
+    },
+    {
+      "name": {
+        "ro": "usturoi, ras fin",
+        "en": "garlic, finely grated"
+      },
+      "quantity": 0.5,
+      "unit": { "ro": "cățel", "en": "clove" },
+      "ingredientId": 104
+    },
+    {
+      "name": {
+        "ro": "zeamă de lămâie",
+        "en": "lemon juice"
+      },
+      "quantity": 1,
+      "unit": { "ro": "lingură", "en": "Tbsp" },
+      "ingredientId": 158
+    },
+    {
+      "name": {
+        "ro": "ulei de măsline",
+        "en": "olive oil"
+      },
+      "quantity": 1,
+      "unit": { "ro": "lingură", "en": "Tbsp" },
+      "ingredientId": 101
+    },
+    {
+      "name": {
+        "ro": "sare (1/8 linguriță)",
+        "en": "salt (1/8 tsp)"
+      },
+      "quantity": 1,
+      "unit": { "ro": "praf", "en": "pinch" },
+      "ingredientId": 100
+    },
+    {
+      "name": {
+        "ro": "piper",
+        "en": "black pepper"
+      },
+      "quantity": 1,
+      "unit": { "ro": "praf", "en": "pinch" },
+      "ingredientId": 102
+    }
+  ],
+  "instructions": {
+    "ro": [
+      "Dip: amestecă tot și pune-l la frigider.",
+      "Amestecă condimentele. Unge puiul cu 1/2 lingură de ulei și dă-l prin condimente.",
+      "Foc mediu: 1/2 lingură de ulei, puiul 3 min pe o parte și 3 min pe cealaltă, până se rumenește și e gătit.",
+      "Lasă-l 2 min, taie-l cubulețe și lasă-l să se răcească. Amestecă-l cu ardeiul și porumbul.",
+      "Pe jumătate din lipie: cașcaval, 1/4 din umplutură, apoi iar cașcaval. Pliază lipia.",
+      "2 tigăi uscate, foc mediu-mic: apasă ușor, pune capac, 3 min.",
+      "Întoarce-o peste partea pliată și mai lasă 3 min fără capac.",
+      "Taie-o în două și servește imediat, cu dipul."
+    ],
+    "en": [
+      "Dip: mix everything together and put it in the fridge.",
+      "Mix the spices. Coat the chicken with 1/2 tablespoon of oil and toss it in the spices.",
+      "Medium heat: 1/2 tablespoon of oil, cook the chicken 3 min on one side and 3 min on the other, until browned and cooked through.",
+      "Let it rest for 2 min, dice it and let it cool. Mix it with the bell pepper and corn.",
+      "On one half of each tortilla: cheese, 1/4 of the filling, then more cheese. Fold the tortilla over.",
+      "2 dry pans, medium-low heat: press down lightly, cover with a lid, 3 min.",
+      "Flip it over the folded edge and cook for another 3 min without the lid.",
+      "Cut it in half and serve immediately, with the dip."
+    ]
+  },
+  "personalNotes": {
+    "ro": "Quesadilla cu pui condimentat, porumb și ardei, servită cu dip de iaurt cu lămâie. Timp: ~25–30 de minute.\n\nSfaturi:\n• Cu pui deja gătit (~350 g): sari peste pașii 2–4. Încălzește puiul tăiat 1 min în tigaie, cu puțin ulei și condimentele (pune jumătate din sare). Lasă-l să se răcească, apoi amestecă-l cu ardeiul și porumbul.\n• Dacă pulpele sunt groase, lasă-le 1–2 min în plus pe fiecare parte, până nu mai sunt roz înăuntru.\n• Umplutura răcită = lipii mai crocante. Nu stivui quesadillele după gătire.\n• Usturoiul din dip: doar 1/2 cățel; în iaurt devine foarte puternic.\n\nSursă: RecipeTin Eats (Nagi Maehashi), simplificată: fără ceapă/usturoi călit, fără coriandru, ardei crud, 1 lingură ulei total.\nhttps://www.recipetineats.com/quesadilla/\nhttps://www.recipetineats.com/lemon-yogurt-sauce/",
+    "en": "Quesadillas with spiced chicken, corn and bell pepper, served with a lemon yogurt dip. Time: ~25–30 minutes.\n\nTips:\n• With already-cooked chicken (~350 g): skip steps 2–4. Warm the diced chicken for 1 min in the pan with a little oil and the spices (use half of the salt). Let it cool, then mix it with the bell pepper and corn.\n• If the thighs are thick, give them 1–2 extra minutes on each side, until they are no longer pink inside.\n• Cooled filling = crispier tortillas. Don't stack the quesadillas after cooking.\n• Garlic in the dip: only 1/2 clove; in yogurt it gets very strong.\n\nSource: RecipeTin Eats (Nagi Maehashi), simplified: no sautéed onion/garlic, no cilantro, raw bell pepper, 1 tablespoon of oil in total.\nhttps://www.recipetineats.com/quesadilla/\nhttps://www.recipetineats.com/lemon-yogurt-sauce/"
+  },
+  "keywords": [
+    "easy",
+    "chicken",
+    "pan-fry",
+    "peppers"
+  ],
+  "dateAdded": "2026-11-10"
+}
